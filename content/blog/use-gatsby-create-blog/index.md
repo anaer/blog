@@ -1,0 +1,43 @@
+---
+title: 使用gatsby创建博客
+date: "2023-04-01T00:31:37.121Z"
+---
+
+## 安装Gatsby
+
+运行 `npm install -g gatsby-cli` 全局安装Gatsby CLI
+
+## 创建新网站：
+
+运行 `gatsby new blog https://github.com/gatsbyjs/gatsby-starter-blog` 命令。将在当前目录下"blog"目录, 使用的官方博客模板.
+
+## 预览和编译：
+运行 `gatsby develop` 命令启动本地服务。访问 http://localhost:8000 查看网站。
+
+## 发布网站
+
+提交到GitHub, 配置Pages.
+
+链接: https://anaer.github.io/blog/
+
+![](default_blog_site.png)
+
+## FAQ
+
+1. node要求18以上
+
+2. 本地启动报错提示: getaddrinfo ENOTFOUND localhost
+
+vim /etc/hosts
+
+```
+127.0.0.1 localhost
+```
+
+3. libvips安装失败
+使用镜像安装, 详情见: https://sharp.pixelplumbing.com/install
+```sh
+npm_config_sharp_binary_host="https://npmmirror.com/mirrors/sharp" \
+  npm_config_sharp_libvips_binary_host="https://npmmirror.com/mirrors/sharp-libvips" \
+  npm install sharp
+```
