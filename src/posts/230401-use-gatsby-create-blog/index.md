@@ -15,8 +15,6 @@ date: "2023-04-01T00:31:37.121Z"
 目录结构:
 
 ```
-├── content
-|   └── blog            // 博客目录
 ├── public
 ├── src
 |  ├── components       // 自定义组件
@@ -24,6 +22,7 @@ date: "2023-04-01T00:31:37.121Z"
 |  ├── pages            // 路由页面
 |  |   ├── 404.js       // 404页面
 |  |   └── index.js     // 首页
+|  ├── posts            // 博文
 |  ├── templates        // 模板目录
 |  |   └── blog-post.js // 帖子页面模板
 |  ├── normalize.css    // 样式文件
