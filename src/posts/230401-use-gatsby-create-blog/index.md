@@ -2,12 +2,13 @@
 title: 使用gatsby创建博客
 date: "2023-04-01T00:31:37.121Z"
 ---
+## 安装部署
 
-## 安装Gatsby
+### 安装Gatsby
 
 运行 `npm install -g gatsby-cli` 全局安装Gatsby CLI
 
-## 创建新网站：
+### 创建新网站：
 
 运行 `gatsby new blog https://github.com/gatsbyjs/gatsby-starter-blog` 命令。将在当前目录下"blog"目录, 使用的官方博客模板.
 运行 `npm install` 安装依赖
@@ -40,16 +41,27 @@ date: "2023-04-01T00:31:37.121Z"
 └── README.md
 ```
 
-## 预览和编译：
+### 预览和编译：
 运行 `gatsby develop` 命令启动本地服务。访问 http://localhost:8000 查看网站。
 
-## 发布网站
+### 发布网站
 
 提交到GitHub, 配置Pages.
 
 链接: https://anaer.github.io/blog/
 
 ![](default_blog_site.png)
+
+
+## 插件
+
+### [gatsby-source-filesystem](https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/)
+
+将数据从本地文件系统导入Gatsby应用
+
+### [gatsby-plugin-offline](https://www.gatsbyjs.com/plugins/gatsby-plugin-offline/)
+
+离线插件
 
 ## FAQ
 
