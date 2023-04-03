@@ -41,3 +41,9 @@ npm_config_sharp_binary_host="https://npmmirror.com/mirrors/sharp" \
   npm_config_sharp_libvips_binary_host="https://npmmirror.com/mirrors/sharp-libvips" \
   npm install sharp
 ```
+
+
+## 相关链接
+
+[Gatsby.js 文档](https://www.gatsbyjs.cn/docs/)
+[GraphQL 中文](https://graphql.cn/)
