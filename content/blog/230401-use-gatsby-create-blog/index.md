@@ -10,6 +10,36 @@ date: "2023-04-01T00:31:37.121Z"
 ## 创建新网站：
 
 运行 `gatsby new blog https://github.com/gatsbyjs/gatsby-starter-blog` 命令。将在当前目录下"blog"目录, 使用的官方博客模板.
+运行 `npm install` 安装依赖
+
+目录结构:
+
+```
+├── content
+|   └── blog            // 博客目录
+├── public
+├── src
+|  ├── components       // 自定义组件
+|  ├── images           // 图片目录
+|  ├── pages            // 路由页面
+|  |   ├── 404.js       // 404页面
+|  |   └── index.js     // 首页
+|  ├── templates        // 模板目录
+|  |   └── blog-post.js // 帖子页面模板
+|  ├── normalize.css    // 样式文件
+|  └── style.css
+├── static              // 静态资源
+├── .gitignore
+├── .prettierignore
+├── .prettierrc
+├── gatsby-browser.js   // 客户端相关配置
+├── gatsby-config.js    // 基本配置
+├── gatsby-node.js      // Node相关配置
+├── gatsby-ssr.js       // 服务端渲染相关配置
+├── LICENSE
+├── package.json
+└── README.md
+```
 
 ## 预览和编译：
 运行 `gatsby develop` 命令启动本地服务。访问 http://localhost:8000 查看网站。
