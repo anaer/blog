@@ -12,7 +12,7 @@ module.exports = {
     title: `Gatsby Starter Blog`,
     author: {
       name: `anaer`,
-      summary: `everything is nothing.`
+      summary: ``
     },
     description: `anaer's blog.`,
     siteUrl: `https://anaer.github.io/`,
