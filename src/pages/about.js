@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Bio from "../components/bio"
 
 const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
