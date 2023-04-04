@@ -108,6 +108,17 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-tags`,
+      options: {
+        templatePath: `${__dirname}/src/templates/tags.js`, // 标签页模板路径
+        contentPath: `${__dirname}/src/posts`, // 数据源路径
+        slugify: (tag) => tag.toLowerCase().replace(/\s+/g, "-"), // 自定义 slug 生成函数
+        useTagsInPath: true, // 是否为标签页添加前缀路由
+        postTypes: ["MarkdownRemark"], // 数据源类型
+        args: { limit: 1000 }, // 数据源查询参数
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Gatsby Starter Blog`,

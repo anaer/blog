@@ -341,3 +341,15 @@ summary {
 [hidden] {
   display: none;
 }
+
+.left-element,
+.right-element {
+  display: inline-block;
+  font-size: 16px;
+  vertical-align: top;
+  width: 50%; /* 每个元素占据宽度的50% */
+}
+
+.right-element > ul {
+  list-style-type: none;
+}

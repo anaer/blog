@@ -1,6 +1,8 @@
 ---
 title: ChatGPT体验
 date: "2023-04-01T01:24:37.121Z"
+tags: 
+    - chatgpt
 ---
 
 | 名称     | 链接                                | 备注 |

@@ -1,6 +1,8 @@
 ---
 title: 使用gatsby创建博客
 date: "2023-04-01T00:31:37.121Z"
+tags: 
+  - gatsby
 ---
 ## 安装部署
 
