@@ -9,7 +9,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Day Day Up`,
     author: {
       name: `anaer`,
       summary: ``

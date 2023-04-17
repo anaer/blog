@@ -19,7 +19,7 @@ const BlogPostTemplate = ({
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <p>{post.frontmatter.date} 预计阅读时间: {post.timeToRead} 分钟 </p>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -85,6 +85,7 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      timeToRead
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
