@@ -1,8 +1,9 @@
 ---
 title: 使用gatsby创建博客
 date: "2023-04-01T00:31:37.121Z"
-tags: 
+tags:
   - gatsby
+last_updated: "2023-04-24T16:59:37.000Z"
 ---
 ## 安装部署
 
@@ -20,24 +21,25 @@ tags:
 ```
 ├── public
 ├── src
-|  ├── components       // 自定义组件
-|  ├── images           // 图片目录
-|  ├── pages            // 路由页面
-|  |   ├── 404.js       // 404页面
-|  |   └── index.js     // 首页
-|  ├── posts            // 博文
-|  ├── templates        // 模板目录
-|  |   └── blog-post.js // 帖子页面模板
-|  ├── normalize.css    // 样式文件
-|  └── style.css
-├── static              // 静态资源
+|  ├── components        // 自定义组件
+|  ├── images            // 图片目录
+|  ├── pages             // 路由页面
+|  |   ├── 404.js        // 404页面
+|  |   └── index.js      // 首页
+|  ├── posts             // 博文
+|  ├── templates         // 模板目录
+|  |   └── blog-post.js  // 帖子页面模板
+|  └── styles            // 样式文件目录
+|      ├── normalize.css // 样式文件
+|      └── style.css
+├── static               // 静态资源
 ├── .gitignore
 ├── .prettierignore
 ├── .prettierrc
-├── gatsby-browser.js   // 客户端相关配置
-├── gatsby-config.js    // 基本配置
-├── gatsby-node.js      // Node相关配置
-├── gatsby-ssr.js       // 服务端渲染相关配置
+├── gatsby-browser.js    // 客户端相关配置
+├── gatsby-config.js     // 基本配置
+├── gatsby-node.js       // Node相关配置
+├── gatsby-ssr.js        // 服务端渲染相关配置
 ├── LICENSE
 ├── package.json
 └── README.md
