@@ -3,11 +3,12 @@ title: ChatGPT体验
 date: "2023-04-01T01:24:37.121Z"
 tags:
   - chatgpt
-last_updated: "2023-04-24T14:13:19.000Z"
+last_updated: "2023-04-24T14:57:19.000Z"
 ---
 
 | 名称           | 链接                                | 备注                     |
 | -------------- | ----------------------------------- | ------------------------ |
+| Codeium        | https://codeium.com/                | VSCode插件, 支持Chat     |
 | Forefront      | https://chat.forefront.ai/          | 可用/需注册/可Google登录 |
 | phind          | https://www.phind.com/              | 可用                     |
 | chat23         | https://chat23.yqcloud.top          | 可用                     |
