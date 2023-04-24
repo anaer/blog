@@ -9,7 +9,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Day Day Up`,
+    title: `Nohup`,
     author: {
       name: `anaer`,
       summary: ``
@@ -102,7 +102,7 @@ module.exports = {
               }
             }`,
             output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
+            title: "Nohup RSS Feed",
           },
         ],
       },
@@ -121,8 +121,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `Gatsby`,
+        name: `Nohup`,
+        short_name: `Nohup`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website
