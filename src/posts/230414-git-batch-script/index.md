@@ -5,6 +5,7 @@ description: Git批处理脚本
 tags:
   - git
   - cmd
+last_updated: "2023-04-14T17:07:39.000Z"
 ---
 
 ## git推拉脚本

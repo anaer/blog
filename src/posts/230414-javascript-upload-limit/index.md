@@ -4,6 +4,7 @@ date: "2023-04-14T16:28:42.000Z"
 description: JavaScript文件上传限制文件类型
 tags:
   - javascript
+last_updated: "2023-04-14T16:28:42.000Z"
 ---
 
 如果希望限制上传文件只能是图片和视频类型，可以在判断文件类型的逻辑中，判断上传文件的 MIME 类型是否以 `image/` 或 `video/` 开头。

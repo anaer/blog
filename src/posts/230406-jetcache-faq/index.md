@@ -4,6 +4,7 @@ date: "2023-04-06T15:47:11.001Z"
 description:
 tags:
   - jetcache
+last_updated: "2023-04-06T15:47:11.001Z"
 ---
 
 ### @Cache一个类中调用无效

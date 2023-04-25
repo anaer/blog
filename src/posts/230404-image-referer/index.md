@@ -3,6 +3,7 @@ title: 图片防盗链解决方案
 date: "2023-04-04T15:48:37.121Z"
 tags:
   - referer
+last_updated: "2023-04-04T15:48:37.121Z"
 ---
 
 ### 添加 meta 标签

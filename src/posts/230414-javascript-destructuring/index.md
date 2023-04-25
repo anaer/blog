@@ -4,6 +4,7 @@ date: "2023-04-14T16:23:01.000Z"
 description: JavaScript的解构赋值语法
 tags:
   - javascript
+last_updated: "2023-04-14T16:23:01.000Z"
 ---
 
 ## `const {path: filePath, originalFilename} = params.files.file` 的含义

@@ -4,6 +4,7 @@ date: "2023-04-13T17:33:17.000Z"
 description: VSCode添加文件头片段
 tags:
   - vscode
+last_updated: "2023-04-13T17:33:17.000Z"
 ---
 
 ## 日期变量
