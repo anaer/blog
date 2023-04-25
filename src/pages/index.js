@@ -94,8 +94,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(sort: {
         fields: [frontmatter___last_updated, frontmatter___date],
-        order: [DESC, DESC],
-        nulls: LAST
+        order: [DESC, DESC]
       }
     ) {
       nodes {
