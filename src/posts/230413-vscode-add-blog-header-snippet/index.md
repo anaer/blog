@@ -4,12 +4,7 @@ date: "2023-04-13T17:33:17.000Z"
 description: VSCode添加文件头片段
 tags:
   - vscode
-last-updated: "2023-04-25T14:18:19.000Z"
 ---
-
-```toc
-# This code block gets replaced with the TOC
-```
 
 ## 日期变量
 
@@ -44,7 +39,6 @@ last-updated: "2023-04-25T14:18:19.000Z"
 			"description: ",
 			"tags:",
 			"  - tag",
-			"last_updated: \"${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}.000Z\"",
 			"---"
 		],
 		"description": "添加blog"

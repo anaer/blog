@@ -5,11 +5,6 @@ tags:
   - gatsby
 last_updated: "2023-04-25T14:08:33.000Z"
 ---
-
-```toc
-# This code block gets replaced with the TOC
-```
-
 ## 安装部署
 
 ### 安装Gatsby
