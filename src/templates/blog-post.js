@@ -19,7 +19,7 @@ const BlogPostTemplate = ({
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date} 预计阅读时间: {post.timeToRead}+{post.fields.chineseTimeToRead} 分钟 </p>
+          <p>{post.frontmatter.date} 预计阅读时间: {post.timeToRead + post.fields.chineseTimeToRead} 分钟 </p>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
