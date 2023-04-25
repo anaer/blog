@@ -44,7 +44,8 @@ const BlogIndex = ({ data, location }) => {
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}
+                  <small>创建: {post.frontmatter.date} {post.frontmatter.last_updated && ( <span>更新: {post.frontmatter.last_updated}</span>
+                    )}
                   {tags && (
                     <span style={{ marginLeft: '30px' }}>
                       标签:
@@ -91,7 +92,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+    allMarkdownRemark(sort: {
+        fields: [frontmatter___last_updated, frontmatter___date],
+        order: [DESC, DESC]
+      }
+    ) {
       nodes {
         excerpt
         fields {
@@ -102,6 +107,7 @@ export const pageQuery = graphql`
           title
           description
           tags
+          last_updated(formatString: "MMMM DD, YYYY")
         }
       }
     }

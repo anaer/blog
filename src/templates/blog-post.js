@@ -19,7 +19,7 @@ const BlogPostTemplate = ({
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date} 预计阅读时间: {post.timeToRead + post.fields.chineseTimeToRead} 分钟 </p>
+          <p>创建: {post.frontmatter.date} {post.frontmatter.last_updated && (<span>更新: {post.frontmatter.last_updated}</span>)} 预计阅读时间: {post.timeToRead + post.fields.chineseTimeToRead} 分钟 </p>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -90,6 +90,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        last_updated(formatString: "MMMM DD, YYYY")
       }
       fields {
         chineseTimeToRead
