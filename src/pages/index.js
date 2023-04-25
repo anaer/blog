@@ -103,11 +103,11 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "YYYY-MM-DD")
           title
           description
           tags
-          last_updated(formatString: "MMMM DD, YYYY")
+          last_updated(formatString: "YYYY-MM-DD")
         }
       }
     }

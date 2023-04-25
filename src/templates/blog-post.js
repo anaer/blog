@@ -88,9 +88,9 @@ export const pageQuery = graphql`
       timeToRead
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
         description
-        last_updated(formatString: "MMMM DD, YYYY")
+        last_updated(formatString: "YYYY-MM-DD")
       }
       fields {
         chineseTimeToRead
