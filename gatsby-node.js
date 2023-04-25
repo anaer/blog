@@ -62,6 +62,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 }
 
+function chineseTimeToRead(content) {
+  const wordsPerMinute = 300 // 假设中文阅读速度为每分钟300字
+  const chineseCharacters = content.replace(/[^\u4e00-\u9fa5]/gi, '') //只保留中文字符
+  const chineseCharactersCount = chineseCharacters.length
+  const timeInMinutes = chineseCharactersCount / wordsPerMinute
+  return Math.ceil(timeInMinutes)
+}
+
 /**
  * @type {import('gatsby').GatsbyNode['onCreateNode']}
  */
@@ -69,12 +77,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
+    const content = node.rawMarkdownBody
+    const chineseTime = chineseTimeToRead(content)
     const value = createFilePath({ node, getNode })
 
     createNodeField({
       name: `slug`,
       node,
       value,
+    })
+
+    createNodeField({
+      name: `chineseTimeToRead`,
+      node,
+      value: chineseTime,
     })
   }
 }
