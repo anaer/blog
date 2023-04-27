@@ -3,7 +3,7 @@ title: ChatGPT体验
 date: "2023-04-01T01:24:37.121Z"
 tags:
   - chatgpt
-last_updated: "2023-04-24T14:57:19.000Z"
+last_updated: "2023-04-27T10:08:01.000Z"
 ---
 
 | 名称           | 链接                                | 备注                     |
@@ -15,6 +15,7 @@ last_updated: "2023-04-24T14:57:19.000Z"
 | 52GPT          | https://52gpt.me/#/home/chat        | 可用                     |
 | pizzagpt       | https://www.pizzagpt.it/            | 可用                     |
 | Open Assistant | https://open-assistant.io/zh/chat   | 可用/需注册              |
+| HuggingChat    | https://huggingface.co/chat         | 可用                     |
 |                |                                     |                          |
 | **不可用**     | -------------------                 |                          |
 | EASY AI        | http://easyai.one/chat              | 无响应                   |
