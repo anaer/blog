@@ -8,6 +8,10 @@ tags:
 last_updated: "2023-04-14T17:07:39.000Z"
 ---
 
+```toc
+# This code block gets replaced with the TOC
+```
+
 ## git推拉脚本
 
 因github容易连不上, 所以pull, push时, 有时需要循环执行
@@ -15,7 +19,9 @@ last_updated: "2023-04-14T17:07:39.000Z"
 
 用法: 将pull.cmd, push.cmd脚本放到PATH目录下, 使用时直接在仓库目录, 执行pull, push即可
 
-```bat pull.cmd
+### pull.cmd
+
+```bat
 @echo off
 chcp 65001
 echo git pull
@@ -25,7 +31,9 @@ for /l %%a in (1,1,100) do (echo %%a------------------- && git pull && goto :EOF
 echo -------------------end
 ```
 
-```bat push.cmd
+### push.cmd
+
+```bat
 @echo off
 chcp 65001
 echo git push

@@ -5,6 +5,11 @@ tags:
   - gatsby
 last_updated: "2023-04-25T14:08:33.000Z"
 ---
+
+```toc
+# This code block gets replaced with the TOC
+```
+
 ## 安装部署
 
 ### 安装Gatsby
@@ -321,6 +326,55 @@ export const pageQuery = graphql`
 }
 ```
 
+## PLUGIN: 添加toc
+
+### package.json
+
+```json
+    "gatsby-remark-table-of-contents": "^2.0.0",
+    "gatsby-remark-autolink-headers": "^6.9.0",
+```
+
+`npm install`安装插件
+
+### gatsby-config.js
+
+在`gatsby-transformer-remark`配置项中添加plugins配置`gatsby-remark-table-of-contents`, `gatsby-remark-autolink-headers`
+添加位置在`gatsby-remark-prismjs`之前
+
+```js
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "Table of Contents",
+              tight: false,
+              ordered: false,
+              fromHeading: 1,
+              toHeading: 6,
+              className: "table-of-contents"
+            },
+          },
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-prismjs`,
+        ],
+      },
+    }
+```
+
+### 使用方式
+
+> ```toc
+> # This code block gets replaced with the TOC
+> ```
+
+### 相关链接
+
+[npm gatsby-remark-table-of-contents](https://npmmirror.com/package/gatsby-remark-table-of-contents)
+[gatsby-remark-autolink-headers](https://npmmirror.com/package/gatsby-remark-autolink-headers)
 
 ## FEATURE: 添加中文阅读时间
 
