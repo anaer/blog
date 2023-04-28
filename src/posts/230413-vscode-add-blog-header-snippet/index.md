@@ -40,6 +40,7 @@ last_updated: "2023-04-13T17:33:17.000Z"
 			"description: ",
 			"tags:",
 			"  - tag",
+			"last_updated: \"${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}.000Z\"",
 			"---"
 		],
 		"description": "添加blog"

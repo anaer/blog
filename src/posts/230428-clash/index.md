@@ -7,6 +7,10 @@ tags:
 last_updated: "2023-04-28T16:47:52.000Z"
 ---
 
+```toc
+# This code block gets replaced with the TOC
+```
+
 ## 添加配置预处理
 
 可以在加载配置文件时, 进行预处理, 可以在加载Remote Profiles添加自定义配置
