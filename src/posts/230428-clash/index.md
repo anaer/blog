@@ -20,15 +20,15 @@ parsers: # array
   - url: https://anaer.github.io/Sub/clash.yaml
     yaml:
       prepend-rules:
-        - DOMAIN,bard.google.com,美国 # rules最前面增加一个规则
-      prepend-proxy-groups:
-        - name: 美国 # 建立新策略组
+        - DOMAIN,bard.google.com,US # rules最前面增加一个规则
+      append-proxy-groups:
+        - name: US # 建立新策略组
           type: load-balance
           url: "http://www.gstatic.com/generate_204"
           interval: 300
 
       commands:
-        - proxy-groups.美国.proxies=[]proxyNames|美国
+        - proxy-groups.US.proxies=[]proxyNames|美国
 ```
 
 ### yaml下支持的配置项
