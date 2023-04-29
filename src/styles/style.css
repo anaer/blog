@@ -344,3 +344,16 @@ th, td {
 th {
   background-color: #f2f2f2;
 }
+
+a.node:active, a.node:link, a.node:visited {
+  background-color: #f5f5f5;
+  font-size: 12px;
+  line-height: 12px;
+  display: inline-block;
+  padding: 4px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-decoration: none;
+  color: var(--color-gray);
+}

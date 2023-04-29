@@ -30,6 +30,27 @@ const BlogIndex = ({ data, location }) => {
           const title = post.frontmatter.title || post.fields.slug
           const slugify = (tag) => tag.toLowerCase().replace(/\s+/g, "-");
           const tags = post.frontmatter.tags
+          const timeAgo = (date) => {
+            const now = new Date();
+            const diff = now - new Date(date);
+            const minute = 60 * 1000;
+            const hour = minute * 60;
+            const day = hour * 24;
+          
+            if (diff < minute) {
+              const seconds = Math.round(diff / 1000);
+              return `${seconds} 秒前`;
+            } else if (diff < hour) {
+              const minutes = Math.round(diff / minute);
+              return `${minutes} 分钟前`;
+            } else if (diff < day) {
+              const hours = Math.round(diff / hour);
+              return `${hours} 小时前`;
+            } else {
+              const days = Math.round(diff / day);
+              return `${days} 天前`;
+            }
+          }
 
           return (
             <li key={post.fields.slug}>
@@ -44,19 +65,19 @@ const BlogIndex = ({ data, location }) => {
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>创建: {post.frontmatter.date} {post.frontmatter.last_updated && ( <span>更新: {post.frontmatter.last_updated}</span>
-                    )}
+                  <small>
                   {tags && (
-                    <span style={{ marginLeft: '30px' }}>
-                      标签:
+                    <span style={{ marginLeft: '5px' }}>
                         {tags.map((tag) => (
                             <span>
-                            <Link to={`/tags/${slugify(tag)}`}>{tag}</Link>&nbsp;&nbsp;
+                            <Link className="node" to={`/tags/${slugify(tag)}`}>{tag}</Link>&nbsp;&nbsp;
                             </span>
                         ))}
                     </span>
                   )
-                  }</small>
+                  }
+                  {timeAgo(post.frontmatter.date)} 
+                  </small>
                 </header>
                 <section>
                   <p
