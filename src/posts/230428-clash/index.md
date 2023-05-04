@@ -4,7 +4,7 @@ date: "2023-04-28T16:47:52.000Z"
 description: Clash配置
 tags:
   - clash
-last_updated: "2023-04-28T16:47:52.000Z"
+last_updated: "2023-05-04T13:28:56.000Z"
 ---
 
 ```toc
@@ -14,9 +14,11 @@ last_updated: "2023-04-28T16:47:52.000Z"
 ## 添加配置预处理
 
 可以在加载配置文件时, 进行预处理, 可以在加载Remote Profiles添加自定义配置
+
 测试Rule模式有效, Script模式需要看Script脚本是否处理到
 
 举例: 针对Google Bard走美国代理节点
+
 Settings -> Profiles -> Parsers Edit
 
 ```yaml
@@ -33,6 +35,7 @@ parsers: # array
 
       commands:
         - proxy-groups.US.proxies=[]proxyNames|美国
+        - proxy-groups.PROXY.proxies.4+US
 ```
 
 ### yaml下支持的配置项
