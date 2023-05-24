@@ -357,3 +357,17 @@ a.node:active, a.node:link, a.node:visited {
   text-decoration: none;
   color: var(--color-gray);
 }
+
+/* toc 靠右悬浮 */
+.treeBar {
+    z-index: 99999;
+    position: fixed;
+    top: 10%;
+    right: 0;
+    max-width: 300px;
+    max-height: 88%;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+    overflow-x: visible;
+    background-color: rgba(255, 255, 255, .9);
+}
