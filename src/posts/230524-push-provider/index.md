@@ -66,12 +66,14 @@ APP_SECRET 是从开发者网站申请得到。
 APP_SECRET 固定的, 没有失效期, 长期有效
 
 消息体限制:
+```
 title:设置在通知栏展示的通知的标题, 不允许全是空白字符, 长度小于 50, 一个中英文字符均计算为 1(通知栏消息必填)
 description:设置在通知栏展示的通知描述, 不允许全是空白字符, 长度小于 128, 一个中英文字符均计算为 1(通知栏消息必填)
 payload:设置要发送的消息内容 payload, 不允许全是空白字符, 长度小于 4KB, 一个中英文字符均计算为 1(透传消息回传给 APP, 为必填字段, 非透传消息可选)
 extra: key 和 value 的字符数不能超过 1024, 至多可以设置 10 个 key-value 键值对
 callback: 第三方接收回执的 Http 接口, 最大长度 128 字节
 callback.param: 第三方自定义回执参数, 最大长度 64 字节
+```
 
 消息量限制:
 (广播)普通消息限制 50000 条/天
@@ -113,6 +115,7 @@ alias 对应的 regId 已经失效
 只有单推 有回执
 
 消息体限制:
+```
 title:设置在通知栏展示的通知栏标题, 【字数串长度限制在 50 个字符内，中英文字符及特殊符号（如 emoji）均视为一个字符】
 content:设置在通知栏展示的通知的正文内容
 1）当选择标准样式（style 设置为 1）时，内容字符串长度限制在 200 以内；
@@ -122,6 +125,7 @@ content:设置在通知栏展示的通知的正文内容
 action_parameters:打开应用内页或网页时传递给应用或网页的附加参数【JSON 格式】，字符串长度不超过 4000。当跳转类型是 URL 类型时，参数会以 URL 参数直接拼接在 URL 后面。
 call_back_url:URL 长度限制在限制 200 以内。
 call_back_parameter:参数字符串长度限制在 100 以内，OPPO PUSH 将这个参数设置在回执请求体单个 JSON 结构的 param 字段中。
+```
 
 推送限制: ![](OPPO推送限制.png)
 
@@ -140,8 +144,10 @@ regId
 alias 与 regId 一一对应, 同一 alias 不能对应多个 regId, alias 对应的 regId 以最后一次为准
 
 alias 失效:
+```
 主动调用 unsetalias
 alias 对应的 regId 已经失效
+```
 
 官方网站：https://dev.vivo.com.cn/home
 
@@ -162,16 +168,20 @@ alias 对应的 regId 已经失效
 ```
 
 消息体限制:
+```
 title:通知标题（用于通知栏消息） 最大 20 个汉字（一个汉字等于两个英文字符，即最大不超过 40 个英文字符）
 content:通知内容（用于通知栏消息） 最大 50 个汉字（一个汉字等于两个英文字符，即最大不超过 100 个英文字符）
 skipContent:跳转内容 跳转类型为 2 时，跳转内容最大 1000 个字符，跳转类型为 3 或 4 时，跳转内容最大 1024 个字符
 requestId:用户请求唯一标识 最大 64 字符
 callback: 第三方接收回执的 http 接口，最大长度 128 个字符
 callback.param:第三方自定义回执参数，最大长度 64 个字符
+```
 
 消息量限制:
+```
 系统消息 限制 10000 条/天 >> 100000 条/天
 运营消息 频控 单用户 5 条/天
+```
 
 ## 错误码
 
@@ -186,12 +196,14 @@ callback.param:第三方自定义回执参数，最大长度 64 个字符
 
 # 魅族
 
+```
 同个 pushId 只有一个别名, pushId 对应的别名以最后一次订阅为准
 多个 pushId 可以绑定同一别名
 
 别名失效:
 对应的 pushId 失效
 App 调用 unSubScribeAlias
+```
 
 官方网站：https://open.flyme.cn/open-web/views/push.html?t=1514529597773
 
@@ -202,6 +214,7 @@ App 调用 unSubScribeAlias
 # 苹果
 
 错误码: https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW1
+
 pushy 最佳实践: https://github.com/jchambers/pushy/wiki/Best-practices
 
 消息体限制:
@@ -230,8 +243,8 @@ Unfortunately, it even returns "200" or success for a device token from a device
 
 # 个推
 
-## 根据clientId推送, 返回报错: {"response":{"result":"AppidError"},"resultCode":"RESULT_OK"}
+* 根据clientId推送, 返回报错: {"response":{"result":"AppidError"},"resultCode":"RESULT_OK"}
 
 用真机调试，必须用个推平台登记的应用参数重新云端打包才行。
 
-[相关链接](https://blog.csdn.net/java_newbie2/article/details/102315019)
+[问题相关链接](https://blog.csdn.net/java_newbie2/article/details/102315019)
