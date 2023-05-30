@@ -12,7 +12,9 @@ last_updated: "2023-05-30T14:27:51.000Z"
 # This code block gets replaced with the TOC
 ```
 
-## 拦截所有匹配 /**/actuator/** 路径的请求,并返回 HTTP 400 响应,阻止请求继续被转发。
+## 请求拦截
+
+拦截所有匹配 /**/actuator/** 路径的请求,并返回 HTTP 400 响应,阻止请求继续被转发。
 
 ```yml
 spring:
