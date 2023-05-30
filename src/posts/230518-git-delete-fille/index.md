@@ -11,7 +11,7 @@ last_updated: "2023-05-18T17:26:12.000Z"
 # This code block gets replaced with the TOC
 ```
 
-## 删除文件历史提交记录
+## 删除敏感文件历史提交记录
 以`.vscode/settings.json`文件为例
 
 ```sh
