@@ -5,7 +5,7 @@ description: SpringBoot Actuator 安全限制处理
 tags:
   - spring
   - actuator
-last_updated: "2023-05-30T16:45:53.000Z"
+last_updated: "2023-06-14T09:59:04.000Z"
 ---
 
 ```toc
@@ -39,3 +39,7 @@ management:
             enabled: true
             show-details: always  # 是否显示详情 never(不显示) / when-authorized (有授权显示) / always (显示)
 ```
+
+## 相关链接
+
+[Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html)
