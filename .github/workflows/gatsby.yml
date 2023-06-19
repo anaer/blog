@@ -61,6 +61,8 @@ jobs:
 #         run: npm install -g npm@latest
       - name: Set npm registry
         run: npm config set registry https://registry.npm.taobao.org/
+      - name: Clear npm proxy
+        run: npm config rm proxy
       - name: Install dependencies
         run: npm ci
       - name: Build with Gatsby
