@@ -67,7 +67,7 @@ jobs:
         run: npm config rm proxy
       - name: Install dependencies
         run: |
-             npm ci
+             npm ci --ignore-scripts --no-audit
              npm config get proxy
       - name: Build with Gatsby
         env:
