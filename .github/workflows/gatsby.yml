@@ -55,10 +55,12 @@ jobs:
           key: ${{ runner.os }}-gatsby-build-${{ hashFiles('public') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
-      - name: Clear npm cache
-        run: npm cache clean --force
-      - name: Update npm
-        run: npm install -g npm@latest
+#       - name: Clear npm cache
+#         run: npm cache clean --force
+#       - name: Update npm
+#         run: npm install -g npm@latest
+      - name: Set npm registry
+        run: npm config set registry https://registry.npm.taobao.org/
       - name: Install dependencies
         run: npm ci
       - name: Build with Gatsby
