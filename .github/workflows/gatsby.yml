@@ -59,7 +59,7 @@ jobs:
         run: |
              npm config set proxy null
              npm config set https-proxy null
-             npm ci --ignore-scripts --no-audit
+             npm ci
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: 'true'
