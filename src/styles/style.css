@@ -364,7 +364,7 @@ a.node:active, a.node:link, a.node:visited {
     z-index: 99999;
     position: fixed;
     top: 10%;
-    right: 0;
+    left: 5%;
     max-width: 300px;
     max-height: 88%;
     border: 1px solid #ddd;

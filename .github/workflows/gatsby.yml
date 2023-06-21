@@ -52,6 +52,7 @@ jobs:
           path: |
             public
             .cache
+            node_modules
           key: ${{ runner.os }}-gatsby-build-${{ hashFiles('public') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-

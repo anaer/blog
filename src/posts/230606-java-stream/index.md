@@ -15,7 +15,9 @@ last_updated: "2023-06-21T10:55:25.000Z"
 ### 过滤
 
 ```java
-List<String> result = list.stream().filter(str -> str.length() > 5).collect(Collectors.toList());
+List<String> result = list.stream()
+                          .filter(str -> str.length() > 5)
+                          .collect(Collectors.toList());
 ```
 
 ### 映射
@@ -23,13 +25,17 @@ List<String> result = list.stream().filter(str -> str.length() > 5).collect(Coll
 字符串列表转大写
 
 ```java
-List<String> result = list.stream().map(str -> str.toUpperCase()).collect(Collectors.toList());
+List<String> result = list.stream()
+                          .map(str -> str.toUpperCase())
+                          .collect(Collectors.toList());
 ```
 
 获取id列表
 
 ```java
-List<Integer> result = list.stream().map(c -> c.getId()).collect(Collectors.toList());
+List<Integer> result = list.stream()
+                           .map(c -> c.getId())
+                           .collect(Collectors.toList());
 ```
 
 ### 排序
@@ -37,20 +43,25 @@ List<Integer> result = list.stream().map(c -> c.getId()).collect(Collectors.toLi
 按字符串长度升序排列
 
 ```java
-List<String> result = list.stream().sorted((str1, str2) -> str1.length() - str2.length()).collect(Collectors.toList());
+List<String> result = list.stream()
+                          .sorted((str1, str2) -> str1.length() - str2.length())
+                          .collect(Collectors.toList());
 ```
 
 按年龄降序排列
 
 ```java
-List<Person> result = list.stream().sorted(Comparator.comparing(Person::getAge).reversed()).collect(Collectors.toList());
+List<Person> result = list.stream()
+                          .sorted(Comparator.comparing(Person::getAge).reversed())
+                          .collect(Collectors.toList());
 ```
 
 ### 分组
 
 ```java
 // 按年龄分组
-Map<Integer, List<Student>> ageMap = studentList.stream().collect(Collectors.groupingBy(Student::getAge));
+Map<Integer, List<Student>> ageMap = studentList.stream()
+                                                .collect(Collectors.groupingBy(Student::getAge));
 ```
 
 ### 转map
@@ -58,8 +69,10 @@ Map<Integer, List<Student>> ageMap = studentList.stream().collect(Collectors.gro
 
 ```java
 // key重复时, 取前值
-Map<Long, User> map = list.stream().collect(Collectors.toMap(User::getId, Function.identity(), (v1, v2) -> v1))
+Map<Long, User> map = list.stream()
+                          .collect(Collectors.toMap(User::getId, Function.identity(), (v1, v2) -> v1))
 
 // key重复时, 取后值
-Map<Long, User> map = list.stream().collect(Collectors.toMap(User::getId, Function.identity(), (v1, v2) -> v2))
+Map<Long, User> map = list.stream()
+                          .collect(Collectors.toMap(User::getId, Function.identity(), (v1, v2) -> v2))
 ```

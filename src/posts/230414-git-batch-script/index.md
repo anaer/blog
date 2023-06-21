@@ -21,7 +21,7 @@ last_updated: "2023-04-14T17:07:39.000Z"
 
 ### pull.cmd
 
-```bat
+```sh
 @echo off
 chcp 65001
 echo git pull
@@ -33,7 +33,7 @@ echo -------------------end
 
 ### push.cmd
 
-```bat
+```sh
 @echo off
 chcp 65001
 echo git push
@@ -49,27 +49,27 @@ echo -------------------end
 
 ### 循环pull
 
-```bat
+```sh
 @echo off
 chcp 65001
 for /l %%a in (0,0,1) do (git pull && exit; sleep 3)
 ```
 
 cmd直接执行的话 需要少一个%
-```cmd
+```sh
 for /l %a in (0,0,1) do (git pull && exit; sleep 3)
 ```
 
 ### 循环push
 
-```bat
+```sh
 @echo off
 chcp 65001
 for /l %%a in (0,0,1) do (git push && exit; sleep 3)
 ```
 
 cmd直接执行的话 需要少一个%
-```cmd
+```sh
 for /l %a in (0,0,1) do (git push && exit; sleep 3)
 ```
 
