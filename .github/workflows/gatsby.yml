@@ -17,6 +17,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -69,12 +70,6 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./public
-      # 删除历史记录
-      - name: Delete Workflow Runs
-        uses: GitRML/delete-workflow-runs@main
-        with:
-          retain_days: 3
-          keep_minimum_runs: 8
 
   # Deployment job
   deploy:
@@ -87,3 +82,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+
+      # 删除历史记录
+      - name: Delete Workflow Runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          token: ${{ github.token }}
+          retain_days: 3
+          keep_minimum_runs: 8
