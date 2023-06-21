@@ -55,20 +55,9 @@ jobs:
           key: ${{ runner.os }}-gatsby-build-${{ hashFiles('public') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
-#       - name: Clear npm cache
-#         run: npm cache clean --force
-#       - name: Update npm
-#         run: npm install -g npm@latest
-      - name: Set npm registry
-        run: |
-             npm config set registry https://registry.npm.taobao.org/
-             npm config get proxy
-      - name: Clear npm proxy
-        run: npm config rm proxy
       - name: Install dependencies
         run: |
              npm ci --ignore-scripts --no-audit
-             npm config get proxy
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: 'true'
