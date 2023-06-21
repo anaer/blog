@@ -57,6 +57,8 @@ jobs:
             ${{ runner.os }}-gatsby-build-
       - name: Install dependencies
         run: |
+             npm config set proxy null
+             npm config set https-proxy null
              npm ci --ignore-scripts --no-audit
       - name: Build with Gatsby
         env:
