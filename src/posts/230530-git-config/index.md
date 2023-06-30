@@ -4,7 +4,7 @@ date: "2023-05-30T15:14:12.000Z"
 description: Git配置项
 tags:
   - git
-last_updated: "2023-05-30T15:14:12.000Z"
+last_updated: "2023-06-30T10:43:16.000Z"
 ---
 
 ```toc
@@ -47,6 +47,12 @@ error: cannot overwrite multiple values with a single value
 
 λ git config --global credential.helper store  --replace-all
 ```
+
+## 错误处理
+
+1. git credential-'cache store: -c: line 1: unexpected EOF while looking for matching `''
+
+`git config -l --show-origin` 查询当前生效的配置文件以及对应的配置文件, 然后对错误的配置项进行修改
 
 ## 参考资源
 
