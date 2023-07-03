@@ -4,7 +4,7 @@ date: "2023-06-27T14:12:09.000Z"
 description: WinGet命令
 tags:
   - winget
-last_updated: "2023-06-27T14:12:09.000Z"
+last_updated: "2023-07-03T09:33:02.000Z"
 ---
 
 ```toc
@@ -87,3 +87,17 @@ winget settings 配置说明: https://docs.microsoft.com/zh-cn/windows/package-m
 ## Winget 日志及程序安装日志
 
 `C:\Users\Administrator\AppData\Local\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\DiagOutputDir`
+
+
+## Winget替换软件源
+
+```sh
+# 替换为USTC源
+winget source remove winget
+winget source add winget https://mirrors.ustc.edu.cn/winget-source
+
+# 重置为官方源
+winget source reset winget
+```
+
+[WinGet源使用帮助](https://unicom.mirrors.ustc.edu.cn/help/winget-source.html)

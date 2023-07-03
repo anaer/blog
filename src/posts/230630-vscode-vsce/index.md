@@ -5,7 +5,7 @@ description: VSCode插件包生成
 tags:
   - vscode
   - vsce
-last_updated: "2023-06-30T15:52:19.000Z"
+last_updated: "2023-07-03T17:45:54.000Z"
 ---
 
 ```toc
@@ -51,8 +51,13 @@ $ vsce package
 
 $ vsce publish
 # <publisherID>.myExtension published to VS Code Marketplace
+
+$ vsce login
+# 输入用户名和PAT 进行更新
 ```
 
-## 发布市场
+## 相关链接
 
-https://marketplace.visualstudio.com/manage/publishers/anaer
+发布市场: https://marketplace.visualstudio.com/manage/publishers/anaer
+
+PAT设置: https://dev.azure.com/xxxx_orgnization/_usersSettings/tokens
