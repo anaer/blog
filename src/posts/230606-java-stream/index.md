@@ -5,7 +5,7 @@ description: Java Stream用法记录
 tags:
   - java
   - stream
-last_updated: "2023-06-21T10:55:25.000Z"
+last_updated: "2023-07-12T17:28:50.000Z"
 ---
 
 ```toc
@@ -36,6 +36,13 @@ List<String> result = list.stream()
 List<Integer> result = list.stream()
                            .map(c -> c.getId())
                            .collect(Collectors.toList());
+```
+
+List<String> 转 List<Long>
+```java
+List<Long> longList = stringList.stream()
+                                .map(Long::parseLong)
+                                .collect(Collectors.toList());
 ```
 
 ### 排序
