@@ -1,0 +1,10 @@
+{
+    "title":"Gmeek",
+    "displayTitle":"Gmeek",
+    "subTitle":"仅此而已。",
+    "homeUrl":"https://github.com/anaer/Gmeek/",
+    "avatarUrl":"http://meekdai.com/avatar.jpg",
+    "faviconUrl":"http://meekdai.com/favicon.ico",
+    "singlePage":["link","about"],
+    "GMEEK_VERSION":"v2.4"
+}
