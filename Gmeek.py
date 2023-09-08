@@ -251,11 +251,15 @@ class GMEEK():
             f.close()
             return listJsonName
 
+        else:
+            print("no issue lable, not create, name:%s"%(issue.title))
+
     def runAll(self):
         print("====== start create static html ======")
         self.cleanFile()
 
         issues=self.repo.get_issues()
+        print("issue count:%d"%(len(issues)))
         for issue in issues:
             self.addOnePostJson(issue)
 
@@ -273,9 +277,10 @@ class GMEEK():
         print("====== start create static html ======")
         issue=self.repo.get_issue(int(number_str))
         listJsonName=self.addOnePostJson(issue)
-        self.createPostHtml(self.blogBase[listJsonName]["P"+number_str])
-        self.createPlistHtml()
-        self.createFeedXml()
+        if listJsonName:
+            self.createPostHtml(self.blogBase[listJsonName]["P"+number_str])
+            self.createPlistHtml()
+            self.createFeedXml()
         print("====== create static html end ======")
 
 ######################################################################################
