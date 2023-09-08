@@ -259,7 +259,7 @@ class GMEEK():
         self.cleanFile()
 
         issues=self.repo.get_issues()
-        print("issue count:%d"%(len(issues)))
+        print("issue count:%d"%(len(list(issues))))
         for issue in issues:
             self.addOnePostJson(issue)
 
