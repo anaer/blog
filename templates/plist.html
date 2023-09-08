@@ -77,7 +77,9 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     </div>
     <div class="listLabels">
         {% if postListJson[num]['commentNum']>0 %}<span class="Label" style="background-color:{{ blogBase['commentLabelColor'] }}">{{ postListJson[num]['commentNum'] }}</span>{% endif %}
-        <span class="Label" style="background-color:{{ postListJson[num]['labelColor'] }}">{{ postListJson[num]['label'] }}</span>
+        {% for labelNum in postListJson[num]['labels'] -%}
+            <span class="Label" style="background-color:{{ postListJson[num]['labelColors'][labelNum] }}">{{ postListJson[num]['labels'][labelNum] }}</span>
+        {%- endfor %} 
         <span class="Label" style="background-color:{{ postListJson[num]['dateLabelColor'] }}">{{ postListJson[num]['createdDate'] }}</span>
     </div>
 </a>

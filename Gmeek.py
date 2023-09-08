@@ -198,11 +198,19 @@ class GMEEK():
                 listJsonName='postListJson'
                 gen_Html = self.post_dir+'{}.html'.format(Pinyin().get_pinyin(issue.title))
 
+            labels = []
+            labelColors = []
+            for label in issue.labels:
+                labels.append(label.name)
+                labelColors.append(self.labelColorDict[label.name])
+
             postNum="P"+str(issue.number)
             self.blogBase[listJsonName][postNum]=json.loads('{}')
             self.blogBase[listJsonName][postNum]["htmlDir"]=gen_Html
             self.blogBase[listJsonName][postNum]["label"]=issue.labels[0].name
             self.blogBase[listJsonName][postNum]["labelColor"]=self.labelColorDict[issue.labels[0].name]
+            self.blogBase[listJsonName][postNum]["labels"]=labels
+            self.blogBase[listJsonName][postNum]["labelColors"]=labelColors
             self.blogBase[listJsonName][postNum]["postTitle"]=issue.title
             self.blogBase[listJsonName][postNum]["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(Pinyin().get_pinyin(issue.title)))
             self.blogBase[listJsonName][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
