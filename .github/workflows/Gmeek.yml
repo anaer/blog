@@ -16,6 +16,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        ref: blog
 
       - name: Setup Pages
         id: pages
@@ -35,7 +36,7 @@ jobs:
 
       - name: Clone source code
         run: |
-          git clone -b $(jq -r ".GMEEK_VERSION" config.json) https://github.com/Meekdai/Gmeek.git /opt/Gmeek
+          git clone -b $(jq -r ".GMEEK_VERSION" config.json) https://github.com/anaer/Gmeek.git /opt/Gmeek
 
       - name: Install dependencies
         run: |
@@ -47,10 +48,10 @@ jobs:
           cp -r ./* /opt/Gmeek/
           cd /opt/Gmeek/
           python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
-          cp -a /opt/Gmeek/docs ${{ github.workspace }} 
-          cp -a /opt/Gmeek/backup ${{ github.workspace }} 
-          cp /opt/Gmeek/blogBase.json ${{ github.workspace }} 
-          
+          cp -a /opt/Gmeek/docs ${{ github.workspace }}
+          cp -a /opt/Gmeek/backup ${{ github.workspace }}
+          cp /opt/Gmeek/blogBase.json ${{ github.workspace }}
+
       - name: update html
         run: |
           git config --local user.email "$(jq -r ".email" config.json)"
@@ -59,12 +60,12 @@ jobs:
           git commit -a -m '🎉auto update by Gmeek action' || echo "nothing to commit"
           git push || echo "nothing to push"
           sleep 3
-          
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: 'docs/.'
-          
+
   deploy:
     name: Deploy blog
     runs-on: ubuntu-20.04
