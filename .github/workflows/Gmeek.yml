@@ -23,13 +23,6 @@ jobs:
         id: pages
         uses: actions/configure-pages@v3
 
-      - name: Get config.json
-        run: |
-          echo "====== check config.josn file ======"
-          cat config.json
-          echo "====== check config.josn end  ======"
-          sudo apt-get install jq
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -37,7 +30,7 @@ jobs:
 
       - name: Clone source code
         run: |
-          git clone -b $(jq -r ".GMEEK_VERSION" config.json) https://github.com/anaer/Gmeek.git /opt/Gmeek
+          git clone https://github.com/anaer/Gmeek.git /opt/Gmeek
 
       - name: Install dependencies
         run: |
