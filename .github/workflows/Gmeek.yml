@@ -39,7 +39,6 @@ jobs:
 
       - name: Generate new html
         run: |
-          cp -r ./* /opt/Gmeek/ 2>/dev/null
           cd /opt/Gmeek/
           python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
           cp -a /opt/Gmeek/docs ${{ github.workspace }}
