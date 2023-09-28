@@ -190,7 +190,7 @@ class GMEEK():
         feed.rss_file(self.root_dir+'rss.xml')
 
     def addOnePostJson(self,issue):
-        if len(issue.labels) > 1:
+        if len(issue.labels) >= 1:
             if issue.labels[0].name in self.blogBase["singlePage"]:
                 listJsonName='singeListJson'
                 gen_Html = 'docs/{}.html'.format(issue.labels[0].name)
