@@ -90,7 +90,7 @@ class GMEEK():
         f.close()
 
     def createPostHtml(self,issue):
-        f = open("backup/"+issue.number+"-"+issue["postTitle"]+".md", 'r', encoding='UTF-8')
+        f = open("backup/"+issue["number"]+"-"+issue["postTitle"]+".md", 'r', encoding='UTF-8')
         post_body=self.markdown2html(f.read())
         f.close()
 
@@ -206,6 +206,7 @@ class GMEEK():
 
             postNum="P"+str(issue.number)
             self.blogBase[listJsonName][postNum]=json.loads('{}')
+            self.blogBase[listJsonName][postNum]["number"]=str(issue.number)
             self.blogBase[listJsonName][postNum]["htmlDir"]=gen_Html
             self.blogBase[listJsonName][postNum]["label"]=issue.labels[0].name
             self.blogBase[listJsonName][postNum]["labelColor"]=self.labelColorDict[issue.labels[0].name]
