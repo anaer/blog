@@ -90,7 +90,7 @@ class GMEEK():
         f.close()
 
     def createPostHtml(self,issue):
-        f = open("backup/"+issue["postTitle"]+".md", 'r', encoding='UTF-8')
+        f = open("backup/"+issue.number+"-"+issue["postTitle"]+".md", 'r', encoding='UTF-8')
         post_body=self.markdown2html(f.read())
         f.close()
 
