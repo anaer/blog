@@ -255,7 +255,7 @@ class GMEEK():
             self.blogBase[listJsonName][postNum]["createdDate"]=thisTime.strftime("%Y-%m-%d")
             self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.blogBase["yearColorList"][int(thisYear)%len(self.blogBase["yearColorList"])]
 
-            f = open("backup/"+issue.title+".md", 'w', encoding='UTF-8')
+            f = open("backup/"+str(issue.number)+"-"+issue.title+".md", 'w', encoding='UTF-8')
             f.write(issue.body)
             f.close()
             return listJsonName
