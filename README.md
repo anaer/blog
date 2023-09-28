@@ -61,6 +61,7 @@
 - [utteranc.es](https://utteranc.es/)
 - [primer.style](https://primer.style/css)
 - [gitblog](https://github.com/yihong0618/gitblog)
+- [pygithub](https://pygithub.readthedocs.io/en/stable/index.html)
 
 ### License
 
