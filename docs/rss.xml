@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Gmeek</title><link>https://anaer.github.io/Gmeek</link><description>仅此而已。</description><copyright>Gmeek</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/Gmeek</link></image><lastBuildDate>Thu, 28 Sep 2023 06:49:27 +0000</lastBuildDate><managingEditor>Gmeek</managingEditor><pubDate>Thu, 28 Sep 2023 06:49:27 +0000</pubDate><ttl>60</ttl><webMaster>Gmeek</webMaster><item><title>Violentmonkey 脚本</title><link>https://anaer.github.io/Gmeek/post/Violentmonkey%20-jiao-ben.html</link><description>## [暴力猴Violentmonkey](https://violentmonkey.github.io/)&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Gmeek</title><link>https://anaer.github.io/Gmeek</link><description>仅此而已。</description><copyright>Gmeek</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/Gmeek</link></image><lastBuildDate>Thu, 28 Sep 2023 06:51:50 +0000</lastBuildDate><managingEditor>Gmeek</managingEditor><pubDate>Thu, 28 Sep 2023 06:51:50 +0000</pubDate><ttl>60</ttl><webMaster>Gmeek</webMaster><item><title>Violentmonkey 脚本</title><link>https://anaer.github.io/Gmeek/post/Violentmonkey%20-jiao-ben.html</link><description>## [暴力猴Violentmonkey](https://violentmonkey.github.io/)&#13;
 &#13;
 ### [元数据块](https://violentmonkey.github.io/api/metadata-block/)&#13;
 &#13;
@@ -68,6 +68,7 @@
 http://域名/api.php/provide/vod/?ac=list&#13;
 &#13;
 入参：&#13;
+```&#13;
 ac=list 查询列表 videolist 查询列表(全字段) detail 查询详情&#13;
 t=类别ID&#13;
 pg=页码&#13;
@@ -78,11 +79,14 @@ isend=是否已完结 1: 已完结 0:未完结&#13;
 year=查询年份 支持区间2022-2023&#13;
 sort_direct=排序方向 目前按vod_time排序, 默认desc倒序, asc 正序&#13;
 pagesize=单页数据量 最大限制100&#13;
+```&#13;
 &#13;
 例如： &#13;
+```&#13;
 http://域名/api.php/provide/vod/?ac=list&amp;t=1&amp;pg=5 分类ID为1的列表数据第5页 &#13;
 http://域名/api.php/provide/vod/?ac=detail&amp;ids=123,567 获取ID为123和567的数据信息 &#13;
 http://域名/api.php/provide/vod/?ac=detail&amp;h=24 获取24小时内更新数据信息 &#13;
+```&#13;
 &#13;
 ## 搜索资源&#13;
 ## 使用关键词&#13;
@@ -95,4 +99,5 @@ inurl:/api.php/provide/vod&#13;
 ## 相关链接&#13;
 &#13;
 [接口说明](https://github.com/magicblack/maccms10/wiki/%E5%85%A5%E5%BA%93%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E)&#13;
+&#13;
 [字段说明](https://github.com/magicblack/maccms10/wiki/%E6%A0%87%E7%AD%BE%E6%96%87%E6%A1%A3)。</description><guid isPermaLink="true">https://anaer.github.io/Gmeek/post/ping-guo-CMS.html</guid><pubDate>Fri, 08 Sep 2023 12:29:10 +0000</pubDate></item></channel></rss>

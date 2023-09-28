@@ -84,28 +84,31 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <p><a href="https://github.com/magicblack/maccms10/blob/master/application/api/controller/Provide.php">Provide.php</a></p>
 <h3 id="user-content-列表"><a class="heading-link" href="#列表">列表<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
 <p><a href="http://%E5%9F%9F%E5%90%8D/api.php/provide/vod/?ac=list" rel="nofollow">http://域名/api.php/provide/vod/?ac=list</a></p>
-<p>入参：
-ac=list 查询列表 videolist 查询列表(全字段) detail 查询详情
+<p>入参：</p>
+<pre><code>ac=list 查询列表 videolist 查询列表(全字段) detail 查询详情
 t=类别ID
 pg=页码
 wd=搜索关键字
-h=几小时内的数据</p>
-<p>isend=是否已完结 1: 已完结 0:未完结
+h=几小时内的数据
+
+isend=是否已完结 1: 已完结 0:未完结
 year=查询年份 支持区间2022-2023
 sort_direct=排序方向 目前按vod_time排序, 默认desc倒序, asc 正序
-pagesize=单页数据量 最大限制100</p>
-<p>例如：
-<a href="http://%E5%9F%9F%E5%90%8D/api.php/provide/vod/?ac=list&amp;t=1&amp;pg=5" rel="nofollow">http://域名/api.php/provide/vod/?ac=list&amp;t=1&amp;pg=5</a> 分类ID为1的列表数据第5页
-<a href="http://%E5%9F%9F%E5%90%8D/api.php/provide/vod/?ac=detail&amp;ids=123,567" rel="nofollow">http://域名/api.php/provide/vod/?ac=detail&amp;ids=123,567</a> 获取ID为123和567的数据信息
-<a href="http://%E5%9F%9F%E5%90%8D/api.php/provide/vod/?ac=detail&amp;h=24" rel="nofollow">http://域名/api.php/provide/vod/?ac=detail&amp;h=24</a> 获取24小时内更新数据信息</p>
+pagesize=单页数据量 最大限制100
+</code></pre>
+<p>例如：</p>
+<pre><code>http://域名/api.php/provide/vod/?ac=list&amp;t=1&amp;pg=5 分类ID为1的列表数据第5页 
+http://域名/api.php/provide/vod/?ac=detail&amp;ids=123,567 获取ID为123和567的数据信息 
+http://域名/api.php/provide/vod/?ac=detail&amp;h=24 获取24小时内更新数据信息 
+</code></pre>
 <h2 id="user-content-搜索资源"><a class="heading-link" href="#搜索资源">搜索资源<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
 <h2 id="user-content-使用关键词"><a class="heading-link" href="#使用关键词">使用关键词<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
 <pre><code>inurl:/api.php/provide/vod
 </code></pre>
 <p><a href="https://www.google.com/search?q=inurl%3A%2Fapi.php%2Fprovide%2Fvod&amp;ie=UTF-8" rel="nofollow">Google搜索</a></p>
 <h2 id="user-content-相关链接"><a class="heading-link" href="#相关链接">相关链接<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-<p><a href="https://github.com/magicblack/maccms10/wiki/%E5%85%A5%E5%BA%93%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E">接口说明</a>
-<a href="https://github.com/magicblack/maccms10/wiki/%E6%A0%87%E7%AD%BE%E6%96%87%E6%A1%A3">字段说明</a></p>
+<p><a href="https://github.com/magicblack/maccms10/wiki/%E5%85%A5%E5%BA%93%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E">接口说明</a></p>
+<p><a href="https://github.com/magicblack/maccms10/wiki/%E6%A0%87%E7%AD%BE%E6%96%87%E6%A1%A3">字段说明</a></p>
 
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
