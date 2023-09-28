@@ -266,7 +266,7 @@ class GMEEK():
         print("====== start create static html ======")
         self.cleanFile()
 
-        issues=self.repo.get_issues()
+        issues=self.repo.get_issues(state="all")
         print("issue count:%d"%(len(list(issues))))
         for issue in issues:
             self.addOnePostJson(issue)
