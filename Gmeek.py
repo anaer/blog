@@ -196,7 +196,7 @@ class GMEEK():
                 gen_Html = 'docs/{}.html'.format(issue.labels[0].name)
             else:
                 listJsonName='postListJson'
-                gen_Html = self.post_dir+'{}.html'.format(Pinyin().get_pinyin(issue.title))
+                gen_Html = self.post_dir+'{}.html'.format(Pinyin().get_pinyin(issue.title).replace(" ", "")) # 去除标题中的空格
 
             labels = []
             labelColors = []
