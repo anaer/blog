@@ -58,6 +58,16 @@ class GMEEK():
         os.mkdir(self.root_dir)
         os.mkdir(self.post_dir)
 
+    def checkDir(self):
+        if not os.path.exists(self.backup_dir):
+             os.mkdir(self.backup_dir)
+            
+        if not os.path.exists(self.root_dir):
+            os.mkdir(self.root_dir)
+
+        if not os.path.exists(self.post_dir):
+            os.mkdir(self.post_dir)
+
     def defaultConfig(self):
         dconfig={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],"i18n":"CN","dayTheme":"light","nightTheme":"dark"}
         config=json.loads(open('config.json', 'r', encoding='utf-8').read())
@@ -284,6 +294,7 @@ class GMEEK():
 
     def runOne(self,number_str):
         print("====== start create static html ======")
+        self.checkDir()
         issue=self.repo.get_issue(int(number_str))
         listJsonName=self.addOnePostJson(issue)
         if listJsonName:
