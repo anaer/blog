@@ -3,3 +3,4 @@
 3. `apt-get install nginx` 安装nginx 
 4. 云服务 安全组 入方向 快速添加80端口 
 5. 部署webdav #8 
+6. [安装fail2ban](https://github.com/wangdoc/ssh-tutorial/blob/main/docs/fail2ban.md) 防止暴力破解系统密码 
