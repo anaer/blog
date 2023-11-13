@@ -36,6 +36,8 @@ location /webdav {
     client_body_temp_path /tmp;
     # 开启目录浏览功能, 如果未开启 访问会提示`403 Forbidden`
     autoindex on;
+    # 文件大小限制1G
+    client_max_body_size 1G;
 }
 ```
 

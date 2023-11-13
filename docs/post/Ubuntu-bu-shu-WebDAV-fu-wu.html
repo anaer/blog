@@ -114,6 +114,8 @@ chown -R www-data:www-data /var/www/webdav</pre></div>
     client_body_temp_path /tmp<span class="pl-k">;</span>
     <span class="pl-c"><span class="pl-c">#</span> 开启目录浏览功能, 如果未开启 访问会提示`403 Forbidden`</span>
     autoindex on<span class="pl-k">;</span>
+    <span class="pl-c"><span class="pl-c">#</span> 文件大小限制1G</span>
+    client_max_body_size 1G<span class="pl-k">;</span>
 }</pre></div>
 <ol start="4">
 <li>用户认证</li>
