@@ -25,3 +25,12 @@ GitHub520 https://raw.fastgit.org/521xueweihan/GitHub520/main/hosts
 FetchGitHub https://hosts.gitcdn.top/hosts.txt
 HelloGitHub https://raw.hellogithub.com/hosts
 ```
+
+## 内存释放
+Windows Memory Cleaner 2.8
+https://github.com/IgorMundstein/WinMemoryCleaner/
+
+Mem Reduct
+https://github.com/henrypp/memreduct
+
+![image](https://github.com/anaer/Gmeek/assets/4637100/4bc23111-d33e-45da-be1e-24d81de37ea9)
