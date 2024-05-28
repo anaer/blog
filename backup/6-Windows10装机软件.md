@@ -1,3 +1,4 @@
+## 在用
 [weasel小狼毫输入法](https://rime.im/)
 [Git](https://git-scm.com/download)
 [WeCom企业微信](https://work.weixin.qq.com/)
@@ -14,23 +15,13 @@
 [Charles](https://www.charlesproxy.com/latest-release/download.do)
 [Proxifier](http://www.proxifier.com/)
 [MultiCommander](http://multicommander.com/downloads)
-[BleachBit 清理工具](https://www.bleachbit.org/)
 [WinSCP](https://winscp.net/eng/download.php)
-[Cmder](https://github.com/cmderdev/cmder/releases)
-[fastcopy](https://fastcopy.jp/)
-## [SwitchHosts](https://github.com/oldj/SwitchHosts/releases)
-订阅源:
-```
-GitHub520 https://raw.fastgit.org/521xueweihan/GitHub520/main/hosts
-FetchGitHub https://hosts.gitcdn.top/hosts.txt
-HelloGitHub https://raw.hellogithub.com/hosts
-```
+[Cmder终端工具](https://github.com/cmderdev/cmder/releases)
+[fastcopy快速拷贝工具](https://fastcopy.jp/)
+[Mem Reduct内存释放](https://github.com/henrypp/memreduct)
+[HeidiSQL开源数据库客户端](https://www.heidisql.com/)
 
-## 内存释放
-Windows Memory Cleaner 2.8
-https://github.com/IgorMundstein/WinMemoryCleaner/
-
-Mem Reduct
-https://github.com/henrypp/memreduct
-
-![image](https://github.com/anaer/Gmeek/assets/4637100/4bc23111-d33e-45da-be1e-24d81de37ea9)
+## 未使用
+[Windows Memory Cleaner 2.8](https://github.com/IgorMundstein/WinMemoryCleaner/)
+[BleachBit 清理工具](https://www.bleachbit.org/)
+[SwitchHosts](https://github.com/oldj/SwitchHosts/releases)
