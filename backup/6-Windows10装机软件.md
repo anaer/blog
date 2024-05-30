@@ -1,27 +1,26 @@
-## 在用
-[weasel小狼毫输入法](https://rime.im/)
-[Git](https://git-scm.com/download)
-[WeCom企业微信](https://work.weixin.qq.com/)
-[VSCode](https://code.visualstudio.com/)
-[python 3.12.0](https://mirrors.huaweicloud.com/python/3.12.0/)
-[Everything](https://www.voidtools.com/zh-cn/)
-[7zip](https://sparanoid.com/lab/7z/)
-[JDK8](https://www.oracle.com/java/technologies/downloads/#java8-windows)
-[Maven](https://mirrors.aliyun.com/apache/maven/maven-3/3.9.5/binaries/)
-[JDK17](https://www.oracle.com/java/technologies/downloads/#jdk17-windows)
-[NodeJS](http://www.nodejs.com.cn/)
-[Putty](https://mirrors.aliyun.com/putty/latest.html)
-[LibreOffice](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
-[Charles](https://www.charlesproxy.com/latest-release/download.do)
-[Proxifier](http://www.proxifier.com/)
-[MultiCommander](http://multicommander.com/downloads)
-[WinSCP](https://winscp.net/eng/download.php)
-[Cmder终端工具](https://github.com/cmderdev/cmder/releases)
-[fastcopy快速拷贝工具](https://fastcopy.jp/)
-[Mem Reduct内存释放](https://github.com/henrypp/memreduct)
-[HeidiSQL开源数据库客户端](https://www.heidisql.com/)
-
-## 未使用
-[Windows Memory Cleaner 2.8](https://github.com/IgorMundstein/WinMemoryCleaner/)
-[BleachBit 清理工具](https://www.bleachbit.org/)
-[SwitchHosts](https://github.com/oldj/SwitchHosts/releases)
+| 名称                      | 下载地址                                                     | 说明       |
+|-------------------------|------------------------------------------------------------|----------|
+| weasel小狼毫输入法          | [官网](https://rime.im/)                                    |          |
+| Git                      | [官网](https://git-scm.com/download)                        |          |
+| WeCom企业微信              | [官网](https://work.weixin.qq.com/)                          |          |
+| VSCode                   | [官网](https://code.visualstudio.com/)                       |          |
+| python 3.12.0            | [华为镜像](https://mirrors.huaweicloud.com/python/3.12.0/)      |          |
+| Everything               | [官网](https://www.voidtools.com/zh-cn/)                     |          |
+| 7zip                     | [官网](https://sparanoid.com/lab/7z/)                        |          |
+| JDK8                     | [官网](https://www.oracle.com/java/technologies/downloads/#java8-windows) |          |
+| Maven                    | [阿里云镜像](https://mirrors.aliyun.com/apache/maven/maven-3/3.9.5/binaries/) |          |
+| JDK17                    | [官网](https://www.oracle.com/java/technologies/downloads/#jdk17-windows) |          |
+| NodeJS                   | [官网](http://www.nodejs.com.cn/)                            |          |
+| Putty                    | [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)         |          |
+| LibreOffice              | [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/) |          |
+| Charles                  | [官网](https://www.charlesproxy.com/latest-release/download.do) |          |
+| Proxifier                | [官网](http://www.proxifier.com/)                            |          |
+| MultiCommander           | [官网](http://multicommander.com/downloads)                  |          |
+| WinSCP                   | [官网](https://winscp.net/eng/download.php)                  |          |
+| Cmder终端工具              | [GitHub](https://github.com/cmderdev/cmder/releases)           |          |
+| fastcopy快速拷贝工具         | [官网](https://fastcopy.jp/)                                 |          |
+| Mem Reduct内存释放          | [GitHub](https://github.com/henrypp/memreduct)                 |          |
+| HeidiSQL开源数据库客户端     | [官网](https://www.heidisql.com/)                            |          |
+| Windows Memory Cleaner 2.8 | [GitHub](https://github.com/IgorMundstein/WinMemoryCleaner/)  | 未使用     |
+| BleachBit 清理工具          | [官网](https://www.bleachbit.org/)                           | 未使用     |
+| SwitchHosts              | [GitHub](https://github.com/oldj/SwitchHosts/releases)         | 未使用     |
