@@ -21,7 +21,8 @@
 | fastcopy快速拷贝工具         | [官网](https://fastcopy.jp/)                                 |          |
 | Mem Reduct内存释放          | [GitHub](https://github.com/henrypp/memreduct)                 |          |
 | HeidiSQL开源数据库客户端     | [官网](https://www.heidisql.com/)                            |          |
-| Windows Memory Cleaner 2.8 | [GitHub](https://github.com/IgorMundstein/WinMemoryCleaner/)  | 未使用     |
-| BleachBit 清理工具          | [官网](https://www.bleachbit.org/)                           | 未使用     |
-| SwitchHosts              | [GitHub](https://github.com/oldj/SwitchHosts/releases)         | 未使用     |
 | Wise Memory Optimizer | [官网](https://www.wisecleaner.com.cn/wise-memory-optimizer.html)| Windows 内存整理和优化工具|
+|未使用|---|---|
+| Windows Memory Cleaner 2.8 | [GitHub](https://github.com/IgorMundstein/WinMemoryCleaner/)  |      |
+| BleachBit 清理工具          | [官网](https://www.bleachbit.org/)                           |      |
+| SwitchHosts              | [GitHub](https://github.com/oldj/SwitchHosts/releases)         |      |
