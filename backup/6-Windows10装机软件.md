@@ -4,7 +4,7 @@
 | Git                      | [官网](https://git-scm.com/download)                        |          |
 | WeCom企业微信              | [官网](https://work.weixin.qq.com/)                          |          |
 | VSCode                   | [官网](https://code.visualstudio.com/)                       |          |
-| python 3.12.0            | [华为镜像](https://mirrors.huaweicloud.com/python/3.12.0/)      |          |
+| python 3.12.0            | [华为云镜像](https://mirrors.huaweicloud.com/python/3.12.0/)      |          |
 | Everything               | [官网](https://www.voidtools.com/zh-cn/)                     |          |
 | 7zip                     | [官网](https://sparanoid.com/lab/7z/)                        |          |
 | JDK8                     | [官网](https://www.oracle.com/java/technologies/downloads/#java8-windows) |          |
