@@ -24,3 +24,4 @@
 | Windows Memory Cleaner 2.8 | [GitHub](https://github.com/IgorMundstein/WinMemoryCleaner/)  | 未使用     |
 | BleachBit 清理工具          | [官网](https://www.bleachbit.org/)                           | 未使用     |
 | SwitchHosts              | [GitHub](https://github.com/oldj/SwitchHosts/releases)         | 未使用     |
+| Wise Memory Optimizer | [官网](https://www.wisecleaner.com.cn/wise-memory-optimizer.html)| Windows 内存整理和优化工具|
