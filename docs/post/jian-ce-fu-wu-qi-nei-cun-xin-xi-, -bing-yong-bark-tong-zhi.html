@@ -12,8 +12,8 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>pyGitHub</title>
-
+<title>检测服务器内存信息, 并用bark通知</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -53,7 +53,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <body>
     <div id="header">
 <h1>
-    <a>pyGitHub</a>
+    <a>检测服务器内存信息, 并用bark通知</a>
 </h1>
 <div class="title-right">
 
@@ -63,7 +63,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
         </svg>
     </button></a>
 
-    <a href="https://github.com/anaer/Gmeek/issues/4" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+    <a href="https://github.com/anaer/Gmeek/issues/12" target="_blank"><button class="btn btn-invisible circle" title="Issue">
         <svg class="octicon" width="16" height="16">
             <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
         </svg>
@@ -79,97 +79,30 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">仓库属性字段</h2><a id="user-content-仓库属性字段" class="anchor" aria-label="Permalink: 仓库属性字段" href="#仓库属性字段"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<table>
-<thead>
-<tr>
-<th>属性字段</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>仓库的唯一标识符</td>
-</tr>
-<tr>
-<td>name</td>
-<td>仓库的名称</td>
-</tr>
-<tr>
-<td>full_name</td>
-<td>仓库的全名，包括用户名/组织名</td>
-</tr>
-<tr>
-<td>owner</td>
-<td>仓库的所有者（用户或组织）</td>
-</tr>
-<tr>
-<td>description</td>
-<td>仓库的描述</td>
-</tr>
-<tr>
-<td>created_at</td>
-<td>仓库创建的时间</td>
-</tr>
-<tr>
-<td>updated_at</td>
-<td>仓库最后更新的时间</td>
-</tr>
-<tr>
-<td>pushed_at</td>
-<td>仓库最后推送的时间</td>
-</tr>
-<tr>
-<td>language</td>
-<td>仓库主要使用的编程语言</td>
-</tr>
-<tr>
-<td>forks_count</td>
-<td>仓库的分支数量</td>
-</tr>
-<tr>
-<td>stargazers_count</td>
-<td>仓库的星标数（收藏数）</td>
-</tr>
-<tr>
-<td>watchers_count</td>
-<td>仓库的关注者数</td>
-</tr>
-<tr>
-<td>size</td>
-<td>仓库的大小（以字节为单位）</td>
-</tr>
-<tr>
-<td>html_url</td>
-<td>仓库的在 GitHub 网站上的链接</td>
-</tr>
-<tr>
-<td>default_branch</td>
-<td>仓库的默认分支</td>
-</tr>
-<tr>
-<td>homepage</td>
-<td>仓库的主页链接</td>
-</tr>
-<tr>
-<td>license</td>
-<td>仓库的许可证信息</td>
-</tr>
-<tr>
-<td>archived</td>
-<td>仓库是否已归档</td>
-</tr>
-<tr>
-<td>private</td>
-<td>仓库是否为私有</td>
-</tr>
-<tr>
-<td>fork</td>
-<td>仓库是否为一个派生（fork）</td>
-</tr>
-</tbody>
-</table>
+<p>vim script/free.py</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">subprocess</span>
+<span class="pl-k">from</span> <span class="pl-s1">bark</span> <span class="pl-k">import</span> <span class="pl-s1">send_bark_notification</span>
+
+<span class="pl-c"># 执行 free -m 命令并获取结果</span>
+<span class="pl-s1">result</span> <span class="pl-c1">=</span> <span class="pl-s1">subprocess</span>.<span class="pl-en">run</span>([<span class="pl-s">'free'</span>, <span class="pl-s">'-m'</span>], <span class="pl-s1">stdout</span><span class="pl-c1">=</span><span class="pl-s1">subprocess</span>.<span class="pl-v">PIPE</span>)
+
+<span class="pl-c"># 处理结果并提取 total 和 available 两项</span>
+<span class="pl-s1">lines</span> <span class="pl-c1">=</span> <span class="pl-s1">result</span>.<span class="pl-s1">stdout</span>.<span class="pl-en">decode</span>().<span class="pl-en">split</span>(<span class="pl-s">'<span class="pl-cce">\n</span>'</span>)
+<span class="pl-s1">headers</span> <span class="pl-c1">=</span> <span class="pl-s1">lines</span>[<span class="pl-c1">0</span>].<span class="pl-en">split</span>()
+<span class="pl-s1">values</span> <span class="pl-c1">=</span> <span class="pl-s1">lines</span>[<span class="pl-c1">1</span>].<span class="pl-en">split</span>()
+
+<span class="pl-c"># 提取 total 和 available 两项</span>
+<span class="pl-s1">total</span> <span class="pl-c1">=</span> <span class="pl-s1">values</span>[<span class="pl-s1">headers</span>.<span class="pl-en">index</span>(<span class="pl-s">'total'</span>)<span class="pl-c1">+</span><span class="pl-c1">1</span>]
+<span class="pl-s1">available</span> <span class="pl-c1">=</span> <span class="pl-s1">values</span>[<span class="pl-s1">headers</span>.<span class="pl-en">index</span>(<span class="pl-s">'available'</span>)<span class="pl-c1">+</span><span class="pl-c1">1</span>]
+
+<span class="pl-c"># 打印结果</span>
+<span class="pl-s1">content</span> <span class="pl-c1">=</span> <span class="pl-s">f"Total Memory: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">total</span><span class="pl-kos">}</span></span> MB <span class="pl-cce">\n</span>Available Memory: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">available</span><span class="pl-kos">}</span></span> MB"</span>
+<span class="pl-c">#print(content)</span>
+<span class="pl-en">send_bark_notification</span>(<span class="pl-s">"服务器内存信息"</span>, <span class="pl-s1">content</span>)</pre></div>
+<p><code>crontab -e</code>  配置定时任务</p>
+<pre><code># 每小时通知服务器内存信息
+0 * * * * python3 script/free.py
+</code></pre>
 
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
