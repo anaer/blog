@@ -6,5 +6,6 @@
     "avatarUrl":"https://avatars.githubusercontent.com/u/4637100?s=400&v=4",
     "faviconUrl":"http://meekdai.com/favicon.ico",
     "singlePage":["link","about"],
+    "script":"<script src='https://blog.meekdai.com/assets/GmeekBSZ.js'></script><script src='https://blog.meekdai.com/assets/GmeekTOC.js'></script>",
     "GMEEK_VERSION":"v2.4"
 }
