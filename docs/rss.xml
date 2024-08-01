@@ -1,7 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Gmeek</title><link>https://anaer.github.io/Gmeek</link><description>仅此而已。</description><copyright>Gmeek</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/Gmeek</link></image><lastBuildDate>Thu, 01 Aug 2024 08:06:12 +0000</lastBuildDate><managingEditor>Gmeek</managingEditor><pubDate>Thu, 01 Aug 2024 08:06:12 +0000</pubDate><ttl>60</ttl><webMaster>Gmeek</webMaster><item><title>Deeplx 负载均衡</title><link>https://anaer.github.io/Gmeek/post/Deeplx%20-fu-zai-jun-heng.html</link><description>http://47.236.84.103:3000/&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Gmeek</title><link>https://anaer.github.io/Gmeek</link><description>仅此而已。</description><copyright>Gmeek</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/Gmeek</link></image><lastBuildDate>Thu, 01 Aug 2024 09:19:23 +0000</lastBuildDate><managingEditor>Gmeek</managingEditor><pubDate>Thu, 01 Aug 2024 09:19:23 +0000</pubDate><ttl>60</ttl><webMaster>Gmeek</webMaster><item><title>Deeplx 负载均衡</title><link>https://anaer.github.io/Gmeek/post/Deeplx%20-fu-zai-jun-heng.html</link><description>http://47.236.84.103:3000/&#13;
 https://deeplx-lb-wheat.vercel.app/&#13;
-https://deeplx.smnet.io/  页面打开较慢。</description><guid isPermaLink="true">https://anaer.github.io/Gmeek/post/Deeplx%20-fu-zai-jun-heng.html</guid><pubDate>Thu, 01 Aug 2024 07:59:09 +0000</pubDate></item><item><title>aidoku源</title><link>https://anaer.github.io/Gmeek/post/aidoku-yuan.html</link><description>在设置-来源列表中添加&#13;
+https://deeplx.smnet.io/  页面打开较慢&#13;
+&#13;
+## 支持deeplx的软件和扩展插件&#13;
+&#13;
+沉浸式翻译&#13;
+语言学家 - 网页翻译器&#13;
+pot。</description><guid isPermaLink="true">https://anaer.github.io/Gmeek/post/Deeplx%20-fu-zai-jun-heng.html</guid><pubDate>Thu, 01 Aug 2024 07:59:09 +0000</pubDate></item><item><title>aidoku源</title><link>https://anaer.github.io/Gmeek/post/aidoku-yuan.html</link><description>在设置-来源列表中添加&#13;
 &#13;
 https://raw.githubusercontent.com/suiyuran/aidoku-zh-sources/main/public&#13;
 https://raw.githubusercontent.com/Skittyblock/aidoku-community-sources/gh-pages/。</description><guid isPermaLink="true">https://anaer.github.io/Gmeek/post/aidoku-yuan.html</guid><pubDate>Sat, 20 Jul 2024 13:44:01 +0000</pubDate></item><item><title>Windows内存清理工具</title><link>https://anaer.github.io/Gmeek/post/Windows-nei-cun-qing-li-gong-ju.html</link><description>Windows Memory Cleaner 2.8&#13;
