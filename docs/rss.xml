@@ -1,10 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Gmeek</title><link>https://anaer.github.io/Gmeek</link><description>仅此而已。</description><copyright>Gmeek</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/Gmeek</link></image><lastBuildDate>Wed, 21 Aug 2024 07:05:41 +0000</lastBuildDate><managingEditor>Gmeek</managingEditor><pubDate>Wed, 21 Aug 2024 07:05:41 +0000</pubDate><ttl>60</ttl><webMaster>Gmeek</webMaster><item><title>静态文件服务器</title><link>https://anaer.github.io/Gmeek/post/jing-tai-wen-jian-fu-wu-qi.html</link><description>&#13;
-[dufs](https://github.com/sigoden/dufs)&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Gmeek</title><link>https://anaer.github.io/Gmeek</link><description>仅此而已。</description><copyright>Gmeek</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/Gmeek</link></image><lastBuildDate>Wed, 21 Aug 2024 08:05:00 +0000</lastBuildDate><managingEditor>Gmeek</managingEditor><pubDate>Wed, 21 Aug 2024 08:05:00 +0000</pubDate><ttl>60</ttl><webMaster>Gmeek</webMaster><item><title>静态文件服务器</title><link>https://anaer.github.io/Gmeek/post/jing-tai-wen-jian-fu-wu-qi.html</link><description>[dufs](https://github.com/sigoden/dufs)&#13;
 ![220513063-ff0f186b-ac54-4682-9af4-47a9781dee0d](https://github.com/user-attachments/assets/dee71768-2086-489e-a87d-871a06d07e87)&#13;
 &#13;
 [miniserve](https://github.com/svenstaro/miniserve)&#13;
 &lt;img width="425" alt="screenshot" src="https://github.com/user-attachments/assets/ad9d97aa-0ef3-4e67-b5e0-f60841220b9c"&gt;&#13;
+&#13;
+[chfsgui](https://github.com/docblue/chfsgui)&#13;
+![image](https://github.com/user-attachments/assets/550870b3-2a10-4351-8876-069a5fb8af38)&#13;
 。</description><guid isPermaLink="true">https://anaer.github.io/Gmeek/post/jing-tai-wen-jian-fu-wu-qi.html</guid><pubDate>Wed, 21 Aug 2024 07:05:12 +0000</pubDate></item><item><title>neovim gui客户端</title><link>https://anaer.github.io/Gmeek/post/neovim%20gui-ke-hu-duan.html</link><description>## [goneovim](https://github.com/akiyosi/goneovim)&#13;
 单文件 刚安装 测试看看&#13;
 &#13;
