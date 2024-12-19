@@ -173,6 +173,7 @@ class GMEEK():
         print("create tag.html")
 
     def createFeedXml(self):
+        self.blogBase["labelColorDict"]=self.labelColorDict
         self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:x[1]["createdAt"],reverse=False))#使列表由时间排序
         feed = FeedGenerator()
         feed.title(self.blogBase["title"])
@@ -339,7 +340,8 @@ blog.blogBase["postListJson"]=dict(sorted(blog.blogBase["postListJson"].items(),
 for i in blog.blogBase["postListJson"]:
     keys_to_remove = [
         'highlight', 'description', 'postSourceUrl', 'htmlDir', 'createdAt',
-        'script', 'style', 'top', 'ogImage', 'head', 'commentNum', 'wordCount'
+        'script', 'style', 'top', 'ogImage', 'head', 'commentNum', 'wordCount',
+        'number', 'label', 'labelColor'
     ]
     for key in keys_to_remove:
         blog.blogBase["postListJson"][i].pop(key, None)
