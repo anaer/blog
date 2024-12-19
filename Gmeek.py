@@ -213,19 +213,14 @@ class GMEEK():
                 gen_Html = self.post_dir+'{}.html'.format(Pinyin().get_pinyin(issue.title))
 
             labels = []
-            labelColors = []
             for label in issue.labels:
                 labels.append(label.name)
-                labelColors.append(self.labelColorDict[label.name])
 
             postNum="P"+str(issue.number)
             self.blogBase[listJsonName][postNum]=json.loads('{}')
             self.blogBase[listJsonName][postNum]["number"]=str(issue.number)
             self.blogBase[listJsonName][postNum]["htmlDir"]=gen_Html
-            self.blogBase[listJsonName][postNum]["label"]=issue.labels[0].name
-            self.blogBase[listJsonName][postNum]["labelColor"]=self.labelColorDict[issue.labels[0].name]
             self.blogBase[listJsonName][postNum]["labels"]=labels
-            self.blogBase[listJsonName][postNum]["labelColors"]=labelColors
             self.blogBase[listJsonName][postNum]["postTitle"]=issue.title
             self.blogBase[listJsonName][postNum]["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(Pinyin().get_pinyin(issue.title)))
             self.blogBase[listJsonName][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
@@ -335,19 +330,4 @@ else:
 listFile=open("blogBase.json","w")
 listFile.write(json.dumps(blog.blogBase))
 listFile.close()
-######################################################################################
-print("====== create postList.json file ======")
-blog.blogBase["postListJson"]=dict(sorted(blog.blogBase["postListJson"].items(),key=lambda x:x[1]["createdAt"],reverse=True))#使列表由时间排序
-for i in blog.blogBase["postListJson"]:
-    keys_to_remove = [
-        'highlight', 'description', 'postSourceUrl', 'htmlDir', 'createdAt',
-        'script', 'style', 'top', 'ogImage', 'head', 'commentNum', 'wordCount',
-        'number', 'label', 'labelColor'
-    ]
-    for key in keys_to_remove:
-        blog.blogBase["postListJson"][i].pop(key, None)
-
-docListFile=open(blog.root_dir+"postList.json","w")
-docListFile.write(json.dumps(blog.blogBase["postListJson"]))
-docListFile.close()
 ######################################################################################

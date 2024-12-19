@@ -70,17 +70,9 @@ tagList=[];
 labelsCount={};
 labelColors={{ blogBase['labelColorDict'] }}
 jsonData={{ blogBase["postListJson"] }}
-// let requestJson="postList.json"
-// let request=new XMLHttpRequest();
-// request.open("GET",requestJson);
-// request.responseType='text';
-// request.send();
-// request.onload=function(){
-    // jsonData=JSON.parse(request.response);
-    // console.log(jsonData);
+
 showList(labelsCount);
 setClassDisplay(decodeURI(window.location.hash.slice(1)));
-// }
 
 function showList(labelsCount){
     let SideNav=document.getElementsByClassName("SideNav")[0];
@@ -91,9 +83,7 @@ function showList(labelsCount){
         if (Array.isArray(jsonData[key]['labels'])) {
             labelsCount["All"]++;
             for (let label of jsonData[key]['labels']) {
-                // let labelIndex = jsonData[key]['labels'].indexOf(label);
                 labelsCount[label] = (labelsCount[label] || 0) + 1;
-                // labelColors[label] = jsonData[key]['labelColors'][labelIndex];
             }
         }
     }
