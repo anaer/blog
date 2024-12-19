@@ -69,18 +69,18 @@ document.getElementById("searchSVG").setAttribute("d",IconList["search"]);
 tagList=[];
 labelsCount={};
 labelColors={{ blogBase['labelColorDict'] }}
-jsonData='';
-let requestJson="postList.json"
-let request=new XMLHttpRequest();
-request.open("GET",requestJson);
-request.responseType='text';
-request.send();
-request.onload=function(){
-    jsonData=JSON.parse(request.response);
-    console.log(jsonData);
-    showList(labelsCount);
-    setClassDisplay(decodeURI(window.location.hash.slice(1)));
-}
+jsonData={{ blogBase["postListJson"] }}
+// let requestJson="postList.json"
+// let request=new XMLHttpRequest();
+// request.open("GET",requestJson);
+// request.responseType='text';
+// request.send();
+// request.onload=function(){
+    // jsonData=JSON.parse(request.response);
+    // console.log(jsonData);
+showList(labelsCount);
+setClassDisplay(decodeURI(window.location.hash.slice(1)));
+// }
 
 function showList(labelsCount){
     let SideNav=document.getElementsByClassName("SideNav")[0];
