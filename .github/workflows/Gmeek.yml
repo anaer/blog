@@ -30,7 +30,7 @@ jobs:
 
       - name: Clone source code
         run: |
-          git clone https://github.com/anaer/Gmeek.git /opt/Gmeek
+          git clone https://github.com/anaer/blog.git /opt/Gmeek
 
       - name: Install dependencies
         run: |
