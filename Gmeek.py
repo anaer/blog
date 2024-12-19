@@ -173,7 +173,6 @@ class GMEEK():
         print("create tag.html")
 
     def createFeedXml(self):
-        self.blogBase["labelColorDict"]=self.labelColorDict
         self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:x[1]["createdAt"],reverse=False))#使列表由时间排序
         feed = FeedGenerator()
         feed.title(self.blogBase["title"])
@@ -280,6 +279,7 @@ class GMEEK():
 
     def runAll(self):
         print("====== start create static html ======")
+        self.blogBase["labelColorDict"]=self.labelColorDict
         self.cleanFile()
 
         issues=self.repo.get_issues(state="all")
@@ -299,6 +299,7 @@ class GMEEK():
 
     def runOne(self,number_str):
         print("====== start create static html ======")
+        self.blogBase["labelColorDict"]=self.labelColorDict
         self.checkDir()
         issue=self.repo.get_issue(int(number_str))
         listJsonName=self.addOnePostJson(issue)
