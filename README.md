@@ -53,6 +53,12 @@
 7. 如果在评论里面登录后评论报错，可直接按照提示安装`utteranc app`即可
 > Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, install the app. Read more about this change in the PR.
 
+8. IconList 内置图标搜索
+  https://github.com/primer/octicons/tree/main/icons
+
+9. Google Icon图标下载
+  https://fonts.google.com/icons?selected=Material+Icons:subway:&icon.query=subway&icon.size=16&icon.color=%235f6368&icon.platform=web
+
 ### 鸣谢
 - [jinja2](https://jinja.palletsprojects.com/)
 - [utteranc.es](https://utteranc.es/)
