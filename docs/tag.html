@@ -143,7 +143,7 @@ document.getElementById("searchSVG").setAttribute("d",IconList["search"]);
 
 tagList=[];
 labelsCount={};
-labelColors={};
+labelColors={'All': '#1d76db', 'iPhone': '#5319e7', 'Python': '#0A7358', 'Windows10': '#f9d0c4', '健康': '#0052cc', '工具': '#351497', '影视': '#d73a4a', '服务': '#C0F0A6', '脚本': '#b60205'}
 jsonData='';
 let requestJson="postList.json"
 let request=new XMLHttpRequest();
@@ -166,9 +166,9 @@ function showList(labelsCount){
         if (Array.isArray(jsonData[key]['labels'])) {
             labelsCount["All"]++;
             for (let label of jsonData[key]['labels']) {
-                let labelIndex = jsonData[key]['labels'].indexOf(label);
+                // let labelIndex = jsonData[key]['labels'].indexOf(label);
                 labelsCount[label] = (labelsCount[label] || 0) + 1;
-                labelColors[label] = jsonData[key]['labelColors'][labelIndex];
+                // labelColors[label] = jsonData[key]['labelColors'][labelIndex];
             }
         }
     }
@@ -178,7 +178,7 @@ function showList(labelsCount){
         tagList.push(label);
         let showLabels = document.createElement("button");
         showLabels.setAttribute("class", "Label");
-        showLabels.setAttribute("style", "background-color: " +  + ";padding:4px;");
+        showLabels.setAttribute("style", "background-color: " + labelColors[label] + ";padding:4px;");
         showLabels.innerHTML="&nbsp;&nbsp;"+label+" ";
         showLabels.setAttribute("onclick", "javascript:updateShowTag('" + label + "');");
 
@@ -219,7 +219,7 @@ function showList(labelsCount){
         for(label of jsonData[i]['labels']){
             let LabelName=document.createElement("span");
             LabelName.setAttribute("class","Label LabelName");
-            LabelName.setAttribute("style","background-color:"+);
+            LabelName.setAttribute("style","background-color:"+labelColors[label]);
             LabelName.innerHTML=label;
             listLabels.appendChild(LabelName);
         }
