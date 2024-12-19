@@ -68,6 +68,7 @@ document.getElementById("searchSVG").setAttribute("d",IconList["search"]);
 
 tagList=[];
 labelsCount={};
+labelColors={};
 jsonData='';
 let requestJson="postList.json"
 let request=new XMLHttpRequest();
@@ -85,14 +86,14 @@ function showList(labelsCount){
     let SideNav=document.getElementsByClassName("SideNav")[0];
     SideNav.classList.add("border");
     let taglabel=document.getElementById("taglabel");
-
-    jsonData['labelColorDict']["All"]="#000";
     labelsCount["All"]=0;
     for (let key in jsonData) {
-        if (key !== 'labelColorDict' && Array.isArray(jsonData[key]['labels'])) {
+        if (Array.isArray(jsonData[key]['labels'])) {
             labelsCount["All"]++;
             for (let label of jsonData[key]['labels']) {
+                let labelIndex = jsonData[key]['labels'].indexOf(label);
                 labelsCount[label] = (labelsCount[label] || 0) + 1;
+                labelColors[label] = jsonData[key]['labelColors'][labelIndex];
             }
         }
     }
@@ -102,7 +103,7 @@ function showList(labelsCount){
         tagList.push(label);
         let showLabels = document.createElement("button");
         showLabels.setAttribute("class", "Label");
-        showLabels.setAttribute("style", "background-color:" + jsonData['labelColorDict'][label]+";padding:4px;");
+        showLabels.setAttribute("style", "background-color:" + labelColors[label]+";padding:4px;");
         showLabels.innerHTML="&nbsp;&nbsp;"+label+" ";
         showLabels.setAttribute("onclick", "javascript:updateShowTag('" + label + "');");
 
@@ -114,51 +115,49 @@ function showList(labelsCount){
     }
 
     for(i in jsonData){
-        if(i!='labelColorDict'){
-            let div=document.createElement("div");
-            div.setAttribute("class","lists "+jsonData[i]['labels'].join(" "));
-            let item=document.createElement("a");
-            item.setAttribute("class","SideNav-item d-flex flex-items-center flex-justify-between");
-            item.setAttribute("href",jsonData[i]['postUrl']);
+        let div=document.createElement("div");
+        div.setAttribute("class","lists "+jsonData[i]['labels'].join(" "));
+        let item=document.createElement("a");
+        item.setAttribute("class","SideNav-item d-flex flex-items-center flex-justify-between");
+        item.setAttribute("href",jsonData[i]['postUrl']);
 
-            let center=document.createElement("div");
-            center.setAttribute("class","d-flex flex-items-center");
+        let center=document.createElement("div");
+        center.setAttribute("class","d-flex flex-items-center");
 
-            svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-            path=document.createElementNS("http://www.w3.org/2000/svg","path");
-            span=document.createElement("span");
-            svg.setAttributeNS(null,"class","SideNav-icon octicon");
-            svg.setAttributeNS(null,"style","width:16px;height:16px");
-            path.setAttributeNS(null, "d", IconList["post"]);
-            svg.appendChild(path);
+        svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+        path=document.createElementNS("http://www.w3.org/2000/svg","path");
+        span=document.createElement("span");
+        svg.setAttributeNS(null,"class","SideNav-icon octicon");
+        svg.setAttributeNS(null,"style","width:16px;height:16px");
+        path.setAttributeNS(null, "d", IconList["post"]);
+        svg.appendChild(path);
 
-            let title=document.createElement("span");
-            title.setAttribute("class","listTitle");
-            title.innerHTML=jsonData[i]['postTitle'];
-            center.appendChild(svg);
-            center.appendChild(title);
+        let title=document.createElement("span");
+        title.setAttribute("class","listTitle");
+        title.innerHTML=jsonData[i]['postTitle'];
+        center.appendChild(svg);
+        center.appendChild(title);
 
-            let listLabels=document.createElement("div");
-            listLabels.setAttribute("class","listLabels");
+        let listLabels=document.createElement("div");
+        listLabels.setAttribute("class","listLabels");
 
-            for(label of jsonData[i]['labels']){
-                let LabelName=document.createElement("span");
-                LabelName.setAttribute("class","Label LabelName");
-                LabelName.setAttribute("style","background-color:"+jsonData['labelColorDict'][label]);
-                LabelName.innerHTML=label;
-                listLabels.appendChild(LabelName);
-            }
-            let LabelTime=document.createElement("span");
-            LabelTime.setAttribute("class","Label LabelTime");
-            LabelTime.setAttribute("style","background-color:"+jsonData[i]['dateLabelColor']);
-            LabelTime.innerHTML=jsonData[i]['createdDate'];
-            listLabels.appendChild(LabelTime);
-
-            item.appendChild(center);
-            item.appendChild(listLabels);
-            div.appendChild(item);
-            SideNav.appendChild(div);
+        for(label of jsonData[i]['labels']){
+            let LabelName=document.createElement("span");
+            LabelName.setAttribute("class","Label LabelName");
+            LabelName.setAttribute("style","background-color:"+labelColors[label]);
+            LabelName.innerHTML=label;
+            listLabels.appendChild(LabelName);
         }
+        let LabelTime=document.createElement("span");
+        LabelTime.setAttribute("class","Label LabelTime");
+        LabelTime.setAttribute("style","background-color:"+jsonData[i]['dateLabelColor']);
+        LabelTime.innerHTML=jsonData[i]['createdDate'];
+        listLabels.appendChild(LabelTime);
+
+        item.appendChild(center);
+        item.appendChild(listLabels);
+        div.appendChild(item);
+        SideNav.appendChild(div);
     }
 }
 
