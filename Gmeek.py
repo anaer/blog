@@ -334,3 +334,27 @@ listFile=open("blogBase.json","w")
 listFile.write(json.dumps(blog.blogBase))
 listFile.close()
 ######################################################################################
+print("====== create postList.json file ======")
+blog.blogBase["postListJson"]=dict(sorted(blog.blogBase["postListJson"].items(),key=lambda x:x[1]["createdAt"],reverse=True))#使列表由时间排序
+for i in blog.blogBase["postListJson"]:
+    del blog.blogBase["postListJson"][i]["description"]
+    del blog.blogBase["postListJson"][i]["postSourceUrl"]
+    del blog.blogBase["postListJson"][i]["htmlDir"]
+    del blog.blogBase["postListJson"][i]["createdAt"]
+    del blog.blogBase["postListJson"][i]["script"]
+    del blog.blogBase["postListJson"][i]["style"]
+    del blog.blogBase["postListJson"][i]["top"]
+    del blog.blogBase["postListJson"][i]["ogImage"]
+    if 'head' in blog.blogBase["postListJson"][i]:
+        del blog.blogBase["postListJson"][i]["head"]
+
+    if 'commentNum' in blog.blogBase["postListJson"][i]:
+        del blog.blogBase["postListJson"][i]["commentNum"]
+
+    if 'wordCount' in blog.blogBase["postListJson"][i]:
+        del blog.blogBase["postListJson"][i]["wordCount"]
+
+docListFile=open(blog.root_dir+"postList.json","w")
+docListFile.write(json.dumps(blog.blogBase["postListJson"]))
+docListFile.close()
+######################################################################################
