@@ -27,8 +27,8 @@
 ### 说明
 1. 请确保每一篇文章有且仅有一个`Label`，为了防止他人提交的Issue也被抓取生成文章。
 
-2. 如果要导入以前的文章，如何设置发布时间呢？  
-如需上传旧博客的文章需要修改发布时间，可以在文章最后一行添加如下代码。里面的时间是采用时间戳的形式，可以用如下[网站](https://tool.lu/timestamp)转换。  
+2. 如果要导入以前的文章，如何设置发布时间呢？
+如需上传旧博客的文章需要修改发布时间，可以在文章最后一行添加如下代码。里面的时间是采用时间戳的形式，可以用如下[网站](https://tool.lu/timestamp)转换。
 ```html
 <!-- ##{"timestamp":1490764800}## -->
 ```
@@ -40,21 +40,18 @@
 ```html
 <!-- ##{"script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>"}## -->
 ```
-4. 可同时一起添加多种自定义参数：  
+4. 可同时一起添加多种自定义参数：
 ```html
 <!-- ##{"script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>","style":"<style>#postBody{font-size:20px}</style>","timestamp":1490764800}## -->
 ```
 
-5. 如果修改过config.json里面的参数后，发现生成文章失败，或其他奇奇怪怪的问题。  
+5. 如果修改过config.json里面的参数后，发现生成文章失败，或其他奇奇怪怪的问题。
 建议通过Actions->build Gmeek->Run workflow->里面的按钮全局重新生成一次就行。
 
 6. 置顶博客文章,只需要`Pin issue`即可。
 
 7. 如果在评论里面登录后评论报错，可直接按照提示安装`utteranc app`即可
 > Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, install the app. Read more about this change in the PR.
-
-
-
 
 ### 鸣谢
 - [jinja2](https://jinja.palletsprojects.com/)
