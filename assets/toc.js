@@ -1,26 +1,6 @@
-function createTOC() {
-    var tocElement = document.createElement('div');
-    tocElement.className = 'toc';
-    var contentContainer = document.getElementById('content');
-    contentContainer.prepend(tocElement);
-    const headings = contentContainer.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    tocElement.insertAdjacentHTML('afterbegin', '<div class="toc-title">文章目录</div>');
-    headings.forEach(heading => {
-        if (!heading.id) {
-            heading.id = heading.textContent.trim().replace(/\s+/g, '-').toLowerCase();
-        }
-        const link = document.createElement('a');
-        link.href = '#' + heading.id;
-        link.textContent = heading.textContent;
-        link.className = 'toc-link';
-        link.style.paddingLeft = `${(parseInt(heading.tagName.charAt(1)) - 1) * 10}px`;
-        tocElement.appendChild(link);
-    });
-    tocElement.insertAdjacentHTML('beforeend', '<a class="toc-end" onclick="window.scrollTo({top:0,behavior: \'smooth\'});">Top</a>');
-}
-
 document.addEventListener("DOMContentLoaded", function() {
-    createTOC();
+    console.log("\n %c TOC Plugins https://github.com/anaer/Gmeek \n","padding:5px 0;background:#C333D0;color:#fff");
+
     var css = `
     .toc {
         position:fixed;
@@ -45,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         font-weight: bold;
         text-align: center;
         visibility: hidden;
-    }  
+    }
     .toc a {
         display: block;
         color: var(--color-diff-blob-addition-num-text);
@@ -62,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         background-color:var(--color-select-menu-tap-focus-bg);
     }
 
-    @media (max-width: 1249px) 
+    @media (max-width: 1249px)
     {
         .toc{
             position:static;
@@ -76,6 +56,30 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }`;
 
+    let contentContainer = document.getElementById('content');
+    const headings = contentContainer.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    if (headings.length === 0) {
+        return;
+    }
+
+    let tocElement = document.createElement('div');
+    tocElement.className = 'toc';
+    contentContainer.prepend(tocElement);
+
+    tocElement.insertAdjacentHTML('afterbegin', '<div class="toc-title">文章目录</div>');
+    headings.forEach(heading => {
+        if (!heading.id) {
+            heading.id = heading.textContent.trim().replace(/\s+/g, '-').toLowerCase();
+        }
+        const link = document.createElement('a');
+        link.href = '#' + heading.id;
+        link.textContent = heading.textContent;
+        link.className = 'toc-link';
+        link.style.paddingLeft = `${(parseInt(heading.tagName.charAt(1)) - 1) * 10}px`;
+        tocElement.appendChild(link);
+    });
+    tocElement.insertAdjacentHTML('beforeend', '<a class="toc-end" onclick="window.scrollTo({top:0,behavior: \'smooth\'});">Top</a>');
+
     const style = document.createElement('style');
     style.textContent = css;
     document.head.appendChild(style);
@@ -88,5 +92,4 @@ document.addEventListener("DOMContentLoaded", function() {
             backToTopButton.style="visibility: hidden;"
         }
     };
-    console.log("\n %c TOC Plugins https://github.com/anaer/Gmeek \n","padding:5px 0;background:#C333D0;color:#fff");
 });
