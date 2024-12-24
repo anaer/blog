@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css" rel="stylesheet" />
     <link rel="icon" href="http://meekdai.com/favicon.ico">
+    <script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
@@ -173,15 +174,6 @@ function iFrameLoading(){
         }
     }
 }
-
-// Wait for the page to fully load
-window.onload = function() {
-  // Use setTimeout to delay the execution of code by 5 seconds (5000 milliseconds)
-  setTimeout(function() {
-    // Code to execute after the delay
-    openComments();
-  }, 5000); // 5000 milliseconds = 5 seconds
-};
 
 </script>
 
