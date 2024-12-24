@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css" rel="stylesheet" />
     <link rel="icon" href="{{ blogBase['faviconUrl'] }}">
+    <script src="{{ blogBase['homeUrl'] }}/assets/vercount.js"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
@@ -69,9 +70,5 @@ function utterancesTheme(theme){
 
 console.log("\n %c Gmeek {{ blogBase['GMEEK_VERSION'] }} %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
 </script>
-{% block script %}
-
-<script src="{{ blogBase['homeUrl'] }}/assets/vercount.js"></script>
-
-{% endblock %}
+{% block script %}{% endblock %}
 </html>
