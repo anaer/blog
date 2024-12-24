@@ -130,9 +130,9 @@ ignoreregex = .*(robots.txt|favicon.ico)
     <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
 
 <script>
-if(""!=""){
+if("09/08/2023"!=""){
     var now=new Date();
-    var startSite=new Date("");
+    var startSite=new Date("09/08/2023");
     var diff=now.getTime()-startSite.getTime();
     var diffDay=Math.floor(diff/(1000*60*60*24));
     document.getElementById("year").innerHTML=now.getFullYear();
