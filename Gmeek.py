@@ -204,7 +204,7 @@ class GMEEK():
 
         feed.rss_file(self.root_dir+'rss.xml')
 
-    def build_desc(content):
+    def build_desc(self, content):
         # 截取前100个字符
         if len(content) > 100:
             content = content[:100] + "..."
