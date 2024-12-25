@@ -276,7 +276,7 @@ class GMEEK():
                     content = content.replace(" #"+match+" ", " ["+self.blogBase["postListJson"][matchPostNum]["postTitle"]+"]("+self.blogBase["postListJson"][matchPostNum]["postUrl"]+") ")
 
             f = open("backup/"+str(issue.number)+"-"+issue.title+".md", 'w', encoding='UTF-8')
-            f.write(issue.body)
+            f.write(content)
             f.close()
             return listJsonName
 
