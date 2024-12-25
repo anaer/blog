@@ -102,7 +102,7 @@ class GMEEK():
         f.close()
 
     def createPostHtml(self,issue):
-        f = open("backup/"+issue["number"]+"-"+issue["postTitle"]+".md", 'r', encoding='UTF-8')
+        f = open("backup/"+issue["number"]+"-"+self.normalize_title(issue["postTitle"])+".md", 'r', encoding='UTF-8')
         post_body=self.markdown2html(f.read())
         f.close()
 
@@ -218,6 +218,11 @@ class GMEEK():
 
         return content
 
+    # 定义方法 规范标题, 替换文件名不支持的符号为_
+    def normalize_title(self, title):
+        # Replace unsupported characters with underscore
+        return re.sub(r'[\\/*?:"<>|]', '_', title)
+
     def addOnePostJson(self,issue):
         if len(issue.labels) >= 1:
             if issue.labels[0].name in self.blogBase["singlePage"]:
@@ -225,7 +230,7 @@ class GMEEK():
                 gen_Html = 'docs/{}.html'.format(issue.labels[0].name)
             else:
                 listJsonName='postListJson'
-                gen_Html = self.post_dir+'{}.html'.format(Pinyin().get_pinyin(issue.title))
+                gen_Html = self.post_dir+'{}.html'.format(Pinyin().get_pinyin(self.normalize_title(issue.title)))
 
             labels = []
             for label in issue.labels:
@@ -237,7 +242,7 @@ class GMEEK():
             self.blogBase[listJsonName][postNum]["htmlDir"]=gen_Html
             self.blogBase[listJsonName][postNum]["labels"]=labels
             self.blogBase[listJsonName][postNum]["postTitle"]=issue.title
-            self.blogBase[listJsonName][postNum]["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(Pinyin().get_pinyin(issue.title)))
+            self.blogBase[listJsonName][postNum]["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(Pinyin().get_pinyin(self.normalize_title(issue.title))))
             self.blogBase[listJsonName][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
             self.blogBase[listJsonName][postNum]["commentNum"]=issue.get_comments().totalCount
             # if self.blogBase["i18n"]=="CN":
@@ -291,7 +296,7 @@ class GMEEK():
                     content = content.replace(" #"+match+" ", " ["+self.blogBase["postListJson"][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.blogBase["postListJson"][matchPostNum]["postUrl"]+") ")
                     # print(content)
 
-            f = open("backup/"+str(issue.number)+"-"+issue.title+".md", 'w', encoding='UTF-8')
+            f = open("backup/"+str(issue.number)+"-"+self.normalize_title(issue.title)+".md", 'w', encoding='UTF-8')
             f.write(content)
             f.close()
             return listJsonName
