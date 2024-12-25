@@ -220,11 +220,16 @@ class GMEEK():
 
     def get_background_color(self, createdAt):
         # 当前时间
+        start_date = datetime.now() - timedelta(days=365)
+        startSite = self.blogBase["startSite"]
+        if startSite:
+            start_date = datetime.strptime(startSite, "%Y-%m-%d")
+
         now = datetime.now()
         # 计算时间间隔（以秒为单位）
         delta = (now - createdAt).total_seconds()
         # 定义最大时间间隔
-        max_interval = 365 * 24 * 60 * 60  # 365 天的秒数
+        max_interval = (now - start_date).total_seconds()
         # 确保时间间隔不超过最大值
         delta = min(delta, max_interval)
         # 计算颜色比例（0 到 1 之间）
