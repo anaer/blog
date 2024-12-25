@@ -185,14 +185,15 @@
             "htmlDir": "docs/post/Ubuntu-an-zhuang-fail2ban.html",
             "markdown": "backup/9-Ubuntu\u5b89\u88c5fail2ban.md",
             "labels": [
-                "\u670d\u52a1"
+                "\u670d\u52a1",
+                "Linux"
             ],
             "postTitle": "Ubuntu\u5b89\u88c5fail2ban",
             "postUrl": "post/Ubuntu-an-zhuang-fail2ban.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/9",
             "commentNum": 0,
             "description": "## \u5b89\u88c5\r\n\u7cfb\u7edf: Ubuntu 20.04.6 LTS\r\n\r\n```bash\r\napt-get install fail2ban\r\n```\r\n\r\n## \u547d\u4ee4\r\n\r\n### \u67e5\u8be2\u670d\u52a1\u72b6\u6001\r\n\r\n...",
-            "updatedAt": 1735091229,
+            "updatedAt": 1735119657,
             "top": 0,
             "createdAt": 1698991158,
             "style": "",
