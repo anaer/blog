@@ -218,7 +218,7 @@ class GMEEK():
 
         return content
 
-    def get_background_color(createdAt):
+    def get_background_color(self, createdAt):
         # 当前时间
         now = datetime.now()
         # 计算时间间隔（以秒为单位）
