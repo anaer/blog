@@ -3,11 +3,11 @@ import os
 import re
 import json
 import time
-import datetime
 import shutil
 import urllib
 import requests
 import argparse
+from datetime import datetime, timedelta
 from github import Github
 from xpinyin import Pinyin
 from feedgen.feed import FeedGenerator
@@ -218,6 +218,26 @@ class GMEEK():
 
         return content
 
+    def get_background_color(createdAt):
+        # 当前时间
+        now = datetime.now()
+        # 计算时间间隔（以秒为单位）
+        delta = (now - createdAt).total_seconds()
+        # 定义最大时间间隔
+        max_interval = 365 * 24 * 60 * 60  # 365 天的秒数
+        # 确保时间间隔不超过最大值
+        delta = min(delta, max_interval)
+        # 计算颜色比例（0 到 1 之间）
+        ratio = delta / max_interval
+        # 计算 RGB 颜色值
+        red = int(255 * ratio)
+        green = int(255 * (1 - ratio))
+        blue = 0
+
+        # 转换为十六进制颜色代码
+        color_code = f'#{red:02x}{green:02x}{blue:02x}'
+        return color_code
+
     # 定义方法 规范标题, 替换文件名不支持的符号为_
     def normalize_title(self, title):
         # Replace unsupported characters with underscore
@@ -278,10 +298,11 @@ class GMEEK():
             else:
                 self.blogBase[listJsonName][postNum]["script"]=""
 
-            thisTime=datetime.datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["createdAt"])
-            thisYear=thisTime.year
+            thisTime=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["createdAt"])
+            # thisYear=thisTime.year
             self.blogBase[listJsonName][postNum]["createdDate"]=thisTime.strftime("%Y-%m-%d")
-            self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.blogBase["yearColorList"][int(thisYear)%len(self.blogBase["yearColorList"])]
+            # self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.blogBase["yearColorList"][int(thisYear)%len(self.blogBase["yearColorList"])]
+            self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.get_background_color(thisTime)
 
             # 处理正文中的#数字链接
             content = issue.body
