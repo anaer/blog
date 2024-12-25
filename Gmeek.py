@@ -205,9 +205,9 @@ class GMEEK():
         feed.rss_file(self.root_dir+'rss.xml')
 
     def build_desc(self, content):
-        # 截取前100个字符
-        if len(content) > 100:
-            content = content[:100] + "..."
+        # 截取前300个字符
+        if len(content) > 300:
+            content = content[:300] + "..."
 
         # 按行分割字符串
         lines = content.split('\n')
@@ -334,7 +334,7 @@ class GMEEK():
             self.createFeedXml()
         print("====== create static html end ======")
 
-######################################################################################
+#########################################################################
 parser = argparse.ArgumentParser()
 parser.add_argument("github_token", help="github_token")
 parser.add_argument("repo_name", help="repo_name")
@@ -358,6 +358,6 @@ else:
         blog.runOne(options.issue_number)
 
 listFile=open("blogBase.json","w")
-listFile.write(json.dumps(blog.blogBase))
+listFile.write(json.dumps(blog.blogBase, indent=4))
 listFile.close()
-######################################################################################
+#########################################################################
