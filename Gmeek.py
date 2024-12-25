@@ -273,8 +273,8 @@ class GMEEK():
                 print(f"Found number: {issue.title} {match}")
                 matchPostNum = "P"+str(match)
                 if matchPostNum in self.blogBase["postListJson"]:
-                    content = content.replace(" #"+match+" ", " ["+self.blogBase["postListJson"][matchPostNum]["postTitle"]+"]("+self.blogBase["postListJson"][matchPostNum]["postUrl"]+") ")
-                    print(content)
+                    content = content.replace(" #"+match+" ", " ["+self.blogBase["postListJson"][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.blogBase["postListJson"][matchPostNum]["postUrl"]+") ")
+                    # print(content)
 
             f = open("backup/"+str(issue.number)+"-"+issue.title+".md", 'w', encoding='UTF-8')
             f.write(content)
