@@ -266,11 +266,14 @@ class GMEEK():
             self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.blogBase["yearColorList"][int(thisYear)%len(self.blogBase["yearColorList"])]
 
             # 处理正文中的#数字链接
+            content = issue.body
             regex = r"\s#(\d+)\s"
-            matches = re.findall(regex, issue.body)
-
+            matches = re.findall(regex, content)
             for match in matches:
                 print(f"Found number: {issue.title} {match}")
+                matchPostNum = "P"+str(match)
+                if self.blogBase["postListJson"][matchPostNum]:
+                    content = content.replace(" #"+match+" ", " ["+self.blogBase["postListJson"][matchPostNum]["postTitle"]+"]("+self.blogBase["postListJson"][matchPostNum]["postUrl"]+") ")
 
             f = open("backup/"+str(issue.number)+"-"+issue.title+".md", 'w', encoding='UTF-8')
             f.write(issue.body)
