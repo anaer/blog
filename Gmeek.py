@@ -204,6 +204,20 @@ class GMEEK():
 
         feed.rss_file(self.root_dir+'rss.xml')
 
+    def build_desc(content):
+        # 截取前100个字符
+        if len(content) > 100:
+            content = content[:100] + "..."
+
+        # 按行分割字符串
+        lines = content.split('\n')
+
+        # 如果包含多行，则保留N-1行
+        if len(lines) > 1:
+            return '\n'.join(lines[:-1]) + "..."
+
+        return content
+
     def addOnePostJson(self,issue):
         if len(issue.labels) >= 1:
             if issue.labels[0].name in self.blogBase["singlePage"]:
@@ -226,11 +240,12 @@ class GMEEK():
             self.blogBase[listJsonName][postNum]["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(Pinyin().get_pinyin(issue.title)))
             self.blogBase[listJsonName][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
             self.blogBase[listJsonName][postNum]["commentNum"]=issue.get_comments().totalCount
-            if self.blogBase["i18n"]=="CN":
-                period="。"
-            else:
-                period="."
-            self.blogBase[listJsonName][postNum]["description"]=issue.body.split(period)[0]+period
+            # if self.blogBase["i18n"]=="CN":
+            #     period="。"
+            # else:
+            #     period="."
+            # self.blogBase[listJsonName][postNum]["description"]=issue.body.split(period)[0]+period
+            self.blogBase[listJsonName][postNum]["description"]=self.build_desc(issue.body)
 
             self.blogBase[listJsonName][postNum]["top"]=0
             for event in issue.get_events():
