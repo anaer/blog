@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import re
 import json
 import time
 import datetime
@@ -263,6 +264,13 @@ class GMEEK():
             thisYear=thisTime.year
             self.blogBase[listJsonName][postNum]["createdDate"]=thisTime.strftime("%Y-%m-%d")
             self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.blogBase["yearColorList"][int(thisYear)%len(self.blogBase["yearColorList"])]
+
+            # 处理正文中的#数字链接
+            regex = r"\s#(\d+)\s"
+            matches = re.findall(regex, issue.body)
+
+            for match in matches:
+                print(f"Found number: {issue.title} {match}")
 
             f = open("backup/"+str(issue.number)+"-"+issue.title+".md", 'w', encoding='UTF-8')
             f.write(issue.body)
