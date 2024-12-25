@@ -71,7 +71,7 @@ class GMEEK():
             os.mkdir(self.post_dir)
 
     def defaultConfig(self):
-        dconfig={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],"i18n":"CN","dayTheme":"light","nightTheme":"dark"}
+        dconfig={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","i18n":"CN","dayTheme":"light","nightTheme":"dark"}
         config=json.loads(open('config.json', 'r', encoding='utf-8').read())
         self.blogBase={**dconfig,**config}.copy()
         self.blogBase["postListJson"]=json.loads('{}')
@@ -234,9 +234,9 @@ class GMEEK():
         delta = min(delta, max_interval)
         # 计算颜色比例（0 到 1 之间）
         ratio = delta / max_interval
-        # 计算 RGB 颜色值
-        red = int(255 * ratio)
-        green = int(255 * (1 - ratio))
+        # 计算 RGB 颜色值 (0 到 255 之间) 不取最大的255 防止过于刺眼
+        red = int(200 * ratio)
+        green = int(200 * (1 - ratio))
         blue = 0
 
         # 转换为十六进制颜色代码
@@ -304,9 +304,7 @@ class GMEEK():
                 self.blogBase[listJsonName][postNum]["script"]=""
 
             thisTime=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["createdAt"])
-            # thisYear=thisTime.year
             self.blogBase[listJsonName][postNum]["createdDate"]=thisTime.strftime("%Y-%m-%d")
-            # self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.blogBase["yearColorList"][int(thisYear)%len(self.blogBase["yearColorList"])]
             self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.get_background_color(thisTime)
 
             # 处理正文中的#数字链接
