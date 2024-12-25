@@ -92,4 +92,4 @@ blocktype = unreachable
 ## 参考链接
 
 [Fail2Ban 教程](https://github.com/wangdoc/ssh-tutorial/blob/main/docs/fail2ban.md)
-使用bark通知app #11 
+使用bark通知app [使用bark通知APP](post/shi-yong-bark-tong-zhi-APP.html) 
