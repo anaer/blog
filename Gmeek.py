@@ -125,7 +125,7 @@ class GMEEK():
         print("create postPage title=%s file=%s " % (issue["postTitle"],issue["htmlDir"]))
 
     def createPlistHtml(self):
-        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["createdAt"]),reverse=True))#使列表由时间排序
+        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True)) #按更新时间降序
 
         postNum=len(self.blogBase["postListJson"])
         pageFlag=0
@@ -205,9 +205,9 @@ class GMEEK():
         feed.rss_file(self.root_dir+'rss.xml')
 
     def build_desc(self, content):
-        # 截取前300个字符
-        if len(content) > 300:
-            content = content[:300] + "..."
+        # 截取前100个字符
+        if len(content) > 100:
+            content = content[:100] + "..."
 
         # 按行分割字符串
         lines = content.split('\n')
@@ -274,6 +274,7 @@ class GMEEK():
             self.blogBase[listJsonName][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
             self.blogBase[listJsonName][postNum]["commentNum"]=issue.get_comments().totalCount
             self.blogBase[listJsonName][postNum]["description"]=self.build_desc(issue.body)
+            self.blogBase[listJsonName][postNum]["updatedAt"]=int(time.mktime(issue.updated_at.timetuple()))
 
             self.blogBase[listJsonName][postNum]["top"]=0
             for event in issue.get_events():
