@@ -40,13 +40,13 @@
         },
         "P2": {
             "number": "2",
-            "htmlDir": "docs/post/Violentmonkey -jiao-ben.html",
-            "markdown": "backup/2-Violentmonkey \u811a\u672c.md",
+            "htmlDir": "docs/post/Violentmonkey_-jiao-ben.html",
+            "markdown": "backup/2-Violentmonkey_\u811a\u672c.md",
             "labels": [
                 "\u811a\u672c"
             ],
             "postTitle": "Violentmonkey \u811a\u672c",
-            "postUrl": "post/Violentmonkey%20-jiao-ben.html",
+            "postUrl": "post/Violentmonkey_-jiao-ben.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/2",
             "commentNum": 0,
             "description": "## [\u66b4\u529b\u7334Violentmonkey](https://violentmonkey.github.io/)\r\n\r\n...",
@@ -220,7 +220,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-06",
-            "dateLabelColor": "#ae1900"
+            "dateLabelColor": "#af1800"
         },
         "P11": {
             "number": "11",
@@ -244,14 +244,14 @@
         },
         "P12": {
             "number": "12",
-            "htmlDir": "docs/post/jian-ce-fu-wu-qi-nei-cun-xin-xi-, -bing-yong-bark-tong-zhi.html",
-            "markdown": "backup/12-\u68c0\u6d4b\u670d\u52a1\u5668\u5185\u5b58\u4fe1\u606f, \u5e76\u7528bark\u901a\u77e5.md",
+            "htmlDir": "docs/post/jian-ce-fu-wu-qi-nei-cun-xin-xi-,_-bing-yong-bark-tong-zhi.html",
+            "markdown": "backup/12-\u68c0\u6d4b\u670d\u52a1\u5668\u5185\u5b58\u4fe1\u606f,_\u5e76\u7528bark\u901a\u77e5.md",
             "labels": [
                 "\u5de5\u5177",
                 "\u670d\u52a1"
             ],
             "postTitle": "\u68c0\u6d4b\u670d\u52a1\u5668\u5185\u5b58\u4fe1\u606f, \u5e76\u7528bark\u901a\u77e5",
-            "postUrl": "post/jian-ce-fu-wu-qi-nei-cun-xin-xi-%2C%20-bing-yong-bark-tong-zhi.html",
+            "postUrl": "post/jian-ce-fu-wu-qi-nei-cun-xin-xi-%2C_-bing-yong-bark-tong-zhi.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/12",
             "commentNum": 0,
             "description": "vim script/free.py\r\n\r\n```py\r\nimport subprocess\r\nfrom bark import send_bark_notification\r\n\r\n...",
@@ -282,7 +282,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-12-07",
-            "dateLabelColor": "#a12600"
+            "dateLabelColor": "#a22500"
         },
         "P14": {
             "number": "14",
@@ -327,13 +327,13 @@
         },
         "P16": {
             "number": "16",
-            "htmlDir": "docs/post/Deeplx -fu-zai-jun-heng.html",
-            "markdown": "backup/16-Deeplx \u8d1f\u8f7d\u5747\u8861.md",
+            "htmlDir": "docs/post/Deeplx_-fu-zai-jun-heng.html",
+            "markdown": "backup/16-Deeplx_\u8d1f\u8f7d\u5747\u8861.md",
             "labels": [
                 "\u5de5\u5177"
             ],
             "postTitle": "Deeplx \u8d1f\u8f7d\u5747\u8861",
-            "postUrl": "post/Deeplx%20-fu-zai-jun-heng.html",
+            "postUrl": "post/Deeplx_-fu-zai-jun-heng.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/16",
             "commentNum": 0,
             "description": "http://47.236.84.103:3000/translate\r\n\r\n~~https://deeplx-lb-wheat.vercel.app/translate~~\r\n\r\n...",
@@ -347,13 +347,13 @@
         },
         "P17": {
             "number": "17",
-            "htmlDir": "docs/post/neovim gui-ke-hu-duan.html",
-            "markdown": "backup/17-neovim gui\u5ba2\u6237\u7aef.md",
+            "htmlDir": "docs/post/neovim_gui-ke-hu-duan.html",
+            "markdown": "backup/17-neovim_gui\u5ba2\u6237\u7aef.md",
             "labels": [
                 "\u5de5\u5177"
             ],
             "postTitle": "neovim gui\u5ba2\u6237\u7aef",
-            "postUrl": "post/neovim%20gui-ke-hu-duan.html",
+            "postUrl": "post/neovim_gui-ke-hu-duan.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/17",
             "commentNum": 0,
             "description": "## [goneovim](https://github.com/akiyosi/goneovim)\r\n\u5355\u6587\u4ef6 \u521a\u5b89\u88c5 \u6d4b\u8bd5\u770b\u770b\r\n\r\n...",
@@ -407,13 +407,13 @@
         },
         "P20": {
             "number": "20",
-            "htmlDir": "docs/post/Python telegram-xiao-xi-fa-song.html",
-            "markdown": "backup/20-Python telegram\u6d88\u606f\u53d1\u9001.md",
+            "htmlDir": "docs/post/Python_telegram-xiao-xi-fa-song.html",
+            "markdown": "backup/20-Python_telegram\u6d88\u606f\u53d1\u9001.md",
             "labels": [
                 "Python"
             ],
             "postTitle": "Python telegram\u6d88\u606f\u53d1\u9001",
-            "postUrl": "post/Python%20telegram-xiao-xi-fa-song.html",
+            "postUrl": "post/Python_telegram-xiao-xi-fa-song.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/20",
             "commentNum": 0,
             "description": "\r\n...",
