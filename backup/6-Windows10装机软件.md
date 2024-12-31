@@ -26,3 +26,4 @@
 | BleachBit 清理工具          | [官网](https://www.bleachbit.org/)                           |      |
 | SwitchHosts              | [GitHub](https://github.com/oldj/SwitchHosts/releases)         |      |
 | Mem Reduct          | [GitHub](https://github.com/henrypp/memreduct)                 |    内存释放, Q:偶尔选项置灰      |
+| NetMount | [GitHub](https://github.com/VirtualHotBar/NetMount) |统一管理和挂载云存储设施|
