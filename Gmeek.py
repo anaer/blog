@@ -245,8 +245,7 @@ class GMEEK():
 
     # 定义方法 规范标题, 替换文件名不支持的符号为_
     def normalize_title(self, title):
-        # Replace unsupported characters with underscore
-        return re.sub(r'[\\/*?:"<>|\s]', '_', title)
+        return re.sub(r'[\\/*?:"<>|,\s]', '_', title)
 
     def addOnePostJson(self,issue):
         if self.repo.owner.name != issue.user.name:
