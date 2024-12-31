@@ -15,15 +15,15 @@
 | LibreOffice              | [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/) |          |
 | Charles                  | [官网](https://www.charlesproxy.com/latest-release/download.do) |          |
 | Proxifier                | [官网](http://www.proxifier.com/)                            |          |
-| MultiCommander           | [官网](http://multicommander.com/downloads)                  |          |
 | WinSCP                   | [官网](https://winscp.net/eng/download.php)                  |          |
 | Cmder终端工具              | [GitHub](https://github.com/cmderdev/cmder/releases)           |          |
 | fastcopy快速拷贝工具         | [官网](https://fastcopy.jp/)                                 |          |
 | HeidiSQL开源数据库客户端     | [官网](https://www.heidisql.com/)                            |          |
-| Wise Memory Optimizer | [官网](https://www.wisecleaner.com.cn/wise-memory-optimizer.html)| Windows 内存整理和优化工具|
 |---|**未使用**|---|
 | Windows Memory Cleaner 2.8 | [GitHub](https://github.com/IgorMundstein/WinMemoryCleaner/)  |      |
 | BleachBit 清理工具          | [官网](https://www.bleachbit.org/)                           |      |
 | SwitchHosts              | [GitHub](https://github.com/oldj/SwitchHosts/releases)         |      |
 | Mem Reduct          | [GitHub](https://github.com/henrypp/memreduct)                 |    内存释放, Q:偶尔选项置灰      |
 | NetMount | [GitHub](https://github.com/VirtualHotBar/NetMount) |统一管理和挂载云存储设施|
+| MultiCommander           | [官网](http://multicommander.com/downloads)                  |          |
+| Wise Memory Optimizer | [官网](https://www.wisecleaner.com.cn/wise-memory-optimizer.html)| Windows 内存整理和优化工具|
