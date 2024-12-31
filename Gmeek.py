@@ -249,83 +249,84 @@ class GMEEK():
         return re.sub(r'[\\/*?:"<>|\s]', '_', title)
 
     def addOnePostJson(self,issue):
-        if len(issue.labels) >= 1:
-            if issue.labels[0].name in self.blogBase["singlePage"]:
-                listJsonName='singeListJson'
-                gen_Html = 'docs/{}.html'.format(issue.labels[0].name)
-            else:
-                listJsonName='postListJson'
-                gen_Html = self.post_dir+'{}.html'.format(Pinyin().get_pinyin(self.normalize_title(issue.title)))
+        if self.repo.owner.name != issue.user.name:
+            # 有需要可以设置白名单
+            print("非仓库主创建的issue, 不进行生成")
+            return
 
-            mdPath = "backup/"+str(issue.number)+"-"+self.normalize_title(issue.title)+".md"
-
-            labels = []
-            for label in issue.labels:
-                labels.append(label.name)
-
-            postNum="P"+str(issue.number)
-            self.blogBase[listJsonName][postNum]=json.loads('{}')
-            self.blogBase[listJsonName][postNum]["number"]=str(issue.number)
-            self.blogBase[listJsonName][postNum]["htmlDir"]=gen_Html
-            self.blogBase[listJsonName][postNum]["markdown"]=mdPath
-            self.blogBase[listJsonName][postNum]["labels"]=labels
-            self.blogBase[listJsonName][postNum]["postTitle"]=issue.title
-            self.blogBase[listJsonName][postNum]["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(Pinyin().get_pinyin(self.normalize_title(issue.title))))
-            self.blogBase[listJsonName][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
-            self.blogBase[listJsonName][postNum]["commentNum"]=issue.get_comments().totalCount
-            self.blogBase[listJsonName][postNum]["description"]=self.build_desc(issue.body)
-            self.blogBase[listJsonName][postNum]["updatedAt"]=int(time.mktime(issue.updated_at.timetuple()))
-
-            self.blogBase[listJsonName][postNum]["top"]=0
-            for event in issue.get_events():
-                if event.event=="pinned":
-                    self.blogBase[listJsonName][postNum]["top"]=1
-                    break
-                elif event.event=="unpinned":
-                    break
-
-            try:
-                postConfig=json.loads(issue.body.split("\r\n")[-1:][0].split("##")[1])
-                print("Has Custom JSON parameters")
-                print(postConfig)
-            except:
-                postConfig={}
-
-            if "timestamp" in postConfig:
-                self.blogBase[listJsonName][postNum]["createdAt"]=postConfig["timestamp"]
-            else:
-                self.blogBase[listJsonName][postNum]["createdAt"]=int(time.mktime(issue.created_at.timetuple()))
-            if "style" in postConfig:
-                self.blogBase[listJsonName][postNum]["style"]=str(postConfig["style"])
-            else:
-                self.blogBase[listJsonName][postNum]["style"]=""
-            if "script" in postConfig:
-                self.blogBase[listJsonName][postNum]["script"]=str(postConfig["script"])
-            else:
-                self.blogBase[listJsonName][postNum]["script"]=""
-
-            thisTime=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["createdAt"])
-            self.blogBase[listJsonName][postNum]["createdDate"]=thisTime.strftime("%Y-%m-%d")
-            self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.get_background_color(thisTime)
-
-            # 处理正文中的#数字链接
-            content = issue.body
-            regex = r"\s#(\d+)\s"
-            matches = re.findall(regex, content)
-            for match in matches:
-                print(f"Found number: {issue.title} {match}")
-                matchPostNum = "P"+str(match)
-                if matchPostNum in self.blogBase["postListJson"]:
-                    content = content.replace(" #"+match+" ", " ["+self.blogBase["postListJson"][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.blogBase["postListJson"][matchPostNum]["postUrl"]+") ")
-                    # print(content)
-
-            f = open(mdPath, 'w', encoding='UTF-8')
-            f.write(content)
-            f.close()
-            return listJsonName
-
+        if len(issue.labels) >= 1 and issue.labels[0].name in self.blogBase["singlePage"]:
+            listJsonName='singeListJson'
+            gen_Html = 'docs/{}.html'.format(issue.labels[0].name)
         else:
-            print("no issue lable, not create, name:%s"%(issue.title))
+            listJsonName='postListJson'
+            gen_Html = self.post_dir+'{}.html'.format(Pinyin().get_pinyin(self.normalize_title(issue.title)))
+
+        mdPath = "backup/"+str(issue.number)+"-"+self.normalize_title(issue.title)+".md"
+
+        labels = []
+        for label in issue.labels:
+            labels.append(label.name)
+
+        postNum="P"+str(issue.number)
+        self.blogBase[listJsonName][postNum]=json.loads('{}')
+        self.blogBase[listJsonName][postNum]["number"]=str(issue.number)
+        self.blogBase[listJsonName][postNum]["htmlDir"]=gen_Html
+        self.blogBase[listJsonName][postNum]["markdown"]=mdPath
+        self.blogBase[listJsonName][postNum]["labels"]=labels
+        self.blogBase[listJsonName][postNum]["postTitle"]=issue.title
+        self.blogBase[listJsonName][postNum]["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(Pinyin().get_pinyin(self.normalize_title(issue.title))))
+        self.blogBase[listJsonName][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
+        self.blogBase[listJsonName][postNum]["commentNum"]=issue.get_comments().totalCount
+        self.blogBase[listJsonName][postNum]["description"]=self.build_desc(issue.body)
+        self.blogBase[listJsonName][postNum]["updatedAt"]=int(time.mktime(issue.updated_at.timetuple()))
+
+        self.blogBase[listJsonName][postNum]["top"]=0
+        for event in issue.get_events():
+            if event.event=="pinned":
+                self.blogBase[listJsonName][postNum]["top"]=1
+                break
+            elif event.event=="unpinned":
+                break
+
+        try:
+            postConfig=json.loads(issue.body.split("\r\n")[-1:][0].split("##")[1])
+            print("Has Custom JSON parameters")
+            print(postConfig)
+        except:
+            postConfig={}
+
+        if "timestamp" in postConfig:
+            self.blogBase[listJsonName][postNum]["createdAt"]=postConfig["timestamp"]
+        else:
+            self.blogBase[listJsonName][postNum]["createdAt"]=int(time.mktime(issue.created_at.timetuple()))
+        if "style" in postConfig:
+            self.blogBase[listJsonName][postNum]["style"]=str(postConfig["style"])
+        else:
+            self.blogBase[listJsonName][postNum]["style"]=""
+        if "script" in postConfig:
+            self.blogBase[listJsonName][postNum]["script"]=str(postConfig["script"])
+        else:
+            self.blogBase[listJsonName][postNum]["script"]=""
+
+        thisTime=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["createdAt"])
+        self.blogBase[listJsonName][postNum]["createdDate"]=thisTime.strftime("%Y-%m-%d")
+        self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.get_background_color(thisTime)
+
+        # 处理正文中的#数字链接
+        content = issue.body
+        regex = r"\s#(\d+)\s"
+        matches = re.findall(regex, content)
+        for match in matches:
+            print(f"Found number: {issue.title} {match}")
+            matchPostNum = "P"+str(match)
+            if matchPostNum in self.blogBase["postListJson"]:
+                content = content.replace(" #"+match+" ", " ["+self.blogBase["postListJson"][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.blogBase["postListJson"][matchPostNum]["postUrl"]+") ")
+                # print(content)
+
+        f = open(mdPath, 'w', encoding='UTF-8')
+        f.write(content)
+        f.close()
+        return listJsonName
 
     def runAll(self):
         print("====== start create static html ======")
