@@ -81,6 +81,9 @@ class GMEEK():
         else:
             self.i18n=i18n
 
+        self.blogBase["labelColorDict"]=self.labelColorDict
+        self.blogBase["issuesUrl"]=self.repo.issues_url
+
     def get_repo(self,user:Github, repo:str):
         return user.get_repo(repo)
 
@@ -125,7 +128,7 @@ class GMEEK():
         print("create postPage title=%s file=%s " % (issue["postTitle"],issue["htmlDir"]))
 
     def createPlistHtml(self):
-        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True)) #按更新时间降序
+        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["createdAt"]),reverse=True)) #按创建时间降序
 
         postNum=len(self.blogBase["postListJson"])
         pageFlag=0
@@ -218,7 +221,7 @@ class GMEEK():
 
         return content
 
-    def get_background_color(self, createdAt):
+    def get_background_color(self, atime):
         # 当前时间
         start_date = datetime.now() - timedelta(days=365)
         startSite = self.blogBase["startSite"]
@@ -227,7 +230,7 @@ class GMEEK():
 
         now = datetime.now()
         # 计算时间间隔（以秒为单位）
-        delta = (now - createdAt).total_seconds()
+        delta = (now - atime).total_seconds()
         # 定义最大时间间隔
         max_interval = (now - start_date).total_seconds()
         # 确保时间间隔不超过最大值
@@ -307,9 +310,10 @@ class GMEEK():
         else:
             self.blogBase[listJsonName][postNum]["script"]=""
 
-        thisTime=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["createdAt"])
-        self.blogBase[listJsonName][postNum]["createdDate"]=thisTime.strftime("%Y-%m-%d")
-        self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.get_background_color(thisTime)
+        createdAt=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["createdAt"])
+        updatedAt=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["updatedAt"])
+        self.blogBase[listJsonName][postNum]["createdDate"]=createdAt.strftime("%Y-%m-%d")
+        self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.get_background_color(updatedAt)
 
         # 处理正文中的#数字链接
         content = issue.body
@@ -329,7 +333,6 @@ class GMEEK():
 
     def runAll(self):
         print("====== start create static html ======")
-        self.blogBase["labelColorDict"]=self.labelColorDict
         self.cleanFile()
 
         issues=self.repo.get_issues(state="all")
@@ -349,7 +352,6 @@ class GMEEK():
 
     def runOne(self,number_str):
         print("====== start create static html ======")
-        self.blogBase["labelColorDict"]=self.labelColorDict
         self.checkDir()
         issue=self.repo.get_issue(int(number_str))
         listJsonName=self.addOnePostJson(issue)
