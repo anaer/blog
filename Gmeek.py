@@ -230,17 +230,18 @@ class GMEEK():
 
         now = datetime.now()
         # 计算时间间隔（以秒为单位）
-        delta = (updatedAt - createdAt).total_seconds()
-        # 定义最大时间间隔
         max_interval = (now - start_date).total_seconds()
-        # 确保时间间隔不超过最大值
-        delta = min(delta, max_interval)
+        cdelta = (now - createdAt).total_seconds()
+        udelta = (now - updatedAt).total_seconds()
+
         # 计算颜色比例（0 到 1 之间）
-        ratio = delta / max_interval
+        cratio = cdelta / max_interval
+        uratio = udelta / max_interval
+
         # 计算 RGB 颜色值 (0 到 255 之间) 不取最大的255 防止过于刺眼
-        red = int(200 * ratio)
-        green = int(200 * (1 - ratio))
-        blue = 0
+        red = int(200 * cratio)
+        green = int(200 * (1 - cratio))
+        blue = int(200 * uratio)
 
         # 转换为十六进制颜色代码
         color_code = f'#{red:02x}{green:02x}{blue:02x}'
