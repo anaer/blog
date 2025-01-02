@@ -82,7 +82,7 @@ class GMEEK():
             self.i18n=i18n
 
         self.blogBase["labelColorDict"]=self.labelColorDict
-        self.blogBase["issuesUrl"]=self.repo.issues_url
+        self.blogBase["issuesUrl"]="https://github.com/"+self.repo.full_name+"/issues"
 
     def get_repo(self,user:Github, repo:str):
         return user.get_repo(repo)
@@ -221,7 +221,7 @@ class GMEEK():
 
         return content
 
-    def get_background_color(self, atime):
+    def get_background_color(self, createdAt, updatedAt):
         # 当前时间
         start_date = datetime.now() - timedelta(days=365)
         startSite = self.blogBase["startSite"]
@@ -230,7 +230,7 @@ class GMEEK():
 
         now = datetime.now()
         # 计算时间间隔（以秒为单位）
-        delta = (now - atime).total_seconds()
+        delta = (updatedAt - createdAt).total_seconds()
         # 定义最大时间间隔
         max_interval = (now - start_date).total_seconds()
         # 确保时间间隔不超过最大值
@@ -313,7 +313,7 @@ class GMEEK():
         createdAt=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["createdAt"])
         updatedAt=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["updatedAt"])
         self.blogBase[listJsonName][postNum]["createdDate"]=createdAt.strftime("%Y-%m-%d")
-        self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.get_background_color(updatedAt)
+        self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.get_background_color(createdAt, updatedAt)
 
         # 处理正文中的#数字链接
         content = issue.body
