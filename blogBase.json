@@ -404,7 +404,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#08bf1d"
+            "dateLabelColor": "#08bf1e"
         },
         "P20": {
             "number": "20",
@@ -526,7 +526,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-31",
-            "dateLabelColor": "#01c6bd"
+            "dateLabelColor": "#01c6be"
         },
         "P26": {
             "number": "26",
@@ -566,7 +566,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#00c706"
+            "dateLabelColor": "#00c735"
         },
         "P28": {
             "number": "28",
@@ -586,7 +586,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#00c740"
+            "dateLabelColor": "#00c764"
         },
         "P29": {
             "number": "29",
@@ -606,7 +606,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#00c7c6"
+            "dateLabelColor": "#00c7c7"
         }
     },
     "singeListJson": {},
