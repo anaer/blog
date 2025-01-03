@@ -111,6 +111,7 @@ class GMEEK():
 
         postBase=self.blogBase.copy()
         postBase["postTitle"]=issue["postTitle"]
+        postBase["labels"]=issue["labels"]
         postBase["postBody"]=post_body
         postBase["commentNum"]=issue["commentNum"]
         postBase["style"]=issue["style"]
