@@ -1,3 +1,5 @@
+# [Aidoku](https://github.com/Aidoku/Aidoku)
+
 在设置-来源列表中添加
 
 ## [suiyuran/aidoku-zh-sources](https://github.com/suiyuran/aidoku-zh-sources)
