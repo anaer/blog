@@ -307,17 +307,17 @@
         },
         "P15": {
             "number": "15",
-            "htmlDir": "docs/post/aidoku-yuan.html",
-            "markdown": "backup/15-aidoku\u6e90.md",
+            "htmlDir": "docs/post/aidoku-man-hua-yuan.html",
+            "markdown": "backup/15-aidoku\u6f2b\u753b\u6e90.md",
             "labels": [
                 "iPhone"
             ],
-            "postTitle": "aidoku\u6e90",
-            "postUrl": "post/aidoku-yuan.html",
+            "postTitle": "aidoku\u6f2b\u753b\u6e90",
+            "postUrl": "post/aidoku-man-hua-yuan.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/15",
             "commentNum": 0,
             "description": "# [Aidoku](https://github.com/Aidoku/Aidoku)\r\n\r\n\u5728\u8bbe\u7f6e-\u6765\u6e90\u5217\u8868\u4e2d\u6dfb\u52a0\r\n\r\n...",
-            "updatedAt": 1735894060,
+            "updatedAt": 1735894308,
             "top": 0,
             "createdAt": 1721483041,
             "style": "",
