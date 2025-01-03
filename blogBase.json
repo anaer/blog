@@ -566,7 +566,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#00c747"
+            "dateLabelColor": "#00c758"
         },
         "P28": {
             "number": "28",
@@ -586,7 +586,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#00c71c"
+            "dateLabelColor": "#00c736"
         },
         "P29": {
             "number": "29",
@@ -606,7 +606,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#00c7c5"
+            "dateLabelColor": "#00c7c6"
         }
     },
     "singeListJson": {},
