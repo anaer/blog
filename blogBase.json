@@ -565,6 +565,26 @@
             "script": "",
             "createdDate": "2025-01-03",
             "dateLabelColor": "#00c7c8"
+        },
+        "P28": {
+            "number": "28",
+            "htmlDir": "docs/post/Git-pei-zhi-shuo-ming.html",
+            "markdown": "backup/28-Git\u914d\u7f6e\u8bf4\u660e.md",
+            "labels": [
+                "Git"
+            ],
+            "postTitle": "Git\u914d\u7f6e\u8bf4\u660e",
+            "postUrl": "post/Git-pei-zhi-shuo-ming.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/28",
+            "commentNum": 0,
+            "description": "## .git/config\r\n\r\n```conf\r\n[core]\r\n\t# repositoryformatversion \u6307\u5b9a Git \u4ed3\u5e93\u7684\u7248\u672c\uff0c\u9ed8\u8ba4\u503c\u4e3a 0\uff0c\u901a\u5e38\u4e0d\u9700\u8981\u4fee\u6539\r\n...",
+            "updatedAt": 1735873537,
+            "top": 0,
+            "createdAt": 1735873536,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-03",
+            "dateLabelColor": "#00c7c0"
         }
     },
     "singeListJson": {},
