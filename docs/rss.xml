@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 03 Jan 2025 03:06:01 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 03 Jan 2025 03:06:01 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>Git配置说明</title><link>https://anaer.github.io/blog/post/Git-pei-zhi-shuo-ming.html</link><description>## .git/config&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 03 Jan 2025 06:19:27 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 03 Jan 2025 06:19:27 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>whistle抓包工具</title><link>https://anaer.github.io/blog/post/whistle-zhua-bao-gong-ju.html</link><description>## [whistle客户端](https://github.com/avwo/whistle-client)&#13;
+&#13;
+支持Mac和Windows, Linux可以使用命令行版本&#13;
+&#13;
+## 插件&#13;
+...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/whistle-zhua-bao-gong-ju.html</guid><pubDate>Fri, 03 Jan 2025 06:19:08 +0000</pubDate></item><item><title>Git配置说明</title><link>https://anaer.github.io/blog/post/Git-pei-zhi-shuo-ming.html</link><description>## .git/config&#13;
 &#13;
 ```conf&#13;
 [core]&#13;

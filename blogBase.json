@@ -585,6 +585,26 @@
             "script": "",
             "createdDate": "2025-01-03",
             "dateLabelColor": "#00c7c0"
+        },
+        "P29": {
+            "number": "29",
+            "htmlDir": "docs/post/whistle-zhua-bao-gong-ju.html",
+            "markdown": "backup/29-whistle\u6293\u5305\u5de5\u5177.md",
+            "labels": [
+                "\u5de5\u5177"
+            ],
+            "postTitle": "whistle\u6293\u5305\u5de5\u5177",
+            "postUrl": "post/whistle-zhua-bao-gong-ju.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/29",
+            "commentNum": 0,
+            "description": "## [whistle\u5ba2\u6237\u7aef](https://github.com/avwo/whistle-client)\r\n\r\n\u652f\u6301Mac\u548cWindows, Linux\u53ef\u4ee5\u4f7f\u7528\u547d\u4ee4\u884c\u7248\u672c\r\n\r\n## \u63d2\u4ef6\r\n...",
+            "updatedAt": 1735885148,
+            "top": 0,
+            "createdAt": 1735885148,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-03",
+            "dateLabelColor": "#00c7c8"
         }
     },
     "singeListJson": {},
