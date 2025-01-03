@@ -1,3 +1,7 @@
+## [Reduce Memory v1.7](https://www.sordum.org/9197/reduce-memory-v1-7/)
+
+![image](https://github.com/user-attachments/assets/bedef64e-8d79-4242-a8e8-4aa8c7b47217)
+
 ## [Windows Memory Cleaner 2.8](https://github.com/IgorMundstein/WinMemoryCleaner/)
 
 ## [Mem Reduct](https://github.com/henrypp/memreduct)
