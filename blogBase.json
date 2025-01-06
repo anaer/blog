@@ -607,6 +607,26 @@
             "script": "",
             "createdDate": "2025-01-03",
             "dateLabelColor": "#00c7c7"
+        },
+        "P30": {
+            "number": "30",
+            "htmlDir": "docs/post/Python-du-qu-Markdown-wen-jian-de-yuan-shu-ju.html",
+            "markdown": "backup/30-Python\u8bfb\u53d6Markdown\u6587\u4ef6\u7684\u5143\u6570\u636e.md",
+            "labels": [
+                "Python"
+            ],
+            "postTitle": "Python\u8bfb\u53d6Markdown\u6587\u4ef6\u7684\u5143\u6570\u636e",
+            "postUrl": "post/Python-du-qu-Markdown-wen-jian-de-yuan-shu-ju.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/30",
+            "commentNum": 0,
+            "description": "## \u4f7f\u7528PyYAML\r\n\r\n```python\r\n# pip install pyyaml\r\nimport yaml\r\n\r\ndef extract_metadata(file_path):\r\n...",
+            "updatedAt": 1736143147,
+            "top": 0,
+            "createdAt": 1736143147,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-06",
+            "dateLabelColor": "#00c7c8"
         }
     },
     "singeListJson": {},
