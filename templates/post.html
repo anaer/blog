@@ -52,18 +52,18 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 
 <div class="listLabels">
     {% for label in blogBase['labels'] -%}
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:{{ blogBase['labelColorDict'][label] }}">
-            <object><a style="color:#fff;" href="{{ blogBase['homeUrl'] }}/tag.html#{{ label }}">{{ label }}</a></object>
+        <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:{{ blogBase['labelColorDict'][label] }}">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="{{ blogBase['homeUrl'] }}/tag.html#{{ label }}">{{ label }}</a></object>
         </span>
     {%- endfor %}
 </div>
 <br>
 
-<span class="post-publish">发布于 <time>{{ blogBase['createdAt'] }}</time></span>
+<span class="post-publish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">{{ blogBase['createdAt'] }}</time></span>
 {% if blogBase['createdAt'] != blogBase['updatedAt'] %}
-<span class="post-update">更新于 <time>{{ blogBase['updatedAt'] }}</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">{{ blogBase['updatedAt'] }}</time></span>
 {% endif %}
-<br>
+<p>
 
 <div class="markdown-body" id="postBody">
 {{ blogBase['postBody'] }}
