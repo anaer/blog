@@ -226,42 +226,13 @@ class GMEEK():
 
     def get_background_color(self, createdAt, updatedAt):
         now = datetime.now()
-        # 当前时间
-        start_date = datetime.now() - timedelta(days=365)
-        one_year_delta = (now - start_date).total_seconds()
 
-        startSite = self.blogBase["startSite"]
-        if startSite:
-            start_date = datetime.strptime(startSite, "%Y-%m-%d")
+        red = (now -createdAt).days % 255
+        green = (now - updatedAt).days % 255
+        blue = (updatedAt - createdAt).days % 255
 
-        # 最大时间间隔
-        max_delta = (now - start_date).total_seconds()
-
-        # 创建时间时间间隔
-        cdelta = (now - createdAt).total_seconds()
-        # 更新时间时间间隔
-        udelta = (now - updatedAt).total_seconds()
-
-        if createdAt == updatedAt:
-            # 未修改过
-            ratio1 = cdelta / max_delta
-            ratio2 = 1
-        elif udelta < one_year_delta:
-            # 一年内更新
-            ratio1 = udelta / max_delta
-            ratio2 = udelta / cdelta
-        else:
-            # 一年前更新
-            ratio1 = cdelta / max_delta
-            ratio2 = udelta / cdelta
-
-        red = int(200 * ratio1)
-        green = int(200 * (1-ratio1))
-        blue = int(200 * (1-ratio2))
-
-        # 转换为十六进制颜色代码
-        color_code = f'#{red:02x}{green:02x}{blue:02x}'
-        return color_code
+        # 返回十六进制颜色代码
+        return f'#{red:02x}{green:02x}{blue:02x}'
 
     # 定义方法 规范标题, 替换文件名不支持的符号为_
     def normalize_title(self, title):
