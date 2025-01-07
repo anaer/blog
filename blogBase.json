@@ -36,7 +36,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-09-08",
-            "dateLabelColor": "#fef100"
+            "dateLabelColor": "#f4e800"
         },
         "P2": {
             "number": "2",
@@ -56,7 +56,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-09-28",
-            "dateLabelColor": "#f4f10a"
+            "dateLabelColor": "#eae80a"
         },
         "P3": {
             "number": "3",
@@ -76,7 +76,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-16",
-            "dateLabelColor": "#ebf113"
+            "dateLabelColor": "#e1e813"
         },
         "P4": {
             "number": "4",
@@ -97,7 +97,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-19",
-            "dateLabelColor": "#e9f215"
+            "dateLabelColor": "#e0e814"
         },
         "P5": {
             "number": "5",
@@ -117,7 +117,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-26",
-            "dateLabelColor": "#e5f119"
+            "dateLabelColor": "#dce818"
         },
         "P6": {
             "number": "6",
@@ -138,7 +138,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-30",
-            "dateLabelColor": "#e3fe1b"
+            "dateLabelColor": "#daf41a"
         },
         "P7": {
             "number": "7",
@@ -158,7 +158,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-01",
-            "dateLabelColor": "#e2f11c"
+            "dateLabelColor": "#d9e81b"
         },
         "P8": {
             "number": "8",
@@ -178,7 +178,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-01",
-            "dateLabelColor": "#e2f11c"
+            "dateLabelColor": "#d9e81b"
         },
         "P9": {
             "number": "9",
@@ -199,7 +199,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-03",
-            "dateLabelColor": "#e1f81d"
+            "dateLabelColor": "#d8ee1c"
         },
         "P10": {
             "number": "10",
@@ -220,7 +220,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-06",
-            "dateLabelColor": "#dff11f"
+            "dateLabelColor": "#d7e81d"
         },
         "P11": {
             "number": "11",
@@ -240,7 +240,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#def120"
+            "dateLabelColor": "#d6e81e"
         },
         "P12": {
             "number": "12",
@@ -261,7 +261,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#def120"
+            "dateLabelColor": "#d6e81e"
         },
         "P13": {
             "number": "13",
@@ -282,7 +282,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-12-07",
-            "dateLabelColor": "#cff22f"
+            "dateLabelColor": "#c7e82d"
         },
         "P14": {
             "number": "14",
@@ -303,7 +303,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-05-23",
-            "dateLabelColor": "#77fd87"
+            "dateLabelColor": "#73f381"
         },
         "P15": {
             "number": "15",
@@ -323,7 +323,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-07-20",
-            "dateLabelColor": "#59fda5"
+            "dateLabelColor": "#55f39f"
         },
         "P16": {
             "number": "16",
@@ -343,7 +343,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-01",
-            "dateLabelColor": "#53f8ab"
+            "dateLabelColor": "#4fefa5"
         },
         "P17": {
             "number": "17",
@@ -363,7 +363,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-06",
-            "dateLabelColor": "#50f1ae"
+            "dateLabelColor": "#4de8a7"
         },
         "P18": {
             "number": "18",
@@ -383,7 +383,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-21",
-            "dateLabelColor": "#48b6b6"
+            "dateLabelColor": "#45afaf"
         },
         "P19": {
             "number": "19",
@@ -404,7 +404,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#0cfbf2"
+            "dateLabelColor": "#0cf1e8"
         },
         "P20": {
             "number": "20",
@@ -424,7 +424,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#0cf2f2"
+            "dateLabelColor": "#0ce8e8"
         },
         "P21": {
             "number": "21",
@@ -445,7 +445,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-24",
-            "dateLabelColor": "#07f7f7"
+            "dateLabelColor": "#06eeee"
         },
         "P22": {
             "number": "22",
@@ -465,7 +465,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-25",
-            "dateLabelColor": "#06f8f8"
+            "dateLabelColor": "#06eeee"
         },
         "P23": {
             "number": "23",
@@ -486,7 +486,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-25",
-            "dateLabelColor": "#06f8f8"
+            "dateLabelColor": "#06eeee"
         },
         "P24": {
             "number": "24",
@@ -506,7 +506,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-26",
-            "dateLabelColor": "#06fdf8"
+            "dateLabelColor": "#05f3ef"
         },
         "P25": {
             "number": "25",
@@ -526,7 +526,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-31",
-            "dateLabelColor": "#03fbfb"
+            "dateLabelColor": "#03f1f1"
         },
         "P26": {
             "number": "26",
@@ -546,7 +546,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-02",
-            "dateLabelColor": "#02fcfc"
+            "dateLabelColor": "#02f2f2"
         },
         "P27": {
             "number": "27",
@@ -566,7 +566,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#02fdfc"
+            "dateLabelColor": "#02f3f2"
         },
         "P28": {
             "number": "28",
@@ -586,7 +586,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#02fcfc"
+            "dateLabelColor": "#02f3f2"
         },
         "P29": {
             "number": "29",
@@ -606,7 +606,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#02fcfc"
+            "dateLabelColor": "#01f3f3"
         },
         "P30": {
             "number": "30",
@@ -626,7 +626,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-06",
-            "dateLabelColor": "#00fefe"
+            "dateLabelColor": "#00f4f4"
         }
     },
     "singeListJson": {},
