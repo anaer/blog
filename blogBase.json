@@ -97,7 +97,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-19",
-            "dateLabelColor": "#bf18a6"
+            "dateLabelColor": "#bf19a6"
         },
         "P5": {
             "number": "5",
@@ -138,7 +138,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-30",
-            "dateLabelColor": "#b300b3"
+            "dateLabelColor": "#b400b3"
         },
         "P7": {
             "number": "7",
@@ -199,7 +199,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-03",
-            "dateLabelColor": "#b00ca3"
+            "dateLabelColor": "#b00da3"
         },
         "P10": {
             "number": "10",
@@ -240,7 +240,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#aa1991"
+            "dateLabelColor": "#ab1991"
         },
         "P12": {
             "number": "12",
@@ -261,7 +261,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#aa1991"
+            "dateLabelColor": "#ab1991"
         },
         "P13": {
             "number": "13",
@@ -282,7 +282,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-12-07",
-            "dateLabelColor": "#8e1875"
+            "dateLabelColor": "#8e1975"
         },
         "P14": {
             "number": "14",
@@ -343,7 +343,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-01",
-            "dateLabelColor": "#9f0b93"
+            "dateLabelColor": "#9f0c93"
         },
         "P17": {
             "number": "17",
@@ -424,7 +424,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#181800"
+            "dateLabelColor": "#191900"
         },
         "P21": {
             "number": "21",
@@ -566,7 +566,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#040300"
+            "dateLabelColor": "#040400"
         },
         "P28": {
             "number": "28",
