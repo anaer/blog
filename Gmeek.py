@@ -242,21 +242,18 @@ class GMEEK():
         # 更新时间时间间隔
         udelta = (now - updatedAt).total_seconds()
 
-        red = 0
-        green = 0
-        blue = 0
         if createdAt == updatedAt:
             # 未修改过
             ratio1 = cdelta / max_delta
             ratio2 = 1
         elif udelta < one_year_delta:
             # 一年内更新
-            ratio1 = cdelta / max_delta
-            ratio2 = udelta / one_year_delta
+            ratio1 = udelta / max_delta
+            ratio2 = udelta / cdelta
         else:
             # 一年前更新
             ratio1 = cdelta / max_delta
-            ratio2 = udelta/cdelta
+            ratio2 = udelta / cdelta
 
         red = int(200 * ratio1)
         green = int(200 * (1-ratio1))
