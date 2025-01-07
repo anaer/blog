@@ -223,26 +223,30 @@ class GMEEK():
         return content
 
     def get_background_color(self, createdAt, updatedAt):
-        # 当前时间
-        start_date = datetime.now() - timedelta(days=365)
-        startSite = self.blogBase["startSite"]
-        if startSite:
-            start_date = datetime.strptime(startSite, "%Y-%m-%d")
-
         now = datetime.now()
+
         # 计算时间间隔（以秒为单位）
-        max_interval = (now - start_date).total_seconds()
         cdelta = (now - createdAt).total_seconds()
         udelta = (now - updatedAt).total_seconds()
 
-        # 计算颜色比例（0 到 1 之间）
-        cratio = cdelta / max_interval
-        uratio = udelta / max_interval
+        # 检查时间差是否为负数或零
+        if cdelta <= 0 or udelta < 0:
+            return "#00ff00"  # 默认绿色
 
-        # 计算 RGB 颜色值 (0 到 255 之间) 不取最大的255 防止过于刺眼
-        red = int(245 * cratio)
-        blue = int(245 * (1 - cratio))
-        green = int(245 * (1 - uratio))
+        # 计算颜色比例（限制在 0 到 1 之间）
+        ratio = min(max(udelta / cdelta, 0), 1)
+
+        # 分阶段计算 RGB 值
+        if ratio < 0.5:
+            # 阶段 1：绿色到黄色
+            red = int(510 * ratio)  # 510 = 255 / 0.5
+            green = 255
+            blue = 0
+        else:
+            # 阶段 2：黄色到红色
+            red = 255
+            green = int(510 * (1 - ratio))  # 510 = 255 / 0.5
+            blue = 0
 
         # 转换为十六进制颜色代码
         color_code = f'#{red:02x}{green:02x}{blue:02x}'
