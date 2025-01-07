@@ -229,7 +229,7 @@ class GMEEK():
 
         # 计算时间间隔（以秒为单位）
         cdelta = (now - createdAt).total_seconds()
-        udelta = (now - updatedAt).total_seconds()
+        udelta = (updatedAt - createdAt).total_seconds()
 
         # 检查时间差是否为负数或零
         if cdelta <= 0 or udelta < 0:
@@ -238,17 +238,9 @@ class GMEEK():
         # 计算颜色比例（限制在 0 到 1 之间）
         ratio = min(max(udelta / cdelta, 0), 1)
 
-        # 分阶段计算 RGB 值
-        if ratio < 0.5:
-            # 阶段 1：绿色到黄色
-            red = int(510 * ratio)  # 510 = 255 / 0.5
-            green = 255
-            blue = 0
-        else:
-            # 阶段 2：黄色到红色
-            red = 255
-            green = int(510 * (1 - ratio))  # 510 = 255 / 0.5
-            blue = 0
+        red = int(200 * ratio)
+        green = int(200 * (1 - ratio))
+        blue = int(200 * ratio * (1-ratio))
 
         # 转换为十六进制颜色代码
         color_code = f'#{red:02x}{green:02x}{blue:02x}'
