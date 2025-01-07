@@ -334,8 +334,11 @@ class GMEEK():
 
         createdAt=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["createdAt"])
         updatedAt=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["updatedAt"])
+        dateLabelColor = self.get_background_color(createdAt, updatedAt)
         self.blogBase[listJsonName][postNum]["createdDate"]=createdAt.strftime("%Y-%m-%d")
-        self.blogBase[listJsonName][postNum]["dateLabelColor"]=self.get_background_color(createdAt, updatedAt)
+        self.blogBase[listJsonName][postNum]["dateLabelColor"]= dateLabelColor
+
+        print(f"日期标签颜色: {issue.title} {createdAt} {updatedAt} {dateLabelColor}")
 
         # 处理正文中的#数字链接
         content = issue.body
