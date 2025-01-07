@@ -240,9 +240,9 @@ class GMEEK():
         uratio = udelta / max_interval
 
         # 计算 RGB 颜色值 (0 到 255 之间) 不取最大的255 防止过于刺眼
-        red = int(255 * cratio)
-        blue = int(255 * (1 - cratio))
-        green = int(255 * (1 - uratio))
+        red = int(245 * cratio)
+        blue = int(245 * (1 - cratio))
+        green = int(245 * (1 - uratio))
 
         # 转换为十六进制颜色代码
         color_code = f'#{red:02x}{green:02x}{blue:02x}'
