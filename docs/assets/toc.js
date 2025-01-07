@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .toc-end{
         font-weight: bold;
         text-align: center;
-        visibility: hidden;
+        visibility: visible;
     }
     .toc a {
         display: block;
@@ -78,18 +78,18 @@ document.addEventListener("DOMContentLoaded", function() {
         link.style.paddingLeft = `${(parseInt(heading.tagName.charAt(1)) - 1) * 10}px`;
         tocElement.appendChild(link);
     });
-    tocElement.insertAdjacentHTML('beforeend', '<a class="toc-end" onclick="window.scrollTo({top:0,behavior: \'smooth\'});">Top</a>');
+    tocElement.insertAdjacentHTML('beforeend', '<a class="toc-end" onclick="window.scrollTo({top:0,behavior: \'smooth\'});">↑ Top ↑</a>');
 
     const style = document.createElement('style');
     style.textContent = css;
     document.head.appendChild(style);
 
-    window.onscroll = function() {
-        const backToTopButton = document.querySelector('.toc-end');
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            backToTopButton.style="visibility: visible;"
-        } else {
-            backToTopButton.style="visibility: hidden;"
-        }
-    };
+    // window.onscroll = function() {
+    //     const backToTopButton = document.querySelector('.toc-end');
+    //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    //         backToTopButton.style="visibility: visible;"
+    //     } else {
+    //         backToTopButton.style="visibility: hidden;"
+    //     }
+    // };
 });
