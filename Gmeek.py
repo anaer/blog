@@ -248,21 +248,19 @@ class GMEEK():
         if createdAt == updatedAt:
             # 未修改过
             ratio1 = cdelta / max_delta
-            ratio2 = udelta/cdelta
-            red = int(200 * ratio1)
-            green = int(200 * (1-ratio2))
+            ratio2 = 1
         elif udelta < one_year_delta:
             # 一年内更新
             ratio1 = cdelta / max_delta
             ratio2 = udelta / one_year_delta
-            red = int(100 * ratio1)
-            green = int(200 * (1-ratio2))
         else:
             # 一年前更新
             ratio1 = cdelta / max_delta
             ratio2 = udelta/cdelta
-            red = int(200*ratio1)
-            blue = int(200*(ratio2))
+
+        red = int(200 * ratio1)
+        green = int(200 * (1-ratio1))
+        blue = int(200 * (1-ratio2))
 
         # 转换为十六进制颜色代码
         color_code = f'#{red:02x}{green:02x}{blue:02x}'
