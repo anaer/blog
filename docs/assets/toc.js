@@ -92,12 +92,20 @@ document.addEventListener("DOMContentLoaded", function() {
     // 高亮显示当前所在位置
     window.addEventListener('scroll', function () {
         let currentHeading = null;
-        headings.forEach(heading => {
-            const rect = heading.getBoundingClientRect();
-            if (rect.top <= 0) {
-                currentHeading = heading;
-            }
-        });
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+
+        // 检查是否到达页面底部
+        if (scrollPosition >= documentHeight) {
+            currentHeading = headings[headings.length - 1];
+        } else {
+            headings.forEach(heading => {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 0) {
+                    currentHeading = heading;
+                }
+            });
+        }
 
         document.querySelectorAll('.toc-link').forEach(link => {
             link.classList.remove('active');
