@@ -49,11 +49,6 @@ var visitorCountModule, eventHandler;
                 // 如果 skipPage 为 true，跳过 page_pv
                 if (skipPage && id === "page_pv") return;
 
-                const busuanziElement = document.getElementById("busuanzi_value_" + id);
-                if (busuanziElement) {
-                    busuanziElement.textContent = data[id] || "0";
-                }
-
                 const vercountElement = document.getElementById("vercount_value_" + id);
                 if (vercountElement) {
                     vercountElement.textContent = data[id] || "0";
@@ -64,11 +59,6 @@ var visitorCountModule, eventHandler;
         // 隐藏所有计数器
         hideAll: function () {
             this.counterIds.forEach(id => {
-                const busuanziContainer = document.getElementById("busuanzi_container_" + id);
-                if (busuanziContainer) {
-                    busuanziContainer.style.display = "none";
-                }
-
                 const vercountContainer = document.getElementById("vercount_container_" + id);
                 if (vercountContainer) {
                     vercountContainer.style.display = "none";
@@ -77,16 +67,8 @@ var visitorCountModule, eventHandler;
         },
 
         // 显示所有计数器
-        showAll: function (skipPage = false) {
+        showAll: function () {
             this.counterIds.forEach(id => {
-                // 如果 skipPage 为 true，跳过 page_pv
-                if (skipPage && id === "page_pv") return;
-
-                const busuanziContainer = document.getElementById("busuanzi_container_" + id);
-                if (busuanziContainer) {
-                    busuanziContainer.style.display = "inline";
-                }
-
                 const vercountContainer = document.getElementById("vercount_container_" + id);
                 if (vercountContainer) {
                     vercountContainer.style.display = "inline";
@@ -101,7 +83,7 @@ var visitorCountModule, eventHandler;
                 try {
                     const data = JSON.parse(cachedData);
                     this.updateText(data, true); // 跳过 page_pv
-                    this.showAll(true);
+                    this.showAll();
                 } catch (error) {
                     console.error("Error parsing cached data:", error);
                 }

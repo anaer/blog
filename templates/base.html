@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{{ blogBase['homeUrl'] }}/assets/Primer@21.0.7/primer.css" rel="stylesheet" />
+    {%- if blogBase['faviconUrl'] -%}
     <link rel="icon" href="{{ blogBase['faviconUrl'] }}">
+    {%- endif -%}
     <script src="{{ blogBase['homeUrl'] }}/assets/vercount.one.js"></script>
     <!-- <script src="https://vercount.one/js"></script> -->
     <script>
