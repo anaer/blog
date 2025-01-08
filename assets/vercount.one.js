@@ -30,7 +30,7 @@ var visitorCountModule, eventHandler;
                 onReadyCallback(() => {
                     callback(data);
                     localStorage.setItem("visitorCountData", JSON.stringify(data));
-                    eventHandler.showAll();
+                    // eventHandler.showAll();
                 });
             } catch (error) {
                 console.error("Error fetching visitor count:", error);
@@ -52,6 +52,11 @@ var visitorCountModule, eventHandler;
                 const vercountElement = document.getElementById("vercount_value_" + id);
                 if (vercountElement) {
                     vercountElement.textContent = data[id] || "0";
+                }
+
+                const vercountContainer = document.getElementById("vercount_container_" + id);
+                if (vercountContainer) {
+                    vercountContainer.style.display = "inline";
                 }
             });
         },
@@ -83,7 +88,6 @@ var visitorCountModule, eventHandler;
                 try {
                     const data = JSON.parse(cachedData);
                     this.updateText(data, true); // 跳过 page_pv
-                    this.showAll();
                 } catch (error) {
                     console.error("Error parsing cached data:", error);
                 }
@@ -103,10 +107,9 @@ var visitorCountModule, eventHandler;
 
     // 初始化：从 localStorage 加载数据并获取最新数据
     onReadyCallback(() => {
+        // 从 localStorage 初始化数据（只更新 site 相关数据）
+        eventHandler.initializeFromLocalStorage();
         // 获取最新数据并更新页面（更新所有数据）
         visitorCountModule.fetch(eventHandler.updateText.bind(eventHandler));
     });
-
-    // 从 localStorage 初始化数据（只更新 site 相关数据）
-    eventHandler.initializeFromLocalStorage();
 })();
