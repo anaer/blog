@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(style);
 
     // 高亮显示当前所在位置
-    window.onscroll = function () {
+    window.addEventListener('scroll', function () {
         let currentHeading = null;
         headings.forEach(heading => {
             const rect = heading.getBoundingClientRect();
@@ -109,5 +109,5 @@ document.addEventListener("DOMContentLoaded", function() {
                 activeLink.classList.add('active');
             }
         }
-    };
+    });
 });
