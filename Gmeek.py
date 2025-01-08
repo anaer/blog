@@ -9,7 +9,6 @@ import requests
 import argparse
 from datetime import datetime, timedelta
 from github import Github
-from xpinyin import Pinyin
 from feedgen.feed import FeedGenerator
 from jinja2 import Environment, FileSystemLoader
 ######################################################################################
@@ -249,7 +248,7 @@ class GMEEK():
             gen_Html = 'docs/{}.html'.format(issue.labels[0].name)
         else:
             listJsonName='postListJson'
-            gen_Html = self.post_dir+'{}.html'.format(Pinyin().get_pinyin(self.normalize_title(issue.title)))
+            gen_Html = self.post_dir+'{}.html'.format(issue.number)
 
         mdPath = "backup/"+str(issue.number)+"-"+self.normalize_title(issue.title)+".md"
 
@@ -263,8 +262,8 @@ class GMEEK():
         self.blogBase[listJsonName][postNum]["htmlDir"]=gen_Html
         self.blogBase[listJsonName][postNum]["markdown"]=mdPath
         self.blogBase[listJsonName][postNum]["labels"]=labels
-        self.blogBase[listJsonName][postNum]["postTitle"]=issue.title
-        self.blogBase[listJsonName][postNum]["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(Pinyin().get_pinyin(self.normalize_title(issue.title))))
+        self.blogBase[listJsonName][postNum]["postTitle"]="%d %s" % (issue.number, issue.title)
+        self.blogBase[listJsonName][postNum]["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(issue.number))
         self.blogBase[listJsonName][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
         self.blogBase[listJsonName][postNum]["commentNum"]=issue.get_comments().totalCount
         self.blogBase[listJsonName][postNum]["description"]=self.build_desc(issue.body)
