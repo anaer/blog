@@ -77,8 +77,11 @@ var visitorCountModule, eventHandler;
         },
 
         // 显示所有计数器
-        showAll: function () {
+        showAll: function (skipPage = false) {
             this.counterIds.forEach(id => {
+                // 如果 skipPage 为 true，跳过 page_pv
+                if (skipPage && id === "page_pv") return;
+
                 const busuanziContainer = document.getElementById("busuanzi_container_" + id);
                 if (busuanziContainer) {
                     busuanziContainer.style.display = "inline";
@@ -98,6 +101,7 @@ var visitorCountModule, eventHandler;
                 try {
                     const data = JSON.parse(cachedData);
                     this.updateText(data, true); // 跳过 page_pv
+                    this.showAll(true);
                 } catch (error) {
                     console.error("Error parsing cached data:", error);
                 }
