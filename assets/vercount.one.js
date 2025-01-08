@@ -1,74 +1,126 @@
-var t, e;
-!function() {
-    var n, o = [], c = !1;
-    function i() {
-        c = !0,
-        document.removeEventListener("DOMContentLoaded", i),
-        o.forEach((t => t.call(document))),
-        o = []
+var visitorCountModule, eventHandler;
+
+(function () {
+    var onReadyCallback, callbacks = [], isDOMReady = false;
+
+    // DOM 加载完成后执行所有回调
+    function handleDOMReady() {
+        isDOMReady = true;
+        document.removeEventListener("DOMContentLoaded", handleDOMReady);
+        callbacks.forEach(callback => callback.call(document));
+        callbacks = [];
     }
-    t = {
-        fetch: async function(t) {
+
+    // 访客计数模块
+    visitorCountModule = {
+        fetch: async function (callback) {
             try {
-                e.hideAll();
-                const o = await fetch("https://events.vercount.one/log?jsonpCallback=VisitorCountCallback", {
+                eventHandler.hideAll();
+                const response = await fetch("https://events.vercount.one/log?jsonpCallback=VisitorCountCallback", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        url: window.location.href
-                    })
-                })
-                  , c = await o.json();
-                n(( () => {
-                    t(c),
-                    localStorage.setItem("visitorCountData", JSON.stringify(c)),
-                    e.showAll()
-                }
-                ))
-            } catch (t) {
-                console.error("Error fetching visitor count:", t),
-                e.hideAll()
+                        url: window.location.href,
+                    }),
+                });
+                const data = await response.json();
+
+                onReadyCallback(() => {
+                    callback(data);
+                    localStorage.setItem("visitorCountData", JSON.stringify(data));
+                    eventHandler.showAll();
+                });
+            } catch (error) {
+                console.error("Error fetching visitor count:", error);
+                eventHandler.hideAll();
             }
-        }
-    },
-    e = {
+        },
+    };
+
+    // 事件处理模块
+    eventHandler = {
         counterIds: ["site_pv", "page_pv", "site_uv"],
-        updateText: function(t) {
-            this.counterIds.forEach((e => {
-                const n = document.getElementById("busuanzi_value_" + e);
-                n && (n.textContent = t[e] || "0");
-                const o = document.getElementById("vercount_value_" + e);
-                o && (o.textContent = t[e] || "0")
-            }
-            ))
+
+        // 更新计数器文本
+        updateText: function (data, skipPage = false) {
+            this.counterIds.forEach(id => {
+                // 如果 skipPage 为 true，跳过 page_pv
+                if (skipPage && id === "page_pv") return;
+
+                const busuanziElement = document.getElementById("busuanzi_value_" + id);
+                if (busuanziElement) {
+                    busuanziElement.textContent = data[id] || "0";
+                }
+
+                const vercountElement = document.getElementById("vercount_value_" + id);
+                if (vercountElement) {
+                    vercountElement.textContent = data[id] || "0";
+                }
+            });
         },
-        hideAll: function() {
-            this.counterIds.forEach((t => {
-                const e = document.getElementById("busuanzi_container_" + t);
-                e && (e.style.display = "none");
-                const n = document.getElementById("vercount_container_" + t);
-                n && (n.style.display = "none")
-            }
-            ))
+
+        // 隐藏所有计数器
+        hideAll: function () {
+            this.counterIds.forEach(id => {
+                const busuanziContainer = document.getElementById("busuanzi_container_" + id);
+                if (busuanziContainer) {
+                    busuanziContainer.style.display = "none";
+                }
+
+                const vercountContainer = document.getElementById("vercount_container_" + id);
+                if (vercountContainer) {
+                    vercountContainer.style.display = "none";
+                }
+            });
         },
-        showAll: function() {
-            this.counterIds.forEach((t => {
-                const e = document.getElementById("busuanzi_container_" + t);
-                e && (e.style.display = "inline");
-                const n = document.getElementById("vercount_container_" + t);
-                n && (n.style.display = "inline")
+
+        // 显示所有计数器
+        showAll: function () {
+            this.counterIds.forEach(id => {
+                const busuanziContainer = document.getElementById("busuanzi_container_" + id);
+                if (busuanziContainer) {
+                    busuanziContainer.style.display = "inline";
+                }
+
+                const vercountContainer = document.getElementById("vercount_container_" + id);
+                if (vercountContainer) {
+                    vercountContainer.style.display = "inline";
+                }
+            });
+        },
+
+        // 从 localStorage 初始化数据（只更新 site 相关数据）
+        initializeFromLocalStorage: function () {
+            const cachedData = localStorage.getItem("visitorCountData");
+            if (cachedData) {
+                try {
+                    const data = JSON.parse(cachedData);
+                    this.updateText(data, true); // 跳过 page_pv
+                } catch (error) {
+                    console.error("Error parsing cached data:", error);
+                }
             }
-            ))
+        },
+    };
+
+    // DOM 加载完成后执行回调
+    onReadyCallback = function (callback) {
+        if (isDOMReady || document.readyState === "interactive" || document.readyState === "complete") {
+            callback.call(document);
+        } else {
+            callbacks.push(callback);
+            document.addEventListener("DOMContentLoaded", handleDOMReady);
         }
-    },
-    (n = function(t) {
-        c || "interactive" === document.readyState || "complete" === document.readyState ? t.call(document) : (o.push(t),
-        document.addEventListener("DOMContentLoaded", i))
-    }
-    )(( () => {
-        t.fetch(e.updateText.bind(e))
-    }
-    ))
-}();
+    };
+
+    // 初始化：从 localStorage 加载数据并获取最新数据
+    onReadyCallback(() => {
+        // 从 localStorage 初始化数据（只更新 site 相关数据）
+        eventHandler.initializeFromLocalStorage();
+
+        // 获取最新数据并更新页面（更新所有数据）
+        visitorCountModule.fetch(eventHandler.updateText.bind(eventHandler));
+    });
+})();
