@@ -11,7 +11,7 @@
 ### 安装
 
 1. 创建自己的`XXX.github.io`的仓库，在仓库的设置中`Pages->Build and deployment->Source`下面选择`Github Actions`。
-2. 在仓库中创建文件`config.json`和`.github/workflows/Gmeek.yml`复制[链接](CONIFG.md)中的代码分别保存。
+2. 在仓库中创建文件`config.json`和`.github/workflows/Gmeek.yml`复制[链接](CONFIG.md)中的代码分别保存。
 3. 在Issues中删除多余标签，创建自己的标签，如`link`、`about`、`日常`等。
 4. 打开一篇issue，开始写作，并且添加一个标签，保存issue后会自动创建博客内容，片刻后可通过https://XXX.github.io 访问
 
