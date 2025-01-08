@@ -4,7 +4,7 @@
 
 1. html链接使用issue.number, 简单点, 同时可以避免修改标题导致的链接变更问题以及计数问题
 2. post标题采用issue.number+issue.title
-3. 调整vercount实现方式
+3. 调整vercount实现方式, 加载时先使用localstorage中缓存的site数据, page数据使用接口返回
 
 ## 25.102.1647
 

@@ -1,7 +1,7 @@
-var visitorCountModule, eventHandler;
+let visitorCountModule, eventHandler;
 
 (function () {
-    var onReadyCallback, callbacks = [], isDOMReady = false;
+    let onReadyCallback, callbacks = [], isDOMReady = false;
 
     // DOM 加载完成后执行所有回调
     function handleDOMReady() {
@@ -15,7 +15,6 @@ var visitorCountModule, eventHandler;
     visitorCountModule = {
         fetch: async function (callback) {
             try {
-                // eventHandler.hideAll();
                 const response = await fetch("https://events.vercount.one/log?jsonpCallback=VisitorCountCallback", {
                     method: "POST",
                     headers: {
@@ -30,11 +29,9 @@ var visitorCountModule, eventHandler;
                 onReadyCallback(() => {
                     callback(data);
                     localStorage.setItem("visitorCountData", JSON.stringify(data));
-                    // eventHandler.showAll();
                 });
             } catch (error) {
                 console.error("Error fetching visitor count:", error);
-                // eventHandler.hideAll();
             }
         },
     };
@@ -54,26 +51,6 @@ var visitorCountModule, eventHandler;
                     vercountElement.textContent = data[id] || "0";
                 }
 
-                const vercountContainer = document.getElementById("vercount_container_" + id);
-                if (vercountContainer) {
-                    vercountContainer.style.display = "inline";
-                }
-            });
-        },
-
-        // 隐藏所有计数器
-        hideAll: function () {
-            this.counterIds.forEach(id => {
-                const vercountContainer = document.getElementById("vercount_container_" + id);
-                if (vercountContainer) {
-                    vercountContainer.style.display = "none";
-                }
-            });
-        },
-
-        // 显示所有计数器
-        showAll: function () {
-            this.counterIds.forEach(id => {
                 const vercountContainer = document.getElementById("vercount_container_" + id);
                 if (vercountContainer) {
                     vercountContainer.style.display = "inline";
