@@ -228,6 +228,8 @@ class GMEEK():
 
         red = (now -createdAt).days % 255
         green = (now - updatedAt).days % 255
+        if createdAt == updatedAt:
+            green = 255 - red
         blue = (updatedAt - createdAt).days % 255
 
         # 返回十六进制颜色代码
