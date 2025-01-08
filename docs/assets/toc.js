@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("\n %c TOC Plugins https://github.com/anaer/Gmeek \n","padding:5px 0;background:#C333D0;color:#fff");
 
-    var css = `
+    let css = `
     .toc {
         position:fixed;
         top:130px;
@@ -40,6 +40,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     .toc a:hover {
         background-color:var(--color-select-menu-tap-focus-bg);
+    }
+
+    .toc-link.active {
+        font-weight: bold;
+        background-color: #b6e3ff;
     }
 
     @media (max-width: 1249px)
@@ -84,12 +89,25 @@ document.addEventListener("DOMContentLoaded", function() {
     style.textContent = css;
     document.head.appendChild(style);
 
-    // window.onscroll = function() {
-    //     const backToTopButton = document.querySelector('.toc-end');
-    //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    //         backToTopButton.style="visibility: visible;"
-    //     } else {
-    //         backToTopButton.style="visibility: hidden;"
-    //     }
-    // };
+    // 高亮显示当前所在位置
+    window.onscroll = function () {
+        let currentHeading = null;
+        headings.forEach(heading => {
+            const rect = heading.getBoundingClientRect();
+            if (rect.top <= 0) {
+                currentHeading = heading;
+            }
+        });
+
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        if (currentHeading) {
+            const activeLink = tocElement.querySelector(`a[href="#${currentHeading.id}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+    };
 });
