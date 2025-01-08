@@ -15,7 +15,7 @@ var visitorCountModule, eventHandler;
     visitorCountModule = {
         fetch: async function (callback) {
             try {
-                eventHandler.hideAll();
+                // eventHandler.hideAll();
                 const response = await fetch("https://events.vercount.one/log?jsonpCallback=VisitorCountCallback", {
                     method: "POST",
                     headers: {
@@ -34,7 +34,7 @@ var visitorCountModule, eventHandler;
                 });
             } catch (error) {
                 console.error("Error fetching visitor count:", error);
-                eventHandler.hideAll();
+                // eventHandler.hideAll();
             }
         },
     };
