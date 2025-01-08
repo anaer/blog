@@ -41,7 +41,7 @@
         "P2": {
             "number": "2",
             "htmlDir": "docs/post/2.html",
-            "markdown": "backup/2-Violentmonkey_\u811a\u672c.md",
+            "markdown": "backup/2-Violentmonkey \u811a\u672c.md",
             "labels": [
                 "\u811a\u672c"
             ],
@@ -245,7 +245,7 @@
         "P12": {
             "number": "12",
             "htmlDir": "docs/post/12.html",
-            "markdown": "backup/12-\u68c0\u6d4b\u670d\u52a1\u5668\u5185\u5b58\u4fe1\u606f__\u5e76\u7528bark\u901a\u77e5.md",
+            "markdown": "backup/12-\u68c0\u6d4b\u670d\u52a1\u5668\u5185\u5b58\u4fe1\u606f, \u5e76\u7528bark\u901a\u77e5.md",
             "labels": [
                 "\u5de5\u5177",
                 "\u670d\u52a1"
@@ -328,7 +328,7 @@
         "P16": {
             "number": "16",
             "htmlDir": "docs/post/16.html",
-            "markdown": "backup/16-Deeplx_\u8d1f\u8f7d\u5747\u8861.md",
+            "markdown": "backup/16-Deeplx \u8d1f\u8f7d\u5747\u8861.md",
             "labels": [
                 "\u5de5\u5177"
             ],
@@ -348,7 +348,7 @@
         "P17": {
             "number": "17",
             "htmlDir": "docs/post/17.html",
-            "markdown": "backup/17-neovim_gui\u5ba2\u6237\u7aef.md",
+            "markdown": "backup/17-neovim gui\u5ba2\u6237\u7aef.md",
             "labels": [
                 "\u5de5\u5177"
             ],
@@ -409,7 +409,7 @@
         "P20": {
             "number": "20",
             "htmlDir": "docs/post/20.html",
-            "markdown": "backup/20-Python_telegram\u6d88\u606f\u53d1\u9001.md",
+            "markdown": "backup/20-Python telegram\u6d88\u606f\u53d1\u9001.md",
             "labels": [
                 "Python"
             ],
@@ -526,7 +526,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-31",
-            "dateLabelColor": "#070700"
+            "dateLabelColor": "#080700"
         },
         "P26": {
             "number": "26",
