@@ -29,14 +29,14 @@
             "postUrl": "post/1.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/1",
             "commentNum": 0,
-            "description": "## [\u82f9\u679cCMS](https://github.com/magicblack/maccms10)\r\n\r\n## \u63a5\u53e3\u8bf4\u660e\r\n\r\n...",
-            "updatedAt": 1734053846,
+            "description": "# [\u82f9\u679cCMS](https://github.com/magicblack/maccms10)\r\n\r\n## \u63a5\u53e3\u8bf4\u660e\r\n\r\n...",
+            "updatedAt": 1736328943,
             "top": 0,
             "createdAt": 1694176150,
             "style": "",
             "script": "",
             "createdDate": "2023-09-08",
-            "dateLabelColor": "#e81ace"
+            "dateLabelColor": "#e800e8"
         },
         "P2": {
             "number": "2",
