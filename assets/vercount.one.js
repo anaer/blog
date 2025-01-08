@@ -103,10 +103,10 @@ var visitorCountModule, eventHandler;
 
     // 初始化：从 localStorage 加载数据并获取最新数据
     onReadyCallback(() => {
-        // 从 localStorage 初始化数据（只更新 site 相关数据）
-        eventHandler.initializeFromLocalStorage();
-
         // 获取最新数据并更新页面（更新所有数据）
         visitorCountModule.fetch(eventHandler.updateText.bind(eventHandler));
     });
+
+    // 从 localStorage 初始化数据（只更新 site 相关数据）
+    eventHandler.initializeFromLocalStorage();
 })();
