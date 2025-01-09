@@ -17,7 +17,7 @@
 | 开关     | OnlySwitch                 | [GitHub](https://github.com/jacklandrin/OnlySwitch)                                                |
 | 开发     | Git                        | [官网](https://git-scm.com/download)                                                               |                                                                     |
 | 开发     | HeidiSQL开源数据库客户端   | [官网](https://www.heidisql.com/)                                                                  |                                                                     |
-| 开发     | JDK23                     | [官网](https://www.oracle.com/java/technologies/downloads/#jdk23-windows)                          |                                                                     |
+| 开发     | JDK23                     | [官网](https://www.oracle.com/java/technologies/downloads/#jdk23-windows)  [injdk下载](https://d.injdk.cn/download/oraclejdk/23)                        |                                                                     |
 | 开发     | JDK17                      | [官网](https://www.oracle.com/java/technologies/downloads/#jdk17-windows)                          |                                                                     |
 | 开发     | JDK8                       | [官网](https://www.oracle.com/java/technologies/downloads/#java8-windows)                          |                                                                     |
 | 开发     | Maven                      | [阿里云镜像](https://mirrors.aliyun.com/apache/maven/maven-3/3.9.5/binaries/)                      |                                                                     |
