@@ -62,3 +62,4 @@
 | 翻译     | deeplx                     | [GitHub](https://github.com/OwO-Network/DeepLX)                                                    |
 | 证书     | certimate                  | [GitHub](https://github.com/usual2970/certimate)                                                   | 开源的SSL证书管理工具                                               |
 | 输入法   | weasel小狼毫输入法         | [官网](https://rime.im/)                                                                           |                                                                     |
+| 清理 | privacy.sexy | [GitHub](https://github.com/undergroundwires/privacy.sexy) | 隐私安全最佳实践|
