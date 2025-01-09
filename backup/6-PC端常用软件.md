@@ -17,6 +17,7 @@
 | 开关     | OnlySwitch                 | [GitHub](https://github.com/jacklandrin/OnlySwitch)                                                |
 | 开发     | Git                        | [官网](https://git-scm.com/download)                                                               |                                                                     |
 | 开发     | HeidiSQL开源数据库客户端   | [官网](https://www.heidisql.com/)                                                                  |                                                                     |
+| 开发     | JDK23                     | [官网](https://www.oracle.com/java/technologies/downloads/#jdk23-windows)                          |                                                                     |
 | 开发     | JDK17                      | [官网](https://www.oracle.com/java/technologies/downloads/#jdk17-windows)                          |                                                                     |
 | 开发     | JDK8                       | [官网](https://www.oracle.com/java/technologies/downloads/#java8-windows)                          |                                                                     |
 | 开发     | Maven                      | [阿里云镜像](https://mirrors.aliyun.com/apache/maven/maven-3/3.9.5/binaries/)                      |                                                                     |
@@ -61,4 +62,3 @@
 | 翻译     | deeplx                     | [GitHub](https://github.com/OwO-Network/DeepLX)                                                    |
 | 证书     | certimate                  | [GitHub](https://github.com/usual2970/certimate)                                                   | 开源的SSL证书管理工具                                               |
 | 输入法   | weasel小狼毫输入法         | [官网](https://rime.im/)                                                                           |                                                                     |
-| 远程     | Putty                      | [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)                                         |                                                                     |
