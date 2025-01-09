@@ -627,6 +627,26 @@
             "script": "",
             "createdDate": "2025-01-06",
             "dateLabelColor": "#02fd00"
+        },
+        "P31": {
+            "number": "31",
+            "htmlDir": "docs/post/31.html",
+            "markdown": "backup/31-GPT\u6bd4\u8f83.md",
+            "labels": [
+                "\u670d\u52a1"
+            ],
+            "postTitle": "31 GPT\u6bd4\u8f83",
+            "postUrl": "post/31.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/31",
+            "commentNum": 0,
+            "description": "## [ChatGPT](https://chatgpt.com/)\r\n\r\n1. \u652f\u6301\u8bb0\u5fc6, \u8bbe\u7f6e\u9ed8\u8ba4prompt\r\n2. \u6709\u5899, \u5076\u5c14\u5931\u8054\r\n\r\n...",
+            "updatedAt": 1736402933,
+            "top": 0,
+            "createdAt": 1736402933,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-09",
+            "dateLabelColor": "#00ff00"
         }
     },
     "singeListJson": {},
@@ -644,6 +664,6 @@
         "\u811a\u672c": "#b60205"
     },
     "issuesUrl": "https://github.com/anaer/blog/issues",
-    "prevUrl": "https://anaer.github.io/blog/index.html",
+    "prevUrl": "https://anaer.github.io/blog/page2.html",
     "nextUrl": "disabled"
 }
