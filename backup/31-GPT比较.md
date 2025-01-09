@@ -6,4 +6,8 @@
 ## [deepseek 深度探索](https://chat.deepseek.com/) 
 
 1. 单会话存在长度限制, 超限时需要开启新会话
-3. 缺少记忆功能, 不能设置默认prompt
+2. 缺少记忆功能, 不能设置默认prompt
+
+## [Not Diamond](https://chat.notdiamond.ai/)
+
+1. 免费模型较少
