@@ -679,14 +679,14 @@
             "postUrl": "post/33.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/33",
             "commentNum": 0,
-            "description": "\r\n## [Koofr](https://app.koofr.net/)\r\n\r\n1. \u53ef\u4f7f\u7528Google\u8d26\u53f7\u767b\u5f55\r\n2. \u514d\u8d39\u7528\u6237\u63d0\u4f9b10G\u5bb9\u91cf\r\n...",
-            "updatedAt": 1736414494,
+            "description": "## [Koofr](https://app.koofr.net/)\r\n\r\n1. \u53ef\u4f7f\u7528Google\u8d26\u53f7\u767b\u5f55\r\n2. \u514d\u8d39\u7528\u6237\u63d0\u4f9b10G\u5bb9\u91cf\r\n...",
+            "updatedAt": 1736414591,
             "top": 0,
             "createdAt": 1736414494,
             "style": "",
             "script": "",
             "createdDate": "2025-01-09",
-            "dateLabelColor": "#00ff00"
+            "dateLabelColor": "#000000"
         }
     },
     "singeListJson": {},
