@@ -417,14 +417,14 @@
             "postUrl": "post/20.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/20",
             "commentNum": 0,
-            "description": "\r\n...",
-            "updatedAt": 1734083254,
+            "description": "```python\r\nimport telegram\r\nimport asyncio\r\n\r\n\"\"\"\r\npip install python-telegram-bot\r\n\"\"\"\r\n\r\n...",
+            "updatedAt": 1736755239,
             "top": 0,
             "createdAt": 1734083253,
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#191900"
+            "dateLabelColor": "#1e001e"
         },
         "P21": {
             "number": "21",
