@@ -44,9 +44,7 @@ jobs:
           fi
           cd /opt/Gmeek/
           python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
-          ls -l /opt/Gmeek/assets
           cp -a /opt/Gmeek/assets /opt/Gmeek/docs/assets
-          ls -l /opt/Gmeek/docs/assets
           cp -a /opt/Gmeek/docs ${{ github.workspace }}
           cp -a /opt/Gmeek/backup ${{ github.workspace }}
           cp /opt/Gmeek/blogBase.json ${{ github.workspace }}
