@@ -200,7 +200,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-03",
-            "dateLabelColor": "#b613a3"
+            "dateLabelColor": "#b713a3"
         },
         "P10": {
             "number": "10",
@@ -283,7 +283,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-12-07",
-            "dateLabelColor": "#941f75"
+            "dateLabelColor": "#951f75"
         },
         "P14": {
             "number": "14",
@@ -547,7 +547,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-02",
-            "dateLabelColor": "#0bf400"
+            "dateLabelColor": "#0cf300"
         },
         "P27": {
             "number": "27",
@@ -627,7 +627,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-06",
-            "dateLabelColor": "#07f800"
+            "dateLabelColor": "#08f700"
         },
         "P31": {
             "number": "31",
