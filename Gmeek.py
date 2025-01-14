@@ -126,7 +126,7 @@ class GMEEK():
 
         if "highlight" in post_body:
             postBase["highlight"]=1
-            index = int(issue["number"]) % starryNightStyles.length
+            index = int(issue["number"]) % len(starryNightStyles)
             postBase["starryNight"] = starryNightStyles[index]
         else:
             postBase["highlight"]=0
