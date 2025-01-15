@@ -32,12 +32,14 @@
             "commentNum": 0,
             "description": "# [\u82f9\u679cCMS](https://github.com/magicblack/maccms10)\r\n\r\n## \u63a5\u53e3\u8bf4\u660e\r\n\r\n...",
             "updatedAt": 1736329153,
+            "nextTitle": "2 Violentmonkey \u811a\u672c",
+            "nextUrl": "post/2.html",
             "top": 0,
             "createdAt": 1694176150,
             "style": "",
             "script": "",
             "createdDate": "2023-09-08",
-            "dateLabelColor": "#ee05e8"
+            "dateLabelColor": "#ef06e8"
         },
         "P2": {
             "number": "2",
@@ -52,12 +54,14 @@
             "commentNum": 0,
             "description": "## [\u66b4\u529b\u7334Violentmonkey](https://violentmonkey.github.io/)\r\n\r\n...",
             "updatedAt": 1734053847,
+            "nextTitle": "3 \u5faa\u73af\u53f9\u606f",
+            "nextUrl": "post/3.html",
             "top": 0,
             "createdAt": 1695882906,
             "style": "",
             "script": "",
             "createdDate": "2023-09-28",
-            "dateLabelColor": "#da20ba"
+            "dateLabelColor": "#db21ba"
         },
         "P3": {
             "number": "3",
@@ -72,12 +76,14 @@
             "commentNum": 0,
             "description": "\u5faa\u73af\u53f9\u606f\uff08cyclic sighing\uff09\u7684\u6b65\u9aa4\u662f\uff0c\u5148\u7f13\u6162\u5438\u6c14\uff0c\u4f7f\u80ba\u90e8\u6269\u5f20\uff0c\u518d\u77ed\u4fc3\u5c0f\u5438\u4e00\u53e3\u6c14\uff0c\u6700\u5927\u7a0b\u5ea6\u8ba9\u80ba\u90e8\u5145\u6c14\uff0c\u7136\u540e\u975e\u5e38\u7f13\u6162\u5730\u547c\u51fa\u5168\u90e8\u6c14\u4f53\u3002\r\n\r\n\u6539\u5584\u5fc3\u60c5\uff0c\u51cf\u5c11\u7126\u8651\r\n\r\n## \u76f8\u5173\u94fe\u63a5\r\n...",
             "updatedAt": 1734053847,
+            "nextTitle": "4 pyGitHub",
+            "nextUrl": "post/4.html",
             "top": 0,
             "createdAt": 1697422172,
             "style": "",
             "script": "",
             "createdDate": "2023-10-16",
-            "dateLabelColor": "#c920a8"
+            "dateLabelColor": "#ca21a8"
         },
         "P4": {
             "number": "4",
@@ -93,12 +99,14 @@
             "commentNum": 0,
             "description": "## \u4ed3\u5e93\u5c5e\u6027\u5b57\u6bb5\r\n\r\n| \u5c5e\u6027\u5b57\u6bb5         | \u63cf\u8ff0                          |\r\n...",
             "updatedAt": 1734083181,
+            "nextTitle": "5 \u4e2d\u6587\u7b49\u5bbd\u5b57\u4f53",
+            "nextUrl": "post/5.html",
             "top": 0,
             "createdAt": 1697703557,
             "style": "",
             "script": "",
             "createdDate": "2023-10-19",
-            "dateLabelColor": "#c51fa6"
+            "dateLabelColor": "#c620a6"
         },
         "P5": {
             "number": "5",
@@ -113,12 +121,14 @@
             "commentNum": 0,
             "description": "* [LXGW WenKai GB / \u971e\u9e5c\u6587\u6977 GB](https://github.com/lxgw/LxgwWenkaiGB)\r\n\u7b49\u5bbd, markdown\u8868\u683c\u683c\u5f0f\u5316 \u4e5f\u80fd\u5bf9\u9f50\r\n\r\n...",
             "updatedAt": 1734053848,
+            "nextTitle": "6 PC\u7aef\u5e38\u7528\u8f6f\u4ef6",
+            "nextUrl": "post/6.html",
             "top": 0,
             "createdAt": 1698287850,
             "style": "",
             "script": "",
             "createdDate": "2023-10-26",
-            "dateLabelColor": "#bf209e"
+            "dateLabelColor": "#c0219e"
         },
         "P6": {
             "number": "6",
@@ -134,12 +144,14 @@
             "commentNum": 0,
             "description": "| \u5206\u7c7b     | \u540d\u79f0                       | \u4e0b\u8f7d\u5730\u5740                                                          ...",
             "updatedAt": 1736412706,
+            "nextTitle": "7 ECS\u64cd\u4f5c\u8bb0\u5f55",
+            "nextUrl": "post/7.html",
             "top": 0,
             "createdAt": 1698656488,
             "style": "",
             "script": "",
             "createdDate": "2023-10-30",
-            "dateLabelColor": "#ba04b5"
+            "dateLabelColor": "#bb05b5"
         },
         "P7": {
             "number": "7",
@@ -154,12 +166,14 @@
             "commentNum": 0,
             "description": "1. \u91cd\u7f6e\u5bc6\u7801\uff0c \u6ca1\u6709\u63d0\u793a\u9ed8\u8ba4\u5bc6\u7801\r\n2. `apt-get update` \u9700\u8981\u5148\u66f4\u65b0, \u76f4\u63a5\u5b89\u88c5\u4f1a\u63d0\u793a\u627e\u4e0d\u5230\u5305\r\n3. `apt-get install nginx` \u5b89\u88c5nginx \r\n...",
             "updatedAt": 1734053848,
+            "nextTitle": "8 Ubuntu\u90e8\u7f72WebDAV\u670d\u52a1",
+            "nextUrl": "post/8.html",
             "top": 0,
             "createdAt": 1698806276,
             "style": "",
             "script": "",
             "createdDate": "2023-11-01",
-            "dateLabelColor": "#b92098"
+            "dateLabelColor": "#ba2198"
         },
         "P8": {
             "number": "8",
@@ -174,12 +188,14 @@
             "commentNum": 0,
             "description": "0. \u7cfb\u7edf\u73af\u5883\r\n\r\n\u7cfb\u7edf: Ubuntu 20.04.6\r\n\r\n1. \u5b89\u88c5nginx\r\n\r\n`apt-get install nginx-full` \u5b89\u88c5full\u7248\r\n\r\n...",
             "updatedAt": 1734053849,
+            "nextTitle": "9 Ubuntu\u5b89\u88c5fail2ban",
+            "nextUrl": "post/9.html",
             "top": 0,
             "createdAt": 1698823857,
             "style": "",
             "script": "",
             "createdDate": "2023-11-01",
-            "dateLabelColor": "#b82098"
+            "dateLabelColor": "#b92198"
         },
         "P9": {
             "number": "9",
@@ -195,12 +211,14 @@
             "commentNum": 0,
             "description": "## \u5b89\u88c5\r\n\u7cfb\u7edf: Ubuntu 20.04.6 LTS\r\n\r\n```bash\r\napt-get install fail2ban\r\n```\r\n\r\n## \u547d\u4ee4\r\n\r\n### \u67e5\u8be2\u670d\u52a1\u72b6\u6001\r\n\r\n...",
             "updatedAt": 1735119657,
+            "nextTitle": "10 fail2ban\u914d\u7f6enginx",
+            "nextUrl": "post/10.html",
             "top": 0,
             "createdAt": 1698991158,
             "style": "",
             "script": "",
             "createdDate": "2023-11-03",
-            "dateLabelColor": "#b713a3"
+            "dateLabelColor": "#b714a3"
         },
         "P10": {
             "number": "10",
@@ -216,12 +234,14 @@
             "commentNum": 0,
             "description": "vim /etc/fail2ban/jail.d/nginx.conf\r\n\r\n```conf\r\n[nginx-cc]\r\nenabled = true\r\nfilter = nginx-cc\r\n...",
             "updatedAt": 1734053849,
+            "nextTitle": "11 \u4f7f\u7528bark\u901a\u77e5APP",
+            "nextUrl": "post/11.html",
             "top": 0,
             "createdAt": 1699256140,
             "style": "",
             "script": "",
             "createdDate": "2023-11-06",
-            "dateLabelColor": "#b32093"
+            "dateLabelColor": "#b42193"
         },
         "P11": {
             "number": "11",
@@ -236,12 +256,14 @@
             "commentNum": 0,
             "description": "```py\r\nimport requests\r\nimport sys\r\nfrom urllib.parse import quote\r\n\r\n# Bark \u7684\u901a\u77e5 API xxx\u4e3atoken\u4fe1\u606f\r\n...",
             "updatedAt": 1734053850,
+            "nextTitle": "12 \u68c0\u6d4b\u670d\u52a1\u5668\u5185\u5b58\u4fe1\u606f, \u5e76\u7528bark\u901a\u77e5",
+            "nextUrl": "post/12.html",
             "top": 0,
             "createdAt": 1699435710,
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#b12091"
+            "dateLabelColor": "#b22191"
         },
         "P12": {
             "number": "12",
@@ -257,12 +279,14 @@
             "commentNum": 0,
             "description": "vim script/free.py\r\n\r\n```py\r\nimport subprocess\r\nfrom bark import send_bark_notification\r\n\r\n...",
             "updatedAt": 1734053850,
+            "nextTitle": "13 \u751f\u6210Python\u9879\u76ee\u7684requirements.txt\u6587\u4ef6",
+            "nextUrl": "post/13.html",
             "top": 0,
             "createdAt": 1699436300,
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#b12091"
+            "dateLabelColor": "#b22191"
         },
         "P13": {
             "number": "13",
@@ -278,12 +302,14 @@
             "commentNum": 0,
             "description": "\u751f\u6210 Python \u9879\u76ee\u7684 requirements.txt \u6587\u4ef6\r\n\r\n1. \u4f7f\u7528 `pip freeze` \u547d\u4ee4\u3002\r\n\u5728\u9879\u76ee\u7684\u6839\u76ee\u5f55\u4e0b\uff0c\u6253\u5f00\u7ec8\u7aef\u6216\u547d\u4ee4\u63d0\u793a\u7b26\uff0c\u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\uff1a\r\n\r\n```sh\r\n...",
             "updatedAt": 1734082743,
+            "nextTitle": "14 Windows\u5185\u5b58\u6e05\u7406\u5de5\u5177",
+            "nextUrl": "post/14.html",
             "top": 0,
             "createdAt": 1701927415,
             "style": "",
             "script": "",
             "createdDate": "2023-12-07",
-            "dateLabelColor": "#951f75"
+            "dateLabelColor": "#952075"
         },
         "P14": {
             "number": "14",
@@ -299,12 +325,14 @@
             "commentNum": 0,
             "description": "## [Reduce Memory v1.7](https://www.sordum.org/9197/reduce-memory-v1-7/)\r\n\r\n...",
             "updatedAt": 1735893416,
+            "nextTitle": "15 aidoku\u6f2b\u753b\u6e90",
+            "nextUrl": "post/15.html",
             "top": 0,
             "createdAt": 1716427162,
             "style": "",
             "script": "",
             "createdDate": "2024-05-23",
-            "dateLabelColor": "#ec0ae1"
+            "dateLabelColor": "#ed0be1"
         },
         "P15": {
             "number": "15",
@@ -319,12 +347,14 @@
             "commentNum": 0,
             "description": "# [Aidoku](https://github.com/Aidoku/Aidoku)\r\n\r\n\u5728\u8bbe\u7f6e-\u6765\u6e90\u5217\u8868\u4e2d\u6dfb\u52a0\r\n\r\n...",
             "updatedAt": 1735894308,
+            "nextTitle": "16 Deeplx \u8d1f\u8f7d\u5747\u8861",
+            "nextUrl": "post/16.html",
             "top": 0,
             "createdAt": 1721483041,
             "style": "",
             "script": "",
             "createdDate": "2024-07-20",
-            "dateLabelColor": "#b10aa6"
+            "dateLabelColor": "#b20ba6"
         },
         "P16": {
             "number": "16",
@@ -339,12 +369,14 @@
             "commentNum": 0,
             "description": "http://47.236.84.103:3000/translate\r\n\r\n~~https://deeplx-lb-wheat.vercel.app/translate~~\r\n\r\n...",
             "updatedAt": 1735204410,
+            "nextTitle": "17 neovim gui\u5ba2\u6237\u7aef",
+            "nextUrl": "post/17.html",
             "top": 0,
             "createdAt": 1722499149,
             "style": "",
             "script": "",
             "createdDate": "2024-08-01",
-            "dateLabelColor": "#a51293"
+            "dateLabelColor": "#a61393"
         },
         "P17": {
             "number": "17",
@@ -359,12 +391,14 @@
             "commentNum": 0,
             "description": "## [goneovim](https://github.com/akiyosi/goneovim)\r\n\u5355\u6587\u4ef6 \u521a\u5b89\u88c5 \u6d4b\u8bd5\u770b\u770b\r\n\r\n...",
             "updatedAt": 1734053852,
+            "nextTitle": "18 \u9759\u6001\u6587\u4ef6\u670d\u52a1\u5668",
+            "nextUrl": "post/18.html",
             "top": 0,
             "createdAt": 1722926223,
             "style": "",
             "script": "",
             "createdDate": "2024-08-06",
-            "dateLabelColor": "#a02080"
+            "dateLabelColor": "#a12180"
         },
         "P18": {
             "number": "18",
@@ -379,12 +413,14 @@
             "commentNum": 0,
             "description": "[dufs](https://github.com/sigoden/dufs)\r\n...",
             "updatedAt": 1724227476,
+            "nextTitle": "19 Spotify\u5bfc\u5165opml",
+            "nextUrl": "post/19.html",
             "top": 0,
             "createdAt": 1724223912,
             "style": "",
             "script": "",
             "createdDate": "2024-08-21",
-            "dateLabelColor": "#919100"
+            "dateLabelColor": "#929200"
         },
         "P19": {
             "number": "19",
@@ -400,12 +436,14 @@
             "commentNum": 0,
             "description": "## [Podimporter](https://www.podimporter.com)\r\n\r\n...",
             "updatedAt": 1735628915,
+            "nextTitle": "20 Python telegram\u6d88\u606f\u53d1\u9001",
+            "nextUrl": "post/20.html",
             "top": 0,
             "createdAt": 1734076046,
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#1f0d11"
+            "dateLabelColor": "#200e11"
         },
         "P20": {
             "number": "20",
@@ -420,12 +458,14 @@
             "commentNum": 0,
             "description": "```python\r\nimport telegram\r\nimport asyncio\r\n\r\n\"\"\"\r\npip install python-telegram-bot\r\n\"\"\"\r\n\r\n...",
             "updatedAt": 1736755239,
+            "nextTitle": "21 Linux\u6293\u5305tcp\u6570\u636e",
+            "nextUrl": "post/21.html",
             "top": 0,
             "createdAt": 1734083253,
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#1f001e"
+            "dateLabelColor": "#20011e"
         },
         "P21": {
             "number": "21",
@@ -441,12 +481,14 @@
             "commentNum": 0,
             "description": "```sh\r\ntcpdump tcp port 22 and host 1.1.1.1 -w ./output.cap\r\n```\r\n\r\n1) tcp \u8fc7\u6ee4\u6570\u636e\u5305\u7684\u7c7b\u578b \r\n...",
             "updatedAt": 1735024156,
+            "nextTitle": "22 Clash/Mihomo\u5728\u7ebf\u7ba1\u7406\u9762\u677f",
+            "nextUrl": "post/22.html",
             "top": 0,
             "createdAt": 1735024156,
             "style": "",
             "script": "",
             "createdDate": "2024-12-24",
-            "dateLabelColor": "#14eb00"
+            "dateLabelColor": "#15ea00"
         },
         "P22": {
             "number": "22",
@@ -461,12 +503,14 @@
             "commentNum": 0,
             "description": "https://clash.razord.top/#/proxies\r\n\r\n...",
             "updatedAt": 1735093519,
+            "nextTitle": "23 Linux\u4e2d\u751f\u6210\u6587\u4ef6\u7684sha1\u7801",
+            "nextUrl": "post/23.html",
             "top": 0,
             "createdAt": 1735093519,
             "style": "",
             "script": "",
             "createdDate": "2024-12-25",
-            "dateLabelColor": "#14eb00"
+            "dateLabelColor": "#15ea00"
         },
         "P23": {
             "number": "23",
@@ -482,12 +526,14 @@
             "commentNum": 0,
             "description": "## \u751f\u6210\u6587\u4ef6\u7684sha1\u7801\r\n\r\n```\r\n# touch 1.txt\r\n# sha1sum 1.txt\r\n...",
             "updatedAt": 1735109982,
+            "nextTitle": "24 m3u8\u5e7f\u544a\u8fc7\u6ee4",
+            "nextUrl": "post/24.html",
             "top": 0,
             "createdAt": 1735109981,
             "style": "",
             "script": "",
             "createdDate": "2024-12-25",
-            "dateLabelColor": "#131300"
+            "dateLabelColor": "#141400"
         },
         "P24": {
             "number": "24",
@@ -502,12 +548,14 @@
             "commentNum": 0,
             "description": "\u672a\u4f7f\u7528, \u4e0d\u786e\u5b9a\u8fc7\u6ee4\u6548\u679c, \u4e3b\u8981\u5b66\u4e60\u4e0b\u8fc7\u6ee4\u89c4\u5219\r\n\r\n## \u811a\u672c\r\n\r\n...",
             "updatedAt": 1735968411,
+            "nextTitle": "25 iFrame\u5d4c\u5165\u9875\u9762\u8de8\u7ad9\u767b\u5f55\u5931\u8d25\u95ee\u9898",
+            "nextUrl": "post/25.html",
             "top": 0,
             "createdAt": 1735202034,
             "style": "",
             "script": "",
             "createdDate": "2024-12-26",
-            "dateLabelColor": "#120a08"
+            "dateLabelColor": "#130a08"
         },
         "P25": {
             "number": "25",
@@ -522,12 +570,14 @@
             "commentNum": 0,
             "description": "## \u539f\u56e0\r\n\r\n\u8c37\u6b4c\u6d4f\u89c8\u5668 80.0 \u53ca\u4ee5\u4e0a\u7248\u672c\u4fee\u6539\u4e86\u5b89\u5168\u7b56\u7565\uff0c\u9ed8\u8ba4 SameSite \u7b56\u7565\u4e0d\u5141\u8bb8 cookie \u8de8\u7ad9\u53d1\u9001\uff0c\u56e0\u6b64\u5355\u70b9\u767b\u5f55\u4f1a\u5931\u8d25\u3002\r\n\r\n## \u89e3\u51b3\r\n\r\n...",
             "updatedAt": 1735627612,
+            "nextTitle": "26 API\u63a5\u53e3\u6d4b\u8bd5\u5de5\u5177",
+            "nextUrl": "post/26.html",
             "top": 0,
             "createdAt": 1735613033,
             "style": "",
             "script": "",
             "createdDate": "2024-12-31",
-            "dateLabelColor": "#0e0d00"
+            "dateLabelColor": "#0f0e00"
         },
         "P26": {
             "number": "26",
@@ -542,6 +592,8 @@
             "commentNum": 0,
             "description": "## \u5728\u7ebf\u5de5\u5177\r\n\r\n### [Hoppscotch](https://hoppscotch.io/)\r\n...",
             "updatedAt": 1735796104,
+            "nextTitle": "27 ip2region\u5de5\u5177",
+            "nextUrl": "post/27.html",
             "top": 0,
             "createdAt": 1735796104,
             "style": "",
@@ -562,12 +614,14 @@
             "commentNum": 0,
             "description": "## [ip2region](https://github.com/lionsoul2014/ip2region)\r\n\r\n...",
             "updatedAt": 1735897411,
+            "nextTitle": "28 Git\u914d\u7f6e\u6587\u4ef6\u8bf4\u660e",
+            "nextUrl": "post/28.html",
             "top": 0,
             "createdAt": 1735869926,
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#0b0a00"
+            "dateLabelColor": "#0c0b00"
         },
         "P28": {
             "number": "28",
@@ -582,12 +636,14 @@
             "commentNum": 0,
             "description": "## .git/config\r\n\r\n```conf\r\n[core]\r\n\t# repositoryformatversion \u6307\u5b9a Git \u4ed3\u5e93\u7684\u7248\u672c\uff0c\u9ed8\u8ba4\u503c\u4e3a 0\uff0c\u901a\u5e38\u4e0d\u9700\u8981\u4fee\u6539\r\n...",
             "updatedAt": 1735890330,
+            "nextTitle": "29 whistle\u6293\u5305\u5de5\u5177",
+            "nextUrl": "post/29.html",
             "top": 0,
             "createdAt": 1735873536,
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#0b0a00"
+            "dateLabelColor": "#0b0b00"
         },
         "P29": {
             "number": "29",
@@ -602,12 +658,14 @@
             "commentNum": 0,
             "description": "## [whistle\u5ba2\u6237\u7aef](https://github.com/avwo/whistle-client)\r\n\r\n\u652f\u6301Mac\u548cWindows, Linux\u53ef\u4ee5\u4f7f\u7528\u547d\u4ee4\u884c\u7248\u672c\r\n\r\n## \u63d2\u4ef6\r\n...",
             "updatedAt": 1735885255,
+            "nextTitle": "30 Python\u8bfb\u53d6Markdown\u6587\u4ef6\u7684\u5143\u6570\u636e",
+            "nextUrl": "post/30.html",
             "top": 0,
             "createdAt": 1735885148,
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#0a0a00"
+            "dateLabelColor": "#0b0b00"
         },
         "P30": {
             "number": "30",
@@ -622,6 +680,8 @@
             "commentNum": 0,
             "description": "## \u4f7f\u7528PyYAML\r\n\r\n```python\r\n# pip install pyyaml\r\nimport yaml\r\n\r\ndef extract_metadata(file_path):\r\n...",
             "updatedAt": 1736143147,
+            "nextTitle": "31 GPT\u6bd4\u8f83",
+            "nextUrl": "post/31.html",
             "top": 0,
             "createdAt": 1736143147,
             "style": "",
@@ -642,12 +702,14 @@
             "commentNum": 0,
             "description": "## [ChatGPT](https://chatgpt.com/)\r\n\r\n1. \u652f\u6301\u8bb0\u5fc6, \u8bbe\u7f6e\u9ed8\u8ba4prompt\r\n2. \u6709\u5899, \u5076\u5c14\u5931\u8054\r\n\r\n...",
             "updatedAt": 1736403129,
+            "nextTitle": "32 \u7535\u5b50\u4e66\u4e0b\u8f7d\u7ad9",
+            "nextUrl": "post/32.html",
             "top": 0,
             "createdAt": 1736402933,
             "style": "",
             "script": "",
             "createdDate": "2025-01-09",
-            "dateLabelColor": "#040400"
+            "dateLabelColor": "#050500"
         },
         "P32": {
             "number": "32",
@@ -662,12 +724,14 @@
             "commentNum": 0,
             "description": "## [Z-library](https://z-library.sk/)\r\n\r\n[Re Z-library](https://zh.1lib.sk/)\r\n\r\n...",
             "updatedAt": 1736407411,
+            "nextTitle": "33 \u7f51\u76d8",
+            "nextUrl": "post/33.html",
             "top": 0,
             "createdAt": 1736406395,
             "style": "",
             "script": "",
             "createdDate": "2025-01-09",
-            "dateLabelColor": "#040400"
+            "dateLabelColor": "#050500"
         },
         "P33": {
             "number": "33",
@@ -682,12 +746,14 @@
             "commentNum": 0,
             "description": "## [Koofr](https://app.koofr.net/)\r\n\r\n1. \u53ef\u4f7f\u7528Google\u8d26\u53f7\u767b\u5f55\r\n2. \u514d\u8d39\u7528\u6237\u63d0\u4f9b10G\u5bb9\u91cf\r\n...",
             "updatedAt": 1736414960,
+            "nextTitle": "34 Python\u5206\u8bcd",
+            "nextUrl": "post/34.html",
             "top": 0,
             "createdAt": 1736414494,
             "style": "",
             "script": "",
             "createdDate": "2025-01-09",
-            "dateLabelColor": "#040400"
+            "dateLabelColor": "#050500"
         },
         "P34": {
             "number": "34",
@@ -702,12 +768,14 @@
             "commentNum": 0,
             "description": "## jieba\r\n\r\n```python\r\n# pip install jieba\r\nimport jieba\r\n\r\n# \u7cbe\u786e\u6a21\u5f0f\uff0c\u8bd5\u56fe\u5c06\u53e5\u5b50\u6700\u7cbe\u786e\u5730\u5207\u5f00\uff0c\u9002\u5408\u6587\u672c\u5206\u6790\r\n...",
             "updatedAt": 1736755612,
+            "nextTitle": "35 IP\u53ef\u7528\u6027\u68c0\u6d4b",
+            "nextUrl": "post/35.html",
             "top": 0,
             "createdAt": 1736755612,
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#00ff00"
+            "dateLabelColor": "#01fe00"
         },
         "P35": {
             "number": "35",
@@ -722,12 +790,14 @@
             "commentNum": 0,
             "description": "\r\n\u68c0\u6d4bIP\u5728\u4e2d\u56fd\u5927\u9646\u4ee5\u53ca\u6d77\u5916\u533a\u57df\u7684\u53ef\u7528\u6027\uff0c\u7aef\u53e3\u53ef\u4ee5\u6307\u5b9a\u4e3aSSH\u7aef\u53e3\uff0c\u6216\u8005\u4efb\u610f\u670d\u52a1\u7684\u76d1\u542c\u7aef\u53e3\u3002\r\n\r\n## \u76f8\u5173\u94fe\u63a5\r\n\r\n...",
             "updatedAt": 1736757395,
+            "nextTitle": "36 \u4e2d\u6587\u5206\u8bcdAPI",
+            "nextUrl": "post/36.html",
             "top": 0,
             "createdAt": 1736757395,
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#00ff00"
+            "dateLabelColor": "#01fe00"
         },
         "P36": {
             "number": "36",
@@ -742,12 +812,14 @@
             "commentNum": 0,
             "description": "\r\n## \u4e2d\u6587\u5206\u8bcdAPI\r\n\r\n### http://api.pullword.com/\r\n\r\n```sh\r\n// param1 \u51fa\u8bcd\u6982\u7387\u9608\u503c(0-1\u4e4b\u95f4\u7684\u5c0f\u6570)\uff0c1\u8868\u793a\u53ea\u6709100%\u6709\u628a\u63e1\u7684\u8bcd\u624d\u51fa\r\n...",
             "updatedAt": 1736757717,
+            "nextTitle": "37 Git\u547d\u4ee4\u8bb0\u5f55",
+            "nextUrl": "post/37.html",
             "top": 0,
             "createdAt": 1736757717,
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#00ff00"
+            "dateLabelColor": "#01fe00"
         },
         "P37": {
             "number": "37",
@@ -762,6 +834,8 @@
             "commentNum": 0,
             "description": "## \u5f53\u4f60\u4f7f\u7528 git clone --depth 1 \u514b\u9686\u4ed3\u5e93\u65f6\uff0cGit \u53ea\u4f1a\u514b\u9686\u6700\u65b0\u7684\u63d0\u4ea4\u5386\u53f2\uff08\u6d45\u514b\u9686\uff09\uff0c\u5e76\u4e14\u9ed8\u8ba4\u53ea\u62c9\u53d6\u9ed8\u8ba4\u5206\u652f\uff08\u901a\u5e38\u662f main \u6216 master\uff09\u3002\u5982\u679c\u4f60\u9700\u8981\u83b7\u53d6\u5176\u4ed6\u5206\u652f, \u6267...",
             "updatedAt": 1736825099,
+            "nextTitle": "38 Blog\u9875\u9762\u6dfb\u52a0\u4e0b\u96ea\u7279\u6548",
+            "nextUrl": "post/38.html",
             "top": 0,
             "createdAt": 1736825099,
             "style": "",
@@ -782,6 +856,8 @@
             "commentNum": 0,
             "description": "## snowfall\r\n\r\n\u4e0b\u8f7djs\u6587\u4ef6\u5230\u76ee\u5f55assets/snowfall@1.7\u4e0b\r\n\r\n\u5728base.html\u6dfb\u52a0\r\n```html\r\n...",
             "updatedAt": 1736835568,
+            "nextTitle": "39 Deepseek API",
+            "nextUrl": "post/39.html",
             "top": 0,
             "createdAt": 1736835568,
             "style": "",
@@ -800,6 +876,8 @@
             "commentNum": 0,
             "description": "## [Deepseek\u5f00\u653e\u5e73\u53f0](https://platform.deepseek.com/)\r\n\r\n\u65b0\u7528\u6237 \u6ce8\u518c \u900110Y 500w tokens \u4e00\u4e2a\u6708\u6709\u6548\u671f\r\n\r\n...",
             "updatedAt": 1736841242,
+            "nextTitle": "40 \u6d4f\u89c8\u5668\u7531\u6240\u5c5e\u7ec4\u7ec7\u7ba1\u7406\u89e3\u51b3\u65b9\u6cd5",
+            "nextUrl": "post/40.html",
             "top": 0,
             "createdAt": 1736841242,
             "style": "",
@@ -820,6 +898,8 @@
             "commentNum": 0,
             "description": "\r\n## Chrome\r\n\r\n```reg\r\nWindows Registry Editor Version 5.00\r\n\r\n...",
             "updatedAt": 1736846838,
+            "nextTitle": "41 \u83b7\u53d6\u7f51\u7ad9favicon\u56fe\u6807",
+            "nextUrl": "post/41.html",
             "top": 0,
             "createdAt": 1736846838,
             "style": "",
@@ -851,6 +931,7 @@
     "singeListJson": {},
     "labelColorDict": {
         "All": "#1d76db",
+        "Blog": "#d93f0b",
         "Git": "#7D584C",
         "iPhone": "#5319e7",
         "Linux": "#F81B5F",
