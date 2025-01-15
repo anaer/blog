@@ -926,6 +926,29 @@
             "script": "",
             "createdDate": "2025-01-14",
             "dateLabelColor": "#000000"
+        },
+        "P42": {
+            "number": "42",
+            "htmlDir": "docs/post/42.html",
+            "markdown": "backup/42-SQLite\u5ba2\u6237\u7aef.md",
+            "labels": [
+                "\u5de5\u5177",
+                "Windows10"
+            ],
+            "postTitle": "42 SQLite\u5ba2\u6237\u7aef",
+            "postUrl": "post/42.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/42",
+            "commentNum": 0,
+            "description": "## [sqlitestudio](https://github.com/pawelsalawa/sqlitestudio/releases)\r\n\r\n1. \u53ef\u76f4\u63a5\u4fee\u6539\u8868\u7ed3\u6784\r\n2. \u6682\u4e0d\u652f\u6301\u4e2d\u6587\r\n...",
+            "updatedAt": 1736933483,
+            "prevTitle": "41 \u83b7\u53d6\u7f51\u7ad9favicon\u56fe\u6807",
+            "prevUrl": "post/41.html",
+            "top": 0,
+            "createdAt": 1736933482,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-15",
+            "dateLabelColor": "#000000"
         }
     },
     "singeListJson": {},
