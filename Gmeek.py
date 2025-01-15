@@ -126,10 +126,10 @@ class GMEEK():
         # 因为全量执行时, 会清空列表, 所以只有后一篇链接, 当执行单个任务时, 可以获取到前一篇的链接
         # 如果需要调整, 需要提取出来 单独处理前后链接, 这里暂不处理了
         if "prevUrl" in issue:
-            postBase["prevUrl"]=issue["prevUrl"]
+            postBase["prevUrl"]=self.blogBase["homeUrl"] + "/" + issue["prevUrl"]
             postBase["prevTitle"]=issue["prevTitle"]
         if "nextUrl" in issue:
-            postBase["nextUrl"]=issue["nextUrl"]
+            postBase["nextUrl"]=self.blogBase["homeUrl"] + "/" + issue["nextUrl"]
             postBase["nextTitle"]=issue["nextTitle"]
 
         if "highlight" in post_body:
