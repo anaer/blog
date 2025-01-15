@@ -123,10 +123,14 @@ class GMEEK():
         postBase["repoName"]=options.repo_name
         postBase["createdAt"]=time.strftime("%Y-%m-%d", time.gmtime(issue["createdAt"]))
         postBase["updatedAt"]=time.strftime("%Y-%m-%d", time.gmtime(issue["updatedAt"]))
-        postBase["prevUrl"]=issue["prevUrl"]
-        postBase["prevTitle"]=issue["prevTitle"]
-        postBase["nextUrl"]=issue["nextUrl"]
-        postBase["nextTitle"]=issue["nextTitle"]
+        # 因为全量执行时, 会清空列表, 所以只有后一篇链接, 当执行单个任务时, 可以获取到前一篇的链接
+        # 如果需要调整, 需要提取出来 单独处理前后链接, 这里暂不处理了
+        if "prevUrl" in issue:
+            postBase["prevUrl"]=issue["prevUrl"]
+            postBase["prevTitle"]=issue["prevTitle"]
+        if "nextUrl" in issue:
+            postBase["nextUrl"]=issue["nextUrl"]
+            postBase["nextTitle"]=issue["nextTitle"]
 
         if "highlight" in post_body:
             postBase["highlight"]=1
