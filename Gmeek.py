@@ -123,6 +123,10 @@ class GMEEK():
         postBase["repoName"]=options.repo_name
         postBase["createdAt"]=time.strftime("%Y-%m-%d", time.gmtime(issue["createdAt"]))
         postBase["updatedAt"]=time.strftime("%Y-%m-%d", time.gmtime(issue["updatedAt"]))
+        postBase["prevUrl"]=issue["prevUrl"]
+        postBase["prevTitle"]=issue["prevTitle"]
+        postBase["nextUrl"]=issue["nextUrl"]
+        postBase["nextTitle"]=issue["nextTitle"]
 
         if "highlight" in post_body:
             postBase["highlight"]=1
@@ -245,16 +249,18 @@ class GMEEK():
         return re.sub(r'[\\/*?:"<>|]', '_', title)
 
     def getPrevPost(self, issuenumber):
-        preNum=int(issuenumber)-1
-        while preNum>0:
-            if "P"+str(preNum) in self.blogBase["postListJson"]:
-                return self.blogBase["postListJson"]["P"+str(preNum)]
-            preNum=preNum-1
+        prevNum=int(issuenumber)-1
+        while prevNum>0:
+            if "P"+str(prevNum) in self.blogBase["postListJson"]:
+                print(issuenumber, '前一篇', prevNum)
+                return self.blogBase["postListJson"]["P"+str(prevNum)]
+            prevNum=prevNum-1
 
     def getNextPost(self, issuenumber):
         nextNum=int(issuenumber)+1
         while nextNum<int(issuenumber)+len(self.blogBase["postListJson"]):
             if "P"+str(nextNum) in self.blogBase["postListJson"]:
+                print(issuenumber, '后一篇', nextNum)
                 return self.blogBase["postListJson"]["P"+str(nextNum)]
             nextNum=nextNum+1
 
