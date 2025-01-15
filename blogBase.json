@@ -831,13 +831,15 @@
             "number": "41",
             "htmlDir": "docs/post/41.html",
             "markdown": "backup/41-\u83b7\u53d6\u7f51\u7ad9favicon\u56fe\u6807.md",
-            "labels": [],
+            "labels": [
+                "\u63a5\u53e3"
+            ],
             "postTitle": "41 \u83b7\u53d6\u7f51\u7ad9favicon\u56fe\u6807",
             "postUrl": "post/41.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/41",
             "commentNum": 0,
-            "description": "https://favicon.qqsuu.cn/baidu.com\r\n\r\nhttps://icons.duckduckgo.com/ip3/www.baidu.com.ico\r\n\r\n...",
-            "updatedAt": 1736848160,
+            "description": "https://favicon.qqsuu.cn/baidu.com  16x16\r\n\r\n...",
+            "updatedAt": 1736907839,
             "top": 0,
             "createdAt": 1736848159,
             "style": "",
