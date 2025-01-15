@@ -244,6 +244,20 @@ class GMEEK():
     def normalize_title(self, title):
         return re.sub(r'[\\/*?:"<>|]', '_', title)
 
+    def getPrevPost(self, issuenumber):
+        preNum=int(issuenumber)-1
+        while preNum>0:
+            if "P"+str(preNum) in self.blogBase["postListJson"]:
+                return self.blogBase["postListJson"]["P"+str(preNum)]
+            preNum=preNum-1
+
+    def getNextPost(self, issuenumber):
+        nextNum=int(issuenumber)+1
+        while nextNum<int(issuenumber)+len(self.blogBase["postListJson"]):
+            if "P"+str(nextNum) in self.blogBase["postListJson"]:
+                return self.blogBase["postListJson"]["P"+str(nextNum)]
+            nextNum=nextNum+1
+
     def addOnePostJson(self,issue):
         if self.repo.owner.name != issue.user.name:
             # 有需要可以设置白名单
@@ -275,6 +289,15 @@ class GMEEK():
         self.blogBase[listJsonName][postNum]["commentNum"]=issue.get_comments().totalCount
         self.blogBase[listJsonName][postNum]["description"]=self.build_desc(issue.body)
         self.blogBase[listJsonName][postNum]["updatedAt"]=int(time.mktime(issue.updated_at.timetuple()))
+        prevPost = self.getPrevPost(issue.number)
+        if prevPost:
+            self.blogBase[listJsonName][postNum]["prevTitle"]=prevPost["postTitle"]
+            self.blogBase[listJsonName][postNum]["prevUrl"]=prevPost["postUrl"]
+
+        nextPost = self.getNextPost(issue.number)
+        if nextPost:
+            self.blogBase[listJsonName][postNum]["nextTitle"]=nextPost["postTitle"]
+            self.blogBase[listJsonName][postNum]["nextUrl"]=nextPost["postUrl"]
 
         self.blogBase[listJsonName][postNum]["top"]=0
         for event in issue.get_events():
