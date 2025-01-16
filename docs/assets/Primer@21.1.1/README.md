@@ -1,6 +1,9 @@
 ## 查询最新版本
 https://cdnjs.com/libraries/Primer
 
+字节跳动静态资源公共库
+https://cdn.bytedance.com/
+
 ## CDN地址
 
 ### 南方科技大学

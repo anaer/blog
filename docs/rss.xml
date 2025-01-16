@@ -1,199 +1,409 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 16 Jan 2025 05:12:14 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 16 Jan 2025 05:12:14 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>44 cdnjs搜索</title><link>https://anaer.github.io/blog/post/44.html</link><description>## 查询最新版本&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 16 Jan 2025 05:58:17 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 16 Jan 2025 05:58:17 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>44 cdnjs搜索</title><link>https://anaer.github.io/blog/post/44.html</link><description>查询最新版本&#13;
 https://cdnjs.com/libraries/Primer&#13;
-&#13;
+
 字节跳动静态资源公共库&#13;
 https://cdn.bytedance.com/&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/44.html</guid><pubDate>Thu, 16 Jan 2025 05:11:53 +0000</pubDate></item><item><title>43 Python代码片段</title><link>https://anaer.github.io/blog/post/43.html</link><description>```python&#13;
+
+CDN地址&#13;
+
+南方科技大学&#13;
+https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.1.1/primer.css&#13;
+
+cdnjs.cloudflare.com 国内...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/44.html</guid><pubDate>Thu, 16 Jan 2025 05:11:53 +0000</pubDate></item><item><title>43 Python代码片段</title><link>https://anaer.github.io/blog/post/43.html</link><description>`python&#13;
 def getCountryNameByHttp(ip):&#13;
     '''&#13;
     查询ip对应国家代码&#13;
     如果未查询到, 或者查询异常, 返回空&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/43.html</guid><pubDate>Wed, 15 Jan 2025 09:48:03 +0000</pubDate></item><item><title>42 SQLite客户端</title><link>https://anaer.github.io/blog/post/42.html</link><description>## [sqlitestudio](https://github.com/pawelsalawa/sqlitestudio/releases)&#13;
-&#13;
+    '''&#13;
+    country = ''&#13;
+    try:&#13;
+        rq = requests.get("http://ip-api.com/json/{}?lang=zh-CN".format(i...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/43.html</guid><pubDate>Wed, 15 Jan 2025 09:48:03 +0000</pubDate></item><item><title>42 SQLite客户端</title><link>https://anaer.github.io/blog/post/42.html</link><description>sqlitestudio&#13;
+
 1. 可直接修改表结构&#13;
 2. 支持中文&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/42.html</guid><pubDate>Wed, 15 Jan 2025 09:31:22 +0000</pubDate></item><item><title>41 获取网站favicon图标</title><link>https://anaer.github.io/blog/post/41.html</link><description>https://favicon.qqsuu.cn/baidu.com  16x16&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/41.html</guid><pubDate>Tue, 14 Jan 2025 09:49:19 +0000</pubDate></item><item><title>40 浏览器由所属组织管理解决方法</title><link>https://anaer.github.io/blog/post/40.html</link><description>&#13;
-## Chrome&#13;
-&#13;
-```reg&#13;
+
+SQLiteSpy&#13;
+
+1. 修改表结构不方便, 需手写sql&#13;
+
+HeidiSQL&#13;
+
+1. 表结构修改支持的不好</description><guid isPermaLink="true">https://anaer.github.io/blog/post/42.html</guid><pubDate>Wed, 15 Jan 2025 09:31:22 +0000</pubDate></item><item><title>41 获取网站favicon图标</title><link>https://anaer.github.io/blog/post/41.html</link><description>https://favicon.qqsuu.cn/baidu.com  16x16&#13;
+
+https://icons.duckduckgo.com/ip3/www.baidu.com.ico    64x64&#13;
+
+~~https://statics.dnspod.cn/proxyfavicon//favicon?domain=www.baidu.com~~&#13;
+
+https://icons.bitwa...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/41.html</guid><pubDate>Tue, 14 Jan 2025 09:49:19 +0000</pubDate></item><item><title>40 浏览器由所属组织管理解决方法</title><link>https://anaer.github.io/blog/post/40.html</link><description>Chrome&#13;
+
+`reg&#13;
 Windows Registry Editor Version 5.00&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/40.html</guid><pubDate>Tue, 14 Jan 2025 09:27:18 +0000</pubDate></item><item><title>39 Deepseek API</title><link>https://anaer.github.io/blog/post/39.html</link><description>## [Deepseek开放平台](https://platform.deepseek.com/)&#13;
-&#13;
+
+; 删除 HKEYLOCALMACHINE\SOFTWARE\Policies\Google\Chrome&#13;
+[-HKEYLOCALMACHINE\SOFTWARE\Policies\Google\Chrome]&#13;
+
+; 删除 HKEYCURRENTUSER\Software\Policie...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/40.html</guid><pubDate>Tue, 14 Jan 2025 09:27:18 +0000</pubDate></item><item><title>39 Deepseek API</title><link>https://anaer.github.io/blog/post/39.html</link><description>Deepseek开放平台&#13;
+
 新用户 注册 送10Y 500w tokens 一个月有效期&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/39.html</guid><pubDate>Tue, 14 Jan 2025 07:54:02 +0000</pubDate></item><item><title>38 Blog页面添加下雪特效</title><link>https://anaer.github.io/blog/post/38.html</link><description>## snowfall&#13;
-&#13;
+
+deepseek-ai/awesome-deepseek-integration&#13;
+
+chatgptbox 配置&#13;
+!image</description><guid isPermaLink="true">https://anaer.github.io/blog/post/39.html</guid><pubDate>Tue, 14 Jan 2025 07:54:02 +0000</pubDate></item><item><title>38 Blog页面添加下雪特效</title><link>https://anaer.github.io/blog/post/38.html</link><description>snowfall&#13;
+
 下载js文件到目录assets/snowfall@1.7下&#13;
-&#13;
+
 在base.html添加&#13;
-```html&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/38.html</guid><pubDate>Tue, 14 Jan 2025 06:19:28 +0000</pubDate></item><item><title>37 Git命令记录</title><link>https://anaer.github.io/blog/post/37.html</link><description>## 当你使用 git clone --depth 1 克隆仓库时，Git 只会克隆最新的提交历史（浅克隆），并且默认只拉取默认分支（通常是 main 或 master）。如果你需要获取其他分支, 执...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/37.html</guid><pubDate>Tue, 14 Jan 2025 03:24:59 +0000</pubDate></item><item><title>36 中文分词API</title><link>https://anaer.github.io/blog/post/36.html</link><description>&#13;
-## 中文分词API&#13;
-&#13;
-### http://api.pullword.com/&#13;
-&#13;
-```sh&#13;
+`html&#13;
+    &lt;script src="{{ blogBase['homeUrl'] }}/assets/snowfall@1.7/snowfall.js"&gt;&lt;/script&gt;&#13;
+`&#13;
+
+在&lt;script&gt;块添加&#13;
+`js&#13;
+snowFall.snow(document.bod...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/38.html</guid><pubDate>Tue, 14 Jan 2025 06:19:28 +0000</pubDate></item><item><title>37 Git命令记录</title><link>https://anaer.github.io/blog/post/37.html</link><description>当你使用 git clone --depth 1 克隆仓库时，Git 只会克隆最新的提交历史（浅克隆），并且默认只拉取默认分支（通常是 main 或 master）。如果你需要获取其他分支, 执行以下命令&#13;
+
+`sh&#13;
+git config remote.origin.fetch "+refs/heads/:refs/remotes/origin/"&#13;
+git fetch --depth=1&#13;
+g...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/37.html</guid><pubDate>Tue, 14 Jan 2025 03:24:59 +0000</pubDate></item><item><title>36 中文分词API</title><link>https://anaer.github.io/blog/post/36.html</link><description>中文分词API&#13;
+
+http://api.pullword.com/&#13;
+
+`sh&#13;
 // param1 出词概率阈值(0-1之间的小数)，1表示只有100%有把握的词才出&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/36.html</guid><pubDate>Mon, 13 Jan 2025 08:41:57 +0000</pubDate></item><item><title>35 IP可用性检测</title><link>https://anaer.github.io/blog/post/35.html</link><description>&#13;
-检测IP在中国大陆以及海外区域的可用性，端口可以指定为SSH端口，或者任意服务的监听端口。&#13;
-&#13;
-## 相关链接&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/35.html</guid><pubDate>Mon, 13 Jan 2025 08:36:35 +0000</pubDate></item><item><title>34 Python分词</title><link>https://anaer.github.io/blog/post/34.html</link><description>## jieba&#13;
-&#13;
-```python&#13;
-# pip install jieba&#13;
+// param2 模式 0: 正常模式 1: 调试模式(显示概率)&#13;
+// json=1 返回json格式&#13;
+http://api.pullword.com/get.php?source=" + URLEncoder.enc...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/36.html</guid><pubDate>Mon, 13 Jan 2025 08:41:57 +0000</pubDate></item><item><title>35 IP可用性检测</title><link>https://anaer.github.io/blog/post/35.html</link><description>检测IP在中国大陆以及海外区域的可用性，端口可以指定为SSH端口，或者任意服务的监听端口。&#13;
+
+相关链接&#13;
+
+ip可用性检测工具&#13;
+ip可用性检查工具&#13;
+
+ip112使用接口&#13;
+境外检测&#13;
+
+中国大陆</description><guid isPermaLink="true">https://anaer.github.io/blog/post/35.html</guid><pubDate>Mon, 13 Jan 2025 08:36:35 +0000</pubDate></item><item><title>34 Python分词</title><link>https://anaer.github.io/blog/post/34.html</link><description>jieba&#13;
+
+`python&#13;
+pip install jieba&#13;
 import jieba&#13;
-&#13;
-# 精确模式，试图将句子最精确地切开，适合文本分析&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/34.html</guid><pubDate>Mon, 13 Jan 2025 08:06:52 +0000</pubDate></item><item><title>33 网盘</title><link>https://anaer.github.io/blog/post/33.html</link><description>## [Koofr](https://app.koofr.net/)&#13;
-&#13;
+
+精确模式，试图将句子最精确地切开，适合文本分析&#13;
+text = "测试分词长字符串"&#13;
+words = jieba.cut(text, cut_all=False)&#13;
+print("/".join(words))&#13;
+
+全模式，把句子中所有的可以成词的词语都扫描出来，速度非常快，但是不能解决歧义&#13;
+...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/34.html</guid><pubDate>Mon, 13 Jan 2025 08:06:52 +0000</pubDate></item><item><title>33 网盘</title><link>https://anaer.github.io/blog/post/33.html</link><description>Koofr&#13;
+
 1. 可使用Google账号登录&#13;
 2. 免费用户提供10G容量&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/33.html</guid><pubDate>Thu, 09 Jan 2025 09:21:34 +0000</pubDate></item><item><title>32 电子书下载站</title><link>https://anaer.github.io/blog/post/32.html</link><description>## [Z-library](https://z-library.sk/)&#13;
-&#13;
-[Re Z-library](https://zh.1lib.sk/)&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/32.html</guid><pubDate>Thu, 09 Jan 2025 07:06:35 +0000</pubDate></item><item><title>31 GPT比较</title><link>https://anaer.github.io/blog/post/31.html</link><description>## [ChatGPT](https://chatgpt.com/)&#13;
-&#13;
+3. 生成单独的App password后 即可通过WebDAV访问&#13;
+地址: https://app.koofr.net/dav/Koofr&#13;
+账号: Google账号邮箱&#13;
+密码: 👆生成的App password&#13;
+4. Save to Koorf&#13;
+Chrome插件, 支持保存网页或图片到Koorf上&#13;
+5...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/33.html</guid><pubDate>Thu, 09 Jan 2025 09:21:34 +0000</pubDate></item><item><title>32 电子书下载站</title><link>https://anaer.github.io/blog/post/32.html</link><description>Z-library&#13;
+
+Re Z-library&#13;
+
+可以在tg上创建bot用于搜书下书, 不过因为tg限制, 只能下载50M以下的&#13;
+
+SaltyLeo的书架&#13;
+
+爬网程序自动向各个站点查询集合的结果&#13;
+
+安娜的档案&#13;
+
+古腾堡计划（Project Gutenberg）</description><guid isPermaLink="true">https://anaer.github.io/blog/post/32.html</guid><pubDate>Thu, 09 Jan 2025 07:06:35 +0000</pubDate></item><item><title>31 GPT比较</title><link>https://anaer.github.io/blog/post/31.html</link><description>ChatGPT&#13;
+
 1. 支持记忆, 设置默认prompt&#13;
 2. 有墙, 偶尔失联&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/31.html</guid><pubDate>Thu, 09 Jan 2025 06:08:53 +0000</pubDate></item><item><title>30 Python读取Markdown文件的元数据</title><link>https://anaer.github.io/blog/post/30.html</link><description>## 使用PyYAML&#13;
-&#13;
-```python&#13;
-# pip install pyyaml&#13;
+
+deepseek 深度探索 &#13;
+
+1. 单会话存在长度限制, 超限时需要开启新会话&#13;
+2. 缺少记忆功能, 不能设置默认prompt&#13;
+
+Not Diamond&#13;
+
+1. 免费模型较少</description><guid isPermaLink="true">https://anaer.github.io/blog/post/31.html</guid><pubDate>Thu, 09 Jan 2025 06:08:53 +0000</pubDate></item><item><title>30 Python读取Markdown文件的元数据</title><link>https://anaer.github.io/blog/post/30.html</link><description>使用PyYAML&#13;
+
+`python&#13;
+pip install pyyaml&#13;
 import yaml&#13;
-&#13;
-def extract_metadata(file_path):&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/30.html</guid><pubDate>Mon, 06 Jan 2025 05:59:07 +0000</pubDate></item><item><title>29 whistle抓包工具</title><link>https://anaer.github.io/blog/post/29.html</link><description>## [whistle客户端](https://github.com/avwo/whistle-client)&#13;
-&#13;
+
+def extractmetadata(filepath):&#13;
+    with open(file_path, 'r', encoding='utf-8') as f:&#13;
+        content = f.read()&#13;
+
+    检查是否有 YAML Front Matter&#13;
+ ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/30.html</guid><pubDate>Mon, 06 Jan 2025 05:59:07 +0000</pubDate></item><item><title>29 whistle抓包工具</title><link>https://anaer.github.io/blog/post/29.html</link><description>whistle客户端&#13;
+
 支持Mac和Windows, Linux可以使用命令行版本&#13;
-&#13;
-## 插件&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/29.html</guid><pubDate>Fri, 03 Jan 2025 06:19:08 +0000</pubDate></item><item><title>28 Git配置文件说明</title><link>https://anaer.github.io/blog/post/28.html</link><description>## .git/config&#13;
-&#13;
-```conf&#13;
+
+插件&#13;
+
+插件列表&#13;
+
+whistle.inspect&#13;
+
+安装插件后, 设置并启用Rules规则, 刷新页面生效&#13;
+支持: vconsole, eruda, mdebug&#13;
+
+`conf&#13;
+www.baidu.com whistle.inspect://eruda&#13;
+`</description><guid isPermaLink="true">https://anaer.github.io/blog/post/29.html</guid><pubDate>Fri, 03 Jan 2025 06:19:08 +0000</pubDate></item><item><title>28 Git配置文件说明</title><link>https://anaer.github.io/blog/post/28.html</link><description>.git/config&#13;
+
+`conf&#13;
 [core]&#13;
-	# repositoryformatversion 指定 Git 仓库的版本，默认值为 0，通常不需要修改&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/28.html</guid><pubDate>Fri, 03 Jan 2025 03:05:36 +0000</pubDate></item><item><title>27 ip2region工具</title><link>https://anaer.github.io/blog/post/27.html</link><description>## [ip2region](https://github.com/lionsoul2014/ip2region)&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/27.html</guid><pubDate>Fri, 03 Jan 2025 02:05:26 +0000</pubDate></item><item><title>26 API接口测试工具</title><link>https://anaer.github.io/blog/post/26.html</link><description>## 在线工具&#13;
-&#13;
-### [Hoppscotch](https://hoppscotch.io/)&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/26.html</guid><pubDate>Thu, 02 Jan 2025 05:35:04 +0000</pubDate></item><item><title>25 iFrame嵌入页面跨站登录失败问题</title><link>https://anaer.github.io/blog/post/25.html</link><description>## 原因&#13;
-&#13;
+	repositoryformatversion 指定 Git 仓库的版本，默认值为 0，通常不需要修改&#13;
+	repositoryformatversion = 0  &#13;
+
+	filemode 表示是否跟踪文件的权限变化&#13;
+	true: 跟踪权限变化（适用于 Linux/macOS）&#13;
+	false: 忽略权限变化（适用于 Windows）...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/28.html</guid><pubDate>Fri, 03 Jan 2025 03:05:36 +0000</pubDate></item><item><title>27 ip2region工具</title><link>https://anaer.github.io/blog/post/27.html</link><description>ip2region&#13;
+
+ip2region-xdb  58M&#13;
+
+数据来自IP-API</description><guid isPermaLink="true">https://anaer.github.io/blog/post/27.html</guid><pubDate>Fri, 03 Jan 2025 02:05:26 +0000</pubDate></item><item><title>26 API接口测试工具</title><link>https://anaer.github.io/blog/post/26.html</link><description>在线工具&#13;
+
+Hoppscotch&#13;
+!image&#13;
+
+HTTPie for Web&#13;
+!image&#13;
+
+Chrome插件&#13;
+
+Talend API Tester - Free Edition</description><guid isPermaLink="true">https://anaer.github.io/blog/post/26.html</guid><pubDate>Thu, 02 Jan 2025 05:35:04 +0000</pubDate></item><item><title>25 iFrame嵌入页面跨站登录失败问题</title><link>https://anaer.github.io/blog/post/25.html</link><description>原因&#13;
+
 谷歌浏览器 80.0 及以上版本修改了安全策略，默认 SameSite 策略不允许 cookie 跨站发送，因此单点登录会失败。&#13;
-&#13;
-## 解决&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/25.html</guid><pubDate>Tue, 31 Dec 2024 02:43:53 +0000</pubDate></item><item><title>24 m3u8广告过滤</title><link>https://anaer.github.io/blog/post/24.html</link><description>未使用, 不确定过滤效果, 主要学习下过滤规则&#13;
-&#13;
-## 脚本&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/24.html</guid><pubDate>Thu, 26 Dec 2024 08:33:54 +0000</pubDate></item><item><title>23 Linux中生成文件的sha1码</title><link>https://anaer.github.io/blog/post/23.html</link><description>## 生成文件的sha1码&#13;
-&#13;
-```&#13;
-# touch 1.txt&#13;
-# sha1sum 1.txt&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/23.html</guid><pubDate>Wed, 25 Dec 2024 06:59:41 +0000</pubDate></item><item><title>22 Clash/Mihomo在线管理面板</title><link>https://anaer.github.io/blog/post/22.html</link><description>https://clash.razord.top/#/proxies&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/22.html</guid><pubDate>Wed, 25 Dec 2024 02:25:19 +0000</pubDate></item><item><title>21 Linux抓包tcp数据</title><link>https://anaer.github.io/blog/post/21.html</link><description>```sh&#13;
+
+解决&#13;
+
+1. 低版本谷歌 关闭谷歌浏览器的「SameSite by default cookies」选项，重启浏览器&#13;
+2. 统一域名 保证两个工程的顶级域名、次顶级域名相同，比如 a.b.com 和 c.b.com，「.com」顶级，「b」是次顶级。&#13;...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/25.html</guid><pubDate>Tue, 31 Dec 2024 02:43:53 +0000</pubDate></item><item><title>24 m3u8广告过滤</title><link>https://anaer.github.io/blog/post/24.html</link><description>未使用, 不确定过滤效果, 主要学习下过滤规则&#13;
+
+脚本&#13;
+
+M3U8 Filter Ad Script&#13;
+
+M3u8&#13;
+
+HLS(m3u8) 去广告&#13;
+
+Remove Ad from M3U8&#13;
+
+cf-m3u8-filter-ad-api&#13;
+
+去广告api&#13;
+
+https://linuxdo.yingmiwo.me/jx.php?url=&#13;
+
+来源链接</description><guid isPermaLink="true">https://anaer.github.io/blog/post/24.html</guid><pubDate>Thu, 26 Dec 2024 08:33:54 +0000</pubDate></item><item><title>23 Linux中生成文件的sha1码</title><link>https://anaer.github.io/blog/post/23.html</link><description>生成文件的sha1码&#13;
+
+`&#13;
+touch 1.txt&#13;
+sha1sum 1.txt&#13;
+da39a3ee5e6b4b0d3255bfef95601890afd80709  1.txt&#13;
+`</description><guid isPermaLink="true">https://anaer.github.io/blog/post/23.html</guid><pubDate>Wed, 25 Dec 2024 06:59:41 +0000</pubDate></item><item><title>22 Clash/Mihomo在线管理面板</title><link>https://anaer.github.io/blog/post/22.html</link><description>https://clash.razord.top//proxies&#13;
+
+http://47.98.184.123:9090/ui/</description><guid isPermaLink="true">https://anaer.github.io/blog/post/22.html</guid><pubDate>Wed, 25 Dec 2024 02:25:19 +0000</pubDate></item><item><title>21 Linux抓包tcp数据</title><link>https://anaer.github.io/blog/post/21.html</link><description>`sh&#13;
 tcpdump tcp port 22 and host 1.1.1.1 -w ./output.cap&#13;
-```&#13;
-&#13;
+`&#13;
+
 1) tcp 过滤数据包的类型 &#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/21.html</guid><pubDate>Tue, 24 Dec 2024 07:09:16 +0000</pubDate></item><item><title>20 Python telegram消息发送</title><link>https://anaer.github.io/blog/post/20.html</link><description>```python&#13;
+2) port 目标端口 &#13;
+3) host 目标主机 &#13;
+4) -w ./output.cap 输出cap文件, 可用wireshark打开分析</description><guid isPermaLink="true">https://anaer.github.io/blog/post/21.html</guid><pubDate>Tue, 24 Dec 2024 07:09:16 +0000</pubDate></item><item><title>20 Python telegram消息发送</title><link>https://anaer.github.io/blog/post/20.html</link><description>`python&#13;
 import telegram&#13;
 import asyncio&#13;
-&#13;
+
 """&#13;
 pip install python-telegram-bot&#13;
 """&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/20.html</guid><pubDate>Fri, 13 Dec 2024 09:47:33 +0000</pubDate></item><item><title>19 Spotify导入opml</title><link>https://anaer.github.io/blog/post/19.html</link><description>## [Podimporter](https://www.podimporter.com)&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/19.html</guid><pubDate>Fri, 13 Dec 2024 07:47:26 +0000</pubDate></item><item><title>18 静态文件服务器</title><link>https://anaer.github.io/blog/post/18.html</link><description>[dufs](https://github.com/sigoden/dufs)&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/18.html</guid><pubDate>Wed, 21 Aug 2024 07:05:12 +0000</pubDate></item><item><title>17 neovim gui客户端</title><link>https://anaer.github.io/blog/post/17.html</link><description>## [goneovim](https://github.com/akiyosi/goneovim)&#13;
+
+key = ""&#13;
+chat_id = ""&#13;
+text = ""&#13;
+
+async def sendMsg(text):&#13;
+    bot = telegram.Bot(token=key)&#13;
+    async with b...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/20.html</guid><pubDate>Fri, 13 Dec 2024 09:47:33 +0000</pubDate></item><item><title>19 Spotify导入opml</title><link>https://anaer.github.io/blog/post/19.html</link><description>Podimporter&#13;
+
+在线导入opml, 需要登录Spotify, 然后选择opml文件导入</description><guid isPermaLink="true">https://anaer.github.io/blog/post/19.html</guid><pubDate>Fri, 13 Dec 2024 07:47:26 +0000</pubDate></item><item><title>18 静态文件服务器</title><link>https://anaer.github.io/blog/post/18.html</link><description>dufs&#13;
+!220513063-ff0f186b-ac54-4682-9af4-47a9781dee0d&#13;
+
+miniserve&#13;
+&lt;img width="425" alt="screenshot" src="https://github.com/user-attachments/assets/ad9d97aa-0ef3-4e67-b5e0-f60841220b9c"&gt;&#13;
+
+chfsgui&#13;
+!...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/18.html</guid><pubDate>Wed, 21 Aug 2024 07:05:12 +0000</pubDate></item><item><title>17 neovim gui客户端</title><link>https://anaer.github.io/blog/post/17.html</link><description>goneovim&#13;
 单文件 刚安装 测试看看&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/17.html</guid><pubDate>Tue, 06 Aug 2024 06:37:03 +0000</pubDate></item><item><title>16 Deeplx 负载均衡</title><link>https://anaer.github.io/blog/post/16.html</link><description>http://47.236.84.103:3000/translate&#13;
-&#13;
+
+neovide&#13;
+单文件 光标切换响应较慢 有残影 暂不考虑&#13;
+
+fvim&#13;
+dll库文件较多 先不考虑</description><guid isPermaLink="true">https://anaer.github.io/blog/post/17.html</guid><pubDate>Tue, 06 Aug 2024 06:37:03 +0000</pubDate></item><item><title>16 Deeplx 负载均衡</title><link>https://anaer.github.io/blog/post/16.html</link><description>http://47.236.84.103:3000/translate&#13;
+
 ~~https://deeplx-lb-wheat.vercel.app/translate~~&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/16.html</guid><pubDate>Thu, 01 Aug 2024 07:59:09 +0000</pubDate></item><item><title>15 aidoku漫画源</title><link>https://anaer.github.io/blog/post/15.html</link><description># [Aidoku](https://github.com/Aidoku/Aidoku)&#13;
-&#13;
+
+https://deeplx.smnet.io/translate &#13;
+
+支持deeplx的软件和扩展插件&#13;
+
+沉浸式翻译 Edge&#13;
+
+语言学家 - 网页翻译器 Chrome&#13;
+
+简约翻译 Edge&#13;
+
+pot 官网</description><guid isPermaLink="true">https://anaer.github.io/blog/post/16.html</guid><pubDate>Thu, 01 Aug 2024 07:59:09 +0000</pubDate></item><item><title>15 aidoku漫画源</title><link>https://anaer.github.io/blog/post/15.html</link><description>Aidoku&#13;
+
 在设置-来源列表中添加&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/15.html</guid><pubDate>Sat, 20 Jul 2024 13:44:01 +0000</pubDate></item><item><title>14 Windows内存清理工具</title><link>https://anaer.github.io/blog/post/14.html</link><description>## [Reduce Memory v1.7](https://www.sordum.org/9197/reduce-memory-v1-7/)&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/14.html</guid><pubDate>Thu, 23 May 2024 01:19:22 +0000</pubDate></item><item><title>13 生成Python项目的requirements.txt文件</title><link>https://anaer.github.io/blog/post/13.html</link><description>生成 Python 项目的 requirements.txt 文件&#13;
-&#13;
-1. 使用 `pip freeze` 命令。&#13;
+
+suiyuran/aidoku-zh-sources&#13;
+添加源&#13;
+
+Skittyblock/aidoku-community-sources&#13;
+添加源</description><guid isPermaLink="true">https://anaer.github.io/blog/post/15.html</guid><pubDate>Sat, 20 Jul 2024 13:44:01 +0000</pubDate></item><item><title>14 Windows内存清理工具</title><link>https://anaer.github.io/blog/post/14.html</link><description>Reduce Memory v1.7&#13;
+
+!image&#13;
+
+Windows Memory Cleaner 2.8&#13;
+
+Mem Reduct&#13;
+
+!image</description><guid isPermaLink="true">https://anaer.github.io/blog/post/14.html</guid><pubDate>Thu, 23 May 2024 01:19:22 +0000</pubDate></item><item><title>13 生成Python项目的requirements.txt文件</title><link>https://anaer.github.io/blog/post/13.html</link><description>生成 Python 项目的 requirements.txt 文件&#13;
+
+1. 使用 pip freeze 命令。&#13;
 在项目的根目录下，打开终端或命令提示符，执行以下命令：&#13;
-&#13;
-```sh&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/13.html</guid><pubDate>Thu, 07 Dec 2023 05:36:55 +0000</pubDate></item><item><title>12 检测服务器内存信息, 并用bark通知</title><link>https://anaer.github.io/blog/post/12.html</link><description>vim script/free.py&#13;
-&#13;
-```py&#13;
+
+`sh&#13;
+pip freeze &gt; requirements.txt&#13;
+`&#13;
+
+这个命令会将当前环境中已安装的所有第三方库及其版本信息写入到 requirements.txt 文件中。&#13;
+
+2. 使用 pipreqs 工具。...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/13.html</guid><pubDate>Thu, 07 Dec 2023 05:36:55 +0000</pubDate></item><item><title>12 检测服务器内存信息, 并用bark通知</title><link>https://anaer.github.io/blog/post/12.html</link><description>vim script/free.py&#13;
+
+`py&#13;
 import subprocess&#13;
-from bark import send_bark_notification&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/12.html</guid><pubDate>Wed, 08 Nov 2023 09:38:20 +0000</pubDate></item><item><title>11 使用bark通知APP</title><link>https://anaer.github.io/blog/post/11.html</link><description>```py&#13;
+from bark import sendbarknotification&#13;
+
+执行 free -m 命令并获取结果&#13;
+result = subprocess.run(['free', '-m'], stdout=subprocess.PIPE)&#13;
+
+处理结果并提取 total 和 available 两项&#13;...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/12.html</guid><pubDate>Wed, 08 Nov 2023 09:38:20 +0000</pubDate></item><item><title>11 使用bark通知APP</title><link>https://anaer.github.io/blog/post/11.html</link><description>`py&#13;
 import requests&#13;
 import sys&#13;
 from urllib.parse import quote&#13;
-&#13;
-# Bark 的通知 API xxx为token信息&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/11.html</guid><pubDate>Wed, 08 Nov 2023 09:28:30 +0000</pubDate></item><item><title>10 fail2ban配置nginx</title><link>https://anaer.github.io/blog/post/10.html</link><description>vim /etc/fail2ban/jail.d/nginx.conf&#13;
-&#13;
-```conf&#13;
+
+Bark 的通知 API xxx为token信息&#13;
+BARK_API = "https://api.day.app/xxx"&#13;
+
+def sendbarknotification(param1, param2):&#13;
+ quote默认safe='/', 不进行处理, ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/11.html</guid><pubDate>Wed, 08 Nov 2023 09:28:30 +0000</pubDate></item><item><title>10 fail2ban配置nginx</title><link>https://anaer.github.io/blog/post/10.html</link><description>vim /etc/fail2ban/jail.d/nginx.conf&#13;
+
+`conf&#13;
 [nginx-cc]&#13;
 enabled = true&#13;
 filter = nginx-cc&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/10.html</guid><pubDate>Mon, 06 Nov 2023 07:35:40 +0000</pubDate></item><item><title>9 Ubuntu安装fail2ban</title><link>https://anaer.github.io/blog/post/9.html</link><description>## 安装&#13;
+action = iptables-multiport[name=nginx-cc,port="80,443"]&#13;
+         bark[name=nginx-cc]&#13;
+maxretry = 120&#13;
+find...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/10.html</guid><pubDate>Mon, 06 Nov 2023 07:35:40 +0000</pubDate></item><item><title>9 Ubuntu安装fail2ban</title><link>https://anaer.github.io/blog/post/9.html</link><description>安装&#13;
 系统: Ubuntu 20.04.6 LTS&#13;
-&#13;
-```bash&#13;
+
+`bash&#13;
 apt-get install fail2ban&#13;
-```&#13;
-&#13;
-## 命令&#13;
-&#13;
-### 查询服务状态&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/9.html</guid><pubDate>Fri, 03 Nov 2023 05:59:18 +0000</pubDate></item><item><title>8 Ubuntu部署WebDAV服务</title><link>https://anaer.github.io/blog/post/8.html</link><description>0. 系统环境&#13;
-&#13;
+`&#13;
+
+命令&#13;
+
+查询服务状态&#13;
+
+`bash&#13;
+service fail2ban status&#13;
+systemctl status fail2ban.service&#13;
+`&#13;
+
+查询状态&#13;
+
+`bash&#13;
+查看启用的规则&#13;
+fail2ban-client status&#13;
+St...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/9.html</guid><pubDate>Fri, 03 Nov 2023 05:59:18 +0000</pubDate></item><item><title>8 Ubuntu部署WebDAV服务</title><link>https://anaer.github.io/blog/post/8.html</link><description>0. 系统环境&#13;
+
 系统: Ubuntu 20.04.6&#13;
-&#13;
+
 1. 安装nginx&#13;
-&#13;
-`apt-get install nginx-full` 安装full版&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/8.html</guid><pubDate>Wed, 01 Nov 2023 07:30:57 +0000</pubDate></item><item><title>7 ECS操作记录</title><link>https://anaer.github.io/blog/post/7.html</link><description>1. 重置密码， 没有提示默认密码&#13;
-2. `apt-get update` 需要先更新, 直接安装会提示找不到包&#13;
-3. `apt-get install nginx` 安装nginx &#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>6 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>| 分类     | 名称                       | 下载地址                                                          ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>5 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>* [LXGW WenKai GB / 霞鹜文楷 GB](https://github.com/lxgw/LxgwWenkaiGB)&#13;
+
+apt-get install nginx-full 安装full版&#13;
+
+2. 创建webdav目录&#13;
+
+`bash&#13;
+mkdir /var/www/webdav&#13;
+chown -R www-data:www-data /var/www/webdav&#13;
+`&#13;
+
+3. 配置nginx&#13;
+
+vim /etc/ngi...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/8.html</guid><pubDate>Wed, 01 Nov 2023 07:30:57 +0000</pubDate></item><item><title>7 ECS操作记录</title><link>https://anaer.github.io/blog/post/7.html</link><description>1. 重置密码， 没有提示默认密码&#13;
+2. apt-get update 需要先更新, 直接安装会提示找不到包&#13;
+3. apt-get install nginx 安装nginx &#13;
+4. 云服务 安全组 入方向 快速添加80端口 &#13;
+5. 部署webdav 8 &#13;
+6. 安装fail2ban 防止暴力破解系统密码 9 &#13;
+7. 安装deepLX</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>6 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>| 分类     | 名称                       | 下载地址                                                                                           | 说明                                                               ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>5 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>LXGW WenKai GB / 霞鹜文楷 GB&#13;
 等宽, markdown表格格式化 也能对齐&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/5.html</guid><pubDate>Thu, 26 Oct 2023 02:37:30 +0000</pubDate></item><item><title>4 pyGitHub</title><link>https://anaer.github.io/blog/post/4.html</link><description>## 仓库属性字段&#13;
-&#13;
+
+Cascadia Code&#13;
+Maple-Mono&#13;
+UbuntuMono</description><guid isPermaLink="true">https://anaer.github.io/blog/post/5.html</guid><pubDate>Thu, 26 Oct 2023 02:37:30 +0000</pubDate></item><item><title>4 pyGitHub</title><link>https://anaer.github.io/blog/post/4.html</link><description>仓库属性字段&#13;
+
 | 属性字段         | 描述                          |&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/4.html</guid><pubDate>Thu, 19 Oct 2023 08:19:17 +0000</pubDate></item><item><title>3 循环叹息</title><link>https://anaer.github.io/blog/post/3.html</link><description>循环叹息（cyclic sighing）的步骤是，先缓慢吸气，使肺部扩张，再短促小吸一口气，最大程度让肺部充气，然后非常缓慢地呼出全部气体。&#13;
-&#13;
+|------------------|-------------------------------|&#13;
+| id               | 仓库的唯一标识符               |&#13;
+| name             | 仓库的名称                ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/4.html</guid><pubDate>Thu, 19 Oct 2023 08:19:17 +0000</pubDate></item><item><title>3 循环叹息</title><link>https://anaer.github.io/blog/post/3.html</link><description>循环叹息（cyclic sighing）的步骤是，先缓慢吸气，使肺部扩张，再短促小吸一口气，最大程度让肺部充气，然后非常缓慢地呼出全部气体。&#13;
+
 改善心情，减少焦虑&#13;
-&#13;
-## 相关链接&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/3.html</guid><pubDate>Mon, 16 Oct 2023 02:09:32 +0000</pubDate></item><item><title>2 Violentmonkey 脚本</title><link>https://anaer.github.io/blog/post/2.html</link><description>## [暴力猴Violentmonkey](https://violentmonkey.github.io/)&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/2.html</guid><pubDate>Thu, 28 Sep 2023 06:35:06 +0000</pubDate></item><item><title>1 苹果CMS接口说明以及采集源搜索</title><link>https://anaer.github.io/blog/post/1.html</link><description># [苹果CMS](https://github.com/magicblack/maccms10)&#13;
-&#13;
-## 接口说明&#13;
-&#13;
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/1.html</guid><pubDate>Fri, 08 Sep 2023 12:29:10 +0000</pubDate></item></channel></rss>
+
+相关链接&#13;
+每天5分钟呼吸训练比冥想更好？！&#13;
+Brief structured respiration practices enhance mood and reduce physiological arousal00474-8...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/3.html</guid><pubDate>Mon, 16 Oct 2023 02:09:32 +0000</pubDate></item><item><title>2 Violentmonkey 脚本</title><link>https://anaer.github.io/blog/post/2.html</link><description>暴力猴Violentmonkey&#13;
+
+元数据块&#13;
+
+`markdown&#13;
+// ==UserScript==&#13;
+// @name 标题&#13;
+// @name:zh-CN 可以在变量名后增加区域信息:zh-CN 实现多语言国际化&#13;
+// @namespace 命名空间 通过name和namespace确定唯一, 创建同名脚本时会提示冲突&#13;
+// @description 描述&#13;
+// @author ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/2.html</guid><pubDate>Thu, 28 Sep 2023 06:35:06 +0000</pubDate></item><item><title>1 苹果CMS接口说明以及采集源搜索</title><link>https://anaer.github.io/blog/post/1.html</link><description>苹果CMS&#13;
+
+接口说明&#13;
+
+Provide.php源码&#13;
+
+查看/provide/vod/ 接口的查询逻辑&#13;
+
+列表&#13;
+http://域名/api.php/provide/vod/?ac=list&#13;
+
+入参：&#13;
+`&#13;
+ac=list 查询列表 videolist 查询列表(全字段) detail 查询详情&#13;
+t=类别ID&#13;
+pg=页码&#13;
+wd=搜索关键字&#13;
+h=几小时内的数据&#13;
+
+isend=是...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/1.html</guid><pubDate>Fri, 08 Sep 2023 12:29:10 +0000</pubDate></item></channel></rss>
