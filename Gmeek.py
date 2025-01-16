@@ -143,7 +143,8 @@ class GMEEK():
         print("create postPage title=%s file=%s " % (issue["postTitle"],issue["htmlDir"]))
 
     def createPlistHtml(self):
-        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["createdAt"]),reverse=True)) #按创建时间降序
+        # createdAt  updatedAt
+        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True)) #按创建时间降序
 
         postNum=len(self.blogBase["postListJson"])
         pageFlag=0
