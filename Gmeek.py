@@ -224,18 +224,44 @@ class GMEEK():
         feed.rss_file(self.root_dir+'rss.xml')
 
     def build_desc(self, content):
+        content = self.markdown_to_plaintext(content)
+
         # 截取前100个字符
-        if len(content) > 100:
-            content = content[:100] + "..."
-
-        # 按行分割字符串
-        lines = content.split('\n')
-
-        # 如果包含多行，则保留N-1行
-        if len(lines) > 1:
-            return '\n'.join(lines[:-1]) + "\n..."
+        if len(content) > 200:
+            content = content[:200] + "..."
 
         return content
+
+    def markdown_to_plaintext(self, markdown_text):
+        # 移除标题
+        markdown_text = re.sub(r'#+\s*', '', markdown_text)
+
+        # 移除加粗和斜体
+        markdown_text = re.sub(r'\*\*(.*?)\*\*', r'\1', markdown_text)  # 加粗
+        markdown_text = re.sub(r'__(.*?)__', r'\1', markdown_text)      # 加粗（替代语法）
+        markdown_text = re.sub(r'\*(.*?)\*', r'\1', markdown_text)      # 斜体
+        markdown_text = re.sub(r'_(.*?)_', r'\1', markdown_text)        # 斜体（替代语法）
+
+        # 移除链接和图片
+        markdown_text = re.sub(r'\[(.*?)\]\(.*?\)', r'\1', markdown_text)  # 链接
+        markdown_text = re.sub(r'!\[(.*?)\]\(.*?\)', r'\1', markdown_text) # 图片
+
+        # 移除引用
+        markdown_text = re.sub(r'^>\s*', '', markdown_text, flags=re.MULTILINE)
+
+        # 移除行内代码
+        markdown_text = re.sub(r'`(.*?)`', r'\1', markdown_text)
+
+        # 移除代码块
+        markdown_text = re.sub(r'```.*?\n(.*?)\n```', r'\1', markdown_text, flags=re.DOTALL)
+
+        # 移除列表符号（无序列表）
+        markdown_text = re.sub(r'^[\*\-\+]\s*', '', markdown_text, flags=re.MULTILINE)
+
+        # 移除多余的空行
+        markdown_text = re.sub(r'\n\s*\n', '\n\n', markdown_text)
+
+        return markdown_text.strip()
 
     def get_background_color(self, createdAt, updatedAt):
         now = datetime.now()
