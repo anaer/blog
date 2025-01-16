@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 16 Jan 2025 03:28:07 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 16 Jan 2025 03:28:07 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>43 Python代码片段</title><link>https://anaer.github.io/blog/post/43.html</link><description>```python&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 16 Jan 2025 05:12:14 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 16 Jan 2025 05:12:14 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>44 cdnjs搜索</title><link>https://anaer.github.io/blog/post/44.html</link><description>## 查询最新版本&#13;
+https://cdnjs.com/libraries/Primer&#13;
+&#13;
+字节跳动静态资源公共库&#13;
+https://cdn.bytedance.com/&#13;
+&#13;
+...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/44.html</guid><pubDate>Thu, 16 Jan 2025 05:11:53 +0000</pubDate></item><item><title>43 Python代码片段</title><link>https://anaer.github.io/blog/post/43.html</link><description>```python&#13;
 def getCountryNameByHttp(ip):&#13;
     '''&#13;
     查询ip对应国家代码&#13;
