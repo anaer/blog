@@ -115,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const activeLink = tocElement.querySelector(`a[href="#${currentHeading.id}"]`);
             if (activeLink) {
                 activeLink.classList.add('active');
+                tocElement.scrollTop = activeLink.offsetTop - tocElement.offsetTop;
             }
         }
     });
