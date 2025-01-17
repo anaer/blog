@@ -1,4 +1,10 @@
+## 代码
+
 ```python
+import json
+import requests
+
+
 def getCountryNameByHttp(ip):
     '''
     查询ip对应国家代码
@@ -14,4 +20,8 @@ def getCountryNameByHttp(ip):
     except Exception as e:
         print("getCountryCode异常.", ip, e)
         return country
+
+
+print(getCountryNameByHttp("8.8.8.8"))
+# 美国
 ```
