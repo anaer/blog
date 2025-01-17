@@ -30,7 +30,6 @@
             "postUrl": "post/1.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/1",
             "commentNum": 0,
-            "description": "\u82f9\u679cCMS\r\n\n\u63a5\u53e3\u8bf4\u660e\r\n\nProvide.php\u6e90\u7801\r\n\n\u67e5\u770b/provide/vod/ \u63a5\u53e3\u7684\u67e5\u8be2\u903b\u8f91\r\n\n\u5217\u8868\r\nhttp://\u57df\u540d/api.php/provide/vod/?ac=list\r\n\n\u5165\u53c2\uff1a\r\n`\r\nac=list \u67e5\u8be2\u5217\u8868 videolist \u67e5\u8be2\u5217\u8868(\u5168\u5b57\u6bb5) detail \u67e5\u8be2\u8be6\u60c5\r\nt=\u7c7b\u522bID\r\npg=\u9875\u7801\r\nwd=\u641c\u7d22\u5173\u952e\u5b57\r\nh=\u51e0\u5c0f\u65f6\u5185\u7684\u6570\u636e\r\n\nisend=\u662f...",
             "updatedAt": 1736329153,
             "nextTitle": "2 Violentmonkey \u811a\u672c",
             "nextUrl": "post/2.html",
@@ -39,7 +38,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-09-08",
-            "dateLabelColor": "#f007e8"
+            "dateLabelColor": "#f108e8",
+            "description": "\u82f9\u679cCMS\n\u63a5\u53e3\u8bf4\u660e\nProvide.php\u6e90\u7801\n\u67e5\u770b/provide/vod/ \u63a5\u53e3\u7684\u67e5\u8be2\u903b\u8f91\n\u5217\u8868\nhttp://\u57df\u540d/api.php/provide/vod/?ac=list\n\u5165\u53c2\uff1a\nac=li..."
         },
         "P2": {
             "number": "2",
@@ -52,7 +52,6 @@
             "postUrl": "post/2.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/2",
             "commentNum": 0,
-            "description": "\u66b4\u529b\u7334Violentmonkey\r\n\n\u5143\u6570\u636e\u5757\r\n\n`markdown\r\n// ==UserScript==\r\n// @name \u6807\u9898\r\n// @name:zh-CN \u53ef\u4ee5\u5728\u53d8\u91cf\u540d\u540e\u589e\u52a0\u533a\u57df\u4fe1\u606f:zh-CN \u5b9e\u73b0\u591a\u8bed\u8a00\u56fd\u9645\u5316\r\n// @namespace \u547d\u540d\u7a7a\u95f4 \u901a\u8fc7name\u548cnamespace\u786e\u5b9a\u552f\u4e00, \u521b\u5efa\u540c\u540d\u811a\u672c\u65f6\u4f1a\u63d0\u793a\u51b2\u7a81\r\n// @description \u63cf\u8ff0\r\n// @author ...",
             "updatedAt": 1734053847,
             "nextTitle": "3 \u5faa\u73af\u53f9\u606f",
             "nextUrl": "post/3.html",
@@ -61,7 +60,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-09-28",
-            "dateLabelColor": "#dc22ba"
+            "dateLabelColor": "#dd23ba",
+            "description": "\u66b4\u529b\u7334Violentmonkey\n\u5143\u6570\u636e\u5757\n// ==UserScript==\n// @name \u6807\u9898\n// @name:zh-CN \u53ef\u4ee5\u5728\u53d8\u91cf\u540d\u540e\u589e\u52a0\u533a\u57df\u4fe1\u606f:zh-CN \u5b9e\u73b0\u591a\u8bed\u8a00\u56fd\u9645\u5316\n// @..."
         },
         "P3": {
             "number": "3",
@@ -74,7 +74,6 @@
             "postUrl": "post/3.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/3",
             "commentNum": 0,
-            "description": "\u5faa\u73af\u53f9\u606f\uff08cyclic sighing\uff09\u7684\u6b65\u9aa4\u662f\uff0c\u5148\u7f13\u6162\u5438\u6c14\uff0c\u4f7f\u80ba\u90e8\u6269\u5f20\uff0c\u518d\u77ed\u4fc3\u5c0f\u5438\u4e00\u53e3\u6c14\uff0c\u6700\u5927\u7a0b\u5ea6\u8ba9\u80ba\u90e8\u5145\u6c14\uff0c\u7136\u540e\u975e\u5e38\u7f13\u6162\u5730\u547c\u51fa\u5168\u90e8\u6c14\u4f53\u3002\r\n\n\u6539\u5584\u5fc3\u60c5\uff0c\u51cf\u5c11\u7126\u8651\r\n\n\u76f8\u5173\u94fe\u63a5\r\n\u6bcf\u59295\u5206\u949f\u547c\u5438\u8bad\u7ec3\u6bd4\u51a5\u60f3\u66f4\u597d\uff1f\uff01\r\nBrief structured respiration practices enhance mood and reduce physiological arousal00474-8...",
             "updatedAt": 1734053847,
             "nextTitle": "4 pyGitHub",
             "nextUrl": "post/4.html",
@@ -83,7 +82,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-16",
-            "dateLabelColor": "#cb22a8"
+            "dateLabelColor": "#cb23a8",
+            "description": "\u5faa\u73af\u53f9\u606f\uff08cyclic sighing\uff09\u7684\u6b65\u9aa4\u662f\uff0c\u5148\u7f13\u6162\u5438\u6c14\uff0c\u4f7f\u80ba\u90e8\u6269\u5f20\uff0c\u518d\u77ed\u4fc3\u5c0f\u5438\u4e00\u53e3\u6c14\uff0c\u6700\u5927\u7a0b\u5ea6\u8ba9\u80ba\u90e8\u5145\u6c14\uff0c\u7136\u540e\u975e\u5e38\u7f13\u6162\u5730\u547c\u51fa\u5168\u90e8\u6c14\u4f53\u3002\n\u6539\u5584\u5fc3\u60c5\uff0c\u51cf\u5c11\u7126\u8651\n\u76f8\u5173\u94fe\u63a5\n\u6bcf\u59295\u5206\u949f\u547c\u5438\u8bad\u7ec3\u6bd4\u51a5\u60f3\u66f4\u597d..."
         },
         "P4": {
             "number": "4",
@@ -97,7 +97,6 @@
             "postUrl": "post/4.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/4",
             "commentNum": 0,
-            "description": "\u4ed3\u5e93\u5c5e\u6027\u5b57\u6bb5\r\n\n| \u5c5e\u6027\u5b57\u6bb5         | \u63cf\u8ff0                          |\r\n|------------------|-------------------------------|\r\n| id               | \u4ed3\u5e93\u7684\u552f\u4e00\u6807\u8bc6\u7b26               |\r\n| name             | \u4ed3\u5e93\u7684\u540d\u79f0                ...",
             "updatedAt": 1734083181,
             "nextTitle": "5 \u4e2d\u6587\u7b49\u5bbd\u5b57\u4f53",
             "nextUrl": "post/5.html",
@@ -106,7 +105,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-19",
-            "dateLabelColor": "#c721a6"
+            "dateLabelColor": "#c822a6",
+            "description": "\u4ed3\u5e93\u5c5e\u6027\u5b57\u6bb5\n\n\n\n\u5c5e\u6027\u5b57\u6bb5\n\u63cf\u8ff0\n\n\n\n\nid\n\u4ed3\u5e93\u7684\u552f\u4e00\u6807\u8bc6\u7b26\n\n\nname\n\u4ed3\u5e93\u7684\u540d\u79f0\n\n\nfull_name\n\u4ed3\u5e93\u7684\u5168\u540d\uff0c\u5305\u62ec\u7528\u6237\u540d/\u7ec4\u7ec7\u540d\n\n\nowner\n\u4ed3\u5e93\u7684\u6240\u6709\u8005\uff08\u7528\u6237\u6216\u7ec4\u7ec7\uff09\n\n\nd..."
         },
         "P5": {
             "number": "5",
@@ -119,7 +119,6 @@
             "postUrl": "post/5.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/5",
             "commentNum": 0,
-            "description": "LXGW WenKai GB / \u971e\u9e5c\u6587\u6977 GB\r\n\u7b49\u5bbd, markdown\u8868\u683c\u683c\u5f0f\u5316 \u4e5f\u80fd\u5bf9\u9f50\r\n\nCascadia Code\r\nMaple-Mono\r\nUbuntuMono",
             "updatedAt": 1734053848,
             "nextTitle": "6 PC\u7aef\u5e38\u7528\u8f6f\u4ef6",
             "nextUrl": "post/6.html",
@@ -128,7 +127,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-26",
-            "dateLabelColor": "#c1229e"
+            "dateLabelColor": "#c1239e",
+            "description": "\n\nLXGW WenKai GB / \u971e\u9e5c\u6587\u6977 GB\n\u7b49\u5bbd, markdown\u8868\u683c\u683c\u5f0f\u5316 \u4e5f\u80fd\u5bf9\u9f50\n\n\nCascadia Code\n\n\nMaple-Mono\n\n\nUbuntuMono\n\n\n"
         },
         "P6": {
             "number": "6",
@@ -142,7 +142,6 @@
             "postUrl": "post/6.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/6",
             "commentNum": 0,
-            "description": "| \u5206\u7c7b     | \u540d\u79f0                       | \u4e0b\u8f7d\u5730\u5740                                                                                           | \u8bf4\u660e                                                               ...",
             "updatedAt": 1736412706,
             "nextTitle": "7 ECS\u64cd\u4f5c\u8bb0\u5f55",
             "nextUrl": "post/7.html",
@@ -151,7 +150,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-30",
-            "dateLabelColor": "#bc06b5"
+            "dateLabelColor": "#bd07b5",
+            "description": "\n\n\n\u5206\u7c7b\n\u540d\u79f0\n\u4e0b\u8f7d\u5730\u5740\n\u8bf4\u660e\n\n\n\n\n\u4ee3\u7406\nProxifier\n\u5b98\u7f51\n\n\n\n\u4f20\u8f93\nWinSCP\n\u5b98\u7f51\n\n\n\n\u5065\u5eb7\nLightBulb \u5f00\u6e90\u62a4\u773c\u8f6f\u4ef6\nGitHub\n\n\n\n\u5185\u5b58\nMem Reduct\n..."
         },
         "P7": {
             "number": "7",
@@ -164,7 +164,6 @@
             "postUrl": "post/7.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/7",
             "commentNum": 0,
-            "description": "1. \u91cd\u7f6e\u5bc6\u7801\uff0c \u6ca1\u6709\u63d0\u793a\u9ed8\u8ba4\u5bc6\u7801\r\n2. apt-get update \u9700\u8981\u5148\u66f4\u65b0, \u76f4\u63a5\u5b89\u88c5\u4f1a\u63d0\u793a\u627e\u4e0d\u5230\u5305\r\n3. apt-get install nginx \u5b89\u88c5nginx \r\n4. \u4e91\u670d\u52a1 \u5b89\u5168\u7ec4 \u5165\u65b9\u5411 \u5feb\u901f\u6dfb\u52a080\u7aef\u53e3 \r\n5. \u90e8\u7f72webdav 8 \r\n6. \u5b89\u88c5fail2ban \u9632\u6b62\u66b4\u529b\u7834\u89e3\u7cfb\u7edf\u5bc6\u7801 9 \r\n7. \u5b89\u88c5deepLX",
             "updatedAt": 1734053848,
             "nextTitle": "8 Ubuntu\u90e8\u7f72WebDAV\u670d\u52a1",
             "nextUrl": "post/8.html",
@@ -173,7 +172,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-01",
-            "dateLabelColor": "#bb2298"
+            "dateLabelColor": "#bb2398",
+            "description": "\n\u91cd\u7f6e\u5bc6\u7801\uff0c \u6ca1\u6709\u63d0\u793a\u9ed8\u8ba4\u5bc6\u7801\n\napt-get update \u9700\u8981\u5148\u66f4\u65b0, \u76f4\u63a5\u5b89\u88c5\u4f1a\u63d0\u793a\u627e\u4e0d\u5230\u5305\n\napt-get install nginx \u5b89\u88c5nginx\n\u4e91\u670d\u52a1 \u5b89\u5168\u7ec4 \u5165\u65b9\u5411 \u5feb\u901f\u6dfb\u52a080..."
         },
         "P8": {
             "number": "8",
@@ -186,7 +186,6 @@
             "postUrl": "post/8.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/8",
             "commentNum": 0,
-            "description": "0. \u7cfb\u7edf\u73af\u5883\r\n\n\u7cfb\u7edf: Ubuntu 20.04.6\r\n\n1. \u5b89\u88c5nginx\r\n\napt-get install nginx-full \u5b89\u88c5full\u7248\r\n\n2. \u521b\u5efawebdav\u76ee\u5f55\r\n\n`bash\r\nmkdir /var/www/webdav\r\nchown -R www-data:www-data /var/www/webdav\r\n`\r\n\n3. \u914d\u7f6enginx\r\n\nvim /etc/ngi...",
             "updatedAt": 1734053849,
             "nextTitle": "9 Ubuntu\u5b89\u88c5fail2ban",
             "nextUrl": "post/9.html",
@@ -195,7 +194,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-01",
-            "dateLabelColor": "#ba2298"
+            "dateLabelColor": "#bb2398",
+            "description": "\n\u7cfb\u7edf\u73af\u5883\n\n\u7cfb\u7edf: Ubuntu 20.04.6\n\n\u5b89\u88c5nginx\n\napt-get install nginx-full \u5b89\u88c5full\u7248\n\n\u521b\u5efawebdav\u76ee\u5f55\n\nmkdir /var/www/w..."
         },
         "P9": {
             "number": "9",
@@ -209,7 +209,6 @@
             "postUrl": "post/9.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/9",
             "commentNum": 0,
-            "description": "\u5b89\u88c5\r\n\u7cfb\u7edf: Ubuntu 20.04.6 LTS\r\n\n`bash\r\napt-get install fail2ban\r\n`\r\n\n\u547d\u4ee4\r\n\n\u67e5\u8be2\u670d\u52a1\u72b6\u6001\r\n\n`bash\r\nservice fail2ban status\r\nsystemctl status fail2ban.service\r\n`\r\n\n\u67e5\u8be2\u72b6\u6001\r\n\n`bash\r\n\u67e5\u770b\u542f\u7528\u7684\u89c4\u5219\r\nfail2ban-client status\r\nSt...",
             "updatedAt": 1735119657,
             "nextTitle": "10 fail2ban\u914d\u7f6enginx",
             "nextUrl": "post/10.html",
@@ -218,7 +217,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-03",
-            "dateLabelColor": "#b815a3"
+            "dateLabelColor": "#b916a3",
+            "description": "\u5b89\u88c5\n\u7cfb\u7edf: Ubuntu 20.04.6 LTS\napt-get install fail2ban\n\u547d\u4ee4\n\u67e5\u8be2\u670d\u52a1\u72b6\u6001\nservice fail2ban status\nsystemctl statu..."
         },
         "P10": {
             "number": "10",
@@ -232,7 +232,6 @@
             "postUrl": "post/10.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/10",
             "commentNum": 0,
-            "description": "vim /etc/fail2ban/jail.d/nginx.conf\r\n\n`conf\r\n[nginx-cc]\r\nenabled = true\r\nfilter = nginx-cc\r\naction = iptables-multiport[name=nginx-cc,port=\"80,443\"]\r\n         bark[name=nginx-cc]\r\nmaxretry = 120\r\nfind...",
             "updatedAt": 1734053849,
             "nextTitle": "11 \u4f7f\u7528bark\u901a\u77e5APP",
             "nextUrl": "post/11.html",
@@ -241,7 +240,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-06",
-            "dateLabelColor": "#b52293"
+            "dateLabelColor": "#b62393",
+            "description": "vim /etc/fail2ban/jail.d/nginx.conf\n[nginx-cc]\nenabled = true\nfilter = nginx-cc\naction = iptables-mu..."
         },
         "P11": {
             "number": "11",
@@ -254,7 +254,6 @@
             "postUrl": "post/11.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/11",
             "commentNum": 0,
-            "description": "`py\r\nimport requests\r\nimport sys\r\nfrom urllib.parse import quote\r\n\nBark \u7684\u901a\u77e5 API xxx\u4e3atoken\u4fe1\u606f\r\nBARK_API = \"https://api.day.app/xxx\"\r\n\ndef sendbarknotification(param1, param2):\r\n quote\u9ed8\u8ba4safe='/', \u4e0d\u8fdb\u884c\u5904\u7406, ...",
             "updatedAt": 1734053850,
             "nextTitle": "12 \u68c0\u6d4b\u670d\u52a1\u5668\u5185\u5b58\u4fe1\u606f, \u5e76\u7528bark\u901a\u77e5",
             "nextUrl": "post/12.html",
@@ -263,7 +262,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#b32291"
+            "dateLabelColor": "#b42391",
+            "description": "import requests\nimport sys\nfrom urllib.parse import quote\n\n# Bark \u7684\u901a\u77e5 API xxx\u4e3atoken\u4fe1\u606f\nBARK_API = \"ht..."
         },
         "P12": {
             "number": "12",
@@ -277,7 +277,6 @@
             "postUrl": "post/12.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/12",
             "commentNum": 0,
-            "description": "vim script/free.py\r\n\n`py\r\nimport subprocess\r\nfrom bark import sendbarknotification\r\n\n\u6267\u884c free -m \u547d\u4ee4\u5e76\u83b7\u53d6\u7ed3\u679c\r\nresult = subprocess.run(['free', '-m'], stdout=subprocess.PIPE)\r\n\n\u5904\u7406\u7ed3\u679c\u5e76\u63d0\u53d6 total \u548c available \u4e24\u9879\r...",
             "updatedAt": 1734053850,
             "nextTitle": "13 \u751f\u6210Python\u9879\u76ee\u7684requirements.txt\u6587\u4ef6",
             "nextUrl": "post/13.html",
@@ -286,7 +285,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#b32291"
+            "dateLabelColor": "#b42391",
+            "description": "vim script/free.py\nimport subprocess\nfrom bark import send_bark_notification\n\n# \u6267\u884c free -m \u547d\u4ee4\u5e76\u83b7\u53d6\u7ed3\u679c\nr..."
         },
         "P13": {
             "number": "13",
@@ -300,7 +300,6 @@
             "postUrl": "post/13.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/13",
             "commentNum": 0,
-            "description": "\u751f\u6210 Python \u9879\u76ee\u7684 requirements.txt \u6587\u4ef6\r\n\n1. \u4f7f\u7528 pip freeze \u547d\u4ee4\u3002\r\n\u5728\u9879\u76ee\u7684\u6839\u76ee\u5f55\u4e0b\uff0c\u6253\u5f00\u7ec8\u7aef\u6216\u547d\u4ee4\u63d0\u793a\u7b26\uff0c\u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\uff1a\r\n\n`sh\r\npip freeze > requirements.txt\r\n`\r\n\n\u8fd9\u4e2a\u547d\u4ee4\u4f1a\u5c06\u5f53\u524d\u73af\u5883\u4e2d\u5df2\u5b89\u88c5\u7684\u6240\u6709\u7b2c\u4e09\u65b9\u5e93\u53ca\u5176\u7248\u672c\u4fe1\u606f\u5199\u5165\u5230 requirements.txt \u6587\u4ef6\u4e2d\u3002\r\n\n2. \u4f7f\u7528 pipreqs \u5de5\u5177\u3002...",
             "updatedAt": 1734082743,
             "nextTitle": "14 Windows\u5185\u5b58\u6e05\u7406\u5de5\u5177",
             "nextUrl": "post/14.html",
@@ -309,7 +308,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-12-07",
-            "dateLabelColor": "#972175"
+            "dateLabelColor": "#972275",
+            "description": "\u751f\u6210 Python \u9879\u76ee\u7684 requirements.txt \u6587\u4ef6\n\n\u4f7f\u7528 pip freeze \u547d\u4ee4\u3002\n\u5728\u9879\u76ee\u7684\u6839\u76ee\u5f55\u4e0b\uff0c\u6253\u5f00\u7ec8\u7aef\u6216\u547d\u4ee4\u63d0\u793a\u7b26\uff0c\u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\uff1a\n\npip freeze > requi..."
         },
         "P14": {
             "number": "14",
@@ -323,7 +323,6 @@
             "postUrl": "post/14.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/14",
             "commentNum": 0,
-            "description": "Reduce Memory v1.7\r\n\n!image\r\n\nWindows Memory Cleaner 2.8\r\n\nMem Reduct\r\n\n!image",
             "updatedAt": 1735893416,
             "nextTitle": "15 aidoku\u6f2b\u753b\u6e90",
             "nextUrl": "post/15.html",
@@ -332,7 +331,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-05-23",
-            "dateLabelColor": "#ee0ce1"
+            "dateLabelColor": "#ef0de1",
+            "description": "Reduce Memory v1.7\n\nWindows Memory Cleaner 2.8\nMem Reduct\n\n"
         },
         "P15": {
             "number": "15",
@@ -345,7 +345,6 @@
             "postUrl": "post/15.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/15",
             "commentNum": 0,
-            "description": "Aidoku\r\n\n\u5728\u8bbe\u7f6e-\u6765\u6e90\u5217\u8868\u4e2d\u6dfb\u52a0\r\n\nsuiyuran/aidoku-zh-sources\r\n\u6dfb\u52a0\u6e90\r\n\nSkittyblock/aidoku-community-sources\r\n\u6dfb\u52a0\u6e90",
             "updatedAt": 1735894308,
             "nextTitle": "16 Deeplx \u8d1f\u8f7d\u5747\u8861",
             "nextUrl": "post/16.html",
@@ -354,7 +353,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-07-20",
-            "dateLabelColor": "#b30ca6"
+            "dateLabelColor": "#b40da6",
+            "description": "Aidoku\n\u5728\u8bbe\u7f6e-\u6765\u6e90\u5217\u8868\u4e2d\u6dfb\u52a0\nsuiyuran/aidoku-zh-sources\n\u6dfb\u52a0\u6e90\nSkittyblock/aidoku-community-sources\n\u6dfb\u52a0\u6e90\n"
         },
         "P16": {
             "number": "16",
@@ -367,7 +367,6 @@
             "postUrl": "post/16.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/16",
             "commentNum": 0,
-            "description": "http://47.236.84.103:3000/translate\r\n\n~~https://deeplx-lb-wheat.vercel.app/translate~~\r\n\nhttps://deeplx.smnet.io/translate \r\n\n\u652f\u6301deeplx\u7684\u8f6f\u4ef6\u548c\u6269\u5c55\u63d2\u4ef6\r\n\n\u6c89\u6d78\u5f0f\u7ffb\u8bd1 Edge\r\n\n\u8bed\u8a00\u5b66\u5bb6 - \u7f51\u9875\u7ffb\u8bd1\u5668 Chrome\r\n\n\u7b80\u7ea6\u7ffb\u8bd1 Edge\r\n\npot \u5b98\u7f51",
             "updatedAt": 1735204410,
             "nextTitle": "17 neovim gui\u5ba2\u6237\u7aef",
             "nextUrl": "post/17.html",
@@ -376,7 +375,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-01",
-            "dateLabelColor": "#a71493"
+            "dateLabelColor": "#a81593",
+            "description": "http://47.236.84.103:3000/translate\nhttps://deeplx-lb-wheat.vercel.app/translate\nhttps://deeplx.smne..."
         },
         "P17": {
             "number": "17",
@@ -389,7 +389,6 @@
             "postUrl": "post/17.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/17",
             "commentNum": 0,
-            "description": "goneovim\r\n\u5355\u6587\u4ef6 \u521a\u5b89\u88c5 \u6d4b\u8bd5\u770b\u770b\r\n\nneovide\r\n\u5355\u6587\u4ef6 \u5149\u6807\u5207\u6362\u54cd\u5e94\u8f83\u6162 \u6709\u6b8b\u5f71 \u6682\u4e0d\u8003\u8651\r\n\nfvim\r\ndll\u5e93\u6587\u4ef6\u8f83\u591a \u5148\u4e0d\u8003\u8651",
             "updatedAt": 1734053852,
             "nextTitle": "18 \u9759\u6001\u6587\u4ef6\u670d\u52a1\u5668",
             "nextUrl": "post/18.html",
@@ -398,7 +397,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-06",
-            "dateLabelColor": "#a22280"
+            "dateLabelColor": "#a32380",
+            "description": "goneovim\n\u5355\u6587\u4ef6 \u521a\u5b89\u88c5 \u6d4b\u8bd5\u770b\u770b\nneovide\n\u5355\u6587\u4ef6 \u5149\u6807\u5207\u6362\u54cd\u5e94\u8f83\u6162 \u6709\u6b8b\u5f71 \u6682\u4e0d\u8003\u8651\nfvim\ndll\u5e93\u6587\u4ef6\u8f83\u591a \u5148\u4e0d\u8003\u8651\n"
         },
         "P18": {
             "number": "18",
@@ -411,7 +411,6 @@
             "postUrl": "post/18.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/18",
             "commentNum": 0,
-            "description": "dufs\r\n!220513063-ff0f186b-ac54-4682-9af4-47a9781dee0d\r\n\nminiserve\r\n<img width=\"425\" alt=\"screenshot\" src=\"https://github.com/user-attachments/assets/ad9d97aa-0ef3-4e67-b5e0-f60841220b9c\">\r\n\nchfsgui\r\n!...",
             "updatedAt": 1724227476,
             "nextTitle": "19 Spotify\u5bfc\u5165opml",
             "nextUrl": "post/19.html",
@@ -420,7 +419,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-21",
-            "dateLabelColor": "#939300"
+            "dateLabelColor": "#949400",
+            "description": "dufs\n\nminiserve\n\nchfsgui\n\n"
         },
         "P19": {
             "number": "19",
@@ -434,7 +434,6 @@
             "postUrl": "post/19.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/19",
             "commentNum": 0,
-            "description": "Podimporter\r\n\n\u5728\u7ebf\u5bfc\u5165opml, \u9700\u8981\u767b\u5f55Spotify, \u7136\u540e\u9009\u62e9opml\u6587\u4ef6\u5bfc\u5165",
             "updatedAt": 1735628915,
             "nextTitle": "20 Python telegram\u6d88\u606f\u53d1\u9001",
             "nextUrl": "post/20.html",
@@ -443,7 +442,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#210f11"
+            "dateLabelColor": "#221011",
+            "description": "Podimporter\n\u5728\u7ebf\u5bfc\u5165opml, \u9700\u8981\u767b\u5f55Spotify, \u7136\u540e\u9009\u62e9opml\u6587\u4ef6\u5bfc\u5165\n"
         },
         "P20": {
             "number": "20",
@@ -456,7 +456,6 @@
             "postUrl": "post/20.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/20",
             "commentNum": 0,
-            "description": "`python\r\nimport telegram\r\nimport asyncio\r\n\n\"\"\"\r\npip install python-telegram-bot\r\n\"\"\"\r\n\nkey = \"\"\r\nchat_id = \"\"\r\ntext = \"\"\r\n\nasync def sendMsg(text):\r\n    bot = telegram.Bot(token=key)\r\n    async with b...",
             "updatedAt": 1736755239,
             "nextTitle": "21 Linux\u6293\u5305tcp\u6570\u636e",
             "nextUrl": "post/21.html",
@@ -465,7 +464,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#21021e"
+            "dateLabelColor": "#22031e",
+            "description": "import telegram\nimport asyncio\n\n\"\"\"\npip install python-telegram-bot\n\"\"\"\n\nkey = \"\"\nchat_id = \"\"\ntext ..."
         },
         "P21": {
             "number": "21",
@@ -479,7 +479,6 @@
             "postUrl": "post/21.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/21",
             "commentNum": 0,
-            "description": "`sh\r\ntcpdump tcp port 22 and host 1.1.1.1 -w ./output.cap\r\n`\r\n\n1) tcp \u8fc7\u6ee4\u6570\u636e\u5305\u7684\u7c7b\u578b \r\n2) port \u76ee\u6807\u7aef\u53e3 \r\n3) host \u76ee\u6807\u4e3b\u673a \r\n4) -w ./output.cap \u8f93\u51facap\u6587\u4ef6, \u53ef\u7528wireshark\u6253\u5f00\u5206\u6790",
             "updatedAt": 1735024156,
             "nextTitle": "22 Clash/Mihomo\u5728\u7ebf\u7ba1\u7406\u9762\u677f",
             "nextUrl": "post/22.html",
@@ -488,7 +487,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-24",
-            "dateLabelColor": "#16e900"
+            "dateLabelColor": "#17e800",
+            "description": "tcpdump tcp port 22 and host 1.1.1.1 -w ./output.cap\n\ntcp \u8fc7\u6ee4\u6570\u636e\u5305\u7684\u7c7b\u578b\nport \u76ee\u6807\u7aef\u53e3\nhost \u76ee\u6807\u4e3b\u673a\n-w ./output.c..."
         },
         "P22": {
             "number": "22",
@@ -501,7 +501,6 @@
             "postUrl": "post/22.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/22",
             "commentNum": 0,
-            "description": "https://clash.razord.top//proxies\r\n\nhttp://47.98.184.123:9090/ui/",
             "updatedAt": 1735093519,
             "nextTitle": "23 Linux\u4e2d\u751f\u6210\u6587\u4ef6\u7684sha1\u7801",
             "nextUrl": "post/23.html",
@@ -510,7 +509,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-25",
-            "dateLabelColor": "#16e900"
+            "dateLabelColor": "#16e900",
+            "description": "https://clash.razord.top/#/proxies\nhttp://47.98.184.123:9090/ui/#\n"
         },
         "P23": {
             "number": "23",
@@ -524,7 +524,6 @@
             "postUrl": "post/23.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/23",
             "commentNum": 0,
-            "description": "\u751f\u6210\u6587\u4ef6\u7684sha1\u7801\r\n\n`\r\ntouch 1.txt\r\nsha1sum 1.txt\r\nda39a3ee5e6b4b0d3255bfef95601890afd80709  1.txt\r\n`",
             "updatedAt": 1735109982,
             "nextTitle": "24 m3u8\u5e7f\u544a\u8fc7\u6ee4",
             "nextUrl": "post/24.html",
@@ -533,7 +532,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-25",
-            "dateLabelColor": "#151500"
+            "dateLabelColor": "#161600",
+            "description": "\u751f\u6210\u6587\u4ef6\u7684sha1\u7801\n# touch 1.txt\n# sha1sum 1.txt\nda39a3ee5e6b4b0d3255bfef95601890afd80709  1.txt\n\n"
         },
         "P24": {
             "number": "24",
@@ -546,7 +546,6 @@
             "postUrl": "post/24.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/24",
             "commentNum": 0,
-            "description": "\u672a\u4f7f\u7528, \u4e0d\u786e\u5b9a\u8fc7\u6ee4\u6548\u679c, \u4e3b\u8981\u5b66\u4e60\u4e0b\u8fc7\u6ee4\u89c4\u5219\r\n\n\u811a\u672c\r\n\nM3U8 Filter Ad Script\r\n\nM3u8\r\n\nHLS(m3u8) \u53bb\u5e7f\u544a\r\n\nRemove Ad from M3U8\r\n\ncf-m3u8-filter-ad-api\r\n\n\u53bb\u5e7f\u544aapi\r\n\nhttps://linuxdo.yingmiwo.me/jx.php?url=\r\n\n\u6765\u6e90\u94fe\u63a5",
             "updatedAt": 1735968411,
             "nextTitle": "25 iFrame\u5d4c\u5165\u9875\u9762\u8de8\u7ad9\u767b\u5f55\u5931\u8d25\u95ee\u9898",
             "nextUrl": "post/25.html",
@@ -555,7 +554,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-26",
-            "dateLabelColor": "#140c08"
+            "dateLabelColor": "#150c08",
+            "description": "\u672a\u4f7f\u7528, \u4e0d\u786e\u5b9a\u8fc7\u6ee4\u6548\u679c, \u4e3b\u8981\u5b66\u4e60\u4e0b\u8fc7\u6ee4\u89c4\u5219\n\u811a\u672c\nM3U8 Filter Ad Script\nM3u8\nHLS(m3u8) \u53bb\u5e7f\u544a\nRemove Ad from M3U8\ncf-m3u8-filt..."
         },
         "P25": {
             "number": "25",
@@ -568,7 +568,6 @@
             "postUrl": "post/25.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/25",
             "commentNum": 0,
-            "description": "\u539f\u56e0\r\n\n\u8c37\u6b4c\u6d4f\u89c8\u5668 80.0 \u53ca\u4ee5\u4e0a\u7248\u672c\u4fee\u6539\u4e86\u5b89\u5168\u7b56\u7565\uff0c\u9ed8\u8ba4 SameSite \u7b56\u7565\u4e0d\u5141\u8bb8 cookie \u8de8\u7ad9\u53d1\u9001\uff0c\u56e0\u6b64\u5355\u70b9\u767b\u5f55\u4f1a\u5931\u8d25\u3002\r\n\n\u89e3\u51b3\r\n\n1. \u4f4e\u7248\u672c\u8c37\u6b4c \u5173\u95ed\u8c37\u6b4c\u6d4f\u89c8\u5668\u7684\u300cSameSite by default cookies\u300d\u9009\u9879\uff0c\u91cd\u542f\u6d4f\u89c8\u5668\r\n2. \u7edf\u4e00\u57df\u540d \u4fdd\u8bc1\u4e24\u4e2a\u5de5\u7a0b\u7684\u9876\u7ea7\u57df\u540d\u3001\u6b21\u9876\u7ea7\u57df\u540d\u76f8\u540c\uff0c\u6bd4\u5982 a.b.com \u548c c.b.com\uff0c\u300c.com\u300d\u9876\u7ea7\uff0c\u300cb\u300d\u662f\u6b21\u9876\u7ea7\u3002\r...",
             "updatedAt": 1735627612,
             "nextTitle": "26 API\u63a5\u53e3\u6d4b\u8bd5\u5de5\u5177",
             "nextUrl": "post/26.html",
@@ -577,7 +576,8 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-31",
-            "dateLabelColor": "#100f00"
+            "dateLabelColor": "#101000",
+            "description": "\u539f\u56e0\n\u8c37\u6b4c\u6d4f\u89c8\u5668 80.0 \u53ca\u4ee5\u4e0a\u7248\u672c\u4fee\u6539\u4e86\u5b89\u5168\u7b56\u7565\uff0c\u9ed8\u8ba4 SameSite \u7b56\u7565\u4e0d\u5141\u8bb8 cookie \u8de8\u7ad9\u53d1\u9001\uff0c\u56e0\u6b64\u5355\u70b9\u767b\u5f55\u4f1a\u5931\u8d25\u3002\n\u89e3\u51b3\n\n\u4f4e\u7248\u672c\u8c37\u6b4c \u5173\u95ed\u8c37\u6b4c\u6d4f\u89c8\u5668\u7684\u300cSameSite by d..."
         },
         "P26": {
             "number": "26",
@@ -590,7 +590,6 @@
             "postUrl": "post/26.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/26",
             "commentNum": 0,
-            "description": "\u5728\u7ebf\u5de5\u5177\r\n\nHoppscotch\r\n!image\r\n\nHTTPie for Web\r\n!image\r\n\nChrome\u63d2\u4ef6\r\n\nTalend API Tester - Free Edition",
             "updatedAt": 1735796104,
             "nextTitle": "27 ip2region\u5de5\u5177",
             "nextUrl": "post/27.html",
@@ -599,7 +598,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-02",
-            "dateLabelColor": "#0ef100"
+            "dateLabelColor": "#0ef100",
+            "description": "\u5728\u7ebf\u5de5\u5177\nHoppscotch\n\nHTTPie for Web\n\nChrome\u63d2\u4ef6\nTalend API Tester - Free Edition\n"
         },
         "P27": {
             "number": "27",
@@ -612,7 +612,6 @@
             "postUrl": "post/27.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/27",
             "commentNum": 0,
-            "description": "ip2region\r\n\nip2region-xdb  58M\r\n\n\u6570\u636e\u6765\u81eaIP-API",
             "updatedAt": 1735897411,
             "nextTitle": "28 Git\u914d\u7f6e\u6587\u4ef6\u8bf4\u660e",
             "nextUrl": "post/28.html",
@@ -621,7 +620,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#0d0c00"
+            "dateLabelColor": "#0d0d00",
+            "description": "ip2region\n\nip2region-xdb  58M\n\u6570\u636e\u6765\u81eaIP-API\n"
         },
         "P28": {
             "number": "28",
@@ -634,7 +634,6 @@
             "postUrl": "post/28.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/28",
             "commentNum": 0,
-            "description": ".git/config\r\n\n`conf\r\n[core]\r\n\trepositoryformatversion \u6307\u5b9a Git \u4ed3\u5e93\u7684\u7248\u672c\uff0c\u9ed8\u8ba4\u503c\u4e3a 0\uff0c\u901a\u5e38\u4e0d\u9700\u8981\u4fee\u6539\r\n\trepositoryformatversion = 0  \r\n\n\tfilemode \u8868\u793a\u662f\u5426\u8ddf\u8e2a\u6587\u4ef6\u7684\u6743\u9650\u53d8\u5316\r\n\ttrue: \u8ddf\u8e2a\u6743\u9650\u53d8\u5316\uff08\u9002\u7528\u4e8e Linux/macOS\uff09\r\n\tfalse: \u5ffd\u7565\u6743\u9650\u53d8\u5316\uff08\u9002\u7528\u4e8e Windows\uff09...",
             "updatedAt": 1735890330,
             "nextTitle": "29 whistle\u6293\u5305\u5de5\u5177",
             "nextUrl": "post/29.html",
@@ -643,7 +642,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#0d0c00"
+            "dateLabelColor": "#0d0d00",
+            "description": ".git/config\n[core]\n\t# repositoryformatversion \u6307\u5b9a Git \u4ed3\u5e93\u7684\u7248\u672c\uff0c\u9ed8\u8ba4\u503c\u4e3a 0\uff0c\u901a\u5e38\u4e0d\u9700\u8981\u4fee\u6539\n\trepositoryformatversion =..."
         },
         "P29": {
             "number": "29",
@@ -656,7 +656,6 @@
             "postUrl": "post/29.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/29",
             "commentNum": 0,
-            "description": "whistle\u5ba2\u6237\u7aef\r\n\n\u652f\u6301Mac\u548cWindows, Linux\u53ef\u4ee5\u4f7f\u7528\u547d\u4ee4\u884c\u7248\u672c\r\n\n\u63d2\u4ef6\r\n\n\u63d2\u4ef6\u5217\u8868\r\n\nwhistle.inspect\r\n\n\u5b89\u88c5\u63d2\u4ef6\u540e, \u8bbe\u7f6e\u5e76\u542f\u7528Rules\u89c4\u5219, \u5237\u65b0\u9875\u9762\u751f\u6548\r\n\u652f\u6301: vconsole, eruda, mdebug\r\n\n`conf\r\nwww.baidu.com whistle.inspect://eruda\r\n`",
             "updatedAt": 1735885255,
             "nextTitle": "30 Python\u8bfb\u53d6Markdown\u6587\u4ef6\u7684\u5143\u6570\u636e",
             "nextUrl": "post/30.html",
@@ -665,7 +664,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#0c0c00"
+            "dateLabelColor": "#0d0d00",
+            "description": "whistle\u5ba2\u6237\u7aef\n\u652f\u6301Mac\u548cWindows, Linux\u53ef\u4ee5\u4f7f\u7528\u547d\u4ee4\u884c\u7248\u672c\n\u63d2\u4ef6\n\u63d2\u4ef6\u5217\u8868\nwhistle.inspect\n\u5b89\u88c5\u63d2\u4ef6\u540e, \u8bbe\u7f6e\u5e76\u542f\u7528Rules\u89c4\u5219, \u5237\u65b0\u9875\u9762\u751f\u6548\n\u652f\u6301: vco..."
         },
         "P30": {
             "number": "30",
@@ -678,7 +678,6 @@
             "postUrl": "post/30.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/30",
             "commentNum": 0,
-            "description": "\u4f7f\u7528PyYAML\r\n\n`python\r\npip install pyyaml\r\nimport yaml\r\n\ndef extractmetadata(filepath):\r\n    with open(file_path, 'r', encoding='utf-8') as f:\r\n        content = f.read()\r\n\n    \u68c0\u67e5\u662f\u5426\u6709 YAML Front Matter\r\n ...",
             "updatedAt": 1736143147,
             "nextTitle": "31 GPT\u6bd4\u8f83",
             "nextUrl": "post/31.html",
@@ -687,7 +686,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-06",
-            "dateLabelColor": "#09f600"
+            "dateLabelColor": "#0af500",
+            "description": "\u4f7f\u7528PyYAML\n# pip install pyyaml\nimport yaml\n\ndef extract_metadata(file_path):\n    with open(file_path,..."
         },
         "P31": {
             "number": "31",
@@ -700,7 +700,6 @@
             "postUrl": "post/31.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/31",
             "commentNum": 0,
-            "description": "ChatGPT\r\n\n1. \u652f\u6301\u8bb0\u5fc6, \u8bbe\u7f6e\u9ed8\u8ba4prompt\r\n2. \u6709\u5899, \u5076\u5c14\u5931\u8054\r\n\ndeepseek \u6df1\u5ea6\u63a2\u7d22 \r\n\n1. \u5355\u4f1a\u8bdd\u5b58\u5728\u957f\u5ea6\u9650\u5236, \u8d85\u9650\u65f6\u9700\u8981\u5f00\u542f\u65b0\u4f1a\u8bdd\r\n2. \u7f3a\u5c11\u8bb0\u5fc6\u529f\u80fd, \u4e0d\u80fd\u8bbe\u7f6e\u9ed8\u8ba4prompt\r\n\nNot Diamond\r\n\n1. \u514d\u8d39\u6a21\u578b\u8f83\u5c11",
             "updatedAt": 1736403129,
             "nextTitle": "32 \u7535\u5b50\u4e66\u4e0b\u8f7d\u7ad9",
             "nextUrl": "post/32.html",
@@ -709,7 +708,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-09",
-            "dateLabelColor": "#060600"
+            "dateLabelColor": "#070700",
+            "description": "ChatGPT\n\n\u652f\u6301\u8bb0\u5fc6, \u8bbe\u7f6e\u9ed8\u8ba4prompt\n\u6709\u5899, \u5076\u5c14\u5931\u8054\n\ndeepseek \u6df1\u5ea6\u63a2\u7d22\n\n\u5355\u4f1a\u8bdd\u5b58\u5728\u957f\u5ea6\u9650\u5236, \u8d85\u9650\u65f6\u9700\u8981\u5f00\u542f\u65b0\u4f1a\u8bdd\n\u7f3a\u5c11\u8bb0\u5fc6\u529f\u80fd, \u4e0d\u80fd\u8bbe\u7f6e\u9ed8\u8ba4prompt\n\nNot D..."
         },
         "P32": {
             "number": "32",
@@ -722,7 +722,6 @@
             "postUrl": "post/32.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/32",
             "commentNum": 0,
-            "description": "Z-library\r\n\nRe Z-library\r\n\n\u53ef\u4ee5\u5728tg\u4e0a\u521b\u5efabot\u7528\u4e8e\u641c\u4e66\u4e0b\u4e66, \u4e0d\u8fc7\u56e0\u4e3atg\u9650\u5236, \u53ea\u80fd\u4e0b\u8f7d50M\u4ee5\u4e0b\u7684\r\n\nSaltyLeo\u7684\u4e66\u67b6\r\n\n\u722c\u7f51\u7a0b\u5e8f\u81ea\u52a8\u5411\u5404\u4e2a\u7ad9\u70b9\u67e5\u8be2\u96c6\u5408\u7684\u7ed3\u679c\r\n\n\u5b89\u5a1c\u7684\u6863\u6848\r\n\n\u53e4\u817e\u5821\u8ba1\u5212\uff08Project Gutenberg\uff09",
             "updatedAt": 1736407411,
             "nextTitle": "33 \u7f51\u76d8",
             "nextUrl": "post/33.html",
@@ -731,7 +730,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-09",
-            "dateLabelColor": "#060600"
+            "dateLabelColor": "#070700",
+            "description": "Z-library\nRe Z-library\n\u53ef\u4ee5\u5728tg\u4e0a\u521b\u5efabot\u7528\u4e8e\u641c\u4e66\u4e0b\u4e66, \u4e0d\u8fc7\u56e0\u4e3atg\u9650\u5236, \u53ea\u80fd\u4e0b\u8f7d50M\u4ee5\u4e0b\u7684\nSaltyLeo\u7684\u4e66\u67b6\n\u722c\u7f51\u7a0b\u5e8f\u81ea\u52a8\u5411\u5404\u4e2a\u7ad9\u70b9\u67e5\u8be2\u96c6\u5408\u7684\u7ed3\u679c\n\u5b89\u5a1c\u7684\u6863\u6848\n..."
         },
         "P33": {
             "number": "33",
@@ -744,7 +744,6 @@
             "postUrl": "post/33.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/33",
             "commentNum": 0,
-            "description": "Koofr\r\n\n1. \u53ef\u4f7f\u7528Google\u8d26\u53f7\u767b\u5f55\r\n2. \u514d\u8d39\u7528\u6237\u63d0\u4f9b10G\u5bb9\u91cf\r\n3. \u751f\u6210\u5355\u72ec\u7684App password\u540e \u5373\u53ef\u901a\u8fc7WebDAV\u8bbf\u95ee\r\n\u5730\u5740: https://app.koofr.net/dav/Koofr\r\n\u8d26\u53f7: Google\u8d26\u53f7\u90ae\u7bb1\r\n\u5bc6\u7801: \ud83d\udc46\u751f\u6210\u7684App password\r\n4. Save to Koorf\r\nChrome\u63d2\u4ef6, \u652f\u6301\u4fdd\u5b58\u7f51\u9875\u6216\u56fe\u7247\u5230Koorf\u4e0a\r\n5...",
             "updatedAt": 1736414960,
             "nextTitle": "34 Python\u5206\u8bcd",
             "nextUrl": "post/34.html",
@@ -753,7 +752,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-09",
-            "dateLabelColor": "#060600"
+            "dateLabelColor": "#070700",
+            "description": "Koofr\n\n\u53ef\u4f7f\u7528Google\u8d26\u53f7\u767b\u5f55\n\u514d\u8d39\u7528\u6237\u63d0\u4f9b10G\u5bb9\u91cf\n\u751f\u6210\u5355\u72ec\u7684App password\u540e \u5373\u53ef\u901a\u8fc7WebDAV\u8bbf\u95ee\n\u5730\u5740: https://app.koofr.net/dav/Koofr..."
         },
         "P34": {
             "number": "34",
@@ -766,7 +766,6 @@
             "postUrl": "post/34.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/34",
             "commentNum": 0,
-            "description": "jieba\r\n\n`python\r\npip install jieba\r\nimport jieba\r\n\n\u7cbe\u786e\u6a21\u5f0f\uff0c\u8bd5\u56fe\u5c06\u53e5\u5b50\u6700\u7cbe\u786e\u5730\u5207\u5f00\uff0c\u9002\u5408\u6587\u672c\u5206\u6790\r\ntext = \"\u6d4b\u8bd5\u5206\u8bcd\u957f\u5b57\u7b26\u4e32\"\r\nwords = jieba.cut(text, cut_all=False)\r\nprint(\"/\".join(words))\r\n\n\u5168\u6a21\u5f0f\uff0c\u628a\u53e5\u5b50\u4e2d\u6240\u6709\u7684\u53ef\u4ee5\u6210\u8bcd\u7684\u8bcd\u8bed\u90fd\u626b\u63cf\u51fa\u6765\uff0c\u901f\u5ea6\u975e\u5e38\u5feb\uff0c\u4f46\u662f\u4e0d\u80fd\u89e3\u51b3\u6b67\u4e49\r\n...",
             "updatedAt": 1736755612,
             "nextTitle": "35 IP\u53ef\u7528\u6027\u68c0\u6d4b",
             "nextUrl": "post/35.html",
@@ -775,7 +774,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#02fd00"
+            "dateLabelColor": "#03fc00",
+            "description": "jieba\n# pip install jieba\nimport jieba\n\n# \u7cbe\u786e\u6a21\u5f0f\uff0c\u8bd5\u56fe\u5c06\u53e5\u5b50\u6700\u7cbe\u786e\u5730\u5207\u5f00\uff0c\u9002\u5408\u6587\u672c\u5206\u6790\ntext = \"\u6d4b\u8bd5\u5206\u8bcd\u957f\u5b57\u7b26\u4e32\"\nwords = jieba.cu..."
         },
         "P35": {
             "number": "35",
@@ -788,7 +788,6 @@
             "postUrl": "post/35.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/35",
             "commentNum": 0,
-            "description": "\u68c0\u6d4bIP\u5728\u4e2d\u56fd\u5927\u9646\u4ee5\u53ca\u6d77\u5916\u533a\u57df\u7684\u53ef\u7528\u6027\uff0c\u7aef\u53e3\u53ef\u4ee5\u6307\u5b9a\u4e3aSSH\u7aef\u53e3\uff0c\u6216\u8005\u4efb\u610f\u670d\u52a1\u7684\u76d1\u542c\u7aef\u53e3\u3002\r\n\n\u76f8\u5173\u94fe\u63a5\r\n\nip\u53ef\u7528\u6027\u68c0\u6d4b\u5de5\u5177\r\nip\u53ef\u7528\u6027\u68c0\u67e5\u5de5\u5177\r\n\nip112\u4f7f\u7528\u63a5\u53e3\r\n\u5883\u5916\u68c0\u6d4b\r\n\n\u4e2d\u56fd\u5927\u9646",
             "updatedAt": 1736757395,
             "nextTitle": "36 \u4e2d\u6587\u5206\u8bcdAPI",
             "nextUrl": "post/36.html",
@@ -797,7 +796,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#02fd00"
+            "dateLabelColor": "#03fc00",
+            "description": "\u68c0\u6d4bIP\u5728\u4e2d\u56fd\u5927\u9646\u4ee5\u53ca\u6d77\u5916\u533a\u57df\u7684\u53ef\u7528\u6027\uff0c\u7aef\u53e3\u53ef\u4ee5\u6307\u5b9a\u4e3aSSH\u7aef\u53e3\uff0c\u6216\u8005\u4efb\u610f\u670d\u52a1\u7684\u76d1\u542c\u7aef\u53e3\u3002\n\u76f8\u5173\u94fe\u63a5\nip\u53ef\u7528\u6027\u68c0\u6d4b\u5de5\u5177\nip\u53ef\u7528\u6027\u68c0\u67e5\u5de5\u5177\nip112\u4f7f\u7528\u63a5\u53e3\n\u5883\u5916\u68c0\u6d4b\n\u4e2d\u56fd\u5927\u9646\n"
         },
         "P36": {
             "number": "36",
@@ -810,7 +810,6 @@
             "postUrl": "post/36.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/36",
             "commentNum": 0,
-            "description": "\u4e2d\u6587\u5206\u8bcdAPI\r\n\nhttp://api.pullword.com/\r\n\n`sh\r\n// param1 \u51fa\u8bcd\u6982\u7387\u9608\u503c(0-1\u4e4b\u95f4\u7684\u5c0f\u6570)\uff0c1\u8868\u793a\u53ea\u6709100%\u6709\u628a\u63e1\u7684\u8bcd\u624d\u51fa\r\n// param2 \u6a21\u5f0f 0: \u6b63\u5e38\u6a21\u5f0f 1: \u8c03\u8bd5\u6a21\u5f0f(\u663e\u793a\u6982\u7387)\r\n// json=1 \u8fd4\u56dejson\u683c\u5f0f\r\nhttp://api.pullword.com/get.php?source=\" + URLEncoder.enc...",
             "updatedAt": 1736757717,
             "nextTitle": "37 Git\u547d\u4ee4\u8bb0\u5f55",
             "nextUrl": "post/37.html",
@@ -819,7 +818,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#02fd00"
+            "dateLabelColor": "#03fc00",
+            "description": "\u4e2d\u6587\u5206\u8bcdAPI\nhttp://api.pullword.com/\n// param1 \u51fa\u8bcd\u6982\u7387\u9608\u503c(0-1\u4e4b\u95f4\u7684\u5c0f\u6570)\uff0c1\u8868\u793a\u53ea\u6709100%\u6709\u628a\u63e1\u7684\u8bcd\u624d\u51fa\n// param2 \u6a21\u5f0f 0: \u6b63\u5e38\u6a21\u5f0f 1:..."
         },
         "P37": {
             "number": "37",
@@ -832,7 +832,6 @@
             "postUrl": "post/37.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/37",
             "commentNum": 0,
-            "description": "\u5f53\u4f60\u4f7f\u7528 git clone --depth 1 \u514b\u9686\u4ed3\u5e93\u65f6\uff0cGit \u53ea\u4f1a\u514b\u9686\u6700\u65b0\u7684\u63d0\u4ea4\u5386\u53f2\uff08\u6d45\u514b\u9686\uff09\uff0c\u5e76\u4e14\u9ed8\u8ba4\u53ea\u62c9\u53d6\u9ed8\u8ba4\u5206\u652f\uff08\u901a\u5e38\u662f main \u6216 master\uff09\u3002\u5982\u679c\u4f60\u9700\u8981\u83b7\u53d6\u5176\u4ed6\u5206\u652f, \u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\r\n\n`sh\r\ngit config remote.origin.fetch \"+refs/heads/:refs/remotes/origin/\"\r\ngit fetch --depth=1\r\ng...",
             "updatedAt": 1736825099,
             "nextTitle": "38 Blog\u9875\u9762\u6dfb\u52a0\u4e0b\u96ea\u7279\u6548",
             "nextUrl": "post/38.html",
@@ -841,7 +840,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "#02fd00"
+            "dateLabelColor": "#02fd00",
+            "description": "\u5f53\u4f60\u4f7f\u7528 git clone --depth 1 \u514b\u9686\u4ed3\u5e93\u65f6\uff0cGit \u53ea\u4f1a\u514b\u9686\u6700\u65b0\u7684\u63d0\u4ea4\u5386\u53f2\uff08\u6d45\u514b\u9686\uff09\uff0c\u5e76\u4e14\u9ed8\u8ba4\u53ea\u62c9\u53d6\u9ed8\u8ba4\u5206\u652f\uff08\u901a\u5e38\u662f main \u6216 master\uff09\u3002\u5982\u679c\u4f60\u9700\u8981\u83b7\u53d6\u5176\u4ed6\u5206\u652f, \u6267\u884c\u4ee5\u4e0b..."
         },
         "P38": {
             "number": "38",
@@ -854,7 +854,6 @@
             "postUrl": "post/38.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/38",
             "commentNum": 0,
-            "description": "snowfall\r\n\n\u4e0b\u8f7djs\u6587\u4ef6\u5230\u76ee\u5f55assets/snowfall@1.7\u4e0b\r\n\n\u5728base.html\u6dfb\u52a0\r\n`html\r\n    <script src=\"{{ blogBase['homeUrl'] }}/assets/snowfall@1.7/snowfall.js\"></script>\r\n`\r\n\n\u5728<script>\u5757\u6dfb\u52a0\r\n`js\r\nsnowFall.snow(document.bod...",
             "updatedAt": 1736835568,
             "nextTitle": "39 Deepseek API",
             "nextUrl": "post/39.html",
@@ -863,7 +862,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "#01fe00"
+            "dateLabelColor": "#02fd00",
+            "description": "snowfall\n\u4e0b\u8f7djs\u6587\u4ef6\u5230\u76ee\u5f55assets/snowfall@1.7\u4e0b\n\u5728base.html\u6dfb\u52a0\n    <script src=\"{{ blogBase['homeUrl'] }}/asset..."
         },
         "P39": {
             "number": "39",
@@ -876,7 +876,6 @@
             "postUrl": "post/39.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/39",
             "commentNum": 0,
-            "description": "Deepseek\u5f00\u653e\u5e73\u53f0\r\n\n\u65b0\u7528\u6237 \u6ce8\u518c \u900110Y 500w tokens \u4e00\u4e2a\u6708\u6709\u6548\u671f\r\n\ndeepseek-ai/awesome-deepseek-integration\r\n\nchatgptbox \u914d\u7f6e\r\n!image",
             "updatedAt": 1736997014,
             "nextTitle": "40 \u6d4f\u89c8\u5668\u7531\u6240\u5c5e\u7ec4\u7ec7\u7ba1\u7406\u89e3\u51b3\u65b9\u6cd5",
             "nextUrl": "post/40.html",
@@ -885,7 +884,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "#010001"
+            "dateLabelColor": "#020001",
+            "description": "Deepseek\u5f00\u653e\u5e73\u53f0\n\u65b0\u7528\u6237 \u6ce8\u518c \u900110Y 500w tokens \u4e00\u4e2a\u6708\u6709\u6548\u671f\ndeepseek-ai/awesome-deepseek-integration\nchatgptbox \u914d\u7f6e\n\n"
         },
         "P40": {
             "number": "40",
@@ -898,7 +898,6 @@
             "postUrl": "post/40.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/40",
             "commentNum": 0,
-            "description": "Chrome\r\n\n`reg\r\nWindows Registry Editor Version 5.00\r\n\n; \u5220\u9664 HKEYLOCALMACHINE\\SOFTWARE\\Policies\\Google\\Chrome\r\n[-HKEYLOCALMACHINE\\SOFTWARE\\Policies\\Google\\Chrome]\r\n\n; \u5220\u9664 HKEYCURRENTUSER\\Software\\Policie...",
             "updatedAt": 1736846838,
             "nextTitle": "41 \u83b7\u53d6\u7f51\u7ad9favicon\u56fe\u6807",
             "nextUrl": "post/41.html",
@@ -907,7 +906,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "#01fe00"
+            "dateLabelColor": "#02fd00",
+            "description": "Chrome\nWindows Registry Editor Version 5.00\n\n; \u5220\u9664 HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Google\\Chrome..."
         },
         "P41": {
             "number": "41",
@@ -920,7 +920,6 @@
             "postUrl": "post/41.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/41",
             "commentNum": 0,
-            "description": "https://favicon.qqsuu.cn/baidu.com  16x16\r\n\nhttps://icons.duckduckgo.com/ip3/www.baidu.com.ico    64x64\r\n\n~~https://statics.dnspod.cn/proxyfavicon//favicon?domain=www.baidu.com~~\r\n\nhttps://icons.bitwa...",
             "updatedAt": 1736907839,
             "nextTitle": "42 SQLite\u5ba2\u6237\u7aef",
             "nextUrl": "post/42.html",
@@ -929,7 +928,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "#010100"
+            "dateLabelColor": "#020100",
+            "description": "https://favicon.qqsuu.cn/baidu.com  16x16\nhttps://icons.duckduckgo.com/ip3/www.baidu.com.ico    64x6..."
         },
         "P42": {
             "number": "42",
@@ -943,7 +943,6 @@
             "postUrl": "post/42.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/42",
             "commentNum": 0,
-            "description": "sqlitestudio\r\n\n1. \u53ef\u76f4\u63a5\u4fee\u6539\u8868\u7ed3\u6784\r\n2. \u652f\u6301\u4e2d\u6587\r\n\nSQLiteSpy\r\n\n1. \u4fee\u6539\u8868\u7ed3\u6784\u4e0d\u65b9\u4fbf, \u9700\u624b\u5199sql\r\n\nHeidiSQL\r\n\n1. \u8868\u7ed3\u6784\u4fee\u6539\u652f\u6301\u7684\u4e0d\u597d",
             "updatedAt": 1736994631,
             "nextTitle": "43 Python\u4ee3\u7801\u7247\u6bb5",
             "nextUrl": "post/43.html",
@@ -952,7 +951,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-15",
-            "dateLabelColor": "#000000"
+            "dateLabelColor": "#010000",
+            "description": "sqlitestudio\n\n\u53ef\u76f4\u63a5\u4fee\u6539\u8868\u7ed3\u6784\n\u652f\u6301\u4e2d\u6587\n\nSQLiteSpy\n\n\u4fee\u6539\u8868\u7ed3\u6784\u4e0d\u65b9\u4fbf, \u9700\u624b\u5199sql\n\nHeidiSQL\n\n\u8868\u7ed3\u6784\u4fee\u6539\u652f\u6301\u7684\u4e0d\u597d\n\n"
         },
         "P43": {
             "number": "43",
@@ -965,7 +965,6 @@
             "postUrl": "post/43.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/43",
             "commentNum": 0,
-            "description": "`python\r\ndef getCountryNameByHttp(ip):\r\n    '''\r\n    \u67e5\u8be2ip\u5bf9\u5e94\u56fd\u5bb6\u4ee3\u7801\r\n    \u5982\u679c\u672a\u67e5\u8be2\u5230, \u6216\u8005\u67e5\u8be2\u5f02\u5e38, \u8fd4\u56de\u7a7a\r\n    '''\r\n    country = ''\r\n    try:\r\n        rq = requests.get(\"http://ip-api.com/json/{}?lang=zh-CN\".format(i...",
             "updatedAt": 1736934483,
             "nextTitle": "44 cdnjs\u641c\u7d22",
             "nextUrl": "post/44.html",
@@ -974,7 +973,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-15",
-            "dateLabelColor": "#00ff00"
+            "dateLabelColor": "#01fe00",
+            "description": "def getCountryNameByHttp(ip):\n    '''\n    \u67e5\u8be2ip\u5bf9\u5e94\u56fd\u5bb6\u4ee3\u7801\n    \u5982\u679c\u672a\u67e5\u8be2\u5230, \u6216\u8005\u67e5\u8be2\u5f02\u5e38, \u8fd4\u56de\u7a7a\n    '''\n    country = '..."
         },
         "P44": {
             "number": "44",
@@ -987,14 +987,14 @@
             "postUrl": "post/44.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/44",
             "commentNum": 0,
-            "description": "\u67e5\u8be2\u6700\u65b0\u7248\u672c\r\nhttps://cdnjs.com/libraries/Primer\r\n\n\u5b57\u8282\u8df3\u52a8\u9759\u6001\u8d44\u6e90\u516c\u5171\u5e93\r\nhttps://cdn.bytedance.com/\r\n\nCDN\u5730\u5740\r\n\n\u5357\u65b9\u79d1\u6280\u5927\u5b66\r\nhttps://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.1.1/primer.css\r\n\ncdnjs.cloudflare.com \u56fd\u5185...",
             "updatedAt": 1737004314,
             "top": 0,
             "createdAt": 1737004313,
             "style": "",
             "script": "",
             "createdDate": "2025-01-16",
-            "dateLabelColor": "#000000"
+            "dateLabelColor": "#000000",
+            "description": "\u67e5\u8be2\u6700\u65b0\u7248\u672c\nhttps://cdnjs.com/libraries/Primer\n\u5b57\u8282\u8df3\u52a8\u9759\u6001\u8d44\u6e90\u516c\u5171\u5e93\nhttps://cdn.bytedance.com/\nCDN\u5730\u5740\n\u5357\u65b9\u79d1\u6280\u5927\u5b66\nhttps:..."
         }
     },
     "singeListJson": {},
