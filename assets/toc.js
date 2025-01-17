@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
         indexMap.set(index, heading);
         reindexMap.set(heading, index);
 
-        const preHeading = parentMap.get(index - 1);
+        const preHeading = indexMap.get(index - 1);
         if (preHeading) {
             const preLevel = parseInt(preHeading.tagName.charAt(1));
             if (level > preLevel) {
@@ -102,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 parentMap.set(index, parentIndex);
             }
         } else {
-            parentMap.set(index, index);
             pathMap.set(heading, index);
         }
 
