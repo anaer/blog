@@ -91,9 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (level > preLevel) {
                 pathMap.set(index, `${pathMap.get(preIndex)}-${index}`);
                 parentMap.set(index, preIndex);
-            } else if (level === preLevel) {
-                pathMap.set(index, `${pathMap.get(parentMap.get(preIndex))}-${index}`);
-                parentMap.set(index, parentMap.get(preIndex));
             } else {
                 let parentIndex = parentMap.get(preIndex);
                 while (parentIndex !== undefined && level < parseInt(indexMap.get(parentIndex).tagName.charAt(1))) {
