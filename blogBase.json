@@ -194,7 +194,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-01",
-            "dateLabelColor": "#bb2398",
+            "dateLabelColor": "#bc2398",
             "description": "\n\u7cfb\u7edf\u73af\u5883\n\n\u7cfb\u7edf: Ubuntu 20.04.6\n\n\u5b89\u88c5nginx\n\napt-get install nginx-full \u5b89\u88c5full\u7248\n\n\u521b\u5efawebdav\u76ee\u5f55\n\nmkdir /var/www/w..."
         },
         "P9": {
@@ -240,7 +240,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-06",
-            "dateLabelColor": "#b62393",
+            "dateLabelColor": "#b72393",
             "description": "vim /etc/fail2ban/jail.d/nginx.conf\n[nginx-cc]\nenabled = true\nfilter = nginx-cc\naction = iptables-mu..."
         },
         "P11": {
