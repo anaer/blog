@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 17 Jan 2025 02:42:03 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 17 Jan 2025 02:42:03 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>45 Markdown转纯文本</title><link>https://anaer.github.io/blog/post/45.html</link><description>安装依赖
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 17 Jan 2025 02:42:31 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 17 Jan 2025 02:42:31 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>45 Markdown转纯文本</title><link>https://anaer.github.io/blog/post/45.html</link><description>安装依赖
 pip install markdown beautifulsoup4
 
 代码
@@ -12,7 +12,7 @@ https://cdnjs.com/libraries/Primer
 https://cdn.bytedance.com/
 CDN地址
 南方科技大学
-https:...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/44.html</guid><pubDate>Thu, 16 Jan 2025 05:11:53 +0000</pubDate></item><item><title>43 Python代码片段</title><link>https://anaer.github.io/blog/post/43.html</link><description>代码
+https:...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/44.html</guid><pubDate>Thu, 16 Jan 2025 05:11:53 +0000</pubDate></item><item><title>43 ip-api接口查询IP对应国家名称</title><link>https://anaer.github.io/blog/post/43.html</link><description>代码
 import json
 import requests
 
