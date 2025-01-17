@@ -995,6 +995,29 @@
             "createdDate": "2025-01-16",
             "dateLabelColor": "#000000",
             "description": "\u67e5\u8be2\u6700\u65b0\u7248\u672c\nhttps://cdnjs.com/libraries/Primer\n\u5b57\u8282\u8df3\u52a8\u9759\u6001\u8d44\u6e90\u516c\u5171\u5e93\nhttps://cdn.bytedance.com/\nCDN\u5730\u5740\n\u5357\u65b9\u79d1\u6280\u5927\u5b66\nhttps:..."
+        },
+        "P45": {
+            "number": "45",
+            "htmlDir": "docs/post/45.html",
+            "markdown": "backup/45-Markdown\u8f6c\u7eaf\u6587\u672c.md",
+            "labels": [
+                "\u811a\u672c",
+                "Python"
+            ],
+            "postTitle": "45 Markdown\u8f6c\u7eaf\u6587\u672c",
+            "postUrl": "post/45.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/45",
+            "commentNum": 0,
+            "updatedAt": 1737081484,
+            "prevTitle": "44 cdnjs\u641c\u7d22",
+            "prevUrl": "post/44.html",
+            "top": 0,
+            "createdAt": 1737081484,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-17",
+            "dateLabelColor": "#00ff00",
+            "description": "\u5b89\u88c5\u4f9d\u8d56\npip install markdown beautifulsoup4\n\n\u4ee3\u7801\nimport markdown\nfrom bs4 import BeautifulSoup\n\n# Markdo..."
         }
     },
     "singeListJson": {},
