@@ -102,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 parentMap.set(index, parentIndex);
             }
         } else {
+            parentMap.set(index, index);
             pathMap.set(heading, index);
         }
 
