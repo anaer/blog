@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
     tocElement.className = 'toc';
     contentContainer.prepend(tocElement);
 
-    tocElement.insertAdjacentHTML('afterbegin', '<div class="toc-title">文章目录</div>');
+    tocElement.insertAdjacentHTML('afterbegin', '<div class="toc-title toc-link">'+document.title+'</div>');
     headings.forEach(heading => {
         if (!heading.id) {
             heading.id = heading.textContent.trim().replace(/\s+/g, '-').toLowerCase();
@@ -99,12 +99,13 @@ document.addEventListener("DOMContentLoaded", function() {
         if (scrollPosition >= documentHeight) {
             currentHeading = headings[headings.length - 1];
         } else {
-            headings.forEach(heading => {
+            for (const heading of headings) {
                 const rect = heading.getBoundingClientRect();
                 if (rect.top <= 0) {
                     currentHeading = heading;
+                    break;
                 }
-            });
+            }
         }
 
         document.querySelectorAll('.toc-link').forEach(link => {
@@ -113,6 +114,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (currentHeading) {
             const activeLink = tocElement.querySelector(`a[href="#${currentHeading.id}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        } else {
+            const activeLink = tocElement.querySelector(`div.toc-title`);
             if (activeLink) {
                 activeLink.classList.add('active');
             }
