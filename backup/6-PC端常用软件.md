@@ -61,16 +61,26 @@
 | ------------------ | ------------------------------------------------- | -------- |
 | BleachBit 清理工具 | [官网](https://www.bleachbit.org/)                | 垃圾清理 |
 | PrivaZer           | [官网](https://www.PrivaZer.com/download-pro.php) | 已购     |
+| privacy.sexy | [GitHub](https://github.com/undergroundwires/privacy.sexy) | 隐私安全最佳实践 |
 
 ### 输入法
 | 名称               | 下载地址                 | 说明 |
 | ------------------ | ------------------------ | ---- |
 | weasel小狼毫输入法 | [官网](https://rime.im/) |      |
 
-### 清理
-| 名称         | 下载地址                                                   | 说明             |
-| ------------ | ---------------------------------------------------------- | ---------------- |
-| privacy.sexy | [GitHub](https://github.com/undergroundwires/privacy.sexy) | 隐私安全最佳实践 |
+### 资源管理
+| 名称                 | 下载地址                                                  | 说明                                            |
+| -------------------- | --------------------------------------------------------- | ----------------------------------------------- |
+| MultiCommander       | [官网](http://multicommander.com/downloads)               |                                                 |
+| PowerToys            | [GitHub](https://github.com/microsoft/PowerToys/releases) | WingetUI安装 配合Everything插件                 |
+| QTTabBar             | [GitHub](https://github.com/indiff/qttabbar/releases)     | 资源管理器 多标签 重启后报错了 另一个Clover报毒 |
+| QTTabBar             | [官网](http://qttabbar.wikidot.com/)                      | 资源管理器多标签，这个暂时能用                  |
+| Shell                | [GitHub](https://github.com/moudey/Shell)                 |                                                 |
+| Stats                | [GitHub](https://github.com/exelban/stats)                |                                                 |
+| SwitchHosts          | [GitHub](https://github.com/oldj/SwitchHosts/releases)    |                                                 |
+| Unlocker             | [下载](https://www.52pojie.cn/thread-1317159-1-1.html)    |                                                 |
+| fastcopy快速拷贝工具 | [官网](https://fastcopy.jp/)                              |                                                 |
+| uTools               | [官网](https://www.u.tools/)                              |                                                 |
 
 ---
 
@@ -104,12 +114,11 @@
 | dex-tools | [GitHub](https://github.com/pxb1988/dex2jar/releases)  | dex反编译    |
 | jadx      | [GitHub](https://github.com/skylot/jadx/releases)      | Java反编译   |
 
-### 开发
+### NodeJS
 | 名称          | 下载地址                                                     | 说明 |
 | ------------- | ------------------------------------------------------------ | ---- |
-| Git           | [官网](https://git-scm.com/download)                         |      |
+
 | NodeJS        | [官网](http://www.nodejs.com.cn/)                            |      |
-| VSCode        | [官网](https://code.visualstudio.com/)                       |      |
 | python 3.12.0 | [华为云镜像](https://mirrors.huaweicloud.com/python/3.12.0/) |      |
 
 ### 抓包
@@ -130,8 +139,6 @@
 | ------------- | -------- | ---- |
 | BeyondCompare |          |      |
 
-
-
 ---
 
 ### 版本控制
@@ -141,21 +148,6 @@
 
 ---
 
-### 系统
-| 名称                 | 下载地址                                                  | 说明                                            |
-| -------------------- | --------------------------------------------------------- | ----------------------------------------------- |
-| MultiCommander       | [官网](http://multicommander.com/downloads)               |                                                 |
-| PowerToys            | [GitHub](https://github.com/microsoft/PowerToys/releases) | WingetUI安装 配合Everything插件                 |
-| QTTabBar             | [GitHub](https://github.com/indiff/qttabbar/releases)     | 资源管理器 多标签 重启后报错了 另一个Clover报毒 |
-| QTTabBar             | [官网](http://qttabbar.wikidot.com/)                      | 资源管理器多标签，这个暂时能用                  |
-| Shell                | [GitHub](https://github.com/moudey/Shell)                 |                                                 |
-| Stats                | [GitHub](https://github.com/exelban/stats)                |                                                 |
-| SwitchHosts          | [GitHub](https://github.com/oldj/SwitchHosts/releases)    |                                                 |
-| Unlocker             | [下载](https://www.52pojie.cn/thread-1317159-1-1.html)    |                                                 |
-| fastcopy快速拷贝工具 | [官网](https://fastcopy.jp/)                              |                                                 |
-| uTools               | [官网](https://www.u.tools/)                              |                                                 |
-
----
 
 ### 终端
 | 名称          | 下载地址                                                   | 说明 |
@@ -163,8 +155,6 @@
 | Cmder终端工具 | [GitHub](https://github.com/cmderdev/cmder/releases)       |      |
 | KiTTY         | [GitHub](https://github.com/cyd01/KiTTY/releases)          |      |
 | Putty         | [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html) |      |
-
----
 
 ### 编辑器
 | 名称        | 下载地址                                                            | 说明               |
