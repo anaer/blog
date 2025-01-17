@@ -111,13 +111,14 @@
 | Maven | [阿里云镜像](https://mirrors.aliyun.com/apache/maven/maven-3/3.9.5/binaries/)                                                    |      |
 
 ### Android
+| 名称          | 下载地址                                                     | 说明 |
+| ------------- | ------------------------------------------------------------ | ---- |
 | dex-tools | [GitHub](https://github.com/pxb1988/dex2jar/releases)  | dex反编译    |
 | jadx      | [GitHub](https://github.com/skylot/jadx/releases)      | Java反编译   |
 
 ### NodeJS
 | 名称          | 下载地址                                                     | 说明 |
 | ------------- | ------------------------------------------------------------ | ---- |
-
 | NodeJS        | [官网](http://www.nodejs.com.cn/)                            |      |
 | python 3.12.0 | [华为云镜像](https://mirrors.huaweicloud.com/python/3.12.0/) |      |
 
