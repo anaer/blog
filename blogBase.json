@@ -74,7 +74,9 @@
             "postUrl": "post/3.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/3",
             "commentNum": 0,
-            "updatedAt": 1734053847,
+            "updatedAt": 1737095694,
+            "prevTitle": "2 Violentmonkey \u811a\u672c",
+            "prevUrl": "post/2.html",
             "nextTitle": "4 pyGitHub",
             "nextUrl": "post/4.html",
             "top": 0,
@@ -82,7 +84,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-16",
-            "dateLabelColor": "#cc23a8",
+            "dateLabelColor": "#cc00cc",
             "description": "\u5faa\u73af\u53f9\u606f\uff08cyclic sighing\uff09\u7684\u6b65\u9aa4\u662f\uff0c\u5148\u7f13\u6162\u5438\u6c14\uff0c\u4f7f\u80ba\u90e8\u6269\u5f20\uff0c\u518d\u77ed\u4fc3\u5c0f\u5438\u4e00\u53e3\u6c14\uff0c\u6700\u5927\u7a0b\u5ea6\u8ba9\u80ba\u90e8\u5145\u6c14\uff0c\u7136\u540e\u975e\u5e38\u7f13\u6162\u5730\u547c\u51fa\u5168\u90e8\u6c14\u4f53\u3002\n\u6539\u5584\u5fc3\u60c5\uff0c\u51cf\u5c11\u7126\u8651\n\u76f8\u5173\u94fe\u63a5\n\u6bcf\u59295\u5206\u949f\u547c\u5438\u8bad\u7ec3\u6bd4\u51a5\u60f3\u66f4\u597d..."
         },
         "P4": {
