@@ -11,6 +11,8 @@ from datetime import datetime, timedelta
 from github import Github
 from feedgen.feed import FeedGenerator
 from jinja2 import Environment, FileSystemLoader
+from bs4 import BeautifulSoup
+
 ######################################################################################
 i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home","comments":"comments","run":"run ","days":" days","Previous":"Previous","Next":"Next"}
 i18nCN={"Search":"搜索","switchTheme":"切换主题","link":"友情链接","home":"首页","comments":"评论","run":"网站运行","days":"天","Previous":"上一页","Next":"下一页"}
@@ -110,6 +112,13 @@ class GMEEK():
         f = open(issue["markdown"], 'r', encoding='UTF-8')
         post_body=self.markdown2html(f.read())
         f.close()
+
+        soup = BeautifulSoup(post_body, "html.parser")
+        plain_text = soup.get_text()
+        postNum="P"+str(issue["number"])
+
+        # 根据html生成纯文本, 取前100作为摘要
+        self.blogBase["postListJson"][postNum]["description"] = self.build_desc(plain_text)
 
         postBase=self.blogBase.copy()
         postBase["postTitle"]=issue["postTitle"]
@@ -224,44 +233,12 @@ class GMEEK():
         feed.rss_file(self.root_dir+'rss.xml')
 
     def build_desc(self, content):
-        content = self.markdown_to_plaintext(content)
 
         # 截取前100个字符
-        if len(content) > 200:
-            content = content[:200] + "..."
+        if len(content) > 100:
+            content = content[:100] + "..."
 
         return content
-
-    def markdown_to_plaintext(self, markdown_text):
-        # 移除标题
-        markdown_text = re.sub(r'#+\s*', '', markdown_text)
-
-        # 移除加粗和斜体
-        markdown_text = re.sub(r'\*\*(.*?)\*\*', r'\1', markdown_text)  # 加粗
-        markdown_text = re.sub(r'__(.*?)__', r'\1', markdown_text)      # 加粗（替代语法）
-        markdown_text = re.sub(r'\*(.*?)\*', r'\1', markdown_text)      # 斜体
-        markdown_text = re.sub(r'_(.*?)_', r'\1', markdown_text)        # 斜体（替代语法）
-
-        # 移除链接和图片
-        markdown_text = re.sub(r'\[(.*?)\]\(.*?\)', r'\1', markdown_text)  # 链接
-        markdown_text = re.sub(r'!\[(.*?)\]\(.*?\)', r'\1', markdown_text) # 图片
-
-        # 移除引用
-        markdown_text = re.sub(r'^>\s*', '', markdown_text, flags=re.MULTILINE)
-
-        # 移除行内代码
-        markdown_text = re.sub(r'`(.*?)`', r'\1', markdown_text)
-
-        # 移除代码块
-        markdown_text = re.sub(r'```.*?\n(.*?)\n```', r'\1', markdown_text, flags=re.DOTALL)
-
-        # 移除列表符号（无序列表）
-        markdown_text = re.sub(r'^[\*\-\+]\s*', '', markdown_text, flags=re.MULTILINE)
-
-        # 移除多余的空行
-        markdown_text = re.sub(r'\n\s*\n', '\n\n', markdown_text)
-
-        return markdown_text.strip()
 
     def get_background_color(self, createdAt, updatedAt):
         now = datetime.now()
@@ -324,7 +301,7 @@ class GMEEK():
         self.blogBase[listJsonName][postNum]["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(issue.number))
         self.blogBase[listJsonName][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
         self.blogBase[listJsonName][postNum]["commentNum"]=issue.get_comments().totalCount
-        self.blogBase[listJsonName][postNum]["description"]=self.build_desc(issue.body)
+        # self.blogBase[listJsonName][postNum]["description"]=self.build_desc(issue.body)
         self.blogBase[listJsonName][postNum]["updatedAt"]=int(time.mktime(issue.updated_at.timetuple()))
         prevPost = self.getPrevPost(issue.number)
         if prevPost:

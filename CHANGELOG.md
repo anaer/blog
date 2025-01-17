@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 25.117.956
+
+1. 调整摘要生成逻辑 markdown->html->plaintext
+
 ## 25.108.1048
 
 1. html链接使用issue.number, 简单点, 同时可以避免修改标题导致的链接变更问题以及计数问题
