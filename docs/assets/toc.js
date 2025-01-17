@@ -84,25 +84,31 @@ document.addEventListener("DOMContentLoaded", function () {
         indexMap.set(index, heading);
         reindexMap.set(heading, index);
 
-        const preHeading = indexMap.get(index - 1);
+        const preIndex = index - 1;
+        const preHeading = indexMap.get(preIndex);
         if (preHeading) {
             const preLevel = parseInt(preHeading.tagName.charAt(1));
             if (level > preLevel) {
-                pathMap.set(heading, `${pathMap.get(preHeading)}-${index}`);
-                parentMap.set(index, reindexMap.get(preHeading));
+                pathMap.set(index, `${pathMap.get(preIndex)}-${index}`);
+                parentMap.set(index, preIndex);
             } else if (level === preLevel) {
-                pathMap.set(heading, pathMap.get(preHeading));
-                parentMap.set(index, reindexMap.get(preHeading));
+                pathMap.set(index, `${pathMap.get(parentMap.get(preIndex))}-${index}`);
+                parentMap.set(index, parentMap.get(preIndex));
             } else {
-                let parentIndex = parentMap.get(reindexMap.get(preHeading));
+                let parentIndex = parentMap.get(preIndex);
                 while (parentIndex !== undefined && level < parseInt(indexMap.get(parentIndex).tagName.charAt(1))) {
                     parentIndex = parentMap.get(parentIndex);
                 }
-                pathMap.set(heading, reindexMap.get(parentIndex));
-                parentMap.set(index, parentIndex);
+
+                if(parentIndex){
+                    pathMap.set(index, `${pathMap.get(parentIndex)}-${index}`);
+                    parentMap.set(index, parentIndex);
+                } else{
+                    pathMap.set(index, index);
+                }
             }
         } else {
-            pathMap.set(heading, index);
+            pathMap.set(index, index);
         }
 
         if (!heading.id) {
@@ -112,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const link = document.createElement("a");
         link.href = `#${heading.id}`;
         link.textContent = heading.textContent;
-        link.className = `toc-link ${pathMap.get(heading)}`;
+        link.className = `toc-link ${pathMap.get(index)}`;
         link.style.paddingLeft = `${(level - 1) * 10}px`;
         tocElement.appendChild(link);
     });
