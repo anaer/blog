@@ -105,7 +105,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-19",
-            "dateLabelColor": "#c822a6",
+            "dateLabelColor": "#c922a6",
             "description": "\u4ed3\u5e93\u5c5e\u6027\u5b57\u6bb5\n\n\n\n\u5c5e\u6027\u5b57\u6bb5\n\u63cf\u8ff0\n\n\n\n\nid\n\u4ed3\u5e93\u7684\u552f\u4e00\u6807\u8bc6\u7b26\n\n\nname\n\u4ed3\u5e93\u7684\u540d\u79f0\n\n\nfull_name\n\u4ed3\u5e93\u7684\u5168\u540d\uff0c\u5305\u62ec\u7528\u6237\u540d/\u7ec4\u7ec7\u540d\n\n\nowner\n\u4ed3\u5e93\u7684\u6240\u6709\u8005\uff08\u7528\u6237\u6216\u7ec4\u7ec7\uff09\n\n\nd..."
         },
         "P5": {
@@ -143,8 +143,6 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/6",
             "commentNum": 0,
             "updatedAt": 1737100208,
-            "prevTitle": "5 \u4e2d\u6587\u7b49\u5bbd\u5b57\u4f53",
-            "prevUrl": "post/5.html",
             "nextTitle": "7 ECS\u64cd\u4f5c\u8bb0\u5f55",
             "nextUrl": "post/7.html",
             "top": 0,
@@ -152,7 +150,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-30",
-            "dateLabelColor": "#bd00bd",
+            "dateLabelColor": "#be00bd",
             "description": "\u7cfb\u7edf\n\u6d4f\u89c8\u5668\n\n\n\n\u540d\u79f0\n\u4e0b\u8f7d\u5730\u5740\n\u8bf4\u660e\n\n\n\n\nFloorp\u6d4f\u89c8\u5668\nGitHub\nFirefox fork\u7248 \u589e\u52a0\u4e00\u4e9b\u7279\u6027\n\n\nZen Browser\nGitHub\nFirefox fork\u7248 \u652f\u6301..."
         },
         "P7": {
@@ -264,7 +262,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#b42391",
+            "dateLabelColor": "#b52391",
             "description": "import requests\nimport sys\nfrom urllib.parse import quote\n\n# Bark \u7684\u901a\u77e5 API xxx\u4e3atoken\u4fe1\u606f\nBARK_API = \"ht..."
         },
         "P12": {
@@ -333,7 +331,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-05-23",
-            "dateLabelColor": "#ef0de1",
+            "dateLabelColor": "#ef0ee1",
             "description": "Reduce Memory v1.7\n\nWindows Memory Cleaner 2.8\nMem Reduct\n\n"
         },
         "P15": {
@@ -355,7 +353,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-07-20",
-            "dateLabelColor": "#b40da6",
+            "dateLabelColor": "#b40ea6",
             "description": "Aidoku\n\u5728\u8bbe\u7f6e-\u6765\u6e90\u5217\u8868\u4e2d\u6dfb\u52a0\nsuiyuran/aidoku-zh-sources\n\u6dfb\u52a0\u6e90\nSkittyblock/aidoku-community-sources\n\u6dfb\u52a0\u6e90\n"
         },
         "P16": {
@@ -377,7 +375,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-01",
-            "dateLabelColor": "#a81593",
+            "dateLabelColor": "#a91693",
             "description": "http://47.236.84.103:3000/translate\nhttps://deeplx-lb-wheat.vercel.app/translate\nhttps://deeplx.smne..."
         },
         "P17": {
@@ -421,7 +419,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-21",
-            "dateLabelColor": "#959400",
+            "dateLabelColor": "#959500",
             "description": "dufs\n\nminiserve\n\nchfsgui\n\n"
         },
         "P19": {
@@ -444,7 +442,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#221111",
+            "dateLabelColor": "#231111",
             "description": "Podimporter\n\u5728\u7ebf\u5bfc\u5165opml, \u9700\u8981\u767b\u5f55Spotify, \u7136\u540e\u9009\u62e9opml\u6587\u4ef6\u5bfc\u5165\n"
         },
         "P20": {
@@ -466,7 +464,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#22031e",
+            "dateLabelColor": "#22041e",
             "description": "import telegram\nimport asyncio\n\n\"\"\"\npip install python-telegram-bot\n\"\"\"\n\nkey = \"\"\nchat_id = \"\"\ntext ..."
         },
         "P21": {
@@ -556,7 +554,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-26",
-            "dateLabelColor": "#150d08",
+            "dateLabelColor": "#160d08",
             "description": "\u672a\u4f7f\u7528, \u4e0d\u786e\u5b9a\u8fc7\u6ee4\u6548\u679c, \u4e3b\u8981\u5b66\u4e60\u4e0b\u8fc7\u6ee4\u89c4\u5219\n\u811a\u672c\nM3U8 Filter Ad Script\nM3u8\nHLS(m3u8) \u53bb\u5e7f\u544a\nRemove Ad from M3U8\ncf-m3u8-filt..."
         },
         "P25": {
@@ -644,7 +642,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#0e0d00",
+            "dateLabelColor": "#0e0e00",
             "description": ".git/config\n[core]\n\t# repositoryformatversion \u6307\u5b9a Git \u4ed3\u5e93\u7684\u7248\u672c\uff0c\u9ed8\u8ba4\u503c\u4e3a 0\uff0c\u901a\u5e38\u4e0d\u9700\u8981\u4fee\u6539\n\trepositoryformatversion =..."
         },
         "P29": {
@@ -754,7 +752,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-09",
-            "dateLabelColor": "#070700",
+            "dateLabelColor": "#080700",
             "description": "Koofr\n\n\u53ef\u4f7f\u7528Google\u8d26\u53f7\u767b\u5f55\n\u514d\u8d39\u7528\u6237\u63d0\u4f9b10G\u5bb9\u91cf\n\u751f\u6210\u5355\u72ec\u7684App password\u540e \u5373\u53ef\u901a\u8fc7WebDAV\u8bbf\u95ee\n\u5730\u5740: https://app.koofr.net/dav/Koofr..."
         },
         "P34": {
@@ -776,7 +774,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#03fc00",
+            "dateLabelColor": "#04fb00",
             "description": "jieba\n# pip install jieba\nimport jieba\n\n# \u7cbe\u786e\u6a21\u5f0f\uff0c\u8bd5\u56fe\u5c06\u53e5\u5b50\u6700\u7cbe\u786e\u5730\u5207\u5f00\uff0c\u9002\u5408\u6587\u672c\u5206\u6790\ntext = \"\u6d4b\u8bd5\u5206\u8bcd\u957f\u5b57\u7b26\u4e32\"\nwords = jieba.cu..."
         },
         "P35": {
@@ -798,7 +796,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#03fc00",
+            "dateLabelColor": "#04fb00",
             "description": "\u68c0\u6d4bIP\u5728\u4e2d\u56fd\u5927\u9646\u4ee5\u53ca\u6d77\u5916\u533a\u57df\u7684\u53ef\u7528\u6027\uff0c\u7aef\u53e3\u53ef\u4ee5\u6307\u5b9a\u4e3aSSH\u7aef\u53e3\uff0c\u6216\u8005\u4efb\u610f\u670d\u52a1\u7684\u76d1\u542c\u7aef\u53e3\u3002\n\u76f8\u5173\u94fe\u63a5\nip\u53ef\u7528\u6027\u68c0\u6d4b\u5de5\u5177\nip\u53ef\u7528\u6027\u68c0\u67e5\u5de5\u5177\nip112\u4f7f\u7528\u63a5\u53e3\n\u5883\u5916\u68c0\u6d4b\n\u4e2d\u56fd\u5927\u9646\n"
         },
         "P36": {
@@ -820,7 +818,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#03fc00",
+            "dateLabelColor": "#04fb00",
             "description": "\u4e2d\u6587\u5206\u8bcdAPI\nhttp://api.pullword.com/\n// param1 \u51fa\u8bcd\u6982\u7387\u9608\u503c(0-1\u4e4b\u95f4\u7684\u5c0f\u6570)\uff0c1\u8868\u793a\u53ea\u6709100%\u6709\u628a\u63e1\u7684\u8bcd\u624d\u51fa\n// param2 \u6a21\u5f0f 0: \u6b63\u5e38\u6a21\u5f0f 1:..."
         },
         "P37": {
@@ -886,7 +884,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "#020002",
+            "dateLabelColor": "#030002",
             "description": "Deepseek\u5f00\u653e\u5e73\u53f0\n\u65b0\u7528\u6237 \u6ce8\u518c \u900110Y 500w tokens \u4e00\u4e2a\u6708\u6709\u6548\u671f\nDeepSeek\u5b9e\u7528\u96c6\u6210\nchatgptbox \u914d\u7f6e\n\n"
         },
         "P40": {
@@ -908,7 +906,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "#02fd00",
+            "dateLabelColor": "#03fc00",
             "description": "Chrome\nWindows Registry Editor Version 5.00\n\n; \u5220\u9664 HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Google\\Chrome..."
         },
         "P41": {
