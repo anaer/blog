@@ -99,13 +99,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (scrollPosition >= documentHeight) {
             currentHeading = headings[headings.length - 1];
         } else {
-            for (const heading of headings) {
+            headings.forEach(heading => {
                 const rect = heading.getBoundingClientRect();
                 if (rect.top <= 0) {
                     currentHeading = heading;
-                    break;
                 }
-            }
+            });
         }
 
         document.querySelectorAll('.toc-link').forEach(link => {
@@ -114,11 +113,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (currentHeading) {
             const activeLink = tocElement.querySelector(`a[href="#${currentHeading.id}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-        } else {
-            const activeLink = tocElement.querySelector(`div.toc-title`);
             if (activeLink) {
                 activeLink.classList.add('active');
             }
