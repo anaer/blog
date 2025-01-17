@@ -38,7 +38,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-09-08",
-            "dateLabelColor": "#f108e8",
+            "dateLabelColor": "#f109e8",
             "description": "\u82f9\u679cCMS\n\u63a5\u53e3\u8bf4\u660e\nProvide.php\u6e90\u7801\n\u67e5\u770b/provide/vod/ \u63a5\u53e3\u7684\u67e5\u8be2\u903b\u8f91\n\u5217\u8868\nhttp://\u57df\u540d/api.php/provide/vod/?ac=list\n\u5165\u53c2\uff1a\nac=li..."
         },
         "P2": {
@@ -285,7 +285,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#b42391",
+            "dateLabelColor": "#b52391",
             "description": "vim script/free.py\nimport subprocess\nfrom bark import send_bark_notification\n\n# \u6267\u884c free -m \u547d\u4ee4\u5e76\u83b7\u53d6\u7ed3\u679c\nr..."
         },
         "P13": {
@@ -308,7 +308,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-12-07",
-            "dateLabelColor": "#982275",
+            "dateLabelColor": "#982375",
             "description": "\u751f\u6210 Python \u9879\u76ee\u7684 requirements.txt \u6587\u4ef6\n\n\u4f7f\u7528 pip freeze \u547d\u4ee4\u3002\n\u5728\u9879\u76ee\u7684\u6839\u76ee\u5f55\u4e0b\uff0c\u6253\u5f00\u7ec8\u7aef\u6216\u547d\u4ee4\u63d0\u793a\u7b26\uff0c\u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\uff1a\n\npip freeze > requi..."
         },
         "P14": {
