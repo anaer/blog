@@ -144,7 +144,9 @@
             "postUrl": "post/6.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/6",
             "commentNum": 0,
-            "updatedAt": 1736412706,
+            "updatedAt": 1737096408,
+            "prevTitle": "5 \u4e2d\u6587\u7b49\u5bbd\u5b57\u4f53",
+            "prevUrl": "post/5.html",
             "nextTitle": "7 ECS\u64cd\u4f5c\u8bb0\u5f55",
             "nextUrl": "post/7.html",
             "top": 0,
@@ -152,8 +154,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-30",
-            "dateLabelColor": "#bd07b5",
-            "description": "\n\n\n\u5206\u7c7b\n\u540d\u79f0\n\u4e0b\u8f7d\u5730\u5740\n\u8bf4\u660e\n\n\n\n\n\u4ee3\u7406\nProxifier\n\u5b98\u7f51\n\n\n\n\u4f20\u8f93\nWinSCP\n\u5b98\u7f51\n\n\n\n\u5065\u5eb7\nLightBulb \u5f00\u6e90\u62a4\u773c\u8f6f\u4ef6\nGitHub\n\n\n\n\u5185\u5b58\nMem Reduct\n..."
+            "dateLabelColor": "#bd00bd",
+            "description": "\u7cfb\u7edf\n\u6d4f\u89c8\u5668\n\n\n\n\u540d\u79f0\n\u4e0b\u8f7d\u5730\u5740\n\u8bf4\u660e\n\n\n\n\nFloorp\u6d4f\u89c8\u5668\nGitHub\nFirefox fork\u7248 \u589e\u52a0\u4e00\u4e9b\u7279\u6027\n\n\nZen Browser\nGitHub\nFirefox fork\u7248 \u652f\u6301..."
         },
         "P7": {
             "number": "7",
