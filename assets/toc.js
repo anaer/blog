@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const reindexMap = new Map();
     const parentMap = new Map();
     const pathMap = new Map();
-    pathMap.set(0, "");
+    pathMap.set(0, "0");
     headings.forEach((heading, index) => {
         index = index + 1
         const level = parseInt(heading.tagName.charAt(1));
@@ -103,10 +103,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     parentMap.set(index, parentIndex);
                 } else{
                     parentMap.set(index, 0);
+                    pathMap.set(0, `0-${index}`);
                 }
             }
         } else {
             parentMap.set(index, 0);
+            pathMap.set(0, `0-${index}`);
         }
 
         if (!heading.id) {
