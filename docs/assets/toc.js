@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 parentMap.set(index, preIndex);
             } else {
                 let parentIndex = parentMap.get(preIndex);
-                while (parentIndex !== undefined && level < parseInt(indexMap.get(parentIndex).tagName.charAt(1))) {
+                while (parentIndex !== undefined && level <= parseInt(indexMap.get(parentIndex).tagName.charAt(1))) {
                     parentIndex = parentMap.get(parentIndex);
                 }
 
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const link = document.createElement("a");
         link.href = `#${heading.id}`;
         link.textContent = heading.textContent;
-        link.className = `toc-link ${pathMap.get(index)}`;
+        link.className = `toc-link ${pathMap.get(parentMap.get(index))}`;
         link.style.paddingLeft = `${(level - 1) * 10}px`;
         tocElement.appendChild(link);
     });
