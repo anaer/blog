@@ -60,7 +60,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-09-28",
-            "dateLabelColor": "#de23ba",
+            "dateLabelColor": "#de24ba",
             "description": "\u66b4\u529b\u7334Violentmonkey\n\u5143\u6570\u636e\u5757\n// ==UserScript==\n// @name \u6807\u9898\n// @name:zh-CN \u53ef\u4ee5\u5728\u53d8\u91cf\u540d\u540e\u589e\u52a0\u533a\u57df\u4fe1\u606f:zh-CN \u5b9e\u73b0\u591a\u8bed\u8a00\u56fd\u9645\u5316\n// @..."
         },
         "P3": {
@@ -127,7 +127,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-26",
-            "dateLabelColor": "#c2239e",
+            "dateLabelColor": "#c2249e",
             "description": "\n\nLXGW WenKai GB / \u971e\u9e5c\u6587\u6977 GB\n\u7b49\u5bbd, markdown\u8868\u683c\u683c\u5f0f\u5316 \u4e5f\u80fd\u5bf9\u9f50\n\n\nCascadia Code\n\n\nMaple-Mono\n\n\nUbuntuMono\n\n\n"
         },
         "P6": {
@@ -172,7 +172,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-01",
-            "dateLabelColor": "#bc2398",
+            "dateLabelColor": "#bc2498",
             "description": "\n\u91cd\u7f6e\u5bc6\u7801\uff0c \u6ca1\u6709\u63d0\u793a\u9ed8\u8ba4\u5bc6\u7801\n\napt-get update \u9700\u8981\u5148\u66f4\u65b0, \u76f4\u63a5\u5b89\u88c5\u4f1a\u63d0\u793a\u627e\u4e0d\u5230\u5305\n\napt-get install nginx \u5b89\u88c5nginx\n\u4e91\u670d\u52a1 \u5b89\u5168\u7ec4 \u5165\u65b9\u5411 \u5feb\u901f\u6dfb\u52a080..."
         },
         "P8": {
@@ -194,7 +194,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-01",
-            "dateLabelColor": "#bc2398",
+            "dateLabelColor": "#bc2498",
             "description": "\n\u7cfb\u7edf\u73af\u5883\n\n\u7cfb\u7edf: Ubuntu 20.04.6\n\n\u5b89\u88c5nginx\n\napt-get install nginx-full \u5b89\u88c5full\u7248\n\n\u521b\u5efawebdav\u76ee\u5f55\n\nmkdir /var/www/w..."
         },
         "P9": {
@@ -240,7 +240,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-06",
-            "dateLabelColor": "#b72393",
+            "dateLabelColor": "#b72493",
             "description": "vim /etc/fail2ban/jail.d/nginx.conf\n[nginx-cc]\nenabled = true\nfilter = nginx-cc\naction = iptables-mu..."
         },
         "P11": {
@@ -262,7 +262,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#b52391",
+            "dateLabelColor": "#b52491",
             "description": "import requests\nimport sys\nfrom urllib.parse import quote\n\n# Bark \u7684\u901a\u77e5 API xxx\u4e3atoken\u4fe1\u606f\nBARK_API = \"ht..."
         },
         "P12": {
@@ -285,7 +285,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#b52391",
+            "dateLabelColor": "#b52491",
             "description": "vim script/free.py\nimport subprocess\nfrom bark import send_bark_notification\n\n# \u6267\u884c free -m \u547d\u4ee4\u5e76\u83b7\u53d6\u7ed3\u679c\nr..."
         },
         "P13": {
@@ -397,7 +397,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-06",
-            "dateLabelColor": "#a42380",
+            "dateLabelColor": "#a42480",
             "description": "goneovim\n\u5355\u6587\u4ef6 \u521a\u5b89\u88c5 \u6d4b\u8bd5\u770b\u770b\nneovide\n\u5355\u6587\u4ef6 \u5149\u6807\u5207\u6362\u54cd\u5e94\u8f83\u6162 \u6709\u6b8b\u5f71 \u6682\u4e0d\u8003\u8651\nfvim\ndll\u5e93\u6587\u4ef6\u8f83\u591a \u5148\u4e0d\u8003\u8651\n"
         },
         "P18": {
