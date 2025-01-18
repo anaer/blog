@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pathMap = new Map();
 
     headings.forEach((heading, index) => {
+        index = index + 1
         const level = parseInt(heading.tagName.charAt(1));
         indexMap.set(index, heading);
         reindexMap.set(heading, index);
@@ -101,11 +102,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     pathMap.set(index, `${pathMap.get(parentIndex)}-${index}`);
                     parentMap.set(index, parentIndex);
                 } else{
-                    pathMap.set(index, index);
+                    pathMap.set(index, 0);
                 }
             }
         } else {
-            pathMap.set(index, index);
+            pathMap.set(index, 0);
         }
 
         if (!heading.id) {
