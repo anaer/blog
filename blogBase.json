@@ -1019,6 +1019,28 @@
             "createdDate": "2025-01-17",
             "dateLabelColor": "#00ff00",
             "description": "\u5b89\u88c5\u4f9d\u8d56\npip install markdown beautifulsoup4\n\n\u4ee3\u7801\nimport markdown\nfrom bs4 import BeautifulSoup\n\n# Markdo..."
+        },
+        "P46": {
+            "number": "46",
+            "htmlDir": "docs/post/46.html",
+            "markdown": "backup/46-ffmpeg&ffprobe\u4f7f\u7528\u4ecb\u7ecd.md",
+            "labels": [
+                "\u811a\u672c"
+            ],
+            "postTitle": "46 ffmpeg&ffprobe\u4f7f\u7528\u4ecb\u7ecd",
+            "postUrl": "post/46.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/46",
+            "commentNum": 0,
+            "updatedAt": 1737357682,
+            "prevTitle": "45 Markdown\u8f6c\u7eaf\u6587\u672c",
+            "prevUrl": "post/45.html",
+            "top": 0,
+            "createdAt": 1737357682,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-20",
+            "dateLabelColor": "#00ff00",
+            "description": "\u4e0b\u8f7d\u4e00\u5e27\u56fe\u7247\nffmpeg -i http://117.148.179.136/PLTV/88888888/224/3221231567/index.m3u8 -ss 1 -frames:v 1 aa..."
         }
     },
     "singeListJson": {},
@@ -1038,6 +1060,6 @@
         "\u811a\u672c": "#b60205"
     },
     "issuesUrl": "https://github.com/anaer/blog/issues",
-    "prevUrl": "https://anaer.github.io/blog/page2.html",
+    "prevUrl": "https://anaer.github.io/blog/page3.html",
     "nextUrl": "disabled"
 }
