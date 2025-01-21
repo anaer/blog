@@ -202,7 +202,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-03",
-            "dateLabelColor": "#bd1aa3",
+            "dateLabelColor": "#be1aa3",
             "description": "\u5b89\u88c5\n\u7cfb\u7edf: Ubuntu 20.04.6 LTS\napt-get install fail2ban\n\u547d\u4ee4\n\u67e5\u8be2\u670d\u52a1\u72b6\u6001\nservice fail2ban status\nsystemctl statu..."
         },
         "P10": {
@@ -633,7 +633,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-06",
-            "dateLabelColor": "#0ef100",
+            "dateLabelColor": "#0ff000",
             "description": "\u4f7f\u7528PyYAML\n# pip install pyyaml\nimport yaml\n\ndef extract_metadata(file_path):\n    with open(file_path,..."
         },
         "P31": {
