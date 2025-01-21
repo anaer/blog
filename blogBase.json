@@ -1040,6 +1040,26 @@
             "createdDate": "2025-01-21",
             "dateLabelColor": "#000000",
             "description": "\u6211\u7684\u7535\u8111\u5220\u96643D\u5bf9\u8c61\u7b49\nWindows Registry Editor Version 5.00\n; \u5220\u9664\u5bfc\u822a\u7a97\u683c\u5bf9\u5e94\u6587\u4ef6\u5939\uff0c-\u8868\u793a\u5220\u9664\u6ce8\u518c\u8868\u9879\uff0c\u4e0d\u5199-\u8868\u793a\u589e\u52a0\u6ce8\u518c\u8868\u9879\n\n; \u5220\u96643D\u5bf9\u8c61\n[-HKE..."
+        },
+        "P51": {
+            "number": "51",
+            "htmlDir": "docs/post/51.html",
+            "markdown": "backup/51-gatsby\u521b\u5efa\u535a\u5ba2.md",
+            "labels": [
+                "\u670d\u52a1"
+            ],
+            "postTitle": "51 gatsby\u521b\u5efa\u535a\u5ba2",
+            "postUrl": "post/51.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/51",
+            "commentNum": 0,
+            "updatedAt": 1737440131,
+            "top": 0,
+            "createdAt": 1737440131,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-21",
+            "dateLabelColor": "#00ff00",
+            "description": "\u8fd9\u662f\u4e4b\u524dblog\u4f7f\u7528\u7684\u6846\u67b6, \u73b0\u5728\u6ca1\u5728\u7528\u4e86, \u8fd9\u91cc\u4ec5\u505a\u7559\u75d5.\n\u5b89\u88c5\u90e8\u7f72\n\u5b89\u88c5Gatsby\n\u8fd0\u884c npm install -g gatsby-cli \u5168\u5c40\u5b89\u88c5Gatsby CLI\n\u521b\u5efa\u65b0\u7f51\u7ad9\uff1a\n\u8fd0\u884c g..."
         }
     },
     "singeListJson": {},
