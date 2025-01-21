@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 21 Jan 2025 05:49:01 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 21 Jan 2025 05:49:01 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>50 Windows常用注册表</title><link>https://anaer.github.io/blog/post/50.html</link><description>我的电脑删除3D对象等
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 21 Jan 2025 05:52:11 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 21 Jan 2025 05:52:11 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>50 Windows常用注册表</title><link>https://anaer.github.io/blog/post/50.html</link><description>我的电脑删除3D对象等
 Windows Registry Editor Version 5.00
 ; 删除导航窗格对应文件夹，-表示删除注册表项，不写-表示增加注册表项
 
@@ -98,10 +98,10 @@ HeidiSQL 12.9
 对sqlite表结构修改支持的不好
 
 </description><guid isPermaLink="true">https://anaer.github.io/blog/post/42.html</guid><pubDate>Wed, 15 Jan 2025 09:31:22 +0000</pubDate></item><item><title>41 获取网站favicon图标</title><link>https://anaer.github.io/blog/post/41.html</link><description>https://favicon.qqsuu.cn/baidu.com  16x16
-https://icons.duckduckgo.com/ip3/www.baidu.com.ico    64x6...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/41.html</guid><pubDate>Tue, 14 Jan 2025 09:49:19 +0000</pubDate></item><item><title>40 浏览器由所属组织管理解决方法</title><link>https://anaer.github.io/blog/post/40.html</link><description>Chrome
-Windows Registry Editor Version 5.00
-
-; 删除 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/40.html</guid><pubDate>Tue, 14 Jan 2025 09:27:18 +0000</pubDate></item><item><title>39 Deepseek API</title><link>https://anaer.github.io/blog/post/39.html</link><description>Deepseek开放平台
+https://icons.duckduckgo.com/ip3/www.baidu.com.ico    64x6...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/41.html</guid><pubDate>Tue, 14 Jan 2025 09:49:19 +0000</pubDate></item><item><title>40 在线二维码API</title><link>https://anaer.github.io/blog/post/40.html</link><description>QR Server 二维码接口
+size 尺寸大小
+margin 边框大小, 范围 0-50
+https://api.qrserver.com/v1/create-qr-code/?size=100×...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/40.html</guid><pubDate>Tue, 14 Jan 2025 09:27:18 +0000</pubDate></item><item><title>39 Deepseek API</title><link>https://anaer.github.io/blog/post/39.html</link><description>Deepseek开放平台
 新用户 注册 送10Y 500w tokens 一个月有效期
 DeepSeek实用集成
 chatgptbox 配置

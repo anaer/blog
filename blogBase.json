@@ -819,22 +819,22 @@
         "P40": {
             "number": "40",
             "htmlDir": "docs/post/40.html",
-            "markdown": "backup/40-\u6d4f\u89c8\u5668\u7531\u6240\u5c5e\u7ec4\u7ec7\u7ba1\u7406\u89e3\u51b3\u65b9\u6cd5.md",
+            "markdown": "backup/40-\u5728\u7ebf\u4e8c\u7ef4\u7801API.md",
             "labels": [
-                "\u811a\u672c"
+                "\u63a5\u53e3"
             ],
-            "postTitle": "40 \u6d4f\u89c8\u5668\u7531\u6240\u5c5e\u7ec4\u7ec7\u7ba1\u7406\u89e3\u51b3\u65b9\u6cd5",
+            "postTitle": "40 \u5728\u7ebf\u4e8c\u7ef4\u7801API",
             "postUrl": "post/40.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/40",
             "commentNum": 0,
-            "updatedAt": 1736846838,
+            "updatedAt": 1737438715,
             "top": 0,
             "createdAt": 1736846838,
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "#06f900",
-            "description": "Chrome\nWindows Registry Editor Version 5.00\n\n; \u5220\u9664 HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Google\\Chrome..."
+            "dateLabelColor": "#060006",
+            "description": "QR Server \u4e8c\u7ef4\u7801\u63a5\u53e3\nsize \u5c3a\u5bf8\u5927\u5c0f\nmargin \u8fb9\u6846\u5927\u5c0f, \u8303\u56f4 0-50\nhttps://api.qrserver.com/v1/create-qr-code/?size=100\u00d7..."
         },
         "P41": {
             "number": "41",
