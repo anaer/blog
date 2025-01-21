@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 20 Jan 2025 07:21:50 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 20 Jan 2025 07:21:50 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>46 ffmpeg&amp;ffprobe使用介绍</title><link>https://anaer.github.io/blog/post/46.html</link><description>下载一帧图片
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 21 Jan 2025 02:30:39 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 21 Jan 2025 02:30:39 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>47 Python查询m3u8视频信息</title><link>https://anaer.github.io/blog/post/47.html</link><description>import subprocess,json
+
+class FFprobe():
+    def __init__(self):
+        self.filepath = ''
+        ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/47.html</guid><pubDate>Tue, 21 Jan 2025 02:30:12 +0000</pubDate></item><item><title>46 ffmpeg&amp;ffprobe使用介绍</title><link>https://anaer.github.io/blog/post/46.html</link><description>下载一帧图片
 ffmpeg -i http://117.148.179.136/PLTV/88888888/224/3221231567/index.m3u8 -ss 1 -frames:v 1 aa...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/46.html</guid><pubDate>Mon, 20 Jan 2025 07:21:22 +0000</pubDate></item><item><title>45 Markdown转纯文本</title><link>https://anaer.github.io/blog/post/45.html</link><description>安装依赖
 pip install markdown beautifulsoup4
 

@@ -1041,6 +1041,29 @@
             "createdDate": "2025-01-20",
             "dateLabelColor": "#00ff00",
             "description": "\u4e0b\u8f7d\u4e00\u5e27\u56fe\u7247\nffmpeg -i http://117.148.179.136/PLTV/88888888/224/3221231567/index.m3u8 -ss 1 -frames:v 1 aa..."
+        },
+        "P47": {
+            "number": "47",
+            "htmlDir": "docs/post/47.html",
+            "markdown": "backup/47-Python\u67e5\u8be2m3u8\u89c6\u9891\u4fe1\u606f.md",
+            "labels": [
+                "\u811a\u672c",
+                "Python"
+            ],
+            "postTitle": "47 Python\u67e5\u8be2m3u8\u89c6\u9891\u4fe1\u606f",
+            "postUrl": "post/47.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/47",
+            "commentNum": 0,
+            "updatedAt": 1737426612,
+            "prevTitle": "46 ffmpeg&ffprobe\u4f7f\u7528\u4ecb\u7ecd",
+            "prevUrl": "post/46.html",
+            "top": 0,
+            "createdAt": 1737426612,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-21",
+            "dateLabelColor": "#00ff00",
+            "description": "import subprocess,json\n\nclass FFprobe():\n    def __init__(self):\n        self.filepath = ''\n        ..."
         }
     },
     "singeListJson": {},
