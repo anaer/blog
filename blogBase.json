@@ -943,14 +943,17 @@
             "htmlDir": "docs/post/42.html",
             "markdown": "backup/42-SQLite\u5ba2\u6237\u7aef.md",
             "labels": [
-                "\u5de5\u5177",
-                "Windows10"
+                "Win10",
+                "\u8f6f\u4ef6",
+                "\u6570\u636e\u5e93"
             ],
             "postTitle": "42 SQLite\u5ba2\u6237\u7aef",
             "postUrl": "post/42.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/42",
             "commentNum": 0,
-            "updatedAt": 1736994631,
+            "updatedAt": 1737437785,
+            "prevTitle": "41 \u83b7\u53d6\u7f51\u7ad9favicon\u56fe\u6807",
+            "prevUrl": "post/41.html",
             "nextTitle": "43 ip-api\u63a5\u53e3\u67e5\u8be2IP\u5bf9\u5e94\u56fd\u5bb6\u540d\u79f0",
             "nextUrl": "post/43.html",
             "top": 0,
@@ -958,8 +961,8 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-15",
-            "dateLabelColor": "#050500",
-            "description": "sqlitestudio\n\n\u53ef\u76f4\u63a5\u4fee\u6539\u8868\u7ed3\u6784\n\u652f\u6301\u4e2d\u6587\n\nSQLiteSpy\n\n\u4fee\u6539\u8868\u7ed3\u6784\u4e0d\u65b9\u4fbf, \u9700\u624b\u5199sql\n\nHeidiSQL\n\n\u8868\u7ed3\u6784\u4fee\u6539\u652f\u6301\u7684\u4e0d\u597d\n\n"
+            "dateLabelColor": "#050005",
+            "description": "sqlitestudio\n\n\u53ef\u76f4\u63a5\u4fee\u6539\u8868\u7ed3\u6784\n\u652f\u6301\u4e2d\u6587\n\nSQLiteSpy\n\n\u4fee\u6539\u8868\u7ed3\u6784\u4e0d\u65b9\u4fbf, \u9700\u624b\u5199sql\n\nHeidiSQL 12.9\n\n\u5bf9sqlite\u8868\u7ed3\u6784\u4fee\u6539\u652f\u6301\u7684\u4e0d\u597d\n\n"
         },
         "P43": {
             "number": "43",
