@@ -229,21 +229,21 @@
         "P11": {
             "number": "11",
             "htmlDir": "docs/post/11.html",
-            "markdown": "backup/11-\u4f7f\u7528bark\u901a\u77e5APP.md",
+            "markdown": "backup/11-\u516c\u5171DNS\u89e3\u6790.md",
             "labels": [
                 "\u5de5\u5177"
             ],
-            "postTitle": "11 \u4f7f\u7528bark\u901a\u77e5APP",
+            "postTitle": "11 \u516c\u5171DNS\u89e3\u6790",
             "postUrl": "post/11.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/11",
             "commentNum": 0,
-            "updatedAt": 1734053850,
+            "updatedAt": 1737439447,
             "top": 0,
             "createdAt": 1699435710,
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#b82791",
+            "dateLabelColor": "#b800b8",
             "description": "import requests\nimport sys\nfrom urllib.parse import quote\n\n# Bark \u7684\u901a\u77e5 API xxx\u4e3atoken\u4fe1\u606f\nBARK_API = \"ht..."
         },
         "P12": {
