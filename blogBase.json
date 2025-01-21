@@ -1070,6 +1070,28 @@
             "createdDate": "2025-01-21",
             "dateLabelColor": "#00ff00",
             "description": "import subprocess,json\n\nclass FFprobe():\n    def __init__(self):\n        self.filepath = ''\n        ..."
+        },
+        "P48": {
+            "number": "48",
+            "htmlDir": "docs/post/48.html",
+            "markdown": "backup/48-Linux\u4e2d\u5b89\u88c5\u5b57\u4f53.md",
+            "labels": [
+                "Linux"
+            ],
+            "postTitle": "48 Linux\u4e2d\u5b89\u88c5\u5b57\u4f53",
+            "postUrl": "post/48.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/48",
+            "commentNum": 0,
+            "updatedAt": 1737427922,
+            "prevTitle": "47 Python\u67e5\u8be2m3u8\u89c6\u9891\u4fe1\u606f",
+            "prevUrl": "post/47.html",
+            "top": 0,
+            "createdAt": 1737427922,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-21",
+            "dateLabelColor": "#00ff00",
+            "description": "Linux \u4e2d\u5b89\u88c5\u5b57\u4f53\n\u67e5\u770b\u7cfb\u7edf\u4e2d\u7684\u5b57\u4f53\nfc-list\n\u67e5\u770b\u7cfb\u7edf\u4e2d\u7684\u4e2d\u6587\u5b57\u4f53\nfc-list :lang=zh\n\u5c06\u5b57\u4f53\u6587\u4ef6\u62f7\u8d1d\u5230/usr/share/fonts/\u4e2d\ncp simsun.ttc /u..."
         }
     },
     "singeListJson": {},

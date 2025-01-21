@@ -11,7 +11,8 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>Tip</title>
+<title>48 Linux中安装字体</title>
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/dimmed.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -34,126 +35,89 @@ body{
 </style>
 
 <style>
-h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;font-family:Monaco;}
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
 .title-right{display:flex;margin:auto 0 0 auto;}
-.title-right button{margin-right:8px;padding:16px;}
-
-.subnav-search{margin-top:8px;margin-right:8px;}
-.subnav-search-input{width:160px;border-top-right-radius:0px;border-bottom-right-radius:0px;}
-.subnav-search button{padding:5px 8px;border-top-left-radius:0px;border-bottom-left-radius:0px;}
-
-.title-right .circle{padding: 14px 16px;}
-
-.SideNav{min-width: 360px;}
-.SideNav-icon{margin-right: 16px}
-.SideNav-item .Label{color: #fff;margin-left:8px;}
-@media (max-width: 767px) {
-    body { padding: 8px;}
-    h1 a:not([href]){font-size:24px;}
-    .subnav-search form{display:none;}
-    .subnav-search svg{display:none;}
-    #buttonRSS{display:none;}
-    .SideNav-item .listLabels{display:none;}
-}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 767px) {body {padding: 8px;}}
 </style>
+
+
 
 
 <body>
     <div id="header">
 <h1>
-    <a href="https://anaer.github.io/blog">
-        <img src="https://avatars.githubusercontent.com/u/4637100?s=400&v=4" size="64" height="64" width="64" class="avatar circle" id="avatarImg">
-    </a>
-    <a>Tip</a>
+    <a>48 Linux中安装字体</a>
 </h1>
+
 <div class="title-right">
-    <div class="subnav-search">
-        <form action="https://www.google.com/search" method="get" target="_blank">
-            <input type="hidden" name="q" value="site:https://anaer.github.io/blog">
-            <input type="search" name="q" class="form-control subnav-search-input float-left" aria-label="Search site" value="">
-            <button class="btn float-left" type="submit">搜索</button>
-        </form>
-        <svg class="subnav-search-icon octicon octicon-search" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-            <path id="searchSVG" fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path>
+
+    <a href="https://anaer.github.io/blog"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
         </svg>
-    </div>
-    
-    <a href="https://anaer.github.io/blog/rss.xml" target="_blank">
-        <button id="buttonRSS" class="btn btn-invisible circle" title="RSS">
-            <svg class="octicon" width="16" height="16" >
-                <path id="pathRSS" fill-rule="evenodd" d="M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"></path>
-            </svg>
-        </button>
-    </a>
-    <a href="https://www.travellings.cn/go.html" target="_blank">
-        <button id="buttonTravel" class="btn btn-invisible circle" title="Travel">
-            <svg class="octicon" width="20" height="20" >
-                <path id="pathTravel" fill-rule="evenodd" d="M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z"></path>
-            </svg>
-        </button>
-    </a>
-    <a href="https://github.com/anaer/blog/issues" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+    </button></a>
+
+    <a href="https://github.com/anaer/blog/issues/48" target="_blank"><button class="btn btn-invisible circle" title="Issue">
         <svg class="octicon" width="16" height="16">
             <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
         </svg>
     </button></a>
-    <button class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
         </svg>
     </button>
+
 </div>
 </div>
     <div id="content">
-<div style="margin-bottom: 16px;">闲言碎语</div>
-<nav class="SideNav border">
-<a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/7.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="width:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span>7 ECS操作记录</span>
-    </div>
-    <div class="listLabels">
-        
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#351497">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#工具">工具</a></object>
-            </span>
-        <span class="Label" style="background-color:#bf2798">2023-11-01</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/2.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="width:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span>2 Violentmonkey 脚本</span>
-    </div>
-    <div class="listLabels">
-        
+<div class="listLabels">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+        </span>
+</div>
+<br>
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#b60205">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#脚本">脚本</a></object>
-            </span>
-        <span class="Label" style="background-color:#e127ba">2023-09-28</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/18.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon" style="width:16px;height:16px"><path class="svgTop0" d=""></path>
-        </svg>
-        <span>18 静态文件服务器</span>
-    </div>
-    <div class="listLabels">
-        
+<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
+<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-21</time></span>
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#8740A6">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#服务">服务</a></object>
-            </span>
-        <span class="Label" style="background-color:#989800">2024-08-21</span>
-    </div>
-</a>
-</nav><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/page3.html" aria-label="Previous Page">上一页</a><span class="next_page" aria-disabled="true">下一页</span>
-        </div>
+<p>
+
+<div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h1 class="heading-element">Linux 中安装字体</h1><a id="user-content-linux-中安装字体" class="anchor" aria-label="Permalink: Linux 中安装字体" href="#linux-中安装字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">查看系统中的字体</h2><a id="user-content-查看系统中的字体" class="anchor" aria-label="Permalink: 查看系统中的字体" href="#查看系统中的字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>fc-list</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">查看系统中的中文字体</h2><a id="user-content-查看系统中的中文字体" class="anchor" aria-label="Permalink: 查看系统中的中文字体" href="#查看系统中的中文字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>fc-list :lang=zh</pre></div>
+<p>将字体文件拷贝到/usr/share/fonts/中</p>
+<div class="highlight highlight-source-shell"><pre>cp simsun.ttc /usr/share/fonts
+<span class="pl-c1">cd</span> /usr/lshare/fonts
+mkfontscale
+mkfontdir</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">检验：</h2><a id="user-content-检验" class="anchor" aria-label="Permalink: 检验：" href="#检验"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>fc-list :lang=zh</pre></div>
+<p>就可以看到刚安装的字体了</p>
+<div class="markdown-heading"><h2 class="heading-element">Ubuntu</h2><a id="user-content-ubuntu" class="anchor" aria-label="Permalink: Ubuntu" href="#ubuntu"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>apt-get install fontconfig
+apt-get install xfonts-utils</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">CentOS</h2><a id="user-content-centos" class="anchor" aria-label="Permalink: CentOS" href="#centos"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>yum -y install fontconfig <span class="pl-c"><span class="pl-c">#</span>安装字体库</span>
+yum -y install ttmkfdir mkfontscale <span class="pl-c"><span class="pl-c">#</span>安装字体索引信息</span></pre></div>
+
+</div><nav class="paginate-container" aria-label="Pagination">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/47.html" aria-label="Previous Page">47 Python查询m3u8视频信息</a></div>
 </nav>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
 </div>
     <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
 
@@ -202,17 +166,47 @@ console.log("\n %c Gmeek v2.4 %c https://github.com/Meekdai/Gmeek \n\n", "color:
 </script>
 
 <script>
-iconTOP=document.getElementsByClassName("svgTop1");
-iconPost=document.getElementsByClassName("svgTop0");
-for(var i=0;i<iconTOP.length;i++){
-    iconTOP[i].setAttribute("d",IconList["upload"]);
-    iconTOP[i].parentNode.style.color="red";
-}
-for(var i=0;i<iconPost.length;i++){
-    iconPost[i].setAttribute("d",IconList["post"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","anaer/blog");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
 }
 
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
 
 </script>
+
+
+
+<script src="https://anaer.github.io/blog/assets/toc.js"></script>
+
 
 </html>
