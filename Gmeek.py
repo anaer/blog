@@ -92,13 +92,17 @@ class GMEEK():
     def get_repo(self,user:Github, repo:str):
         return user.get_repo(repo)
 
-    def markdown2html(self,mdstr):
+    def markdown2html(self, mdstr, retries=3):
         payload = {"text": mdstr, "mode": "markdown"}
-        ret=requests.post("https://api.github.com/markdown", json=payload,headers={"Authorzation":"token {}".format(self.options.github_token)})
-        if ret.status_code==200:
-            return ret.text
-        else:
-            raise Exception("markdown2html error status_code=%d"%(ret.status_code))
+        headers = {"Authorization": "token {}".format(self.options.github_token)}
+        for attempt in range(retries):
+            ret = requests.post("https://api.github.com/markdown", json=payload, headers=headers)
+            if ret.status_code == 200:
+                return ret.text
+            else:
+                print(f"Attempt {attempt + 1} failed with status code {ret.status_code}")
+                time.sleep(1)  # Wait for 1 second before retrying
+        raise Exception("markdown2html error after {} retries, status_code={}".format(retries, ret.status_code))
 
     def renderHtml(self,template,blogBase,postListJson,htmlDir):
         file_loader = FileSystemLoader('templates')
@@ -110,8 +114,8 @@ class GMEEK():
         f.close()
 
     def createPostHtml(self,issue):
-        f = open(issue["markdown"], 'r', encoding='UTF-8')
-        post_body=self.markdown2html(f.read())
+        f = open(issue["markdown"]+".html", 'r', encoding='UTF-8')
+        post_body=f.read()
         f.close()
 
         soup = BeautifulSoup(post_body, "html.parser")
@@ -263,7 +267,7 @@ class GMEEK():
         prevNum=int(issuenumber)-1
         while prevNum>0:
             if "P"+str(prevNum) in self.blogBase["postListJson"]:
-                print(issuenumber, '前一篇', prevNum)
+                # print(issuenumber, '前一篇', prevNum)
                 return self.blogBase["postListJson"]["P"+str(prevNum)]
             prevNum=prevNum-1
 
@@ -271,7 +275,7 @@ class GMEEK():
         nextNum=int(issuenumber)+1
         while nextNum<int(issuenumber)+len(self.blogBase["postListJson"]):
             if "P"+str(nextNum) in self.blogBase["postListJson"]:
-                print(issuenumber, '后一篇', nextNum)
+                # print(issuenumber, '后一篇', nextNum)
                 return self.blogBase["postListJson"]["P"+str(nextNum)]
             nextNum=nextNum+1
 
@@ -349,7 +353,7 @@ class GMEEK():
 
         # 处理正文中的#数字链接
         content = issue.body
-        regex = r"\s#(\d+)\s"
+        regex = r"\s*#(\d+)\s*"
         matches = re.findall(regex, content)
         for match in matches:
             print(f"Found number: {issue.title} {match}")
@@ -361,6 +365,14 @@ class GMEEK():
         f = open(mdPath, 'w', encoding='UTF-8')
         f.write(content)
         f.close()
+
+        mdHtmlPath = mdPath + ".html"
+        if (not os.path.exists(mdHtmlPath) or not self.blogBase[listJsonName][postNum]["buildedAt"] or self.blogBase[listJsonName][postNum]["buildedAt"] != self.blogBase[listJsonName][postNum]["updatedAt"]):
+            mdHtml = self.markdown2html(content)
+            fp = open(mdHtmlPath, 'w', encoding='UTF-8')
+            fp.write(mdHtml)
+            fp.close()
+            self.blogBase[listJsonName][postNum]["buildedAt"]=self.blogBase[listJsonName][postNum]["updatedAt"]
         return listJsonName
 
     def runAll(self):

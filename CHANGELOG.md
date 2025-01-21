@@ -3,6 +3,8 @@
 ## 25.121.1035
 
 1. post.html使用prevTitle判断, prevUrl可能存在等于disabled的情况
+2. 保存markdown2html执行结果, 防止接口请求频繁导致请求失败
+3. markdown2html添加重试, 请求异常时默认重试3次
 
 ## 25.117.956
 
