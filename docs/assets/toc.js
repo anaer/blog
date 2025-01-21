@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         headings.forEach(heading => {
             const rect = heading.getBoundingClientRect();
-            if (rect.top <= 0) {
+            if (rect.top <= 0 && rect.bottom > 0) {
                 currentHeading = heading;
             }
         });
