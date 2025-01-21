@@ -1033,7 +1033,9 @@
             "postUrl": "post/46.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/46",
             "commentNum": 0,
-            "updatedAt": 1737357682,
+            "updatedAt": 1737427070,
+            "prevTitle": "45 Markdown\u8f6c\u7eaf\u6587\u672c",
+            "prevUrl": "post/45.html",
             "nextTitle": "47 Python\u67e5\u8be2m3u8\u89c6\u9891\u4fe1\u606f",
             "nextUrl": "post/47.html",
             "top": 0,
@@ -1041,7 +1043,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-20",
-            "dateLabelColor": "#00ff00",
+            "dateLabelColor": "#000000",
             "description": "\u4e0b\u8f7d\u4e00\u5e27\u56fe\u7247\nffmpeg -i http://117.148.179.136/PLTV/88888888/224/3221231567/index.m3u8 -ss 1 -frames:v 1 aa..."
         },
         "P47": {
