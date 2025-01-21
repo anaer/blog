@@ -133,12 +133,12 @@ class GMEEK():
         postBase["createdAt"]=time.strftime("%Y-%m-%d", time.gmtime(issue["createdAt"]))
         postBase["updatedAt"]=time.strftime("%Y-%m-%d", time.gmtime(issue["updatedAt"]))
 
-        prevPost = self.getPrevPost(issue.number)
+        prevPost = self.getPrevPost(issue["number"])
         if prevPost:
             postBase["prevUrl"]=self.blogBase["homeUrl"] + "/" + prevPost["postUrl"]
             postBase["prevTitle"]=prevPost["postTitle"]
 
-        nextPost = self.getNextPost(issue.number)
+        nextPost = self.getNextPost(issue["number"])
         if nextPost:
             postBase["nextUrl"]=self.blogBase["homeUrl"] + "/" + nextPost["postUrl"]
             postBase["nextTitle"]=nextPost["postTitle"]
