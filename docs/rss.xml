@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 21 Jan 2025 02:57:49 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 21 Jan 2025 02:57:49 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>49 Office字体大小转换关系</title><link>https://anaer.github.io/blog/post/49.html</link><description>对应关系表
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 21 Jan 2025 03:04:15 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 21 Jan 2025 03:04:15 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>50 Windows常用注册表</title><link>https://anaer.github.io/blog/post/50.html</link><description>我的电脑删除3D对象等
+Windows Registry Editor Version 5.00
+; 删除导航窗格对应文件夹，-表示删除注册表项，不写-表示增加注册表项
+
+; 删除3D对象
+[-HKE...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/50.html</guid><pubDate>Tue, 21 Jan 2025 03:03:50 +0000</pubDate></item><item><title>49 Office字体大小转换关系</title><link>https://anaer.github.io/blog/post/49.html</link><description>对应关系表
 
 
 

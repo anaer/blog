@@ -1114,6 +1114,28 @@
             "createdDate": "2025-01-21",
             "dateLabelColor": "#00ff00",
             "description": "\u5bf9\u5e94\u5173\u7cfb\u8868\n\n\n\n\u5b57\u53f7\n\u78c5\n\n\n\n\n\u521d\u53f7\n42\n\n\n\u5c0f\u521d\u53f7\n36\n\n\n\u4e00\u53f7\n26\n\n\n\u5c0f\u4e00\u53f7\n24\n\n\n\u4e8c\u53f7\n22\n\n\n\u5c0f\u4e8c\u53f7\n18\n\n\n\u4e09\u53f7\n16\n\n\n\u5c0f\u4e09\u53f7\n15\n\n\n\u56db\u53f7\n14\n\n\n\u5c0f\u56db\u53f7\n12..."
+        },
+        "P50": {
+            "number": "50",
+            "htmlDir": "docs/post/50.html",
+            "markdown": "backup/50-Windows\u5e38\u7528\u6ce8\u518c\u8868.md",
+            "labels": [
+                "Windows10"
+            ],
+            "postTitle": "50 Windows\u5e38\u7528\u6ce8\u518c\u8868",
+            "postUrl": "post/50.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/50",
+            "commentNum": 0,
+            "updatedAt": 1737428637,
+            "prevTitle": "49 Office\u5b57\u4f53\u5927\u5c0f\u8f6c\u6362\u5173\u7cfb",
+            "prevUrl": "post/49.html",
+            "top": 0,
+            "createdAt": 1737428630,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-21",
+            "dateLabelColor": "#000000",
+            "description": "\u6211\u7684\u7535\u8111\u5220\u96643D\u5bf9\u8c61\u7b49\nWindows Registry Editor Version 5.00\n; \u5220\u9664\u5bfc\u822a\u7a97\u683c\u5bf9\u5e94\u6587\u4ef6\u5939\uff0c-\u8868\u793a\u5220\u9664\u6ce8\u518c\u8868\u9879\uff0c\u4e0d\u5199-\u8868\u793a\u589e\u52a0\u6ce8\u518c\u8868\u9879\n\n; \u5220\u96643D\u5bf9\u8c61\n[-HKE..."
         }
     },
     "singeListJson": {},
