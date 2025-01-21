@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 25.121.1035
+
+1. post.html使用prevTitle判断, prevUrl可能存在等于disabled的情况
+
 ## 25.117.956
 
 1. 调整摘要生成逻辑 markdown->html->plaintext
