@@ -307,12 +307,16 @@ class GMEEK():
         self.blogBase[listJsonName][postNum]["updatedAt"]=int(time.mktime(issue.updated_at.timetuple()))
 
         self.blogBase[listJsonName][postNum]["top"]=0
-        for event in issue.get_events():
-            if event.event=="pinned":
-                self.blogBase[listJsonName][postNum]["top"]=1
-                break
-            elif event.event=="unpinned":
-                break
+        # 如果issue为关闭状态, 显示在最后
+        if issue.state=="closed":
+            self.blogBase[listJsonName][postNum]["top"]=-1
+        else:
+            for event in issue.get_events():
+                if event.event=="pinned":
+                    self.blogBase[listJsonName][postNum]["top"]=1
+                    break
+                elif event.event=="unpinned":
+                    break
 
         try:
             postConfig=json.loads(issue.body.split("\r\n")[-1:][0].split("##")[1])
