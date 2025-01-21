@@ -1,0 +1,65 @@
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">subprocess</span>,<span class="pl-s1">json</span>
+
+<span class="pl-k">class</span> <span class="pl-v">FFprobe</span>():
+    <span class="pl-k">def</span> <span class="pl-en">__init__</span>(<span class="pl-s1">self</span>):
+        <span class="pl-s1">self</span>.<span class="pl-c1">filepath</span> <span class="pl-c1">=</span> <span class="pl-s">''</span>
+        <span class="pl-s1">self</span>.<span class="pl-c1">_video_info</span> <span class="pl-c1">=</span> {}
+
+
+    <span class="pl-k">def</span> <span class="pl-en">parse</span>(<span class="pl-s1">self</span>,<span class="pl-s1">filepath</span>):
+        <span class="pl-s1">self</span>.<span class="pl-c1">filepath</span> <span class="pl-c1">=</span> <span class="pl-s1">filepath</span>
+        <span class="pl-k">try</span>:
+            <span class="pl-s1">res</span> <span class="pl-c1">=</span> <span class="pl-s1">subprocess</span>.<span class="pl-c1">check_output</span>([<span class="pl-s">'ffprobe'</span>,<span class="pl-s">'-i'</span>,<span class="pl-s1">self</span>.<span class="pl-c1">filepath</span>,<span class="pl-s">'-print_format'</span>,<span class="pl-s">'json'</span>,<span class="pl-s">'-show_format'</span>,<span class="pl-s">'-show_streams'</span>,<span class="pl-s">'-v'</span>,<span class="pl-s">'quiet'</span>])
+            <span class="pl-s1">res</span> <span class="pl-c1">=</span> <span class="pl-s1">res</span>.<span class="pl-c1">decode</span>(<span class="pl-s">'utf8'</span>)
+            <span class="pl-s1">self</span>.<span class="pl-c1">_video_info</span> <span class="pl-c1">=</span> <span class="pl-s1">json</span>.<span class="pl-c1">loads</span>(<span class="pl-s1">res</span>)
+            <span class="pl-c"># print('_video_info ',self._video_info)</span>
+        <span class="pl-k">except</span> <span class="pl-v">Exception</span> <span class="pl-k">as</span> <span class="pl-s1">e</span>:
+            <span class="pl-en">print</span>(<span class="pl-s1">e</span>)
+            <span class="pl-k">raise</span> <span class="pl-en">Exception</span>(<span class="pl-s">'获取视频信息失败'</span>)
+
+    <span class="pl-k">def</span> <span class="pl-en">video_width_height</span>(<span class="pl-s1">self</span>):
+        <span class="pl-s1">streams</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-c1">_video_info</span>[<span class="pl-s">'streams'</span>][<span class="pl-c1">0</span>]
+        <span class="pl-k">return</span> (<span class="pl-s1">streams</span>[<span class="pl-s">'width'</span>],<span class="pl-s1">streams</span>[<span class="pl-s">'height'</span>])
+
+    <span class="pl-k">def</span> <span class="pl-en">video_filesize</span>(<span class="pl-s1">self</span>, <span class="pl-s1">format</span> <span class="pl-c1">=</span> <span class="pl-s">'gb'</span>):
+        <span class="pl-s1">v_format</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-c1">_video_info</span>[<span class="pl-s">'format'</span>]
+        <span class="pl-s1">size</span> <span class="pl-c1">=</span> <span class="pl-en">int</span>(<span class="pl-s1">v_format</span>[<span class="pl-s">'size'</span>])
+        <span class="pl-s1">kb</span><span class="pl-c1">=</span><span class="pl-c1">1024</span>
+        <span class="pl-s1">mb</span><span class="pl-c1">=</span><span class="pl-s1">kb</span><span class="pl-c1">*</span><span class="pl-c1">1024</span>
+        <span class="pl-s1">gb</span><span class="pl-c1">=</span><span class="pl-s1">mb</span><span class="pl-c1">*</span><span class="pl-c1">1024</span>
+        <span class="pl-s1">tb</span><span class="pl-c1">=</span><span class="pl-s1">gb</span><span class="pl-c1">*</span><span class="pl-c1">1024</span>
+        <span class="pl-k">if</span> <span class="pl-s1">size</span><span class="pl-c1">&gt;=</span><span class="pl-s1">tb</span>:
+            <span class="pl-k">return</span> <span class="pl-s">"%.1f TB"</span> <span class="pl-c1">%</span> <span class="pl-en">float</span>(<span class="pl-s1">size</span> <span class="pl-c1">/</span> <span class="pl-s1">tb</span>)
+        <span class="pl-k">if</span> <span class="pl-s1">size</span><span class="pl-c1">&gt;=</span><span class="pl-s1">gb</span>:
+            <span class="pl-k">return</span> <span class="pl-s">"%.1f GB"</span> <span class="pl-c1">%</span> <span class="pl-en">float</span>(<span class="pl-s1">size</span> <span class="pl-c1">/</span> <span class="pl-s1">gb</span>)
+        <span class="pl-k">if</span> <span class="pl-s1">size</span><span class="pl-c1">&gt;=</span><span class="pl-s1">mb</span>:
+            <span class="pl-k">return</span> <span class="pl-s">"%.1f MB"</span> <span class="pl-c1">%</span> <span class="pl-en">float</span>(<span class="pl-s1">size</span> <span class="pl-c1">/</span> <span class="pl-s1">mb</span>)
+        <span class="pl-k">if</span> <span class="pl-s1">size</span><span class="pl-c1">&gt;=</span><span class="pl-s1">kb</span>:
+            <span class="pl-k">return</span> <span class="pl-s">"%.1f KB"</span> <span class="pl-c1">%</span> <span class="pl-en">float</span>(<span class="pl-s1">size</span> <span class="pl-c1">/</span> <span class="pl-s1">kb</span>)
+        <span class="pl-k">return</span> <span class="pl-s">"%.1f B"</span> <span class="pl-c1">%</span> <span class="pl-en">float</span>(<span class="pl-s1">size</span>)
+
+    <span class="pl-k">def</span> <span class="pl-en">video_full_frame</span>(<span class="pl-s1">self</span>):
+        <span class="pl-s1">stream</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-c1">_video_info</span>[<span class="pl-s">'streams'</span>][<span class="pl-c1">0</span>]
+        <span class="pl-k">return</span> <span class="pl-s1">stream</span>[<span class="pl-s">'nb_frames'</span>]
+
+    <span class="pl-k">def</span> <span class="pl-en">video_time_length</span>(<span class="pl-s1">self</span>):
+        <span class="pl-s1">v_format</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-c1">_video_info</span>[<span class="pl-s">'format'</span>]
+        <span class="pl-s1">length</span> <span class="pl-c1">=</span> <span class="pl-s">"UnKnown"</span>
+        <span class="pl-k">if</span>(<span class="pl-s1">v_format</span>.<span class="pl-c1">__contains__</span>(<span class="pl-s">'duration'</span>)):
+            <span class="pl-s1">length</span> <span class="pl-c1">=</span> <span class="pl-en">str</span>(<span class="pl-en">int</span>(<span class="pl-en">float</span>(<span class="pl-s1">v_format</span>[<span class="pl-s">'duration'</span>])<span class="pl-c1">/</span><span class="pl-c1">3600</span>)).<span class="pl-c1">__add__</span>(<span class="pl-s">'小时'</span>).<span class="pl-c1">__add__</span>(<span class="pl-en">str</span>(<span class="pl-en">int</span>(<span class="pl-en">float</span>(<span class="pl-s1">v_format</span>[<span class="pl-s">'duration'</span>])<span class="pl-c1">%</span><span class="pl-c1">3600</span><span class="pl-c1">/</span><span class="pl-c1">60</span>))).<span class="pl-c1">__add__</span>(<span class="pl-s">'分钟'</span>)
+        <span class="pl-k">return</span> <span class="pl-s1">length</span>
+
+    <span class="pl-k">def</span> <span class="pl-en">video_info</span>(<span class="pl-s1">self</span>):
+        <span class="pl-s1">item</span> <span class="pl-c1">=</span> {
+            <span class="pl-s">'path'</span>: <span class="pl-s1">self</span>.<span class="pl-c1">filepath</span>,
+            <span class="pl-s">'height_width'</span>: <span class="pl-s1">self</span>.<span class="pl-c1">video_width_height</span>(),
+            <span class="pl-s">'filesize'</span>: <span class="pl-s1">self</span>.<span class="pl-c1">video_filesize</span>(),
+            <span class="pl-s">'time_length'</span>: <span class="pl-s1">self</span>.<span class="pl-c1">video_time_length</span>()
+        }
+        <span class="pl-en">print</span>(<span class="pl-s">'item = '</span>, <span class="pl-s1">item</span>)
+        <span class="pl-k">return</span> <span class="pl-s1">item</span>
+
+<span class="pl-k">if</span> <span class="pl-s1">__name__</span> <span class="pl-c1">==</span> <span class="pl-s">"__main__"</span>:
+    <span class="pl-s1">ffprobe</span> <span class="pl-c1">=</span> <span class="pl-en">FFprobe</span>()
+    <span class="pl-s1">ffprobe</span>.<span class="pl-c1">parse</span>(<span class="pl-s">'https://xxx.com/aa.m3u8'</span>)
+    <span class="pl-en">print</span>(<span class="pl-s1">ffprobe</span>.<span class="pl-c1">video_info</span>())</pre></div>

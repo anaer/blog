@@ -1,0 +1,41 @@
+<div class="markdown-heading"><h2 class="heading-element">0. 系统环境</h2><a id="user-content-0-系统环境" class="anchor" aria-label="Permalink: 0. 系统环境" href="#0-系统环境"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>系统: Ubuntu 20.04.6</p>
+<div class="markdown-heading"><h2 class="heading-element">1. 安装nginx</h2><a id="user-content-1-安装nginx" class="anchor" aria-label="Permalink: 1. 安装nginx" href="#1-安装nginx"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><code>apt-get install nginx-full</code> 安装full版</p>
+<div class="markdown-heading"><h2 class="heading-element">2. 创建webdav目录</h2><a id="user-content-2-创建webdav目录" class="anchor" aria-label="Permalink: 2. 创建webdav目录" href="#2-创建webdav目录"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>mkdir /var/www/webdav
+chown -R www-data:www-data /var/www/webdav</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">3. 配置nginx</h2><a id="user-content-3-配置nginx" class="anchor" aria-label="Permalink: 3. 配置nginx" href="#3-配置nginx"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><code>vim /etc/nginx/sites-available/default</code></p>
+<p>在 <code>server</code> 块内添加以下配置:</p>
+<div class="highlight highlight-source-shell"><pre>location /webdav {
+    <span class="pl-c"><span class="pl-c">#</span> 指定webdav的根目录</span>
+    root /var/www/<span class="pl-k">;</span>
+    <span class="pl-c"><span class="pl-c">#</span> dav允许的操作</span>
+    dav_methods PUT DELETE MKCOL COPY MOVE<span class="pl-k">;</span>
+    dav_ext_methods PROPFIND OPTIONS<span class="pl-k">;</span>
+    <span class="pl-c"><span class="pl-c">#</span> 允许自动创建文件夹</span>
+    create_full_put_path on<span class="pl-k">;</span>
+    <span class="pl-c"><span class="pl-c">#</span> 创建文件的默认权限</span>
+    dav_access user:rw group:rw all:r<span class="pl-k">;</span>
+    <span class="pl-c"><span class="pl-c">#</span> 用户密码文件</span>
+    auth_basic <span class="pl-s"><span class="pl-pds">"</span>WebDAV<span class="pl-pds">"</span></span><span class="pl-k">;</span>
+    auth_basic_user_file /etc/nginx/.htpasswd<span class="pl-k">;</span>
+    <span class="pl-c"><span class="pl-c">#</span> 临时文件位置</span>
+    client_body_temp_path /tmp<span class="pl-k">;</span>
+    <span class="pl-c"><span class="pl-c">#</span> 开启目录浏览功能, 如果未开启 访问会提示`403 Forbidden`</span>
+    autoindex on<span class="pl-k">;</span>
+    <span class="pl-c"><span class="pl-c">#</span> 文件大小限制1G</span>
+    client_max_body_size 1G<span class="pl-k">;</span>
+}</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">4. 用户认证</h2><a id="user-content-4-用户认证" class="anchor" aria-label="Permalink: 4. 用户认证" href="#4-用户认证"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>创建用户username, 根据提示输入密码并确认.</p>
+<div class="highlight highlight-source-shell"><pre>apt-get install apache2-utils
+htpasswd -c /etc/nginx/.htpasswd username</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">5. 启动服务</h2><a id="user-content-5-启动服务" class="anchor" aria-label="Permalink: 5. 启动服务" href="#5-启动服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>nginx -t <span class="pl-c"><span class="pl-c">#</span> 检查配置</span>
+nginx -s reload <span class="pl-c"><span class="pl-c">#</span> 重载配置</span></pre></div>
+<div class="markdown-heading"><h2 class="heading-element">6. 访问服务</h2><a id="user-content-6-访问服务" class="anchor" aria-label="Permalink: 6. 访问服务" href="#6-访问服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><code>http://xxx.xxx.xxx.xxx/webdav</code></p>
+<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://ipcmen.com/htpasswd" rel="nofollow">htpasswd命令介绍</a></p>

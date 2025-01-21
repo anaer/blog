@@ -1,0 +1,19 @@
+<div class="markdown-heading"><h1 class="heading-element">Linux 中安装字体</h1><a id="user-content-linux-中安装字体" class="anchor" aria-label="Permalink: Linux 中安装字体" href="#linux-中安装字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">查看系统中的字体</h2><a id="user-content-查看系统中的字体" class="anchor" aria-label="Permalink: 查看系统中的字体" href="#查看系统中的字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>fc-list</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">查看系统中的中文字体</h2><a id="user-content-查看系统中的中文字体" class="anchor" aria-label="Permalink: 查看系统中的中文字体" href="#查看系统中的中文字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>fc-list :lang=zh</pre></div>
+<p>将字体文件拷贝到/usr/share/fonts/中</p>
+<div class="highlight highlight-source-shell"><pre>cp simsun.ttc /usr/share/fonts
+<span class="pl-c1">cd</span> /usr/lshare/fonts
+mkfontscale
+mkfontdir</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">检验：</h2><a id="user-content-检验" class="anchor" aria-label="Permalink: 检验：" href="#检验"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>fc-list :lang=zh</pre></div>
+<p>就可以看到刚安装的字体了</p>
+<div class="markdown-heading"><h2 class="heading-element">Ubuntu</h2><a id="user-content-ubuntu" class="anchor" aria-label="Permalink: Ubuntu" href="#ubuntu"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>apt-get install fontconfig
+apt-get install xfonts-utils</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">CentOS</h2><a id="user-content-centos" class="anchor" aria-label="Permalink: CentOS" href="#centos"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>yum -y install fontconfig <span class="pl-c"><span class="pl-c">#</span>安装字体库</span>
+yum -y install ttmkfdir mkfontscale <span class="pl-c"><span class="pl-c">#</span>安装字体索引信息</span></pre></div>

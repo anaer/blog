@@ -1,0 +1,44 @@
+<div class="markdown-heading"><h2 class="heading-element">jieba</h2><a id="user-content-jieba" class="anchor" aria-label="Permalink: jieba" href="#jieba"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-python"><pre><span class="pl-c"># pip install jieba</span>
+<span class="pl-k">import</span> <span class="pl-s1">jieba</span>
+
+<span class="pl-c"># 精确模式，试图将句子最精确地切开，适合文本分析</span>
+<span class="pl-s1">text</span> <span class="pl-c1">=</span> <span class="pl-s">"测试分词长字符串"</span>
+<span class="pl-s1">words</span> <span class="pl-c1">=</span> <span class="pl-s1">jieba</span>.<span class="pl-c1">cut</span>(<span class="pl-s1">text</span>, <span class="pl-s1">cut_all</span><span class="pl-c1">=</span><span class="pl-c1">False</span>)
+<span class="pl-en">print</span>(<span class="pl-s">"/"</span>.<span class="pl-c1">join</span>(<span class="pl-s1">words</span>))
+
+<span class="pl-c"># 全模式，把句子中所有的可以成词的词语都扫描出来，速度非常快，但是不能解决歧义</span>
+<span class="pl-s1">words_all</span> <span class="pl-c1">=</span> <span class="pl-s1">jieba</span>.<span class="pl-c1">cut</span>(<span class="pl-s1">text</span>, <span class="pl-s1">cut_all</span><span class="pl-c1">=</span><span class="pl-c1">True</span>)
+<span class="pl-en">print</span>(<span class="pl-s">"/"</span>.<span class="pl-c1">join</span>(<span class="pl-s1">words_all</span>))
+
+<span class="pl-c"># 搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词</span>
+<span class="pl-s1">words_search</span> <span class="pl-c1">=</span> <span class="pl-s1">jieba</span>.<span class="pl-c1">cut_for_search</span>(<span class="pl-s1">text</span>)
+<span class="pl-en">print</span>(<span class="pl-s">"/"</span>.<span class="pl-c1">join</span>(<span class="pl-s1">words_search</span>))</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">pkuseg</h2><a id="user-content-pkuseg" class="anchor" aria-label="Permalink: pkuseg" href="#pkuseg"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-python"><pre><span class="pl-c"># pip install pkuseg</span>
+<span class="pl-c"># 上述命令安装失败, 暂未测试以下脚本</span>
+<span class="pl-k">import</span> <span class="pl-s1">pkuseg</span>
+
+<span class="pl-c"># 加载默认模型</span>
+<span class="pl-s1">seg</span> <span class="pl-c1">=</span> <span class="pl-s1">pkuseg</span>.<span class="pl-c1">pkuseg</span>()
+
+<span class="pl-c"># 对文本进行分词</span>
+<span class="pl-s1">text</span> <span class="pl-c1">=</span> <span class="pl-s">"测试分词长字符串"</span>
+<span class="pl-s1">words</span> <span class="pl-c1">=</span> <span class="pl-s1">seg</span>.<span class="pl-c1">cut</span>(<span class="pl-s1">text</span>)
+<span class="pl-en">print</span>(<span class="pl-s1">words</span>)</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">thulac</h2><a id="user-content-thulac" class="anchor" aria-label="Permalink: thulac" href="#thulac"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-python"><pre><span class="pl-c"># pip install thulac</span>
+<span class="pl-k">import</span> <span class="pl-s1">thulac</span>
+
+<span class="pl-c"># 初始化THULAC模型，默认模型位于当前目录的'model'子目录下</span>
+<span class="pl-s1">thu1</span> <span class="pl-c1">=</span> <span class="pl-s1">thulac</span>.<span class="pl-c1">thulac</span>(<span class="pl-s1">seg_only</span><span class="pl-c1">=</span><span class="pl-c1">True</span>)  <span class="pl-c"># 只进行分词</span>
+<span class="pl-s1">thu2</span> <span class="pl-c1">=</span> <span class="pl-s1">thulac</span>.<span class="pl-c1">thulac</span>()  <span class="pl-c"># 分词和词性标注</span>
+
+<span class="pl-c"># 对文本进行分词</span>
+<span class="pl-s1">text</span> <span class="pl-c1">=</span> <span class="pl-s">"测试分词长字符串"</span>
+<span class="pl-s1">words</span> <span class="pl-c1">=</span> <span class="pl-s1">thu1</span>.<span class="pl-c1">cut</span>(<span class="pl-s1">text</span>, <span class="pl-s1">text</span><span class="pl-c1">=</span><span class="pl-c1">True</span>)
+<span class="pl-en">print</span>(<span class="pl-s1">words</span>)
+
+<span class="pl-c"># 对文本进行分词和词性标注</span>
+<span class="pl-s1">words_pos</span> <span class="pl-c1">=</span> <span class="pl-s1">thu2</span>.<span class="pl-c1">cut</span>(<span class="pl-s1">text</span>, <span class="pl-s1">text</span><span class="pl-c1">=</span><span class="pl-c1">True</span>)
+<span class="pl-en">print</span>(<span class="pl-s1">words_pos</span>)</pre></div>

@@ -1,0 +1,8 @@
+<div class="markdown-heading"><h2 class="heading-element">原因</h2><a id="user-content-原因" class="anchor" aria-label="Permalink: 原因" href="#原因"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>谷歌浏览器 80.0 及以上版本修改了安全策略，默认 SameSite 策略不允许 cookie 跨站发送，因此单点登录会失败。</p>
+<div class="markdown-heading"><h2 class="heading-element">解决</h2><a id="user-content-解决" class="anchor" aria-label="Permalink: 解决" href="#解决"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>低版本谷歌 关闭谷歌浏览器的「SameSite by default cookies」选项，重启浏览器</li>
+<li>统一域名 保证两个工程的顶级域名、次顶级域名相同，比如 a.b.com 和 c.b.com，「.com」顶级，「b」是次顶级。</li>
+<li>安装跨域插件 node cors</li>
+</ol>

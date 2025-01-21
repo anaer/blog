@@ -1,0 +1,437 @@
+<p>这是之前blog使用的框架, 现在没在用了, 这里仅做留痕.</p>
+<div class="markdown-heading"><h2 class="heading-element">安装部署</h2><a id="user-content-安装部署" class="anchor" aria-label="Permalink: 安装部署" href="#安装部署"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">安装Gatsby</h3><a id="user-content-安装gatsby" class="anchor" aria-label="Permalink: 安装Gatsby" href="#安装gatsby"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>运行 <code>npm install -g gatsby-cli</code> 全局安装Gatsby CLI</p>
+<div class="markdown-heading"><h3 class="heading-element">创建新网站：</h3><a id="user-content-创建新网站" class="anchor" aria-label="Permalink: 创建新网站：" href="#创建新网站"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>运行 <code>gatsby new blog https://github.com/gatsbyjs/gatsby-starter-blog</code> 命令。将在当前目录下"blog"目录, 使用的官方博客模板.
+运行 <code>npm install</code> 安装依赖</p>
+<p>目录结构:</p>
+<pre><code>├── public
+├── src
+|  ├── components        // 自定义组件
+|  ├── images            // 图片目录
+|  ├── pages             // 路由页面
+|  |   ├── 404.js        // 404页面
+|  |   └── index.js      // 首页
+|  ├── posts             // 博文
+|  ├── templates         // 模板目录
+|  |   └── blog-post.js  // 帖子页面模板
+|  └── styles            // 样式文件目录
+|      ├── normalize.css // 样式文件
+|      └── style.css
+├── static               // 静态资源
+├── .gitignore
+├── .prettierignore
+├── .prettierrc
+├── gatsby-browser.js    // 客户端相关配置
+├── gatsby-config.js     // 基本配置
+├── gatsby-node.js       // Node相关配置
+├── gatsby-ssr.js        // 服务端渲染相关配置
+├── LICENSE
+├── package.json
+└── README.md
+</code></pre>
+<div class="markdown-heading"><h3 class="heading-element">预览和编译：</h3><a id="user-content-预览和编译" class="anchor" aria-label="Permalink: 预览和编译：" href="#预览和编译"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>运行 <code>gatsby develop</code> 命令启动本地服务。访问 <a href="http://localhost:8000" rel="nofollow">http://localhost:8000</a> 查看网站。</p>
+<div class="markdown-heading"><h3 class="heading-element">发布网站</h3><a id="user-content-发布网站" class="anchor" aria-label="Permalink: 发布网站" href="#发布网站"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>提交到GitHub, 配置Pages.</p>
+<p>链接: <a href="https://anaer.github.io/blog/" rel="nofollow">https://anaer.github.io/blog/</a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="../.images/default_blog_site.png"><img src="../.images/default_blog_site.png" alt="" style="max-width: 100%;"></a></p>
+<div class="markdown-heading"><h3 class="heading-element">插件</h3><a id="user-content-插件" class="anchor" aria-label="Permalink: 插件" href="#插件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li><a href="https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/" rel="nofollow">gatsby-source-filesystem</a></li>
+</ul>
+<p>将数据从本地文件系统导入Gatsby应用</p>
+<ul>
+<li><a href="https://www.gatsbyjs.com/plugins/gatsby-plugin-offline/" rel="nofollow">gatsby-plugin-offline</a></li>
+</ul>
+<p>离线插件</p>
+<div class="markdown-heading"><h3 class="heading-element">FAQ</h3><a id="user-content-faq" class="anchor" aria-label="Permalink: FAQ" href="#faq"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p>node要求18以上</p>
+</li>
+<li>
+<p>本地启动报错提示: getaddrinfo ENOTFOUND localhost</p>
+</li>
+</ol>
+<p>vim /etc/hosts</p>
+<pre><code>127.0.0.1 localhost
+</code></pre>
+<ol start="3">
+<li>libvips安装失败
+使用镜像安装, 详情见: <a href="https://sharp.pixelplumbing.com/install" rel="nofollow">https://sharp.pixelplumbing.com/install</a>
+</li>
+</ol>
+<div class="highlight highlight-source-shell"><pre>npm_config_sharp_binary_host=<span class="pl-s"><span class="pl-pds">"</span>https://npmmirror.com/mirrors/sharp<span class="pl-pds">"</span></span> \
+  npm_config_sharp_libvips_binary_host=<span class="pl-s"><span class="pl-pds">"</span>https://npmmirror.com/mirrors/sharp-libvips<span class="pl-pds">"</span></span> \
+  npm install sharp</pre></div>
+<div class="markdown-heading"><h3 class="heading-element">相关链接</h3><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://www.gatsbyjs.cn/docs/" rel="nofollow">Gatsby.js 文档</a>
+<a href="https://graphql.cn/" rel="nofollow">GraphQL 中文</a></p>
+<div class="markdown-heading"><h2 class="heading-element">PLUGIN: 添加标签支持</h2><a id="user-content-plugin-添加标签支持" class="anchor" aria-label="Permalink: PLUGIN: 添加标签支持" href="#plugin-添加标签支持"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">1. 安装gatsby-plugin-tags</h3><a id="user-content-1-安装gatsby-plugin-tags" class="anchor" aria-label="Permalink: 1. 安装gatsby-plugin-tags" href="#1-安装gatsby-plugin-tags"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>npm install gatsby-plugin-tags
+</code></pre>
+<div class="markdown-heading"><h3 class="heading-element">2. 配置插件</h3><a id="user-content-2-配置插件" class="anchor" aria-label="Permalink: 2. 配置插件" href="#2-配置插件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// gatsby-config.js</span>
+<span class="pl-smi">module</span><span class="pl-kos">.</span><span class="pl-c1">exports</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+  <span class="pl-c1">plugins</span>: <span class="pl-kos">[</span>
+    <span class="pl-kos">{</span>
+      <span class="pl-c1">resolve</span>: <span class="pl-s">`gatsby-plugin-tags`</span><span class="pl-kos">,</span>
+      <span class="pl-c1">options</span>: <span class="pl-kos">{</span>
+        <span class="pl-c1">templatePath</span>: <span class="pl-s">`<span class="pl-s1"><span class="pl-kos">${</span><span class="pl-s1">__dirname</span><span class="pl-kos">}</span></span>/src/templates/tags.js`</span><span class="pl-kos">,</span> <span class="pl-c">// 标签页模板路径</span>
+        <span class="pl-c1">contentPath</span>: <span class="pl-s">`<span class="pl-s1"><span class="pl-kos">${</span><span class="pl-s1">__dirname</span><span class="pl-kos">}</span></span>/src/posts`</span><span class="pl-kos">,</span> <span class="pl-c">// 数据源路径</span>
+        <span class="pl-en">slugify</span>: <span class="pl-kos">(</span><span class="pl-s1">tag</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-s1">tag</span><span class="pl-kos">.</span><span class="pl-en">toLowerCase</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">replace</span><span class="pl-kos">(</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-cce">\s</span><span class="pl-c1">+</span><span class="pl-c1">/</span>g</span><span class="pl-kos">,</span> <span class="pl-s">"-"</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-c">// 自定义 slug 生成函数</span>
+        <span class="pl-c1">useTagsInPath</span>: <span class="pl-c1">true</span><span class="pl-kos">,</span> <span class="pl-c">// 是否为标签页添加前缀路由</span>
+        <span class="pl-c1">postTypes</span>: <span class="pl-kos">[</span><span class="pl-s">"MarkdownRemark"</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-c">// 数据源类型</span>
+        <span class="pl-c1">args</span>: <span class="pl-kos">{</span> <span class="pl-c1">limit</span>: <span class="pl-c1">1000</span> <span class="pl-kos">}</span><span class="pl-kos">,</span> <span class="pl-c">// 数据源查询参数</span>
+      <span class="pl-kos">}</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span>
+  <span class="pl-kos">]</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">;</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">3. 添加标签页模板</h3><a id="user-content-3-添加标签页模板" class="anchor" aria-label="Permalink: 3. 添加标签页模板" href="#3-添加标签页模板"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>使用 graphql 查询获取标签数据和相关内容，并进行展示：</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// src/templates/tags.js</span>
+<span class="pl-k">import</span> <span class="pl-v">React</span> <span class="pl-k">from</span> <span class="pl-s">"react"</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-v">Link</span><span class="pl-kos">,</span> <span class="pl-s1">graphql</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"gatsby"</span><span class="pl-kos">;</span>
+
+<span class="pl-k">import</span> <span class="pl-v">Layout</span> <span class="pl-k">from</span> <span class="pl-s">"../components/layout"</span>
+
+<span class="pl-k">const</span> <span class="pl-v">TagsTemplate</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-kos">{</span> pageContext<span class="pl-kos">,</span> data<span class="pl-kos">,</span> location <span class="pl-kos">}</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+  <span class="pl-k">const</span> <span class="pl-kos">{</span> tag <span class="pl-kos">}</span> <span class="pl-c1">=</span> <span class="pl-s1">pageContext</span><span class="pl-kos">;</span>
+  <span class="pl-k">const</span> <span class="pl-kos">{</span> edges<span class="pl-kos">,</span> totalCount <span class="pl-kos">}</span> <span class="pl-c1">=</span> <span class="pl-s1">data</span><span class="pl-kos">.</span><span class="pl-c1">allMarkdownRemark</span><span class="pl-kos">;</span>
+  <span class="pl-k">const</span> <span class="pl-s1">siteTitle</span> <span class="pl-c1">=</span> <span class="pl-s1">data</span><span class="pl-kos">.</span><span class="pl-c1">site</span><span class="pl-kos">.</span><span class="pl-c1">siteMetadata</span><span class="pl-kos">?.</span><span class="pl-c1">title</span> <span class="pl-c1">||</span> <span class="pl-s">`Title`</span>
+
+  <span class="pl-k">return</span> <span class="pl-kos">(</span>
+    <span class="pl-c1">&lt;</span><span class="pl-v">Layout</span> <span class="pl-c1">location</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-s1">location</span><span class="pl-kos">}</span> <span class="pl-c1">title</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-s1">siteTitle</span><span class="pl-kos">}</span><span class="pl-c1">&gt;</span>
+      <span class="pl-c1">&lt;</span><span class="pl-s1">div</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">h1</span><span class="pl-c1">&gt;</span>Tag: <span class="pl-kos">{</span><span class="pl-s1">tag</span><span class="pl-kos">}</span><span class="pl-kos">&lt;/</span><span class="pl-s1">h1</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">p</span><span class="pl-c1">&gt;</span><span class="pl-kos">{</span><span class="pl-s1">totalCount</span><span class="pl-kos">}</span> posts<span class="pl-kos">&lt;/</span><span class="pl-s1">p</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-s1">ul</span><span class="pl-c1">&gt;</span>
+          <span class="pl-kos">{</span><span class="pl-s1">edges</span><span class="pl-kos">.</span><span class="pl-en">map</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-kos">{</span> node <span class="pl-kos">}</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">(</span>
+            <span class="pl-c1">&lt;</span><span class="pl-s1">li</span> <span class="pl-c1">key</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-s1">node</span><span class="pl-kos">.</span><span class="pl-c1">fields</span><span class="pl-kos">.</span><span class="pl-c1">slug</span><span class="pl-kos">}</span><span class="pl-c1">&gt;</span>
+              <span class="pl-c1">&lt;</span><span class="pl-v">Link</span> <span class="pl-c1">to</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-s1">node</span><span class="pl-kos">.</span><span class="pl-c1">fields</span><span class="pl-kos">.</span><span class="pl-c1">slug</span><span class="pl-kos">}</span><span class="pl-c1">&gt;</span><span class="pl-kos">{</span><span class="pl-s1">node</span><span class="pl-kos">.</span><span class="pl-c1">frontmatter</span><span class="pl-kos">.</span><span class="pl-c1">title</span><span class="pl-kos">}</span><span class="pl-kos">&lt;/</span><span class="pl-v">Link</span><span class="pl-c1">&gt;</span>
+            <span class="pl-kos">&lt;/</span><span class="pl-s1">li</span><span class="pl-c1">&gt;</span>
+          <span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">}</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-s1">ul</span><span class="pl-c1">&gt;</span>
+      <span class="pl-kos">&lt;/</span><span class="pl-s1">div</span><span class="pl-c1">&gt;</span>
+      <span class="pl-c1">&lt;</span><span class="pl-s1">hr</span> <span class="pl-kos">/&gt;</span>
+      <span class="pl-c1">&lt;</span><span class="pl-s1">footer</span><span class="pl-c1">&gt;</span>
+      <span class="pl-kos">&lt;/</span><span class="pl-s1">footer</span><span class="pl-c1">&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-v">Layout</span><span class="pl-c1">&gt;</span>
+  <span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">;</span>
+
+<span class="pl-k">export</span> <span class="pl-k">const</span> <span class="pl-s1">query</span> <span class="pl-c1">=</span> <span class="pl-en">graphql</span><span class="pl-s">`</span>
+<span class="pl-s">  query($tag: String!) {</span>
+<span class="pl-s">    site {</span>
+<span class="pl-s">      siteMetadata {</span>
+<span class="pl-s">        title</span>
+<span class="pl-s">      }</span>
+<span class="pl-s">    }</span>
+<span class="pl-s">    allMarkdownRemark(</span>
+<span class="pl-s">      limit: 1000</span>
+<span class="pl-s">      sort: { frontmatter: { date: DESC } }</span>
+<span class="pl-s">      filter: { frontmatter: { tags: { in: [$tag] } } }</span>
+<span class="pl-s">    ) {</span>
+<span class="pl-s">      totalCount</span>
+<span class="pl-s">      edges {</span>
+<span class="pl-s">        node {</span>
+<span class="pl-s">          fields {</span>
+<span class="pl-s">            slug</span>
+<span class="pl-s">          }</span>
+<span class="pl-s">          frontmatter {</span>
+<span class="pl-s">            title</span>
+<span class="pl-s">            date(formatString: "DD MMMM, YYYY")</span>
+<span class="pl-s">          }</span>
+<span class="pl-s">        }</span>
+<span class="pl-s">      }</span>
+<span class="pl-s">    }</span>
+<span class="pl-s">  }</span>
+<span class="pl-s">`</span><span class="pl-kos">;</span>
+
+<span class="pl-k">export</span> <span class="pl-k">default</span> <span class="pl-v">TagsTemplate</span><span class="pl-kos">;</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">4. 在首页列表中展示标签信息</h3><a id="user-content-4-在首页列表中展示标签信息" class="anchor" aria-label="Permalink: 4. 在首页列表中展示标签信息" href="#4-在首页列表中展示标签信息"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">import</span> <span class="pl-c1">*</span> <span class="pl-k">as</span> <span class="pl-v">React</span> <span class="pl-k">from</span> <span class="pl-s">"react"</span>
+<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-v">Link</span><span class="pl-kos">,</span> <span class="pl-s1">graphql</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"gatsby"</span>
+
+<span class="pl-k">import</span> <span class="pl-v">Bio</span> <span class="pl-k">from</span> <span class="pl-s">"../components/bio"</span>
+<span class="pl-k">import</span> <span class="pl-v">Layout</span> <span class="pl-k">from</span> <span class="pl-s">"../components/layout"</span>
+<span class="pl-k">import</span> <span class="pl-v">Seo</span> <span class="pl-k">from</span> <span class="pl-s">"../components/seo"</span>
+
+<span class="pl-k">const</span> <span class="pl-v">BlogIndex</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-kos">{</span> data<span class="pl-kos">,</span> location <span class="pl-kos">}</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+  <span class="pl-k">const</span> <span class="pl-s1">siteTitle</span> <span class="pl-c1">=</span> <span class="pl-s1">data</span><span class="pl-kos">.</span><span class="pl-c1">site</span><span class="pl-kos">.</span><span class="pl-c1">siteMetadata</span><span class="pl-kos">?.</span><span class="pl-c1">title</span> <span class="pl-c1">||</span> <span class="pl-s">`Title`</span>
+  <span class="pl-k">const</span> <span class="pl-s1">posts</span> <span class="pl-c1">=</span> <span class="pl-s1">data</span><span class="pl-kos">.</span><span class="pl-c1">allMarkdownRemark</span><span class="pl-kos">.</span><span class="pl-c1">nodes</span>
+
+
+  <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">posts</span><span class="pl-kos">.</span><span class="pl-c1">length</span> <span class="pl-c1">===</span> <span class="pl-c1">0</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-k">return</span> <span class="pl-kos">(</span>
+      <span class="pl-c1">&lt;</span><span class="pl-v">Layout</span> <span class="pl-smi">location</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-c1">location</span><span class="pl-kos">}</span> <span class="pl-s1">title</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-s1">siteTitle</span><span class="pl-kos">}</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-v">Bio</span> <span class="pl-c1">/</span><span class="pl-c1">&gt;</span>
+        <span class="pl-c1">&lt;</span><span class="pl-smi">p</span><span class="pl-c1">&gt;</span>
+          <span class="pl-v">No</span> <span class="pl-s1">blog</span> <span class="pl-s1">posts</span> <span class="pl-s1">found</span><span class="pl-kos">.</span> <span class="pl-c1">Add</span> <span class="pl-s1">markdown</span> <span class="pl-s1">posts</span> <span class="pl-s1">to</span> <span class="pl-s">"content/blog"</span> <span class="pl-kos">(</span><span class="pl-s1">or</span> <span class="pl-s1">the</span>
+          <span class="pl-s1">directory</span> <span class="pl-s1">you</span> <span class="pl-s1">specified</span> <span class="pl-s1">for</span> <span class="pl-s1">the</span> <span class="pl-s">"gatsby-source-filesystem"</span> <span class="pl-s1">plugin</span> <span class="pl-k">in</span>
+          <span class="pl-s1">gatsby</span><span class="pl-c1">-</span><span class="pl-s1">config</span><span class="pl-kos">.</span><span class="pl-c1">js</span><span class="pl-kos">)</span><span class="pl-kos">.</span>
+        <span class="pl-c1">&lt;</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-s">p</span><span class="pl-s">&gt;</span></span><span class="pl-c1"></span>
+      <span class="pl-c1">&lt;</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-s">L</span><span class="pl-s">a</span><span class="pl-s">y</span><span class="pl-s">o</span><span class="pl-s">u</span><span class="pl-s">t</span><span class="pl-s">&gt;</span></span><span class="pl-c1"></span>
+    <span class="pl-kos">)</span>
+  <span class="pl-kos">}</span>
+
+  <span class="pl-k">return</span> <span class="pl-kos">(</span>
+    <span class="pl-c1">&lt;</span><span class="pl-v">Layout</span> <span class="pl-smi">location</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-c1">location</span><span class="pl-kos">}</span> <span class="pl-s1">title</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-s1">siteTitle</span><span class="pl-kos">}</span><span class="pl-c1">&gt;</span>
+      <span class="pl-c1">&lt;</span><span class="pl-v">Bio</span> <span class="pl-c1">/</span><span class="pl-c1">&gt;</span>
+      <span class="pl-c1">&lt;</span><span class="pl-smi">ol</span><span class="pl-c1"></span> <span class="pl-s1">style</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-kos">{</span> <span class="pl-c1">listStyle</span>: <span class="pl-s">`none`</span> <span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-c1">&gt;</span>
+        <span class="pl-kos">{</span><span class="pl-s1">posts</span><span class="pl-kos">.</span><span class="pl-c1">map</span><span class="pl-kos">(</span><span class="pl-s1">post</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+          <span class="pl-k">const</span> <span class="pl-s1">title</span> <span class="pl-c1">=</span> <span class="pl-s1">post</span><span class="pl-kos">.</span><span class="pl-c1">frontmatter</span><span class="pl-kos">.</span><span class="pl-c1">title</span> <span class="pl-c1">||</span> <span class="pl-s1">post</span><span class="pl-kos">.</span><span class="pl-c1">fields</span><span class="pl-kos">.</span><span class="pl-c1">slug</span>
+          <span class="pl-k">const</span> <span class="pl-en">slugify</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-s1">tag</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-s1">tag</span><span class="pl-kos">.</span><span class="pl-en">toLowerCase</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">replace</span><span class="pl-kos">(</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-cce">\s</span><span class="pl-c1">+</span><span class="pl-c1">/</span>g</span><span class="pl-kos">,</span> <span class="pl-s">"-"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+          <span class="pl-k">const</span> <span class="pl-s1">tags</span> <span class="pl-c1">=</span> <span class="pl-s1">post</span><span class="pl-kos">.</span><span class="pl-c1">frontmatter</span><span class="pl-kos">.</span><span class="pl-c1">tags</span>
+
+          <span class="pl-k">return</span> <span class="pl-kos">(</span>
+            <span class="pl-c1">&lt;</span><span class="pl-s1">li</span> <span class="pl-s1">key</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-c1">post</span><span class="pl-kos">.</span><span class="pl-c1">fields</span><span class="pl-kos">.</span><span class="pl-smi">slug</span><span class="pl-kos">}</span><span class="pl-c1">&gt;</span>
+              <span class="pl-c1">&lt;</span><span class="pl-s1">article</span>
+                <span class="pl-smi">className</span><span class="pl-c1">=</span><span class="pl-s">"post-list-item"</span>
+                <span class="pl-s1">itemScope</span>
+                <span class="pl-s1">itemType</span><span class="pl-c1">=</span><span class="pl-s">"http://schema.org/Article"</span>
+              <span class="pl-c1">&gt;</span>
+                <span class="pl-c1">&lt;</span><span class="pl-smi">header</span><span class="pl-c1">&gt;</span>
+                  <span class="pl-c1">&lt;</span><span class="pl-smi">h2</span><span class="pl-c1">&gt;</span>
+                    <span class="pl-c1">&lt;</span><span class="pl-v">Link</span> <span class="pl-s1">to</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-c1">post</span><span class="pl-kos">.</span><span class="pl-c1">fields</span><span class="pl-kos">.</span><span class="pl-smi">slug</span><span class="pl-kos">}</span> <span class="pl-smi">itemProp</span><span class="pl-c1">=</span><span class="pl-s">"url"</span><span class="pl-c1">&gt;</span>
+                      <span class="pl-c1">&lt;</span><span class="pl-smi">span</span><span class="pl-c1"></span> <span class="pl-s1">itemProp</span><span class="pl-c1">=</span><span class="pl-s">"headline"</span><span class="pl-c1">&gt;</span><span class="pl-kos">{</span>title<span class="pl-kos">}</span><span class="pl-c1">&lt;</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-s">s</span><span class="pl-s">p</span><span class="pl-s">a</span><span class="pl-s">n</span><span class="pl-s">&gt;</span></span><span class="pl-c1"></span>
+                    <span class="pl-c1">&lt;</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-s">L</span><span class="pl-s">i</span><span class="pl-s">n</span><span class="pl-s">k</span><span class="pl-s">&gt;</span></span><span class="pl-c1"></span>
+                  <span class="pl-c1">&lt;</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-s">h</span><span class="pl-s">2</span><span class="pl-s">&gt;</span></span><span class="pl-c1"></span>
+                  <span class="pl-c1">&lt;</span><span class="pl-s1">small</span> <span class="pl-s1">class</span><span class="pl-c1">=</span><span class="pl-s">'left-element'</span><span class="pl-c1">&gt;</span><span class="pl-kos">{</span>post<span class="pl-kos"></span><span class="pl-kos">.</span><span class="pl-c1">frontmatter</span><span class="pl-kos">.</span><span class="pl-c1">date</span><span class="pl-kos">}</span><span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-s">s</span><span class="pl-s">m</span><span class="pl-s">a</span><span class="pl-s">l</span><span class="pl-s">l</span><span class="pl-s">&gt;</span>
+                  <span class="pl-kos">{</span><span class="pl-s1">tags</span> <span class="pl-c1">&amp;&amp;</span> <span class="pl-kos">(</span>
+                    <span class="pl-c1">&lt;</span><span class="pl-s1">div</span> <span class="pl-smi">class</span><span class="pl-c1">=</span><span class="pl-s">'right-element'</span><span class="pl-c1">&gt;</span>
+                      <span class="pl-c1">&lt;</span><span class="pl-smi">ul</span> <span class="pl-c1">&gt;</span>
+                        <span class="pl-kos">{</span>tags<span class="pl-kos"></span><span class="pl-kos">.</span><span class="pl-en">map</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">tag</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">(</span>
+                          <span class="pl-c1">&lt;</span><span class="pl-smi">li</span><span class="pl-c1"></span> <span class="pl-s1">key</span><span class="pl-c1">=</span><span class="pl-kos">{</span>tag<span class="pl-kos">}</span><span class="pl-c1">&gt;</span>
+                            <span class="pl-c1">&lt;</span><span class="pl-smi">Link</span> <span class="pl-s1">to</span><span class="pl-c1">=</span><span class="pl-kos">{</span>`/tags/${<span class="pl-s1">slugify</span><span class="pl-kos">(</span><span class="pl-smi">tag</span><span class="pl-kos">)</span><span class="pl-kos">}</span>`<span class="pl-kos">}</span><span class="pl-c1">&gt;</span><span class="pl-kos">{</span>tag<span class="pl-kos">}</span><span class="pl-c1">&lt;</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-s">L</span><span class="pl-s">i</span><span class="pl-s">n</span><span class="pl-s">k</span><span class="pl-s">&gt;</span></span>
+<span class="pl-pds">                          <span class="pl-c1">&lt;</span><span class="pl-c1">/</span>li</span><span class="pl-c1">&gt;</span>
+                        <span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">}</span>
+                      <span class="pl-c1">&lt;</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-s">u</span><span class="pl-s">l</span><span class="pl-s">&gt;</span></span>
+<span class="pl-pds">                    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span>div</span><span class="pl-c1">&gt;</span>
+                  <span class="pl-kos">)</span><span class="pl-kos">}</span>
+                <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-smi">header</span><span class="pl-c1">&gt;</span>
+                <span class="pl-c1">&lt;</span><span class="pl-smi">section</span><span class="pl-c1">&gt;</span>
+                  <span class="pl-c1">&lt;</span><span class="pl-smi">p</span><span class="pl-c1"></span>
+                    <span class="pl-s1">dangerouslySetInnerHTML</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-kos">{</span>
+                      <span class="pl-c1">__html</span>: <span class="pl-s1">post</span><span class="pl-kos">.</span><span class="pl-c1">frontmatter</span><span class="pl-kos">.</span><span class="pl-c1">description</span> <span class="pl-c1">||</span> <span class="pl-s1">post</span><span class="pl-kos">.</span><span class="pl-c1">excerpt</span><span class="pl-c1"></span><span class="pl-kos">,</span>
+                    <span class="pl-kos">}</span><span class="pl-kos">}</span>
+                    <span class="pl-s1">itemProp</span><span class="pl-c1">=</span><span class="pl-s">"description"</span>
+                  <span class="pl-c1">/</span><span class="pl-c1">&gt;</span>
+                <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-smi">section</span><span class="pl-c1">&gt;</span>
+              <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-smi">article</span><span class="pl-c1">&gt;</span>
+            <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-smi">li</span><span class="pl-c1">&gt;</span>
+          <span class="pl-kos">)</span>
+        <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">}</span>
+      <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-s1">ol</span><span class="pl-c1">&gt;</span>
+    <span class="pl-c1">&lt;</span><span class="pl-c1">/</span><span class="pl-smi">Layout</span><span class="pl-c1">&gt;</span>
+  <span class="pl-kos">)</span>
+<span class="pl-kos">}</span>
+
+<span class="pl-k">export</span> <span class="pl-s1">default</span> <span class="pl-v">BlogIndex</span>
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> * Head export to define metadata for the page</span>
+<span class="pl-c"> *</span>
+<span class="pl-c"> * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/</span>
+<span class="pl-c"> */</span>
+<span class="pl-s1">export</span> <span class="pl-k">const</span> <span class="pl-v">Head</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-c1">&lt;</span><span class="pl-smi">Seo</span><span class="pl-c1"></span> <span class="pl-s1">title</span><span class="pl-c1">=</span><span class="pl-s">"All posts"</span> <span class="pl-c1">/</span><span class="pl-c1">&gt;</span>
+
+<span class="pl-k">export</span> <span class="pl-s1">const</span> <span class="pl-s1">pageQuery</span> <span class="pl-c1">=</span> <span class="pl-en">graphql</span><span class="pl-s">`</span>
+<span class="pl-s">  {</span>
+<span class="pl-s">    site {</span>
+<span class="pl-s">      siteMetadata {</span>
+<span class="pl-s">        title</span>
+<span class="pl-s">      }</span>
+<span class="pl-s">    }</span>
+<span class="pl-s">    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {</span>
+<span class="pl-s">      nodes {</span>
+<span class="pl-s">        excerpt</span>
+<span class="pl-s">        fields {</span>
+<span class="pl-s">          slug</span>
+<span class="pl-s">        }</span>
+<span class="pl-s">        frontmatter {</span>
+<span class="pl-s">          date(formatString: "MMMM DD, YYYY")</span>
+<span class="pl-s">          title</span>
+<span class="pl-s">          description</span>
+<span class="pl-s">          tags</span>
+<span class="pl-s">        }</span>
+<span class="pl-s">      }</span>
+<span class="pl-s">    }</span>
+<span class="pl-s">  }</span>
+<span class="pl-s">`</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">5. 添加样式</h3><a id="user-content-5-添加样式" class="anchor" aria-label="Permalink: 5. 添加样式" href="#5-添加样式"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>将标签和时间展示在同一行</p>
+<div class="highlight highlight-source-css"><pre>.<span class="pl-c1">left-element</span><span class="pl-kos">,</span>
+.<span class="pl-c1">right-element</span> {
+  <span class="pl-c1">display</span><span class="pl-kos">:</span> inline-block;
+  <span class="pl-c1">font-size</span><span class="pl-kos">:</span> <span class="pl-c1">16<span class="pl-smi">px</span></span>;
+  <span class="pl-c1">vertical-align</span><span class="pl-kos">:</span> top;
+  <span class="pl-c1">width</span><span class="pl-kos">:</span> <span class="pl-c1">50<span class="pl-smi">%</span></span>; <span class="pl-c">/* 每个元素占据宽度的50% */</span>
+}
+
+<span class="pl-c">/* 列表不展示圆点 */</span>
+.<span class="pl-c1">right-element</span> <span class="pl-c1">&gt;</span> <span class="pl-ent">ul</span> {
+  <span class="pl-c1">list-style-type</span><span class="pl-kos">:</span> none;
+}</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">PLUGIN: 添加toc</h2><a id="user-content-plugin-添加toc" class="anchor" aria-label="Permalink: PLUGIN: 添加toc" href="#plugin-添加toc"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">package.json</h3><a id="user-content-packagejson" class="anchor" aria-label="Permalink: package.json" href="#packagejson"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-json"><pre>    <span class="pl-ent">"gatsby-remark-table-of-contents"</span>: <span class="pl-s"><span class="pl-pds">"</span>^2.0.0<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"gatsby-remark-autolink-headers"</span>: <span class="pl-s"><span class="pl-pds">"</span>^6.9.0<span class="pl-pds">"</span></span>,</pre></div>
+<p><code>npm install</code>安装插件</p>
+<div class="markdown-heading"><h3 class="heading-element">gatsby-config.js</h3><a id="user-content-gatsby-configjs" class="anchor" aria-label="Permalink: gatsby-config.js" href="#gatsby-configjs"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>在<code>gatsby-transformer-remark</code>配置项中添加plugins配置<code>gatsby-remark-table-of-contents</code>, <code>gatsby-remark-autolink-headers</code>
+添加位置在<code>gatsby-remark-prismjs</code>之前</p>
+<div class="highlight highlight-source-js"><pre>    <span class="pl-kos">{</span>
+      <span class="pl-c1">resolve</span>: <span class="pl-s">`gatsby-transformer-remark`</span><span class="pl-kos">,</span>
+      <span class="pl-c1">options</span>: <span class="pl-kos">{</span>
+        <span class="pl-c1">plugins</span>: <span class="pl-kos">[</span>
+          <span class="pl-kos">{</span>
+            <span class="pl-c1">resolve</span>: <span class="pl-s">`gatsby-remark-table-of-contents`</span><span class="pl-kos">,</span>
+            <span class="pl-c1">options</span>: <span class="pl-kos">{</span>
+              <span class="pl-c1">exclude</span>: <span class="pl-s">"Table of Contents"</span><span class="pl-kos">,</span>
+              <span class="pl-c1">tight</span>: <span class="pl-c1">false</span><span class="pl-kos">,</span>
+              <span class="pl-c1">ordered</span>: <span class="pl-c1">false</span><span class="pl-kos">,</span>
+              <span class="pl-c1">fromHeading</span>: <span class="pl-c1">1</span><span class="pl-kos">,</span>
+              <span class="pl-c1">toHeading</span>: <span class="pl-c1">6</span><span class="pl-kos">,</span>
+              <span class="pl-c1">className</span>: <span class="pl-s">"table-of-contents"</span>
+            <span class="pl-kos">}</span><span class="pl-kos">,</span>
+          <span class="pl-kos">}</span><span class="pl-kos">,</span>
+          <span class="pl-s">`gatsby-remark-autolink-headers`</span><span class="pl-kos">,</span>
+          <span class="pl-s">`gatsby-remark-prismjs`</span><span class="pl-kos">,</span>
+        <span class="pl-kos">]</span><span class="pl-kos">,</span>
+      <span class="pl-kos">}</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span></pre></div>
+<div class="markdown-heading"><h2 class="heading-element">使用方式</h2><a id="user-content-使用方式" class="anchor" aria-label="Permalink: 使用方式" href="#使用方式"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">相关链接</h3><a id="user-content-相关链接-1" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://npmmirror.com/package/gatsby-remark-table-of-contents" rel="nofollow">npm gatsby-remark-table-of-contents</a>
+<a href="https://npmmirror.com/package/gatsby-remark-autolink-headers" rel="nofollow">gatsby-remark-autolink-headers</a></p>
+<div class="markdown-heading"><h2 class="heading-element">FEATURE: 添加中文阅读时间</h2><a id="user-content-feature-添加中文阅读时间" class="anchor" aria-label="Permalink: FEATURE: 添加中文阅读时间" href="#feature-添加中文阅读时间"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">1. 在gatsby-node.js中, 添加中文阅读时间计算</h3><a id="user-content-1-在gatsby-nodejs中-添加中文阅读时间计算" class="anchor" aria-label="Permalink: 1. 在gatsby-node.js中, 添加中文阅读时间计算" href="#1-在gatsby-nodejs中-添加中文阅读时间计算"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">chineseTimeToRead</span><span class="pl-kos">(</span><span class="pl-s1">content</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-k">const</span> <span class="pl-s1">wordsPerMinute</span> <span class="pl-c1">=</span> <span class="pl-c1">300</span> <span class="pl-c">// 假设中文阅读速度为每分钟300字</span>
+  <span class="pl-k">const</span> <span class="pl-s1">chineseCharacters</span> <span class="pl-c1">=</span> <span class="pl-s1">content</span><span class="pl-kos">.</span><span class="pl-en">replace</span><span class="pl-kos">(</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-kos">[</span><span class="pl-c1">^</span><span class="pl-cce">\u4e00</span><span class="pl-c1">-</span><span class="pl-cce">\u9fa5</span><span class="pl-kos">]</span><span class="pl-c1">/</span>gi</span><span class="pl-kos">,</span> <span class="pl-s">''</span><span class="pl-kos">)</span> <span class="pl-c">//只保留中文字符</span>
+  <span class="pl-k">const</span> <span class="pl-s1">chineseCharactersCount</span> <span class="pl-c1">=</span> <span class="pl-s1">chineseCharacters</span><span class="pl-kos">.</span><span class="pl-c1">length</span>
+  <span class="pl-k">const</span> <span class="pl-s1">timeInMinutes</span> <span class="pl-c1">=</span> <span class="pl-s1">chineseCharactersCount</span> <span class="pl-c1">/</span> <span class="pl-s1">wordsPerMinute</span>
+  <span class="pl-k">return</span> <span class="pl-v">Math</span><span class="pl-kos">.</span><span class="pl-en">ceil</span><span class="pl-kos">(</span><span class="pl-s1">timeInMinutes</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span>
+
+<span class="pl-c">// 在 gatsby-node.js 文件中添加 chineseTimeToRead 函数</span>
+<span class="pl-c">// PS: createNodeField可以多次调用以便添加其他字段, 如slug等</span>
+<span class="pl-s1">exports</span><span class="pl-kos">.</span><span class="pl-en">onCreateNode</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-kos">{</span> node<span class="pl-kos">,</span> actions <span class="pl-kos">}</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+  <span class="pl-k">const</span> <span class="pl-kos">{</span> createNodeField <span class="pl-kos">}</span> <span class="pl-c1">=</span> <span class="pl-s1">actions</span>
+  <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">node</span><span class="pl-kos">.</span><span class="pl-c1">internal</span><span class="pl-kos">.</span><span class="pl-c1">type</span> <span class="pl-c1">===</span> <span class="pl-s">`MarkdownRemark`</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-k">const</span> <span class="pl-s1">content</span> <span class="pl-c1">=</span> <span class="pl-s1">node</span><span class="pl-kos">.</span><span class="pl-c1">rawMarkdownBody</span>
+    <span class="pl-k">const</span> <span class="pl-s1">chineseTime</span> <span class="pl-c1">=</span> <span class="pl-en">chineseTimeToRead</span><span class="pl-kos">(</span><span class="pl-s1">content</span><span class="pl-kos">)</span>
+    <span class="pl-en">createNodeField</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+      node<span class="pl-kos">,</span>
+      <span class="pl-c1">name</span>: <span class="pl-s">`chineseTimeToRead`</span><span class="pl-kos">,</span>
+      <span class="pl-c1">value</span>: <span class="pl-s1">chineseTime</span>
+    <span class="pl-kos">}</span><span class="pl-kos">)</span>
+  <span class="pl-kos">}</span>
+<span class="pl-kos">}</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">2. 在blog-post.js模板中, 添加展示中文阅读时间</h3><a id="user-content-2-在blog-postjs模板中-添加展示中文阅读时间" class="anchor" aria-label="Permalink: 2. 在blog-post.js模板中, 添加展示中文阅读时间" href="#2-在blog-postjs模板中-添加展示中文阅读时间"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// 在需要显示阅读时间的地方使用 node.fields.chineseTimeToRead</span>
+<span class="pl-c">// post.timeToRead 英文阅读时间</span>
+<span class="pl-c">// post.fields.chineseTimeToRead 中文阅读时间</span>
+<span class="pl-k">import</span> <span class="pl-v">React</span> <span class="pl-k">from</span> <span class="pl-s">"react"</span>
+<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">graphql</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"gatsby"</span>
+
+<span class="pl-k">export</span> <span class="pl-k">default</span> <span class="pl-kos">(</span><span class="pl-kos">{</span> data <span class="pl-kos">}</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+  <span class="pl-k">const</span> <span class="pl-s1">post</span> <span class="pl-c1">=</span> <span class="pl-s1">data</span><span class="pl-kos">.</span><span class="pl-c1">markdownRemark</span>
+  <span class="pl-k">return</span> <span class="pl-kos">(</span>
+    <span class="pl-c1">&lt;</span><span class="pl-s1">div</span><span class="pl-c1">&gt;</span>
+      <span class="pl-c1">&lt;</span><span class="pl-s1">h1</span><span class="pl-c1">&gt;</span><span class="pl-kos">{</span><span class="pl-s1">post</span><span class="pl-kos">.</span><span class="pl-c1">frontmatter</span><span class="pl-kos">.</span><span class="pl-c1">title</span><span class="pl-kos">}</span><span class="pl-kos">&lt;/</span><span class="pl-s1">h1</span><span class="pl-c1">&gt;</span>
+      <span class="pl-c1">&lt;</span><span class="pl-s1">p</span><span class="pl-c1">&gt;</span>阅读时间: <span class="pl-kos">{</span><span class="pl-s1">post</span><span class="pl-kos">.</span><span class="pl-c1">timeToRead</span> <span class="pl-c1">+</span> <span class="pl-s1">post</span><span class="pl-kos">.</span><span class="pl-c1">fields</span><span class="pl-kos">.</span><span class="pl-c1">chineseTimeToRead</span><span class="pl-kos">}</span> 分钟<span class="pl-kos">&lt;/</span><span class="pl-s1">p</span><span class="pl-c1">&gt;</span>
+      <span class="pl-c1">&lt;</span><span class="pl-s1">div</span> <span class="pl-c1">dangerouslySetInnerHTML</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-kos">{</span> <span class="pl-c1">__html</span>: <span class="pl-s1">post</span><span class="pl-kos">.</span><span class="pl-c1">html</span> <span class="pl-kos">}</span><span class="pl-kos">}</span> <span class="pl-kos">/&gt;</span>
+    <span class="pl-kos">&lt;/</span><span class="pl-s1">div</span><span class="pl-c1">&gt;</span>
+  <span class="pl-kos">)</span>
+<span class="pl-kos">}</span>
+
+<span class="pl-k">export</span> <span class="pl-k">const</span> <span class="pl-s1">query</span> <span class="pl-c1">=</span> <span class="pl-en">graphql</span><span class="pl-s">`</span>
+<span class="pl-s">  query($slug: String!) {</span>
+<span class="pl-s">    markdownRemark(fields: { slug: { eq: $slug } }) {</span>
+<span class="pl-s">      html</span>
+<span class="pl-s">      timeToRead</span>
+<span class="pl-s">      frontmatter {</span>
+<span class="pl-s">        title</span>
+<span class="pl-s">      }</span>
+<span class="pl-s">      fields {</span>
+<span class="pl-s">        chineseTimeToRead</span>
+<span class="pl-s">      }</span>
+<span class="pl-s">    }</span>
+<span class="pl-s">  }</span>
+<span class="pl-s">`</span></pre></div>
+<div class="markdown-heading"><h2 class="heading-element">介绍: markdownRemark</h2><a id="user-content-介绍-markdownremark" class="anchor" aria-label="Permalink: 介绍: markdownRemark" href="#介绍-markdownremark"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><code>markdownRemark</code> 是 Gatsby.js 中 Markdown 文件的节点类型，在查询 Markdown 文件时可以使用它来获取文件的各种信息。以下是 <code>markdownRemark</code> 节点类型中常用的字段列表：</p>
+<ul>
+<li>
+<code>id</code>: 节点 ID，是唯一标识一个 Markdown 文件节点的字符串。</li>
+<li>
+<code>frontmatter</code>: 前置元数据，是 Markdown 文件头部的 YAML 格式内容，可以包含一些元信息，例如标题、日期、作者等。前置元数据的具体内容可以在查询时指定，例如 <code>frontmatter { title, date }</code>。</li>
+<li>
+<code>excerpt</code>: 摘要内容，是基于 Markdown 文件生成的摘要，可以在页面中用于描述文章概要或列表中的摘要展示。摘要的长度和内容可以在查询时指定，例如 <code>excerpt(pruneLength: 100)</code> 表示获取摘要内容并将其截断到 100 个字符以内。</li>
+<li>
+<code>excerptAst</code>: 摘要的抽象语法树（AST），可以用于处理和操作摘要的节点结构。</li>
+<li>
+<code>html</code>: 渲染后的 HTML 内容，是将 Markdown 格式解析为 HTML 格式后的结果。可以直接将其用于渲染文章内容。</li>
+<li>
+<code>htmlAst</code>: HTML 内容的抽象语法树（AST），可以用于处理和操作文章内容的节点结构。</li>
+<li>
+<code>timeToRead</code>: 预估的阅读时间，是一个大概的时间估计值，以分钟为单位。</li>
+<li>
+<code>wordCount</code>: 字数统计信息，包括 <code>paragraphs</code>（段落数）、<code>sentences</code>（句子数）和 <code>words</code>（单词数）三个字段。</li>
+</ul>
+<p>这些字段可以在 GraphQL 查询语句中使用，以获取指定 Markdown 文件的相应信息。
+例如，以下查询语句返回了 <code>slug</code> 值为 "/hello-world/" 的 Markdown 文件节点的 <code>frontmatter</code>、<code>excerpt</code> 和 <code>timeToRead</code> 字段：</p>
+<div class="highlight highlight-source-graphql"><pre><span class="pl-k">query</span> {
+  <span class="pl-v">markdownRemark</span>(<span class="pl-v">frontmatter</span>: { <span class="pl-c1"><span class="pl-s">slug</span></span>: { <span class="pl-c1"><span class="pl-s">eq</span></span>: <span class="pl-s"><span class="pl-pds">"</span>/hello-world/<span class="pl-pds">"</span></span> } }) {
+    <span class="pl-v">frontmatter</span> {
+      <span class="pl-v">title</span>
+      <span class="pl-v">date</span>
+    }
+    <span class="pl-v">excerpt</span>(<span class="pl-v">pruneLength</span>: <span class="pl-c1">100</span>)
+    <span class="pl-v">timeToRead</span>
+  }
+}</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">介绍: 日期格式</h2><a id="user-content-介绍-日期格式" class="anchor" aria-label="Permalink: 介绍: 日期格式" href="#介绍-日期格式"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<table>
+<thead>
+<tr>
+<th>日期格式</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MMMM DD, YYYY</td>
+<td>January 01, 2022</td>
+</tr>
+<tr>
+<td>MMM DD, YYYY</td>
+<td>Jan 01, 2022</td>
+</tr>
+<tr>
+<td>MM/DD/YYYY</td>
+<td>01/01/2022</td>
+</tr>
+<tr>
+<td>DD/MM/YYYY</td>
+<td>01/01/2022</td>
+</tr>
+<tr>
+<td>YYYY-MM-DD</td>
+<td>2022-01-01</td>
+</tr>
+<tr>
+<td>YYYY-MM-DDTHH:mm:ss.sssZ</td>
+<td>2022-01-01T12:00:00.000Z</td>
+</tr>
+<tr>
+<td>ddd MMM DD HH:mm:ss YYYY</td>
+<td>Sat Jan 01 12:00:00 2022</td>
+</tr>
+</tbody>
+</table>

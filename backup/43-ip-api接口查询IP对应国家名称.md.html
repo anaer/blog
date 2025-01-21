@@ -1,0 +1,24 @@
+<div class="markdown-heading"><h2 class="heading-element">代码</h2><a id="user-content-代码" class="anchor" aria-label="Permalink: 代码" href="#代码"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">json</span>
+<span class="pl-k">import</span> <span class="pl-s1">requests</span>
+
+
+<span class="pl-k">def</span> <span class="pl-en">getCountryNameByHttp</span>(<span class="pl-s1">ip</span>):
+    <span class="pl-s">'''</span>
+<span class="pl-s">    查询ip对应国家代码</span>
+<span class="pl-s">    如果未查询到, 或者查询异常, 返回空</span>
+<span class="pl-s">    '''</span>
+    <span class="pl-s1">country</span> <span class="pl-c1">=</span> <span class="pl-s">''</span>
+    <span class="pl-k">try</span>:
+        <span class="pl-s1">rq</span> <span class="pl-c1">=</span> <span class="pl-s1">requests</span>.<span class="pl-c1">get</span>(<span class="pl-s">"http://ip-api.com/json/{}?lang=zh-CN"</span>.<span class="pl-c1">format</span>(<span class="pl-s1">ip</span>))
+        <span class="pl-s1">ip_info</span> <span class="pl-c1">=</span> <span class="pl-s1">json</span>.<span class="pl-c1">loads</span>(<span class="pl-s1">rq</span>.<span class="pl-c1">content</span>)
+        <span class="pl-k">if</span> (<span class="pl-s1">ip_info</span>[<span class="pl-s">'status'</span>] <span class="pl-c1">==</span> <span class="pl-s">'success'</span>):
+            <span class="pl-s1">country</span> <span class="pl-c1">=</span> <span class="pl-s1">ip_info</span>[<span class="pl-s">'country'</span>]
+        <span class="pl-k">return</span> <span class="pl-s1">country</span>
+    <span class="pl-k">except</span> <span class="pl-v">Exception</span> <span class="pl-k">as</span> <span class="pl-s1">e</span>:
+        <span class="pl-en">print</span>(<span class="pl-s">"getCountryCode异常."</span>, <span class="pl-s1">ip</span>, <span class="pl-s1">e</span>)
+        <span class="pl-k">return</span> <span class="pl-s1">country</span>
+
+
+<span class="pl-en">print</span>(<span class="pl-en">getCountryNameByHttp</span>(<span class="pl-s">"8.8.8.8"</span>))
+<span class="pl-c"># 美国</span></pre></div>
