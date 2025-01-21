@@ -258,13 +258,13 @@
             "postUrl": "post/12.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/12",
             "commentNum": 0,
-            "updatedAt": 1734053850,
+            "updatedAt": 1737439354,
             "top": 0,
             "createdAt": 1699436300,
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "#b82791",
+            "dateLabelColor": "#b800b8",
             "description": "vim script/free.py\nimport subprocess\nfrom bark import send_bark_notification\n\n# \u6267\u884c free -m \u547d\u4ee4\u5e76\u83b7\u53d6\u7ed3\u679c\nr..."
         },
         "P13": {
@@ -613,7 +613,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#110011",
+            "dateLabelColor": "#120011",
             "description": "whistle\u5ba2\u6237\u7aef\n\u652f\u6301Mac\u548cWindows, Linux\u53ef\u4ee5\u4f7f\u7528\u547d\u4ee4\u884c\u7248\u672c\n\u63d2\u4ef6\n\u63d2\u4ef6\u5217\u8868\nwhistle.inspect\n\u5b89\u88c5\u63d2\u4ef6\u540e, \u8bbe\u7f6e\u5e76\u542f\u7528Rules\u89c4\u5219, \u5237\u65b0\u9875\u9762\u751f\u6548\n\u652f\u6301: vco..."
         },
         "P30": {
@@ -653,7 +653,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-09",
-            "dateLabelColor": "#0b0b00",
+            "dateLabelColor": "#0c0c00",
             "description": "ChatGPT\n\n\u652f\u6301\u8bb0\u5fc6, \u8bbe\u7f6e\u9ed8\u8ba4prompt\n\u6709\u5899, \u5076\u5c14\u5931\u8054\n\ndeepseek \u6df1\u5ea6\u63a2\u7d22\n\n\u5355\u4f1a\u8bdd\u5b58\u5728\u957f\u5ea6\u9650\u5236, \u8d85\u9650\u65f6\u9700\u8981\u5f00\u542f\u65b0\u4f1a\u8bdd\n\u7f3a\u5c11\u8bb0\u5fc6\u529f\u80fd, \u4e0d\u80fd\u8bbe\u7f6e\u9ed8\u8ba4prompt\n\nNot D..."
         },
         "P32": {
@@ -793,7 +793,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "#06f900",
+            "dateLabelColor": "#07f800",
             "description": "snowfall\n\u4e0b\u8f7djs\u6587\u4ef6\u5230\u76ee\u5f55assets/snowfall@1.7\u4e0b\n\u5728base.html\u6dfb\u52a0\n    <script src=\"{{ blogBase['homeUrl'] }}/asset..."
         },
         "P39": {
@@ -904,13 +904,13 @@
             "htmlDir": "docs/post/44.html",
             "markdown": "backup/44-cdnjs\u641c\u7d22.md",
             "labels": [
-                "\u670d\u52a1"
+                "CDN"
             ],
             "postTitle": "44 cdnjs\u641c\u7d22",
             "postUrl": "post/44.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/44",
             "commentNum": 0,
-            "updatedAt": 1737439685,
+            "updatedAt": 1737439748,
             "top": 0,
             "createdAt": 1737004313,
             "style": "",
@@ -1052,13 +1052,13 @@
             "postUrl": "post/51.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/51",
             "commentNum": 0,
-            "updatedAt": 1737440131,
-            "top": 0,
+            "updatedAt": 1737440467,
+            "top": -1,
             "createdAt": 1737440131,
             "style": "",
             "script": "",
             "createdDate": "2025-01-21",
-            "dateLabelColor": "#00ff00",
+            "dateLabelColor": "#000000",
             "description": "\u8fd9\u662f\u4e4b\u524dblog\u4f7f\u7528\u7684\u6846\u67b6, \u73b0\u5728\u6ca1\u5728\u7528\u4e86, \u8fd9\u91cc\u4ec5\u505a\u7559\u75d5.\n\u5b89\u88c5\u90e8\u7f72\n\u5b89\u88c5Gatsby\n\u8fd0\u884c npm install -g gatsby-cli \u5168\u5c40\u5b89\u88c5Gatsby CLI\n\u521b\u5efa\u65b0\u7f51\u7ad9\uff1a\n\u8fd0\u884c g..."
         }
     },
@@ -1066,6 +1066,7 @@
     "labelColorDict": {
         "All": "#1d76db",
         "Blog": "#d93f0b",
+        "CDN": "#C71C1C",
         "Git": "#7D584C",
         "iPhone": "#5319e7",
         "Linux": "#F81B5F",
