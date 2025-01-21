@@ -196,13 +196,13 @@
             "postUrl": "post/9.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/9",
             "commentNum": 0,
-            "updatedAt": 1735119657,
+            "updatedAt": 1737439563,
             "top": 0,
             "createdAt": 1698991158,
             "style": "",
             "script": "",
             "createdDate": "2023-11-03",
-            "dateLabelColor": "#be1aa3",
+            "dateLabelColor": "#be00be",
             "description": "\u5b89\u88c5\n\u7cfb\u7edf: Ubuntu 20.04.6 LTS\napt-get install fail2ban\n\u547d\u4ee4\n\u67e5\u8be2\u670d\u52a1\u72b6\u6001\nservice fail2ban status\nsystemctl statu..."
         },
         "P10": {
