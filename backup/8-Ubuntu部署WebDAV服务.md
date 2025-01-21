@@ -1,19 +1,19 @@
-0. 系统环境
+## 0. 系统环境
 
 系统: Ubuntu 20.04.6
 
-1. 安装nginx
+## 1. 安装nginx
 
 `apt-get install nginx-full` 安装full版
 
-2. 创建webdav目录
+## 2. 创建webdav目录
 
 ```bash
 mkdir /var/www/webdav
 chown -R www-data:www-data /var/www/webdav
 ```
 
-3. 配置nginx
+## 3. 配置nginx
 
 `vim /etc/nginx/sites-available/default`
 
@@ -41,7 +41,7 @@ location /webdav {
 }
 ```
 
-4. 用户认证
+## 4. 用户认证
 
 创建用户username, 根据提示输入密码并确认.
 
@@ -50,7 +50,7 @@ apt-get install apache2-utils
 htpasswd -c /etc/nginx/.htpasswd username
 ```
 
-5. 启动服务
+## 5. 启动服务
 
 ```bash
 nginx -t # 检查配置
@@ -58,7 +58,7 @@ nginx -s reload # 重载配置
 ```
 
 
-6. 访问服务
+## 6. 访问服务
 
 `http://xxx.xxx.xxx.xxx/webdav`
 

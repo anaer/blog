@@ -82,6 +82,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#8740A6">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#服务">服务</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#服务器">服务器</a></object>
         </span>
 </div>
 <br>
@@ -89,27 +93,19 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2023-11-01</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2024-12-13</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-21</time></span>
 
 <p>
 
 <div class="markdown-body" id="postBody">
-<ol start="0">
-<li>系统环境</li>
-</ol>
+<div class="markdown-heading"><h2 class="heading-element">0. 系统环境</h2><a id="user-content-0-系统环境" class="anchor" aria-label="Permalink: 0. 系统环境" href="#0-系统环境"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>系统: Ubuntu 20.04.6</p>
-<ol>
-<li>安装nginx</li>
-</ol>
+<div class="markdown-heading"><h2 class="heading-element">1. 安装nginx</h2><a id="user-content-1-安装nginx" class="anchor" aria-label="Permalink: 1. 安装nginx" href="#1-安装nginx"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><code>apt-get install nginx-full</code> 安装full版</p>
-<ol start="2">
-<li>创建webdav目录</li>
-</ol>
+<div class="markdown-heading"><h2 class="heading-element">2. 创建webdav目录</h2><a id="user-content-2-创建webdav目录" class="anchor" aria-label="Permalink: 2. 创建webdav目录" href="#2-创建webdav目录"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>mkdir /var/www/webdav
 chown -R www-data:www-data /var/www/webdav</pre></div>
-<ol start="3">
-<li>配置nginx</li>
-</ol>
+<div class="markdown-heading"><h2 class="heading-element">3. 配置nginx</h2><a id="user-content-3-配置nginx" class="anchor" aria-label="Permalink: 3. 配置nginx" href="#3-配置nginx"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><code>vim /etc/nginx/sites-available/default</code></p>
 <p>在 <code>server</code> 块内添加以下配置:</p>
 <div class="highlight highlight-source-shell"><pre>location /webdav {
@@ -132,26 +128,20 @@ chown -R www-data:www-data /var/www/webdav</pre></div>
     <span class="pl-c"><span class="pl-c">#</span> 文件大小限制1G</span>
     client_max_body_size 1G<span class="pl-k">;</span>
 }</pre></div>
-<ol start="4">
-<li>用户认证</li>
-</ol>
+<div class="markdown-heading"><h2 class="heading-element">4. 用户认证</h2><a id="user-content-4-用户认证" class="anchor" aria-label="Permalink: 4. 用户认证" href="#4-用户认证"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>创建用户username, 根据提示输入密码并确认.</p>
 <div class="highlight highlight-source-shell"><pre>apt-get install apache2-utils
 htpasswd -c /etc/nginx/.htpasswd username</pre></div>
-<ol start="5">
-<li>启动服务</li>
-</ol>
+<div class="markdown-heading"><h2 class="heading-element">5. 启动服务</h2><a id="user-content-5-启动服务" class="anchor" aria-label="Permalink: 5. 启动服务" href="#5-启动服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>nginx -t <span class="pl-c"><span class="pl-c">#</span> 检查配置</span>
 nginx -s reload <span class="pl-c"><span class="pl-c">#</span> 重载配置</span></pre></div>
-<ol start="6">
-<li>访问服务</li>
-</ol>
+<div class="markdown-heading"><h2 class="heading-element">6. 访问服务</h2><a id="user-content-6-访问服务" class="anchor" aria-label="Permalink: 6. 访问服务" href="#6-访问服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><code>http://xxx.xxx.xxx.xxx/webdav</code></p>
 <div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><a href="https://ipcmen.com/htpasswd" rel="nofollow">htpasswd命令介绍</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/9.html" aria-label="Next Page">9 Ubuntu安装fail2ban</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/7.html" aria-label="Previous Page">7 ECS操作记录</a><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/9.html" aria-label="Next Page">9 Ubuntu安装fail2ban</a></div>
 </nav>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
