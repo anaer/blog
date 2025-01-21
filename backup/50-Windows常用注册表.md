@@ -74,3 +74,28 @@ Windows Registry Editor Version 5.00
 @="\"D:\\floorp\\floorp.exe\" -- \"%1\""
 
 ```
+
+
+## Chrome 浏览器由所属组织管理解决方法
+
+```reg
+Windows Registry Editor Version 5.00
+
+; 删除 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome]
+
+; 删除 HKEY_CURRENT_USER\Software\Policies\Google\Chrome
+[-HKEY_CURRENT_USER\Software\Policies\Google\Chrome]
+```
+
+## Edge 浏览器由所属组织管理解决方法
+
+```reg
+Windows Registry Editor Version 5.00
+
+; 删除 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
+
+; 删除 HKEY_CURRENT_USER\Software\Policies\Microsoft\Edge
+[-HKEY_CURRENT_USER\Software\Policies\Microsoft\Edge]
+```
