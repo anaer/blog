@@ -119,7 +119,9 @@
             "postUrl": "post/5.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/5",
             "commentNum": 0,
-            "updatedAt": 1734053848,
+            "updatedAt": 1737427747,
+            "prevTitle": "4 pyGitHub",
+            "prevUrl": "post/4.html",
             "nextTitle": "6 PC\u7aef\u5e38\u7528\u8f6f\u4ef6",
             "nextUrl": "post/6.html",
             "top": 0,
@@ -127,8 +129,8 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-26",
-            "dateLabelColor": "#c6279e",
-            "description": "\n\nLXGW WenKai GB / \u971e\u9e5c\u6587\u6977 GB\n\u7b49\u5bbd, markdown\u8868\u683c\u683c\u5f0f\u5316 \u4e5f\u80fd\u5bf9\u9f50\n\n\nCascadia Code\n\n\nMaple-Mono\n\n\nUbuntuMono\n\n\n"
+            "dateLabelColor": "#c600c6",
+            "description": "\n\nMaple-Mono\n\u63a8\u8350, \u76ee\u524d\u611f\u89c9\u8f83\u4e3a\u8212\u9002\u5427\n\n\nLXGW WenKai GB / \u971e\u9e5c\u6587\u6977 GB\n\u7b49\u5bbd, markdown\u8868\u683c\u683c\u5f0f\u5316 \u4e5f\u80fd\u5bf9\u9f50\n\n\nCascadia Code\n\n\nUbunt..."
         },
         "P6": {
             "number": "6",
