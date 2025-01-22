@@ -12,7 +12,7 @@
     </script>
     
 <title>18 静态文件服务器</title>
-
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/dark.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -89,20 +89,37 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2024-08-21</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-21</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-22</time></span>
 
 <p>
 
 <div class="markdown-body" id="postBody">
-<p><a href="https://github.com/sigoden/dufs">dufs</a></p>
+<div class="markdown-heading"><h1 class="heading-element"><a href="https://github.com/sigoden/dufs">dufs</a></h1><a id="user-content-dufs" class="anchor" aria-label="Permalink: dufs" href="#dufs"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/dee71768-2086-489e-a87d-871a06d07e87"><img src="https://github.com/user-attachments/assets/dee71768-2086-489e-a87d-871a06d07e87" alt="image" style="max-width: 100%;"></a></p>
-<p><a href="https://github.com/svenstaro/miniserve">miniserve</a></p>
+<div class="markdown-heading"><h1 class="heading-element"><a href="https://github.com/svenstaro/miniserve">miniserve</a></h1><a id="user-content-miniserve" class="anchor" aria-label="Permalink: miniserve" href="#miniserve"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/ad9d97aa-0ef3-4e67-b5e0-f60841220b9c"><img src="https://github.com/user-attachments/assets/ad9d97aa-0ef3-4e67-b5e0-f60841220b9c" alt="image" style="max-width: 100%;"></a></p>
-<p><a href="https://github.com/docblue/chfsgui">chfsgui</a></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> --mkdir 允许创建目录</span>
+<span class="pl-c"><span class="pl-c">#</span> --upload-files 需要指定路径, 该路径相对于根目录</span>
+<span class="pl-c"><span class="pl-c">#</span> --auth-file 授权文件</span>
+<span class="pl-c"><span class="pl-c">#</span> --qrcode 显示二维码</span>
+nohup /root/miniserve/miniserve --auth-file auth.txt --mkdir --upload-files / /root/miniserve/web <span class="pl-k">&amp;</span></pre></div>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> stop.sh 停止服务</span>
+pkill -f <span class="pl-s"><span class="pl-pds">"</span>miniserve<span class="pl-pds">"</span></span></pre></div>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> useradd.sh 添加用户脚本</span>
+user=<span class="pl-smi">$1</span>
+pass=<span class="pl-smi">$2</span>
+pw=<span class="pl-s"><span class="pl-pds">$(</span>echo -n <span class="pl-smi">${pass}</span> <span class="pl-k">|</span> sha256sum <span class="pl-k">|</span> cut -f 1 -d <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span><span class="pl-pds">)</span></span>
+<span class="pl-c1">echo</span> <span class="pl-smi">${user}</span>:sha256:<span class="pl-smi">$pw</span> <span class="pl-k">&gt;&gt;</span> auth.txt</pre></div>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 添加用户</span>
+sh useradd.sh user pass</pre></div>
+<p>新增用户需要重启服务才生效</p>
+<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://github.com/svenstaro/miniserve">miniserve</a></p>
+<div class="markdown-heading"><h1 class="heading-element"><a href="https://github.com/docblue/chfsgui">chfsgui</a></h1><a id="user-content-chfsgui" class="anchor" aria-label="Permalink: chfsgui" href="#chfsgui"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/550870b3-2a10-4351-8876-069a5fb8af38"><img src="https://github.com/user-attachments/assets/550870b3-2a10-4351-8876-069a5fb8af38" alt="image" style="max-width: 100%;"></a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/2.html" aria-label="Previous Page">2 暴力猴Violentmonkey 脚本说明</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/44.html" aria-label="Next Page">44 cdnjs搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/17.html" aria-label="Previous Page">17 neovim gui客户端</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/19.html" aria-label="Next Page">19 Spotify导入opml</a></div>
 </nav>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

@@ -398,15 +398,15 @@
             "postUrl": "post/18.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/18",
             "commentNum": 0,
-            "updatedAt": 1737450435,
+            "updatedAt": 1737530791,
             "top": 0,
             "createdAt": 1724223912,
             "style": "",
             "script": "",
             "createdDate": "2024-08-21",
-            "dateLabelColor": "#9a0099",
-            "buildedAt": 1737450435,
-            "description": "dufs\n\nminiserve\n\nchfsgui\n\n"
+            "dateLabelColor": "#9a009a",
+            "buildedAt": 1737530791,
+            "description": "dufs\n\nminiserve\n\n# --mkdir \u5141\u8bb8\u521b\u5efa\u76ee\u5f55\n# --upload-files \u9700\u8981\u6307\u5b9a\u8def\u5f84, \u8be5\u8def\u5f84\u76f8\u5bf9\u4e8e\u6839\u76ee\u5f55\n# --auth-file \u6388\u6743\u6587\u4ef6\n# --qrcode \u663e..."
         },
         "P19": {
             "number": "19",
