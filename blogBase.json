@@ -306,22 +306,21 @@
             "htmlDir": "docs/post/14.html",
             "markdown": "backup/14-ijkPlayer\u914d\u7f6e\u53c2\u6570.md",
             "labels": [
-                "\u5de5\u5177",
-                "Win10"
+                "\u5f71\u89c6"
             ],
             "postTitle": "14 ijkPlayer\u914d\u7f6e\u53c2\u6570",
             "postUrl": "post/14.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/14",
             "commentNum": 0,
-            "updatedAt": 1737515618,
+            "updatedAt": 1737515673,
             "top": 0,
             "createdAt": 1716427162,
             "style": "",
             "script": "",
             "createdDate": "2024-05-23",
             "dateLabelColor": "#f400f4",
-            "buildedAt": 1737515618,
-            "description": "Reduce Memory v1.7\n\nWindows Memory Cleaner 2.8\nMem Reduct\n\n"
+            "buildedAt": 1737515673,
+            "description": "\u5206\u7c7b\u5217\u8868\n\n\n\n\u5206\u7c7b\ncategory\n\n\n\n\nPT_CATEGORY_FORMAT\n1\n\n\nPT_CATEGORY_CODEC\n2\n\n\nPT_CATEGORY_SWS\n3\n\n\nPT_CATEGORY..."
         },
         "P15": {
             "number": "15",
