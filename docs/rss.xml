@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 22 Jan 2025 07:26:57 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 22 Jan 2025 07:26:57 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>53 Android  TextView中部分文字高亮显示</title><link>https://anaer.github.io/blog/post/53.html</link><description>Android  TextView中部分文字高亮显示
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 22 Jan 2025 07:32:29 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 22 Jan 2025 07:32:29 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>54 在Ubuntu 20.04安装CouchDB</title><link>https://anaer.github.io/blog/post/54.html</link><description>安装
+按行执行以下命令
+sudo apt update &amp;&amp; sudo apt install -y curl apt-transport-https gnupg
+
+curl https://couc...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/54.html</guid><pubDate>Wed, 22 Jan 2025 07:32:07 +0000</pubDate></item><item><title>53 Android  TextView中部分文字高亮显示</title><link>https://anaer.github.io/blog/post/53.html</link><description>Android  TextView中部分文字高亮显示
 /**
 * 关键字高亮显示
 *

@@ -1,0 +1,43 @@
+<div class="markdown-heading"><h2 class="heading-element">安装</h2><a id="user-content-安装" class="anchor" aria-label="Permalink: 安装" href="#安装"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>按行执行以下命令</p>
+<div class="highlight highlight-source-shell"><pre>sudo apt update <span class="pl-k">&amp;&amp;</span> sudo apt install -y curl apt-transport-https gnupg
+
+curl https://couchdb.apache.org/repo/keys.asc <span class="pl-k">|</span> gpg --dearmor <span class="pl-k">|</span> sudo tee /usr/share/keyrings/couchdb-archive-keyring.gpg <span class="pl-k">&gt;</span>/dev/null <span class="pl-k">2&gt;&amp;1</span>
+
+<span class="pl-c1">source</span> /etc/os-release
+
+<span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>deb [signed-by=/usr/share/keyrings/couchdb-archive-keyring.gpg] https://apache.jfrog.io/artifactory/couchdb-deb/ <span class="pl-smi">${VERSION_CODENAME}</span> main<span class="pl-pds">"</span></span> <span class="pl-k">|</span> sudo tee /etc/apt/sources.list.d/couchdb.list <span class="pl-k">&gt;</span>/dev/null
+
+sudo apt update
+sudo apt install couchdb</pre></div>
+<p>弹出安装提示:</p>
+<ol>
+<li>以单服务器独立模式安装</li>
+<li>绑定网络接口 保留默认127.0.0.1</li>
+<li>设置管理员密码</li>
+</ol>
+<div class="markdown-heading"><h2 class="heading-element">服务状态</h2><a id="user-content-服务状态" class="anchor" aria-label="Permalink: 服务状态" href="#服务状态"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>systemctl status couchdb
+systemctl stop couchdb</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">检查安装结果</h2><a id="user-content-检查安装结果" class="anchor" aria-label="Permalink: 检查安装结果" href="#检查安装结果"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>curl http://127.0.0.1:5984/</pre></div>
+<div class="highlight highlight-source-json"><pre><span class="pl-ii">// 响应结果</span>
+{<span class="pl-ent">"couchdb"</span>:<span class="pl-s"><span class="pl-pds">"</span>Welcome<span class="pl-pds">"</span></span>,<span class="pl-ent">"version"</span>:<span class="pl-s"><span class="pl-pds">"</span>3.4.2<span class="pl-pds">"</span></span>,<span class="pl-ent">"git_sha"</span>:<span class="pl-s"><span class="pl-pds">"</span>6e5ad2a5c<span class="pl-pds">"</span></span>,<span class="pl-ent">"uuid"</span>:<span class="pl-s"><span class="pl-pds">"</span>3c1399389c7a4c246449d48ba1990edb<span class="pl-pds">"</span></span>,<span class="pl-ent">"features"</span>:[<span class="pl-s"><span class="pl-pds">"</span>access-ready<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>partitioned<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>pluggable-storage-engines<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>reshard<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>scheduler<span class="pl-pds">"</span></span>],<span class="pl-ent">"vendor"</span>:{<span class="pl-ent">"name"</span>:<span class="pl-s"><span class="pl-pds">"</span>The Apache Software Foundation<span class="pl-pds">"</span></span>}}</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">nginx配置</h2><a id="user-content-nginx配置" class="anchor" aria-label="Permalink: nginx配置" href="#nginx配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre lang="conf"><code>  location /cdb {
+      proxy_pass http://127.0.0.1:5984/;
+  }
+
+</code></pre>
+<div class="markdown-heading"><h2 class="heading-element">Gui管理</h2><a id="user-content-gui管理" class="anchor" aria-label="Permalink: Gui管理" href="#gui管理"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>默认:  <a href="http://127.0.0.1:5984/_utils/" rel="nofollow">http://127.0.0.1:5984/_utils/</a></p>
+<div class="markdown-heading"><h2 class="heading-element">Moon FM同步配置</h2><a id="user-content-moon-fm同步配置" class="anchor" aria-label="Permalink: Moon FM同步配置" href="#moon-fm同步配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>需要在CouchDB中创建一个数据库moon_fm</li>
+<li>配置Moon FM的同步设置中配置CouchDB地址</li>
+</ol>
+<pre><code>https://admin:password@xx.xx.xx.xx/cdb/moon_fm
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/ca99ca40-8091-47ab-a89d-a0df6e9192e9"><img src="https://github.com/user-attachments/assets/ca99ca40-8091-47ab-a89d-a0df6e9192e9" alt="Image" style="max-width: 100%;"></a></p>
+<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://www.myfreax.com/how-to-install-couchdb-on-ubuntu-20-04/" rel="nofollow">如何在Ubuntu 20.04安装CouchDB</a></p>

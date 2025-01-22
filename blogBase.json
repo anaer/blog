@@ -1154,6 +1154,29 @@
             "dateLabelColor": "#00ff00",
             "buildedAt": 1737530590,
             "description": "Android  TextView\u4e2d\u90e8\u5206\u6587\u5b57\u9ad8\u4eae\u663e\u793a\n/**\n* \u5173\u952e\u5b57\u9ad8\u4eae\u663e\u793a\n*\n* @param context \u4e0a\u4e0b\u6587\n* @param text \u9700\u8981\u663e\u793a\u7684\u6587\u5b57\n* @param targe..."
+        },
+        "P54": {
+            "number": "54",
+            "htmlDir": "docs/post/54.html",
+            "markdown": "backup/54-\u5728Ubuntu 20.04\u5b89\u88c5CouchDB.md",
+            "labels": [
+                "Linux",
+                "\u8f6f\u4ef6",
+                "\u670d\u52a1\u5668"
+            ],
+            "postTitle": "54 \u5728Ubuntu 20.04\u5b89\u88c5CouchDB",
+            "postUrl": "post/54.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/54",
+            "commentNum": 0,
+            "updatedAt": 1737531127,
+            "top": 0,
+            "createdAt": 1737531127,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-22",
+            "dateLabelColor": "#00ff00",
+            "buildedAt": 1737531127,
+            "description": "\u5b89\u88c5\n\u6309\u884c\u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\nsudo apt update && sudo apt install -y curl apt-transport-https gnupg\n\ncurl https://couc..."
         }
     },
     "singeListJson": {},
