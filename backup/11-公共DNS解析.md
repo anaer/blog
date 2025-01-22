@@ -1,4 +1,3 @@
-
 ## DNS Over HTTPS
 
 DNS over HTTPS（缩写：DoH）是一个进行安全化的域名解析方案。其意义在于以加密的 HTTPS 协议进行 DNS 解析请求，避免原始 DNS 协议中用户的 DNS 解析请求被窃听或者修改的问题（例如中间人攻击）来达到保护用户隐私的目的
@@ -84,7 +83,7 @@ $ curl 'https://dns.adguard.com/resolve?name=www.baidu.com&type=A'
 }
 ```
 
-## python 调用示例 (来自阿里)
+## python 调用示例
 
 ```py
 import dns.message
@@ -133,5 +132,7 @@ DNS 劫持：使用 DNS over HTTPS（HTTP over TLS）、DNS over TLS 等方式�
 ## 相关链接
 
 [DNS_over_HTTPS - 维基百科](https://zh.wikipedia.org/wiki/DNS_over_HTTPS)
+
 [DNS over HTTPs(DoH)](https://www.alibabacloud.com/help/zh/alibaba-cloud-public-dns/latest/dns-over-https)
+
 [AdGuard](https://adguard-dns.io/zh_cn/welcome.html)
