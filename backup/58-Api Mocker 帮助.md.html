@@ -1,0 +1,26 @@
+<p>地址: <a href="https://github.com/DXY-F2E/api-mocker">https://github.com/DXY-F2E/api-mocker</a></p>
+<div class="markdown-heading"><h2 class="heading-element">启动命令</h2><a id="user-content-启动命令" class="anchor" aria-label="Permalink: 启动命令" href="#启动命令"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>source ~/nvm/nvm.sh
+nvm use v8.15.0
+
+mongod --bind_ip 127.0.0.1 --fork --dbpath ./db/ --logpath ./db/mongod.log
+make prod_client
+make prod_server
+</code></pre>
+<div class="markdown-heading"><h2 class="heading-element">修改用户密码</h2><a id="user-content-修改用户密码" class="anchor" aria-label="Permalink: 修改用户密码" href="#修改用户密码"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>mongo --port 27017 --host 127.0.0.1
+
+show dbs
+
+use api-mock
+
+show collections
+
+// 查询用户
+db.users.find({email: <span class="pl-s"><span class="pl-pds">'</span>a@b.com<span class="pl-pds">'</span></span>})
+
+// 修改密码
+// 123456 -<span class="pl-k">&gt;</span> 890e5ea426292d095a0843886a21bcb0
+db.users.update({<span class="pl-s"><span class="pl-pds">'</span>email<span class="pl-pds">'</span></span>:<span class="pl-s"><span class="pl-pds">'</span>a@b.com<span class="pl-pds">'</span></span>},{<span class="pl-s"><span class="pl-pds">'</span>$set<span class="pl-pds">'</span></span>:{<span class="pl-s"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>:<span class="pl-s"><span class="pl-pds">'</span>890e5ea426292d095a0843886a21bcb0<span class="pl-pds">'</span></span>}},upsert=true,multi=false)</pre></div>
+<div class="highlight highlight-source-json"><pre><span class="pl-ii">// 用户数据示例</span>
+{ <span class="pl-ent">"_id"</span> : <span class="pl-ii">ObjectId("6111da18038317083608181f"), "email" : "a@b.com", "password" : "f19b112ebe36ec9429d4c31cdd2f473c", "name" : "ablet", "isDeleted" : false, "modifiedTime" : ISODate("2021-08-10T01:44:56.138Z"), "createTime" : ISODate("2021-08-10T01:44:56.138Z"), "teamId" : [ ], "__v" : 0 </span>}</pre></div>
