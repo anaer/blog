@@ -1250,14 +1250,14 @@
             "postUrl": "post/58.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/58",
             "commentNum": 0,
-            "updatedAt": 1737534532,
+            "updatedAt": 1737536607,
             "top": 0,
             "createdAt": 1737534523,
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
             "dateLabelColor": "#000000",
-            "buildedAt": 1737534532,
+            "buildedAt": 1737536607,
             "description": "\u5730\u5740: https://github.com/DXY-F2E/api-mocker\n\u542f\u52a8\u547d\u4ee4\nsource ~/nvm/nvm.sh\nnvm use v8.15.0\n\nmongod --bind_ip..."
         },
         "P59": {
