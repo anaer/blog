@@ -1,0 +1,24 @@
+<div class="markdown-heading"><h2 class="heading-element">抓包https配置</h2><a id="user-content-抓包https配置" class="anchor" aria-label="Permalink: 抓包https配置" href="#抓包https配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>添加环境变量 SSLKEYLOGFILE</li>
+</ol>
+<p>SSLKEYLOGFILE = C:\sslkey.log</p>
+<ol start="2">
+<li>
+<p>新打开 chrome 浏览器, 访问任意一个 https 网站, 检查 sslkey 文件生成情况</p>
+</li>
+<li>
+<p>Wireshark 配置</p>
+</li>
+</ol>
+<p>编辑 -&gt; 首选项 -&gt; Protocols -&gt; TLS</p>
+<p>(Pre)-Master-Secret log filename -&gt; C:\sslkey.log</p>
+<ol start="4">
+<li>抓包验证</li>
+</ol>
+<div class="markdown-heading"><h2 class="heading-element">过滤请求中包含 api 的 POST 请求</h2><a id="user-content-过滤请求中包含-api-的-post-请求" class="anchor" aria-label="Permalink: 过滤请求中包含 api 的 POST 请求" href="#过滤请求中包含-api-的-post-请求"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>http contains api and http.request.method == "POST"</p>
+<p>http.request.method == "POST" and http.request.uri contains auth</p>
+<div class="markdown-heading"><h2 class="heading-element">参考链接</h2><a id="user-content-参考链接" class="anchor" aria-label="Permalink: 参考链接" href="#参考链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>过滤参数说明
+<a href="https://www.wireshark.org/docs/dfref/h/http.html" rel="nofollow">https://www.wireshark.org/docs/dfref/h/http.html</a></p>
