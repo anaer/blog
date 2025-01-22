@@ -1168,14 +1168,14 @@
             "postUrl": "post/54.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/54",
             "commentNum": 0,
-            "updatedAt": 1737531127,
+            "updatedAt": 1737537487,
             "top": 0,
             "createdAt": 1737531127,
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "#00ff00",
-            "buildedAt": 1737531127,
+            "dateLabelColor": "#000000",
+            "buildedAt": 1737537487,
             "description": "\u5b89\u88c5\n\u6309\u884c\u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\nsudo apt update && sudo apt install -y curl apt-transport-https gnupg\n\ncurl https://couc..."
         },
         "P55": {

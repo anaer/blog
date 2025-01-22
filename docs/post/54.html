@@ -119,8 +119,9 @@ sudo apt install couchdb</pre></div>
 systemctl stop couchdb</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">检查安装结果</h2><a id="user-content-检查安装结果" class="anchor" aria-label="Permalink: 检查安装结果" href="#检查安装结果"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>curl http://127.0.0.1:5984/</pre></div>
-<div class="highlight highlight-source-json"><pre><span class="pl-ii">// 响应结果</span>
-{<span class="pl-ent">"couchdb"</span>:<span class="pl-s"><span class="pl-pds">"</span>Welcome<span class="pl-pds">"</span></span>,<span class="pl-ent">"version"</span>:<span class="pl-s"><span class="pl-pds">"</span>3.4.2<span class="pl-pds">"</span></span>,<span class="pl-ent">"git_sha"</span>:<span class="pl-s"><span class="pl-pds">"</span>6e5ad2a5c<span class="pl-pds">"</span></span>,<span class="pl-ent">"uuid"</span>:<span class="pl-s"><span class="pl-pds">"</span>3c1399389c7a4c246449d48ba1990edb<span class="pl-pds">"</span></span>,<span class="pl-ent">"features"</span>:[<span class="pl-s"><span class="pl-pds">"</span>access-ready<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>partitioned<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>pluggable-storage-engines<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>reshard<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>scheduler<span class="pl-pds">"</span></span>],<span class="pl-ent">"vendor"</span>:{<span class="pl-ent">"name"</span>:<span class="pl-s"><span class="pl-pds">"</span>The Apache Software Foundation<span class="pl-pds">"</span></span>}}</pre></div>
+<pre lang="jsonp"><code>// 响应结果
+{"couchdb":"Welcome","version":"3.4.2","git_sha":"6e5ad2a5c","uuid":"3c1399389c7a4c246449d48ba1990edb","features":["access-ready","partitioned","pluggable-storage-engines","reshard","scheduler"],"vendor":{"name":"The Apache Software Foundation"}}
+</code></pre>
 <div class="markdown-heading"><h2 class="heading-element">nginx配置</h2><a id="user-content-nginx配置" class="anchor" aria-label="Permalink: nginx配置" href="#nginx配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <pre lang="conf"><code>  location /cdb {
       proxy_pass http://127.0.0.1:5984/;
@@ -141,7 +142,7 @@ systemctl stop couchdb</pre></div>
 <p><a href="https://www.myfreax.com/how-to-install-couchdb-on-ubuntu-20-04/" rel="nofollow">如何在Ubuntu 20.04安装CouchDB</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/53.html" aria-label="Previous Page">53 Android  TextView中部分文字高亮显示</a><span style="width:200px" aria-disabled="true"></span></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/53.html" aria-label="Previous Page">53 Android  TextView中部分文字高亮显示</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/55.html" aria-label="Next Page">55 通用开发型提示词prompt</a></div>
 </nav>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

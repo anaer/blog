@@ -33,7 +33,7 @@ systemctl stop couchdb
 curl http://127.0.0.1:5984/
 ```
 
-```json
+```jsonp
 // 响应结果
 {"couchdb":"Welcome","version":"3.4.2","git_sha":"6e5ad2a5c","uuid":"3c1399389c7a4c246449d48ba1990edb","features":["access-ready","partitioned","pluggable-storage-engines","reshard","scheduler"],"vendor":{"name":"The Apache Software Foundation"}}
 ```
