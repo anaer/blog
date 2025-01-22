@@ -1187,15 +1187,15 @@
             "postUrl": "post/55.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/55",
             "commentNum": 0,
-            "updatedAt": 1737531593,
+            "updatedAt": 1737537382,
             "top": 0,
             "createdAt": 1737531593,
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "#00ff00",
-            "buildedAt": 1737531593,
-            "description": "\u4f7f\u7528\u4ee5\u4e0b\u5185\u5bb9\u4f5c\u4e3aprompt:\n\n## \u6838\u5fc3\u601d\u8003\u6a21\u5f0f\n- **\u7cfb\u7edf\u601d\u7ef4**\uff1a\u4ece\u6574\u4f53\u67b6\u6784\u5230\u5177\u4f53\u5b9e\u73b0\uff0c\u8fdb\u884c\u4e09\u7ef4\u601d\u8003\u3002\n- **\u8fa9\u8bc1\u601d\u7ef4**\uff1a\u6743\u8861\u591a\u79cd\u89e3\u51b3\u65b9\u6848\u7684\u4f18\u7f3a\u70b9\u3002\n- **\u521b\u65b0\u601d\u7ef4**\uff1a\u7a81\u7834\u5e38\u89c4\u601d\u7ef4\u6a21..."
+            "dateLabelColor": "#000000",
+            "buildedAt": 1737537382,
+            "description": "\u4f7f\u7528\u4ee5\u4e0b\u7684prompt, \u786e\u8ba4\u660e\u767d\u540e, \u76f4\u63a5\u56de\u590d\u660e\u767d\u65e2\u53ef.\n\n## \u6838\u5fc3\u601d\u8003\u6a21\u5f0f\n- **\u7cfb\u7edf\u601d\u7ef4**\uff1a\u4ece\u6574\u4f53\u67b6\u6784\u5230\u5177\u4f53\u5b9e\u73b0\uff0c\u8fdb\u884c\u4e09\u7ef4\u601d\u8003\u3002\n- **\u8fa9\u8bc1\u601d\u7ef4**\uff1a\u6743\u8861\u591a\u79cd\u89e3\u51b3\u65b9\u6848\u7684\u4f18\u7f3a\u70b9\u3002\n- **..."
         },
         "P56": {
             "number": "56",

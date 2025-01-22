@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 22 Jan 2025 09:06:37 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 22 Jan 2025 09:06:37 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>60 pm2常用命令</title><link>https://anaer.github.io/blog/post/60.html</link><description>启动
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 22 Jan 2025 09:16:43 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 22 Jan 2025 09:16:43 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>60 pm2常用命令</title><link>https://anaer.github.io/blog/post/60.html</link><description>启动
 $ pm2 start app.js                  # 启动app.js应用程序
 $ pm2 start app.js -i 4             # cluster ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/60.html</guid><pubDate>Wed, 22 Jan 2025 08:36:09 +0000</pubDate></item><item><title>59 Wireshark抓包https配置</title><link>https://anaer.github.io/blog/post/59.html</link><description>抓包https配置
 
@@ -47,12 +47,12 @@ tim...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/5
 输出文件
 
 
--d, --dir=...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/56.html</guid><pubDate>Wed, 22 Jan 2025 08:16:09 +0000</pubDate></item><item><title>55 通用开发型提示词prompt</title><link>https://anaer.github.io/blog/post/55.html</link><description>使用以下内容作为prompt:
+-d, --dir=...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/56.html</guid><pubDate>Wed, 22 Jan 2025 08:16:09 +0000</pubDate></item><item><title>55 通用开发型提示词prompt</title><link>https://anaer.github.io/blog/post/55.html</link><description>使用以下的prompt, 确认明白后, 直接回复明白既可.
 
 ## 核心思考模式
 - **系统思维**：从整体架构到具体实现，进行三维思考。
 - **辩证思维**：权衡多种解决方案的优缺点。
-- **创新思维**：突破常规思维模...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/55.html</guid><pubDate>Wed, 22 Jan 2025 07:39:53 +0000</pubDate></item><item><title>54 在Ubuntu 20.04安装CouchDB</title><link>https://anaer.github.io/blog/post/54.html</link><description>安装
+- **...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/55.html</guid><pubDate>Wed, 22 Jan 2025 07:39:53 +0000</pubDate></item><item><title>54 在Ubuntu 20.04安装CouchDB</title><link>https://anaer.github.io/blog/post/54.html</link><description>安装
 按行执行以下命令
 sudo apt update &amp;&amp; sudo apt install -y curl apt-transport-https gnupg
 
