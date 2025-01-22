@@ -135,6 +135,12 @@ DNS 劫持：使用 DNS over HTTPS（HTTP over TLS）、DNS over TLS 等方式�
 
 [BrowserScan - DNS Leak](https://www.browserscan.net/dns-leak)
 
+[DNS Leak Test - BrowserLeaks](https://browserleaks.com/dns)
+
+[DNS泄漏测试](https://surfshark.com/zh/dns-leak-test)
+
+[IP/DNS Detect](https://ipleak.net/)
+
 ## 相关链接
 
 [DNS_over_HTTPS - 维基百科](https://zh.wikipedia.org/wiki/DNS_over_HTTPS)
