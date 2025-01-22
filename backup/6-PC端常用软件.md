@@ -3,13 +3,9 @@
 ### 浏览器
 | 名称         | 下载地址                                                     | 说明                          |
 | ------------ | ------------------------------------------------------------ | ----------------------------- |
+| Edge            |                                                                                         |目前主用
 | Floorp浏览器 | [GitHub](https://github.com/Floorp-Projects/Floorp/releases) | Firefox fork版 增加一些特性   |
 | Zen Browser  | [GitHub](https://github.com/zen-browser/desktop)             | Firefox fork版 支持左侧标签栏 |
-
-### 代理
-| 名称      | 下载地址                          | 说明 |
-| --------- | --------------------------------- | ---- |
-| Proxifier | [官网](http://www.proxifier.com/) |      |
 
 ### 传输
 | 名称   | 下载地址                                    | 说明 |
@@ -19,6 +15,7 @@
 ### 内存
 | 名称                       | 下载地址                                                          | 说明                       |
 | -------------------------- | ----------------------------------------------------------------- | -------------------------- |
+| Reduce Memory             | [官网](https://www.sordum.org/9197/reduce-memory-v1-7/) | 在用
 | Mem Reduct                 | [GitHub](https://github.com/henrypp/memreduct)                    | 内存释放, Q:偶尔选项置灰   |
 | Windows Memory Cleaner 2.8 | [GitHub](https://github.com/IgorMundstein/WinMemoryCleaner/)      |                            |
 | Wise Memory Optimizer      | [官网](https://www.wisecleaner.com.cn/wise-memory-optimizer.html) | Windows 内存整理和优化工具 |
@@ -79,7 +76,6 @@
 | Stats                | [GitHub](https://github.com/exelban/stats)                |                                                 |
 | SwitchHosts          | [GitHub](https://github.com/oldj/SwitchHosts/releases)    |                                                 |
 | Unlocker             | [下载](https://www.52pojie.cn/thread-1317159-1-1.html)    |                                                 |
-| fastcopy快速拷贝工具 | [官网](https://fastcopy.jp/)                              |                                                 |
 | uTools               | [官网](https://www.u.tools/)                              |                                                 |
 
 ---
@@ -97,7 +93,6 @@
 | ------------- | ------------------------------------------------------------------------------- | ---- |
 | LibreOffice   | [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/) |      |
 | WeCom企业微信 | [官网](https://work.weixin.qq.com/)                                             |      |
-
 
 ---
 ## 开发
@@ -126,6 +121,7 @@
 | 名称    | 下载地址                                                        | 说明                                                                |
 | ------- | --------------------------------------------------------------- | ------------------------------------------------------------------- |
 | Charles | [官网](https://www.charlesproxy.com/latest-release/download.do) | [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html) |
+| Proxifier | [官网](http://www.proxifier.com/) |      |
 
 ### 数据库
 | 名称                  | 下载地址                                                          | 说明                                 |
