@@ -404,7 +404,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-21",
-            "dateLabelColor": "#990099",
+            "dateLabelColor": "#9a0099",
             "buildedAt": 1737450435,
             "description": "dufs\n\nminiserve\n\nchfsgui\n\n"
         },
@@ -512,7 +512,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-25",
-            "dateLabelColor": "#1b1b00",
+            "dateLabelColor": "#1c1c00",
             "buildedAt": 1735109982,
             "description": "\u751f\u6210\u6587\u4ef6\u7684sha1\u7801\n# touch 1.txt\n# sha1sum 1.txt\nda39a3ee5e6b4b0d3255bfef95601890afd80709  1.txt\n\n"
         },
@@ -554,7 +554,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-31",
-            "dateLabelColor": "#161500",
+            "dateLabelColor": "#161600",
             "buildedAt": 1735627612,
             "description": "\u539f\u56e0\n\u8c37\u6b4c\u6d4f\u89c8\u5668 80.0 \u53ca\u4ee5\u4e0a\u7248\u672c\u4fee\u6539\u4e86\u5b89\u5168\u7b56\u7565\uff0c\u9ed8\u8ba4 SameSite \u7b56\u7565\u4e0d\u5141\u8bb8 cookie \u8de8\u7ad9\u53d1\u9001\uff0c\u56e0\u6b64\u5355\u70b9\u767b\u5f55\u4f1a\u5931\u8d25\u3002\n\u89e3\u51b3\n\n\u4f4e\u7248\u672c\u8c37\u6b4c \u5173\u95ed\u8c37\u6b4c\u6d4f\u89c8\u5668\u7684\u300cSameSite by d..."
         },
@@ -705,7 +705,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-09",
-            "dateLabelColor": "#0c0c00",
+            "dateLabelColor": "#0d0c00",
             "buildedAt": 1736407411,
             "description": "Z-library\nRe Z-library\n\u53ef\u4ee5\u5728tg\u4e0a\u521b\u5efabot\u7528\u4e8e\u641c\u4e66\u4e0b\u4e66, \u4e0d\u8fc7\u56e0\u4e3atg\u9650\u5236, \u53ea\u80fd\u4e0b\u8f7d50M\u4ee5\u4e0b\u7684\nSaltyLeo\u7684\u4e66\u67b6\n\u722c\u7f51\u7a0b\u5e8f\u81ea\u52a8\u5411\u5404\u4e2a\u7ad9\u70b9\u67e5\u8be2\u96c6\u5408\u7684\u7ed3\u679c\n\u5b89\u5a1c\u7684\u6863\u6848\n..."
         },
