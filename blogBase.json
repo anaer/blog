@@ -57,7 +57,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-09-28",
-            "dateLabelColor": "#e227ba",
+            "dateLabelColor": "#e228ba",
             "buildedAt": 1734053847,
             "description": "\u66b4\u529b\u7334Violentmonkey\n\u5143\u6570\u636e\u5757\n// ==UserScript==\n// @name \u6807\u9898\n// @name:zh-CN \u53ef\u4ee5\u5728\u53d8\u91cf\u540d\u540e\u589e\u52a0\u533a\u57df\u4fe1\u606f:zh-CN \u5b9e\u73b0\u591a\u8bed\u8a00\u56fd\u9645\u5316\n// @..."
         },
@@ -232,7 +232,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-11-06",
-            "dateLabelColor": "#bb2793",
+            "dateLabelColor": "#bb2893",
             "buildedAt": 1734053849,
             "description": "vim /etc/fail2ban/jail.d/nginx.conf\n[nginx-cc]\nenabled = true\nfilter = nginx-cc\naction = iptables-mu..."
         },
@@ -319,7 +319,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-05-23",
-            "dateLabelColor": "#f312e1",
+            "dateLabelColor": "#f412e1",
             "buildedAt": 1735893416,
             "description": "Reduce Memory v1.7\n\nWindows Memory Cleaner 2.8\nMem Reduct\n\n"
         },
