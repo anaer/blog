@@ -1217,6 +1217,27 @@
             "dateLabelColor": "#00ff00",
             "buildedAt": 1737533769,
             "description": "aria2c --help=#all\n\n\n\n\u53c2\u6570\n\u8bf4\u660e\n\n\n\n\n-c, --continue[=true, false]\n\u65ad\u70b9\u7eed\u4f20\n\n\n-o, --out=FILE\n\u8f93\u51fa\u6587\u4ef6\n\n\n-d, --dir=..."
+        },
+        "P57": {
+            "number": "57",
+            "htmlDir": "docs/post/57.html",
+            "markdown": "backup/57-curl\u7edf\u8ba1\u8017\u65f6.md",
+            "labels": [
+                "\u8f6f\u4ef6"
+            ],
+            "postTitle": "57 curl\u7edf\u8ba1\u8017\u65f6",
+            "postUrl": "post/57.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/57",
+            "commentNum": 0,
+            "updatedAt": 1737533869,
+            "top": 0,
+            "createdAt": 1737533869,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-22",
+            "dateLabelColor": "#00ff00",
+            "buildedAt": 1737533869,
+            "description": "\u901a\u8fc7curl\u547d\u4ee4\u6765\u67e5\u8be2https\u8bf7\u6c42\u5404\u9636\u6bb5\u7684\u8017\u65f6\ncurl\u547d\u4ee4\u652f\u6301\u4ee5\u4e0b\u9636\u6bb5\u7684\u65f6\u95f4\u7edf\u8ba1\uff1a\n\n\n\n\u9636\u6bb5\n\u8bf4\u660e\n\n\n\n\ntime_namelookup\n\u4ece\u8bf7\u6c42\u5f00\u59cb\u5230DNS\u89e3\u6790\u5b8c\u6210\u7684\u8017\u65f6\n\n\ntime_con..."
         }
     },
     "singeListJson": {},

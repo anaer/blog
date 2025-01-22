@@ -1,5 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 22 Jan 2025 08:16:30 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 22 Jan 2025 08:16:30 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>56 aira2命令参数</title><link>https://anaer.github.io/blog/post/56.html</link><description>aria2c --help=#all
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 22 Jan 2025 08:18:16 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 22 Jan 2025 08:18:16 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>57 curl统计耗时</title><link>https://anaer.github.io/blog/post/57.html</link><description>通过curl命令来查询https请求各阶段的耗时
+curl命令支持以下阶段的时间统计：
+
+
+
+阶段
+说明
+
+
+
+
+time_namelookup
+从请求开始到DNS解析完成的耗时
+
+
+time_con...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/57.html</guid><pubDate>Wed, 22 Jan 2025 08:17:49 +0000</pubDate></item><item><title>56 aira2命令参数</title><link>https://anaer.github.io/blog/post/56.html</link><description>aria2c --help=#all
 
 
 
