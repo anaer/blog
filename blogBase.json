@@ -131,20 +131,21 @@
             "markdown": "backup/6-PC\u7aef\u5e38\u7528\u8f6f\u4ef6.md",
             "labels": [
                 "\u5de5\u5177",
-                "Win10"
+                "Win10",
+                "\u8f6f\u4ef6"
             ],
             "postTitle": "6 PC\u7aef\u5e38\u7528\u8f6f\u4ef6",
             "postUrl": "post/6.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/6",
             "commentNum": 0,
-            "updatedAt": 1737515234,
+            "updatedAt": 1737523529,
             "top": 0,
             "createdAt": 1698656488,
             "style": "",
             "script": "",
             "createdDate": "2023-10-30",
             "dateLabelColor": "#c200c2",
-            "buildedAt": 1737515234,
+            "buildedAt": 1737523529,
             "description": "\u7cfb\u7edf\n\u6d4f\u89c8\u5668\n\n\n\n\u540d\u79f0\n\u4e0b\u8f7d\u5730\u5740\n\u8bf4\u660e\n\n\n\n\nEdge\n\n\u76ee\u524d\u4e3b\u7528\n\n\nFloorp\u6d4f\u89c8\u5668\nGitHub\nFirefox fork\u7248 \u589e\u52a0\u4e00\u4e9b\u7279\u6027\n\n\nZen Browser\nGitHub\nFir..."
         },
         "P7": {

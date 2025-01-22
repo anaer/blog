@@ -29,7 +29,7 @@
 ### 压缩
 | 名称 | 下载地址                              | 说明 |
 | ---- | ------------------------------------- | ---- |
-| 7zip | [官网](https://sparanoid.com/lab/7z/) |      |
+| 7zip | [官网](https://www.7-zip.org/)  [GitHub](https://github.com/ip7z/7zip/releases)|      |
 
 ### 密码
 | 名称        | 下载地址                                                                                           | 说明      |
