@@ -1196,6 +1196,27 @@
             "dateLabelColor": "#00ff00",
             "buildedAt": 1737531593,
             "description": "\u4f7f\u7528\u4ee5\u4e0b\u5185\u5bb9\u4f5c\u4e3aprompt:\n\n## \u6838\u5fc3\u601d\u8003\u6a21\u5f0f\n- **\u7cfb\u7edf\u601d\u7ef4**\uff1a\u4ece\u6574\u4f53\u67b6\u6784\u5230\u5177\u4f53\u5b9e\u73b0\uff0c\u8fdb\u884c\u4e09\u7ef4\u601d\u8003\u3002\n- **\u8fa9\u8bc1\u601d\u7ef4**\uff1a\u6743\u8861\u591a\u79cd\u89e3\u51b3\u65b9\u6848\u7684\u4f18\u7f3a\u70b9\u3002\n- **\u521b\u65b0\u601d\u7ef4**\uff1a\u7a81\u7834\u5e38\u89c4\u601d\u7ef4\u6a21..."
+        },
+        "P56": {
+            "number": "56",
+            "htmlDir": "docs/post/56.html",
+            "markdown": "backup/56-aira2\u547d\u4ee4\u53c2\u6570.md",
+            "labels": [
+                "\u8f6f\u4ef6"
+            ],
+            "postTitle": "56 aira2\u547d\u4ee4\u53c2\u6570",
+            "postUrl": "post/56.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/56",
+            "commentNum": 0,
+            "updatedAt": 1737533769,
+            "top": 0,
+            "createdAt": 1737533769,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-22",
+            "dateLabelColor": "#00ff00",
+            "buildedAt": 1737533769,
+            "description": "aria2c --help=#all\n\n\n\n\u53c2\u6570\n\u8bf4\u660e\n\n\n\n\n-c, --continue[=true, false]\n\u65ad\u70b9\u7eed\u4f20\n\n\n-o, --out=FILE\n\u8f93\u51fa\u6587\u4ef6\n\n\n-d, --dir=..."
         }
     },
     "singeListJson": {},
