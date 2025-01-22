@@ -1133,6 +1133,27 @@
             "dateLabelColor": "#00ff00",
             "buildedAt": 1737530289,
             "description": "mklink \u547d\u4ee4\n>mklink /?\n\u521b\u5efa\u7b26\u53f7\u94fe\u63a5\u3002\n\nMKLINK [[/D] | [/H] | [/J]] Link Target\n\n        /D      \u521b\u5efa\u76ee\u5f55\u7b26\u53f7\u94fe\u63a5\u3002\u9ed8\u8ba4\u4e3a\u6587..."
+        },
+        "P53": {
+            "number": "53",
+            "htmlDir": "docs/post/53.html",
+            "markdown": "backup/53-Android  TextView\u4e2d\u90e8\u5206\u6587\u5b57\u9ad8\u4eae\u663e\u793a.md",
+            "labels": [
+                "Android"
+            ],
+            "postTitle": "53 Android  TextView\u4e2d\u90e8\u5206\u6587\u5b57\u9ad8\u4eae\u663e\u793a",
+            "postUrl": "post/53.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/53",
+            "commentNum": 0,
+            "updatedAt": 1737530590,
+            "top": 0,
+            "createdAt": 1737530590,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-22",
+            "dateLabelColor": "#00ff00",
+            "buildedAt": 1737530590,
+            "description": "Android  TextView\u4e2d\u90e8\u5206\u6587\u5b57\u9ad8\u4eae\u663e\u793a\n/**\n* \u5173\u952e\u5b57\u9ad8\u4eae\u663e\u793a\n*\n* @param context \u4e0a\u4e0b\u6587\n* @param text \u9700\u8981\u663e\u793a\u7684\u6587\u5b57\n* @param targe..."
         }
     },
     "singeListJson": {},

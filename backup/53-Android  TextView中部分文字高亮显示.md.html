@@ -1,0 +1,30 @@
+<p>Android  TextView中部分文字高亮显示</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-c">/**</span>
+<span class="pl-c">* 关键字高亮显示</span>
+<span class="pl-c">*</span>
+<span class="pl-c">* @param context 上下文</span>
+<span class="pl-c">* @param text 需要显示的文字</span>
+<span class="pl-c">* @param target 需要高亮的关键字</span>
+<span class="pl-c">* @param color 高亮颜色</span>
+<span class="pl-c">* @param start 头部增加高亮文字个数</span>
+<span class="pl-c">* @param end 尾部增加高亮文字个数</span>
+<span class="pl-c">* @return 处理完后的结果</span>
+<span class="pl-c">*/</span>
+
+<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-smi">SpannableString</span> <span class="pl-en">highlight</span>(<span class="pl-smi">Context</span> <span class="pl-s1">context</span>, <span class="pl-smi">String</span> <span class="pl-s1">text</span>, <span class="pl-smi">String</span> <span class="pl-s1">target</span>, <span class="pl-smi">String</span> <span class="pl-s1">color</span>, <span class="pl-smi">int</span> <span class="pl-s1">start</span>, <span class="pl-smi">int</span> <span class="pl-s1">end</span>) {
+
+    <span class="pl-smi">SpannableString</span> <span class="pl-s1">spannableString</span> = <span class="pl-k">new</span> <span class="pl-smi">SpannableString</span>(<span class="pl-s1">text</span>);
+    <span class="pl-smi">Pattern</span> <span class="pl-s1">pattern</span> = <span class="pl-smi">Pattern</span>.<span class="pl-en">compile</span>(<span class="pl-s1">target</span>);
+    <span class="pl-smi">Matcher</span> <span class="pl-s1">matcher</span> = <span class="pl-s1">pattern</span>.<span class="pl-en">matcher</span>(<span class="pl-s1">text</span>);
+    <span class="pl-k">while</span> (<span class="pl-s1">matcher</span>.<span class="pl-en">find</span>()) {
+        <span class="pl-smi">ForegroundColorSpan</span> <span class="pl-s1">span</span> = <span class="pl-k">new</span> <span class="pl-smi">ForegroundColorSpan</span>(<span class="pl-smi">Color</span>.<span class="pl-en">parseColor</span>(<span class="pl-s1">color</span>));
+        <span class="pl-s1">spannableString</span>.<span class="pl-en">setSpan</span>(<span class="pl-s1">span</span>, <span class="pl-s1">matcher</span>.<span class="pl-en">start</span>() - <span class="pl-s1">start</span>, <span class="pl-s1">matcher</span>.<span class="pl-en">end</span>() + <span class="pl-s1">end</span>,
+        <span class="pl-smi">Spannable</span>.<span class="pl-c1">SPAN_EXCLUSIVE_EXCLUSIVE</span>);
+    }
+    <span class="pl-k">return</span> <span class="pl-s1">spannableString</span>;
+}</pre></div>
+<p>start与end参数默认情况下传0，当需要高亮的关键字前后有符号时(比如[高亮])，start与end参数可传1。</p>
+<p>调用方法</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">SpannableString</span> <span class="pl-s1">highlightText</span> = <span class="pl-smi">StringUtils</span>.<span class="pl-en">highlight</span>(<span class="pl-smi">this</span>, <span class="pl-s">"关键字高亮"</span>, <span class="pl-s">"高亮"</span>, <span class="pl-s">"#EA2D2D"</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>);
+
+<span class="pl-s1">textView</span>.<span class="pl-en">setText</span>(<span class="pl-s1">highlightText</span>);</pre></div>
