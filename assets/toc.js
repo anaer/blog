@@ -2,9 +2,22 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("\n %c TOC Plugins https://github.com/anaer/Gmeek \n","padding:5px 0;background:#C333D0;color:#fff");
 
     let css = `
+    @media (max-width: 1249px)
+    {
+        .toc{
+            position:static;
+            top:auto;
+            left:auto;
+            transform:none;
+            padding:10px;
+            margin-bottom:20px;
+            width:100%;
+        }
+    }
+
     .toc {
         position:fixed;
-        top:130px;
+        top:120px;
         left:50%;
         transform: translateX(50%) translateX(320px);
         width:200px;
@@ -46,20 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
         font-weight: bold;
         background-color: #b6e3ff;
     }
-
-    @media (max-width: 1249px)
-    {
-        .toc{
-            position:static;
-            top:auto;
-            left:auto;
-            transform:none;
-            padding:10px;
-            margin-bottom:20px;
-            max-height: 40vh;
-            width:60%;
-        }
-    }`;
+`;
 
     let contentContainer = document.getElementById('content');
     const headings = contentContainer.querySelectorAll('h1, h2, h3, h4, h5, h6');
