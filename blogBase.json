@@ -51,15 +51,15 @@
             "postUrl": "post/2.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/2",
             "commentNum": 0,
-            "updatedAt": 1734053847,
+            "updatedAt": 1737514322,
             "top": 0,
             "createdAt": 1695882906,
             "style": "",
             "script": "",
             "createdDate": "2023-09-28",
-            "dateLabelColor": "#e228ba",
-            "buildedAt": 1734053847,
-            "description": "\u66b4\u529b\u7334Violentmonkey\n\u5143\u6570\u636e\u5757\n// ==UserScript==\n// @name \u6807\u9898\n// @name:zh-CN \u53ef\u4ee5\u5728\u53d8\u91cf\u540d\u540e\u589e\u52a0\u533a\u57df\u4fe1\u606f:zh-CN \u5b9e\u73b0\u591a\u8bed\u8a00\u56fd\u9645\u5316\n// @..."
+            "dateLabelColor": "#e200e2",
+            "buildedAt": 1737514322,
+            "description": "\u66b4\u529b\u7334Violentmonkey\n\u5143\u6570\u636e\u5757\n// ==UserScript==\n// @name                         \u6807\u9898\n// @name:zh-CN          ..."
         },
         "P3": {
             "number": "3",
