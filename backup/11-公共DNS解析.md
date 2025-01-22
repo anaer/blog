@@ -129,6 +129,12 @@ DNS 抢答：修改系统内核，使系统忽略错误的 DNS，因为早期 GF
 
 DNS 劫持：使用 DNS over HTTPS（HTTP over TLS）、DNS over TLS 等方式，通过加密的协议来保护 DNS 请求。只要 GFW 没有将提供服务的域名，进行 SNI 封禁，就有效。
 
+## DNS泄漏检测
+
+[DNS Leak Test](https://dnsleaktest.org/dns-leak-test)
+
+[BrowserScan - DNS Leak](https://www.browserscan.net/dns-leak)
+
 ## 相关链接
 
 [DNS_over_HTTPS - 维基百科](https://zh.wikipedia.org/wiki/DNS_over_HTTPS)
