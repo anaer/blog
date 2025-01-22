@@ -1,5 +1,7 @@
 
-## 通过curl命令来查询https请求各阶段的耗时
+## 统计耗时
+
+通过curl命令来查询https请求各阶段的耗时
 
 curl命令支持以下阶段的时间统计：
 
@@ -44,5 +46,16 @@ curl -w '
   time_pretransfer: %{time_pretransfer}
 time_starttransfer: %{time_starttransfer}
         ------------------------
-        time_total: %{time_total}' -o /dev/null -s -L 'https://www.baidu.com/'
+        time_total: %{time_total}
+' -o /dev/null -s -L 'https://www.baidu.com/'
+```
+```
+   time_namelookup: 0.001091
+      time_connect: 0.011882
+   time_appconnect: 0.223441
+     time_redirect: 0.000000
+  time_pretransfer: 0.223486
+time_starttransfer: 0.235369
+        ------------------------
+        time_total: 0.235515
 ```

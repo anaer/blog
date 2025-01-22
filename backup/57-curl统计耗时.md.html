@@ -1,4 +1,5 @@
-<div class="markdown-heading"><h2 class="heading-element">通过curl命令来查询https请求各阶段的耗时</h2><a id="user-content-通过curl命令来查询https请求各阶段的耗时" class="anchor" aria-label="Permalink: 通过curl命令来查询https请求各阶段的耗时" href="#通过curl命令来查询https请求各阶段的耗时"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">统计耗时</h2><a id="user-content-统计耗时" class="anchor" aria-label="Permalink: 统计耗时" href="#统计耗时"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>通过curl命令来查询https请求各阶段的耗时</p>
 <p>curl命令支持以下阶段的时间统计：</p>
 <table>
 <thead>
@@ -93,4 +94,14 @@ TTFB耗时 = time_starttransfer - time_appconnect
 <span class="pl-s">  time_pretransfer: %{time_pretransfer}</span>
 <span class="pl-s">time_starttransfer: %{time_starttransfer}</span>
 <span class="pl-s">        ------------------------</span>
-<span class="pl-s">        time_total: %{time_total}<span class="pl-pds">'</span></span> -o /dev/null -s -L <span class="pl-s"><span class="pl-pds">'</span>https://www.baidu.com/<span class="pl-pds">'</span></span></pre></div>
+<span class="pl-s">        time_total: %{time_total}</span>
+<span class="pl-s"><span class="pl-pds">'</span></span> -o /dev/null -s -L <span class="pl-s"><span class="pl-pds">'</span>https://www.baidu.com/<span class="pl-pds">'</span></span></pre></div>
+<pre><code>   time_namelookup: 0.001091
+      time_connect: 0.011882
+   time_appconnect: 0.223441
+     time_redirect: 0.000000
+  time_pretransfer: 0.223486
+time_starttransfer: 0.235369
+        ------------------------
+        time_total: 0.235515
+</code></pre>
