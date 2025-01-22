@@ -1112,6 +1112,27 @@
             "dateLabelColor": "#010100",
             "buildedAt": 1737440467,
             "description": "\u8fd9\u662f\u4e4b\u524dblog\u4f7f\u7528\u7684\u6846\u67b6, \u73b0\u5728\u6ca1\u5728\u7528\u4e86, \u8fd9\u91cc\u4ec5\u505a\u7559\u75d5.\n\u5b89\u88c5\u90e8\u7f72\n\u5b89\u88c5Gatsby\n\u8fd0\u884c npm install -g gatsby-cli \u5168\u5c40\u5b89\u88c5Gatsby CLI\n\u521b\u5efa\u65b0\u7f51\u7ad9\uff1a\n\u8fd0\u884c g..."
+        },
+        "P52": {
+            "number": "52",
+            "htmlDir": "docs/post/52.html",
+            "markdown": "backup/52-mklink\u8f6f\u94fe\u63a5\u521b\u5efa.md",
+            "labels": [
+                "Win10"
+            ],
+            "postTitle": "52 mklink\u8f6f\u94fe\u63a5\u521b\u5efa",
+            "postUrl": "post/52.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/52",
+            "commentNum": 0,
+            "updatedAt": 1737530289,
+            "top": 0,
+            "createdAt": 1737530289,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-22",
+            "dateLabelColor": "#00ff00",
+            "buildedAt": 1737530289,
+            "description": "mklink \u547d\u4ee4\n>mklink /?\n\u521b\u5efa\u7b26\u53f7\u94fe\u63a5\u3002\n\nMKLINK [[/D] | [/H] | [/J]] Link Target\n\n        /D      \u521b\u5efa\u76ee\u5f55\u7b26\u53f7\u94fe\u63a5\u3002\u9ed8\u8ba4\u4e3a\u6587..."
         }
     },
     "singeListJson": {},
