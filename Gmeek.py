@@ -137,12 +137,12 @@ class GMEEK():
         postBase["createdAt"]=time.strftime("%Y-%m-%d", time.gmtime(issue["createdAt"]))
         postBase["updatedAt"]=time.strftime("%Y-%m-%d", time.gmtime(issue["updatedAt"]))
 
-        prevPost = self.getPrevPost(issue["number"])
+        prevPost = self.get_prev_post(issue["number"])
         if prevPost:
             postBase["prevUrl"]=self.blogBase["homeUrl"] + "/" + prevPost["postUrl"]
             postBase["prevTitle"]=prevPost["postTitle"]
 
-        nextPost = self.getNextPost(issue["number"])
+        nextPost = self.get_next_post(issue["number"])
         if nextPost:
             postBase["nextUrl"]=self.blogBase["homeUrl"] + "/" + nextPost["postUrl"]
             postBase["nextTitle"]=nextPost["postTitle"]
@@ -262,7 +262,7 @@ class GMEEK():
     def normalize_title(self, title):
         return re.sub(r'[\\/*?:"<>|]', '_', title)
 
-    def getPrevPost(self, issuenumber):
+    def get_prev_post1(self, issuenumber):
         prevNum=int(issuenumber)-1
         while prevNum>0:
             if "P"+str(prevNum) in self.blogBase["postListJson"]:
@@ -270,13 +270,33 @@ class GMEEK():
                 return self.blogBase["postListJson"]["P"+str(prevNum)]
             prevNum=prevNum-1
 
-    def getNextPost(self, issuenumber):
+    def get_next_post1(self, issuenumber):
         nextNum=int(issuenumber)+1
         while nextNum<int(issuenumber)+len(self.blogBase["postListJson"]):
             if "P"+str(nextNum) in self.blogBase["postListJson"]:
                 # print(issuenumber, '后一篇', nextNum)
                 return self.blogBase["postListJson"]["P"+str(nextNum)]
             nextNum=nextNum+1
+
+    def get_prev_post(self, issuenumber):
+        keys = list(self.blogBase["postListJson"])
+        try:
+            index = keys.index("P" + str(issuenumber))
+            if index > 0:
+                prev_key = keys[index - 1]
+                return self.blogBase["postListJson"][prev_key]
+        except:
+            return None
+
+    def get_next_post(self, issuenumber):
+        keys = list(self.blogBase["postListJson"])
+        try:
+            index = keys.index("P" + str(issuenumber))
+            if index < len(keys) - 1:
+                next_key = keys[index + 1]
+                return self.blogBase["postListJson"][next_key]
+        except:
+            return None
 
     def addOnePostJson(self,issue):
         if self.repo.owner.name != issue.user.name:
@@ -382,6 +402,9 @@ class GMEEK():
         print("issue count:%d"%(len(list(issues))))
         for issue in issues:
             self.addOnePostJson(issue)
+
+        # 同plist排序, 便于post中获取上一篇和下一篇
+        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True))
 
         for issue in self.blogBase["postListJson"].values():
             self.createPostHtml(issue)
