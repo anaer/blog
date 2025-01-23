@@ -1,1 +1,0 @@
-https://esm.sh/@wooorm/starry-night@2.1.1/style/both.css
