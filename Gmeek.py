@@ -54,8 +54,8 @@ class GMEEK():
         self.defaultConfig()
 
     def cleanFile(self):
-        if os.path.exists(self.backup_dir):
-            shutil.rmtree(self.backup_dir)
+        # if os.path.exists(self.backup_dir):
+            # shutil.rmtree(self.backup_dir)
 
         if os.path.exists(self.root_dir):
             shutil.rmtree(self.root_dir)
