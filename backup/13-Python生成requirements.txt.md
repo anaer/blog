@@ -19,3 +19,20 @@ pipreqs . --encoding=utf8 --force
 ```
 
 这个命令会在当前目录下生成 requirements.txt 文件，其中包含了当前项目所依赖的所有 Python 包及其版本号。
+
+
+## 检测requirements.txt 文件中的版本更新
+
+### pip自带命令
+列出 requirements.txt 中已安装依赖包的更新版本
+```
+pip list --outdated
+```
+
+### pip-review
+
+```
+pip install pip-review
+
+pip-review
+```

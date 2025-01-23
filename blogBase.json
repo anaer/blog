@@ -293,14 +293,14 @@
             "postUrl": "post/13.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/13",
             "commentNum": 0,
-            "updatedAt": 1737515429,
+            "updatedAt": 1737602893,
             "top": 0,
             "createdAt": 1701927415,
             "style": "",
             "script": "",
             "createdDate": "2023-12-07",
-            "dateLabelColor": "#9d009c",
-            "buildedAt": 1737515429,
+            "dateLabelColor": "#9d009d",
+            "buildedAt": 1737602893,
             "description": "\u751f\u6210 Python \u9879\u76ee\u7684 requirements.txt \u6587\u4ef6\n1. \u4f7f\u7528 pip freeze \u547d\u4ee4\u3002\n\u5728\u9879\u76ee\u7684\u6839\u76ee\u5f55\u4e0b\uff0c\u6253\u5f00\u7ec8\u7aef\u6216\u547d\u4ee4\u63d0\u793a\u7b26\uff0c\u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\uff1a\npip freeze > requ..."
         },
         "P14": {

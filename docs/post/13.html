@@ -97,7 +97,7 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2023-12-07</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-22</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-23</time></span>
 
 <p>
 
@@ -113,9 +113,19 @@ pre {
 <div class="highlight highlight-source-shell"><pre>pip install pipreqs
 pipreqs <span class="pl-c1">.</span> --encoding=utf8 --force</pre></div>
 <p>这个命令会在当前目录下生成 requirements.txt 文件，其中包含了当前项目所依赖的所有 Python 包及其版本号。</p>
+<div class="markdown-heading"><h2 class="heading-element">检测requirements.txt 文件中的版本更新</h2><a id="user-content-检测requirementstxt-文件中的版本更新" class="anchor" aria-label="Permalink: 检测requirements.txt 文件中的版本更新" href="#检测requirementstxt-文件中的版本更新"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">pip自带命令</h3><a id="user-content-pip自带命令" class="anchor" aria-label="Permalink: pip自带命令" href="#pip自带命令"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>列出 requirements.txt 中已安装依赖包的更新版本</p>
+<pre><code>pip list --outdated
+</code></pre>
+<div class="markdown-heading"><h3 class="heading-element">pip-review</h3><a id="user-content-pip-review" class="anchor" aria-label="Permalink: pip-review" href="#pip-review"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>pip install pip-review
+
+pip-review
+</code></pre>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/6.html" aria-label="Previous Page">6 PC端常用软件</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/4.html" aria-label="Next Page">4 pyGitHub文档</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/12.html" aria-label="Previous Page">12 检测服务器内存信息, 并用bark通知</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/14.html" aria-label="Next Page">14 ijkPlayer配置参数</a></div>
 </nav>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
