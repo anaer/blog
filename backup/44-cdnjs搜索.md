@@ -7,22 +7,26 @@ https://cdn.bytedance.com/
 ## CDN地址
 
 ### cdnjs.cloudflare.com 国内可能无法正常访问
+
 https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css
 https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js
 
 ### 南方科技大学
 cdnjs.cloudflare.com -> mirrors.sustech.edu.cn/cdnjs
+
 https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.1.1/primer.css
 
 ### 国内加速 
 cdnjs.cloudflare.com -> cdnjs.admincdn.com
+
 https://cdnjs.admincdn.com/ajax/libs/Primer/21.1.1/primer.css
 
 ### unpkg
 https://unpkg.com/vue@2.6.11/dist/vue.min.js
 
 ### jsdelivr
-unpkg.com -> https://cdn.jsdelivr.net/npm
+unpkg.com -> cdn.jsdelivr.net/npm
+
 https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js
 
 ### 其他
