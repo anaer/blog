@@ -78,6 +78,8 @@ class GMEEK():
         dconfig={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","i18n":"CN","dayTheme":"light","nightTheme":"dark"}
         config=json.loads(open('config.json', 'r', encoding='utf-8').read())
         self.blogBase={**dconfig,**config}.copy()
+        # 清空前 先缓存, 便于处理
+        self.blogBase["cachePostListJson"] = self.blogBase["postListJson"]
         self.blogBase["postListJson"]=json.loads('{}')
         self.blogBase["singeListJson"]=json.loads('{}')
         if self.blogBase["i18n"]=="CN":
@@ -377,8 +379,9 @@ class GMEEK():
         for match in matches:
             print(f"Found number: {issue.title} {match}")
             matchPostNum = "P"+str(match)
-            if matchPostNum in self.blogBase["postListJson"]:
-                content = content.replace(" #"+match+" ", " ["+self.blogBase["postListJson"][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.blogBase["postListJson"][matchPostNum]["postUrl"]+") ")
+            # 因为postListJson每次执行会先清空, 所以使用缓存处理, 与最新数据可能有差异, 但不太影响
+            if matchPostNum in self.blogBase["cachePostListJson"]:
+                content = content.replace(" #"+match+" ", " ["+self.blogBase["cachePostListJson"][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.blogBase["cachePostListJson"][matchPostNum]["postUrl"]+") ")
                 # print(content)
 
         f = open(mdPath, 'w', encoding='UTF-8')
@@ -449,6 +452,9 @@ else:
         blog.blogBase=json.loads(f.read())
         f.close()
         blog.runOne(options.issue_number)
+
+# 清空缓存
+blog.blogBase["cachePostListJson"]=json.loads('{}')
 
 listFile=open("blogBase.json","w")
 listFile.write(json.dumps(blog.blogBase, indent=4))
