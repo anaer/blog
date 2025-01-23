@@ -1417,6 +1417,25 @@
             "dateLabelColor": "#00ff00",
             "buildedAt": 1737611166,
             "description": "\u78c1\u76d8\u6302\u8f7d\n1. fdisk -l\n2. fdisk /dev/xvdb\n    n\n    p\n    1\n    \u56de\u8f66\n    \u56de\u8f66\n    w\n3. mkfs.ext3 /dev/xvdb1\n4...."
+        },
+        "P67": {
+            "number": "67",
+            "htmlDir": "docs/post/67.html",
+            "markdown": "backup/67-Git\u5220\u9664\u5927\u6587\u4ef6.md",
+            "labels": [],
+            "postTitle": "67 Git\u5220\u9664\u5927\u6587\u4ef6",
+            "postUrl": "post/67.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/67",
+            "commentNum": 0,
+            "updatedAt": 1737611678,
+            "top": 0,
+            "createdAt": 1737611678,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-23",
+            "dateLabelColor": "#00ff00",
+            "buildedAt": 1737611678,
+            "description": "\u4f7f\u7528 git repo-clean \u5de5\u5177\u6e05\u7406\ngit repo-clean\u662f\u7528 Golang \u5f00\u53d1\u7684\u5177\u5907 Git \u4ed3\u5e93\u5927\u6587\u4ef6\u626b\u63cf\uff0c\u6e05\u7406\uff0c\u5e76\u91cd\u5199 commit \u63d0\u4ea4\u8bb0\u5f55\u529f\u80fd\u7684 Git \u62d3\u5c55\u5de5\u5177\u3002\n\u4e0b\u8f7d\n..."
         }
     },
     "singeListJson": {},
