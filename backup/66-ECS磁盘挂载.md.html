@@ -1,0 +1,21 @@
+<div class="markdown-heading"><h1 class="heading-element">磁盘挂载</h1><a id="user-content-磁盘挂载" class="anchor" aria-label="Permalink: 磁盘挂载" href="#磁盘挂载"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>1. fdisk -l
+2. fdisk /dev/xvdb
+    n
+    p
+    1
+    回车
+    回车
+    w
+3. mkfs.ext3 /dev/xvdb1
+4. mv /home /home1
+5. mkdir /home
+6. mount -t ext4 /dev/xvdb1 /home
+7. mv /home1/<span class="pl-k">*</span> /home/
+8. chmod 775 -R /home/<span class="pl-k">*</span>
+9. vi /etc/fstab
+    在最后加一行
+    /dev/xvdb1 /home ext4 defaults 0 0
+    :wq
+10. init
+11. 重启。</pre></div>
