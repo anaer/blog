@@ -1,0 +1,39 @@
+<p>这里仅记录最简单的一种解决方案, 其他方式见相关链接</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">import</span> <span class="pl-s1">java</span>.<span class="pl-s1">text</span>.<span class="pl-s1">SimpleDateFormat</span>;
+<span class="pl-k">import</span> <span class="pl-s1">java</span>.<span class="pl-s1">util</span>.<span class="pl-s1">Date</span>;
+
+<span class="pl-k">import</span> <span class="pl-s1">org</span>.<span class="pl-s1">springframework</span>.<span class="pl-s1">beans</span>.<span class="pl-s1">factory</span>.<span class="pl-s1">annotation</span>.<span class="pl-s1">Value</span>;
+<span class="pl-k">import</span> <span class="pl-s1">org</span>.<span class="pl-s1">springframework</span>.<span class="pl-s1">cloud</span>.<span class="pl-s1">context</span>.<span class="pl-s1">config</span>.<span class="pl-s1">annotation</span>.<span class="pl-s1">RefreshScope</span>;
+<span class="pl-k">import</span> <span class="pl-s1">org</span>.<span class="pl-s1">springframework</span>.<span class="pl-s1">cloud</span>.<span class="pl-s1">context</span>.<span class="pl-s1">scope</span>.<span class="pl-s1">refresh</span>.<span class="pl-s1">RefreshScopeRefreshedEvent</span>;
+<span class="pl-k">import</span> <span class="pl-s1">org</span>.<span class="pl-s1">springframework</span>.<span class="pl-s1">context</span>.<span class="pl-s1">ApplicationListener</span>;
+<span class="pl-k">import</span> <span class="pl-s1">org</span>.<span class="pl-s1">springframework</span>.<span class="pl-s1">scheduling</span>.<span class="pl-s1">annotation</span>.<span class="pl-s1">Scheduled</span>;
+<span class="pl-k">import</span> <span class="pl-s1">org</span>.<span class="pl-s1">springframework</span>.<span class="pl-s1">stereotype</span>.<span class="pl-s1">Component</span>;
+
+<span class="pl-c1">@</span><span class="pl-c1">Component</span>
+<span class="pl-c1">@</span><span class="pl-c1">RefreshScope</span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-smi">AlertSchedulerCron</span> <span class="pl-k">implements</span> <span class="pl-smi">ApplicationListener</span>&lt;<span class="pl-smi">RefreshScopeRefreshedEvent</span>&gt; {
+
+    <span class="pl-k">private</span> <span class="pl-smi">SimpleDateFormat</span> <span class="pl-s1">sdf</span> = <span class="pl-k">new</span> <span class="pl-smi">SimpleDateFormat</span>(<span class="pl-s">"yyyy-MM-dd HH:mm:ss"</span>);
+
+    <span class="pl-c1">@</span><span class="pl-c1">Value</span>(<span class="pl-s">"${pollingtime}"</span>)
+    <span class="pl-k">private</span> <span class="pl-smi">String</span> <span class="pl-s1">pollingtime</span>;
+
+    <span class="pl-c">/*</span>
+<span class="pl-c">     * @Value("${interval}") private String interval;</span>
+<span class="pl-c">     */</span>
+    <span class="pl-c1">@</span><span class="pl-c1">Scheduled</span>(<span class="pl-s1">cron</span> = <span class="pl-s">"${pollingtime}"</span>)
+    <span class="pl-c">//@Scheduled(fixedRateString = "${interval}" )</span>
+    <span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-en">task</span>() {
+        <span class="pl-smi">System</span>.<span class="pl-s1">out</span>.<span class="pl-en">println</span>(<span class="pl-s1">pollingtime</span>);
+        <span class="pl-smi">System</span>.<span class="pl-s1">out</span>.<span class="pl-en">println</span>(<span class="pl-s">"Scheduler (cron expression) task with duration : "</span> + <span class="pl-s1">sdf</span>.<span class="pl-en">format</span>(<span class="pl-k">new</span> <span class="pl-smi">Date</span>()));
+    }
+
+    <span class="pl-c1">@</span><span class="pl-c1">Override</span>
+    <span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-en">onApplicationEvent</span>(<span class="pl-smi">RefreshScopeRefreshedEvent</span> <span class="pl-s1">event</span>) {
+        <span class="pl-c">// TODO Auto-generated method stub</span>
+
+    }
+}</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://stackoverflow.com/questions/50440468/refreshscope-stops-scheduled-task" rel="nofollow">问题链接</a>
+<a href="https://www.jianshu.com/p/0e490fe4ff7a" rel="nofollow">@RefreshScope导致@Scheduled失效</a></p>
