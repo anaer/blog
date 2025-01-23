@@ -50,6 +50,40 @@ pre {
     word-wrap: break-word; /* 允许长单词或 URL 换行 */
     overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
 }
+
+.new-post {
+    bottom: 20px; /* 距离底部 20px */
+}
+
+.edit-post {
+    bottom: 45px; /* 距离底部45px */
+}
+
+/* 悬浮按钮样式 */
+.floating-button {
+    position: fixed; /* 固定位置 */
+
+    right: 20px; /* 距离右侧 20px */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 24px; /* 宽度 */
+    height: 24px; /* 高度 */
+    font-size: 16px; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    z-index: 1000; /* 确保按钮在最上层 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* 添加悬停效果 */
+}
+
+/* 按钮悬停效果 */
+.floating-button:hover {
+    background-color: #0056b3; /* 悬停时改变背景颜色 */
+}
 </style>
 
 
@@ -113,8 +147,18 @@ pre {
 微信小程序api：<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/api/" rel="nofollow">https://mp.weixin.qq.com/debug/wxadoc/dev/api/</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/64.html" aria-label="Previous Page">64 微信公众号错误码</a><span style="width:200px" aria-disabled="true"></span></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/66.html" aria-label="Previous Page">66 ECS磁盘挂载</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/64.html" aria-label="Next Page">64 微信公众号错误码</a></div>
 </nav>
+
+<!-- 编辑按钮 -->
+<a href="https://github.com/anaer/blog/issues/65" target="_blank">
+    <button class="floating-button edit-post">🖋</button>
+</a>
+
+<!-- 新增按钮 -->
+<a href="https://github.com/anaer/blog/issues/new" target="_blank">
+    <button class="floating-button new-post">+</button>
+</a>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>

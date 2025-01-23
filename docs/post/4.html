@@ -50,6 +50,40 @@ pre {
     word-wrap: break-word; /* 允许长单词或 URL 换行 */
     overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
 }
+
+.new-post {
+    bottom: 20px; /* 距离底部 20px */
+}
+
+.edit-post {
+    bottom: 45px; /* 距离底部45px */
+}
+
+/* 悬浮按钮样式 */
+.floating-button {
+    position: fixed; /* 固定位置 */
+
+    right: 20px; /* 距离右侧 20px */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 24px; /* 宽度 */
+    height: 24px; /* 高度 */
+    font-size: 16px; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    z-index: 1000; /* 确保按钮在最上层 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* 添加悬停效果 */
+}
+
+/* 按钮悬停效果 */
+.floating-button:hover {
+    background-color: #0056b3; /* 悬停时改变背景颜色 */
+}
 </style>
 
 
@@ -197,8 +231,18 @@ pre {
 <p><a href="https://github.com/PyGithub/PyGithub">PyGithub</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/13.html" aria-label="Previous Page">13 Python生成requirements.txt</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/2.html" aria-label="Next Page">2 暴力猴Violentmonkey 脚本说明</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/6.html" aria-label="Previous Page">6 PC端常用软件</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/2.html" aria-label="Next Page">2 暴力猴Violentmonkey 脚本说明</a></div>
 </nav>
+
+<!-- 编辑按钮 -->
+<a href="https://github.com/anaer/blog/issues/4" target="_blank">
+    <button class="floating-button edit-post">🖋</button>
+</a>
+
+<!-- 新增按钮 -->
+<a href="https://github.com/anaer/blog/issues/new" target="_blank">
+    <button class="floating-button new-post">+</button>
+</a>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
