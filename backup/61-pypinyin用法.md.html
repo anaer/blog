@@ -1,0 +1,34 @@
+<div class="markdown-heading"><h2 class="heading-element">安装</h2><a id="user-content-安装" class="anchor" aria-label="Permalink: 安装" href="#安装"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>pip install pypinyin</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">使用</h2><a id="user-content-使用" class="anchor" aria-label="Permalink: 使用" href="#使用"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> <span class="pl-s1">pypinyin</span> <span class="pl-k">import</span> <span class="pl-s1">lazy_pinyin</span>,<span class="pl-v">Style</span>
+<span class="pl-en">lazy_pinyin</span>(<span class="pl-s">"中国"</span>,<span class="pl-s1">style</span><span class="pl-c1">=</span><span class="pl-v">Style</span>.<span class="pl-c1">TONE</span>)</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">样式</h2><a id="user-content-样式" class="anchor" aria-label="Permalink: 样式" href="#样式"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span>: 普通风格，不带声调。如： 中国 -&gt; ``zhong guo``</span>
+NORMAL  =  0
+<span class="pl-c"><span class="pl-c">#</span>: 标准声调风格，拼音声调在韵母第一个字母上（默认风格）。如： 中国 -&gt; ``zhōng guó``</span>
+TONE  =  1
+<span class="pl-c"><span class="pl-c">#</span>: 声调风格2，即拼音声调在各个韵母之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``zho1ng guo2``</span>
+TONE2  =  2
+<span class="pl-c"><span class="pl-c">#</span>: 声调风格3，即拼音声调在各个拼音之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``zhong1 guo2``</span>
+TONE3  =  8
+<span class="pl-c"><span class="pl-c">#</span>: 声母风格，只返回各个拼音的声母部分。如： 中国 -&gt; ``zh g``</span>
+INITIALS  =  3
+<span class="pl-c"><span class="pl-c">#</span>: 首字母风格，只返回拼音的首字母部分。如： 中国 -&gt; ``z g``</span>
+FIRST_LETTER  =  4
+<span class="pl-c"><span class="pl-c">#</span>: 韵母风格，只返回各个拼音的韵母部分，不带声调。如： 中国 -&gt; ``ong uo``</span>
+FINALS  =  5
+<span class="pl-c"><span class="pl-c">#</span>: 标准韵母风格，带声调，声调在韵母第一个字母上。如：中国 -&gt; ``ōng uó``</span>
+FINALS_TONE  =  6
+<span class="pl-c"><span class="pl-c">#</span>: 韵母风格2，带声调，声调在各个韵母之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``o1ng uo2``</span>
+FINALS_TONE2  =  7
+<span class="pl-c"><span class="pl-c">#</span>: 韵母风格3，带声调，声调在各个拼音之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``ong1 uo2``</span>
+FINALS_TONE3  =  9
+<span class="pl-c"><span class="pl-c">#</span>: 注音风格，带声调，阴平（第一声）不标。如： 中国 -&gt; ``ㄓㄨㄥ ㄍㄨㄛˊ``</span>
+BOPOMOFO  =  10
+<span class="pl-c"><span class="pl-c">#</span>: 注音风格，仅首字母。如： 中国 -&gt; ``ㄓ ㄍ``</span>
+BOPOMOFO_FIRST  =  11
+<span class="pl-c"><span class="pl-c">#</span>: 汉语拼音与俄语字母对照风格，声调在各个拼音之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``чжун1 го2``</span>
+CYRILLIC  =  12
+<span class="pl-c"><span class="pl-c">#</span>: 汉语拼音与俄语字母对照风格，仅首字母。如： 中国 -&gt; ``ч г``</span>
+CYRILLIC_FIRST  =  13</pre></div>

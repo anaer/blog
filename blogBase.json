@@ -1301,6 +1301,27 @@
             "dateLabelColor": "#00ff00",
             "buildedAt": 1737534969,
             "description": "\u542f\u52a8\n$ pm2 start app.js                  # \u542f\u52a8app.js\u5e94\u7528\u7a0b\u5e8f\n$ pm2 start app.js -i 4             # cluster ..."
+        },
+        "P61": {
+            "number": "61",
+            "htmlDir": "docs/post/61.html",
+            "markdown": "backup/61-pypinyin\u7528\u6cd5.md",
+            "labels": [
+                "Python"
+            ],
+            "postTitle": "61 pypinyin\u7528\u6cd5",
+            "postUrl": "post/61.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/61",
+            "commentNum": 0,
+            "updatedAt": 1737602772,
+            "top": 0,
+            "createdAt": 1737602772,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-23",
+            "dateLabelColor": "#00ff00",
+            "buildedAt": 1737602772,
+            "description": "\u5b89\u88c5\npip install pypinyin\n\u4f7f\u7528\nfrom pypinyin import lazy_pinyin,Style\nlazy_pinyin(\"\u4e2d\u56fd\",style=Style.TONE)..."
         }
     },
     "singeListJson": {},
@@ -1327,6 +1348,6 @@
         "\u8f6f\u4ef6": "#b60205"
     },
     "issuesUrl": "https://github.com/anaer/blog/issues",
-    "prevUrl": "https://anaer.github.io/blog/page3.html",
+    "prevUrl": "https://anaer.github.io/blog/page4.html",
     "nextUrl": "disabled"
 }
