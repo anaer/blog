@@ -95,9 +95,27 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-03</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-23</time></span>
+
 <p>
 
 <div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h2 class="heading-element">git数据传输</h2><a id="user-content-git数据传输" class="anchor" aria-label="Permalink: git数据传输" href="#git数据传输"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>workspace       index          local repository      remote repository
+-------------commit -a----------------&gt;|
+--------add------&gt;|--------commit-----&gt;|
+                                        -------push--------&gt;|
+&lt;------------------------pull-------------------------------|
+                                       |&lt;------fetch--------|
+&lt;--------------checkout head-----------|
+&lt;-----checkout----|
+&lt;-----------------diff head------------|
+&lt;------diff-------|
+</code></pre>
+<p>workspace            用户的工作空间
+index                数据缓存区
+local repository     本地仓库
+remote repository    远程仓库</p>
 <div class="markdown-heading"><h2 class="heading-element">.git/config</h2><a id="user-content-gitconfig" class="anchor" aria-label="Permalink: .git/config" href="#gitconfig"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <pre lang="conf"><code>[core]
 	# repositoryformatversion 指定 Git 仓库的版本，默认值为 0，通常不需要修改
@@ -193,7 +211,7 @@ pre {
 </code></pre>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/27.html" aria-label="Previous Page">27 ip2region工具</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/26.html" aria-label="Next Page">26 API接口测试工具</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/27.html" aria-label="Previous Page">27 ip2region工具</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/29.html" aria-label="Next Page">29 whistle抓包工具</a></div>
 </nav>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

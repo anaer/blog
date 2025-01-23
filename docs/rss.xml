@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 23 Jan 2025 05:46:25 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 23 Jan 2025 05:46:25 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>66 ECS磁盘挂载</title><link>https://anaer.github.io/blog/post/66.html</link><description>磁盘挂载
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 23 Jan 2025 05:52:03 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 23 Jan 2025 05:52:03 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>66 ECS磁盘挂载</title><link>https://anaer.github.io/blog/post/66.html</link><description>磁盘挂载
 1. fdisk -l
 2. fdisk /dev/xvdb
     n
@@ -269,10 +269,9 @@ def extract_metadata(file_path):
 插件列表
 whistle.inspect
 安装插件后, 设置并启用Rules规则, 刷新页面生效
-支持: vco...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/29.html</guid><pubDate>Fri, 03 Jan 2025 06:19:08 +0000</pubDate></item><item><title>28 Git配置文件说明</title><link>https://anaer.github.io/blog/post/28.html</link><description>.git/config
-[core]
-	# repositoryformatversion 指定 Git 仓库的版本，默认值为 0，通常不需要修改
-	repositoryformatversion =...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/28.html</guid><pubDate>Fri, 03 Jan 2025 03:05:36 +0000</pubDate></item><item><title>27 ip2region工具</title><link>https://anaer.github.io/blog/post/27.html</link><description>ip2region
+支持: vco...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/29.html</guid><pubDate>Fri, 03 Jan 2025 06:19:08 +0000</pubDate></item><item><title>28 Git配置文件说明</title><link>https://anaer.github.io/blog/post/28.html</link><description>git数据传输
+workspace       index          local repository      remote repository
+-------------commit -...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/28.html</guid><pubDate>Fri, 03 Jan 2025 03:05:36 +0000</pubDate></item><item><title>27 ip2region工具</title><link>https://anaer.github.io/blog/post/27.html</link><description>ip2region
 
 ip2region-xdb  58M
 数据来自IP-API

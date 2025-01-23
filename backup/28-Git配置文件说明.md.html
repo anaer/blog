@@ -1,3 +1,19 @@
+<div class="markdown-heading"><h2 class="heading-element">git数据传输</h2><a id="user-content-git数据传输" class="anchor" aria-label="Permalink: git数据传输" href="#git数据传输"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>workspace       index          local repository      remote repository
+-------------commit -a----------------&gt;|
+--------add------&gt;|--------commit-----&gt;|
+                                        -------push--------&gt;|
+&lt;------------------------pull-------------------------------|
+                                       |&lt;------fetch--------|
+&lt;--------------checkout head-----------|
+&lt;-----checkout----|
+&lt;-----------------diff head------------|
+&lt;------diff-------|
+</code></pre>
+<p>workspace            用户的工作空间
+index                数据缓存区
+local repository     本地仓库
+remote repository    远程仓库</p>
 <div class="markdown-heading"><h2 class="heading-element">.git/config</h2><a id="user-content-gitconfig" class="anchor" aria-label="Permalink: .git/config" href="#gitconfig"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <pre lang="conf"><code>[core]
 	# repositoryformatversion 指定 Git 仓库的版本，默认值为 0，通常不需要修改

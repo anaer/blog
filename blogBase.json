@@ -611,15 +611,15 @@
             "postUrl": "post/28.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/28",
             "commentNum": 0,
-            "updatedAt": 1735890330,
+            "updatedAt": 1737611501,
             "top": 0,
             "createdAt": 1735873536,
             "style": "",
             "script": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "#131300",
-            "buildedAt": 1735890330,
-            "description": ".git/config\n[core]\n\t# repositoryformatversion \u6307\u5b9a Git \u4ed3\u5e93\u7684\u7248\u672c\uff0c\u9ed8\u8ba4\u503c\u4e3a 0\uff0c\u901a\u5e38\u4e0d\u9700\u8981\u4fee\u6539\n\trepositoryformatversion =..."
+            "dateLabelColor": "#140014",
+            "buildedAt": 1737611501,
+            "description": "git\u6570\u636e\u4f20\u8f93\nworkspace\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0index\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0local repository\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0remote repository\n-------------commit -..."
         },
         "P29": {
             "number": "29",
