@@ -80,7 +80,7 @@ class GMEEK():
         self.blogBase={**dconfig,**config}.copy()
         self.blogBase["postListJson"]=json.loads('{}')
         self.blogBase["singeListJson"]=json.loads('{}')
-        self.cachePostListJson=json.loads('{}')
+        self.cacheBlogBase=self.blogBase
         if self.blogBase["i18n"]=="CN":
             self.i18n=i18nCN
         else:
@@ -379,8 +379,8 @@ class GMEEK():
             print(f"Found number: {issue.title} {match}")
             matchPostNum = "P"+str(match)
             # 因为postListJson每次执行会先清空, 所以使用缓存处理, 与最新数据可能有差异, 但不太影响
-            if matchPostNum in self.cachePostListJson:
-                content = content.replace("#"+match, " ["+self.cachePostListJson[matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.cachePostListJson[matchPostNum]["postUrl"]+") ")
+            if matchPostNum in self.cacheBlogBase[listJsonName]:
+                content = content.replace("#"+match, " ["+self.cacheBlogBase[listJsonName][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.cacheBlogBase[listJsonName][matchPostNum]["postUrl"]+") ")
                 # print(content)
 
         f = open(mdPath, 'w', encoding='UTF-8')
@@ -388,7 +388,8 @@ class GMEEK():
         f.close()
 
         mdHtmlPath = mdPath + ".html"
-        if (not os.path.exists(mdHtmlPath) or not self.blogBase[listJsonName][postNum]["buildedAt"] or self.blogBase[listJsonName][postNum]["buildedAt"] != self.blogBase[listJsonName][postNum]["updatedAt"]):
+        # 需要使用缓存的buildedAt与当前的updatedAt进行比较
+        if (not os.path.exists(mdHtmlPath) or not self.cacheBlogBase[listJsonName][postNum]["buildedAt"] or self.cacheBlogBase[listJsonName][postNum]["buildedAt"] != self.blogBase[listJsonName][postNum]["updatedAt"]):
             mdHtml = self.markdown2html(content)
             fp = open(mdHtmlPath, 'w', encoding='UTF-8')
             fp.write(mdHtml)
@@ -446,18 +447,14 @@ if not os.path.exists("blogBase.json"):
     blog.runAll()
 else:
     f=open("blogBase.json","r")
-    lastBlogBase=json.loads(f.read())
+    blog.cacheBlogBase=json.loads(f.read())
     f.close()
-    if "postListJson" in lastBlogBase:
-        blog.cachePostListJson = lastBlogBase["postListJson"]
-    else:
-        blog.cachePostListJson = json.loads('{}')
     if options.issue_number=="0" or options.issue_number=="":
         print("issue_number=='0', runAll")
         blog.runAll()
     else:
         print("blogBase is exists and issue_number!=0, runOne")
-        blog.blogBase=lastBlogBase
+        blog.blogBase=blog.cacheBlogBase
         blog.runOne(options.issue_number)
 
 listFile=open("blogBase.json","w")
