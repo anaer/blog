@@ -394,6 +394,8 @@ class GMEEK():
             fp.write(mdHtml)
             fp.close()
             self.blogBase[listJsonName][postNum]["buildedAt"]=self.blogBase[listJsonName][postNum]["updatedAt"]
+        else:
+            print(f"mdHtml {mdHtmlPath} exists and updatedAt is not changed")
         return listJsonName
 
     def runAll(self):
