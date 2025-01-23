@@ -1,0 +1,44 @@
+<div class="markdown-heading"><h2 class="heading-element">CIDR 表示法</h2><a id="user-content-cidr-表示法" class="anchor" aria-label="Permalink: CIDR 表示法" href="#cidr-表示法"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>CIDR（Classless Inter-Domain Routing，无类域间路由）是一种简化的 IP 地址分配和路由选择协议，它使用了一种叫做 CIDR 表示法的方法来表示 IP 地址范围。</p>
+<p>CIDR 表示法使用 IP 地址和前缀长度的组合来表示一个 IP 地址段，其中前缀长度指的是 IP 地址中网络部分的长度。</p>
+<p>如，192.168.0.0/30 表示了一个包含 4 个 IP 地址的地址段，其中前 30 位是网络地址，后 2 位是主机地址。</p>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>ip 地址段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.0.0/30</td>
+<td>192.168.0.0-192.168.0.3</td>
+</tr>
+<tr>
+<td>192.168.0.0/24</td>
+<td>192.168.0.0-192.168.0.255</td>
+</tr>
+<tr>
+<td>192.168.0.0/16</td>
+<td>192.168.0.0-192.168.255.255</td>
+</tr>
+<tr>
+<td>192.168.0.0/8</td>
+<td>192.168.0.0-253.255.255.255</td>
+</tr>
+<tr>
+<td>172.16.0.0/12</td>
+<td>172.16.0.0-172.31.255.255</td>
+</tr>
+<tr>
+<td>10.0.0.0/8</td>
+<td>10.0.0.0-10.255.255.255</td>
+</tr>
+<tr>
+<td>188.180.0.0/22</td>
+<td>188.180.0.0-188.180.3.255</td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://zh.wikipedia.org/wiki/%E6%97%A0%E7%B1%BB%E5%88%AB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1" rel="nofollow">CIDR 维基</a></p>
