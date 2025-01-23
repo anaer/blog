@@ -33,5 +33,15 @@ db.users.update({'email':'a@b.com'},{'$set':{'password':'890e5ea426292d095a08438
 
 ```jsonp
 // 用户数据示例
-{ "_id" : ObjectId("6111da18038317083608181f"), "email" : "a@b.com", "password" : "f19b112ebe36ec9429d4c31cdd2f473c", "name" : "ablet", "isDeleted" : false, "modifiedTime" : ISODate("2021-08-10T01:44:56.138Z"), "createTime" : ISODate("2021-08-10T01:44:56.138Z"), "teamId" : [ ], "__v" : 0 }
+{ 
+    "_id" : ObjectId("6111da18038317083608181f"), 
+    "email" : "a@b.com", 
+    "password" : "f19b112ebe36ec9429d4c31cdd2f473c", 
+    "name" : "ablet", 
+    "isDeleted" : false, 
+    "modifiedTime" : ISODate("2021-08-10T01:44:56.138Z"), 
+    "createTime" : ISODate("2021-08-10T01:44:56.138Z"), 
+    "teamId" : [ ], 
+    "__v" : 0 
+}
 ```
