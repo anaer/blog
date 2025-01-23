@@ -95,12 +95,14 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-22</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-23</time></span>
+
 <p>
 
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h2 class="heading-element">统计耗时</h2><a id="user-content-统计耗时" class="anchor" aria-label="Permalink: 统计耗时" href="#统计耗时"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>通过curl命令来查询https请求各阶段的耗时</p>
-<p>curl命令支持以下阶段的时间统计：</p>
+<div class="markdown-heading"><h3 class="heading-element">时间统计</h3><a id="user-content-时间统计" class="anchor" aria-label="Permalink: 时间统计" href="#时间统计"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <table>
 <thead>
 <tr>
@@ -139,7 +141,7 @@ pre {
 </tr>
 </tbody>
 </table>
-<p>HTTP性能指标：</p>
+<div class="markdown-heading"><h3 class="heading-element">HTTP性能指标</h3><a id="user-content-http性能指标" class="anchor" aria-label="Permalink: HTTP性能指标" href="#http性能指标"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <table>
 <thead>
 <tr>
@@ -178,13 +180,13 @@ pre {
 </tr>
 </tbody>
 </table>
-<p>DNS请求耗时 = time_namelookup
-TCP三次握手耗时 = time_connect - time_namelookup
-SSL握手耗时 = time_appconnect - time_connect
-服务器处理请求耗时 = time_starttransfer - time_pretransfer
-TTFB耗时 = time_starttransfer - time_appconnect
-服务器传输耗时 = time_total - time_starttransfer
-总耗时 = time_total</p>
+<p>DNS请求耗时 = time_namelookup</p>
+<p>TCP三次握手耗时 = time_connect - time_namelookup</p>
+<p>SSL握手耗时 = time_appconnect - time_connect</p>
+<p>服务器处理请求耗时 = time_starttransfer - time_pretransfer</p>
+<p>TTFB耗时 = time_starttransfer - time_appconnect</p>
+<p>服务器传输耗时 = time_total - time_starttransfer</p>
+<p>总耗时 = time_total</p>
 <p>curl命令：</p>
 <div class="highlight highlight-source-shell"><pre>curl -w <span class="pl-s"><span class="pl-pds">'</span></span>
 <span class="pl-s">   time_namelookup: %{time_namelookup}</span>
@@ -196,6 +198,7 @@ TTFB耗时 = time_starttransfer - time_appconnect
 <span class="pl-s">        ------------------------</span>
 <span class="pl-s">        time_total: %{time_total}</span>
 <span class="pl-s"><span class="pl-pds">'</span></span> -o /dev/null -s -L <span class="pl-s"><span class="pl-pds">'</span>https://www.baidu.com/<span class="pl-pds">'</span></span></pre></div>
+<p>output:</p>
 <pre><code>   time_namelookup: 0.001091
       time_connect: 0.011882
    time_appconnect: 0.223441
@@ -207,7 +210,7 @@ time_starttransfer: 0.235369
 </code></pre>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/55.html" aria-label="Previous Page">55 通用开发型提示词prompt</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/60.html" aria-label="Next Page">60 pm2常用命令</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/56.html" aria-label="Previous Page">56 aira2命令参数</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/58.html" aria-label="Next Page">58 Api Mocker 帮助</a></div>
 </nav>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

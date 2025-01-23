@@ -3,7 +3,7 @@
 
 通过curl命令来查询https请求各阶段的耗时
 
-curl命令支持以下阶段的时间统计：
+### 时间统计
 
 | 阶段               | 说明                                                                   |
 | ------------------ | ---------------------------------------------------------------------- |
@@ -15,7 +15,7 @@ curl命令支持以下阶段的时间统计：
 | time_starttransfer | 从请求开始到内容传输前的时间                                           |
 | time_total         | 从请求开始到完成的总耗时                                               |
 
-HTTP性能指标：
+### HTTP性能指标
 
 | 指标               | 说明                                         |
 | ------------------ | -------------------------------------------- |
@@ -28,11 +28,17 @@ HTTP性能指标：
 | 请求完成总耗时     | 服务器从请求开始到完成的总耗时               |
 
 DNS请求耗时 = time_namelookup
+
 TCP三次握手耗时 = time_connect - time_namelookup
+
 SSL握手耗时 = time_appconnect - time_connect
+
 服务器处理请求耗时 = time_starttransfer - time_pretransfer
+
 TTFB耗时 = time_starttransfer - time_appconnect
+
 服务器传输耗时 = time_total - time_starttransfer
+
 总耗时 = time_total
 
 curl命令：
@@ -49,6 +55,9 @@ time_starttransfer: %{time_starttransfer}
         time_total: %{time_total}
 ' -o /dev/null -s -L 'https://www.baidu.com/'
 ```
+
+output:
+
 ```
    time_namelookup: 0.001091
       time_connect: 0.011882

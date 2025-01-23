@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 23 Jan 2025 01:45:49 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 23 Jan 2025 01:45:49 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>60 pm2常用命令</title><link>https://anaer.github.io/blog/post/60.html</link><description>启动
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 23 Jan 2025 01:55:51 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 23 Jan 2025 01:55:51 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>60 pm2常用命令</title><link>https://anaer.github.io/blog/post/60.html</link><description>启动
 $ pm2 start app.js                  # 启动app.js应用程序
 $ pm2 start app.js -i 4             # cluster ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/60.html</guid><pubDate>Wed, 22 Jan 2025 08:36:09 +0000</pubDate></item><item><title>59 Wireshark抓包https配置</title><link>https://anaer.github.io/blog/post/59.html</link><description>抓包https配置
 
@@ -15,7 +15,7 @@ nvm use v8.15.0
 
 mongod --bind_ip...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/58.html</guid><pubDate>Wed, 22 Jan 2025 08:28:43 +0000</pubDate></item><item><title>57 curl统计耗时</title><link>https://anaer.github.io/blog/post/57.html</link><description>统计耗时
 通过curl命令来查询https请求各阶段的耗时
-curl命令支持以下阶段的时间统计：
+时间统计
 
 
 
@@ -29,7 +29,8 @@ time_namelookup
 从请求开始到DNS解析完成的耗时
 
 
-tim...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/57.html</guid><pubDate>Wed, 22 Jan 2025 08:17:49 +0000</pubDate></item><item><title>56 aira2命令参数</title><link>https://anaer.github.io/blog/post/56.html</link><description>aria2c --help=#all
+time_connect
+从请求开...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/57.html</guid><pubDate>Wed, 22 Jan 2025 08:17:49 +0000</pubDate></item><item><title>56 aira2命令参数</title><link>https://anaer.github.io/blog/post/56.html</link><description>aria2c --help=#all
 
 
 

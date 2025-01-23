@@ -1229,15 +1229,15 @@
             "postUrl": "post/57.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/57",
             "commentNum": 0,
-            "updatedAt": 1737536771,
+            "updatedAt": 1737597330,
             "top": 0,
             "createdAt": 1737533869,
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
             "dateLabelColor": "#000000",
-            "buildedAt": 1737536771,
-            "description": "\u7edf\u8ba1\u8017\u65f6\n\u901a\u8fc7curl\u547d\u4ee4\u6765\u67e5\u8be2https\u8bf7\u6c42\u5404\u9636\u6bb5\u7684\u8017\u65f6\ncurl\u547d\u4ee4\u652f\u6301\u4ee5\u4e0b\u9636\u6bb5\u7684\u65f6\u95f4\u7edf\u8ba1\uff1a\n\n\n\n\u9636\u6bb5\n\u8bf4\u660e\n\n\n\n\ntime_namelookup\n\u4ece\u8bf7\u6c42\u5f00\u59cb\u5230DNS\u89e3\u6790\u5b8c\u6210\u7684\u8017\u65f6\n\n\ntim..."
+            "buildedAt": 1737597330,
+            "description": "\u7edf\u8ba1\u8017\u65f6\n\u901a\u8fc7curl\u547d\u4ee4\u6765\u67e5\u8be2https\u8bf7\u6c42\u5404\u9636\u6bb5\u7684\u8017\u65f6\n\u65f6\u95f4\u7edf\u8ba1\n\n\n\n\u9636\u6bb5\n\u8bf4\u660e\n\n\n\n\ntime_namelookup\n\u4ece\u8bf7\u6c42\u5f00\u59cb\u5230DNS\u89e3\u6790\u5b8c\u6210\u7684\u8017\u65f6\n\n\ntime_connect\n\u4ece\u8bf7\u6c42\u5f00..."
         },
         "P58": {
             "number": "58",
