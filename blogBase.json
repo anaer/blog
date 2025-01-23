@@ -426,7 +426,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#280127",
+            "dateLabelColor": "#290127",
             "buildedAt": 1737450466,
             "description": "Podimporter\n\u5728\u7ebf\u5bfc\u5165opml, \u9700\u8981\u767b\u5f55Spotify, \u7136\u540e\u9009\u62e9opml\u6587\u4ef6\u5bfc\u5165\n"
         },
@@ -1193,7 +1193,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "#000000",
+            "dateLabelColor": "#010000",
             "buildedAt": 1737537382,
             "description": "\u4f7f\u7528\u4ee5\u4e0b\u7684prompt, \u786e\u8ba4\u660e\u767d\u540e, \u76f4\u63a5\u56de\u590d\u660e\u767d\u65e2\u53ef.\n\n## \u6838\u5fc3\u601d\u8003\u6a21\u5f0f\n- **\u7cfb\u7edf\u601d\u7ef4**\uff1a\u4ece\u6574\u4f53\u67b6\u6784\u5230\u5177\u4f53\u5b9e\u73b0\uff0c\u8fdb\u884c\u4e09\u7ef4\u601d\u8003\u3002\n- **\u8fa9\u8bc1\u601d\u7ef4**\uff1a\u6743\u8861\u591a\u79cd\u89e3\u51b3\u65b9\u6848\u7684\u4f18\u7f3a\u70b9\u3002\n- **..."
         },
