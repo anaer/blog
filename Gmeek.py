@@ -369,7 +369,7 @@ class GMEEK():
         self.blogBase[listJsonName][postNum]["createdDate"]=createdAt.strftime("%Y-%m-%d")
         self.blogBase[listJsonName][postNum]["dateLabelColor"]= dateLabelColor
 
-        print(f"日期标签颜色: {issue.title} {createdAt} {updatedAt} {dateLabelColor}")
+        # print(f"日期标签颜色: {issue.title} {createdAt} {updatedAt} {dateLabelColor}")
 
         # 处理正文中的#数字链接
         content = issue.body
@@ -389,6 +389,7 @@ class GMEEK():
 
         mdHtmlPath = mdPath + ".html"
         # 需要使用缓存的buildedAt与当前的updatedAt进行比较
+        print(mdHtmlPath, os.path.exists(mdHtmlPath), self.cacheBlogBase[listJsonName][postNum]["buildedAt"], self.blogBase[listJsonName][postNum]["updatedAt"])
         if (not os.path.exists(mdHtmlPath) or not self.cacheBlogBase[listJsonName][postNum]["buildedAt"] or self.cacheBlogBase[listJsonName][postNum]["buildedAt"] != self.blogBase[listJsonName][postNum]["updatedAt"]):
             mdHtml = self.markdown2html(content)
             fp = open(mdHtmlPath, 'w', encoding='UTF-8')
