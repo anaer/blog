@@ -95,6 +95,8 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-14</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-23</time></span>
+
 <p>
 
 <div class="markdown-body" id="postBody">
@@ -102,9 +104,23 @@ pre {
 <div class="highlight highlight-source-shell"><pre>git config remote.origin.fetch <span class="pl-s"><span class="pl-pds">"</span>+refs/heads/*:refs/remotes/origin/*<span class="pl-pds">"</span></span>
 git fetch --depth=1
 git checkout branch-name</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">比较分支并导出变更文件</h2><a id="user-content-比较分支并导出变更文件" class="anchor" aria-label="Permalink: 比较分支并导出变更文件" href="#比较分支并导出变更文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>git diff 6db1256718a184ece757df2b7d8bf22444801661 8906e42d5aeff10b70086bd7aece0f3663edbddd --name-only <span class="pl-k">|</span> xargs zip update.zip
+
+<span class="pl-c"><span class="pl-c">#</span> 比较文件并导出为zip压缩包, 根据本机情况可以选择zip或者7zip</span>
+git diff feature/xxx-0719 origin/master --name-only <span class="pl-k">|</span> xargs zip user.zip
+
+git diff feature/xxx-0719 origin/master --name-only <span class="pl-k">|</span> xargs 7z a -tzip user.zip</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">删除敏感文件历史提交记录</h2><a id="user-content-删除敏感文件历史提交记录" class="anchor" aria-label="Permalink: 删除敏感文件历史提交记录" href="#删除敏感文件历史提交记录"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>以<code>.vscode/settings.json</code>文件为例</p>
+<div class="highlight highlight-source-shell"><pre>git filter-branch --force --index-filter  <span class="pl-s"><span class="pl-pds">"</span>git rm --cached --ignore-unmatch .vscode/settings.json<span class="pl-pds">"</span></span> --prune-empty --tag-name-filter cat -- --all
+
+git add <span class="pl-c1">.</span>
+git commit -am <span class="pl-s"><span class="pl-pds">"</span>commit<span class="pl-pds">"</span></span>
+git push origin --force --all</pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/45.html" aria-label="Previous Page">45 Markdown转纯文本</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/34.html" aria-label="Next Page">34 Python分词</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/36.html" aria-label="Previous Page">36 中文分词API</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/38.html" aria-label="Next Page">38 Blog页面添加下雪特效</a></div>
 </nav>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
