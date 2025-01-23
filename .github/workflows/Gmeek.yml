@@ -43,7 +43,7 @@ jobs:
               cp blogBase.json /opt/Gmeek/blogBase.json
           fi
           if [ -d backup ]; then
-              cp backup /opt/Gmeek/backup
+              cp -a backup /opt/Gmeek/backup
           fi
           cd /opt/Gmeek/
           python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
