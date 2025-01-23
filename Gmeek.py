@@ -380,7 +380,7 @@ class GMEEK():
             matchPostNum = "P"+str(match)
             # 因为postListJson每次执行会先清空, 所以使用缓存处理, 与最新数据可能有差异, 但不太影响
             if matchPostNum in self.cachePostListJson:
-                content = content.replace(" #"+match+" ", " ["+self.cachePostListJson[matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.cachePostListJson[matchPostNum]["postUrl"]+") ")
+                content = content.replace("#"+match, " ["+self.cachePostListJson[matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.cachePostListJson[matchPostNum]["postUrl"]+") ")
                 # print(content)
 
         f = open(mdPath, 'w', encoding='UTF-8')
