@@ -41,6 +41,6 @@ public class AlertSchedulerCron implements ApplicationListener<RefreshScopeRefre
 
 ## 相关链接
 
-[问题链接](https://stackoverflow.com/questions/50440468/refreshscope-stops-scheduled-task)
+[@RefreshScope stops @Scheduled task](https://stackoverflow.com/questions/50440468/refreshscope-stops-scheduled-task)
 
 [@RefreshScope导致@Scheduled失效](https://www.jianshu.com/p/0e490fe4ff7a)
