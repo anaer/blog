@@ -379,7 +379,7 @@ class GMEEK():
         mdHtmlPath = mdPath + ".html"
         # 需要使用缓存的buildedAt与当前的updatedAt进行比较
         # print(mdHtmlPath, os.path.isfile(mdHtmlPath), self.cacheBlogBase[listJsonName][postNum]["buildedAt"], self.blogBase[listJsonName][postNum]["updatedAt"])
-        if (not os.path.isfile(mdHtmlPath) or not self.cacheBlogBase[listJsonName][postNum]["buildedAt"] or self.cacheBlogBase[listJsonName][postNum]["buildedAt"] != self.blogBase[listJsonName][postNum]["updatedAt"]):
+        if (not os.path.isfile(mdHtmlPath) or "buildedAt" not in self.cacheBlogBase[listJsonName][postNum] or self.cacheBlogBase[listJsonName][postNum]["buildedAt"] != self.blogBase[listJsonName][postNum]["updatedAt"]):
             mdHtml = self.markdown2html(content)
             fp = open(mdHtmlPath, 'w', encoding='UTF-8')
             fp.write(mdHtml)
