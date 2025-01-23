@@ -1,5 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 23 Jan 2025 05:43:37 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 23 Jan 2025 05:43:37 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>64 微信公众号错误码</title><link>https://anaer.github.io/blog/post/64.html</link><description>常见错误码及解决方案
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 23 Jan 2025 05:44:36 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 23 Jan 2025 05:44:36 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>65 微信小程序登录流程</title><link>https://anaer.github.io/blog/post/65.html</link><description>通过微信，小程序以微信账号授权方式进行登录，以用户为核心，减少繁琐注册和输入密码操作，降低用户使用成本。会话管理，大致包含用户登录以及维护用户的登录状态。
+处理用户登录
+小程序：客户端
+业务服务器、会...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/65.html</guid><pubDate>Thu, 23 Jan 2025 05:44:16 +0000</pubDate></item><item><title>64 微信公众号错误码</title><link>https://anaer.github.io/blog/post/64.html</link><description>常见错误码及解决方案
 
 
 
