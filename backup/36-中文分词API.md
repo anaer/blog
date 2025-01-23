@@ -10,11 +10,13 @@
 http://api.pullword.com/get.php?source=" + URLEncoder.encode(searchTitle) + "&param1=0&param2=0&json=1
 ```
 
-### 哈工大 php 中文分词 api
-
+### 哈工大 php 中文分词 api 
 ```sh
 curl -X POST http://39.96.43.154:8080/api -H 'Content-Type: application/json' -d '{"text":"待分词的文本，1024个字或256个词以内"}'
 ```
+
+**相关链接**
+[demo页](http://39.96.43.154:8080/demo.html)
 
 [介绍文章](https://blog.csdn.net/Deng_Xian_Sheng/article/details/118575782)
 
