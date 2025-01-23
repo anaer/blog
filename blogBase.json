@@ -101,7 +101,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-19",
-            "dateLabelColor": "#ce01cd",
+            "dateLabelColor": "#cf01cd",
             "buildedAt": 1737514834,
             "description": "Repository\n\n\n\n\u5c5e\u6027\u5b57\u6bb5\n\u63cf\u8ff0\n\n\n\n\nid\n\u4ed3\u5e93\u7684\u552f\u4e00\u6807\u8bc6\u7b26\n\n\nname\n\u4ed3\u5e93\u7684\u540d\u79f0\n\n\nfull_name\n\u4ed3\u5e93\u7684\u5168\u540d\uff0c\u5305\u62ec\u7528\u6237\u540d/\u7ec4\u7ec7\u540d\n\n\nowner\n\u4ed3\u5e93\u7684\u6240\u6709\u8005\uff08\u7528\u6237\u6216\u7ec4\u7ec7\uff09..."
         },
@@ -362,7 +362,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-08-01",
-            "dateLabelColor": "#ae1b93",
+            "dateLabelColor": "#af1b93",
             "buildedAt": 1735204410,
             "description": "http://47.236.84.103:3000/translate\nhttps://deeplx-lb-wheat.vercel.app/translate\nhttps://deeplx.smne..."
         },
@@ -447,7 +447,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#28091e",
+            "dateLabelColor": "#280a1e",
             "buildedAt": 1736755239,
             "description": "import telegram\nimport asyncio\n\n\"\"\"\npip install python-telegram-bot\n\"\"\"\n\nkey = \"\"\nchat_id = \"\"\ntext ..."
         },
@@ -533,7 +533,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-26",
-            "dateLabelColor": "#1b001b",
+            "dateLabelColor": "#1c001b",
             "buildedAt": 1737538819,
             "description": "\u672a\u4f7f\u7528, \u4e0d\u786e\u5b9a\u8fc7\u6ee4\u6548\u679c, \u4e3b\u8981\u5b66\u4e60\u4e0b\u8fc7\u6ee4\u89c4\u5219\n\u811a\u672c\nM3U8 Filter Ad Script\nM3u8\nHLS(m3u8) \u53bb\u5e7f\u544a\nRemove Ad from M3U8\ncf-m3u8-filt..."
         },
@@ -747,7 +747,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#09f600",
+            "dateLabelColor": "#0af500",
             "buildedAt": 1736755612,
             "description": "jieba\n# pip install jieba\nimport jieba\n\n# \u7cbe\u786e\u6a21\u5f0f\uff0c\u8bd5\u56fe\u5c06\u53e5\u5b50\u6700\u7cbe\u786e\u5730\u5207\u5f00\uff0c\u9002\u5408\u6587\u672c\u5206\u6790\ntext = \"\u6d4b\u8bd5\u5206\u8bcd\u957f\u5b57\u7b26\u4e32\"\nwords = jieba.cu..."
         },
@@ -768,7 +768,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#090009",
+            "dateLabelColor": "#0a0009",
             "buildedAt": 1737538757,
             "description": "\u68c0\u6d4bIP\u5728\u4e2d\u56fd\u5927\u9646\u4ee5\u53ca\u6d77\u5916\u533a\u57df\u7684\u53ef\u7528\u6027\uff0c\u7aef\u53e3\u53ef\u4ee5\u6307\u5b9a\u4e3aSSH\u7aef\u53e3\uff0c\u6216\u8005\u4efb\u610f\u670d\u52a1\u7684\u76d1\u542c\u7aef\u53e3\u3002\n\u76f8\u5173\u94fe\u63a5\nipcheck\nip112\nip112\u4f7f\u7528\u63a5\u53e3\n\u5883\u5916\u68c0\u6d4b\n\u4e2d\u56fd\u5927\u9646\n"
         },
@@ -789,7 +789,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-13",
-            "dateLabelColor": "#090009",
+            "dateLabelColor": "#0a0009",
             "buildedAt": 1737601607,
             "description": "\u4e2d\u6587\u5206\u8bcdAPI\nhttp://api.pullword.com/\n// param1 \u51fa\u8bcd\u6982\u7387\u9608\u503c(0-1\u4e4b\u95f4\u7684\u5c0f\u6570)\uff0c1\u8868\u793a\u53ea\u6709100%\u6709\u628a\u63e1\u7684\u8bcd\u624d\u51fa\n// param2 \u6a21\u5f0f 0: \u6b63\u5e38\u6a21\u5f0f 1:..."
         },
@@ -852,7 +852,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "#080602",
+            "dateLabelColor": "#090602",
             "buildedAt": 1737082110,
             "description": "Deepseek\u5f00\u653e\u5e73\u53f0\n\u65b0\u7528\u6237 \u6ce8\u518c \u900110Y 500w tokens \u4e00\u4e2a\u6708\u6709\u6548\u671f\nDeepSeek\u5b9e\u7528\u96c6\u6210\nchatgptbox \u914d\u7f6e\n\n"
         },
@@ -1214,7 +1214,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "#00ff00",
+            "dateLabelColor": "#01fe00",
             "buildedAt": 1737533769,
             "description": "aria2c --help=#all\n\n\n\n\u53c2\u6570\n\u8bf4\u660e\n\n\n\n\n-c, --continue[=true, false]\n\u65ad\u70b9\u7eed\u4f20\n\n\n-o, --out=FILE\n\u8f93\u51fa\u6587\u4ef6\n\n\n-d, --dir=..."
         },
@@ -1235,7 +1235,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "#000000",
+            "dateLabelColor": "#010000",
             "buildedAt": 1737597330,
             "description": "\u7edf\u8ba1\u8017\u65f6\n\u901a\u8fc7curl\u547d\u4ee4\u6765\u67e5\u8be2https\u8bf7\u6c42\u5404\u9636\u6bb5\u7684\u8017\u65f6\n\u65f6\u95f4\u7edf\u8ba1\n\n\n\n\u9636\u6bb5\n\u8bf4\u660e\n\n\n\n\ntime_namelookup\n\u4ece\u8bf7\u6c42\u5f00\u59cb\u5230DNS\u89e3\u6790\u5b8c\u6210\u7684\u8017\u65f6\n\n\ntime_connect\n\u4ece\u8bf7\u6c42\u5f00..."
         },
@@ -1256,7 +1256,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "#000000",
+            "dateLabelColor": "#010000",
             "buildedAt": 1737597595,
             "description": "\u5730\u5740: https://github.com/DXY-F2E/api-mocker\n\u542f\u52a8\u547d\u4ee4\nsource ~/nvm/nvm.sh\nnvm use v8.15.0\n\nmongod --bind_ip..."
         },
@@ -1277,7 +1277,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "#00ff00",
+            "dateLabelColor": "#01fe00",
             "buildedAt": 1737534716,
             "description": "\u6293\u5305https\u914d\u7f6e\n\n\u6dfb\u52a0\u73af\u5883\u53d8\u91cf SSLKEYLOGFILE\n\nSSLKEYLOGFILE = C:\\sslkey.log\n\n\n\u65b0\u6253\u5f00 chrome \u6d4f\u89c8\u5668, \u8bbf\u95ee\u4efb\u610f\u4e00\u4e2a https \u7f51\u7ad9, \u68c0\u67e5..."
         },
@@ -1298,7 +1298,7 @@
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "#00ff00",
+            "dateLabelColor": "#01fe00",
             "buildedAt": 1737534969,
             "description": "\u542f\u52a8\n$ pm2 start app.js                  # \u542f\u52a8app.js\u5e94\u7528\u7a0b\u5e8f\n$ pm2 start app.js -i 4             # cluster ..."
         },
@@ -1502,19 +1502,22 @@
             "number": "71",
             "htmlDir": "docs/post/71.html",
             "markdown": "backup/71-\u67e5\u8be2pem\u8bc1\u4e66\u6709\u6548\u671f.md",
-            "labels": [],
+            "labels": [
+                "Linux",
+                "\u670d\u52a1\u5668"
+            ],
             "postTitle": "71 \u67e5\u8be2pem\u8bc1\u4e66\u6709\u6548\u671f",
             "postUrl": "post/71.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/71",
             "commentNum": 0,
-            "updatedAt": 1737613482,
+            "updatedAt": 1737618638,
             "top": 0,
             "createdAt": 1737613482,
             "style": "",
             "script": "",
             "createdDate": "2025-01-23",
-            "dateLabelColor": "#00ff00",
-            "buildedAt": 1737613482,
+            "dateLabelColor": "#000000",
+            "buildedAt": 1737618638,
             "description": "\u67e5\u8be2pem\u8bc1\u4e66\u6709\u6548\u671f\n$ openssl x509 -enddate -noout -in cacert.pem\nnotAfter=May 29 02:07:58 2021 GMT\n"
         },
         "P72": {
@@ -1545,6 +1548,7 @@
         "CDN": "#C71C1C",
         "Git": "#7D584C",
         "iPhone": "#5319e7",
+        "Java": "#0e8a16",
         "Linux": "#F81B5F",
         "Mac": "#5319e7",
         "Python": "#0A7358",
