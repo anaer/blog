@@ -1,5 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 23 Jan 2025 05:27:38 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 23 Jan 2025 05:27:38 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>63 推送厂商对比</title><link>https://anaer.github.io/blog/post/63.html</link><description>华为
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 23 Jan 2025 05:43:37 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 23 Jan 2025 05:43:37 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>64 微信公众号错误码</title><link>https://anaer.github.io/blog/post/64.html</link><description>常见错误码及解决方案
+
+
+
+errcode
+errmsg
+解决方案
+
+
+
+
+40036
+invalid template_id size
+template_id 未传
+
+
+40037
+invalid ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/64.html</guid><pubDate>Thu, 23 Jan 2025 05:43:10 +0000</pubDate></item><item><title>63 推送厂商对比</title><link>https://anaer.github.io/blog/post/63.html</link><description>华为
 没有别名和标签
 官方网站: https://developer.huawei.com/consumer/cn/hms/huawei-pushkit/
 隐私政策: https://develope...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/63.html</guid><pubDate>Thu, 23 Jan 2025 05:27:13 +0000</pubDate></item><item><title>62 CIDR表示法</title><link>https://anaer.github.io/blog/post/62.html</link><description>CIDR 表示法

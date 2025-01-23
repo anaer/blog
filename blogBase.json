@@ -1360,6 +1360,25 @@
             "dateLabelColor": "#00ff00",
             "buildedAt": 1737610033,
             "description": "\u534e\u4e3a\n\u6ca1\u6709\u522b\u540d\u548c\u6807\u7b7e\n\u5b98\u65b9\u7f51\u7ad9: https://developer.huawei.com/consumer/cn/hms/huawei-pushkit/\n\u9690\u79c1\u653f\u7b56: https://develope..."
+        },
+        "P64": {
+            "number": "64",
+            "htmlDir": "docs/post/64.html",
+            "markdown": "backup/64-\u5fae\u4fe1\u516c\u4f17\u53f7\u9519\u8bef\u7801.md",
+            "labels": [],
+            "postTitle": "64 \u5fae\u4fe1\u516c\u4f17\u53f7\u9519\u8bef\u7801",
+            "postUrl": "post/64.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/64",
+            "commentNum": 0,
+            "updatedAt": 1737610990,
+            "top": 0,
+            "createdAt": 1737610990,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-23",
+            "dateLabelColor": "#00ff00",
+            "buildedAt": 1737610990,
+            "description": "\u5e38\u89c1\u9519\u8bef\u7801\u53ca\u89e3\u51b3\u65b9\u6848\n\n\n\nerrcode\nerrmsg\n\u89e3\u51b3\u65b9\u6848\n\n\n\n\n40036\ninvalid template_id size\ntemplate_id \u672a\u4f20\n\n\n40037\ninvalid ..."
         }
     },
     "singeListJson": {},

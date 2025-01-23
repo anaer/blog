@@ -1,0 +1,89 @@
+<div class="markdown-heading"><h2 class="heading-element">常见错误码及解决方案</h2><a id="user-content-常见错误码及解决方案" class="anchor" aria-label="Permalink: 常见错误码及解决方案" href="#常见错误码及解决方案"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<table>
+<thead>
+<tr>
+<th>errcode</th>
+<th>errmsg</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>40036</td>
+<td>invalid template_id size</td>
+<td>template_id 未传</td>
+</tr>
+<tr>
+<td>40037</td>
+<td>invalid template_id</td>
+<td>template_id 不正确</td>
+</tr>
+<tr>
+<td>40164</td>
+<td>invalid ip 1.1.1.1 ipv6 ::ffff:1.1.1.1, not in whitelist</td>
+<td>配置 ip 白名单</td>
+</tr>
+<tr>
+<td>40252</td>
+<td>你正在调用的模板下发的部分内容已进入平台审核流程，在审核完成前，相关内容暂时无法下发。</td>
+<td></td>
+</tr>
+<tr>
+<td>43004</td>
+<td>require subscribe</td>
+<td>需要接收者关注</td>
+</tr>
+<tr>
+<td>43019</td>
+<td>require remove blacklist</td>
+<td>需要将接收者从黑名单中移除</td>
+</tr>
+<tr>
+<td>45015</td>
+<td>response out of time limit or subscription is canceled</td>
+<td>回复时间超过限制, 需用户跟公众号进行互动激活</td>
+</tr>
+<tr>
+<td>50002</td>
+<td>user limited</td>
+<td>用户受限，可能是违规后接口被封禁</td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading"><h2 class="heading-element">小程序订阅消息错误码</h2><a id="user-content-小程序订阅消息错误码" class="anchor" aria-label="Permalink: 小程序订阅消息错误码" href="#小程序订阅消息错误码"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<table>
+<thead>
+<tr>
+<th>errcode</th>
+<th>errmsg</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>40037</td>
+<td>invalid template_id</td>
+<td>template_id 不正确</td>
+</tr>
+<tr>
+<td>43101</td>
+<td>user refuse to accept the msg rid:</td>
+<td>用户未订阅消息</td>
+</tr>
+<tr>
+<td>47003</td>
+<td>argument invalid! data.time2.value is empty rid:</td>
+<td>参数填充不全</td>
+</tr>
+<tr>
+<td>40001</td>
+<td>invalid credential, access_token is invalid or not latest, could get access_token by getStableAccessToken, more details at <a href="https://mmbizurl.cn/s/JtxxFh33r" rel="nofollow">https://mmbizurl.cn/s/JtxxFh33r</a> rid:</td>
+<td>access_token 失效或者被踢了</td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading"><h2 class="heading-element">微信公众号返回码</h2><a id="user-content-微信公众号返回码" class="anchor" aria-label="Permalink: 微信公众号返回码" href="#微信公众号返回码"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>需要结合下述两个链接, 单个不全</p>
+<p><a href="https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Global_Return_Code.html" rel="nofollow">微信公众号全局错误码</a></p>
+<p><a href="https://developers.weixin.qq.com/doc/oplatform/Return_codes/Return_code_descriptions_new.html" rel="nofollow">返回码</a></p>
+<p><a href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Template_Message_Interface.html" rel="nofollow">微信模板消息接口</a></p>
