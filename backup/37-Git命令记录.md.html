@@ -1,4 +1,5 @@
-<div class="markdown-heading"><h2 class="heading-element">当你使用 git clone --depth 1 克隆仓库时，Git 只会克隆最新的提交历史（浅克隆），并且默认只拉取默认分支（通常是 main 或 master）。如果你需要获取其他分支, 执行以下命令</h2><a id="user-content-当你使用-git-clone---depth-1-克隆仓库时git-只会克隆最新的提交历史浅克隆并且默认只拉取默认分支通常是-main-或-master如果你需要获取其他分支-执行以下命令" class="anchor" aria-label="Permalink: 当你使用 git clone --depth 1 克隆仓库时，Git 只会克隆最新的提交历史（浅克隆），并且默认只拉取默认分支（通常是 main 或 master）。如果你需要获取其他分支, 执行以下命令" href="#当你使用-git-clone---depth-1-克隆仓库时git-只会克隆最新的提交历史浅克隆并且默认只拉取默认分支通常是-main-或-master如果你需要获取其他分支-执行以下命令"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">depth=1 拉取其他分支</h2><a id="user-content-depth1-拉取其他分支" class="anchor" aria-label="Permalink: depth=1 拉取其他分支" href="#depth1-拉取其他分支"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>当你使用 git clone --depth 1 克隆仓库时，Git 只会克隆最新的提交历史（浅克隆），并且默认只拉取默认分支（通常是 main 或 master）。如果你需要获取其他分支, 执行以下命令</p>
 <div class="highlight highlight-source-shell"><pre>git config remote.origin.fetch <span class="pl-s"><span class="pl-pds">"</span>+refs/heads/*:refs/remotes/origin/*<span class="pl-pds">"</span></span>
 git fetch --depth=1
 git checkout branch-name</pre></div>
