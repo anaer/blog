@@ -34,6 +34,8 @@ jobs:
 
       - name: Prepare
         run: |
+          mkdir -p ./docs/assets/
+          mkdir -p ./templates/
           cp -a /opt/Gmeek/assets/* ./docs/assets/
           cp -a /opt/Gmeek/templates/* ./templates/
           cp -a /opt/Gmeek/config.json ./config.json
