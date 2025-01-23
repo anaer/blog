@@ -157,7 +157,7 @@ class GMEEK():
             postBase["highlight"]=0
 
         self.renderHtml('post.html',postBase,{},issue["htmlDir"])
-        print("create postPage title=%s file=%s " % (issue["postTitle"],issue["htmlDir"]))
+        # print("create postPage title=%s file=%s " % (issue["postTitle"],issue["htmlDir"]))
 
     def createPlistHtml(self):
         # createdAt  updatedAt
@@ -264,29 +264,15 @@ class GMEEK():
     def normalize_title(self, title):
         return re.sub(r'[\\/*?:"<>|]', '_', title)
 
-    def get_prev_post1(self, issuenumber):
-        prevNum=int(issuenumber)-1
-        while prevNum>0:
-            if "P"+str(prevNum) in self.blogBase["postListJson"]:
-                # print(issuenumber, '前一篇', prevNum)
-                return self.blogBase["postListJson"]["P"+str(prevNum)]
-            prevNum=prevNum-1
-
-    def get_next_post1(self, issuenumber):
-        nextNum=int(issuenumber)+1
-        while nextNum<int(issuenumber)+len(self.blogBase["postListJson"]):
-            if "P"+str(nextNum) in self.blogBase["postListJson"]:
-                # print(issuenumber, '后一篇', nextNum)
-                return self.blogBase["postListJson"]["P"+str(nextNum)]
-            nextNum=nextNum+1
-
     def get_prev_post(self, issuenumber):
         keys = list(self.blogBase["postListJson"])
         try:
             index = keys.index("P" + str(issuenumber))
             if index > 0:
                 prev_key = keys[index - 1]
-                return self.blogBase["postListJson"][prev_key]
+            else:
+                prev_key = keys[len(keys) - 1]
+            return self.blogBase["postListJson"][prev_key]
         except:
             return None
 
@@ -296,7 +282,9 @@ class GMEEK():
             index = keys.index("P" + str(issuenumber))
             if index < len(keys) - 1:
                 next_key = keys[index + 1]
-                return self.blogBase["postListJson"][next_key]
+            else:
+                next_key = keys[0]
+            return self.blogBase["postListJson"][next_key]
         except:
             return None
 
@@ -390,7 +378,7 @@ class GMEEK():
 
         mdHtmlPath = mdPath + ".html"
         # 需要使用缓存的buildedAt与当前的updatedAt进行比较
-        print(mdHtmlPath, os.path.isfile(mdHtmlPath), self.cacheBlogBase[listJsonName][postNum]["buildedAt"], self.blogBase[listJsonName][postNum]["updatedAt"])
+        # print(mdHtmlPath, os.path.isfile(mdHtmlPath), self.cacheBlogBase[listJsonName][postNum]["buildedAt"], self.blogBase[listJsonName][postNum]["updatedAt"])
         if (not os.path.isfile(mdHtmlPath) or not self.cacheBlogBase[listJsonName][postNum]["buildedAt"] or self.cacheBlogBase[listJsonName][postNum]["buildedAt"] != self.blogBase[listJsonName][postNum]["updatedAt"]):
             mdHtml = self.markdown2html(content)
             fp = open(mdHtmlPath, 'w', encoding='UTF-8')
