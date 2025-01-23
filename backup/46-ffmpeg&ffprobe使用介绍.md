@@ -94,4 +94,4 @@ Main options:
 
 ## 相关链接
 
-#47 
+ [47 Python查询m3u8视频信息](https://anaer.github.io/blog/post/47.html)  
