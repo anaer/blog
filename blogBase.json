@@ -145,7 +145,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-10-30",
-            "dateLabelColor": "#c301c2",
+            "dateLabelColor": "#c401c2",
             "buildedAt": 1737523529,
             "description": "\u7cfb\u7edf\n\u6d4f\u89c8\u5668\n\n\n\n\u540d\u79f0\n\u4e0b\u8f7d\u5730\u5740\n\u8bf4\u660e\n\n\n\n\nEdge\n\n\u76ee\u524d\u4e3b\u7528\n\n\nFloorp\u6d4f\u89c8\u5668\nGitHub\nFirefox fork\u7248 \u589e\u52a0\u4e00\u4e9b\u7279\u6027\n\n\nZen Browser\nGitHub\nFir..."
         },
@@ -426,7 +426,7 @@
             "style": "",
             "script": "",
             "createdDate": "2024-12-13",
-            "dateLabelColor": "#290127",
+            "dateLabelColor": "#290227",
             "buildedAt": 1737450466,
             "description": "Podimporter\n\u5728\u7ebf\u5bfc\u5165opml, \u9700\u8981\u767b\u5f55Spotify, \u7136\u540e\u9009\u62e9opml\u6587\u4ef6\u5bfc\u5165\n"
         },
