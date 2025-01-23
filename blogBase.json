@@ -1514,6 +1514,25 @@
             "dateLabelColor": "#00ff00",
             "buildedAt": 1737613482,
             "description": "\u67e5\u8be2pem\u8bc1\u4e66\u6709\u6548\u671f\n$ openssl x509 -enddate -noout -in cacert.pem\nnotAfter=May 29 02:07:58 2021 GMT\n"
+        },
+        "P72": {
+            "number": "72",
+            "htmlDir": "docs/post/72.html",
+            "markdown": "backup/72-Java Stream\u7528\u6cd5\u8bb0\u5f55.md",
+            "labels": [],
+            "postTitle": "72 Java Stream\u7528\u6cd5\u8bb0\u5f55",
+            "postUrl": "post/72.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/72",
+            "commentNum": 0,
+            "updatedAt": 1737614123,
+            "top": 0,
+            "createdAt": 1737614123,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-01-23",
+            "dateLabelColor": "#00ff00",
+            "buildedAt": 1737614123,
+            "description": "\u8fc7\u6ee4\nList<String> result = list.stream()\n                          .filter(str -> str.length() > 5)\n  ..."
         }
     },
     "singeListJson": {},
