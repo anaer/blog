@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" /><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <script>
+        if(localStorage.getItem("meek_theme")==null){}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
+    </script>
+    
+<title>63 推送厂商对比</title>
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/high-contrast-dark.css" rel="stylesheet" />
+
+</head>
+<style>
+body{
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 45px;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.25;
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 767px) {body {padding: 8px;}}
+
+pre {
+    white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
+    word-wrap: break-word; /* 允许长单词或 URL 换行 */
+    overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1>
+    <a>63 推送厂商对比</a>
+</h1>
+
+<div class="title-right">
+
+    <a href="https://anaer.github.io/blog"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    <a href="https://github.com/anaer/blog/issues/63" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+</div>
+</div>
+    <div id="content">
+
+<div class="listLabels">
+    
+</div>
+<br>
+
+<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
+<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23</time></span>
+
+<p>
+
+<div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h1 class="heading-element">华为</h1><a id="user-content-华为" class="anchor" aria-label="Permalink: 华为" href="#华为"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>没有别名和标签</p>
+<p>官方网站: <a href="https://developer.huawei.com/consumer/cn/hms/huawei-pushkit/" rel="nofollow">https://developer.huawei.com/consumer/cn/hms/huawei-pushkit/</a></p>
+<p>隐私政策: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/privacy-statement-0000001050042021" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/privacy-statement-0000001050042021</a></p>
+<p>接入视频: <a href="https://developer.huawei.com/consumer/cn/training/course/video/100000000083" rel="nofollow">https://developer.huawei.com/consumer/cn/training/course/video/100000000083</a></p>
+<p>开发文档: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-server-dev-0000001050040110" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-server-dev-0000001050040110</a></p>
+<p>消息回执: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/msg-receipt-guide-0000001050040176" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/msg-receipt-guide-0000001050040176</a></p>
+<p>常见问题: <a href="https://developer.huawei.com/consumer/cn/forum/topic/37729830?fid=18" rel="nofollow">https://developer.huawei.com/consumer/cn/forum/topic/37729830?fid=18</a></p>
+<p>下行消息及错误码: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/https-send-api-0000001050986197" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/https-send-api-0000001050986197</a></p>
+<p>消息分类: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835</a></p>
+<p>鉴权说明: 开发者应用在 Access Token 有效期（expires_in）内，请勿过于频繁请求，否则可能会被流控（当前应用级 Access Token 的流控阈值为 1000 个/5 分钟，5 分钟内申请 Access Token 超过 1000 个，后续将提示被流控，无法申请。5 分钟后重置，可以再次申请）。您可根据有效期，提前重新申请或通过 Refresh Token 刷新鉴权凭证，同时您也可根据鉴权凭证超时错误返回（NSP_STATUS=6，请参见错误与异常机制），重新触发申请鉴权凭证流程。</p>
+<p>消息体限制:
+title, body 无明确限制
+消息体大小（不含 Token）系统设置的默认限制（4096Bytes）</p>
+<p>消息量限制: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-restriction-description-0000001361648361" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-restriction-description-0000001361648361</a></p>
+<p>流控限制 3000QPS,每秒不能超过 3000token 数.</p>
+<div class="markdown-heading"><h1 class="heading-element">小米</h1><a id="user-content-小米" class="anchor" aria-label="Permalink: 小米" href="#小米"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>regId</p>
+<p>regid 与 alias 一一对应
+多个设备设置同一 alias, 只有最后的设备才能收到消息 (如果需要多个设备使用同一 alias, 推荐使用 UserAccount 消息)
+每个 app 单台设备可订阅的 alias 上限为 15 个</p>
+<p>官方网站：<a href="https://dev.mi.com/console/appservice/push.html" rel="nofollow">https://dev.mi.com/console/appservice/push.html</a></p>
+<p>隐私政策：<a href="https://dev.mi.com/console/doc/detail?pId=1822" rel="nofollow">https://dev.mi.com/console/doc/detail?pId=1822</a></p>
+<p>合规指南：<a href="https://dev.mi.com/console/doc/detail?pId=2379" rel="nofollow">https://dev.mi.com/console/doc/detail?pId=2379</a></p>
+<p>开发文档：<a href="https://dev.mi.com/console/doc/detail?pId=230#_2" rel="nofollow">https://dev.mi.com/console/doc/detail?pId=230#_2</a></p>
+<p>服务端 Java SDK 文档: <a href="https://dev.mi.com/console/doc/detail?pId=1278#_0" rel="nofollow">https://dev.mi.com/console/doc/detail?pId=1278#_0</a></p>
+<p>鉴权方式: 添加 HEADER 字段 Authorization，用于身份验证。格式是 key=&lt;APP_SECRET&gt;。
+APP_SECRET 是从开发者网站申请得到。</p>
+<p>APP_SECRET 固定的, 没有失效期, 长期有效</p>
+<p>消息体限制:</p>
+<pre><code>title:设置在通知栏展示的通知的标题, 不允许全是空白字符, 长度小于 50, 一个中英文字符均计算为 1(通知栏消息必填)
+description:设置在通知栏展示的通知描述, 不允许全是空白字符, 长度小于 128, 一个中英文字符均计算为 1(通知栏消息必填)
+payload:设置要发送的消息内容 payload, 不允许全是空白字符, 长度小于 4KB, 一个中英文字符均计算为 1(透传消息回传给 APP, 为必填字段, 非透传消息可选)
+extra: key 和 value 的字符数不能超过 1024, 至多可以设置 10 个 key-value 键值对
+callback: 第三方接收回执的 Http 接口, 最大长度 128 字节
+callback.param: 第三方自定义回执参数, 最大长度 64 字节
+</code></pre>
+<p>消息量限制:
+(广播)普通消息限制 50000 条/天
+(运营)重要消息</p>
+<p>回执: 只有单推有回执</p>
+<div class="markdown-heading"><h2 class="heading-element">错误码</h2><a id="user-content-错误码" class="anchor" aria-label="Permalink: 错误码" href="#错误码"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre lang="jsonp"><code>[ messageId=tdm587XXX errorCode=0 data={"day_acked":"979","id":"tdm587XXX","day_quota":"50000"} trace_id=Xdm587XXX ]
+[ messageId=Xcm609XXX errorCode=10008 reason=Title or Description exceeds the maximum number of characters! data={"day_acked":"3159","day_quota":"50000"} trace_id=Xcm609XXX ]
+[ messageId=Xdm575XXX errorCode=65015 reason=Extra total length is too long, must less than 2048. data={"day_acked":"3130","day_quota":"50000"} trace_id=Xdm575XXX ]
+[ messageId=Xdm603XXX errorCode=200001 reason=exceed quota, quota : 50000, have acked 52168 trace_id=Xdm603XXX ]
+</code></pre>
+<div class="markdown-heading"><h1 class="heading-element">OPPO</h1><a id="user-content-oppo" class="anchor" aria-label="Permalink: OPPO" href="#oppo"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>regId
+alias 与 regId 一一对应, 同一 alias 不能对应多个 regId, alias 对应的 regId 以最后一次为准</p>
+<p>alias 失效:
+主动调用 unsetalias
+alias 对应的 regId 已经失效
+设置 alias 不成功(调用 setalias 失败)</p>
+<p>官方网站：<a href="https://open.oppomobile.com/newservice/capability?pagename=push" rel="nofollow">https://open.oppomobile.com/newservice/capability?pagename=push</a></p>
+<p>服务协议：<a href="https://open.oppomobile.com/wiki/doc#id=10194" rel="nofollow">https://open.oppomobile.com/wiki/doc#id=10194</a></p>
+<p>开发文档：<a href="https://open.oppomobile.com/wiki/doc#id=10742" rel="nofollow">https://open.oppomobile.com/wiki/doc#id=10742</a></p>
+<p>通知通道: <a href="https://open.oppomobile.com/new/developmentDoc/info?id=10289" rel="nofollow">https://open.oppomobile.com/new/developmentDoc/info?id=10289</a></p>
+<p>鉴权: 官网未说明一个 appId 是否可以有多个 token
+有效期默认为 24 小时</p>
+<p>回执: 当消息到达设备之后, oppo 才会发送回执, 因此瞎填的 regId 就没有回执了.
+只有单推 有回执</p>
+<p>消息体限制:</p>
+<pre><code>title:设置在通知栏展示的通知栏标题, 【字数串长度限制在 50 个字符内，中英文字符及特殊符号（如 emoji）均视为一个字符】
+content:设置在通知栏展示的通知的正文内容
+1）当选择标准样式（style 设置为 1）时，内容字符串长度限制在 200 以内；
+2）当选择长文本样式（style 设置 为 2）时，内容字符串长度限制在 128 以内；
+3）当选择大图样式（style 设置为 3）时，内容字符串长度限制在 50 以内。
+【字符串长度计算说明：中英文字符及特殊符号（如 emoji）均视作一个字符计算】
+action_parameters:打开应用内页或网页时传递给应用或网页的附加参数【JSON 格式】，字符串长度不超过 4000。当跳转类型是 URL 类型时，参数会以 URL 参数直接拼接在 URL 后面。
+call_back_url:URL 长度限制在限制 200 以内。
+call_back_parameter:参数字符串长度限制在 100 以内，OPPO PUSH 将这个参数设置在回执请求体单个 JSON 结构的 param 字段中。
+</code></pre>
+<p>推送限制: <a target="_blank" rel="noopener noreferrer" href="OPPO%E6%8E%A8%E9%80%81%E9%99%90%E5%88%B6.png"><img src="OPPO%E6%8E%A8%E9%80%81%E9%99%90%E5%88%B6.png" alt="" style="max-width: 100%;"></a></p>
+<p>消息量限制:
+公信消息限制 100000 条/天</p>
+<div class="markdown-heading"><h2 class="heading-element">错误码</h2><a id="user-content-错误码-1" class="anchor" aria-label="Permalink: 错误码" href="#错误码-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-json"><pre>{<span class="pl-ent">"code"</span>: <span class="pl-c1">10000</span>, <span class="pl-ent">"message"</span>: <span class="pl-s"><span class="pl-pds">"</span>Invalid RegistrationId<span class="pl-pds">"</span></span> }
+{<span class="pl-ent">"code"</span>:<span class="pl-c1">33</span>,<span class="pl-ent">"data"</span>:{<span class="pl-ent">"permits"</span>:<span class="pl-c1">100000</span>,<span class="pl-ent">"pushed"</span>:<span class="pl-c1">105207</span>},<span class="pl-ent">"message"</span>:<span class="pl-s"><span class="pl-pds">"</span>The number of messages exceeds the daily limit<span class="pl-pds">"</span></span>}</pre></div>
+<div class="markdown-heading"><h1 class="heading-element">VIVO</h1><a id="user-content-vivo" class="anchor" aria-label="Permalink: VIVO" href="#vivo"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>regId
+alias 与 regId 一一对应, 同一 alias 不能对应多个 regId, alias 对应的 regId 以最后一次为准</p>
+<p>alias 失效:</p>
+<pre><code>主动调用 unsetalias
+alias 对应的 regId 已经失效
+</code></pre>
+<p>官方网站：<a href="https://dev.vivo.com.cn/home" rel="nofollow">https://dev.vivo.com.cn/home</a></p>
+<p>隐私政策：<a href="https://dev.vivo.com.cn/documentCenter/doc/366" rel="nofollow">https://dev.vivo.com.cn/documentCenter/doc/366</a></p>
+<p>开发文档：<a href="https://dev.vivo.com.cn/documentCenter/doc/180" rel="nofollow">https://dev.vivo.com.cn/documentCenter/doc/180</a></p>
+<p>鉴权说明: 一个 appId 可对应多个 token，24 小时过期，业务方做中心缓存，1-2 小时更新一次。
+限制：一天限制调用不超过 10000 次。</p>
+<p>消息分级:
+系统消息:</p>
+<p>运营消息:</p>
+<pre><code>频控管控：单用户单应用每天收到的消息条数上限 5 条
+</code></pre>
+<p>消息体限制:</p>
+<pre><code>title:通知标题（用于通知栏消息） 最大 20 个汉字（一个汉字等于两个英文字符，即最大不超过 40 个英文字符）
+content:通知内容（用于通知栏消息） 最大 50 个汉字（一个汉字等于两个英文字符，即最大不超过 100 个英文字符）
+skipContent:跳转内容 跳转类型为 2 时，跳转内容最大 1000 个字符，跳转类型为 3 或 4 时，跳转内容最大 1024 个字符
+requestId:用户请求唯一标识 最大 64 字符
+callback: 第三方接收回执的 http 接口，最大长度 128 个字符
+callback.param:第三方自定义回执参数，最大长度 64 个字符
+</code></pre>
+<p>消息量限制:</p>
+<pre><code>系统消息 限制 10000 条/天 &gt;&gt; 100000 条/天
+运营消息 频控 单用户 5 条/天
+</code></pre>
+<div class="markdown-heading"><h2 class="heading-element">错误码</h2><a id="user-content-错误码-2" class="anchor" aria-label="Permalink: 错误码" href="#错误码-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre lang="jsonp"><code>{"result":0,"desc":"请求成功","taskId":"xxx"}
+{"result":10058,"desc":"content长度不能超过100个字符"}
+{"result":10069,"desc":"skipType = 4, skipContent超过长度限制"}
+{"result":10302,"desc":"用户Id不合法","invalidUser":{"status":2,"userid":"xxx"}}
+{"result":10306,"desc":"extra callback.param长度不能超过64个字符"}
+{"result":10070,"desc":"运营消息发送量总量超出限制"}
+</code></pre>
+<div class="markdown-heading"><h1 class="heading-element">魅族</h1><a id="user-content-魅族" class="anchor" aria-label="Permalink: 魅族" href="#魅族"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>同个 pushId 只有一个别名, pushId 对应的别名以最后一次订阅为准
+多个 pushId 可以绑定同一别名
+
+别名失效:
+对应的 pushId 失效
+App 调用 unSubScribeAlias
+</code></pre>
+<p>官方网站：<a href="https://open.flyme.cn/open-web/views/push.html?t=1514529597773" rel="nofollow">https://open.flyme.cn/open-web/views/push.html?t=1514529597773</a></p>
+<p>隐私政策：<a href="http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?10" rel="nofollow">http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?10</a></p>
+<p>开发文档：<a href="http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129" rel="nofollow">http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129</a></p>
+<div class="markdown-heading"><h1 class="heading-element">苹果</h1><a id="user-content-苹果" class="anchor" aria-label="Permalink: 苹果" href="#苹果"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>错误码: <a href="https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW1" rel="nofollow">https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW1</a></p>
+<p>pushy 最佳实践: <a href="https://github.com/jchambers/pushy/wiki/Best-practices">https://github.com/jchambers/pushy/wiki/Best-practices</a></p>
+<p>消息体限制:
+For regular remote notifications, the maximum size is 4KB (4096 bytes)</p>
+<p>消息量限制:
+无限制</p>
+<p><a href="https://stackoverflow.com/questions/42511476/what-are-the-possible-reasons-to-get-apns-responses-baddevicetoken-or-unregister" rel="nofollow">What are the possible reasons to get APNs responses BadDeviceToken or Unregistered?</a></p>
+<p><a href="https://developer.apple.com/forums/thread/670868?answerId=655652022#655652022" rel="nofollow">APNS Push Token Management</a></p>
+<pre><code>How this works though, is, when an app is deleted from a device, the device token is not invalidated immediately.
+To avoid developers from detecting and tracking user behavior around installations and uninstallations, APNs invalidates tokens on a sliding schedule. This schedule is not documented, and can change at any time. This is for protecting the users’ privacy, and is by design.
+
+但是，当从设备中删除应用程序时，设备令牌不会立即失效。
+为了避免开发人员检测和跟踪安装和卸载的用户行为，APNs 会按滑动计划使令牌失效。此时间表未记录在案，并且可能随时更改。这是为了保护用户的隐私，并且是设计使然。
+</code></pre>
+<p><a href="https://developer.apple.com/forums/thread/109376?answerId=669256022#669256022" rel="nofollow">Apple push feedback service with new token based http2 requests</a></p>
+<pre><code>Unfortunately, it even returns "200" or success for a device token from a device that uninstalled the app 2 years ago. So basically there is no way to know if the user uninstalled the app or not
+</code></pre>
+<div class="markdown-heading"><h1 class="heading-element">个推</h1><a id="user-content-个推" class="anchor" aria-label="Permalink: 个推" href="#个推"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>根据clientId推送, 返回报错: {"response":{"result":"AppidError"},"resultCode":"RESULT_OK"}</li>
+</ul>
+<p>用真机调试，必须用个推平台登记的应用参数重新云端打包才行。</p>
+<p><a href="https://blog.csdn.net/java_newbie2/article/details/102315019" rel="nofollow">问题相关链接</a></p>
+
+</div><nav class="paginate-container" aria-label="Pagination">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/62.html" aria-label="Previous Page">62 CIDR表示法</a><span style="width:200px" aria-disabled="true"></span></div>
+</nav>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
+
+<script>
+if("2023-09-08"!=""){
+    var now=new Date();
+    var startSite=new Date("2023-09-08");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script></div>
+</body>
+<script>
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
+var utterancesLoad=0;
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek v2.4 %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+<script>
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","anaer/blog");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+
+
+<script src="https://anaer.github.io/blog/assets/toc.js"></script>
+
+
+</html>
