@@ -436,6 +436,7 @@ else:
     else:
         print("blogBase is exists and issue_number!=0, runOne")
         blog.blogBase=blog.cacheBlogBase
+        blog.blogBase["labelColorDict"]=blog.labelColorDict
         blog.runOne(options.issue_number)
 
 listFile=open("blogBase.json","w")
