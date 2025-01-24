@@ -14,7 +14,7 @@
 | CODEC  | skip_frame                          | 跳帧开关，如果 cpu 解码能力不足，可能会引起音画不同步，也可以设置它来实现倍速播放    | 5           |
 | CODEC  | skip_loop_filter                    | 跳过循环滤波; 0 开启, 画面质量高, 解码开销大; 48 关闭,画面质量差, 解码开销小         | 48          |
 | CODEC  | tune                                | tune 的参数主要配合视频类型和视觉优化的参数                                          | zerolatency |
-| FORMAT | analyzeduration                     | 播放前的探测时间 1 达到首屏秒开效果 单位是微妙                                       | 1           |
+| FORMAT | analyzeduration                     | 播放前的探测时间 1 达到首屏秒开效果 单位是微妙                                       | 1           | 2000000
 | FORMAT | analyzemaxduration                  | 播放前的最大探测时间 100 (说是以讹传讹, 没这参数)                                    | 100         |
 | FORMAT | avioflags                           |                                                                                      | direct      |
 | FORMAT | dns_cache_clear                     | 清空 dns，因为多种协议播放会缓存协议导致播放 h264 后无法播放 h265.                   | 1           |
@@ -27,16 +27,18 @@
 | FORMAT | reconnect                           | 播放重连次数                                                                         | 1           |
 | FORMAT | reorder_queue_size                  | 设置要缓冲的数据包数以处理重新排序的数据包                                           | 0           |
 | FORMAT | rtbufsize                           |                                                                                      | 60          |
-| FORMAT | rtsp_flags                          | rtsp 支持                                                                            |
+| FORMAT | rtsp_flags                          | rtsp 支持                                                                            | prefer_tcp
 | FORMAT | rtsp_transport                      | 如果是 rtsp 协议, 可以优先用 tcp(默认是用 udp)                                       | udp         | tcp    |
+| FORMAT | buffer_size                      |  增加rtmp打开速度. 没有缓存会黑屏1s   | 1024         |     |
+| FORMAT | probsize                      |  设置探测包数量  | 4096         |     |
 | PLAYER | accurate-seek-timeout               | seek 默认超时时间 `5*1000` ms                                                        |
 | PLAYER | an                                  | 静音设置 1 开启 0 关闭                                                               | 0           |
 | PLAYER | enable-accurate-seek                | SeekTo 设置优化                                                                      | 0           |
 | PLAYER | find_stream_info                    | 0 不查询 stream_info, 直接使用                                                       |
 | PLAYER | first-high-water-mark-ms            | 设置第一次唤醒 read_thread 线程的时间(毫秒)，范围 100-5000，默认值 100               | 100         |
 | PLAYER | fps                                 | 每秒传输帧数                                                                         | 20          |
-| PLAYER | framedrop                           | 跳帧处理,CPU 处理慢时，跳帧处理，保证播放流程，音画同步                              | 1           | 1      |
-| PLAYER | infbuf                              | 无限读                                                                               | 1           |
+| PLAYER | framedrop                           | 跳帧处理,CPU 处理慢时，跳帧处理，保证播放流程，音画同步                              | 30           | 1      |
+| PLAYER | infbuf                              | 无限读  不限制拉流缓存大小                       | 1           |
 | PLAYER | last-high-water-mark-ms             | 设置最后一次唤醒 read_thread 线程的时间(毫秒)，范围 100-5000，默认值 5000            | 5000        |
 | PLAYER | max-fps                             | 设置最大 fps                                                                         | 30          |
 | PLAYER | max_cached_duration                 | 最大缓存时长(毫秒)                                                                   |             | 3000   |
@@ -52,11 +54,14 @@
 | PLAYER | r                                   | 帧速率(fps) （可以改，确认非标准桢率会导致音画不同步，所以只能设定为 15 或者 29.97） |             | 29.97  |
 | PLAYER | render-wait-start                   | 1 等待开始之后才绘制                                                                 |
 | PLAYER | soundtouch                          | 设置是否开启变调 1 开启; 0 关闭                                                      | 1           |
-| PLAYER | start-on-prepared                   | 0 为一进入就播放,1 为进入时不播放                                                    | 1           |
+| PLAYER | start-on-prepared                   | 启动预加载 须要准备好后自动播放 0 为一进入就播放,1 为进入时不播放                                                    | 1           |
 | PLAYER | sync                                |                                                                                      | ext         |
 | PLAYER | sync-av-start                       | 音视频启动时不做对齐，加速秒开                                                       | 0           | 0      |
 | PLAYER | videotoolbox                        | 开启硬解码 1 是硬解 0 是软解                                                         | 0           |
 | PLAYER | vol                                 | 设置音量大小, 256 为标准音量                                                         | 256         |
+| PLAYER | fast                                | 不额外优化（使能非规范兼容优化，默认值0 ）                                                         | 0        | 1
+
+PS: 参数有些从网络获取, 未使用过, 不确定效果
 
 ## 参数说明
 

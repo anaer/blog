@@ -198,7 +198,7 @@ pre {
 <td>analyzeduration</td>
 <td>播放前的探测时间 1 达到首屏秒开效果 单位是微妙</td>
 <td>1</td>
-<td></td>
+<td>2000000</td>
 </tr>
 <tr>
 <td align="center">FORMAT</td>
@@ -288,7 +288,7 @@ pre {
 <td align="center">FORMAT</td>
 <td>rtsp_flags</td>
 <td>rtsp 支持</td>
-<td></td>
+<td>prefer_tcp</td>
 <td></td>
 </tr>
 <tr>
@@ -297,6 +297,20 @@ pre {
 <td>如果是 rtsp 协议, 可以优先用 tcp(默认是用 udp)</td>
 <td>udp</td>
 <td>tcp</td>
+</tr>
+<tr>
+<td align="center">FORMAT</td>
+<td>buffer_size</td>
+<td>增加rtmp打开速度. 没有缓存会黑屏1s</td>
+<td>1024</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">FORMAT</td>
+<td>probsize</td>
+<td>设置探测包数量</td>
+<td>4096</td>
+<td></td>
 </tr>
 <tr>
 <td align="center">PLAYER</td>
@@ -344,13 +358,13 @@ pre {
 <td align="center">PLAYER</td>
 <td>framedrop</td>
 <td>跳帧处理,CPU 处理慢时，跳帧处理，保证播放流程，音画同步</td>
-<td>1</td>
+<td>30</td>
 <td>1</td>
 </tr>
 <tr>
 <td align="center">PLAYER</td>
 <td>infbuf</td>
-<td>无限读</td>
+<td>无限读  不限制拉流缓存大小</td>
 <td>1</td>
 <td></td>
 </tr>
@@ -462,7 +476,7 @@ pre {
 <tr>
 <td align="center">PLAYER</td>
 <td>start-on-prepared</td>
-<td>0 为一进入就播放,1 为进入时不播放</td>
+<td>启动预加载 须要准备好后自动播放 0 为一进入就播放,1 为进入时不播放</td>
 <td>1</td>
 <td></td>
 </tr>
@@ -494,8 +508,16 @@ pre {
 <td>256</td>
 <td></td>
 </tr>
+<tr>
+<td align="center">PLAYER</td>
+<td>fast</td>
+<td>不额外优化（使能非规范兼容优化，默认值0 ）</td>
+<td>0</td>
+<td>1</td>
+</tr>
 </tbody>
 </table>
+<p>PS: 参数有些从网络获取, 未使用过, 不确定效果</p>
 <div class="markdown-heading"><h2 class="heading-element">参数说明</h2><a id="user-content-参数说明" class="anchor" aria-label="Permalink: 参数说明" href="#参数说明"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="markdown-heading"><h3 class="heading-element">tune</h3><a id="user-content-tune" class="anchor" aria-label="Permalink: tune" href="#tune"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>tune 的参数主要配合视频类型和视觉优化的参数，或特别的情况。
