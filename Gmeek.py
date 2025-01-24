@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import random
 import re
 import json
 import time
@@ -233,13 +234,13 @@ class GMEEK():
         return content
 
     def get_background_color(self, createdAt, updatedAt):
-        imax = 150
-
-        red = (updatedAt - createdAt).days % imax
-        green = (updatedAt - createdAt).seconds // 3600 % imax
-        blue = (updatedAt - createdAt).seconds % imax
-
-        return f'#{red:02x}{green:02x}{blue:02x}'
+        # 色相：0 到 360
+        hue = (updatedAt - createdAt).days % 360
+        # 饱和度：30% 到 70%
+        saturation = random.randint(30, 70)
+        # 明度：10% 到 40%
+        lightness = random.randint(10, 40)
+        return f"hsl({hue}, {saturation}%, {lightness}%)"
 
     def normalize_title(self, title):
         """
