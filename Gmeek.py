@@ -233,17 +233,12 @@ class GMEEK():
         return content
 
     def get_background_color(self, createdAt, updatedAt):
-        now = datetime.now()
+        imax = 150
 
-        imax = 200
+        red = (updatedAt - createdAt).days % imax
+        green = (updatedAt - createdAt).seconds // 3600 % imax
+        blue = (updatedAt - createdAt).seconds % imax
 
-        red = (now -createdAt).days % imax
-        green = (now - updatedAt).days % imax
-        if createdAt == updatedAt:
-            green = imax - red
-        blue = (updatedAt - createdAt).days % imax
-
-        # 返回十六进制颜色代码
         return f'#{red:02x}{green:02x}{blue:02x}'
 
     def normalize_title(self, title):
