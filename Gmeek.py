@@ -37,19 +37,21 @@ class GMEEK():
     def __init__(self,options):
         self.options=options
 
-        self.root_dir='docs/'
         self.post_folder='post/'
+
+        self.root_dir='docs/'
         self.backup_dir='backup/'
         self.post_dir=self.root_dir+self.post_folder
 
+        # 获取Github仓库信息
         user = Github(self.options.github_token)
-        self.repo = self.get_repo(user, options.repo_name)
-        self.feed = FeedGenerator()
+        self.repo = user.get_repo(options.repo_name)
 
+        # 读取仓库的labels标签颜色
         self.labelColorDict=json.loads('{}')
         for label in self.repo.get_labels():
             self.labelColorDict[label.name]='#'+label.color
-        print(self.labelColorDict)
+        # print(self.labelColorDict)
 
         self.defaultConfig()
 
@@ -66,6 +68,7 @@ class GMEEK():
             os.mkdir(self.backup_dir)
 
     def checkDir(self):
+        # 检查目录是否存在, 如不存在则创建
         if not os.path.exists(self.backup_dir):
              os.mkdir(self.backup_dir)
 
@@ -76,12 +79,15 @@ class GMEEK():
             os.mkdir(self.post_dir)
 
     def defaultConfig(self):
+        '''
+        初始化配置, 主要用于runAll
+        runOne 因为有重新赋值, 没用到
+        '''
         dconfig={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","i18n":"CN","dayTheme":"light","nightTheme":"dark"}
         config=json.loads(open('config.json', 'r', encoding='utf-8').read())
         self.blogBase={**dconfig,**config}.copy()
         self.blogBase["postListJson"]=json.loads('{}')
         self.blogBase["singeListJson"]=json.loads('{}')
-        self.cacheBlogBase=self.blogBase
         if self.blogBase["i18n"]=="CN":
             self.i18n=i18nCN
         else:
@@ -90,10 +96,12 @@ class GMEEK():
         self.blogBase["labelColorDict"]=self.labelColorDict
         self.blogBase["issuesUrl"]="https://github.com/"+self.repo.full_name+"/issues"
 
-    def get_repo(self,user:Github, repo:str):
-        return user.get_repo(repo)
+        self.cacheBlogBase=self.blogBase
 
     def markdown2html(self, mdstr, retries=3):
+        """
+        调用github api将markdown文本转为html格式代码, 请求失败时 重试3次
+        """
         payload = {"text": mdstr, "mode": "markdown"}
         headers = {"Authorization": "token {}".format(self.options.github_token)}
         for attempt in range(retries):
@@ -106,6 +114,9 @@ class GMEEK():
         raise Exception("markdown2html error after {} retries, status_code={}".format(retries, ret.status_code))
 
     def renderHtml(self,template,blogBase,postListJson,htmlDir):
+        """
+        渲染模版 生成html页面
+        """
         file_loader = FileSystemLoader('templates')
         env = Environment(loader=file_loader)
         template = env.get_template(template)
@@ -114,103 +125,83 @@ class GMEEK():
         f.write(output)
         f.close()
 
-    def createPostHtml(self,issue):
-        f = open(issue["markdown"]+".html", 'r', encoding='UTF-8')
+    def createPostHtml(self, post):
+        f = open(post["markdown"]+".html", 'r', encoding='UTF-8')
         post_body=f.read()
         f.close()
 
-        soup = BeautifulSoup(post_body, "html.parser")
-        plain_text = soup.get_text()
-        postNum="P"+str(issue["number"])
-
-        # 根据html生成纯文本, 取前100作为摘要
-        self.blogBase["postListJson"][postNum]["description"] = self.build_desc(plain_text)
-
         postBase=self.blogBase.copy()
-        postBase["postTitle"]=issue["postTitle"]
-        postBase["labels"]=issue["labels"]
-        postBase["postBody"]=post_body
-        postBase["commentNum"]=issue["commentNum"]
-        postBase["style"]=issue["style"]
-        postBase["script"]=issue["script"]
-        postBase["top"]=issue["top"]
-        postBase["postSourceUrl"]=issue["postSourceUrl"]
+        postBase["postTitle"]=post["postTitle"]
+        postBase["labels"]=post["labels"]
+        postBase["commentNum"]=post["commentNum"]
+        postBase["style"]=post["style"]
+        postBase["script"]=post["script"]
+        postBase["top"]=post["top"]
+        postBase["postSourceUrl"]=post["postSourceUrl"]
         postBase["repoName"]=options.repo_name
-        postBase["createdAt"]=time.strftime("%Y-%m-%d", time.gmtime(issue["createdAt"]))
-        postBase["updatedAt"]=time.strftime("%Y-%m-%d", time.gmtime(issue["updatedAt"]))
+        postBase["postBody"]=post_body
+        postBase["createdAt"]=time.strftime("%Y-%m-%d", time.gmtime(post["createdAt"]))
+        postBase["updatedAt"]=time.strftime("%Y-%m-%d", time.gmtime(post["updatedAt"]))
 
-        prevPost = self.get_prev_post(issue["number"])
+        prevPost = self.get_prev_post(post["number"])
         if prevPost:
             postBase["prevUrl"]=self.blogBase["homeUrl"] + "/" + prevPost["postUrl"]
             postBase["prevTitle"]=prevPost["postTitle"]
 
-        nextPost = self.get_next_post(issue["number"])
+        nextPost = self.get_next_post(post["number"])
         if nextPost:
             postBase["nextUrl"]=self.blogBase["homeUrl"] + "/" + nextPost["postUrl"]
             postBase["nextTitle"]=nextPost["postTitle"]
 
         if "highlight" in post_body:
             postBase["highlight"]=1
-            index = int(issue["number"]) % len(starryNightStyles)
+            # 随机使用高亮样式
+            index = int(post["number"]) % len(starryNightStyles)
             postBase["starryNight"] = starryNightStyles[index]
         else:
             postBase["highlight"]=0
 
-        self.renderHtml('post.html',postBase,{},issue["htmlDir"])
+        self.renderHtml('post.html',postBase,{},post["htmlDir"])
         # print("create postPage title=%s file=%s " % (issue["postTitle"],issue["htmlDir"]))
 
     def createPlistHtml(self):
-        # createdAt  updatedAt
-        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True)) #按创建时间降序
+        """
+        生成列表页面
+        """
+        # 排序规则: 1-是否置顶 2: 按更新时间降序
+        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True))
 
-        postNum=len(self.blogBase["postListJson"])
-        pageFlag=0
-        while True:
-            topNum=pageFlag*self.blogBase["onePageListNum"]
-            print("topNum=%d postNum=%d"%(topNum,postNum))
-            if postNum<=self.blogBase["onePageListNum"]:
-                if pageFlag==0:
-                    onePageList=dict(list(self.blogBase["postListJson"].items())[:postNum])
-                    htmlDir=self.root_dir+"index.html"
-                    self.blogBase["prevUrl"]="disabled"
-                    self.blogBase["nextUrl"]="disabled"
-                else:
-                    onePageList=dict(list(self.blogBase["postListJson"].items())[topNum:topNum+postNum])
-                    htmlDir=self.root_dir+("page%d.html" % (pageFlag+1))
-                    if pageFlag==1:
-                        self.blogBase["prevUrl"]= self.blogBase["homeUrl"] + "/index.html"
-                    else:
-                        self.blogBase["prevUrl"]= self.blogBase["homeUrl"] + "/page%d.html" % pageFlag
-                    self.blogBase["nextUrl"]="disabled"
+        postNum = len(self.blogBase["postListJson"])
+        pageFlag = 0
+        while postNum > 0:
+            topNum = pageFlag * self.blogBase["onePageListNum"]
+            onePageList = dict(list(self.blogBase["postListJson"].items())[topNum:topNum + self.blogBase["onePageListNum"]])
+            htmlDir = self.root_dir + ("index.html" if pageFlag == 0 else f"page{pageFlag + 1}.html")
 
-                self.renderHtml('plist.html',self.blogBase,onePageList,htmlDir)
-                print("create "+htmlDir)
-                break
+            if pageFlag == 0:
+                self.blogBase["prevUrl"] = "disabled"
+                self.blogBase["nextUrl"] = self.blogBase["homeUrl"] + "/page2.html" if postNum > self.blogBase["onePageListNum"] else "disabled"
             else:
-                onePageList=dict(list(self.blogBase["postListJson"].items())[topNum:topNum+self.blogBase["onePageListNum"]])
-                postNum=postNum-self.blogBase["onePageListNum"]
-                if pageFlag==0:
-                    htmlDir=self.root_dir+"index.html"
-                    self.blogBase["prevUrl"]="disabled"
-                    self.blogBase["nextUrl"]= self.blogBase["homeUrl"] + "/page2.html"
-                else:
-                    htmlDir=self.root_dir+("page%d.html" % (pageFlag+1))
-                    if pageFlag==1:
-                        self.blogBase["prevUrl"]= self.blogBase["homeUrl"] + "/index.html"
-                    else:
-                        self.blogBase["prevUrl"]= self.blogBase["homeUrl"] + "/page%d.html" % pageFlag
-                    self.blogBase["nextUrl"]= self.blogBase["homeUrl"] + "/page%d.html" % (pageFlag+2)
+                self.blogBase["prevUrl"] = self.blogBase["homeUrl"] + ("/index.html" if pageFlag == 1 else f"/page{pageFlag}.html")
+                self.blogBase["nextUrl"] = self.blogBase["homeUrl"] + f"/page{pageFlag + 2}.html" if postNum > self.blogBase["onePageListNum"] else "disabled"
 
-                self.renderHtml('plist.html',self.blogBase,onePageList,htmlDir)
-                print("create "+htmlDir)
+            self.renderHtml('plist.html', self.blogBase, onePageList, htmlDir)
+            print(f"create {htmlDir}")
 
-            pageFlag=pageFlag+1
+            postNum -= self.blogBase["onePageListNum"]
+            pageFlag += 1
 
+        # 生成标签页面
         self.renderHtml('tag.html',self.blogBase,onePageList,self.root_dir+"tag.html")
         print("create tag.html")
 
     def createFeedXml(self):
-        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:x[1]["createdAt"],reverse=False))#使列表由时间排序
+        """
+        生成rss文件
+        """
+        # 按照创建时间排序
+        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:x[1]["createdAt"],reverse=False))
+
         feed = FeedGenerator()
         feed.title(self.blogBase["title"])
         feed.description(self.blogBase["subTitle"])
@@ -222,21 +213,14 @@ class GMEEK():
         feed.webMaster(self.blogBase["title"])
         feed.ttl("60")
 
-        for num in self.blogBase["singeListJson"]:
-            item=feed.add_item()
-            item.guid(self.blogBase["homeUrl"]+"/"+self.blogBase["singeListJson"][num]["postUrl"],permalink=True)
-            item.title(self.blogBase["singeListJson"][num]["postTitle"])
-            item.description(self.blogBase["singeListJson"][num]["description"])
-            item.link(href=self.blogBase["homeUrl"]+"/"+self.blogBase["singeListJson"][num]["postUrl"])
-            item.pubDate(time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime(self.blogBase["singeListJson"][num]["createdAt"])))
-
-        for num in self.blogBase["postListJson"]:
-            item=feed.add_item()
-            item.guid(self.blogBase["homeUrl"]+"/"+self.blogBase["postListJson"][num]["postUrl"],permalink=True)
-            item.title(self.blogBase["postListJson"][num]["postTitle"])
-            item.description(self.blogBase["postListJson"][num]["description"])
-            item.link(href=self.blogBase["homeUrl"]+"/"+self.blogBase["postListJson"][num]["postUrl"])
-            item.pubDate(time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime(self.blogBase["postListJson"][num]["createdAt"])))
+        for listJsonName in ["singeListJson", "postListJson"]:
+            for num in self.blogBase[listJsonName]:
+                item=feed.add_item()
+                item.guid(self.blogBase["homeUrl"]+"/"+self.blogBase[listJsonName][num]["postUrl"],permalink=True)
+                item.title(self.blogBase[listJsonName][num]["postTitle"])
+                item.description(self.blogBase[listJsonName][num]["description"])
+                item.link(href=self.blogBase["homeUrl"]+"/"+self.blogBase[listJsonName][num]["postUrl"])
+                item.pubDate(time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime(self.blogBase[listJsonName][num]["createdAt"])))
 
         feed.rss_file(self.root_dir+'rss.xml')
 
@@ -251,17 +235,21 @@ class GMEEK():
     def get_background_color(self, createdAt, updatedAt):
         now = datetime.now()
 
-        red = (now -createdAt).days % 255
-        green = (now - updatedAt).days % 255
+        imax = 200
+
+        red = (now -createdAt).days % imax
+        green = (now - updatedAt).days % imax
         if createdAt == updatedAt:
-            green = 255 - red
-        blue = (updatedAt - createdAt).days % 255
+            green = imax - red
+        blue = (updatedAt - createdAt).days % imax
 
         # 返回十六进制颜色代码
         return f'#{red:02x}{green:02x}{blue:02x}'
 
-    # 定义方法 规范标题, 替换文件名不支持的符号为_
     def normalize_title(self, title):
+        """
+        定义方法 规范标题, 替换文件名不支持的符号为_
+        """
         return re.sub(r'[\\/*?:"<>|]', '_', title)
 
     def get_prev_post(self, issuenumber):
@@ -294,6 +282,7 @@ class GMEEK():
             print("非仓库主创建的issue, 不进行生成")
             return
 
+        # 因为当前没用单页, 暂不处理这块逻辑
         if len(issue.labels) >= 1 and issue.labels[0].name in self.blogBase["singlePage"]:
             listJsonName='singeListJson'
             gen_Html = 'docs/{}.html'.format(issue.labels[0].name)
@@ -308,55 +297,53 @@ class GMEEK():
             labels.append(label.name)
 
         postNum="P"+str(issue.number)
-        self.blogBase[listJsonName][postNum]=json.loads('{}')
-        self.blogBase[listJsonName][postNum]["number"]=str(issue.number)
-        self.blogBase[listJsonName][postNum]["htmlDir"]=gen_Html
-        self.blogBase[listJsonName][postNum]["markdown"]=mdPath
-        self.blogBase[listJsonName][postNum]["labels"]=labels
-        self.blogBase[listJsonName][postNum]["postTitle"]="%d %s" % (issue.number, issue.title)
-        self.blogBase[listJsonName][postNum]["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(issue.number))
-        self.blogBase[listJsonName][postNum]["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
-        self.blogBase[listJsonName][postNum]["commentNum"]=issue.get_comments().totalCount
-        # self.blogBase[listJsonName][postNum]["description"]=self.build_desc(issue.body)
-        self.blogBase[listJsonName][postNum]["updatedAt"]=int(time.mktime(issue.updated_at.timetuple()))
+        post=json.loads('{}')
+        post["number"]=str(issue.number)
+        post["htmlDir"]=gen_Html
+        post["markdown"]=mdPath
+        post["labels"]=labels
+        post["postTitle"]="%d %s" % (issue.number, issue.title)
+        post["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(issue.number))
+        post["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
+        post["commentNum"]=issue.get_comments().totalCount
+        post["createdAt"]=int(time.mktime(issue.created_at.timetuple()))
+        post["updatedAt"]=int(time.mktime(issue.updated_at.timetuple()))
 
-        self.blogBase[listJsonName][postNum]["top"]=0
+        post["top"]=0
         # 如果issue为关闭状态, 显示在最后
         if issue.state=="closed":
-            self.blogBase[listJsonName][postNum]["top"]=-1
+            post["top"]=-1
         else:
             for event in issue.get_events():
                 if event.event=="pinned":
-                    self.blogBase[listJsonName][postNum]["top"]=1
+                    post["top"]=1
                     break
                 elif event.event=="unpinned":
                     break
 
+        post["style"]=""
+        post["script"]=""
+        # 读取postConfig配置, 暂时没有这块 先不处理
         try:
             postConfig=json.loads(issue.body.split("\r\n")[-1:][0].split("##")[1])
             print("Has Custom JSON parameters")
             print(postConfig)
+            if "timestamp" in postConfig:
+                post["createdAt"]=postConfig["timestamp"]
+
+            if "style" in postConfig:
+                post["style"]=str(postConfig["style"])
+
+            if "script" in postConfig:
+                post["script"]=str(postConfig["script"])
         except:
             postConfig={}
 
-        if "timestamp" in postConfig:
-            self.blogBase[listJsonName][postNum]["createdAt"]=postConfig["timestamp"]
-        else:
-            self.blogBase[listJsonName][postNum]["createdAt"]=int(time.mktime(issue.created_at.timetuple()))
-        if "style" in postConfig:
-            self.blogBase[listJsonName][postNum]["style"]=str(postConfig["style"])
-        else:
-            self.blogBase[listJsonName][postNum]["style"]=""
-        if "script" in postConfig:
-            self.blogBase[listJsonName][postNum]["script"]=str(postConfig["script"])
-        else:
-            self.blogBase[listJsonName][postNum]["script"]=""
-
-        createdAt=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["createdAt"])
-        updatedAt=datetime.fromtimestamp(self.blogBase[listJsonName][postNum]["updatedAt"])
+        createdAt=datetime.fromtimestamp(post["createdAt"])
+        updatedAt=datetime.fromtimestamp(post["updatedAt"])
         dateLabelColor = self.get_background_color(createdAt, updatedAt)
-        self.blogBase[listJsonName][postNum]["createdDate"]=createdAt.strftime("%Y-%m-%d")
-        self.blogBase[listJsonName][postNum]["dateLabelColor"]= dateLabelColor
+        post["createdDate"]=createdAt.strftime("%Y-%m-%d")
+        post["dateLabelColor"]= dateLabelColor
 
         # print(f"日期标签颜色: {issue.title} {createdAt} {updatedAt} {dateLabelColor}")
 
@@ -365,7 +352,7 @@ class GMEEK():
         regex = r"\s*#(\d+)\s*"
         matches = re.findall(regex, content)
         for match in matches:
-            print(f"Found number: {issue.title} {match}")
+            # print(f"Found number: {issue.title} {match}")
             matchPostNum = "P"+str(match)
             # 因为postListJson每次执行会先清空, 所以使用缓存处理, 与最新数据可能有差异, 但不太影响
             if matchPostNum in self.cacheBlogBase[listJsonName]:
@@ -378,16 +365,24 @@ class GMEEK():
 
         mdHtmlPath = mdPath + ".html"
         # 需要使用缓存的buildedAt与当前的updatedAt进行比较
-        # print(mdHtmlPath, os.path.isfile(mdHtmlPath), self.cacheBlogBase[listJsonName][postNum]["buildedAt"], self.blogBase[listJsonName][postNum]["updatedAt"])
-        if (not os.path.isfile(mdHtmlPath) or "buildedAt" not in self.cacheBlogBase[listJsonName][postNum] or self.cacheBlogBase[listJsonName][postNum]["buildedAt"] != self.blogBase[listJsonName][postNum]["updatedAt"]):
+        # print(mdHtmlPath, os.path.isfile(mdHtmlPath), self.cacheBlogBase[listJsonName][postNum]["buildedAt"], post["updatedAt"])
+        if (not os.path.isfile(mdHtmlPath) or "buildedAt" not in self.cacheBlogBase[listJsonName][postNum] or self.cacheBlogBase[listJsonName][postNum]["buildedAt"] != post["updatedAt"]):
             mdHtml = self.markdown2html(content)
             fp = open(mdHtmlPath, 'w', encoding='UTF-8')
             fp.write(mdHtml)
             fp.close()
-            self.blogBase[listJsonName][postNum]["buildedAt"]=self.blogBase[listJsonName][postNum]["updatedAt"]
+
+            soup = BeautifulSoup(mdHtml, "html.parser")
+            plain_text = soup.get_text()
+            post["description"] = self.build_desc(plain_text)
         else:
             print(f"mdHtml {mdHtmlPath} exists and updatedAt is not changed")
-        return listJsonName
+            post["description"] = self.cacheBlogBase[listJsonName][postNum]["description"]
+
+        post["buildedAt"]=post["updatedAt"]
+
+        self.blogBase[listJsonName][postNum] = post
+        return post
 
     def runAll(self):
         print("====== start create static html ======")
@@ -401,11 +396,11 @@ class GMEEK():
         # 同plist排序, 便于post中获取上一篇和下一篇
         self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True))
 
-        for issue in self.blogBase["postListJson"].values():
-            self.createPostHtml(issue)
+        for post in self.blogBase["postListJson"].values():
+            self.createPostHtml(post)
 
-        for issue in self.blogBase["singeListJson"].values():
-            self.createPostHtml(issue)
+        for post in self.blogBase["singeListJson"].values():
+            self.createPostHtml(post)
 
         self.createPlistHtml()
         self.createFeedXml()
@@ -414,10 +409,11 @@ class GMEEK():
     def runOne(self,number_str):
         print("====== start create static html ======")
         self.checkDir()
+
         issue=self.repo.get_issue(int(number_str))
-        listJsonName=self.addOnePostJson(issue)
-        if listJsonName:
-            self.createPostHtml(self.blogBase[listJsonName]["P"+number_str])
+        post = self.addOnePostJson(issue)
+        if post:
+            self.createPostHtml(post)
             self.createPlistHtml()
             self.createFeedXml()
         print("====== create static html end ======")
@@ -433,7 +429,6 @@ blog=GMEEK(options)
 
 if not os.path.exists("blogBase.json"):
     print("blogBase is not exists, runAll")
-    blog.cachePostListJson = json.loads('{}')
     blog.runAll()
 else:
     f=open("blogBase.json","r")
