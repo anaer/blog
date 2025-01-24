@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 24 Jan 2025 07:53:24 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 24 Jan 2025 07:53:24 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>72 Java Stream用法记录</title><link>https://anaer.github.io/blog/post/72.html</link><description>过滤
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 24 Jan 2025 08:02:20 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 24 Jan 2025 08:02:20 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>72 Java Stream用法记录</title><link>https://anaer.github.io/blog/post/72.html</link><description>过滤
 List&lt;String&gt; result = list.stream()
                           .filter(str -&gt; str.length() &gt; 5)
   ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/72.html</guid><pubDate>Thu, 23 Jan 2025 06:35:23 +0000</pubDate></item><item><title>71 查询pem证书有效期</title><link>https://anaer.github.io/blog/post/71.html</link><description>查询pem证书有效期
@@ -368,19 +368,19 @@ category
 
 
 
-PT_CATEGORY_FORMAT
+OPT_CATEGORY_FORMAT
 1
 
 
-PT_CATEGORY_CODEC
+OPT_CATEGORY_CODEC
 2
 
 
-PT_CATEGORY_SWS
+OPT_CATEGORY_SWS
 3
 
 
-PT_CATEGORY...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/14.html</guid><pubDate>Thu, 23 May 2024 01:19:22 +0000</pubDate></item><item><title>13 Python生成requirements.txt</title><link>https://anaer.github.io/blog/post/13.html</link><description>生成 Python 项目的 requirements.txt 文件
+OPT_CATE...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/14.html</guid><pubDate>Thu, 23 May 2024 01:19:22 +0000</pubDate></item><item><title>13 Python生成requirements.txt</title><link>https://anaer.github.io/blog/post/13.html</link><description>生成 Python 项目的 requirements.txt 文件
 1. 使用 pip freeze 命令。
 在项目的根目录下，打开终端或命令提示符，执行以下命令：
 pip freeze &gt; requ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/13.html</guid><pubDate>Thu, 07 Dec 2023 05:36:55 +0000</pubDate></item><item><title>12 检测服务器内存信息, 并用bark通知</title><link>https://anaer.github.io/blog/post/12.html</link><description>vim script/free.py

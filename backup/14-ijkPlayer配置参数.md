@@ -2,10 +2,10 @@
 
 | 分类               | category |
 | ------------------ | -------- |
-| PT_CATEGORY_FORMAT | 1        |
-| PT_CATEGORY_CODEC  | 2        |
-| PT_CATEGORY_SWS    | 3        |
-| PT_CATEGORY_PLAYER | 4        |
+| OPT_CATEGORY_FORMAT | 1        |
+| OPT_CATEGORY_CODEC  | 2        |
+| OPT_CATEGORY_SWS    | 3        |
+| OPT_CATEGORY_PLAYER | 4        |
 
 ## 配置列表
 
