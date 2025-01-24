@@ -75,3 +75,9 @@ tune 的参数主要配合视频类型和视觉优化的参数，或特别的情
 | ssim        | 为提高 ssim 做了优化的参数；                                   |
 | fastdecode  | 可以快速解码的参数；                                           |
 | zerolatency | 零延迟，用在需要非常低的延迟的情况下，比如电视电话会议的编码。 |
+
+## 相关链接
+
+[Doikki/DKVideoPlayer](https://github.com/Doikki/DKVideoPlayer)
+
+[xyz.doikki.android.dkplayer 仓库](https://mvnrepository.com/artifact/xyz.doikki.android.dkplayer)
