@@ -1444,21 +1444,23 @@
             "htmlDir": "docs/post/68.html",
             "markdown": "backup/68-Git\u6279\u5904\u7406\u811a\u672c.md",
             "labels": [
-                "Git"
+                "Win10",
+                "Git",
+                "Mac"
             ],
             "postTitle": "68 Git\u6279\u5904\u7406\u811a\u672c",
             "postUrl": "post/68.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/68",
             "commentNum": 0,
             "createdAt": 1737611903,
-            "updatedAt": 1737611903,
+            "updatedAt": 1737785014,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-23",
-            "dateLabelColor": "hsl(0, 67%, 10%)",
+            "dateLabelColor": "hsl(2, 51%, 25%)",
             "description": "\u5faa\u73af\u6267\u884c\u811a\u672c\n\u5224\u65ad\u53c2\u6570\u547d\u4ee4\u6267\u884c\u7ed3\u679c, \u5982\u679c\u5931\u8d25\u5219\u91cd\u590d\u6267\u884c\nretry.cmd git push origin main\n@echo off\nchcp 65001\necho %*\nfor /l %%a ...",
-            "buildedAt": 1737611903
+            "buildedAt": 1737785014
         },
         "P69": {
             "number": "69",
@@ -1549,10 +1551,12 @@
         "Blog": "#d93f0b",
         "CDN": "#C71C1C",
         "Git": "#7D584C",
+        "GPT": "#AD017A",
         "iPhone": "#5319e7",
         "Java": "#0e8a16",
         "Linux": "#F81B5F",
         "Mac": "#5319e7",
+        "Nginx": "#1d76db",
         "Python": "#0A7358",
         "Win10": "#682650",
         "\u5065\u5eb7": "#0052cc",

@@ -54,3 +54,10 @@ if %errorlevel% equ 0 (
 :EOF
 echo -------------------end
 ```
+
+## Mac添加alias实现
+
+```
+pull='for i in `seq 1 100`; do echo $i && git pull && break; sleep 5; done'
+push='for i in `seq 1 100`; do echo $i && git push && break; done'
+```

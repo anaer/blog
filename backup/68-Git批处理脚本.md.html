@@ -39,3 +39,7 @@ git rev-parse --is-inside-work-tree <span class="pl-k">&gt;</span>nul <span clas
 
 :EOF
 <span class="pl-c1">echo</span> -------------------end</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">Mac添加alias实现</h2><a id="user-content-mac添加alias实现" class="anchor" aria-label="Permalink: Mac添加alias实现" href="#mac添加alias实现"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>pull='for i in `seq 1 100`; do echo $i &amp;&amp; git pull &amp;&amp; break; sleep 5; done'
+push='for i in `seq 1 100`; do echo $i &amp;&amp; git push &amp;&amp; break; done'
+</code></pre>
