@@ -128,13 +128,22 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-20</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-21</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-07</time></span>
 
 <p>
 
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h2 class="heading-element">下载一帧图片</h2><a id="user-content-下载一帧图片" class="anchor" aria-label="Permalink: 下载一帧图片" href="#下载一帧图片"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>ffmpeg -i http://117.148.179.136/PLTV/88888888/224/3221231567/index.m3u8 -ss 1 -frames:v 1 aaaa.jpg</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">下载视频</h2><a id="user-content-下载视频" class="anchor" aria-label="Permalink: 下载视频" href="#下载视频"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>ffmpeg -i <span class="pl-s"><span class="pl-pds">"</span>https://example.com/path/to/your/video.m3u8<span class="pl-pds">"</span></span> -c copy output.mp4
+ffmpeg -i <span class="pl-s"><span class="pl-pds">"</span>https://example.com/path/to/your/video.m3u8<span class="pl-pds">"</span></span> -c copy output.mkv
+
+<span class="pl-c"><span class="pl-c">#</span> 重新编码</span>
+ffmpeg -i <span class="pl-s"><span class="pl-pds">"</span>https://example.com/path/to/your/video.m3u8<span class="pl-pds">"</span></span> -c:v libx264 -c:a aac output.mp4
+
+<span class="pl-c"><span class="pl-c">#</span> 指定分辨率</span>
+ffmpeg -i <span class="pl-s"><span class="pl-pds">"</span>https://example.com/path/to/your/video.m3u8<span class="pl-pds">"</span></span> -vf <span class="pl-s"><span class="pl-pds">"</span>scale=1280:720<span class="pl-pds">"</span></span> -c:a copy output.mp4</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">获取直播流分辨率</h2><a id="user-content-获取直播流分辨率" class="anchor" aria-label="Permalink: 获取直播流分辨率" href="#获取直播流分辨率"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 查询流信息, 指定输出字段</span>
 ffprobe -v quiet -of json -show_entries stream=width,height http://play-live.ifeng.com/live/06OLEGEGM4G.m3u8
@@ -217,7 +226,7 @@ Main options:
 <p><a href="https://anaer.github.io/blog/post/47.html" rel="nofollow">47 Python查询m3u8视频信息</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/5.html" aria-label="Previous Page">5 中文等宽字体</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/47.html" aria-label="Next Page">47 Python查询m3u8视频信息</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/45.html" aria-label="Previous Page">45 Markdown转纯文本</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/47.html" aria-label="Next Page">47 Python查询m3u8视频信息</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

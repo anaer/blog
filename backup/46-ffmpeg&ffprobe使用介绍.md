@@ -5,6 +5,19 @@
 ffmpeg -i http://117.148.179.136/PLTV/88888888/224/3221231567/index.m3u8 -ss 1 -frames:v 1 aaaa.jpg
 ```
 
+## 下载视频
+
+```sh
+ffmpeg -i "https://example.com/path/to/your/video.m3u8" -c copy output.mp4
+ffmpeg -i "https://example.com/path/to/your/video.m3u8" -c copy output.mkv
+
+# 重新编码
+ffmpeg -i "https://example.com/path/to/your/video.m3u8" -c:v libx264 -c:a aac output.mp4
+
+# 指定分辨率
+ffmpeg -i "https://example.com/path/to/your/video.m3u8" -vf "scale=1280:720" -c:a copy output.mp4
+```
+
 ## 获取直播流分辨率
 
 ```sh
