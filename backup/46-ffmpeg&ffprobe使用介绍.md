@@ -109,3 +109,4 @@ Main options:
 
  [47 Python查询m3u8视频信息](https://anaer.github.io/blog/post/47.html)  
 [ffmpeg-命令](https://commandnotfound.cn/linux/1/171/ffmpeg-%E5%91%BD%E4%BB%A4)
+[ffmpeg中文手册](https://beandrewang.github.io/2017-01-22-ffmpeg-manual-chinese/)
