@@ -168,6 +168,8 @@ Ollama Base URL: http://mydomain.com/ollama
 
 可新增嵌入式对话, 按需配置后(需选择工作区), Show Code复制代码, 将代码复制到空白html的<body></body>内, 可直接打开html测试
 
+![Image](https://github.com/user-attachments/assets/3d7f9e47-9d59-4e7e-adfe-4c84b00c08e2)
+
 ## Deepseek模型 硬件要求
 
 ### DeepSeek-R1-1.5B
