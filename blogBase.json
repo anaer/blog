@@ -1563,6 +1563,28 @@
             "dateLabelColor": "hsl(0, 62%, 14%)",
             "description": "\u81ea\u52a8\u5316\nWebhook\nPOST \u8bf7\u6c42, \u4f1a\u5c06feed\u6761\u76ee\u4fe1\u606f\u4f5c\u4e3aJson\u53c2\u6570\u8fdb\u884c\u8bf7\u6c42, \u6240\u4ee5\u5982\u679c\u8981\u8f83\u597d\u5904\u7406\u7684\u8bdd, \u53ef\u80fd\u9700\u8981\u81ea\u5b9a\u4e49\u4e00\u4e2awebhook\u63a5\u53e3\u8fdb\u884c\u5904\u7406\n{'entry': {'id': 'x...",
             "buildedAt": 1738825826
+        },
+        "P74": {
+            "number": "74",
+            "htmlDir": "docs/post/74.html",
+            "markdown": "backup/74-Ubuntu\u5b89\u88c5Ollama, AnythingLLM\u90e8\u7f72Deepseek.md",
+            "labels": [
+                "Linux",
+                "\u670d\u52a1\u5668"
+            ],
+            "postTitle": "74 Ubuntu\u5b89\u88c5Ollama, AnythingLLM\u90e8\u7f72Deepseek",
+            "postUrl": "post/74.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/74",
+            "commentNum": 0,
+            "createdAt": 1739168174,
+            "updatedAt": 1739168174,
+            "top": 0,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-02-10",
+            "dateLabelColor": "hsl(0, 34%, 30%)",
+            "description": "ollama\u5b89\u88c5\n\u53ef\u4ee5\u6309\u7167\u5b98\u65b9\u7684\u5b89\u88c5\u624b\u518c\u8fdb\u884c\u5b89\u88c5, \u8fd9\u91cc\u4ec5\u8bb0\u5f55\u81ea\u5df1\u7684\u64cd\u4f5c\u6b65\u9aa4\u65b9\u4fbf\u8bb0\u5fc6.\nLinux\u5b89\u88c5ollama\u624b\u518c\nPS: \u4ee5Ubuntu 14.04.5 LTS\u4e3a\u4f8b\n\u4e0b\u8f7d\u5b89\u88c5ollama v0....",
+            "buildedAt": 1739168174
         }
     },
     "singeListJson": {},

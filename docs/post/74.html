@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" /><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <script>
+        if(localStorage.getItem("meek_theme")==null){}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
+    </script>
+    
+<title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title>
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/dark.css" rel="stylesheet" />
+
+</head>
+<style>
+body{
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 45px;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.25;
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 767px) {body {padding: 8px;}}
+
+pre {
+    white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
+    word-wrap: break-word; /* 允许长单词或 URL 换行 */
+    overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
+}
+
+.new-post {
+    bottom: 20px; /* 距离底部 20px */
+}
+
+.edit-post {
+    bottom: 60px; /* 距离底部60px */
+}
+
+/* 悬浮按钮样式 */
+.floating-button {
+    position: fixed; /* 固定位置 */
+    right: 5%; /* 距离右侧 5% */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 32px; /* 宽度 */
+    height: 32px; /* 高度 */
+    font-size: 16px; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    z-index: 1000; /* 确保按钮在最上层 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* 添加悬停效果 */
+}
+
+/* 按钮悬停效果 */
+.floating-button:hover {
+    background-color: #0056b3; /* 悬停时改变背景颜色 */
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1>
+    <a>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</a>
+</h1>
+
+<div class="title-right">
+
+    <a href="https://anaer.github.io/blog"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    <a href="https://github.com/anaer/blog/issues/74" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+</div>
+</div>
+    <div id="content">
+
+<div class="listLabels">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#服务器">服务器</a></object>
+        </span>
+</div>
+<br>
+
+<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
+<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-02-10</time></span>
+
+<p>
+
+<div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h2 class="heading-element">ollama安装</h2><a id="user-content-ollama安装" class="anchor" aria-label="Permalink: ollama安装" href="#ollama安装"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>可以按照官方的安装手册进行安装, 这里仅记录自己的操作步骤方便记忆.
+<a href="https://github.com/ollama/ollama/blob/main/docs/linux.md">Linux安装ollama手册</a></p>
+<p>PS: 以Ubuntu 14.04.5 LTS为例</p>
+<div class="markdown-heading"><h3 class="heading-element">下载安装<a href="https://github.com/ollama/ollama/releases/tag/v0.5.7">ollama v0.5.7</a> ollama-linux-amd64.tgz</h3><a id="user-content-下载安装ollama-v057-ollama-linux-amd64tgz" class="anchor" aria-label="Permalink: 下载安装ollama v0.5.7 ollama-linux-amd64.tgz" href="#下载安装ollama-v057-ollama-linux-amd64tgz"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>将压缩包解压到/usr目录, 可以不用再配置环境变量直接调用</p>
+<div class="highlight highlight-source-shell"><pre>sudo tar -C /usr -xzf ollama-linux-amd64.tgz</pre></div>
+<p>查询压缩包的结构</p>
+<pre lang="log"><code># tar -tvf ollama-linux-amd64.tgz
+drwxr-xr-x root/root         0 2025-01-17 00:47 ./
+drwxr-xr-x root/root         0 2025-01-17 00:47 ./bin/
+-rwxr-xr-x root/root  30064856 2025-01-17 00:47 ./bin/ollama
+drwxr-xr-x root/root         0 2025-01-17 00:47 ./lib/
+drwxr-xr-x root/root         0 2025-01-17 00:52 ./lib/ollama/
+lrwxrwxrwx root/root         0 2025-01-17 00:52 ./lib/ollama/libcudart.so.12 -&gt; libcudart.so.12.4.127
+-rwxr-xr-x root/root 441938896 2025-01-17 00:52 ./lib/ollama/libcublasLt.so.12.4.5.8
+lrwxrwxrwx root/root         0 2025-01-17 00:49 ./lib/ollama/libcudart.so.11.0 -&gt; libcudart.so.11.3.109
+lrwxrwxrwx root/root         0 2025-01-17 00:49 ./lib/ollama/libcublas.so.11 -&gt; libcublas.so.11.5.1.109
+lrwxrwxrwx root/root         0 2025-01-17 00:52 ./lib/ollama/libcublas.so.12 -&gt; ./libcublas.so.12.4.5.8
+-rwxr-xr-x root/root    619192 2025-01-17 00:52 ./lib/ollama/libcudart.so.11.3.109
+-rwxr-xr-x root/root 109604768 2025-01-17 00:52 ./lib/ollama/libcublas.so.12.4.5.8
+-rwxr-xr-x root/root    707904 2025-01-17 00:52 ./lib/ollama/libcudart.so.12.4.127
+-rwxr-xr-x root/root 263770264 2025-01-17 00:49 ./lib/ollama/libcublasLt.so.11.5.1.109
+lrwxrwxrwx root/root         0 2025-01-17 00:49 ./lib/ollama/libcublasLt.so.11 -&gt; libcublasLt.so.11.5.1.109
+drwxr-xr-x root/root         0 2025-01-17 01:15 ./lib/ollama/runners/
+drwxr-xr-x root/root         0 2025-01-17 01:03 ./lib/ollama/runners/cuda_v11_avx/
+-rwxr-xr-x root/root   9885296 2025-01-17 01:03 ./lib/ollama/runners/cuda_v11_avx/ollama_llama_server
+-rwxr-xr-x root/root 979085896 2025-01-17 01:01 ./lib/ollama/runners/cuda_v11_avx/libggml_cuda_v11.so
+drwxr-xr-x root/root         0 2025-01-17 01:17 ./lib/ollama/runners/rocm_avx/
+-rwxr-xr-x root/root   9930480 2025-01-17 01:17 ./lib/ollama/runners/rocm_avx/ollama_llama_server
+-rwxr-xr-x root/root 451342832 2025-01-17 01:15 ./lib/ollama/runners/rocm_avx/libggml_rocm.so
+drwxr-xr-x root/root         0 2025-01-17 01:01 ./lib/ollama/runners/cuda_v12_avx/
+-rwxr-xr-x root/root   9873136 2025-01-17 01:01 ./lib/ollama/runners/cuda_v12_avx/ollama_llama_server
+-rwxr-xr-x root/root 1237676328 2025-01-17 00:59 ./lib/ollama/runners/cuda_v12_avx/libggml_cuda_v12.so
+drwxr-xr-x root/root          0 2025-01-17 00:47 ./lib/ollama/runners/cpu_avx2/
+-rwxr-xr-x root/root    9860720 2025-01-17 00:47 ./lib/ollama/runners/cpu_avx2/ollama_llama_server
+drwxr-xr-x root/root          0 2025-01-17 00:47 ./lib/ollama/runners/cpu_avx/
+-rwxr-xr-x root/root    9840240 2025-01-17 00:47 ./lib/ollama/runners/cpu_avx/ollama_llama_server
+-rwxr-xr-x root/root  121866104 2025-01-17 00:49 ./lib/ollama/libcublas.so.11.5.1.109
+lrwxrwxrwx root/root          0 2025-01-17 00:52 ./lib/ollama/libcublasLt.so.12 -&gt; ./libcublasLt.so.12.4.5.8
+</code></pre>
+<div class="markdown-heading"><h3 class="heading-element">启动ollama</h3><a id="user-content-启动ollama" class="anchor" aria-label="Permalink: 启动ollama" href="#启动ollama"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>长期使用可以按照安装手册, 添加ollama到系统服务中.</p>
+<p>OLLAMA_HOST默认为127.0.0.1, 如果非本机访问, 需修改OLLAMA_HOST设置</p>
+<p>设置环境变量</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> OLLAMA_HOST=0.0.0.0</pre></div>
+<div class="highlight highlight-source-shell"><pre>nohup /usr/bin/ollama serve <span class="pl-k">&amp;</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">命令执行</h3><a id="user-content-命令执行" class="anchor" aria-label="Permalink: 命令执行" href="#命令执行"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><strong>查询本地已下载的模型</strong></p>
+<div class="highlight highlight-source-shell"><pre>$ ollama list
+NAME                ID              SIZE      MODIFIED
+deepseek-r1:1.5b    a42b25d8c10a    1.1 GB    24 hours ago</pre></div>
+<p><strong>拉取模型</strong></p>
+<div class="highlight highlight-source-shell"><pre>ollama pull deepseek-r1:1.5b</pre></div>
+<p><strong>启动模型</strong>
+直接在命令行进行交互</p>
+<div class="highlight highlight-source-shell"><pre>$ ollama run deepseek-r1:1.5b
+&gt;&gt;&gt; 你是什么
+<span class="pl-k">&lt;</span>think<span class="pl-k">&gt;</span>
+
+<span class="pl-k">&lt;</span>/think<span class="pl-k">&gt;</span>
+
+您好！我是由中国的深度求索（DeepSeek）公司开发的智能助手DeepSeek-R1。如您有任何任何问题，我会尽我所能为您提供帮助。</pre></div>
+<div class="markdown-heading"><h3 class="heading-element">nginx配置</h3><a id="user-content-nginx配置" class="anchor" aria-label="Permalink: nginx配置" href="#nginx配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>location /ollama/ {
+    proxy_pass http://127.0.0.1:11434/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+}
+</code></pre>
+<div class="markdown-heading"><h2 class="heading-element">本地客户端 <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v0.9.21">Cherry Studio</a>
+</h2><a id="user-content-本地客户端-cherry-studio" class="anchor" aria-label="Permalink: 本地客户端 Cherry Studio" href="#本地客户端-cherry-studio"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>设置-&gt;模型服务-&gt;Ollama
+API密钥: 空
+API地址: <a href="http://mydomain.com/ollama/v1/" rel="nofollow">http://mydomain.com/ollama/v1/</a>
+添加模型: deepseek-r1:1.5b</p>
+<p>在助手页设置选择默认模型为上述模型 即可进行聊天</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/2127d6b0-7229-44d0-bac7-4b31557e325e"><img src="https://github.com/user-attachments/assets/2127d6b0-7229-44d0-bac7-4b31557e325e" alt="Image" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/f4f0d98d-b353-4367-a7c5-f02c2a2eda0e"><img src="https://github.com/user-attachments/assets/f4f0d98d-b353-4367-a7c5-f02c2a2eda0e" alt="Image" style="max-width: 100%;"></a></p>
+<div class="markdown-heading"><h2 class="heading-element">anythingllm</h2><a id="user-content-anythingllm" class="anchor" aria-label="Permalink: anythingllm" href="#anythingllm"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>要求: 服务器安装docker</p>
+<p>install.sh 安装脚本</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> STORAGE_LOCATION=<span class="pl-smi">$HOME</span>/anythingllm <span class="pl-k">&amp;&amp;</span> \
+mkdir -p <span class="pl-smi">$STORAGE_LOCATION</span> <span class="pl-k">&amp;&amp;</span> \
+touch <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$STORAGE_LOCATION</span>/.env<span class="pl-pds">"</span></span> <span class="pl-k">&amp;&amp;</span> \
+docker run -d -p 3001:3001 \
+--cap-add SYS_ADMIN \
+-v <span class="pl-smi">${STORAGE_LOCATION}</span>:/app/server/storage \
+-v <span class="pl-smi">${STORAGE_LOCATION}</span>/.env:/app/server/.env \
+-e STORAGE_DIR=<span class="pl-s"><span class="pl-pds">"</span>/app/server/storage<span class="pl-pds">"</span></span> \
+mintplexlabs/anythingllm</pre></div>
+<p>执行该脚本会在当前用户目录下anythingllm目录安装服务</p>
+<div class="markdown-heading"><h3 class="heading-element">nginx配置</h3><a id="user-content-nginx配置-1" class="anchor" aria-label="Permalink: nginx配置" href="#nginx配置-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>location / {
+    proxy_pass http://127.0.0.1:3001;
+}
+</code></pre>
+<div class="markdown-heading"><h3 class="heading-element">配置AnythingLLM</h3><a id="user-content-配置anythingllm" class="anchor" aria-label="Permalink: 配置AnythingLLM" href="#配置anythingllm"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>首次访问时按导引进行模型配置, 配置URL后会自动获取支持的模型列表</p>
+<ol>
+<li>人工智能提供商 -&gt; LLM首选项
+LLM提供商: Ollama
+Ollama Model: deepseek-r1:1.5b
+Ollama Base URL: <a href="http://mydomain.com/ollama" rel="nofollow">http://mydomain.com/ollama</a>
+</li>
+</ol>
+<div class="markdown-heading"><h3 class="heading-element">新工作区</h3><a id="user-content-新工作区" class="anchor" aria-label="Permalink: 新工作区" href="#新工作区"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>创建工作区后, 可通过上传图标按钮, 上传自有文档添加到工作区中
+也可以连接GitHub Repo, GitLab Repo, YouTube Transcript, Bulk Link Scraper, Confluence</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/0d4acaa7-ed97-4576-84f4-25099e85abae"><img src="https://github.com/user-attachments/assets/0d4acaa7-ed97-4576-84f4-25099e85abae" alt="Image" style="max-width: 100%;"></a></p>
+<div class="markdown-heading"><h3 class="heading-element">嵌入式对话</h3><a id="user-content-嵌入式对话" class="anchor" aria-label="Permalink: 嵌入式对话" href="#嵌入式对话"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>可新增嵌入式对话, 按需配置后(需选择工作区), Show Code复制代码, 将代码复制到空白html的</p>内, 可直接打开html测试
+<div class="markdown-heading"><h2 class="heading-element">Deepseek模型 硬件要求</h2><a id="user-content-deepseek模型-硬件要求" class="anchor" aria-label="Permalink: Deepseek模型 硬件要求" href="#deepseek模型-硬件要求"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">DeepSeek-R1-1.5B</h3><a id="user-content-deepseek-r1-15b" class="anchor" aria-label="Permalink: DeepSeek-R1-1.5B" href="#deepseek-r1-15b"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>CPU: 最低 4 核（推荐 Intel/AMD 多核处理器）
+内存: 8GB+
+硬盘: 3GB+ 存储空间（模型文件约 1.5-2GB）
+显卡: 非必需（纯 CPU 推理），若 GPU 加速可选 4GB+ 显存（如 GTX 1650）
+场景：低资源设备部署，如树莓派、旧款笔记本、嵌入式系统或物联网设备</p>
+<div class="markdown-heading"><h3 class="heading-element">DeepSeek-R1-7B</h3><a id="user-content-deepseek-r1-7b" class="anchor" aria-label="Permalink: DeepSeek-R1-7B" href="#deepseek-r1-7b"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>CPU: 8 核以上（推荐现代多核 CPU）
+内存: 16GB+
+硬盘: 8GB+（模型文件约 4-5GB）
+显卡: 推荐 8GB+ 显存（如 RTX 3070/4060）
+场景：中小型企业本地开发测试、中等复杂度 NLP 任务，例如文本摘要、翻译、轻量级多轮对话系统</p>
+<div class="markdown-heading"><h3 class="heading-element">DeepSeek-R1-671B</h3><a id="user-content-deepseek-r1-671b" class="anchor" aria-label="Permalink: DeepSeek-R1-671B" href="#deepseek-r1-671b"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>CPU: 64 核以上（服务器集群）
+内存: 512GB+
+硬盘: 300GB+
+显卡: 多节点分布式训练（如 8x A100/H100）
+场景：超大规模 AI 研究、通用人工智能（AGI）探索</p>
+<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://github.com/ollama/ollama">ollama</a>
+<a href="https://github.com/ollama/ollama/tree/main?tab=readme-ov-file#model-library">ollama常用模型</a>
+<a href="https://ollama.com/library" rel="nofollow">ollama模型列表</a>
+<a href="https://cloud.tencent.com/developer/special/deepseek" rel="nofollow">DeepSeek技术专题：部署教程、一线玩法、原理解析</a>
+<a href="https://cloud.tencent.com/document/product/851/115962?from=25520" rel="nofollow">TI-ONE 训练平台 快速部署和体验 DeepSeek 系列模型</a></p>
+
+</div><nav class="paginate-container" aria-label="Pagination">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/73.html" aria-label="Previous Page">73 Follow配置</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">1 苹果CMS接口说明以及采集源搜索</a></div>
+</nav>
+
+<!-- 编辑按钮 -->
+<a href="https://github.com/anaer/blog/issues/74" target="_blank">
+    <button class="floating-button edit-post">🖋</button>
+</a>
+
+<!-- 新增按钮 -->
+<a href="https://github.com/anaer/blog/issues/new" target="_blank">
+    <button class="floating-button new-post">+</button>
+</a>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
+
+<script>
+if("2023-09-08"!=""){
+    var now=new Date();
+    var startSite=new Date("2023-09-08");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script></div>
+</body>
+<script>
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
+var utterancesLoad=0;
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek v2.4 %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+<script>
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","anaer/blog");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+
+
+<script src="https://anaer.github.io/blog/assets/toc.js"></script>
+
+
+</html>

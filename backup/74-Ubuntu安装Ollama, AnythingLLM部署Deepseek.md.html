@@ -1,0 +1,140 @@
+<div class="markdown-heading"><h2 class="heading-element">ollama安装</h2><a id="user-content-ollama安装" class="anchor" aria-label="Permalink: ollama安装" href="#ollama安装"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>可以按照官方的安装手册进行安装, 这里仅记录自己的操作步骤方便记忆.
+<a href="https://github.com/ollama/ollama/blob/main/docs/linux.md">Linux安装ollama手册</a></p>
+<p>PS: 以Ubuntu 14.04.5 LTS为例</p>
+<div class="markdown-heading"><h3 class="heading-element">下载安装<a href="https://github.com/ollama/ollama/releases/tag/v0.5.7">ollama v0.5.7</a> ollama-linux-amd64.tgz</h3><a id="user-content-下载安装ollama-v057-ollama-linux-amd64tgz" class="anchor" aria-label="Permalink: 下载安装ollama v0.5.7 ollama-linux-amd64.tgz" href="#下载安装ollama-v057-ollama-linux-amd64tgz"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>将压缩包解压到/usr目录, 可以不用再配置环境变量直接调用</p>
+<div class="highlight highlight-source-shell"><pre>sudo tar -C /usr -xzf ollama-linux-amd64.tgz</pre></div>
+<p>查询压缩包的结构</p>
+<pre lang="log"><code># tar -tvf ollama-linux-amd64.tgz
+drwxr-xr-x root/root         0 2025-01-17 00:47 ./
+drwxr-xr-x root/root         0 2025-01-17 00:47 ./bin/
+-rwxr-xr-x root/root  30064856 2025-01-17 00:47 ./bin/ollama
+drwxr-xr-x root/root         0 2025-01-17 00:47 ./lib/
+drwxr-xr-x root/root         0 2025-01-17 00:52 ./lib/ollama/
+lrwxrwxrwx root/root         0 2025-01-17 00:52 ./lib/ollama/libcudart.so.12 -&gt; libcudart.so.12.4.127
+-rwxr-xr-x root/root 441938896 2025-01-17 00:52 ./lib/ollama/libcublasLt.so.12.4.5.8
+lrwxrwxrwx root/root         0 2025-01-17 00:49 ./lib/ollama/libcudart.so.11.0 -&gt; libcudart.so.11.3.109
+lrwxrwxrwx root/root         0 2025-01-17 00:49 ./lib/ollama/libcublas.so.11 -&gt; libcublas.so.11.5.1.109
+lrwxrwxrwx root/root         0 2025-01-17 00:52 ./lib/ollama/libcublas.so.12 -&gt; ./libcublas.so.12.4.5.8
+-rwxr-xr-x root/root    619192 2025-01-17 00:52 ./lib/ollama/libcudart.so.11.3.109
+-rwxr-xr-x root/root 109604768 2025-01-17 00:52 ./lib/ollama/libcublas.so.12.4.5.8
+-rwxr-xr-x root/root    707904 2025-01-17 00:52 ./lib/ollama/libcudart.so.12.4.127
+-rwxr-xr-x root/root 263770264 2025-01-17 00:49 ./lib/ollama/libcublasLt.so.11.5.1.109
+lrwxrwxrwx root/root         0 2025-01-17 00:49 ./lib/ollama/libcublasLt.so.11 -&gt; libcublasLt.so.11.5.1.109
+drwxr-xr-x root/root         0 2025-01-17 01:15 ./lib/ollama/runners/
+drwxr-xr-x root/root         0 2025-01-17 01:03 ./lib/ollama/runners/cuda_v11_avx/
+-rwxr-xr-x root/root   9885296 2025-01-17 01:03 ./lib/ollama/runners/cuda_v11_avx/ollama_llama_server
+-rwxr-xr-x root/root 979085896 2025-01-17 01:01 ./lib/ollama/runners/cuda_v11_avx/libggml_cuda_v11.so
+drwxr-xr-x root/root         0 2025-01-17 01:17 ./lib/ollama/runners/rocm_avx/
+-rwxr-xr-x root/root   9930480 2025-01-17 01:17 ./lib/ollama/runners/rocm_avx/ollama_llama_server
+-rwxr-xr-x root/root 451342832 2025-01-17 01:15 ./lib/ollama/runners/rocm_avx/libggml_rocm.so
+drwxr-xr-x root/root         0 2025-01-17 01:01 ./lib/ollama/runners/cuda_v12_avx/
+-rwxr-xr-x root/root   9873136 2025-01-17 01:01 ./lib/ollama/runners/cuda_v12_avx/ollama_llama_server
+-rwxr-xr-x root/root 1237676328 2025-01-17 00:59 ./lib/ollama/runners/cuda_v12_avx/libggml_cuda_v12.so
+drwxr-xr-x root/root          0 2025-01-17 00:47 ./lib/ollama/runners/cpu_avx2/
+-rwxr-xr-x root/root    9860720 2025-01-17 00:47 ./lib/ollama/runners/cpu_avx2/ollama_llama_server
+drwxr-xr-x root/root          0 2025-01-17 00:47 ./lib/ollama/runners/cpu_avx/
+-rwxr-xr-x root/root    9840240 2025-01-17 00:47 ./lib/ollama/runners/cpu_avx/ollama_llama_server
+-rwxr-xr-x root/root  121866104 2025-01-17 00:49 ./lib/ollama/libcublas.so.11.5.1.109
+lrwxrwxrwx root/root          0 2025-01-17 00:52 ./lib/ollama/libcublasLt.so.12 -&gt; ./libcublasLt.so.12.4.5.8
+</code></pre>
+<div class="markdown-heading"><h3 class="heading-element">启动ollama</h3><a id="user-content-启动ollama" class="anchor" aria-label="Permalink: 启动ollama" href="#启动ollama"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>长期使用可以按照安装手册, 添加ollama到系统服务中.</p>
+<p>OLLAMA_HOST默认为127.0.0.1, 如果非本机访问, 需修改OLLAMA_HOST设置</p>
+<p>设置环境变量</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> OLLAMA_HOST=0.0.0.0</pre></div>
+<div class="highlight highlight-source-shell"><pre>nohup /usr/bin/ollama serve <span class="pl-k">&amp;</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">命令执行</h3><a id="user-content-命令执行" class="anchor" aria-label="Permalink: 命令执行" href="#命令执行"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><strong>查询本地已下载的模型</strong></p>
+<div class="highlight highlight-source-shell"><pre>$ ollama list
+NAME                ID              SIZE      MODIFIED
+deepseek-r1:1.5b    a42b25d8c10a    1.1 GB    24 hours ago</pre></div>
+<p><strong>拉取模型</strong></p>
+<div class="highlight highlight-source-shell"><pre>ollama pull deepseek-r1:1.5b</pre></div>
+<p><strong>启动模型</strong>
+直接在命令行进行交互</p>
+<div class="highlight highlight-source-shell"><pre>$ ollama run deepseek-r1:1.5b
+&gt;&gt;&gt; 你是什么
+<span class="pl-k">&lt;</span>think<span class="pl-k">&gt;</span>
+
+<span class="pl-k">&lt;</span>/think<span class="pl-k">&gt;</span>
+
+您好！我是由中国的深度求索（DeepSeek）公司开发的智能助手DeepSeek-R1。如您有任何任何问题，我会尽我所能为您提供帮助。</pre></div>
+<div class="markdown-heading"><h3 class="heading-element">nginx配置</h3><a id="user-content-nginx配置" class="anchor" aria-label="Permalink: nginx配置" href="#nginx配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>location /ollama/ {
+    proxy_pass http://127.0.0.1:11434/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+}
+</code></pre>
+<div class="markdown-heading"><h2 class="heading-element">本地客户端 <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v0.9.21">Cherry Studio</a>
+</h2><a id="user-content-本地客户端-cherry-studio" class="anchor" aria-label="Permalink: 本地客户端 Cherry Studio" href="#本地客户端-cherry-studio"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>设置-&gt;模型服务-&gt;Ollama
+API密钥: 空
+API地址: <a href="http://mydomain.com/ollama/v1/" rel="nofollow">http://mydomain.com/ollama/v1/</a>
+添加模型: deepseek-r1:1.5b</p>
+<p>在助手页设置选择默认模型为上述模型 即可进行聊天</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/2127d6b0-7229-44d0-bac7-4b31557e325e"><img src="https://github.com/user-attachments/assets/2127d6b0-7229-44d0-bac7-4b31557e325e" alt="Image" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/f4f0d98d-b353-4367-a7c5-f02c2a2eda0e"><img src="https://github.com/user-attachments/assets/f4f0d98d-b353-4367-a7c5-f02c2a2eda0e" alt="Image" style="max-width: 100%;"></a></p>
+<div class="markdown-heading"><h2 class="heading-element">anythingllm</h2><a id="user-content-anythingllm" class="anchor" aria-label="Permalink: anythingllm" href="#anythingllm"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>要求: 服务器安装docker</p>
+<p>install.sh 安装脚本</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> STORAGE_LOCATION=<span class="pl-smi">$HOME</span>/anythingllm <span class="pl-k">&amp;&amp;</span> \
+mkdir -p <span class="pl-smi">$STORAGE_LOCATION</span> <span class="pl-k">&amp;&amp;</span> \
+touch <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$STORAGE_LOCATION</span>/.env<span class="pl-pds">"</span></span> <span class="pl-k">&amp;&amp;</span> \
+docker run -d -p 3001:3001 \
+--cap-add SYS_ADMIN \
+-v <span class="pl-smi">${STORAGE_LOCATION}</span>:/app/server/storage \
+-v <span class="pl-smi">${STORAGE_LOCATION}</span>/.env:/app/server/.env \
+-e STORAGE_DIR=<span class="pl-s"><span class="pl-pds">"</span>/app/server/storage<span class="pl-pds">"</span></span> \
+mintplexlabs/anythingllm</pre></div>
+<p>执行该脚本会在当前用户目录下anythingllm目录安装服务</p>
+<div class="markdown-heading"><h3 class="heading-element">nginx配置</h3><a id="user-content-nginx配置-1" class="anchor" aria-label="Permalink: nginx配置" href="#nginx配置-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>location / {
+    proxy_pass http://127.0.0.1:3001;
+}
+</code></pre>
+<div class="markdown-heading"><h3 class="heading-element">配置AnythingLLM</h3><a id="user-content-配置anythingllm" class="anchor" aria-label="Permalink: 配置AnythingLLM" href="#配置anythingllm"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>首次访问时按导引进行模型配置, 配置URL后会自动获取支持的模型列表</p>
+<ol>
+<li>人工智能提供商 -&gt; LLM首选项
+LLM提供商: Ollama
+Ollama Model: deepseek-r1:1.5b
+Ollama Base URL: <a href="http://mydomain.com/ollama" rel="nofollow">http://mydomain.com/ollama</a>
+</li>
+</ol>
+<div class="markdown-heading"><h3 class="heading-element">新工作区</h3><a id="user-content-新工作区" class="anchor" aria-label="Permalink: 新工作区" href="#新工作区"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>创建工作区后, 可通过上传图标按钮, 上传自有文档添加到工作区中
+也可以连接GitHub Repo, GitLab Repo, YouTube Transcript, Bulk Link Scraper, Confluence</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/0d4acaa7-ed97-4576-84f4-25099e85abae"><img src="https://github.com/user-attachments/assets/0d4acaa7-ed97-4576-84f4-25099e85abae" alt="Image" style="max-width: 100%;"></a></p>
+<div class="markdown-heading"><h3 class="heading-element">嵌入式对话</h3><a id="user-content-嵌入式对话" class="anchor" aria-label="Permalink: 嵌入式对话" href="#嵌入式对话"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>可新增嵌入式对话, 按需配置后(需选择工作区), Show Code复制代码, 将代码复制到空白html的</p>内, 可直接打开html测试
+<div class="markdown-heading"><h2 class="heading-element">Deepseek模型 硬件要求</h2><a id="user-content-deepseek模型-硬件要求" class="anchor" aria-label="Permalink: Deepseek模型 硬件要求" href="#deepseek模型-硬件要求"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">DeepSeek-R1-1.5B</h3><a id="user-content-deepseek-r1-15b" class="anchor" aria-label="Permalink: DeepSeek-R1-1.5B" href="#deepseek-r1-15b"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>CPU: 最低 4 核（推荐 Intel/AMD 多核处理器）
+内存: 8GB+
+硬盘: 3GB+ 存储空间（模型文件约 1.5-2GB）
+显卡: 非必需（纯 CPU 推理），若 GPU 加速可选 4GB+ 显存（如 GTX 1650）
+场景：低资源设备部署，如树莓派、旧款笔记本、嵌入式系统或物联网设备</p>
+<div class="markdown-heading"><h3 class="heading-element">DeepSeek-R1-7B</h3><a id="user-content-deepseek-r1-7b" class="anchor" aria-label="Permalink: DeepSeek-R1-7B" href="#deepseek-r1-7b"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>CPU: 8 核以上（推荐现代多核 CPU）
+内存: 16GB+
+硬盘: 8GB+（模型文件约 4-5GB）
+显卡: 推荐 8GB+ 显存（如 RTX 3070/4060）
+场景：中小型企业本地开发测试、中等复杂度 NLP 任务，例如文本摘要、翻译、轻量级多轮对话系统</p>
+<div class="markdown-heading"><h3 class="heading-element">DeepSeek-R1-671B</h3><a id="user-content-deepseek-r1-671b" class="anchor" aria-label="Permalink: DeepSeek-R1-671B" href="#deepseek-r1-671b"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>CPU: 64 核以上（服务器集群）
+内存: 512GB+
+硬盘: 300GB+
+显卡: 多节点分布式训练（如 8x A100/H100）
+场景：超大规模 AI 研究、通用人工智能（AGI）探索</p>
+<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://github.com/ollama/ollama">ollama</a>
+<a href="https://github.com/ollama/ollama/tree/main?tab=readme-ov-file#model-library">ollama常用模型</a>
+<a href="https://ollama.com/library" rel="nofollow">ollama模型列表</a>
+<a href="https://cloud.tencent.com/developer/special/deepseek" rel="nofollow">DeepSeek技术专题：部署教程、一线玩法、原理解析</a>
+<a href="https://cloud.tencent.com/document/product/851/115962?from=25520" rel="nofollow">TI-ONE 训练平台 快速部署和体验 DeepSeek 系列模型</a></p>
