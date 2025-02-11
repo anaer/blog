@@ -45,6 +45,23 @@ lrwxrwxrwx root/root          0 2025-01-17 00:52 ./lib/ollama/libcublasLt.so.12 
 </code></pre>
 <div class="markdown-heading"><h3 class="heading-element">启动ollama</h3><a id="user-content-启动ollama" class="anchor" aria-label="Permalink: 启动ollama" href="#启动ollama"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>长期使用可以按照安装手册, 添加ollama到系统服务中.</p>
+<pre lang="conf"><code>[Unit]
+Description=Ollama Service
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/ollama serve
+User=ollama
+Group=ollama
+Restart=always
+RestartSec=3
+Environment="PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin"
+Environment="OLLAMA_HOST=0.0.0.0"
+Environment="OLLAMA_MODELS=/data/ollama/models"
+
+[Install]
+WantedBy=default.target
+</code></pre>
 <p>OLLAMA_HOST默认为127.0.0.1, 如果非本机访问, 需修改OLLAMA_HOST设置</p>
 <p>设置环境变量</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> OLLAMA_HOST=0.0.0.0</pre></div>
