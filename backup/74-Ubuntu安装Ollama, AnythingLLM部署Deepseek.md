@@ -3,6 +3,11 @@
 
 可以按照官方的安装手册进行安装, 这里仅记录自己的操作步骤方便记忆.
 [Linux安装ollama手册](https://github.com/ollama/ollama/blob/main/docs/linux.md)
+```sh
+curl -fsSL https://ollama.com/install.sh | sudo bash
+sudo usermod -aG ollama $USER  # 添加用户权限
+sudo systemctl start ollama    # 启动服务
+```
 
 PS: 以Ubuntu 14.04.5 LTS为例
 

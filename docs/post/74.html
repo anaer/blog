@@ -130,12 +130,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-02-10</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-11</time></span>
+
 <p>
 
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h2 class="heading-element">ollama安装</h2><a id="user-content-ollama安装" class="anchor" aria-label="Permalink: ollama安装" href="#ollama安装"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>可以按照官方的安装手册进行安装, 这里仅记录自己的操作步骤方便记忆.
 <a href="https://github.com/ollama/ollama/blob/main/docs/linux.md">Linux安装ollama手册</a></p>
+<div class="highlight highlight-source-shell"><pre>curl -fsSL https://ollama.com/install.sh <span class="pl-k">|</span> sudo bash
+sudo usermod -aG ollama <span class="pl-smi">$USER</span>  <span class="pl-c"><span class="pl-c">#</span> 添加用户权限</span>
+sudo systemctl start ollama    <span class="pl-c"><span class="pl-c">#</span> 启动服务</span></pre></div>
 <p>PS: 以Ubuntu 14.04.5 LTS为例</p>
 <div class="markdown-heading"><h3 class="heading-element">下载安装<a href="https://github.com/ollama/ollama/releases/tag/v0.5.7">ollama v0.5.7</a> ollama-linux-amd64.tgz</h3><a id="user-content-下载安装ollama-v057-ollama-linux-amd64tgz" class="anchor" aria-label="Permalink: 下载安装ollama v0.5.7 ollama-linux-amd64.tgz" href="#下载安装ollama-v057-ollama-linux-amd64tgz"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>将压缩包解压到/usr目录, 可以不用再配置环境变量直接调用</p>
