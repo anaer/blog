@@ -11,7 +11,7 @@ sudo systemctl start ollama    # 启动服务
 
 PS: 以Ubuntu 14.04.5 LTS为例
 
-### 下载安装[ollama v0.5.7](https://github.com/ollama/ollama/releases/tag/v0.5.7) ollama-linux-amd64.tgz
+### 下载安装[ollama v0.5.7](https://github.com/ollama/ollama/releases/tag/v0.5.7)
 
 将压缩包解压到/usr目录, 可以不用再配置环境变量直接调用
 ```sh
