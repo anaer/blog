@@ -955,14 +955,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/44",
             "commentNum": 0,
             "createdAt": 1737004313,
-            "updatedAt": 1737596726,
+            "updatedAt": 1739246668,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-16",
-            "dateLabelColor": "hsl(6, 53%, 36%)",
+            "dateLabelColor": "hsl(25, 33%, 38%)",
             "description": "\u67e5\u8be2\u6700\u65b0\u7248\u672c\nhttps://cdnjs.com/libraries/Primer\n\u5b57\u8282\u8df3\u52a8\u9759\u6001\u8d44\u6e90\u516c\u5171\u5e93\nhttps://cdn.bytedance.com/\nCDN\u5730\u5740\ncdnjs.cloudfl...",
-            "buildedAt": 1737596726
+            "buildedAt": 1739246668
         },
         "P45": {
             "number": "45",

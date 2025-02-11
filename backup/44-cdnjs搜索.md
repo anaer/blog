@@ -32,6 +32,8 @@ https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js
 ### 其他
 https://lib.baomitu.com/vue/2.6.11/vue.min.js
 
+https://www.webcache.cn/
+
 
 ## jsdelivr刷新缓存
 purge.jsdelivr.net 是一个用于清除 jsDelivr CDN 缓存的服务。jsDelivr是一个开源的公共CDN（内容分发网络），它可以免费为开发人员提供各种开源库和资源的加速和分发。
