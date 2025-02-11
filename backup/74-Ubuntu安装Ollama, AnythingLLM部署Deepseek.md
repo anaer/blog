@@ -220,3 +220,4 @@ CPU: 64 核以上（服务器集群）
 [ollama模型列表](https://ollama.com/library)
 [DeepSeek技术专题：部署教程、一线玩法、原理解析](https://cloud.tencent.com/developer/special/deepseek)
 [TI-ONE 训练平台 快速部署和体验 DeepSeek 系列模型](https://cloud.tencent.com/document/product/851/115962?from=25520)
+[Deepseek官方提示词库](https://api-docs.deepseek.com/zh-cn/prompt-library)
