@@ -129,6 +129,21 @@ API地址: http://mydomain.com/ollama/v1/
 ## anythingllm
 要求: 服务器安装docker
 
+```sh
+"registry-mirrors": [
+    "https://docker.hpcloud.cloud/",
+    "https://docker.m.daocloud.io/",
+    "https://docker.unsee.tech/",
+    "https://docker.1panel.live/",
+    "http://mirrors.ustc.edu.cn/",
+    "https://docker.chenby.cn/",
+    "http://mirror.azure.cn/",
+    "https://dockerpull.org/",
+    "https://dockerhub.icu/",
+    "https://hub.rat.dev/"
+  ]
+```
+
 install.sh 安装脚本
 
 ```sh

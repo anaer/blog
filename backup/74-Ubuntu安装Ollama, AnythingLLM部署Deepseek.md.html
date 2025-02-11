@@ -85,6 +85,18 @@ API地址: <a href="http://mydomain.com/ollama/v1/" rel="nofollow">http://mydoma
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/f4f0d98d-b353-4367-a7c5-f02c2a2eda0e"><img src="https://github.com/user-attachments/assets/f4f0d98d-b353-4367-a7c5-f02c2a2eda0e" alt="Image" style="max-width: 100%;"></a></p>
 <div class="markdown-heading"><h2 class="heading-element">anythingllm</h2><a id="user-content-anythingllm" class="anchor" aria-label="Permalink: anythingllm" href="#anythingllm"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>要求: 服务器安装docker</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-s"><span class="pl-pds">"</span>registry-mirrors<span class="pl-pds">"</span></span>: [
+    <span class="pl-s"><span class="pl-pds">"</span>https://docker.hpcloud.cloud/<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>https://docker.m.daocloud.io/<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>https://docker.unsee.tech/<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>https://docker.1panel.live/<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>http://mirrors.ustc.edu.cn/<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>https://docker.chenby.cn/<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>http://mirror.azure.cn/<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>https://dockerpull.org/<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>https://dockerhub.icu/<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>https://hub.rat.dev/<span class="pl-pds">"</span></span>
+  ]</pre></div>
 <p>install.sh 安装脚本</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> STORAGE_LOCATION=<span class="pl-smi">$HOME</span>/anythingllm <span class="pl-k">&amp;&amp;</span> \
 mkdir -p <span class="pl-smi">$STORAGE_LOCATION</span> <span class="pl-k">&amp;&amp;</span> \
