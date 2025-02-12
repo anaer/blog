@@ -46,6 +46,14 @@ SSLKEYLOGFILE = C:\sslkey.log
 | `http.server`                                                    | 过滤所有含有HTTP头中含有server字段的数据包。                     |
 | `http.transfer_encoding == "chunked"`                            | 根据transfer_encoding过滤。                                      |
 
+## 修改配置文件路径
+
+在环境变量中配置WIRESHARK_CONFIG_DIR 指定路径
+
+```conf
+export WIRESHARK_CONFIG_DIR="/path/to/your/custom/config"
+```
+
 ## 参考链接
 
 过滤参数说明
