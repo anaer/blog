@@ -1577,14 +1577,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/74",
             "commentNum": 0,
             "createdAt": 1739168174,
-            "updatedAt": 1739323157,
+            "updatedAt": 1739328925,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-02-10",
-            "dateLabelColor": "hsl(1, 46%, 25%)",
+            "dateLabelColor": "hsl(1, 55%, 26%)",
             "description": "ollama\u5b89\u88c5\n\u53ef\u4ee5\u6309\u7167\u5b98\u65b9\u7684\u5b89\u88c5\u624b\u518c\u8fdb\u884c\u5b89\u88c5, \u8fd9\u91cc\u4ec5\u8bb0\u5f55\u81ea\u5df1\u7684\u64cd\u4f5c\u6b65\u9aa4\u65b9\u4fbf\u8bb0\u5fc6.\nLinux\u5b89\u88c5ollama\u624b\u518c\ncurl -fsSL https://ollama.com/install.sh...",
-            "buildedAt": 1739323157
+            "buildedAt": 1739328925
         }
     },
     "singeListJson": {},

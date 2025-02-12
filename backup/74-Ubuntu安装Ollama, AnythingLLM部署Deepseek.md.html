@@ -64,13 +64,14 @@ RestartSec=3
 Environment="PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin"
 Environment="OLLAMA_HOST=0.0.0.0"
 Environment="OLLAMA_MODELS=/data/ollama/models"
+Environment="OLLAMA_ORIGINS=*"
 
 [Install]
 WantedBy=default.target
 </code></pre>
-<p>OLLAMA_HOST默认为127.0.0.1, 如果非本机访问, 需修改OLLAMA_HOST设置</p>
-<p>设置环境变量</p>
-<div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> OLLAMA_HOST=0.0.0.0</pre></div>
+<p>OLLAMA_HOST设置为0.0.0.0 允许局域网访问
+OLLAMA_MODELS 指定模型路径 防止系统盘空间不足
+OLLAMA_ORIGINS设置跨域, 可在<a href="https://github.com/josStorer/chatGPTBox">chatgptBox</a>中使用 <a href="https://github.com/josStorer/chatGPTBox/issues/616">原因</a></p>
 <div class="highlight highlight-source-shell"><pre>nohup /usr/bin/ollama serve <span class="pl-k">&amp;</span></pre></div>
 <div class="markdown-heading"><h3 class="heading-element">命令执行</h3><a id="user-content-命令执行" class="anchor" aria-label="Permalink: 命令执行" href="#命令执行"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><strong>查询本地已下载的模型</strong></p>
