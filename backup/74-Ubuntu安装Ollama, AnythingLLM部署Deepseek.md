@@ -83,6 +83,7 @@ Environment="PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/
 Environment="OLLAMA_HOST=0.0.0.0"
 Environment="OLLAMA_MODELS=/data/ollama/models"
 Environment="OLLAMA_ORIGINS=*"
+Environment="OLLAMA_DEBUG=1"
 
 [Install]
 WantedBy=default.target
@@ -91,6 +92,7 @@ WantedBy=default.target
 OLLAMA_HOST设置为0.0.0.0 允许局域网访问
 OLLAMA_MODELS 指定模型路径 防止系统盘空间不足
 OLLAMA_ORIGINS设置跨域, 可在[chatgptBox](https://github.com/josStorer/chatGPTBox)中使用
+OLLAMA_DEBUG 设置debug模式, 可查看用户请求的参数信息
 
 #### 手动启动
 ```sh
