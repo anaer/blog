@@ -241,6 +241,12 @@ CPU: 64 核以上（服务器集群）
 显卡: 多节点分布式训练（如 8x A100/H100）
 场景：超大规模 AI 研究、通用人工智能（AGI）探索
 
+## 监控gpu使用情况
+
+```sh
+watch -n 1 nvidia-smi
+```
+
 ## 相关链接
 
 [ollama](https://github.com/ollama/ollama)
