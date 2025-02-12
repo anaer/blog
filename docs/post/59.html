@@ -128,6 +128,8 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-22</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-12</time></span>
+
 <p>
 
 <div class="markdown-body" id="postBody">
@@ -149,15 +151,128 @@ pre {
 <ol start="4">
 <li>抓包验证</li>
 </ol>
-<div class="markdown-heading"><h2 class="heading-element">过滤请求中包含 api 的 POST 请求</h2><a id="user-content-过滤请求中包含-api-的-post-请求" class="anchor" aria-label="Permalink: 过滤请求中包含 api 的 POST 请求" href="#过滤请求中包含-api-的-post-请求"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>http contains api and http.request.method == "POST"</p>
-<p>http.request.method == "POST" and http.request.uri contains auth</p>
+<div class="markdown-heading"><h2 class="heading-element">过滤器</h2><a id="user-content-过滤器" class="anchor" aria-label="Permalink: 过滤器" href="#过滤器"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<table>
+<thead>
+<tr>
+<th>过滤器语法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>frame.number &lt;= 1000</code></td>
+<td>显示前1000个数据包。</td>
+</tr>
+<tr>
+<td><code>frame.number &gt;= 10 and frame.number &lt;= 20</code></td>
+<td>显示序列号10-20内的数据包。</td>
+</tr>
+<tr>
+<td><code>http contains api and http.request.method == "POST"</code></td>
+<td>过滤包含api的POST请求。</td>
+</tr>
+<tr>
+<td><code>http.content_encoding == "gzip"</code></td>
+<td>过滤content_encoding是gzip的HTTP包。</td>
+</tr>
+<tr>
+<td><code>http.content_length == 279</code></td>
+<td>根据content_length的数值过滤。</td>
+</tr>
+<tr>
+<td><code>http.content_length_header == "279"</code></td>
+<td>根据content_length的数值过滤。</td>
+</tr>
+<tr>
+<td><code>http.content_type == "text/html"</code></td>
+<td>过滤content_type是text/html的HTTP响应、POST包。</td>
+</tr>
+<tr>
+<td><code>http.cookie contains guid</code></td>
+<td>过滤含有指定cookie的HTTP数据包。</td>
+</tr>
+<tr>
+<td><code>http.host == "www.google.cn"</code></td>
+<td>只显示访问指定域名（<a href="http://www.google.cn）的HTTP请求数据包。" rel="nofollow">www.google.cn）的HTTP请求数据包。</a></td>
+</tr>
+<tr>
+<td><code>http.host contains "google"</code></td>
+<td>只显示访问包含指定字符串（google）的域名的HTTP请求数据包。</td>
+</tr>
+<tr>
+<td><code>http.referer == "http://www.google.cn/"</code></td>
+<td>只显示Referer头部内容为“<a href="http://www.google.cn/%E2%80%9D%E7%9A%84HTTP%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E5%8C%85%E3%80%82" rel="nofollow">http://www.google.cn/”的HTTP请求数据包。</a>
+</td>
+</tr>
+<tr>
+<td><code>http.request and not http.request.method == GET</code></td>
+<td>显示所有HTTP数据包，但不包含GET方法的HTTP请求数据包。</td>
+</tr>
+<tr>
+<td><code>http.request.full_uri=="http://www.google.cn/demo"</code></td>
+<td>过滤含域名的整个URL。</td>
+</tr>
+<tr>
+<td><code>http.request.method == POST and http.request.uri contains auth</code></td>
+<td>过滤POST请求中包含auth的URI。</td>
+</tr>
+<tr>
+<td><code>http.request.method == POST</code></td>
+<td>过滤所有请求方式为POST的HTTP请求包。</td>
+</tr>
+<tr>
+<td><code>http.request.uri=="/demo"</code></td>
+<td>过滤请求的URI，取值是域名后的部分。</td>
+</tr>
+<tr>
+<td><code>http.request.version == "HTTP/1.1"</code></td>
+<td>过滤HTTP/1.1版本的HTTP包，包括请求和响应。</td>
+</tr>
+<tr>
+<td><code>http.request</code></td>
+<td>显示所有HTTP请求数据包。</td>
+</tr>
+<tr>
+<td><code>http.response.code &lt;= 599</code></td>
+<td>只显示包含HTTP服务器端错误状态码的HTTP响应数据包。</td>
+</tr>
+<tr>
+<td><code>http.response.code == 200</code></td>
+<td>只显示状态码为200的HTTP响应数据包。</td>
+</tr>
+<tr>
+<td><code>http.response.code &gt;= 400 and http.response.code &lt;= 499</code></td>
+<td>只显示包含HTTP客户端错误状态码的HTTP响应数据包。</td>
+</tr>
+<tr>
+<td><code>http.response.phrase == "OK"</code></td>
+<td>过滤HTTP响应中的phrase。</td>
+</tr>
+<tr>
+<td><code>http.response</code></td>
+<td>显示所有HTTP响应数据包。</td>
+</tr>
+<tr>
+<td><code>http.server contains "nginx"</code></td>
+<td>过滤HTTP头中server字段含有nginx字符的数据包。</td>
+</tr>
+<tr>
+<td><code>http.server</code></td>
+<td>过滤所有含有HTTP头中含有server字段的数据包。</td>
+</tr>
+<tr>
+<td><code>http.transfer_encoding == "chunked"</code></td>
+<td>根据transfer_encoding过滤。</td>
+</tr>
+</tbody>
+</table>
 <div class="markdown-heading"><h2 class="heading-element">参考链接</h2><a id="user-content-参考链接" class="anchor" aria-label="Permalink: 参考链接" href="#参考链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>过滤参数说明
 <a href="https://www.wireshark.org/docs/dfref/h/http.html" rel="nofollow">https://www.wireshark.org/docs/dfref/h/http.html</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/60.html" aria-label="Previous Page">60 pm2常用命令</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/56.html" aria-label="Next Page">56 aira2命令参数</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/58.html" aria-label="Previous Page">58 Api Mocker 帮助</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/60.html" aria-label="Next Page">60 pm2常用命令</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

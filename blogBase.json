@@ -1272,14 +1272,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/59",
             "commentNum": 0,
             "createdAt": 1737534716,
-            "updatedAt": 1737534716,
+            "updatedAt": 1739337517,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "hsl(0, 36%, 17%)",
+            "dateLabelColor": "hsl(20, 59%, 32%)",
             "description": "\u6293\u5305https\u914d\u7f6e\n\n\u6dfb\u52a0\u73af\u5883\u53d8\u91cf SSLKEYLOGFILE\n\nSSLKEYLOGFILE = C:\\sslkey.log\n\n\n\u65b0\u6253\u5f00 chrome \u6d4f\u89c8\u5668, \u8bbf\u95ee\u4efb\u610f\u4e00\u4e2a https \u7f51\u7ad9, \u68c0\u67e5...",
-            "buildedAt": 1737534716
+            "buildedAt": 1739337517
         },
         "P60": {
             "number": "60",
