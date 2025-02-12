@@ -53,14 +53,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/2",
             "commentNum": 0,
             "createdAt": 1695882906,
-            "updatedAt": 1737514374,
+            "updatedAt": 1739323279,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2023-09-28",
-            "dateLabelColor": "hsl(121, 41%, 27%)",
+            "dateLabelColor": "hsl(142, 64%, 29%)",
             "description": "\u66b4\u529b\u7334Violentmonkey\n\u5143\u6570\u636e\u5757\n// ==UserScript==\n// @name                         \u6807\u9898\n// @name:zh-CN          ...",
-            "buildedAt": 1737514374
+            "buildedAt": 1739323279
         },
         "P3": {
             "number": "3",
