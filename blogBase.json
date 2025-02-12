@@ -58,7 +58,7 @@
             "style": "",
             "script": "",
             "createdDate": "2023-09-28",
-            "dateLabelColor": "hsl(142, 64%, 29%)",
+            "dateLabelColor": "hsl(142, 31%, 19%)",
             "description": "\u66b4\u529b\u7334Violentmonkey\n\u5143\u6570\u636e\u5757\n// ==UserScript==\n// @name                         \u6807\u9898\n// @name:zh-CN          ...",
             "buildedAt": 1739323279
         },
