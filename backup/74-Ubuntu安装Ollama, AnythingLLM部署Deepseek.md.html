@@ -51,6 +51,7 @@ lrwxrwxrwx root/root          0 2025-01-17 00:52 ./lib/ollama/libcublasLt.so.12 
 </code></pre>
 <div class="markdown-heading"><h3 class="heading-element">启动ollama</h3><a id="user-content-启动ollama" class="anchor" aria-label="Permalink: 启动ollama" href="#启动ollama"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>长期使用可以按照安装手册, 添加ollama到系统服务中.</p>
+<div class="markdown-heading"><h4 class="heading-element">系统服务</h4><a id="user-content-系统服务" class="anchor" aria-label="Permalink: 系统服务" href="#系统服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <pre lang="conf"><code>[Unit]
 Description=Ollama Service
 After=network-online.target
@@ -72,6 +73,7 @@ WantedBy=default.target
 <p>OLLAMA_HOST设置为0.0.0.0 允许局域网访问
 OLLAMA_MODELS 指定模型路径 防止系统盘空间不足
 OLLAMA_ORIGINS设置跨域, 可在<a href="https://github.com/josStorer/chatGPTBox">chatgptBox</a>中使用 <a href="https://github.com/josStorer/chatGPTBox/issues/616">原因</a></p>
+<div class="markdown-heading"><h4 class="heading-element">手动启动</h4><a id="user-content-手动启动" class="anchor" aria-label="Permalink: 手动启动" href="#手动启动"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>nohup /usr/bin/ollama serve <span class="pl-k">&amp;</span></pre></div>
 <div class="markdown-heading"><h3 class="heading-element">命令执行</h3><a id="user-content-命令执行" class="anchor" aria-label="Permalink: 命令执行" href="#命令执行"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><strong>查询本地已下载的模型</strong></p>
