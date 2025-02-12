@@ -90,7 +90,7 @@ WantedBy=default.target
 
 OLLAMA_HOST设置为0.0.0.0 允许局域网访问
 OLLAMA_MODELS 指定模型路径 防止系统盘空间不足
-OLLAMA_ORIGINS设置跨域, 可在[chatgptBox](https://github.com/josStorer/chatGPTBox)中使用 [原因](https://github.com/josStorer/chatGPTBox/issues/616)
+OLLAMA_ORIGINS设置跨域, 可在[chatgptBox](https://github.com/josStorer/chatGPTBox)中使用
 
 #### 手动启动
 ```sh
