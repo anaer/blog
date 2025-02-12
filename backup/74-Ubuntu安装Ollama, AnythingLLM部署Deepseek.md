@@ -222,23 +222,35 @@ Ollama Base URL: http://mydomain.com/ollama
 
 ### DeepSeek-R1-1.5B
 CPU: 最低 4 核（推荐 Intel/AMD 多核处理器）
+
 内存: 8GB+
+
 硬盘: 3GB+ 存储空间（模型文件约 1.5-2GB）
+
 显卡: 非必需（纯 CPU 推理），若 GPU 加速可选 4GB+ 显存（如 GTX 1650）
+
 场景：低资源设备部署，如树莓派、旧款笔记本、嵌入式系统或物联网设备
 
 ### DeepSeek-R1-7B
 CPU: 8 核以上（推荐现代多核 CPU）
+
 内存: 16GB+
+
 硬盘: 8GB+（模型文件约 4-5GB）
+
 显卡: 推荐 8GB+ 显存（如 RTX 3070/4060）
+
 场景：中小型企业本地开发测试、中等复杂度 NLP 任务，例如文本摘要、翻译、轻量级多轮对话系统
 
 ### DeepSeek-R1-671B
 CPU: 64 核以上（服务器集群）
+
 内存: 512GB+
+
 硬盘: 300GB+
+
 显卡: 多节点分布式训练（如 8x A100/H100）
+
 场景：超大规模 AI 研究、通用人工智能（AGI）探索
 
 ## 监控gpu使用情况
@@ -250,8 +262,13 @@ watch -n 1 nvidia-smi
 ## 相关链接
 
 [ollama](https://github.com/ollama/ollama)
+
 [ollama常用模型](https://github.com/ollama/ollama/tree/main?tab=readme-ov-file#model-library)
+
 [ollama模型列表](https://ollama.com/library)
+
 [DeepSeek技术专题：部署教程、一线玩法、原理解析](https://cloud.tencent.com/developer/special/deepseek)
+
 [TI-ONE 训练平台 快速部署和体验 DeepSeek 系列模型](https://cloud.tencent.com/document/product/851/115962?from=25520)
+
 [Deepseek官方提示词库](https://api-docs.deepseek.com/zh-cn/prompt-library)
