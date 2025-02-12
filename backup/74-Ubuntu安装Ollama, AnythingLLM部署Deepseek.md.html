@@ -1,9 +1,15 @@
 <div class="markdown-heading"><h2 class="heading-element">ollama安装</h2><a id="user-content-ollama安装" class="anchor" aria-label="Permalink: ollama安装" href="#ollama安装"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>可以按照官方的安装手册进行安装, 这里仅记录自己的操作步骤方便记忆.
 <a href="https://github.com/ollama/ollama/blob/main/docs/linux.md">Linux安装ollama手册</a></p>
-<div class="highlight highlight-source-shell"><pre>curl -fsSL https://ollama.com/install.sh <span class="pl-k">|</span> sudo bash
-sudo usermod -aG ollama <span class="pl-smi">$USER</span>  <span class="pl-c"><span class="pl-c">#</span> 添加用户权限</span>
-sudo systemctl start ollama    <span class="pl-c"><span class="pl-c">#</span> 启动服务</span></pre></div>
+<div class="highlight highlight-source-shell"><pre>curl -fsSL https://ollama.com/install.sh <span class="pl-k">|</span> sudo bash</pre></div>
+<p>使用N卡的话, 建议使用安装脚本安装, 会安装相关驱动并配置.
+如官网下载速度太慢, 可自己下载包并修改脚本</p>
+<div class="highlight highlight-source-diff"><pre><span class="pl-mdr">82c82,84</span>
+<span class="pl-md"><span class="pl-md">&lt;</span> $SUDO tar -C "$OLLAMA_INSTALL_DIR" -xzf ollama-linux-amd64.tgz</span>
+<span class="pl-ms">---</span>
+<span class="pl-mi1"><span class="pl-mi1">&gt;</span> curl --fail --show-error --location --progress-bar \</span>
+<span class="pl-mi1"><span class="pl-mi1">&gt;</span>     "https://ollama.com/download/ollama-linux-${ARCH}.tgz${VER_PARAM}" | \</span>
+<span class="pl-mi1"><span class="pl-mi1">&gt;</span>     $SUDO tar -xzf - -C "$OLLAMA_INSTALL_DIR"</span></pre></div>
 <p>PS: 以Ubuntu 14.04.5 LTS为例</p>
 <div class="markdown-heading"><h3 class="heading-element">下载安装<a href="https://github.com/ollama/ollama/releases/tag/v0.5.7">ollama v0.5.7</a>
 </h3><a id="user-content-下载安装ollama-v057" class="anchor" aria-label="Permalink: 下载安装ollama v0.5.7" href="#下载安装ollama-v057"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>

@@ -5,8 +5,18 @@
 [Linux安装ollama手册](https://github.com/ollama/ollama/blob/main/docs/linux.md)
 ```sh
 curl -fsSL https://ollama.com/install.sh | sudo bash
-sudo usermod -aG ollama $USER  # 添加用户权限
-sudo systemctl start ollama    # 启动服务
+```
+
+使用N卡的话, 建议使用安装脚本安装, 会安装相关驱动并配置.
+如官网下载速度太慢, 可自己下载包并修改脚本
+
+```diff
+82c82,84
+< $SUDO tar -C "$OLLAMA_INSTALL_DIR" -xzf ollama-linux-amd64.tgz
+---
+> curl --fail --show-error --location --progress-bar \
+>     "https://ollama.com/download/ollama-linux-${ARCH}.tgz${VER_PARAM}" | \
+>     $SUDO tar -xzf - -C "$OLLAMA_INSTALL_DIR"
 ```
 
 PS: 以Ubuntu 14.04.5 LTS为例
