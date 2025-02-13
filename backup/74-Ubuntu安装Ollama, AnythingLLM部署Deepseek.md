@@ -157,6 +157,12 @@ API地址: http://mydomain.com/ollama/v1/
 
 
 ## anythingllm
+AnythingLLM 是一个功能强大且灵活的开源平台，旨在帮助用户轻松构建和部署基于大型语言模型 (LLM) 的私有化应用程序。
+
+RAG（Retrieval-Augmented Generation）增强信息检索和生成模型，能够从大规模知识库中检索相关信息并生成高质量的反馈。
+简单来讲，采用RAG就需要把你的私域数据向量化，然后存储到向量数据库中，支持向量检索配合LLM大模型一起提供更专业的回复。
+RAG是一种结合了信息检索和大模型（LLM）的技术，在对抗大模型幻觉、高效管理用户本地文件以及数据安全保护等方面具有独到的优势。
+
 要求: 服务器安装docker
 
 ```sh
@@ -199,6 +205,14 @@ location / {
 ```
 
 ### 配置AnythingLLM
+嵌入模型
+AnythingLLM Embedder(默认)
+nomic-embed-text
+
+```sh
+ollama pull nomic-embed-text
+```
+接口文档: http://127.0.0.1:3001/api/docs
 
 首次访问时按导引进行模型配置, 配置URL后会自动获取支持的模型列表
 

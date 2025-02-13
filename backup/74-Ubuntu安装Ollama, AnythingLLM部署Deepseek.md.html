@@ -113,6 +113,10 @@ API地址: <a href="http://mydomain.com/ollama/v1/" rel="nofollow">http://mydoma
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/2127d6b0-7229-44d0-bac7-4b31557e325e"><img src="https://github.com/user-attachments/assets/2127d6b0-7229-44d0-bac7-4b31557e325e" alt="Image" style="max-width: 100%;"></a></p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/f4f0d98d-b353-4367-a7c5-f02c2a2eda0e"><img src="https://github.com/user-attachments/assets/f4f0d98d-b353-4367-a7c5-f02c2a2eda0e" alt="Image" style="max-width: 100%;"></a></p>
 <div class="markdown-heading"><h2 class="heading-element">anythingllm</h2><a id="user-content-anythingllm" class="anchor" aria-label="Permalink: anythingllm" href="#anythingllm"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>AnythingLLM 是一个功能强大且灵活的开源平台，旨在帮助用户轻松构建和部署基于大型语言模型 (LLM) 的私有化应用程序。</p>
+<p>RAG（Retrieval-Augmented Generation）增强信息检索和生成模型，能够从大规模知识库中检索相关信息并生成高质量的反馈。
+简单来讲，采用RAG就需要把你的私域数据向量化，然后存储到向量数据库中，支持向量检索配合LLM大模型一起提供更专业的回复。
+RAG是一种结合了信息检索和大模型（LLM）的技术，在对抗大模型幻觉、高效管理用户本地文件以及数据安全保护等方面具有独到的优势。</p>
 <p>要求: 服务器安装docker</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-s"><span class="pl-pds">"</span>registry-mirrors<span class="pl-pds">"</span></span>: [
     <span class="pl-s"><span class="pl-pds">"</span>https://docker.hpcloud.cloud/<span class="pl-pds">"</span></span>,
@@ -143,6 +147,11 @@ mintplexlabs/anythingllm</pre></div>
 }
 </code></pre>
 <div class="markdown-heading"><h3 class="heading-element">配置AnythingLLM</h3><a id="user-content-配置anythingllm" class="anchor" aria-label="Permalink: 配置AnythingLLM" href="#配置anythingllm"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>嵌入模型
+AnythingLLM Embedder(默认)
+nomic-embed-text</p>
+<div class="highlight highlight-source-shell"><pre>ollama pull nomic-embed-text</pre></div>
+<p>接口文档: <a href="http://127.0.0.1:3001/api/docs" rel="nofollow">http://127.0.0.1:3001/api/docs</a></p>
 <p>首次访问时按导引进行模型配置, 配置URL后会自动获取支持的模型列表</p>
 <ol>
 <li>人工智能提供商 -&gt; LLM首选项
