@@ -25,3 +25,9 @@ e 级别
 ```
 https://api.isoyu.com/qr/?m=0&e=L&p=10&url=https://www.xxx.com
 ```
+
+```
+https://quickchart.io/qr?text=https://example.com&size=256
+
+https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com
+```

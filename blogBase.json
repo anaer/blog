@@ -868,14 +868,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/40",
             "commentNum": 0,
             "createdAt": 1736846838,
-            "updatedAt": 1737538758,
+            "updatedAt": 1739409087,
             "top": -1,
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "hsl(8, 34%, 15%)",
+            "dateLabelColor": "hsl(29, 31%, 20%)",
             "description": "QR Server \u4e8c\u7ef4\u7801\u63a5\u53e3\nsize \u5c3a\u5bf8\u5927\u5c0f\nmargin \u8fb9\u6846\u5927\u5c0f, \u8303\u56f4 0-50\nhttps://api.qrserver.com/v1/create-qr-code/?size=100\u00d7...",
-            "buildedAt": 1737538758
+            "buildedAt": 1739409087
         },
         "P41": {
             "number": "41",
