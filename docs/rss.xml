@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 14 Feb 2025 02:03:31 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 14 Feb 2025 02:03:31 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>ollama安装
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 14 Feb 2025 02:12:32 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 14 Feb 2025 02:12:32 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>ollama安装
 可以按照官方的安装手册进行安装, 这里仅记录自己的操作步骤方便记忆.
 Linux安装ollama手册
 curl -fsSL https://ollama.com/install.sh...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/74.html</guid><pubDate>Mon, 10 Feb 2025 06:16:14 +0000</pubDate></item><item><title>73 Follow配置</title><link>https://anaer.github.io/blog/post/73.html</link><description>自动化
@@ -240,14 +240,10 @@ HeidiSQL 12.9
 https://icons.duckduckgo.com/ip3/www.baidu.com.ico    64x6...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/41.html</guid><pubDate>Tue, 14 Jan 2025 09:49:19 +0000</pubDate></item><item><title>40 在线二维码API</title><link>https://anaer.github.io/blog/post/40.html</link><description>QR Server 二维码接口
 size 尺寸大小
 margin 边框大小, 范围 0-50
-https://api.qrserver.com/v1/create-qr-code/?size=100×...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/40.html</guid><pubDate>Tue, 14 Jan 2025 09:27:18 +0000</pubDate></item><item><title>39 Deepseek API</title><link>https://anaer.github.io/blog/post/39.html</link><description>Deepseek开放平台
-新用户 注册 送10Y 500w tokens 一个月有效期
-DeepSeek实用集成
-chatgptbox 配置
+https://api.qrserver.com/v1/create-qr-code/?size=100×...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/40.html</guid><pubDate>Tue, 14 Jan 2025 09:27:18 +0000</pubDate></item><item><title>39 Deepseek API</title><link>https://anaer.github.io/blog/post/39.html</link><description>DeepSeek模型支持平台
 
-相关链接
-DeepSeek 模型兼容性检测
-</description><guid isPermaLink="true">https://anaer.github.io/blog/post/39.html</guid><pubDate>Tue, 14 Jan 2025 07:54:02 +0000</pubDate></item><item><title>38 Blog页面添加下雪特效</title><link>https://anaer.github.io/blog/post/38.html</link><description>snowfall
+阿里云百炼 http://bailian.console.aliyun.com （赠送 100 万 token）
+字节火山引擎 http://volcengine.co...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/39.html</guid><pubDate>Tue, 14 Jan 2025 07:54:02 +0000</pubDate></item><item><title>38 Blog页面添加下雪特效</title><link>https://anaer.github.io/blog/post/38.html</link><description>snowfall
 下载js文件到目录assets/snowfall@1.7下
 在base.html添加
     &lt;script src="{{ blogBase['homeUrl'] }}/asset...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/38.html</guid><pubDate>Tue, 14 Jan 2025 06:19:28 +0000</pubDate></item><item><title>37 Git命令记录</title><link>https://anaer.github.io/blog/post/37.html</link><description>depth=1 拉取其他分支
