@@ -6,10 +6,7 @@
 - 硅基流动 http://siliconflow.cn （赠送 14 元额度）
 - DeepSeek 官方 http://platform.deepseek.com （赠送 10 元额度）
 
-[DeepSeek实用集成](https://github.com/deepseek-ai/awesome-deepseek-integration)
-
-## chatgptbox 配置
-![image](https://github.com/user-attachments/assets/8d0c21a2-402f-4d76-a72a-24b8a760c65a)
-
 ## 相关链接
 [DeepSeek 模型兼容性检测](https://tools.thinkinai.xyz/)
+[DeepSeek实用集成](https://github.com/deepseek-ai/awesome-deepseek-integration)
+[DeepSeek使用大全](https://zhuanlan.zhihu.com/p/21086282882)
