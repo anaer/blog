@@ -847,14 +847,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/39",
             "commentNum": 0,
             "createdAt": 1736841242,
-            "updatedAt": 1737082110,
+            "updatedAt": 1739498588,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "hsl(2, 42%, 30%)",
-            "description": "Deepseek\u5f00\u653e\u5e73\u53f0\n\u65b0\u7528\u6237 \u6ce8\u518c \u900110Y 500w tokens \u4e00\u4e2a\u6708\u6709\u6548\u671f\nDeepSeek\u5b9e\u7528\u96c6\u6210\nchatgptbox \u914d\u7f6e\n\n",
-            "buildedAt": 1737082110
+            "dateLabelColor": "hsl(30, 30%, 27%)",
+            "description": "Deepseek\u5f00\u653e\u5e73\u53f0\n\u65b0\u7528\u6237 \u6ce8\u518c \u900110Y 500w tokens \u4e00\u4e2a\u6708\u6709\u6548\u671f\nDeepSeek\u5b9e\u7528\u96c6\u6210\nchatgptbox \u914d\u7f6e\n\n\u76f8\u5173\u94fe\u63a5\nDeepSeek \u6a21\u578b\u517c\u5bb9\u6027\u68c0\u6d4b\n",
+            "buildedAt": 1739498588
         },
         "P40": {
             "number": "40",

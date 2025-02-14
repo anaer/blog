@@ -6,3 +6,6 @@
 
 ## chatgptbox 配置
 ![image](https://github.com/user-attachments/assets/8d0c21a2-402f-4d76-a72a-24b8a760c65a)
+
+## 相关链接
+[DeepSeek 模型兼容性检测](https://tools.thinkinai.xyz/)
