@@ -1346,20 +1346,22 @@
             "number": "63",
             "htmlDir": "docs/post/63.html",
             "markdown": "backup/63-\u63a8\u9001\u5382\u5546\u5bf9\u6bd4.md",
-            "labels": [],
+            "labels": [
+                "Android"
+            ],
             "postTitle": "63 \u63a8\u9001\u5382\u5546\u5bf9\u6bd4",
             "postUrl": "post/63.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/63",
             "commentNum": 0,
             "createdAt": 1737610033,
-            "updatedAt": 1737610033,
+            "updatedAt": 1739778621,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-23",
-            "dateLabelColor": "hsl(0, 46%, 18%)",
+            "dateLabelColor": "hsl(25, 57%, 25%)",
             "description": "\u534e\u4e3a\n\u6ca1\u6709\u522b\u540d\u548c\u6807\u7b7e\n\u5b98\u65b9\u7f51\u7ad9: https://developer.huawei.com/consumer/cn/hms/huawei-pushkit/\n\u9690\u79c1\u653f\u7b56: https://develope...",
-            "buildedAt": 1737610033
+            "buildedAt": 1739778621
         },
         "P64": {
             "number": "64",
