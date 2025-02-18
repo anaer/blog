@@ -90,8 +90,11 @@ WantedBy=default.target
 ```
 
 OLLAMA_HOST设置为0.0.0.0 允许局域网访问
+
 OLLAMA_MODELS 指定模型路径 防止系统盘空间不足
+
 OLLAMA_ORIGINS设置跨域, 可在[chatgptBox](https://github.com/josStorer/chatGPTBox)中使用
+
 OLLAMA_DEBUG 设置debug模式, 可查看用户请求的参数信息
 
 #### 手动启动
@@ -145,8 +148,11 @@ location /ollama/ {
 ## 本地客户端 [Cherry Studio](https://github.com/CherryHQ/cherry-studio/releases/tag/v0.9.21)
 
 设置->模型服务->Ollama
+
 API密钥: 空
+
 API地址: http://mydomain.com/ollama/v1/
+
 添加模型: deepseek-r1:1.5b
 
 在助手页设置选择默认模型为上述模型 即可进行聊天
@@ -216,9 +222,12 @@ ollama pull nomic-embed-text
 
 首次访问时按导引进行模型配置, 配置URL后会自动获取支持的模型列表
 
-1. 人工智能提供商 -> LLM首选项
+人工智能提供商 -> LLM首选项
+
 LLM提供商: Ollama
+
 Ollama Model: deepseek-r1:1.5b
+
 Ollama Base URL: http://mydomain.com/ollama
 
 ### 新工作区

@@ -130,7 +130,7 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-02-10</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-13</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-18</time></span>
 
 <p>
 
@@ -208,10 +208,10 @@ Environment="OLLAMA_DEBUG=1"
 [Install]
 WantedBy=default.target
 </code></pre>
-<p>OLLAMA_HOST设置为0.0.0.0 允许局域网访问
-OLLAMA_MODELS 指定模型路径 防止系统盘空间不足
-OLLAMA_ORIGINS设置跨域, 可在<a href="https://github.com/josStorer/chatGPTBox">chatgptBox</a>中使用
-OLLAMA_DEBUG 设置debug模式, 可查看用户请求的参数信息</p>
+<p>OLLAMA_HOST设置为0.0.0.0 允许局域网访问</p>
+<p>OLLAMA_MODELS 指定模型路径 防止系统盘空间不足</p>
+<p>OLLAMA_ORIGINS设置跨域, 可在<a href="https://github.com/josStorer/chatGPTBox">chatgptBox</a>中使用</p>
+<p>OLLAMA_DEBUG 设置debug模式, 可查看用户请求的参数信息</p>
 <div class="markdown-heading"><h4 class="heading-element">手动启动</h4><a id="user-content-手动启动" class="anchor" aria-label="Permalink: 手动启动" href="#手动启动"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>nohup /usr/bin/ollama serve <span class="pl-k">&amp;</span></pre></div>
 <div class="markdown-heading"><h3 class="heading-element">命令执行</h3><a id="user-content-命令执行" class="anchor" aria-label="Permalink: 命令执行" href="#命令执行"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -242,10 +242,10 @@ deepseek-r1:1.5b    a42b25d8c10a    1.1 GB    24 hours ago</pre></div>
 </code></pre>
 <div class="markdown-heading"><h2 class="heading-element">本地客户端 <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v0.9.21">Cherry Studio</a>
 </h2><a id="user-content-本地客户端-cherry-studio" class="anchor" aria-label="Permalink: 本地客户端 Cherry Studio" href="#本地客户端-cherry-studio"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>设置-&gt;模型服务-&gt;Ollama
-API密钥: 空
-API地址: <a href="http://mydomain.com/ollama/v1/" rel="nofollow">http://mydomain.com/ollama/v1/</a>
-添加模型: deepseek-r1:1.5b</p>
+<p>设置-&gt;模型服务-&gt;Ollama</p>
+<p>API密钥: 空</p>
+<p>API地址: <a href="http://mydomain.com/ollama/v1/" rel="nofollow">http://mydomain.com/ollama/v1/</a></p>
+<p>添加模型: deepseek-r1:1.5b</p>
 <p>在助手页设置选择默认模型为上述模型 即可进行聊天</p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/2127d6b0-7229-44d0-bac7-4b31557e325e"><img src="https://github.com/user-attachments/assets/2127d6b0-7229-44d0-bac7-4b31557e325e" alt="Image" style="max-width: 100%;"></a></p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/f4f0d98d-b353-4367-a7c5-f02c2a2eda0e"><img src="https://github.com/user-attachments/assets/f4f0d98d-b353-4367-a7c5-f02c2a2eda0e" alt="Image" style="max-width: 100%;"></a></p>
@@ -290,13 +290,10 @@ nomic-embed-text</p>
 <div class="highlight highlight-source-shell"><pre>ollama pull nomic-embed-text</pre></div>
 <p>接口文档: <a href="http://127.0.0.1:3001/api/docs" rel="nofollow">http://127.0.0.1:3001/api/docs</a></p>
 <p>首次访问时按导引进行模型配置, 配置URL后会自动获取支持的模型列表</p>
-<ol>
-<li>人工智能提供商 -&gt; LLM首选项
-LLM提供商: Ollama
-Ollama Model: deepseek-r1:1.5b
-Ollama Base URL: <a href="http://mydomain.com/ollama" rel="nofollow">http://mydomain.com/ollama</a>
-</li>
-</ol>
+<p>人工智能提供商 -&gt; LLM首选项</p>
+<p>LLM提供商: Ollama</p>
+<p>Ollama Model: deepseek-r1:1.5b</p>
+<p>Ollama Base URL: <a href="http://mydomain.com/ollama" rel="nofollow">http://mydomain.com/ollama</a></p>
 <div class="markdown-heading"><h3 class="heading-element">新工作区</h3><a id="user-content-新工作区" class="anchor" aria-label="Permalink: 新工作区" href="#新工作区"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>创建工作区后, 可通过上传图标按钮, 上传自有文档添加到工作区中
 也可以连接GitHub Repo, GitLab Repo, YouTube Transcript, Bulk Link Scraper, Confluence</p>
