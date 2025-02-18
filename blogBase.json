@@ -1354,14 +1354,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/63",
             "commentNum": 0,
             "createdAt": 1737610033,
-            "updatedAt": 1739778621,
+            "updatedAt": 1739845940,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-23",
-            "dateLabelColor": "hsl(25, 57%, 25%)",
+            "dateLabelColor": "hsl(25, 50%, 26%)",
             "description": "\u534e\u4e3a\n\u6ca1\u6709\u522b\u540d\u548c\u6807\u7b7e\n\u5b98\u65b9\u7f51\u7ad9: https://developer.huawei.com/consumer/cn/hms/huawei-pushkit/\n\u9690\u79c1\u653f\u7b56: https://develope...",
-            "buildedAt": 1739778621
+            "buildedAt": 1739845940
         },
         "P64": {
             "number": "64",
