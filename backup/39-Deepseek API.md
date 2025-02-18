@@ -7,6 +7,6 @@
 - DeepSeek 官方 http://platform.deepseek.com （赠送 10 元额度）
 
 ## 相关链接
-[DeepSeek 模型兼容性检测](https://tools.thinkinai.xyz/)
-[DeepSeek实用集成](https://github.com/deepseek-ai/awesome-deepseek-integration)
-[DeepSeek使用大全](https://zhuanlan.zhihu.com/p/21086282882)
+[DeepSeek 模型兼容性检测](https://tools.thinkinai.xyz/)  
+[DeepSeek实用集成](https://github.com/deepseek-ai/awesome-deepseek-integration)  
+[DeepSeek使用大全](https://zhuanlan.zhihu.com/p/21086282882)  
