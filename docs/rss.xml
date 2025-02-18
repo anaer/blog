@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 18 Feb 2025 05:31:22 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 18 Feb 2025 05:31:22 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>ollama安装
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 18 Feb 2025 07:24:04 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 18 Feb 2025 07:24:04 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>ollama安装
 可以按照官方的安装手册进行安装, 这里仅记录自己的操作步骤方便记忆.
 Linux安装ollama手册
 curl -fsSL https://ollama.com/install.sh...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/74.html</guid><pubDate>Mon, 10 Feb 2025 06:16:14 +0000</pubDate></item><item><title>73 Follow配置</title><link>https://anaer.github.io/blog/post/73.html</link><description>自动化
@@ -268,7 +268,8 @@ words = jieba.cu...</description><guid isPermaLink="true">https://anaer.github.i
 可使用Google账号登录
 免费用户提供10G容量
 生成单独的App password后 即可通过WebDAV访问
-地址: https://app.koofr.net/dav/Koofr...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/33.html</guid><pubDate>Thu, 09 Jan 2025 09:21:34 +0000</pubDate></item><item><title>32 电子书下载站</title><link>https://anaer.github.io/blog/post/32.html</link><description>Z-library
+
+地址: https://app.koofr.net/dav/Koof...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/33.html</guid><pubDate>Thu, 09 Jan 2025 09:21:34 +0000</pubDate></item><item><title>32 电子书下载站</title><link>https://anaer.github.io/blog/post/32.html</link><description>Z-library
 Re Z-library
 可以在tg上创建bot用于搜书下书, 不过因为tg限制, 只能下载50M以下的
 SaltyLeo的书架
