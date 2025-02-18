@@ -1,18 +1,18 @@
 <div class="markdown-heading"><h1 class="heading-element">华为</h1><a id="user-content-华为" class="anchor" aria-label="Permalink: 华为" href="#华为"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>没有别名和标签</p>
-<p>官方网站: <a href="https://developer.huawei.com/consumer/cn/hms/huawei-pushkit/" rel="nofollow">https://developer.huawei.com/consumer/cn/hms/huawei-pushkit/</a></p>
-<p>隐私政策: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/privacy-statement-0000001050042021" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/privacy-statement-0000001050042021</a></p>
-<p>接入视频: <a href="https://developer.huawei.com/consumer/cn/training/course/video/100000000083" rel="nofollow">https://developer.huawei.com/consumer/cn/training/course/video/100000000083</a></p>
-<p>开发文档: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-server-dev-0000001050040110" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-server-dev-0000001050040110</a></p>
-<p>消息回执: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/msg-receipt-guide-0000001050040176" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/msg-receipt-guide-0000001050040176</a></p>
-<p>常见问题: <a href="https://developer.huawei.com/consumer/cn/forum/topic/37729830?fid=18" rel="nofollow">https://developer.huawei.com/consumer/cn/forum/topic/37729830?fid=18</a></p>
-<p>下行消息及错误码: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/https-send-api-0000001050986197" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/https-send-api-0000001050986197</a></p>
-<p>消息分类: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835</a></p>
+<p><a href="https://developer.huawei.com/consumer/cn/hms/huawei-pushkit/" rel="nofollow">官方网站</a></p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/privacy-statement-0000001050042021" rel="nofollow">隐私政策</a></p>
+<p><a href="https://developer.huawei.com/consumer/cn/training/course/video/100000000083" rel="nofollow">接入视频</a></p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-server-dev-0000001050040110" rel="nofollow">开发文档</a></p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/msg-receipt-guide-0000001050040176" rel="nofollow">消息回执</a></p>
+<p><a href="https://developer.huawei.com/consumer/cn/forum/topic/37729830?fid=18" rel="nofollow">常见问题</a></p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/https-send-api-0000001050986197" rel="nofollow">下行消息及错误码</a></p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835" rel="nofollow">消息分类</a></p>
 <p>鉴权说明: 开发者应用在 Access Token 有效期（expires_in）内，请勿过于频繁请求，否则可能会被流控（当前应用级 Access Token 的流控阈值为 1000 个/5 分钟，5 分钟内申请 Access Token 超过 1000 个，后续将提示被流控，无法申请。5 分钟后重置，可以再次申请）。您可根据有效期，提前重新申请或通过 Refresh Token 刷新鉴权凭证，同时您也可根据鉴权凭证超时错误返回（NSP_STATUS=6，请参见错误与异常机制），重新触发申请鉴权凭证流程。</p>
-<p>消息体限制:
-title, body 无明确限制
+<p>消息体限制:<br>
+title, body 无明确限制<br>
 消息体大小（不含 Token）系统设置的默认限制（4096Bytes）</p>
-<p>消息量限制: <a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-restriction-description-0000001361648361" rel="nofollow">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-restriction-description-0000001361648361</a></p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-restriction-description-0000001361648361" rel="nofollow">消息量限制</a></p>
 <p>流控限制 3000QPS,每秒不能超过 3000token 数.</p>
 <div class="markdown-heading"><h1 class="heading-element">鸿蒙</h1><a id="user-content-鸿蒙" class="anchor" aria-label="Permalink: 鸿蒙" href="#鸿蒙"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/push-scenes-send-V5" rel="nofollow">推送场景化消息</a>
@@ -24,11 +24,11 @@ title, body 无明确限制
 <p>regid 与 alias 一一对应
 多个设备设置同一 alias, 只有最后的设备才能收到消息 (如果需要多个设备使用同一 alias, 推荐使用 UserAccount 消息)
 每个 app 单台设备可订阅的 alias 上限为 15 个</p>
-<p>官方网站：<a href="https://dev.mi.com/console/appservice/push.html" rel="nofollow">https://dev.mi.com/console/appservice/push.html</a></p>
-<p>隐私政策：<a href="https://dev.mi.com/console/doc/detail?pId=1822" rel="nofollow">https://dev.mi.com/console/doc/detail?pId=1822</a></p>
-<p>合规指南：<a href="https://dev.mi.com/console/doc/detail?pId=2379" rel="nofollow">https://dev.mi.com/console/doc/detail?pId=2379</a></p>
-<p>开发文档：<a href="https://dev.mi.com/console/doc/detail?pId=230#_2" rel="nofollow">https://dev.mi.com/console/doc/detail?pId=230#_2</a></p>
-<p>服务端 Java SDK 文档: <a href="https://dev.mi.com/console/doc/detail?pId=1278#_0" rel="nofollow">https://dev.mi.com/console/doc/detail?pId=1278#_0</a></p>
+<p><a href="https://dev.mi.com/console/appservice/push.html" rel="nofollow">官方网站</a></p>
+<p><a href="https://dev.mi.com/console/doc/detail?pId=1822" rel="nofollow">隐私政策</a></p>
+<p><a href="https://dev.mi.com/console/doc/detail?pId=2379" rel="nofollow">合规指南</a></p>
+<p><a href="https://dev.mi.com/console/doc/detail?pId=230#_2" rel="nofollow">开发文档</a></p>
+<p><a href="https://dev.mi.com/console/doc/detail?pId=1278#_0" rel="nofollow">服务端 Java SDK 文档</a></p>
 <p>鉴权方式: 添加 HEADER 字段 Authorization，用于身份验证。格式是 key=&lt;APP_SECRET&gt;。
 APP_SECRET 是从开发者网站申请得到。</p>
 <p>APP_SECRET 固定的, 没有失效期, 长期有效</p>
@@ -41,7 +41,7 @@ callback: 第三方接收回执的 Http 接口, 最大长度 128 字节
 callback.param: 第三方自定义回执参数, 最大长度 64 字节
 </code></pre>
 <p>消息量限制:
-(广播)普通消息限制 50000 条/天
+(广播)普通消息限制 50000 条/天<br>
 (运营)重要消息</p>
 <p>回执: 只有单推有回执</p>
 <div class="markdown-heading"><h2 class="heading-element">错误码</h2><a id="user-content-错误码" class="anchor" aria-label="Permalink: 错误码" href="#错误码"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -53,17 +53,17 @@ callback.param: 第三方自定义回执参数, 最大长度 64 字节
 <div class="markdown-heading"><h1 class="heading-element">OPPO</h1><a id="user-content-oppo" class="anchor" aria-label="Permalink: OPPO" href="#oppo"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>regId
 alias 与 regId 一一对应, 同一 alias 不能对应多个 regId, alias 对应的 regId 以最后一次为准</p>
-<p>alias 失效:
-主动调用 unsetalias
-alias 对应的 regId 已经失效
+<p>alias 失效:<br>
+主动调用 unsetalias<br>
+alias 对应的 regId 已经失效<br>
 设置 alias 不成功(调用 setalias 失败)</p>
-<p>官方网站：<a href="https://open.oppomobile.com/newservice/capability?pagename=push" rel="nofollow">https://open.oppomobile.com/newservice/capability?pagename=push</a></p>
-<p>服务协议：<a href="https://open.oppomobile.com/wiki/doc#id=10194" rel="nofollow">https://open.oppomobile.com/wiki/doc#id=10194</a></p>
-<p>开发文档：<a href="https://open.oppomobile.com/wiki/doc#id=10742" rel="nofollow">https://open.oppomobile.com/wiki/doc#id=10742</a></p>
-<p>通知通道: <a href="https://open.oppomobile.com/new/developmentDoc/info?id=10289" rel="nofollow">https://open.oppomobile.com/new/developmentDoc/info?id=10289</a></p>
-<p>鉴权: 官网未说明一个 appId 是否可以有多个 token
+<p><a href="https://open.oppomobile.com/newservice/capability?pagename=push" rel="nofollow">官方网站</a></p>
+<p><a href="https://open.oppomobile.com/wiki/doc#id=10194" rel="nofollow">服务协议</a></p>
+<p><a href="https://open.oppomobile.com/wiki/doc#id=10742" rel="nofollow">开发文档</a></p>
+<p><a href="https://open.oppomobile.com/new/developmentDoc/info?id=10289" rel="nofollow">通知通道</a></p>
+<p>鉴权: 官网未说明一个 appId 是否可以有多个 token<br>
 有效期默认为 24 小时</p>
-<p>回执: 当消息到达设备之后, oppo 才会发送回执, 因此瞎填的 regId 就没有回执了.
+<p>回执: 当消息到达设备之后, oppo 才会发送回执, 因此瞎填的 regId 就没有回执了.<br>
 只有单推 有回执</p>
 <p>消息体限制:</p>
 <pre><code>title:设置在通知栏展示的通知栏标题, 【字数串长度限制在 50 个字符内，中英文字符及特殊符号（如 emoji）均视为一个字符】
@@ -77,7 +77,7 @@ call_back_url:URL 长度限制在限制 200 以内。
 call_back_parameter:参数字符串长度限制在 100 以内，OPPO PUSH 将这个参数设置在回执请求体单个 JSON 结构的 param 字段中。
 </code></pre>
 <p>推送限制: <a target="_blank" rel="noopener noreferrer" href="OPPO%E6%8E%A8%E9%80%81%E9%99%90%E5%88%B6.png"><img src="OPPO%E6%8E%A8%E9%80%81%E9%99%90%E5%88%B6.png" alt="" style="max-width: 100%;"></a></p>
-<p>消息量限制:
+<p>消息量限制:<br>
 公信消息限制 100000 条/天</p>
 <div class="markdown-heading"><h2 class="heading-element">错误码</h2><a id="user-content-错误码-1" class="anchor" aria-label="Permalink: 错误码" href="#错误码-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-json"><pre>{<span class="pl-ent">"code"</span>: <span class="pl-c1">10000</span>, <span class="pl-ent">"message"</span>: <span class="pl-s"><span class="pl-pds">"</span>Invalid RegistrationId<span class="pl-pds">"</span></span> }
@@ -89,12 +89,12 @@ alias 与 regId 一一对应, 同一 alias 不能对应多个 regId, alias 对�
 <pre><code>主动调用 unsetalias
 alias 对应的 regId 已经失效
 </code></pre>
-<p>官方网站：<a href="https://dev.vivo.com.cn/home" rel="nofollow">https://dev.vivo.com.cn/home</a></p>
-<p>隐私政策：<a href="https://dev.vivo.com.cn/documentCenter/doc/366" rel="nofollow">https://dev.vivo.com.cn/documentCenter/doc/366</a></p>
-<p>开发文档：<a href="https://dev.vivo.com.cn/documentCenter/doc/180" rel="nofollow">https://dev.vivo.com.cn/documentCenter/doc/180</a></p>
-<p>鉴权说明: 一个 appId 可对应多个 token，24 小时过期，业务方做中心缓存，1-2 小时更新一次。
+<p><a href="https://dev.vivo.com.cn/home" rel="nofollow">官方网站</a></p>
+<p><a href="https://dev.vivo.com.cn/documentCenter/doc/366" rel="nofollow">隐私政策</a></p>
+<p><a href="https://dev.vivo.com.cn/documentCenter/doc/180" rel="nofollow">开发文档</a></p>
+<p>鉴权说明: 一个 appId 可对应多个 token，24 小时过期，业务方做中心缓存，1-2 小时更新一次。<br>
 限制：一天限制调用不超过 10000 次。</p>
-<p>消息分级:
+<p>消息分级:<br>
 系统消息:</p>
 <p>运营消息:</p>
 <pre><code>频控管控：单用户单应用每天收到的消息条数上限 5 条
@@ -108,8 +108,8 @@ callback: 第三方接收回执的 http 接口，最大长度 128 个字符
 callback.param:第三方自定义回执参数，最大长度 64 个字符
 </code></pre>
 <p>消息量限制:</p>
-<pre><code>系统消息 限制 10000 条/天 &gt;&gt; 100000 条/天
-运营消息 频控 单用户 5 条/天
+<pre><code>系统消息 限制 10000 条/天 &gt;&gt; 100000 条/天  
+运营消息 频控 单用户 5 条/天  
 </code></pre>
 <div class="markdown-heading"><h2 class="heading-element">错误码</h2><a id="user-content-错误码-2" class="anchor" aria-label="Permalink: 错误码" href="#错误码-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <pre lang="jsonp"><code>{"result":0,"desc":"请求成功","taskId":"xxx"}
@@ -120,22 +120,22 @@ callback.param:第三方自定义回执参数，最大长度 64 个字符
 {"result":10070,"desc":"运营消息发送量总量超出限制"}
 </code></pre>
 <div class="markdown-heading"><h1 class="heading-element">魅族</h1><a id="user-content-魅族" class="anchor" aria-label="Permalink: 魅族" href="#魅族"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>同个 pushId 只有一个别名, pushId 对应的别名以最后一次订阅为准
-多个 pushId 可以绑定同一别名
+<pre><code>同个 pushId 只有一个别名, pushId 对应的别名以最后一次订阅为准  
+多个 pushId 可以绑定同一别名  
 
-别名失效:
-对应的 pushId 失效
-App 调用 unSubScribeAlias
+别名失效:  
+对应的 pushId 失效  
+App 调用 unSubScribeAlias  
 </code></pre>
-<p>官方网站：<a href="https://open.flyme.cn/open-web/views/push.html?t=1514529597773" rel="nofollow">https://open.flyme.cn/open-web/views/push.html?t=1514529597773</a></p>
-<p>隐私政策：<a href="http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?10" rel="nofollow">http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?10</a></p>
-<p>开发文档：<a href="http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129" rel="nofollow">http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129</a></p>
+<p><a href="https://open.flyme.cn/open-web/views/push.html?t=1514529597773" rel="nofollow">官方网站</a></p>
+<p><a href="http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?10" rel="nofollow">隐私政策</a></p>
+<p><a href="http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129" rel="nofollow">开发文档</a></p>
 <div class="markdown-heading"><h1 class="heading-element">苹果</h1><a id="user-content-苹果" class="anchor" aria-label="Permalink: 苹果" href="#苹果"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>错误码: <a href="https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW1" rel="nofollow">https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW1</a></p>
-<p>pushy 最佳实践: <a href="https://github.com/jchambers/pushy/wiki/Best-practices">https://github.com/jchambers/pushy/wiki/Best-practices</a></p>
-<p>消息体限制:
+<p><a href="https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW1" rel="nofollow">错误码</a></p>
+<p><a href="https://github.com/jchambers/pushy/wiki/Best-practices">pushy 最佳实践</a></p>
+<p>消息体限制:<br>
 For regular remote notifications, the maximum size is 4KB (4096 bytes)</p>
-<p>消息量限制:
+<p>消息量限制:<br>
 无限制</p>
 <p><a href="https://stackoverflow.com/questions/42511476/what-are-the-possible-reasons-to-get-apns-responses-baddevicetoken-or-unregister" rel="nofollow">What are the possible reasons to get APNs responses BadDeviceToken or Unregistered?</a></p>
 <p><a href="https://developer.apple.com/forums/thread/670868?answerId=655652022#655652022" rel="nofollow">APNS Push Token Management</a></p>
