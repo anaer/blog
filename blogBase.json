@@ -1022,14 +1022,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/47",
             "commentNum": 0,
             "createdAt": 1737426612,
-            "updatedAt": 1737426612,
+            "updatedAt": 1739949409,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-21",
-            "dateLabelColor": "hsl(140, 69%, 30%)",
+            "dateLabelColor": "hsl(169, 66%, 14%)",
             "description": "import subprocess,json\n\nclass FFprobe():\n    def __init__(self):\n        self.filepath = ''\n        ...",
-            "buildedAt": 1737426612
+            "buildedAt": 1739949409
         },
         "P48": {
             "number": "48",

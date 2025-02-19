@@ -66,3 +66,7 @@ if __name__ == "__main__":
     print(ffprobe.video_info())
 
 ```
+
+## 相关链接
+
+1.  [46 ffmpeg&ffprobe使用介绍](https://anaer.github.io/blog/post/46.html)    
