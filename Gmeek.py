@@ -235,7 +235,7 @@ class GMEEK():
 
     def get_background_color(self, createdAt, updatedAt):
         # 色相：0 到 360
-        hue = (updatedAt - createdAt).days % 360
+        hue = (140 + (updatedAt - createdAt).days) % 360
         # 饱和度：30% 到 70%
         saturation = random.randint(30, 70)
         # 明度：10% 到 40%
