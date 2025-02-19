@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 25.219.1731
+
+1. 添加ai生成摘要
+
 ## 25.121.1035
 
 1. post.html使用prevTitle判断, prevUrl可能存在等于disabled的情况

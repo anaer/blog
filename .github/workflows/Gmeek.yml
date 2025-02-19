@@ -11,6 +11,11 @@ jobs:
   build:
     name: Generate blog
     runs-on: ubuntu-latest
+    env:
+      API_URL: ${{ secrets.API_URL }}
+      API_KEY: ${{ secrets.API_KEY }}
+      API_MODEL: ${{ secrets.API_MODEL }}
+
     if: github.event.repository.owner.id == github.event.sender.id
     permissions: write-all
     steps:

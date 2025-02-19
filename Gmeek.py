@@ -13,6 +13,7 @@ from github import Github
 from feedgen.feed import FeedGenerator
 from jinja2 import Environment, FileSystemLoader
 from bs4 import BeautifulSoup
+from Summary import generate_summary
 
 ######################################################################################
 i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home","comments":"comments","run":"run ","days":" days","Previous":"Previous","Next":"Next"}
@@ -226,12 +227,12 @@ class GMEEK():
         feed.rss_file(self.root_dir+'rss.xml')
 
     def build_desc(self, content):
+        summary = generate_summary(content)
 
-        # 截取前100个字符
-        if len(content) > 100:
-            content = content[:100] + "..."
+        if summary == "" and len(content) > 100:
+            summary = content[:100] + "..."
 
-        return content
+        return summary
 
     def get_background_color(self, createdAt, updatedAt):
         # 色相：0 到 360
