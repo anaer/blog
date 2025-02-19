@@ -5,6 +5,7 @@
 - 腾讯云 http://cloud.tencent.com/act/pro/deepseek-api （赠送 50 万 token）
 - 硅基流动 http://siliconflow.cn （赠送 14 元额度）
 - DeepSeek 官方 http://platform.deepseek.com （赠送 10 元额度）
+- 讯飞星火 https://training.xfyun.cn (限时免费)
 
 ## 相关链接
 [DeepSeek 模型兼容性检测](https://tools.thinkinai.xyz/)  
