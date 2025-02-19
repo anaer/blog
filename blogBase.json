@@ -1000,14 +1000,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/46",
             "commentNum": 0,
             "createdAt": 1737357682,
-            "updatedAt": 1738920714,
+            "updatedAt": 1739949177,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-20",
-            "dateLabelColor": "hsl(158, 70%, 26%)",
+            "dateLabelColor": "hsl(169, 66%, 16%)",
             "description": "\u4e0b\u8f7d\u4e00\u5e27\u56fe\u7247\nffmpeg -i http://117.148.179.136/PLTV/88888888/224/3221231567/index.m3u8 -ss 1 -frames:v 1 aa...",
-            "buildedAt": 1738920714
+            "buildedAt": 1739949177
         },
         "P47": {
             "number": "47",
@@ -1623,7 +1623,7 @@
         "\u5de5\u5177": "#351497",
         "\u5f71\u89c6": "#d73a4a",
         "\u5fae\u4fe1": "#B15215",
-        "\u6269\u5c55": "#aaaaaa",
+        "\u6269\u5c55": "#9419EF",
         "\u63a5\u53e3": "#A2532C",
         "\u6570\u636e\u5e93": "#774C51",
         "\u670d\u52a1": "#8740A6",
