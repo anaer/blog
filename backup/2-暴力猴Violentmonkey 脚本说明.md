@@ -59,6 +59,6 @@
 ![Image](https://github.com/user-attachments/assets/0c8c0d39-2fc8-46d7-8247-8c75a2c60231)
 
 ## 脚本站
-https://cn-greasyfork.org/ 
-https://scriptcat.org/zh-CN/ 
-https://www.userscript.zone 
+https://cn-greasyfork.org/   
+https://scriptcat.org/zh-CN/   
+https://www.userscript.zone   

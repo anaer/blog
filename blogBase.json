@@ -46,21 +46,22 @@
             "markdown": "backup/2-\u66b4\u529b\u7334Violentmonkey \u811a\u672c\u8bf4\u660e.md",
             "labels": [
                 "\u811a\u672c",
-                "\u6d4f\u89c8\u5668"
+                "\u6d4f\u89c8\u5668",
+                "\u6269\u5c55"
             ],
             "postTitle": "2 \u66b4\u529b\u7334Violentmonkey \u811a\u672c\u8bf4\u660e",
             "postUrl": "post/2.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/2",
             "commentNum": 0,
             "createdAt": 1695882906,
-            "updatedAt": 1739323279,
+            "updatedAt": 1739948524,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2023-09-28",
-            "dateLabelColor": "hsl(282, 69%, 18%)",
+            "dateLabelColor": "hsl(290, 50%, 28%)",
             "description": "\u66b4\u529b\u7334Violentmonkey\n\u5143\u6570\u636e\u5757\n// ==UserScript==\n// @name                         \u6807\u9898\n// @name:zh-CN          ...",
-            "buildedAt": 1739323279
+            "buildedAt": 1739948524
         },
         "P3": {
             "number": "3",
@@ -1622,6 +1623,7 @@
         "\u5de5\u5177": "#351497",
         "\u5f71\u89c6": "#d73a4a",
         "\u5fae\u4fe1": "#B15215",
+        "\u6269\u5c55": "#aaaaaa",
         "\u63a5\u53e3": "#A2532C",
         "\u6570\u636e\u5e93": "#774C51",
         "\u670d\u52a1": "#8740A6",
