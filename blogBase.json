@@ -1337,14 +1337,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/62",
             "commentNum": 0,
             "createdAt": 1737609914,
-            "updatedAt": 1737609914,
+            "updatedAt": 1739950275,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-23",
-            "dateLabelColor": "hsl(140, 48%, 17%)",
+            "dateLabelColor": "hsl(167, 40%, 23%)",
             "description": "CIDR \u8868\u793a\u6cd5\nCIDR\uff08Classless Inter-Domain Routing\uff0c\u65e0\u7c7b\u57df\u95f4\u8def\u7531\uff09\u662f\u4e00\u79cd\u7b80\u5316\u7684 IP \u5730\u5740\u5206\u914d\u548c\u8def\u7531\u9009\u62e9\u534f\u8bae\uff0c\u5b83\u4f7f\u7528\u4e86\u4e00\u79cd\u53eb\u505a CIDR \u8868\u793a\u6cd5\u7684\u65b9\u6cd5\u6765\u8868\u793a IP...",
-            "buildedAt": 1737609914
+            "buildedAt": 1739950275
         },
         "P63": {
             "number": "63",

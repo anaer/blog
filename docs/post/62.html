@@ -12,7 +12,7 @@
     </script>
     
 <title>62 CIDR表示法</title>
-
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/dimmed.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -126,6 +126,8 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-19</time></span>
+
 <p>
 
 <div class="markdown-body" id="postBody">
@@ -171,11 +173,43 @@ pre {
 </tr>
 </tbody>
 </table>
+<div class="markdown-heading"><h2 class="heading-element">转换脚本</h2><a id="user-content-转换脚本" class="anchor" aria-label="Permalink: 转换脚本" href="#转换脚本"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-python"><pre><span class="pl-c"># python 3.12.7</span>
+<span class="pl-k">import</span> <span class="pl-s1">ipaddress</span>
+
+<span class="pl-k">def</span> <span class="pl-en">cidr_to_ip_range</span>(<span class="pl-s1">cidr</span>):
+    <span class="pl-k">try</span>:
+        <span class="pl-s1">network</span> <span class="pl-c1">=</span> <span class="pl-s1">ipaddress</span>.<span class="pl-c1">ip_network</span>(<span class="pl-s1">cidr</span>, <span class="pl-s1">strict</span><span class="pl-c1">=</span><span class="pl-c1">False</span>)
+        <span class="pl-k">return</span> {
+            <span class="pl-s">"network"</span>: <span class="pl-en">str</span>(<span class="pl-s1">network</span>.<span class="pl-c1">network_address</span>),
+            <span class="pl-s">"broadcast"</span>: <span class="pl-en">str</span>(<span class="pl-s1">network</span>.<span class="pl-c1">broadcast_address</span>),
+            <span class="pl-s">"netmask"</span>: <span class="pl-en">str</span>(<span class="pl-s1">network</span>.<span class="pl-c1">netmask</span>),
+            <span class="pl-s">"cidr"</span>: <span class="pl-s1">network</span>.<span class="pl-c1">prefixlen</span>,
+            <span class="pl-s">"total_ips"</span>: <span class="pl-s1">network</span>.<span class="pl-c1">num_addresses</span>,
+            <span class="pl-s">"start_ip"</span>: <span class="pl-en">str</span>(<span class="pl-s1">network</span>.<span class="pl-c1">network_address</span>),
+            <span class="pl-s">"end_ip"</span>: <span class="pl-en">str</span>(<span class="pl-s1">network</span>.<span class="pl-c1">broadcast_address</span>)
+        }
+    <span class="pl-k">except</span> <span class="pl-v">ValueError</span> <span class="pl-k">as</span> <span class="pl-s1">e</span>:
+        <span class="pl-k">return</span> <span class="pl-s">f"错误：<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-en">str</span>(<span class="pl-s1">e</span>)<span class="pl-kos">}</span></span>"</span>
+
+<span class="pl-k">if</span> <span class="pl-s1">__name__</span> <span class="pl-c1">==</span> <span class="pl-s">"__main__"</span>:
+    <span class="pl-s1">cidr_input</span> <span class="pl-c1">=</span> <span class="pl-en">input</span>(<span class="pl-s">"请输入CIDR格式（例如 192.168.1.0/24 或 2001:db8::/32）: "</span>)
+    <span class="pl-s1">result</span> <span class="pl-c1">=</span> <span class="pl-en">cidr_to_ip_range</span>(<span class="pl-s1">cidr_input</span>)
+
+    <span class="pl-k">if</span> <span class="pl-en">isinstance</span>(<span class="pl-s1">result</span>, <span class="pl-s1">dict</span>):
+        <span class="pl-en">print</span>(<span class="pl-s">"<span class="pl-cce">\n</span>CIDR解析结果："</span>)
+        <span class="pl-en">print</span>(<span class="pl-s">f"网络地址: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">result</span>[<span class="pl-s">'network'</span>]<span class="pl-kos">}</span></span>"</span>)
+        <span class="pl-en">print</span>(<span class="pl-s">f"广播地址: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">result</span>[<span class="pl-s">'broadcast'</span>]<span class="pl-kos">}</span></span>"</span>)
+        <span class="pl-en">print</span>(<span class="pl-s">f"子网掩码: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">result</span>[<span class="pl-s">'netmask'</span>]<span class="pl-kos">}</span></span>"</span>)
+        <span class="pl-en">print</span>(<span class="pl-s">f"IP总数: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">result</span>[<span class="pl-s">'total_ips'</span>]:,<span class="pl-kos">}</span></span>"</span>)
+        <span class="pl-en">print</span>(<span class="pl-s">f"IP范围: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">result</span>[<span class="pl-s">'start_ip'</span>]<span class="pl-kos">}</span></span>-<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">result</span>[<span class="pl-s">'end_ip'</span>]<span class="pl-kos">}</span></span>"</span>)
+    <span class="pl-k">else</span>:
+        <span class="pl-en">print</span>(<span class="pl-s1">result</span>)</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><a href="https://zh.wikipedia.org/wiki/%E6%97%A0%E7%B1%BB%E5%88%AB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1" rel="nofollow">CIDR 维基</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/28.html" aria-label="Previous Page">28 Git配置文件说明</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/13.html" aria-label="Next Page">13 Python生成requirements.txt</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/61.html" aria-label="Previous Page">61 pypinyin用法</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/63.html" aria-label="Next Page">63 推送厂商对比</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
