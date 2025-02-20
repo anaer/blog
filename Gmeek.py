@@ -141,6 +141,7 @@ class GMEEK():
         postBase["top"]=post["top"]
         postBase["postSourceUrl"]=post["postSourceUrl"]
         postBase["repoName"]=options.repo_name
+        postBase["description"]=post["description"]
         postBase["postBody"]=post_body
         postBase["createdAt"]=time.strftime("%Y-%m-%d", time.gmtime(post["createdAt"]))
         postBase["updatedAt"]=time.strftime("%Y-%m-%d", time.gmtime(post["updatedAt"]))
