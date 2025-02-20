@@ -1,15 +1,19 @@
 
-## 自动化
+## 自动化配置
 
 ### Webhook
 
+![Image](https://github.com/user-attachments/assets/f177c500-e607-4fea-8a9d-e662af976769)
+
 POST 请求, 会将feed条目信息作为Json参数进行请求, 所以如果要较好处理的话, 可能需要自定义一个webhook接口进行处理
+
+参数格式示例:
 
 ```jsonp
 {'entry': {'id': 'xxx', 'publishedAt': '2025-02-06T06:31:29.669Z', 'insertedAt': '2025-02-06T06:42:55.467Z', 'feedId': '85248513348230144', 'title': "xxx", 'description': 'xxx', 'content': 'xxx', 'author': None, 'url': 'xxx', 'guid': 'xxx', 'media': [{'url': 'xxx', 'type': 'photo', 'width': 492, 'height': 656}]}, 'feed': {'title': 'xxx', 'description': 'xxx', 'siteUrl': 'https://xxx', 'image': 'https://xxx', 'checkedAt': '2025-02-06T06:42:55.466Z', 'ttl': 30, 'url': 'https://xxxx', 'lastModifiedHeader': 'Thu, 06 Feb 2025 06:42:54 GMT', 'etagHeader': '"ee35-WBbJJibnAIpo+80xxx/iPxbcxxx"', 'errorMessage': None, 'errorAt': None}, 'view': 5}
 ```
 
-如果直接配置bark接口地址, 因为参数命名凑巧一致的情况下, 能推送成功一条空标题的消息, 内容为条目url链接
+如果直接配置bark接口地址, 因为参数命名凑巧一致的情况下, 能推送成功一条空标题的消息, 内容为条目url链接  
 后期要看Follow是否会对一些推送接口进行适配.
 
 ## Follow Feed分享页自动订阅
@@ -19,7 +23,7 @@ POST 请求, 会将feed条目信息作为Json参数进行请求, 所以如果要
 2. 查询feed信息接口 判断是否订阅 
 3. 调用feed订阅接口 进行订阅, 设定临时分类 
 
-有需要再进行优化
+有需要再进行优化, 目前订阅数量上线为500条, 超限后可停用脚本
 
 ```js
 // ==UserScript==

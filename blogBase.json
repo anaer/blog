@@ -1574,14 +1574,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/73",
             "commentNum": 0,
             "createdAt": 1738825116,
-            "updatedAt": 1738825826,
+            "updatedAt": 1740028412,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-02-06",
-            "dateLabelColor": "hsl(140, 44%, 14%)",
-            "description": "\u81ea\u52a8\u5316\nWebhook\nPOST \u8bf7\u6c42, \u4f1a\u5c06feed\u6761\u76ee\u4fe1\u606f\u4f5c\u4e3aJson\u53c2\u6570\u8fdb\u884c\u8bf7\u6c42, \u6240\u4ee5\u5982\u679c\u8981\u8f83\u597d\u5904\u7406\u7684\u8bdd, \u53ef\u80fd\u9700\u8981\u81ea\u5b9a\u4e49\u4e00\u4e2awebhook\u63a5\u53e3\u8fdb\u884c\u5904\u7406\n{'entry': {'id': 'x...",
-            "buildedAt": 1738825826
+            "dateLabelColor": "hsl(153, 45%, 28%)",
+            "description": "\u8be5\u6587\u6863\u4ecb\u7ecd\u4e86\u5982\u4f55\u901a\u8fc7Webhook\u63a5\u6536feed\u6761\u76ee\u4fe1\u606f\uff0c\u5e76\u5efa\u8bae\u81ea\u5b9a\u4e49\u63a5\u53e3\u5904\u7406POST\u8bf7\u6c42\u4e2d\u7684JSON\u53c2\u6570\u3002\u8fd8\u63d0\u4f9b\u4e86\u4e00\u4e2a\u7528\u6237\u811a\u672c\uff0c\u7528\u4e8e\u5728Follow\u5206\u4eab\u9875\u81ea\u52a8\u8ba2\u9605feed\uff0c\u5305\u62ec\u4eceURL\u63d0\u53d6ID\u3001\u67e5\u8be2feed\u4fe1\u606f\u53ca\u8c03\u7528\u8ba2\u9605\u63a5\u53e3\u7b49\u529f\u80fd\u3002",
+            "buildedAt": 1740028412
         },
         "P74": {
             "number": "74",
