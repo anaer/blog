@@ -3,6 +3,7 @@ PS: 按照个人使用频率排序
 ## [Grok](https://x.com/i/grok)
 
 1. 支持搜索推特发帖 进行回复
+2. think 免费用户 限制10次/24小时
 
 ## [deepseek 深度求索](https://chat.deepseek.com/) 
 
