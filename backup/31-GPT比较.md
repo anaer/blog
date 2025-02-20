@@ -4,7 +4,7 @@ PS: 按照个人使用频率排序
 
 1. 支持搜索推特发帖 进行回复
 
-## [deepseek 深度探索](https://chat.deepseek.com/) 
+## [deepseek 深度求索](https://chat.deepseek.com/) 
 
 1. 单会话存在长度限制, 超限时需要开启新会话
 2. 缺少记忆功能, 不能设置默认prompt
