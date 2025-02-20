@@ -105,9 +105,11 @@ pre {
 {% endif %}
 <p>
 
+{%- if blogBase['description'] and blogBase['description'] != '' -%}
 <div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
     <strong>AI总结:</strong> {{ blogBase['description'] }}
 </div>
+{%- endif %}
 
 <div class="markdown-body" id="postBody">
 {{ blogBase['postBody'] }}
