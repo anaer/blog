@@ -136,6 +136,16 @@ pre {
 
 <p>
 
+<div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>摘要:</strong> 循环执行脚本
+判断参数命令执行结果, 如果失败则重复执行
+retry.cmd git push origin main
+@echo off
+chcp 65001
+echo %*
+for /l %%a ...
+</div>
+
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h2 class="heading-element">循环执行脚本</h2><a id="user-content-循环执行脚本" class="anchor" aria-label="Permalink: 循环执行脚本" href="#循环执行脚本"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>判断参数命令执行结果, 如果失败则重复执行

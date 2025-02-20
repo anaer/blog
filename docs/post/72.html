@@ -132,6 +132,13 @@ pre {
 
 <p>
 
+<div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>摘要:</strong> 过滤
+List<String> result = list.stream()
+                          .filter(str -> str.length() > 5)
+  ...
+</div>
+
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h3 class="heading-element">过滤</h3><a id="user-content-过滤" class="anchor" aria-label="Permalink: 过滤" href="#过滤"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-java"><pre><span class="pl-smi">List</span>&lt;<span class="pl-smi">String</span>&gt; <span class="pl-s1">result</span> = <span class="pl-s1">list</span>.<span class="pl-en">stream</span>()
