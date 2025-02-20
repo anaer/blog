@@ -12,4 +12,6 @@
 [DeepSeek实用集成](https://github.com/deepseek-ai/awesome-deepseek-integration)  
 [DeepSeek使用大全](https://zhuanlan.zhihu.com/p/21086282882)  
 
+[全网满血版DeepSeek-R1免费使用平台汇总！](https://andrewji8-9527.xlog.app/quan-wang-man-xue-ban-DeepSeek-R1-mian-fei-shi-yong-ping-tai-hui-zong-)
+
 [Page Assist - A Web UI for Local AI Models](https://github.com/n4ze3m/page-assist)   
