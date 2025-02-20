@@ -22,7 +22,7 @@ def generate_summary(text):
         "model": f"{api_model}",  # 或具体模型ID
         "messages": [
             {"role": "system", "content": "你是一个专业文本摘要生成器"},
-            {"role": "user", "content": f"请用中文生成以下文档的摘要，并提出修改意见, 整体控制在300字内：\n{text}"}
+            {"role": "user", "content": f"请用中文生成以下文档的摘要，并提出修改意见, 使用纯文本格式并且控制在800字内：\n{text}"}
         ],
         "temperature": 0.5,
         "max_tokens": 150
