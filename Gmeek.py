@@ -230,8 +230,8 @@ class GMEEK():
     def build_desc(self, content):
         summary = generate_summary(content)
 
-        if summary == "" and len(content) > 100:
-            summary = content[:100] + "..."
+        if summary == "" and len(content) > 300:
+            summary = content[:300] + "..."
 
         return summary
 
