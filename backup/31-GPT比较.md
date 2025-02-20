@@ -1,7 +1,8 @@
-## [ChatGPT](https://chatgpt.com/)
+PS: 按照个人使用频率排序
 
-1. 支持记忆, 设置默认prompt
-2. 有墙, 偶尔失联
+## [Grok](https://x.com/i/grok)
+
+1. 支持搜索推特发帖 进行回复
 
 ## [deepseek 深度探索](https://chat.deepseek.com/) 
 
@@ -12,6 +13,7 @@
 
 1. 免费模型较少
 
-## [Grok](https://x.com/i/grok)
+## [ChatGPT](https://chatgpt.com/)
 
-1. 支持搜索推特发帖 进行回复
+1. 支持记忆, 设置默认prompt
+2. 有墙, 偶尔失联
