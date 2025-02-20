@@ -30,7 +30,7 @@ def generate_summary(text):
 
     try:
         response = requests.post(
-            url=endpoint,
+            url=api_url,
             headers=headers,
             data=json.dumps(payload),
             timeout=10
