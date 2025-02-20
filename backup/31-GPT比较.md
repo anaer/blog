@@ -11,3 +11,7 @@
 ## [Not Diamond](https://chat.notdiamond.ai/)
 
 1. 免费模型较少
+
+## [Grok](https://x.com/i/grok)
+
+1. 支持搜索推特发帖 进行回复
