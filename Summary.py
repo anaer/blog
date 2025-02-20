@@ -21,8 +21,8 @@ def generate_summary(text):
     payload = {
         "model": f"{api_model}",  # 或具体模型ID
         "messages": [
-            {"role": "system", "content": "你是一个专业文本摘要生成器"},
-            {"role": "user", "content": f"请用中文生成以下文档的摘要，并提出修改意见, 使用纯文本格式并且控制在800字内：\n{text}"}
+            {"role": "system", "content": "你是总结意见生成器。你的任务是以简洁的方式总结用户提供的文本，捕捉主要要点, 并提出优化意见, 不使用markdown格式, 输出需要语句完整，不能截断, 直接返回具体内容, 不要空话。以'本文介绍了'开头"},
+            {"role": "user", "content": f"{text}"}
         ],
         "temperature": 0.5,
         "max_tokens": 150
@@ -37,6 +37,7 @@ def generate_summary(text):
         )
 
         if response.status_code == 200:
+            # print(response.json())
             return response.json()['choices'][0]['message']['content']
         else:
             print(f"请求失败：{response.status_code} - {response.text}")
