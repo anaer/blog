@@ -299,3 +299,5 @@ watch -n 1 nvidia-smi
 [Deepseek官方提示词库](https://api-docs.deepseek.com/zh-cn/prompt-library)
 
 [RAGFlow](https://ragflow.io/)
+
+[Ollama免费服务](https://github.com/weekend-project-space/free-ollama)
