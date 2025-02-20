@@ -11,3 +11,5 @@
 [DeepSeek 模型兼容性检测](https://tools.thinkinai.xyz/)  
 [DeepSeek实用集成](https://github.com/deepseek-ai/awesome-deepseek-integration)  
 [DeepSeek使用大全](https://zhuanlan.zhihu.com/p/21086282882)  
+
+[Page Assist - A Web UI for Local AI Models](https://github.com/n4ze3m/page-assist)   
