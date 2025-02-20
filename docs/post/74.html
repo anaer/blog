@@ -133,14 +133,12 @@ pre {
 <span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-20</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> ### 文档摘要：
+    <strong>AI总结:</strong> <think>
+好的，我现在需要处理用户的请求，生成他们提供的文档的摘要并提出修改意见。首先，我要仔细阅读用户提供的文档内容，理解其主要内容和结构。文档主要涉及ollama的安装步骤、配置方法、相关服务设置以及与其他工具（如Cherry Studio、AnythingLLM）的集成。
 
-本文详细记录了在Linux系统中安装和使用Ollama以及配置AnythingLLM的步骤，并提供了相关模型和硬件要求的说明。
+首先，我需要确定用户的需求。用户希望得到一个中文摘要，控制在800字内，使用纯文本格式，并且包含修改意见。摘要需要涵盖文档的主要内容，而修改意见则应指出文档中存在的问题或可以改进的地方。
 
-#### 1. **Ollama安装与配置**
-- **安装步骤**：通过官方安装脚本（`curl -fsSL https://ollama.com/install.sh | sudo bash`）或手动下载压缩包解压到指定目录（如`/usr`）进行安装。安装脚本适合NVIDIA显卡环境，自动配置相关驱动。
-- **启动服务**：可将Ollama配置为系统服务，支持长期运行；或使用`nohup`命令手动启动。
-
+接下来，我需要分析文档的结构。文档分为几个部分：ollama的安装（包括Linux安装步骤、手动解压、系统服务配置）、启动ollama的方法、nginx
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -310,25 +308,6 @@ nomic-embed-text</p>
 <div class="markdown-heading"><h3 class="heading-element">嵌入式对话</h3><a id="user-content-嵌入式对话" class="anchor" aria-label="Permalink: 嵌入式对话" href="#嵌入式对话"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>可新增嵌入式对话, 按需配置后(需选择工作区), Show Code复制代码, 将代码复制到空白html的</p>内, 可直接打开html测试
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/3d7f9e47-9d59-4e7e-adfe-4c84b00c08e2"><img src="https://github.com/user-attachments/assets/3d7f9e47-9d59-4e7e-adfe-4c84b00c08e2" alt="Image" style="max-width: 100%;"></a></p>
-<div class="markdown-heading"><h2 class="heading-element">Deepseek模型 硬件要求</h2><a id="user-content-deepseek模型-硬件要求" class="anchor" aria-label="Permalink: Deepseek模型 硬件要求" href="#deepseek模型-硬件要求"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h3 class="heading-element">DeepSeek-R1-1.5B</h3><a id="user-content-deepseek-r1-15b" class="anchor" aria-label="Permalink: DeepSeek-R1-1.5B" href="#deepseek-r1-15b"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>CPU: 最低 4 核（推荐 Intel/AMD 多核处理器）</p>
-<p>内存: 8GB+</p>
-<p>硬盘: 3GB+ 存储空间（模型文件约 1.5-2GB）</p>
-<p>显卡: 非必需（纯 CPU 推理），若 GPU 加速可选 4GB+ 显存（如 GTX 1650）</p>
-<p>场景：低资源设备部署，如树莓派、旧款笔记本、嵌入式系统或物联网设备</p>
-<div class="markdown-heading"><h3 class="heading-element">DeepSeek-R1-7B</h3><a id="user-content-deepseek-r1-7b" class="anchor" aria-label="Permalink: DeepSeek-R1-7B" href="#deepseek-r1-7b"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>CPU: 8 核以上（推荐现代多核 CPU）</p>
-<p>内存: 16GB+</p>
-<p>硬盘: 8GB+（模型文件约 4-5GB）</p>
-<p>显卡: 推荐 8GB+ 显存（如 RTX 3070/4060）</p>
-<p>场景：中小型企业本地开发测试、中等复杂度 NLP 任务，例如文本摘要、翻译、轻量级多轮对话系统</p>
-<div class="markdown-heading"><h3 class="heading-element">DeepSeek-R1-671B</h3><a id="user-content-deepseek-r1-671b" class="anchor" aria-label="Permalink: DeepSeek-R1-671B" href="#deepseek-r1-671b"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>CPU: 64 核以上（服务器集群）</p>
-<p>内存: 512GB+</p>
-<p>硬盘: 300GB+</p>
-<p>显卡: 多节点分布式训练（如 8x A100/H100）</p>
-<p>场景：超大规模 AI 研究、通用人工智能（AGI）探索</p>
 <div class="markdown-heading"><h2 class="heading-element">监控gpu使用情况</h2><a id="user-content-监控gpu使用情况" class="anchor" aria-label="Permalink: 监控gpu使用情况" href="#监控gpu使用情况"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>watch -n 1 nvidia-smi</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
