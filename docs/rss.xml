@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 20 Feb 2025 10:00:20 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 20 Feb 2025 10:00:20 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>&lt;think&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 20 Feb 2025 12:19:32 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 20 Feb 2025 12:19:32 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>&lt;think&gt;
 好的，我现在需要处理用户的请求，生成他们提供的文档的摘要并提出修改意见。首先，我要仔细阅读用户提供的文档内容，理解其主要内容和结构。文档主要涉及ollama的安装步骤、配置方法、相关服务设置以及与其他工具（如Cherry Studio、AnythingLLM）的集成。
 
 首先，我需要确定用户的需求。用户希望得到一个中文摘要，控制在800字内，使用纯文本格式，并且包含修改意见。摘要需要涵盖文档的主要内容，而修改意见则应指出文档中存在的问题或可以改进的地方。
@@ -269,13 +269,7 @@ import jieba
 
 # 精确模式，试图将句子最精确地切开，适合文本分析
 text = "测试分词长字符串"
-words = jieba.cu...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/34.html</guid><pubDate>Mon, 13 Jan 2025 08:06:52 +0000</pubDate></item><item><title>33 网盘</title><link>https://anaer.github.io/blog/post/33.html</link><description>Koofr
-
-可使用Google账号登录
-免费用户提供10G容量
-生成单独的App password后 即可通过WebDAV访问
-
-地址: https://app.koofr.net/dav/Koof...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/33.html</guid><pubDate>Thu, 09 Jan 2025 09:21:34 +0000</pubDate></item><item><title>32 电子书下载站</title><link>https://anaer.github.io/blog/post/32.html</link><description>Z-library
+words = jieba.cu...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/34.html</guid><pubDate>Mon, 13 Jan 2025 08:06:52 +0000</pubDate></item><item><title>33 网盘</title><link>https://anaer.github.io/blog/post/33.html</link><description>本文介绍了Koofr的主要功能和使用方法，包括使用Google账号登录、免费用户提供的10G存储容量以及通过生成单独的App密码实现WebDAV访问。用户可以通过Chrome插件将网页或图片保存到Koofr，并支持与Dropbox、Google Drive、OneDrive等多个平台的连接。此外，Koofr还提供Windows、Mac和Linux客户端，方便用户直接连接。WebDAV的应用场景包括暴力猴同步和Cherry Studio配置备份。优化意见：可以增加对Koofr的安全性和隐私保护措施的说明，以增强用户信任感。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/33.html</guid><pubDate>Thu, 09 Jan 2025 09:21:34 +0000</pubDate></item><item><title>32 电子书下载站</title><link>https://anaer.github.io/blog/post/32.html</link><description>Z-library
 Re Z-library
 可以在tg上创建bot用于搜书下书, 不过因为tg限制, 只能下载50M以下的
 SaltyLeo的书架
