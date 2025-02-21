@@ -5,6 +5,10 @@ PS: 按照个人使用频率排序
 1. 支持模型: DeepSeek, 豆包, 通义千问
 2. 支持深度思考, 联网搜索
 
+## [百度AI](https://chat.baidu.com/)
+
+## [腾讯元宝](https://yuanbao.tencent.com/)
+
 ## [Grok](https://x.com/i/grok)
 
 1. 支持搜索推特发帖 进行回复
