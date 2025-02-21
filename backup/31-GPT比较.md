@@ -5,6 +5,8 @@ PS: 按照个人使用频率排序
 1. 支持搜索推特发帖 进行回复
 2. think 免费用户 限制10次/24小时
 
+[Grok 3 越狱提示词](https://baoyu.io/blog/grok-3-jailbreak-prompts-cn)
+
 ## [GitHub Models](https://github.com/marketplace/models) 
 
 1. 支持gpt-4o, deepseek-r1等
