@@ -24,6 +24,8 @@ PS: 按照个人使用频率排序
 
 1. 免费模型较少
 
+![Image](https://github.com/user-attachments/assets/d285469e-d032-48a8-92a3-3d51ae0349fa)
+
 ## [ChatGPT](https://chatgpt.com/)
 
 1. 支持记忆, 设置默认prompt
