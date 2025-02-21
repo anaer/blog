@@ -392,7 +392,7 @@ class GMEEK():
             self.addOnePostJson(issue)
 
         # 同plist排序, 便于post中获取上一篇和下一篇
-        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True))
+        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["createdAt"]),reverse=True))
 
         for post in self.blogBase["postListJson"].values():
             self.createPostHtml(post)
