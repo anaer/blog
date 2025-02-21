@@ -131,6 +131,42 @@ $ ollama run deepseek-r1:1.5b
 您好！我是由中国的深度求索（DeepSeek）公司开发的智能助手DeepSeek-R1。如您有任何任何问题，我会尽我所能为您提供帮助。
 ```
 
+### 测试接口
+
+```cmd
+curl -L -X POST 'http://127.0.0.1:11434/v1/chat/completions' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer xxx' \
+-H 'Accept: application/json' \
+-d '{
+  "messages": [
+    {
+      "content": "You are a helpful assistant",
+      "role": "system"
+    },
+    {
+      "content": "Hi",
+      "role": "user"
+    }
+  ],
+  "model": "deepseek-r1:1.5b",
+  "frequency_penalty": 0,
+  "max_tokens": 2048,
+  "presence_penalty": 0,
+  "response_format": {
+    "type": "text"
+  },
+  "stop": null,
+  "stream": false,
+  "stream_options": null,
+  "temperature": 1,
+  "top_p": 1,
+  "tools": null,
+  "tool_choice": "none",
+  "logprobs": false,
+  "top_logprobs": null
+}'
+```
 
 ### nginx配置
 

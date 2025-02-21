@@ -93,6 +93,39 @@ deepseek-r1:1.5b    a42b25d8c10a    1.1 GB    24 hours ago</pre></div>
 <span class="pl-k">&lt;</span>/think<span class="pl-k">&gt;</span>
 
 您好！我是由中国的深度求索（DeepSeek）公司开发的智能助手DeepSeek-R1。如您有任何任何问题，我会尽我所能为您提供帮助。</pre></div>
+<div class="markdown-heading"><h3 class="heading-element">测试接口</h3><a id="user-content-测试接口" class="anchor" aria-label="Permalink: 测试接口" href="#测试接口"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-batchfile"><pre>curl -L -X POST 'http://127.0.0.1:11434/v1/chat/completions' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer xxx' \
+-H 'Accept: application/json' \
+-d '{
+  <span class="pl-s"><span class="pl-pds">"</span>messages<span class="pl-pds">"</span></span>: [
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>content<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>You are a helpful assistant<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>role<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>system<span class="pl-pds">"</span></span>
+    },
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>content<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Hi<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>role<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>
+    }
+  ],
+  <span class="pl-s"><span class="pl-pds">"</span>model<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>deepseek-r1:1.5b<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>frequency_penalty<span class="pl-pds">"</span></span>: 0,
+  <span class="pl-s"><span class="pl-pds">"</span>max_tokens<span class="pl-pds">"</span></span>: 2048,
+  <span class="pl-s"><span class="pl-pds">"</span>presence_penalty<span class="pl-pds">"</span></span>: 0,
+  <span class="pl-s"><span class="pl-pds">"</span>response_format<span class="pl-pds">"</span></span>: {
+    <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span>
+  },
+  <span class="pl-s"><span class="pl-pds">"</span>stop<span class="pl-pds">"</span></span>: null,
+  <span class="pl-s"><span class="pl-pds">"</span>stream<span class="pl-pds">"</span></span>: false,
+  <span class="pl-s"><span class="pl-pds">"</span>stream_options<span class="pl-pds">"</span></span>: null,
+  <span class="pl-s"><span class="pl-pds">"</span>temperature<span class="pl-pds">"</span></span>: 1,
+  <span class="pl-s"><span class="pl-pds">"</span>top_p<span class="pl-pds">"</span></span>: 1,
+  <span class="pl-s"><span class="pl-pds">"</span>tools<span class="pl-pds">"</span></span>: null,
+  <span class="pl-s"><span class="pl-pds">"</span>tool_choice<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>none<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>logprobs<span class="pl-pds">"</span></span>: false,
+  <span class="pl-s"><span class="pl-pds">"</span>top_logprobs<span class="pl-pds">"</span></span>: null
+}'</pre></div>
 <div class="markdown-heading"><h3 class="heading-element">nginx配置</h3><a id="user-content-nginx配置" class="anchor" aria-label="Permalink: nginx配置" href="#nginx配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <pre><code>location /ollama/ {
     proxy_pass http://127.0.0.1:11434/;

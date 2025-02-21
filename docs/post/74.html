@@ -130,15 +130,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-02-10</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-20</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-21</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> <think>
-好的，我现在需要处理用户的请求，生成他们提供的文档的摘要并提出修改意见。首先，我要仔细阅读用户提供的文档内容，理解其主要内容和结构。文档主要涉及ollama的安装步骤、配置方法、相关服务设置以及与其他工具（如Cherry Studio、AnythingLLM）的集成。
-
-首先，我需要确定用户的需求。用户希望得到一个中文摘要，控制在800字内，使用纯文本格式，并且包含修改意见。摘要需要涵盖文档的主要内容，而修改意见则应指出文档中存在的问题或可以改进的地方。
-
-接下来，我需要分析文档的结构。文档分为几个部分：ollama的安装（包括Linux安装步骤、手动解压、系统服务配置）、启动ollama的方法、nginx
+    <strong>AI总结:</strong> 本文介绍了在Linux系统上安装和配置Ollama及AnythingLLM的步骤。首先，用户可以通过官方安装手册使用curl命令安装Ollama，并建议使用安装脚本以便自动安装相关驱动。接着，用户需要将下载的压缩包解压到/usr目录，并且可以直接使用ollama命令。文中详细列出了启动Ollama服务的systemd配置，并提供了如何手动启动服务的命令。用户还可以查询已下载模型、拉取新模型并与之交互。对于AnythingLLM，用户需确保服务器安装Docker，通过提供的安装脚本启动服务，并配置Nginx以进行反向代理
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -237,6 +232,39 @@ deepseek-r1:1.5b    a42b25d8c10a    1.1 GB    24 hours ago</pre></div>
 <span class="pl-k">&lt;</span>/think<span class="pl-k">&gt;</span>
 
 您好！我是由中国的深度求索（DeepSeek）公司开发的智能助手DeepSeek-R1。如您有任何任何问题，我会尽我所能为您提供帮助。</pre></div>
+<div class="markdown-heading"><h3 class="heading-element">测试接口</h3><a id="user-content-测试接口" class="anchor" aria-label="Permalink: 测试接口" href="#测试接口"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-batchfile"><pre>curl -L -X POST 'http://127.0.0.1:11434/v1/chat/completions' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer xxx' \
+-H 'Accept: application/json' \
+-d '{
+  <span class="pl-s"><span class="pl-pds">"</span>messages<span class="pl-pds">"</span></span>: [
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>content<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>You are a helpful assistant<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>role<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>system<span class="pl-pds">"</span></span>
+    },
+    {
+      <span class="pl-s"><span class="pl-pds">"</span>content<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Hi<span class="pl-pds">"</span></span>,
+      <span class="pl-s"><span class="pl-pds">"</span>role<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>
+    }
+  ],
+  <span class="pl-s"><span class="pl-pds">"</span>model<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>deepseek-r1:1.5b<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>frequency_penalty<span class="pl-pds">"</span></span>: 0,
+  <span class="pl-s"><span class="pl-pds">"</span>max_tokens<span class="pl-pds">"</span></span>: 2048,
+  <span class="pl-s"><span class="pl-pds">"</span>presence_penalty<span class="pl-pds">"</span></span>: 0,
+  <span class="pl-s"><span class="pl-pds">"</span>response_format<span class="pl-pds">"</span></span>: {
+    <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span>
+  },
+  <span class="pl-s"><span class="pl-pds">"</span>stop<span class="pl-pds">"</span></span>: null,
+  <span class="pl-s"><span class="pl-pds">"</span>stream<span class="pl-pds">"</span></span>: false,
+  <span class="pl-s"><span class="pl-pds">"</span>stream_options<span class="pl-pds">"</span></span>: null,
+  <span class="pl-s"><span class="pl-pds">"</span>temperature<span class="pl-pds">"</span></span>: 1,
+  <span class="pl-s"><span class="pl-pds">"</span>top_p<span class="pl-pds">"</span></span>: 1,
+  <span class="pl-s"><span class="pl-pds">"</span>tools<span class="pl-pds">"</span></span>: null,
+  <span class="pl-s"><span class="pl-pds">"</span>tool_choice<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>none<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>logprobs<span class="pl-pds">"</span></span>: false,
+  <span class="pl-s"><span class="pl-pds">"</span>top_logprobs<span class="pl-pds">"</span></span>: null
+}'</pre></div>
 <div class="markdown-heading"><h3 class="heading-element">nginx配置</h3><a id="user-content-nginx配置" class="anchor" aria-label="Permalink: nginx配置" href="#nginx配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <pre><code>location /ollama/ {
     proxy_pass http://127.0.0.1:11434/;
@@ -321,7 +349,7 @@ nomic-embed-text</p>
 <p><a href="https://github.com/weekend-project-space/free-ollama">Ollama免费服务</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/31.html" aria-label="Previous Page">31 GPT比较</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/73.html" aria-label="Next Page">73 Follow配置</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/73.html" aria-label="Previous Page">73 Follow配置</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">1 苹果CMS接口说明以及采集源搜索</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
