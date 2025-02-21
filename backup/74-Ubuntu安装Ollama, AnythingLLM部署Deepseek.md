@@ -136,7 +136,6 @@ $ ollama run deepseek-r1:1.5b
 ```cmd
 curl -L -X POST 'http://127.0.0.1:11434/v1/chat/completions' \
 -H 'Content-Type: application/json' \
--H 'Authorization: Bearer xxx' \
 -H 'Accept: application/json' \
 -d '{
   "messages": [
