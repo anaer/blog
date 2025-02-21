@@ -1532,14 +1532,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/71",
             "commentNum": 0,
             "createdAt": 1737613482,
-            "updatedAt": 1737618638,
+            "updatedAt": 1740118298,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-23",
-            "dateLabelColor": "hsl(140, 64%, 30%)",
-            "description": "\u67e5\u8be2pem\u8bc1\u4e66\u6709\u6548\u671f\n$ openssl x509 -enddate -noout -in cacert.pem\nnotAfter=May 29 02:07:58 2021 GMT\n",
-            "buildedAt": 1737618638
+            "dateLabelColor": "hsl(168, 57%, 23%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u5982\u4f55\u67e5\u8be2.pem\u548c.p12\u8bc1\u4e66\u7684\u6709\u6548\u671f\u3002\u5bf9\u4e8e.pem\u8bc1\u4e66\uff0c\u53ef\u4ee5\u4f7f\u7528\u547d\u4ee4\u201copenssl x509 -enddate -noout -in cacert.pem\u201d\u6765\u67e5\u770b\u6709\u6548\u622a\u6b62\u65e5\u671f\u3002\u5bf9\u4e8e.p12\u8bc1\u4e66\uff0c\u4f7f\u7528\u201copenssl pkcs12 -in dev.p12 -nokeys -clcerts | openssl x509 -noout -dates\u201d\u547d\u4ee4\u53ef\u4ee5\u67e5\u770b\u8bc1\u4e66\u7684\u6709\u6548\u671f\uff0c\u5e76\u9700\u8f93\u5165\u5bfc\u5165\u5bc6\u7801\u3002\u5982\u679c\u5e0c\u671b\u76f4\u63a5\u5728\u547d\u4ee4\u4e2d\u63d0\u4f9b\u5bc6\u7801\uff0c\u53ef\u4ee5\u4f7f\u7528\u201copenssl pkcs12 -in dev.p12 -nokeys -clcerts -passin pass:\u4f60\u7684\u5bc6\u7801 | openssl x509 -noout -dates\u201d\u683c\u5f0f\u3002\n\n\u4f18\u5316\u5efa\u8bae\uff1a\u5728\u4f7f\u7528\u547d\u4ee4\u65f6\uff0c\u5efa\u8bae\u6dfb\u52a0\u8be6\u7ec6\u7684\u6ce8\u91ca\u4ee5\u4fbf\u4e8e\u4ed6\u4eba\u7406\u89e3\u6bcf\u4e2a\u53c2\u6570\u7684\u4f5c\u7528\u3002\u6b64\u5916\uff0c\u8003\u8651\u63d0\u4f9b\u793a\u4f8b\u8f93\u51fa\uff0c\u4ee5\u5e2e\u52a9\u7528\u6237\u66f4\u597d\u5730\u7406\u89e3\u547d\u4ee4\u7684\u7ed3\u679c\u3002\u540c\u65f6\uff0c\u53ef\u4ee5\u63d0\u4f9b\u5bf9\u4e0d\u540c\u64cd\u4f5c\u7cfb\u7edf\u73af\u5883\u7684\u517c\u5bb9\u6027\u8bf4\u660e\uff0c\u786e\u4fdd\u7528\u6237\u80fd\u591f\u5728\u5404\u79cd\u73af\u5883\u4e2d\u987a\u5229\u6267\u884c\u547d\u4ee4\u3002",
+            "buildedAt": 1740118298
         },
         "P72": {
             "number": "72",
@@ -1649,6 +1649,7 @@
         "\u6570\u636e\u5e93": "#774C51",
         "\u670d\u52a1": "#8740A6",
         "\u670d\u52a1\u5668": "#b60205",
+        "\u6cb9\u7334": "#448411",
         "\u6d4f\u89c8\u5668": "#C11E79",
         "\u811a\u672c": "#b60205",
         "\u8f6f\u4ef6": "#b60205"

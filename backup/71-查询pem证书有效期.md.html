@@ -1,3 +1,17 @@
 <div class="markdown-heading"><h2 class="heading-element">查询pem证书有效期</h2><a id="user-content-查询pem证书有效期" class="anchor" aria-label="Permalink: 查询pem证书有效期" href="#查询pem证书有效期"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-m68k"><pre>$ openssl x509 -enddate -noout -in cacert.pem
-<span class="pl-e">notAfter</span>=May <span class="pl-c1">29</span> <span class="pl-c1">02</span>:<span class="pl-c1">07</span>:<span class="pl-c1">58</span> <span class="pl-c1">2021</span> GMT</pre></div>
+<div class="highlight highlight-source-shell"><pre>$ openssl x509 -enddate -noout -in cacert.pem
+notAfter=May 29 02:07:58 2021 GMT</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">查询p12证书有效期</h2><a id="user-content-查询p12证书有效期" class="anchor" aria-label="Permalink: 查询p12证书有效期" href="#查询p12证书有效期"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>$ openssl pkcs12 -in dev.p12 -nokeys -clcerts <span class="pl-k">|</span> openssl x509 -noout -dates
+Enter Import Password:
+notBefore=Jun 19 05:48:10 2024 GMT
+notAfter=Jul 19 05:48:09 2025 GMT</pre></div>
+<div class="markdown-heading"><h3 class="heading-element">参数说明</h3><a id="user-content-参数说明" class="anchor" aria-label="Permalink: 参数说明" href="#参数说明"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>pkcs12 -in dev.p12：读取.p12文件。
+-nokeys：不输出私钥。
+-clcerts：仅输出客户端证书（避免输出CA证书）。
+|：将提取的证书传递给x509命令。
+-dates：显示证书的有效期。
+</code></pre>
+<p>存在密码时 会提示输入密码, 也可以通过添加参数-passin pass:你的密码</p>
+<div class="highlight highlight-source-shell"><pre>openssl pkcs12 -in dev.p12 -nokeys -clcerts -passin pass:123456 <span class="pl-k">|</span> openssl x509 -noout -dates</pre></div>
