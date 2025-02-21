@@ -14,3 +14,9 @@ https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css
 
 ### 国内加速 cdnjs.cloudflare.com -> cdnjs.admincdn.com
 https://cdnjs.admincdn.com/ajax/libs/Primer/21.1.1/primer.css
+
+
+https://github.com/wooorm/starry-night/releases/tag/3.6.0
+
+
+https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css
