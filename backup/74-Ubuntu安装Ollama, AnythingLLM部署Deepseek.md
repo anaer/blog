@@ -180,7 +180,9 @@ location /ollama/ {
 }
 ```
 
-## 本地客户端 [Cherry Studio](https://github.com/CherryHQ/cherry-studio/releases/tag/v0.9.21)
+## 客户端
+
+### [Cherry Studio](https://github.com/CherryHQ/cherry-studio/releases/tag/v0.9.21)
 
 设置->模型服务->Ollama
 
@@ -196,6 +198,9 @@ API地址: http://mydomain.com/ollama/v1/
 
 ![Image](https://github.com/user-attachments/assets/f4f0d98d-b353-4367-a7c5-f02c2a2eda0e)
 
+### [Page Assist](https://microsoftedge.microsoft.com/addons/detail/page-assist-a-web-ui-fo/ogkogooadflifpmmidmhjedogicnhooa)
+
+支持联网搜索以及RAG设置
 
 ## anythingllm
 AnythingLLM 是一个功能强大且灵活的开源平台，旨在帮助用户轻松构建和部署基于大型语言模型 (LLM) 的私有化应用程序。
