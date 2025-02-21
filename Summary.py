@@ -25,7 +25,7 @@ def generate_summary(text):
             {"role": "user", "content": f"{text}"}
         ],
         "temperature": 0.5,
-        "max_tokens": 150
+        "max_tokens": 1500
     }
 
     try:
