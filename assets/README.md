@@ -20,3 +20,5 @@ https://github.com/wooorm/starry-night/releases/tag/3.6.0
 
 
 https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css
+
+图标列表: http://www.wapadd.cn/icons/awesome/index.htm
