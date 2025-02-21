@@ -121,6 +121,8 @@ pre {
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#软件">软件</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#448411">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#油猴">油猴</a></object>
         </span>
 </div>
 <br>
@@ -131,13 +133,13 @@ pre {
 <span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-21</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了自动化配置Webhook的过程，涉及通过POST请求发送feed条目信息作为Json参数，并建议自定义Webhook接口以便更好地处理数据。示例参数格式展示了如何构建请求数据。提到直接配置bark接口可能导致推送成功但内容为空的情况。对于Feed分享页的自动订阅，当前实现通过脚本从链接获取feed id，查询订阅状态，并进行订阅，临时分类设定为“待定”。脚本的订阅数量限制为500条，超限后需停用。
+    <strong>AI总结:</strong> 本文介绍了如何通过Webhook和脚本实现自动化配置，以便更好地处理和订阅Feed信息。Webhook使用POST请求将Feed条目信息以JSON格式发送，建议自定义Webhook接口来处理这些请求。示例参数格式展示了如何传递Feed和条目相关的信息。脚本部分则实现了从分享页提取Feed ID、查询Feed信息并进行订阅的功能，当前订阅数量限制为500条。
 
 优化建议包括：
-1. 增加对Webhook接口的错误处理机制，以便在请求失败时提供反馈。
-2. 在脚本中加入对订阅数量的实时监控，避免超限情况的发生。
-3. 考虑用户体验，简化分享页的订阅流程，减少跳转次数。
-4. 提供更详细的日志信息，以便于调试和监控订阅状态。
+1. 增加错误处理机制，确保在请求失败时提供详细的错误信息。
+2. 考虑在脚本中添加用户界面提示，以便用户了解当前的订阅状态和操作结果。
+3. 在Webhook处理逻辑中，增加对参数有效性的校验，以防止空标题等异常情况。
+4. 研究如何提升订阅数量上限，避免在达到500条时无法继续使用脚本的情况。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -254,7 +256,7 @@ pre {
 <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/72.html" aria-label="Previous Page">72 Java Stream用法记录</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/74.html" aria-label="Next Page">74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/74.html" aria-label="Previous Page">74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/72.html" aria-label="Next Page">72 Java Stream用法记录</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

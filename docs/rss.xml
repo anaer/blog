@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 21 Feb 2025 07:14:47 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 21 Feb 2025 07:14:47 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>75 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了一个包含多种常用项目和在线工具的列表，涵盖了开发、社交媒体、支付平台、云服务、搜索引擎、娱乐资源、软件服务及在线工具等多个领域。主要内容包括GitHub、V2EX、在线文档、微信和支付宝的开发文档、腾讯云文档、搜索引擎资源、娱乐工具、注册及爬墙工具、JSON编辑、正则表达式工具、在线文档转换、IP查询工具等。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 21 Feb 2025 08:08:42 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 21 Feb 2025 08:08:42 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>75 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了一个包含多种常用项目和在线工具的列表，涵盖了开发、社交媒体、支付平台、云服务、搜索引擎、娱乐资源、软件服务及在线工具等多个领域。主要内容包括GitHub、V2EX、在线文档、微信和支付宝的开发文档、腾讯云文档、搜索引擎资源、娱乐工具、注册及爬墙工具、JSON编辑、正则表达式工具、在线文档转换、IP查询工具等。
 
 优化建议：
 1. 将内容按类别进行更清晰的分组，以便用户快速查找所需工具或文档。
@@ -12,13 +12,13 @@
 2. 提供更详细的错误处理和故障排除指南，帮助用户在安装和使用过程中解决可能遇到的问题。
 3. 增加对Ollama和RAG技术的背景介绍，以便用户更好地理解其应用场景和优势。
 4. 在文中添加示例图片或图表，以视觉化展示安装和配置过程，增强用户体验。
-5. 考虑将命令行操作与图形用户界面（GUI）操作结合，提供更多用户友好的选择。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/74.html</guid><pubDate>Mon, 10 Feb 2025 06:16:14 +0000</pubDate></item><item><title>73 Follow配置</title><link>https://anaer.github.io/blog/post/73.html</link><description>本文介绍了自动化配置Webhook的过程，涉及通过POST请求发送feed条目信息作为Json参数，并建议自定义Webhook接口以便更好地处理数据。示例参数格式展示了如何构建请求数据。提到直接配置bark接口可能导致推送成功但内容为空的情况。对于Feed分享页的自动订阅，当前实现通过脚本从链接获取feed id，查询订阅状态，并进行订阅，临时分类设定为“待定”。脚本的订阅数量限制为500条，超限后需停用。
+5. 考虑将命令行操作与图形用户界面（GUI）操作结合，提供更多用户友好的选择。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/74.html</guid><pubDate>Mon, 10 Feb 2025 06:16:14 +0000</pubDate></item><item><title>73 Follow配置</title><link>https://anaer.github.io/blog/post/73.html</link><description>本文介绍了如何通过Webhook和脚本实现自动化配置，以便更好地处理和订阅Feed信息。Webhook使用POST请求将Feed条目信息以JSON格式发送，建议自定义Webhook接口来处理这些请求。示例参数格式展示了如何传递Feed和条目相关的信息。脚本部分则实现了从分享页提取Feed ID、查询Feed信息并进行订阅的功能，当前订阅数量限制为500条。
 
 优化建议包括：
-1. 增加对Webhook接口的错误处理机制，以便在请求失败时提供反馈。
-2. 在脚本中加入对订阅数量的实时监控，避免超限情况的发生。
-3. 考虑用户体验，简化分享页的订阅流程，减少跳转次数。
-4. 提供更详细的日志信息，以便于调试和监控订阅状态。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/73.html</guid><pubDate>Thu, 06 Feb 2025 06:58:36 +0000</pubDate></item><item><title>72 Java Stream用法记录</title><link>https://anaer.github.io/blog/post/72.html</link><description>过滤
+1. 增加错误处理机制，确保在请求失败时提供详细的错误信息。
+2. 考虑在脚本中添加用户界面提示，以便用户了解当前的订阅状态和操作结果。
+3. 在Webhook处理逻辑中，增加对参数有效性的校验，以防止空标题等异常情况。
+4. 研究如何提升订阅数量上限，避免在达到500条时无法继续使用脚本的情况。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/73.html</guid><pubDate>Thu, 06 Feb 2025 06:58:36 +0000</pubDate></item><item><title>72 Java Stream用法记录</title><link>https://anaer.github.io/blog/post/72.html</link><description>过滤
 List&lt;String&gt; result = list.stream()
                           .filter(str -&gt; str.length() &gt; 5)
   ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/72.html</guid><pubDate>Thu, 23 Jan 2025 06:35:23 +0000</pubDate></item><item><title>71 查询pem证书有效期</title><link>https://anaer.github.io/blog/post/71.html</link><description>本文介绍了如何查询.pem和.p12证书的有效期。对于.pem证书，可以使用命令“openssl x509 -enddate -noout -in cacert.pem”来查看有效截止日期。对于.p12证书，使用“openssl pkcs12 -in dev.p12 -nokeys -clcerts | openssl x509 -noout -dates”命令可以查看证书的有效期，并需输入导入密码。如果希望直接在命令中提供密码，可以使用“openssl pkcs12 -in dev.p12 -nokeys -clcerts -passin pass:你的密码 | openssl x509 -noout -dates”格式。
