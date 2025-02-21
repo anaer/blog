@@ -82,3 +82,8 @@ $http_HEADER             请求头HEADER, 如上
 $time_iso8601            生成格式：2023-06-28T17:09:30+08:00
 $time_local              生成格式：28/Jun/2023:17:09:30 +0800
 ```
+
+## 相关链接
+
+1. [ngx_http_log_module模块](https://nginx.org/en/docs/http/ngx_http_log_module.html)
+2. [变量定义索引](https://nginx.org/en/docs/varindex.html)

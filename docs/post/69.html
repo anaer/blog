@@ -128,12 +128,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-24</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-21</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 记录访问的 log，为了在出现特殊情况时，方便检查出现问题的地方。
-配置示例
-log_format access '$remote_addr - $remote_user [$time_local] ...
+    <strong>AI总结:</strong> 本文介绍了记录访问日志的重要性，以便在出现问题时进行检查。提供了Nginx的配置示例，包括自定义日志格式和参数列表，涵盖了多种变量的详细说明，如请求的IP地址、请求时间、状态码等。这些信息有助于调试和分析流量。
+
+优化建议：
+1. 考虑使用更简洁的日志格式，以减少日志文件的大小，便于存储和分析。
+2. 定期清理和归档日志文件，防止占用过多磁盘空间。
+3. 结合监控工具，实时分析日志数据，及时发现潜在问题。
+4. 增加对敏感信息的过滤，确保日志安全性，防止泄露用户隐私。
+5. 定期审查和更新日志格式，确保其适应不断变化的需求和技术标准。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -214,9 +219,14 @@ $http_HEADER             请求头HEADER, 如上
 $time_iso8601            生成格式：2023-06-28T17:09:30+08:00
 $time_local              生成格式：28/Jun/2023:17:09:30 +0800
 </code></pre>
+<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li><a href="https://nginx.org/en/docs/http/ngx_http_log_module.html" rel="nofollow">ngx_http_log_module模块</a></li>
+<li><a href="https://nginx.org/en/docs/varindex.html" rel="nofollow">变量定义索引</a></li>
+</ol>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/70.html" aria-label="Previous Page">70 @Scheduled定时任务不执行问题解决</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/68.html" aria-label="Next Page">68 Git批处理脚本</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/68.html" aria-label="Previous Page">68 Git批处理脚本</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/70.html" aria-label="Next Page">70 @Scheduled定时任务不执行问题解决</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

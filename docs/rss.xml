@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 21 Feb 2025 06:17:08 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 21 Feb 2025 06:17:08 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>75 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了一个包含多种常用项目和在线工具的列表，涵盖了开发、社交媒体、支付平台、云服务、搜索引擎、娱乐资源、软件服务及在线工具等多个领域。主要内容包括GitHub、V2EX、在线文档、微信和支付宝的开发文档、腾讯云文档、搜索引擎资源、娱乐工具、注册及爬墙工具、JSON编辑、正则表达式工具、在线文档转换、IP查询工具等。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 21 Feb 2025 06:31:50 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 21 Feb 2025 06:31:50 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>75 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了一个包含多种常用项目和在线工具的列表，涵盖了开发、社交媒体、支付平台、云服务、搜索引擎、娱乐资源、软件服务及在线工具等多个领域。主要内容包括GitHub、V2EX、在线文档、微信和支付宝的开发文档、腾讯云文档、搜索引擎资源、娱乐工具、注册及爬墙工具、JSON编辑、正则表达式工具、在线文档转换、IP查询工具等。
 
 优化建议：
 1. 将内容按类别进行更清晰的分组，以便用户快速查找所需工具或文档。
@@ -28,9 +28,14 @@ List&lt;String&gt; result = list.stream()
 优化建议：
 1. 在onApplicationEvent方法中，添加逻辑以重新注册@Scheduled任务，确保任务在Bean刷新后能够正常执行。
 2. 考虑使用其他机制，如使用Spring的TaskScheduler，来管理定时任务，以避免@Scheduled与@RefreshScope之间的冲突。
-3. 在文档中提供更多的解决方案和链接，以便用户能找到其他可能的解决方案。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/70.html</guid><pubDate>Thu, 23 Jan 2025 06:12:04 +0000</pubDate></item><item><title>69 Nginx日志配置</title><link>https://anaer.github.io/blog/post/69.html</link><description>记录访问的 log，为了在出现特殊情况时，方便检查出现问题的地方。
-配置示例
-log_format access '$remote_addr - $remote_user [$time_local] ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/69.html</guid><pubDate>Thu, 23 Jan 2025 06:07:25 +0000</pubDate></item><item><title>68 Git批处理脚本</title><link>https://anaer.github.io/blog/post/68.html</link><description>循环执行脚本
+3. 在文档中提供更多的解决方案和链接，以便用户能找到其他可能的解决方案。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/70.html</guid><pubDate>Thu, 23 Jan 2025 06:12:04 +0000</pubDate></item><item><title>69 Nginx日志配置</title><link>https://anaer.github.io/blog/post/69.html</link><description>本文介绍了记录访问日志的重要性，以便在出现问题时进行检查。提供了Nginx的配置示例，包括自定义日志格式和参数列表，涵盖了多种变量的详细说明，如请求的IP地址、请求时间、状态码等。这些信息有助于调试和分析流量。
+
+优化建议：
+1. 考虑使用更简洁的日志格式，以减少日志文件的大小，便于存储和分析。
+2. 定期清理和归档日志文件，防止占用过多磁盘空间。
+3. 结合监控工具，实时分析日志数据，及时发现潜在问题。
+4. 增加对敏感信息的过滤，确保日志安全性，防止泄露用户隐私。
+5. 定期审查和更新日志格式，确保其适应不断变化的需求和技术标准。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/69.html</guid><pubDate>Thu, 23 Jan 2025 06:07:25 +0000</pubDate></item><item><title>68 Git批处理脚本</title><link>https://anaer.github.io/blog/post/68.html</link><description>循环执行脚本
 判断参数命令执行结果, 如果失败则重复执行
 retry.cmd git push origin main
 @echo off
