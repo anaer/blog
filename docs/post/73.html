@@ -128,10 +128,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-02-06</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-20</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-21</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 该文档介绍了如何通过Webhook接收feed条目信息，并建议自定义接口处理POST请求中的JSON参数。还提供了一个用户脚本，用于在Follow分享页自动订阅feed，包括从URL提取ID、查询feed信息及调用订阅接口等功能。
+    <strong>AI总结:</strong> 本文介绍了自动化配置Webhook的过程，涉及通过POST请求发送feed条目信息作为Json参数，并建议自定义Webhook接口以便更好地处理数据。示例参数格式展示了如何构建请求数据。提到直接配置bark接口可能导致推送成功但内容为空的情况。对于Feed分享页的自动订阅，当前实现通过脚本从链接获取feed id，查询订阅状态，并进行订阅，临时分类设定为“待定”。脚本的订阅数量限制为500条，超限后需停用。
+
+优化建议包括：
+1. 增加对Webhook接口的错误处理机制，以便在请求失败时提供反馈。
+2. 在脚本中加入对订阅数量的实时监控，避免超限情况的发生。
+3. 考虑用户体验，简化分享页的订阅流程，减少跳转次数。
+4. 提供更详细的日志信息，以便于调试和监控订阅状态。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -144,7 +150,7 @@ pre {
 </code></pre>
 <p>如果直接配置bark接口地址, 因为参数命名凑巧一致的情况下, 能推送成功一条空标题的消息, 内容为条目url链接<br>
 后期要看Follow是否会对一些推送接口进行适配.</p>
-<div class="markdown-heading"><h2 class="heading-element">Follow Feed分享页自动订阅</h2><a id="user-content-follow-feed分享页自动订阅" class="anchor" aria-label="Permalink: Follow Feed分享页自动订阅" href="#follow-feed分享页自动订阅"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">Feed分享页自动订阅</h2><a id="user-content-feed分享页自动订阅" class="anchor" aria-label="Permalink: Feed分享页自动订阅" href="#feed分享页自动订阅"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>因为目前主要在Web端使用, 在分享页订阅时 老是要跳转下载客户端. 所以实现该脚本:</p>
 <ol>
 <li>从链接获取feed id</li>
@@ -164,88 +170,91 @@ pre {
 <span class="pl-c">// <span class="pl-k">@grant</span>        unsafeWindow</span>
 <span class="pl-c">// ==/UserScript==</span>
 
-<span class="pl-kos">(</span><span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-    <span class="pl-s">'use strict'</span><span class="pl-kos">;</span>
+<span class="pl-kos">(</span><span class="pl-k">function</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-s">"use strict"</span><span class="pl-kos">;</span>
 
-  <span class="pl-k">const</span> <span class="pl-en">xget</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">,</span> <span class="pl-s1">type</span> <span class="pl-c1">=</span> <span class="pl-s">'json'</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-k">new</span> <span class="pl-v">Promise</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">success</span><span class="pl-kos">,</span> <span class="pl-s1">fail</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-	<span class="pl-v">GM_xmlhttpRequest</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
-		<span class="pl-c1">method</span>: <span class="pl-s">'GET'</span><span class="pl-kos">,</span>
-		<span class="pl-c1">timeout</span>: <span class="pl-c1">3000</span><span class="pl-kos">,</span>
-    <span class="pl-c1">credentials</span>: <span class="pl-s">'include'</span><span class="pl-kos">,</span> <span class="pl-c">// 携带浏览器 Cookies</span>
-		<span class="pl-c1">url</span>: <span class="pl-s1">url</span><span class="pl-kos">,</span>
-		<span class="pl-c1">responseType</span>: <span class="pl-s1">type</span><span class="pl-kos">,</span>
-		<span class="pl-c1">onload</span>: <span class="pl-s1">success</span><span class="pl-kos">,</span>
-		<span class="pl-c1">onerror</span>: <span class="pl-s1">fail</span><span class="pl-kos">,</span>
-		<span class="pl-c1">ontimeout</span>: <span class="pl-s1">fail</span>
-	<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">const</span> <span class="pl-en">xget</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">,</span> <span class="pl-s1">type</span> <span class="pl-c1">=</span> <span class="pl-s">"json"</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span>
+    <span class="pl-k">new</span> <span class="pl-v">Promise</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">success</span><span class="pl-kos">,</span> <span class="pl-s1">fail</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+      <span class="pl-v">GM_xmlhttpRequest</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+        <span class="pl-c1">method</span>: <span class="pl-s">"GET"</span><span class="pl-kos">,</span>
+        <span class="pl-c1">timeout</span>: <span class="pl-c1">3000</span><span class="pl-kos">,</span>
+        <span class="pl-c1">credentials</span>: <span class="pl-s">"include"</span><span class="pl-kos">,</span> <span class="pl-c">// 携带浏览器 Cookies</span>
+        <span class="pl-c1">url</span>: <span class="pl-s1">url</span><span class="pl-kos">,</span>
+        <span class="pl-c1">responseType</span>: <span class="pl-s1">type</span><span class="pl-kos">,</span>
+        <span class="pl-c1">onload</span>: <span class="pl-s1">success</span><span class="pl-kos">,</span>
+        <span class="pl-c1">onerror</span>: <span class="pl-s1">fail</span><span class="pl-kos">,</span>
+        <span class="pl-c1">ontimeout</span>: <span class="pl-s1">fail</span><span class="pl-kos">,</span>
+      <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-  <span class="pl-k">const</span> <span class="pl-en">xpost</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">,</span> <span class="pl-s1">data</span><span class="pl-c1">=</span><span class="pl-kos">{</span><span class="pl-kos">}</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-k">new</span> <span class="pl-v">Promise</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">success</span><span class="pl-kos">,</span> <span class="pl-s1">fail</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-	<span class="pl-v">GM_xmlhttpRequest</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
-		<span class="pl-c1">method</span>: <span class="pl-s">'POST'</span><span class="pl-kos">,</span>
-		<span class="pl-c1">timeout</span>: <span class="pl-c1">3000</span><span class="pl-kos">,</span>
-    <span class="pl-c1">credentials</span>: <span class="pl-s">'include'</span><span class="pl-kos">,</span> <span class="pl-c">// 携带浏览器 Cookies</span>
-    <span class="pl-c1">headers</span>: <span class="pl-kos">{</span>
-        <span class="pl-s">'Content-Type'</span>: <span class="pl-s">'application/json'</span><span class="pl-kos">,</span> <span class="pl-c">// 设置请求头</span>
-    <span class="pl-kos">}</span><span class="pl-kos">,</span>
-		<span class="pl-c1">url</span>: <span class="pl-s1">url</span><span class="pl-kos">,</span>
-    <span class="pl-c1">data</span>: <span class="pl-s1">data</span><span class="pl-kos">,</span>
-		<span class="pl-c1">responseType</span>: <span class="pl-s">'json'</span><span class="pl-kos">,</span>
-		<span class="pl-c1">onload</span>: <span class="pl-s1">success</span><span class="pl-kos">,</span>
-		<span class="pl-c1">onerror</span>: <span class="pl-s1">fail</span><span class="pl-kos">,</span>
-		<span class="pl-c1">ontimeout</span>: <span class="pl-s1">fail</span>
-	<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">const</span> <span class="pl-en">xpost</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">,</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span><span class="pl-kos">}</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span>
+    <span class="pl-k">new</span> <span class="pl-v">Promise</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">success</span><span class="pl-kos">,</span> <span class="pl-s1">fail</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+      <span class="pl-v">GM_xmlhttpRequest</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+        <span class="pl-c1">method</span>: <span class="pl-s">"POST"</span><span class="pl-kos">,</span>
+        <span class="pl-c1">timeout</span>: <span class="pl-c1">3000</span><span class="pl-kos">,</span>
+        <span class="pl-c1">credentials</span>: <span class="pl-s">"include"</span><span class="pl-kos">,</span> <span class="pl-c">// 携带浏览器 Cookies</span>
+        <span class="pl-c1">headers</span>: <span class="pl-kos">{</span>
+          <span class="pl-s">"Content-Type"</span>: <span class="pl-s">"application/json"</span><span class="pl-kos">,</span> <span class="pl-c">// 设置请求头</span>
+        <span class="pl-kos">}</span><span class="pl-kos">,</span>
+        <span class="pl-c1">url</span>: <span class="pl-s1">url</span><span class="pl-kos">,</span>
+        <span class="pl-c1">data</span>: <span class="pl-s1">data</span><span class="pl-kos">,</span>
+        <span class="pl-c1">responseType</span>: <span class="pl-s">"json"</span><span class="pl-kos">,</span>
+        <span class="pl-c1">onload</span>: <span class="pl-s1">success</span><span class="pl-kos">,</span>
+        <span class="pl-c1">onerror</span>: <span class="pl-s1">fail</span><span class="pl-kos">,</span>
+        <span class="pl-c1">ontimeout</span>: <span class="pl-s1">fail</span><span class="pl-kos">,</span>
+      <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-    <span class="pl-c">// 获取当前页面的 URL</span>
-    <span class="pl-k">const</span> <span class="pl-s1">currentUrl</span> <span class="pl-c1">=</span> <span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-c1">location</span><span class="pl-kos">.</span><span class="pl-c1">href</span><span class="pl-kos">;</span>
+  <span class="pl-c">// 获取当前页面的 URL</span>
+  <span class="pl-k">const</span> <span class="pl-s1">currentUrl</span> <span class="pl-c1">=</span> <span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-c1">location</span><span class="pl-kos">.</span><span class="pl-c1">href</span><span class="pl-kos">;</span>
 
-    <span class="pl-c">// 使用正则表达式提取最后一段数字 ID</span>
-    <span class="pl-k">const</span> <span class="pl-s1">match</span> <span class="pl-c1">=</span> <span class="pl-s1">currentUrl</span><span class="pl-kos">.</span><span class="pl-en">match</span><span class="pl-kos">(</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-cce">\/</span><span class="pl-kos">(</span><span class="pl-cce">\d</span><span class="pl-c1">+</span><span class="pl-kos">)</span><span class="pl-cce">\/</span><span class="pl-c1">?</span><span class="pl-cce">$</span><span class="pl-c1">/</span></span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-c">// 使用正则表达式提取最后一段数字 ID</span>
+  <span class="pl-k">const</span> <span class="pl-s1">match</span> <span class="pl-c1">=</span> <span class="pl-s1">currentUrl</span><span class="pl-kos">.</span><span class="pl-en">match</span><span class="pl-kos">(</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-cce">\/</span><span class="pl-kos">(</span><span class="pl-cce">\d</span><span class="pl-c1">+</span><span class="pl-kos">)</span><span class="pl-cce">\/</span><span class="pl-c1">?</span><span class="pl-cce">$</span><span class="pl-c1">/</span></span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-    <span class="pl-k">var</span> <span class="pl-s1">id</span><span class="pl-kos">;</span>
-    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">match</span> <span class="pl-c1">&amp;&amp;</span> <span class="pl-s1">match</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">]</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-        <span class="pl-s1">id</span> <span class="pl-c1">=</span> <span class="pl-s1">match</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
-        <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">'提取的数字 ID:'</span><span class="pl-kos">,</span> <span class="pl-s1">id</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
-        <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">'未找到数字 ID'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span>
+  <span class="pl-k">var</span> <span class="pl-s1">id</span><span class="pl-kos">;</span>
+  <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">match</span> <span class="pl-c1">&amp;&amp;</span> <span class="pl-s1">match</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">]</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-s1">id</span> <span class="pl-c1">=</span> <span class="pl-s1">match</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"提取的数字 ID:"</span><span class="pl-kos">,</span> <span class="pl-s1">id</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"未找到数字 ID"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-kos">}</span>
 
-    <span class="pl-k">let</span> <span class="pl-s1">url</span> <span class="pl-c1">=</span> <span class="pl-s">'https://api.follow.is/feeds?id='</span><span class="pl-c1">+</span><span class="pl-s1">id</span>
-			<span class="pl-en">xget</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">then</span><span class="pl-kos">(</span><span class="pl-s1">r</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-				<span class="pl-k">const</span> <span class="pl-s1">ra</span> <span class="pl-c1">=</span> <span class="pl-s1">r</span><span class="pl-kos">.</span><span class="pl-c1">response</span><span class="pl-kos">;</span>
-				<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">,</span> <span class="pl-s1">ra</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">let</span> <span class="pl-s1">url</span> <span class="pl-c1">=</span> <span class="pl-s">"https://api.follow.is/feeds?id="</span> <span class="pl-c1">+</span> <span class="pl-s1">id</span><span class="pl-kos">;</span>
+  <span class="pl-en">xget</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">)</span>
+    <span class="pl-kos">.</span><span class="pl-en">then</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">r</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+      <span class="pl-k">const</span> <span class="pl-s1">ra</span> <span class="pl-c1">=</span> <span class="pl-s1">r</span><span class="pl-kos">.</span><span class="pl-c1">response</span><span class="pl-kos">;</span>
+      <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">,</span> <span class="pl-s1">ra</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">ra</span><span class="pl-kos">.</span><span class="pl-c1">data</span><span class="pl-kos">.</span><span class="pl-c1">subscription</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-          <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">'已订阅'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-        <span class="pl-kos">}</span><span class="pl-k">else</span><span class="pl-kos">{</span>
-          <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">'未订阅'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-          <span class="pl-k">let</span> <span class="pl-s1">feed</span> <span class="pl-c1">=</span> <span class="pl-s1">unsafeWindow</span><span class="pl-kos">.</span><span class="pl-c1">__HYDRATE__</span><span class="pl-kos">[</span><span class="pl-s">'feeds.$get,query:id='</span><span class="pl-c1">+</span><span class="pl-s1">id</span><span class="pl-kos">]</span><span class="pl-kos">[</span><span class="pl-s">'feed'</span><span class="pl-kos">]</span>
+      <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">ra</span><span class="pl-kos">.</span><span class="pl-c1">data</span><span class="pl-kos">.</span><span class="pl-c1">subscription</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"已订阅"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+      <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+        <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"未订阅"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-k">let</span> <span class="pl-s1">feed</span> <span class="pl-c1">=</span>
+          <span class="pl-s1">unsafeWindow</span><span class="pl-kos">.</span><span class="pl-c1">__HYDRATE__</span><span class="pl-kos">[</span><span class="pl-s">"feeds.$get,query:id="</span> <span class="pl-c1">+</span> <span class="pl-s1">id</span><span class="pl-kos">]</span><span class="pl-kos">[</span><span class="pl-s">"feed"</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
 
-          <span class="pl-k">var</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
-              <span class="pl-c1">feedId</span>: <span class="pl-s1">feed</span><span class="pl-kos">.</span><span class="pl-c1">id</span><span class="pl-kos">,</span>
-              <span class="pl-c1">url</span>: <span class="pl-s1">feed</span><span class="pl-kos">.</span><span class="pl-c1">url</span><span class="pl-kos">,</span>
-              <span class="pl-c1">view</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span>
-              <span class="pl-c1">category</span>: <span class="pl-s">"待定"</span>
-            <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-          <span class="pl-en">xpost</span><span class="pl-kos">(</span><span class="pl-s">'https://api.follow.is/subscriptions'</span><span class="pl-kos">,</span> <span class="pl-s1">data</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">then</span><span class="pl-kos">(</span><span class="pl-s1">r</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+        <span class="pl-k">var</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+          <span class="pl-c1">feedId</span>: <span class="pl-s1">feed</span><span class="pl-kos">.</span><span class="pl-c1">id</span><span class="pl-kos">,</span>
+          <span class="pl-c1">url</span>: <span class="pl-s1">feed</span><span class="pl-kos">.</span><span class="pl-c1">url</span><span class="pl-kos">,</span>
+          <span class="pl-c1">view</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span>
+          <span class="pl-c1">category</span>: <span class="pl-s">"待定"</span><span class="pl-kos">,</span>
+        <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-en">xpost</span><span class="pl-kos">(</span><span class="pl-s">"https://api.follow.is/subscriptions"</span><span class="pl-kos">,</span> <span class="pl-s1">data</span><span class="pl-kos">)</span>
+          <span class="pl-kos">.</span><span class="pl-en">then</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">r</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
             <span class="pl-k">const</span> <span class="pl-s1">ra</span> <span class="pl-c1">=</span> <span class="pl-s1">r</span><span class="pl-kos">.</span><span class="pl-c1">response</span><span class="pl-kos">;</span>
-            <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">'订阅成功'</span><span class="pl-kos">,</span> <span class="pl-s1">data</span><span class="pl-kos">,</span> <span class="pl-s1">ra</span><span class="pl-kos">)</span>
+            <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"订阅成功"</span><span class="pl-kos">,</span> <span class="pl-s1">data</span><span class="pl-kos">,</span> <span class="pl-s1">ra</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
           <span class="pl-kos">}</span><span class="pl-kos">)</span>
-          <span class="pl-kos">.</span><span class="pl-en">catch</span> <span class="pl-kos">(</span><span class="pl-s1">e</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-            <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">'订阅失败'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+          <span class="pl-kos">.</span><span class="pl-en">catch</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">e</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+            <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"订阅失败"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
           <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-        <span class="pl-kos">}</span>
-
-			<span class="pl-kos">}</span><span class="pl-kos">)</span>
-			<span class="pl-kos">.</span><span class="pl-en">catch</span> <span class="pl-kos">(</span><span class="pl-s1">e</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-				<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">,</span> <span class="pl-s">'获取feed信息异常'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-			<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
+      <span class="pl-kos">}</span>
+    <span class="pl-kos">}</span><span class="pl-kos">)</span>
+    <span class="pl-kos">.</span><span class="pl-en">catch</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">e</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+      <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">,</span> <span class="pl-s">"获取feed信息异常"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/74.html" aria-label="Previous Page">74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/72.html" aria-label="Next Page">72 Java Stream用法记录</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/72.html" aria-label="Previous Page">72 Java Stream用法记录</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/74.html" aria-label="Next Page">74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
