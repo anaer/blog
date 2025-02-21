@@ -1,3 +1,5 @@
+当@RefreshScope触发Bean刷新时，原有的Bean实例被销毁，新实例被创建。
+但是，ScheduledAnnotationBeanPostProcessor只在容器初始化时执行一次，不会重新扫描新创建的Bean。因此，新Bean中的@Scheduled方法未被注册，导致定时任务失效。
 
 这里仅记录最简单的一种解决方案, 其他方式见相关链接
 

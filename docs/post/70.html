@@ -128,15 +128,20 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 这里仅记录最简单的一种解决方案, 其他方式见相关链接
-import java.text.SimpleDateFormat;
-import java.util.Date;
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-21</time></span>
 
-import org.spr...
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了在Spring框架中，使用@RefreshScope注解时，Bean的刷新机制导致@Scheduled注解的方法失效的问题。由于ScheduledAnnotationBeanPostProcessor只在容器初始化时执行一次，新创建的Bean中的@Scheduled方法不会被注册，从而导致定时任务无法正常运行。为了解决这个问题，提供了一种简单的解决方案，即实现ApplicationListener接口，监听RefreshScopeRefreshedEvent事件，以便在Bean刷新时重新注册定时任务。
+
+优化建议：
+1. 在onApplicationEvent方法中，添加逻辑以重新注册@Scheduled任务，确保任务在Bean刷新后能够正常执行。
+2. 考虑使用其他机制，如使用Spring的TaskScheduler，来管理定时任务，以避免@Scheduled与@RefreshScope之间的冲突。
+3. 在文档中提供更多的解决方案和链接，以便用户能找到其他可能的解决方案。
 </div>
 
 <div class="markdown-body" id="postBody">
+<p>当@RefreshScope触发Bean刷新时，原有的Bean实例被销毁，新实例被创建。
+但是，ScheduledAnnotationBeanPostProcessor只在容器初始化时执行一次，不会重新扫描新创建的Bean。因此，新Bean中的@Scheduled方法未被注册，导致定时任务失效。</p>
 <p>这里仅记录最简单的一种解决方案, 其他方式见相关链接</p>
 <div class="highlight highlight-source-java"><pre><span class="pl-k">import</span> <span class="pl-s1">java</span>.<span class="pl-s1">text</span>.<span class="pl-s1">SimpleDateFormat</span>;
 <span class="pl-k">import</span> <span class="pl-s1">java</span>.<span class="pl-s1">util</span>.<span class="pl-s1">Date</span>;
@@ -178,7 +183,7 @@ import org.spr...
 <p><a href="https://www.jianshu.com/p/0e490fe4ff7a" rel="nofollow">@RefreshScope导致@Scheduled失效</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/71.html" aria-label="Previous Page">71 查询pem证书有效期</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/69.html" aria-label="Next Page">69 Nginx日志配置</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/69.html" aria-label="Previous Page">69 Nginx日志配置</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/71.html" aria-label="Next Page">71 查询pem证书有效期</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
