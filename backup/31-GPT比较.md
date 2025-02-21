@@ -1,5 +1,10 @@
 PS: 按照个人使用频率排序
 
+## [当贝AI](https://ai.dangbei.com/chat)
+
+1. 支持模型: DeepSeek, 豆包, 通义千问
+2. 支持深度思考, 联网搜索
+
 ## [Grok](https://x.com/i/grok)
 
 1. 支持搜索推特发帖 进行回复
