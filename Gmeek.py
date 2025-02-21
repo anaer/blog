@@ -190,7 +190,7 @@ class GMEEK():
                 self.blogBase["nextUrl"] = self.blogBase["homeUrl"] + f"/page{pageFlag + 2}.html" if postNum > self.blogBase["onePageListNum"] else "disabled"
 
             self.blogBase["firstUrl"] = self.blogBase["homeUrl"] + "/index.html" if pageFlag != 0 else "disabled"
-            self.blogBase["lastUrl"] = self.blogBase["homeUrl"] + f"/page{totalPages}.html" if pageFlag != totalPages else "disabled"
+            self.blogBase["lastUrl"] = self.blogBase["homeUrl"] + f"/page{totalPages}.html" if pageFlag != totalPages - 1 else "disabled"
 
             self.renderHtml('plist.html', self.blogBase, onePageList, htmlDir)
             print(f"create {htmlDir}")

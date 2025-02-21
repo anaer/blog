@@ -68,5 +68,5 @@ jobs:
       - name: Delete Workflow Runs
         uses: anaer/delete-workflow-runs@main
         with:
-          retain_days: 2
+          retain_days: 1
           keep_minimum_runs: 3
