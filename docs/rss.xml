@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 21 Feb 2025 01:47:51 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 21 Feb 2025 01:47:51 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>75 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了一个涵盖多种资源和工具的综合列表，包括常用项目、在线文档、搜索引擎、娱乐资源、软件服务以及在线工具。常用项目部分列出了Github、V2EX等平台，在线文档提供了多种开发文档和API接口文档，搜索引擎则包括SourceGraph和电子书搜索等。娱乐资源和软件服务分别提供了游戏、视频下载工具和网络服务。在线工具部分则涵盖了JSON编辑、正则表达式工具、IP查询等多种实用工具。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 21 Feb 2025 02:17:01 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 21 Feb 2025 02:17:01 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>75 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了一个涵盖多种资源和工具的综合列表，包括常用项目、在线文档、搜索引擎、娱乐资源、软件服务以及在线工具。常用项目部分列出了Github、V2EX等平台，在线文档提供了多种开发文档和API接口文档，搜索引擎则包括SourceGraph和电子书搜索等。娱乐资源和软件服务分别提供了游戏、视频下载工具和网络服务。在线工具部分则涵盖了JSON编辑、正则表达式工具、IP查询等多种实用工具。
 
 优化意见：可以考虑对各个类别进行更精细的分组，并提供每个工具或资源的简要描述</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的详细步骤，包括使用curl命令下载安装包，解压文件，以及如何设置Ollama作为系统服务以便于长期使用。此外，文中还介绍了如何拉取和启动模型，进行基本的命令行交互，以及通过curl测试接口。还提到了一些Nginx的配置以支持Ollama的API访问。同时，文中提及了AnythingLLM平台的安装和配置，强调了RAG技术的应用以及Docker的使用。
 
@@ -471,11 +471,4 @@ owner
 元数据块
 // ==UserScript==
 // @name                         标题
-// @name:zh-CN          ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/2.html</guid><pubDate>Thu, 28 Sep 2023 06:35:06 +0000</pubDate></item><item><title>1 苹果CMS接口说明以及采集源搜索</title><link>https://anaer.github.io/blog/post/1.html</link><description>苹果CMS
-接口说明
-Provide.php源码
-查看/provide/vod/ 接口的查询逻辑
-列表
-http://域名/api.php/provide/vod/?ac=list
-入参：
-ac=li...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/1.html</guid><pubDate>Fri, 08 Sep 2023 12:29:10 +0000</pubDate></item></channel></rss>
+// @name:zh-CN          ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/2.html</guid><pubDate>Thu, 28 Sep 2023 06:35:06 +0000</pubDate></item><item><title>1 苹果CMS接口说明以及采集源搜索</title><link>https://anaer.github.io/blog/post/1.html</link><description>本文介绍了苹果CMS的接口说明，主要包括Provide.php源码和查询逻辑。用户可以通过特定的API接口访问视频列表和详情，接口参数包括类别ID、页码、搜索关键字、是否完结、查询年份、排序方向以及单页数据量等。此外，提供了示例链接以便用户理解如何使用这些接口进行数据查询。为了优化内容，建议增加接口的返回数据格式说明和错误处理机制的描述，以帮助开发者更好地理解和使用接口。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/1.html</guid><pubDate>Fri, 08 Sep 2023 12:29:10 +0000</pubDate></item></channel></rss>

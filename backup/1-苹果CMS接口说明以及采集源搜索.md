@@ -40,6 +40,8 @@ inurl:/api.php/provide/vod
 
 [GitHub搜索](https://github.com/search?q=%2Fapi.php%2Fprovide%2Fvod+language%3Ajson&ref=opensearch&type=code)
 
+[GitHub Gist搜索](https://gist.github.com/search?l=JSON&o=desc&q=%2Fapi.php%2Fprovide%2Fvod&s=updated)
+
 ## 相关链接
 
 [查询接口说明](https://github.com/magicblack/maccms10/wiki/%E5%85%A5%E5%BA%93%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E)
