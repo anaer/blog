@@ -12,6 +12,8 @@ PS: 按照个人使用频率排序
 1. 支持gpt-4o, deepseek-r1等
 2. api调用 有流控, 像deepseek-r1 每分钟1次
 
+[流控规则](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits)
+
 ## [deepseek 深度求索](https://chat.deepseek.com/) 
 
 1. 单会话存在长度限制, 超限时需要开启新会话
