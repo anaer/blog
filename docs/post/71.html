@@ -13,7 +13,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>71 查询pem证书有效期</title>
+<title>71 查询证书文件有效期</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/colorblind-dark.css" rel="stylesheet" />
 
 </head>
@@ -93,7 +93,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a>71 查询pem证书有效期</a>
+    <a>71 查询证书文件有效期</a>
 </h1>
 
 <div class="title-right">
@@ -132,12 +132,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23 06:24:42</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-21 06:11:38</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-25 08:39:53</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何查询.pem和.p12证书的有效期。对于.pem证书，可以使用命令“openssl x509 -enddate -noout -in cacert.pem”来查看有效截止日期。对于.p12证书，使用“openssl pkcs12 -in dev.p12 -nokeys -clcerts | openssl x509 -noout -dates”命令可以查看证书的有效期，并需输入导入密码。如果希望直接在命令中提供密码，可以使用“openssl pkcs12 -in dev.p12 -nokeys -clcerts -passin pass:你的密码 | openssl x509 -noout -dates”格式。
+    <strong>AI总结:</strong> 本文介绍了如何查询PEM和P12证书的有效期。使用openssl命令可以分别查看cacert.pem和dev.p12文件中的证书有效期。对于PEM证书，使用命令“openssl x509 -enddate -noout -in cacert.pem”可以查看到有效期结束时间。对于P12证书，使用“openssl pkcs12 -in dev.p12 -nokeys -clcerts | openssl x509 -noout -dates”命令可以查看有效期的开始和结束时间。需要注意的是，在读取P12文件时，如果存在密码，则会提示输入密码，用户也可以通过“-passin”参数直接提供密码。
 
-优化建议：在使用命令时，建议添加详细的注释以便于他人理解每个参数的作用。此外，考虑提供示例输出，以帮助用户更好地理解命令的结果。同时，可以提供对不同操作系统环境的兼容性说明，确保用户能够在各种环境中顺利执行命令。
+优化建议：可以在命令示例中添加更多的上下文信息，例如说明如何安装openssl工具，或者提供常见错误的解决方案。此外，建议在说明参数时，使用更清晰的格式来增强可读性，例如将参数说明与相关命令分开。
 </div>
 
 <div class="markdown-body" id="postBody">
