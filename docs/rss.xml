@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 25 Feb 2025 02:12:40 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 25 Feb 2025 02:12:40 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>75 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了一个包含多种常用项目和在线工具的列表，涵盖了开发、社交媒体、支付平台、云服务、搜索引擎、娱乐资源、软件服务及在线工具等多个领域。主要内容包括GitHub、V2EX、在线文档、微信和支付宝的开发文档、腾讯云文档、搜索引擎资源、娱乐工具、注册及爬墙工具、JSON编辑、正则表达式工具、在线文档转换、IP查询工具等。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 25 Feb 2025 08:14:35 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 25 Feb 2025 08:14:35 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>75 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了多个常用项目和在线工具，涵盖了开发、文档、支付、云服务、搜索引擎、娱乐资源、软件服务及IP工具等方面。主要内容包括GitHub、V2EX、ZeroSSL等开发相关资源，微信和支付宝的开发文档，腾讯云文档，娱乐资源如雀魂麻将和视频下载工具，以及各种在线工具如JSON编辑、正则可视化和在线文档转换等。
 
 优化建议：
-1. 将内容按类别进行更清晰的分组，以便用户快速查找所需工具或文档。
-2. 为每个项目或工具添加简短的描述，说明其主要功能和用途，提升用户理解。
-3. 考虑添加链接或访问路径，以便用户直接访问相关资源。
-4. 定期更新和维护列表，确保信息的新鲜度和准确性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的详细步骤，包括通过curl命令下载安装包、解压缩、启动Ollama服务以及与其他工具的集成。首先，用户需要使用curl下载Ollama安装脚本，并根据需要修改脚本以提高下载速度。接着，将压缩包解压到/usr目录，无需额外配置环境变量即可使用。文章还提供了启动Ollama的系统服务配置，允许局域网访问，并支持模型的下载与运行。此外，文中提到如何通过curl测试接口和使用nginx进行反向代理配置。最后，介绍了与AnythingLLM的集成以及如何监控GPU使用情况。
+1. 对各类工具和资源进行分类整理，便于用户快速查找所需内容。
+2. 提供每个工具或资源的简要描述，帮助用户理解其用途。
+3. 考虑添加使用教程或示例，以提升用户的使用体验。
+4. 定期更新和维护列表，确保信息的时效性和实用性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的详细步骤，包括通过curl命令下载安装包、解压缩、启动Ollama服务以及与其他工具的集成。首先，用户需要使用curl下载Ollama安装脚本，并根据需要修改脚本以提高下载速度。接着，将压缩包解压到/usr目录，无需额外配置环境变量即可使用。文章还提供了启动Ollama的系统服务配置，允许局域网访问，并支持模型的下载与运行。此外，文中提到如何通过curl测试接口和使用nginx进行反向代理配置。最后，介绍了与AnythingLLM的集成以及如何监控GPU使用情况。
 
 优化建议：
 1. 在安装步骤中，增加对不同Linux发行版的兼容性说明，以帮助用户选择正确的安装方式。
