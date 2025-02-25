@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 21 Feb 2025 09:50:24 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 21 Feb 2025 09:50:24 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>75 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了一个包含多种常用项目和在线工具的列表，涵盖了开发、社交媒体、支付平台、云服务、搜索引擎、娱乐资源、软件服务及在线工具等多个领域。主要内容包括GitHub、V2EX、在线文档、微信和支付宝的开发文档、腾讯云文档、搜索引擎资源、娱乐工具、注册及爬墙工具、JSON编辑、正则表达式工具、在线文档转换、IP查询工具等。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 25 Feb 2025 02:12:40 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 25 Feb 2025 02:12:40 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>75 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了一个包含多种常用项目和在线工具的列表，涵盖了开发、社交媒体、支付平台、云服务、搜索引擎、娱乐资源、软件服务及在线工具等多个领域。主要内容包括GitHub、V2EX、在线文档、微信和支付宝的开发文档、腾讯云文档、搜索引擎资源、娱乐工具、注册及爬墙工具、JSON编辑、正则表达式工具、在线文档转换、IP查询工具等。
 
 优化建议：
 1. 将内容按类别进行更清晰的分组，以便用户快速查找所需工具或文档。
@@ -296,9 +296,9 @@ Re Z-library
 SaltyLeo的书架
 爬网程序自动向各个站点查询集合的结果
 安娜的档案
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/32.html</guid><pubDate>Thu, 09 Jan 2025 07:06:35 +0000</pubDate></item><item><title>31 GPT比较</title><link>https://anaer.github.io/blog/post/31.html</link><description>本文介绍了多种AI模型及其特点，按个人使用频率排序，包括当贝AI、百度AI、腾讯元宝、Grok和ChatGPT。主要功能包括深度思考、联网搜索、推特发帖回复等。不同模型有各自的使用限制，如think和questions在免费用户中分别限制10次/24小时和10个/2小时。部分模型如Grok和GitHub Models支持API调用，但存在流控规则和会话长度限制。ChatGPT则具备记忆功能和设置默认prompt的能力，但有时会遇到连接问题。
+...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/32.html</guid><pubDate>Thu, 09 Jan 2025 07:06:35 +0000</pubDate></item><item><title>31 GPT比较</title><link>https://anaer.github.io/blog/post/31.html</link><description>本文介绍了多种AI工具及其功能，包括通义千问国际版、当贝AI、百度AI、腾讯元宝和Grok等。大部分工具需要登录，支持不同的模型和功能，如深度思考和联网搜索。使用限制方面，think和questions功能有次数限制，而Grok提供越狱提示词。流控规则和会话长度限制也被提及，部分工具缺乏记忆功能和默认提示设置。ChatGPT则具备记忆和默认提示设置，但存在访问限制。
 
-优化建议：可以考虑将各个AI模型的功能和限制进行详细对比，以帮助用户选择最适合他们需求的模型。同时，可以增加对每个模型的使用案例和用户反馈，提升实用性和参考价值。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/31.html</guid><pubDate>Thu, 09 Jan 2025 06:08:53 +0000</pubDate></item><item><title>30 Python读取Markdown文件的元数据</title><link>https://anaer.github.io/blog/post/30.html</link><description>使用PyYAML
+优化建议：可以考虑整合各工具的优缺点，提供用户选择时的比较表，帮助用户更好地理解各工具的特性与限制。此外，建议增加对每个工具的使用场景描述，以便用户根据需求选择合适的AI工具。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/31.html</guid><pubDate>Thu, 09 Jan 2025 06:08:53 +0000</pubDate></item><item><title>30 Python读取Markdown文件的元数据</title><link>https://anaer.github.io/blog/post/30.html</link><description>使用PyYAML
 # pip install pyyaml
 import yaml
 

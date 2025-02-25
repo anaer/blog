@@ -1,4 +1,8 @@
-PS: 按照个人使用频率排序
+PS: 按照个人使用排序
+
+## [通义千问国际版](https://chat.qwen.ai/)
+
+1. 需要先登录
 
 ## [当贝AI](https://ai.dangbei.com/chat)
 
