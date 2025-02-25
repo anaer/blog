@@ -103,13 +103,6 @@ pre {
 {% if blogBase['createdAt'] != blogBase['updatedAt'] %}
 <span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">{{ blogBase['updatedAt'] }}</time></span>
 {% endif %}
-<div class="listLabels">
-    {% for label in blogBase['labels'] -%}
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:{{ blogBase['labelColorDict'][label] }}">
-            <object><a style="color:#fff;" href="{{ blogBase['homeUrl'] }}/tag.html#{{ label }}">{{ label }}</a></object>
-        </span>
-    {%- endfor %}
-</div>
 <p>
 
 {%- if blogBase['description'] and blogBase['description'] != '' -%}
