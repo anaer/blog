@@ -143,8 +143,8 @@ class GMEEK():
         postBase["repoName"]=options.repo_name
         postBase["description"]=post["description"]
         postBase["postBody"]=post_body
-        postBase["createdAt"]=time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(post["createdAt"]))
-        postBase["updatedAt"]=time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(post["updatedAt"]))
+        postBase["createdAt"] = (datetime.utcfromtimestamp(post["createdAt"]) + timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
+        postBase["updatedAt"] = (datetime.utcfromtimestamp(post["updatedAt"]) + timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
 
         prevPost = self.get_prev_post(post["number"])
         if prevPost:
