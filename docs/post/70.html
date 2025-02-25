@@ -128,9 +128,9 @@ pre {
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
-<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23 06:12:04</time></span>
+<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23 14:12:04</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-21 06:16:38</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-21 14:16:38</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
     <strong>AI总结:</strong> 本文介绍了在Spring框架中，使用@RefreshScope注解时，Bean的刷新机制导致@Scheduled注解的方法失效的问题。由于ScheduledAnnotationBeanPostProcessor只在容器初始化时执行一次，新创建的Bean中的@Scheduled方法不会被注册，从而导致定时任务无法正常运行。为了解决这个问题，提供了一种简单的解决方案，即实现ApplicationListener接口，监听RefreshScopeRefreshedEvent事件，以便在Bean刷新时重新注册定时任务。
