@@ -97,6 +97,18 @@ OLLAMA_ORIGINS设置跨域, 可在[chatgptBox](https://github.com/josStorer/chat
 
 OLLAMA_DEBUG 设置debug模式, 可查看用户请求的参数信息
 
+```sh
+$ netstat -an | grep 11434
+tcp6       0      0 :::11434                :::*                    LISTEN
+
+# tcp6：表示这是一个 TCP IPv6 协议的连接。
+# 0（第一个）：表示接收队列中的数据包数量为 0。
+# 0（第二个）：表示发送队列中的数据包数量为 0。
+# :::11434：表示服务监听在所有 IPv6 地址（:: 是 IPv6 的通配符）的 11434 端口。
+# :::*：表示服务接受来自任何远程地址和端口的连接。
+# LISTEN：表示该端口处于监听状态，等待连接。
+```
+
 #### 手动启动
 ```sh
 nohup /usr/bin/ollama serve &

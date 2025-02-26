@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 26 Feb 2025 08:11:37 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 26 Feb 2025 08:11:37 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>79 Java集成LLM开发</title><link>https://anaer.github.io/blog/post/79.html</link><description>本文介绍了与多个仓库和文档相关的链接，包括langchain4j和deepseek4j的仓库及其文档，以及不再维护的openai4j仓库。优化建议是增加对各个仓库的功能和用途的简要描述，以帮助用户更好地理解每个链接的价值和适用场景。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/79.html</guid><pubDate>Wed, 26 Feb 2025 07:18:20 +0000</pubDate></item><item><title>78 VSCode扩展离线下载</title><link>https://anaer.github.io/blog/post/78.html</link><description>本文介绍了如何替换特定链接并在服务器上下载相应的VS Code插件。首先，替换原有链接为新链接，以获取最新版本的插件。所需的插件及其链接如下：
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 26 Feb 2025 08:41:33 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 26 Feb 2025 08:41:33 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>79 Java集成LLM开发</title><link>https://anaer.github.io/blog/post/79.html</link><description>本文介绍了与多个仓库和文档相关的链接，包括langchain4j和deepseek4j的仓库及其文档，以及不再维护的openai4j仓库。优化建议是增加对各个仓库的功能和用途的简要描述，以帮助用户更好地理解每个链接的价值和适用场景。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/79.html</guid><pubDate>Wed, 26 Feb 2025 07:18:20 +0000</pubDate></item><item><title>78 VSCode扩展离线下载</title><link>https://anaer.github.io/blog/post/78.html</link><description>本文介绍了如何替换特定链接并在服务器上下载相应的VS Code插件。首先，替换原有链接为新链接，以获取最新版本的插件。所需的插件及其链接如下：
 
 1. Google.geminicodeassist.vsix (125M)
    新链接: https://marketplace.visualstudio.com/_apis/public/gallery/publishers/Google/vsextensions/geminicodeassist/latest/vspackage
@@ -17,14 +17,14 @@
 1. 对于每类工具和资源，可以提供简短的描述，帮助用户快速了解其用途。
 2. 将工具按使用频率或功能进行分类，以便用户更容易找到所需资源。
 3. 考虑增加一些推荐的使用场景或示例，以增强工具的实用性。
-4. 定期更新资源列表，确保所列工具和文档的有效性和可用性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的详细步骤，包括通过curl命令下载安装包、解压缩、启动Ollama服务以及与其他工具的集成。首先，用户需要使用curl下载Ollama安装脚本，并根据需要修改脚本以提高下载速度。接着，将压缩包解压到/usr目录，无需额外配置环境变量即可使用。文章还提供了启动Ollama的系统服务配置，允许局域网访问，并支持模型的下载与运行。此外，文中提到如何通过curl测试接口和使用nginx进行反向代理配置。最后，介绍了与AnythingLLM的集成以及如何监控GPU使用情况。
+4. 定期更新资源列表，确保所列工具和文档的有效性和可用性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>74 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的步骤，包括使用curl命令下载并解压缩Ollama，设置系统服务以便长期使用，手动启动服务，查询和拉取模型，以及如何与模型进行交互和测试接口。此外，还提供了关于RAG（Retrieval-Augmented Generation）技术的介绍及其在AnythingLLM中的应用，包括docker安装和nginx配置。最后，提到了监控GPU使用情况的方法和相关链接。
 
 优化建议：
-1. 在安装步骤中，增加对不同Linux发行版的兼容性说明，以帮助用户选择正确的安装方式。
-2. 提供更详细的错误处理和故障排除指南，帮助用户在安装和使用过程中解决可能遇到的问题。
-3. 增加对Ollama和RAG技术的背景介绍，以便用户更好地理解其应用场景和优势。
-4. 在文中添加示例图片或图表，以视觉化展示安装和配置过程，增强用户体验。
-5. 考虑将命令行操作与图形用户界面（GUI）操作结合，提供更多用户友好的选择。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/74.html</guid><pubDate>Mon, 10 Feb 2025 06:16:14 +0000</pubDate></item><item><title>73 Follow配置</title><link>https://anaer.github.io/blog/post/73.html</link><description>本文介绍了自动化配置的Webhook功能和Feed分享页的自动订阅脚本。Webhook通过POST请求将feed条目信息以JSON格式发送，建议自定义接口以便更好地处理这些信息。示例参数格式展示了如何构建这些数据。对于Feed分享页的自动订阅，脚本从URL中提取feed ID，查询订阅状态，并根据结果进行订阅，临时分类设定为“待定”。当前订阅数量限制为500条，超限后需停用脚本。
+1. 在安装步骤中，可以增加对系统依赖的检查，确保用户在安装前满足所有要求。
+2. 提供更详细的错误处理和故障排除步骤，以帮助用户解决可能遇到的问题。
+3. 在配置nginx时，可以添加SSL证书的配置说明，以增强安全性。
+4. 对于RAG的介绍，可以提供更多实际应用案例，以便用户更好地理解其价值。
+5. 增加对模型性能和使用限制的说明，帮助用户合理选择和使用模型。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/74.html</guid><pubDate>Mon, 10 Feb 2025 06:16:14 +0000</pubDate></item><item><title>73 Follow配置</title><link>https://anaer.github.io/blog/post/73.html</link><description>本文介绍了自动化配置的Webhook功能和Feed分享页的自动订阅脚本。Webhook通过POST请求将feed条目信息以JSON格式发送，建议自定义接口以便更好地处理这些信息。示例参数格式展示了如何构建这些数据。对于Feed分享页的自动订阅，脚本从URL中提取feed ID，查询订阅状态，并根据结果进行订阅，临时分类设定为“待定”。当前订阅数量限制为500条，超限后需停用脚本。
 
 优化建议包括：
 1. 增加对Webhook请求的错误处理机制，以便在请求失败时提供更明确的反馈。

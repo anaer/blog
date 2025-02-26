@@ -75,6 +75,15 @@ WantedBy=default.target
 <p>OLLAMA_MODELS 指定模型路径 防止系统盘空间不足</p>
 <p>OLLAMA_ORIGINS设置跨域, 可在<a href="https://github.com/josStorer/chatGPTBox">chatgptBox</a>中使用</p>
 <p>OLLAMA_DEBUG 设置debug模式, 可查看用户请求的参数信息</p>
+<div class="highlight highlight-source-shell"><pre>$ netstat -an <span class="pl-k">|</span> grep 11434
+tcp6       0      0 :::11434                :::<span class="pl-k">*</span>                    LISTEN
+
+<span class="pl-c"><span class="pl-c">#</span> tcp6：表示这是一个 TCP IPv6 协议的连接。</span>
+<span class="pl-c"><span class="pl-c">#</span> 0（第一个）：表示接收队列中的数据包数量为 0。</span>
+<span class="pl-c"><span class="pl-c">#</span> 0（第二个）：表示发送队列中的数据包数量为 0。</span>
+<span class="pl-c"><span class="pl-c">#</span> :::11434：表示服务监听在所有 IPv6 地址（:: 是 IPv6 的通配符）的 11434 端口。</span>
+<span class="pl-c"><span class="pl-c">#</span> :::*：表示服务接受来自任何远程地址和端口的连接。</span>
+<span class="pl-c"><span class="pl-c">#</span> LISTEN：表示该端口处于监听状态，等待连接。</span></pre></div>
 <div class="markdown-heading"><h4 class="heading-element">手动启动</h4><a id="user-content-手动启动" class="anchor" aria-label="Permalink: 手动启动" href="#手动启动"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>nohup /usr/bin/ollama serve <span class="pl-k">&amp;</span></pre></div>
 <div class="markdown-heading"><h3 class="heading-element">命令执行</h3><a id="user-content-命令执行" class="anchor" aria-label="Permalink: 命令执行" href="#命令执行"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
