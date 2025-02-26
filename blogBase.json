@@ -1695,14 +1695,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/79",
             "commentNum": 0,
             "createdAt": 1740554300,
-            "updatedAt": 1740554300,
+            "updatedAt": 1740554370,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-02-26",
-            "dateLabelColor": "hsl(140, 63%, 33%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u51e0\u4e2a\u4e0elangchain4j\u548c\u76f8\u5173\u9879\u76ee\u76f8\u5173\u7684\u94fe\u63a5\uff0c\u5305\u62eclangchain4j\u4ed3\u5e93\u3001langchain4j\u6587\u6863\u3001deepseek4j\u6587\u6863\u4ee5\u53ca\u4e0d\u518d\u7ef4\u62a4\u7684openai4j\u4ed3\u5e93\u3002\u4f18\u5316\u5efa\u8bae\u662f\uff0c\u63d0\u4f9b\u6bcf\u4e2a\u94fe\u63a5\u7684\u7b80\u8981\u63cf\u8ff0\uff0c\u4ee5\u5e2e\u52a9\u7528\u6237\u66f4\u597d\u5730\u7406\u89e3\u6bcf\u4e2a\u9879\u76ee\u7684\u529f\u80fd\u548c\u7528\u9014\u3002",
-            "buildedAt": 1740554300
+            "dateLabelColor": "hsl(140, 53%, 19%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u4e0e\u591a\u4e2a\u4ed3\u5e93\u548c\u6587\u6863\u76f8\u5173\u7684\u94fe\u63a5\uff0c\u5305\u62eclangchain4j\u548cdeepseek4j\u7684\u4ed3\u5e93\u53ca\u5176\u6587\u6863\uff0c\u4ee5\u53ca\u4e0d\u518d\u7ef4\u62a4\u7684openai4j\u4ed3\u5e93\u3002\u4f18\u5316\u5efa\u8bae\u662f\u589e\u52a0\u5bf9\u5404\u4e2a\u4ed3\u5e93\u7684\u529f\u80fd\u548c\u7528\u9014\u7684\u7b80\u8981\u63cf\u8ff0\uff0c\u4ee5\u5e2e\u52a9\u7528\u6237\u66f4\u597d\u5730\u7406\u89e3\u6bcf\u4e2a\u94fe\u63a5\u7684\u4ef7\u503c\u548c\u9002\u7528\u573a\u666f\u3002",
+            "buildedAt": 1740554370
         }
     },
     "singeListJson": {},
