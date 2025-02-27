@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 26 Feb 2025 08:41:33 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 26 Feb 2025 08:41:33 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>79 Java集成LLM开发</title><link>https://anaer.github.io/blog/post/79.html</link><description>本文介绍了与多个仓库和文档相关的链接，包括langchain4j和deepseek4j的仓库及其文档，以及不再维护的openai4j仓库。优化建议是增加对各个仓库的功能和用途的简要描述，以帮助用户更好地理解每个链接的价值和适用场景。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/79.html</guid><pubDate>Wed, 26 Feb 2025 07:18:20 +0000</pubDate></item><item><title>78 VSCode扩展离线下载</title><link>https://anaer.github.io/blog/post/78.html</link><description>本文介绍了如何替换特定链接并在服务器上下载相应的VS Code插件。首先，替换原有链接为新链接，以获取最新版本的插件。所需的插件及其链接如下：
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 27 Feb 2025 07:56:22 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 27 Feb 2025 07:56:22 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>79 Java集成LLM开发</title><link>https://anaer.github.io/blog/post/79.html</link><description>本文介绍了与多个仓库和文档相关的链接，包括langchain4j和deepseek4j的仓库及其文档，以及不再维护的openai4j仓库。优化建议是增加对各个仓库的功能和用途的简要描述，以帮助用户更好地理解每个链接的价值和适用场景。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/79.html</guid><pubDate>Wed, 26 Feb 2025 07:18:20 +0000</pubDate></item><item><title>78 VSCode扩展离线下载</title><link>https://anaer.github.io/blog/post/78.html</link><description>本文介绍了如何替换特定链接并在服务器上下载相应的VS Code插件。首先，替换原有链接为新链接，以获取最新版本的插件。所需的插件及其链接如下：
 
 1. Google.geminicodeassist.vsix (125M)
    新链接: https://marketplace.visualstudio.com/_apis/public/gallery/publishers/Google/vsextensions/geminicodeassist/latest/vspackage
@@ -440,31 +440,14 @@ mkdir /var/ww...</description><guid isPermaLink="true">https://anaer.github.io/b
 apt-get update 需要先更新, 直接安装会提示找不到包
 
 apt-get install nginx 安装nginx
-云服务 安全组 入方向 快速添加80...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>6 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>系统
-浏览器
+云服务 安全组 入方向 快速添加80...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>6 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>本文介绍了各类软件及其下载地址和功能说明，涵盖浏览器、传输工具、内存管理、卸载工具、压缩软件、密码管理、搜索工具、文件处理、清理工具、输入法、资源管理、健康软件、办公软件、开发工具、抓包工具、数据库管理、比较工具、版本控制、终端工具、编辑器、证书管理、网盘管理和翻译工具等多个类别。 
 
-
-
-名称
-下载地址
-说明
-
-
-
-
-Edge
-
-目前主用
-
-
-Floorp浏览器
-GitHub
-Firefox fork版 增加一些特性
-
-
-Zen Browser
-GitHub
-Fir...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>5 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>
+优化建议：
+1. 将软件分类更加明确，使用表格或列表形式展示，便于快速查找。
+2. 对于每个软件，提供更多的使用场景或用户评价，帮助用户做出选择。
+3. 增加软件的最新版本信息，确保用户下载的是最新版本。
+4. 提供软件的替代品或类似工具，丰富用户的选择。
+5. 对于开源软件，强调其社区支持和更新频率，帮助用户判断其稳定性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>5 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>
 
 Maple-Mono
 推荐, 目前感觉较为舒适吧

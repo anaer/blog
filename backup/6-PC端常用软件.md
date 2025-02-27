@@ -77,6 +77,9 @@
 | SwitchHosts          | [GitHub](https://github.com/oldj/SwitchHosts/releases)    |                                                 |
 | Unlocker             | [下载](https://www.52pojie.cn/thread-1317159-1-1.html)    |                                                 |
 | uTools               | [官网](https://www.u.tools/)                              |                                                 |
+|mucommander | [GitHub](https://github.com/mucommander/mucommander/releases/) | 多端 支持Mac
+|doublecmd | [GitHub](https://github.com/doublecmd/doublecmd/releases/) | 多端 支持Mac
+
 
 ---
 
