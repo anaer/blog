@@ -155,6 +155,9 @@
 | Cmder终端工具 | [GitHub](https://github.com/cmderdev/cmder/releases)       |      |
 | KiTTY         | [GitHub](https://github.com/cyd01/KiTTY/releases)          |      |
 | Putty         | [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html) |      |
+| WindTerm      | [GitHub](https://github.com/kingToolbox/WindTerm/releases/)| 多端     |
+| **Tabby**         | [GitHub](https://github.com/Eugeny/tabby/releases)         | 多端, 插件支持webdav同步 |  
+
 
 ### 编辑器
 | 名称        | 下载地址                                                            | 说明               |
