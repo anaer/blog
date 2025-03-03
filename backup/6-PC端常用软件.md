@@ -156,7 +156,7 @@
 | KiTTY         | [GitHub](https://github.com/cyd01/KiTTY/releases)          |      |
 | Putty         | [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html) |      |
 | WindTerm      | [GitHub](https://github.com/kingToolbox/WindTerm/releases/)| 多端     |
-| **Tabby**         | [GitHub](https://github.com/Eugeny/tabby/releases)         | 多端, 插件支持webdav同步 |  
+| **Tabby**         | [GitHub](https://github.com/Eugeny/tabby/releases)         | 多端, 插件支持webdav同步, 支持集成WinSCP |  
 
 
 ### 编辑器
