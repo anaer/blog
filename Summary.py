@@ -1,6 +1,7 @@
 import os
 import requests
 import json
+import random
 """
 在仓库的 Settings > Secrets and variables > Actions 中添加密钥：
 """
@@ -12,6 +13,13 @@ def generate_summary(text):
 
     if not api_url or not api_model:
         return ""
+
+    # 支持配置多个api_key和api_model
+    if ',' in api_key:
+        api_key = random.choice(api_key.split(','))
+
+    if ',' in api_model:
+        api_model = random.choice(api_model.split(','))
 
     headers = {
         "Authorization": f"Bearer {api_key}",
