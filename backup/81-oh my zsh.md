@@ -20,6 +20,19 @@ chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://install.ohmyz.sh)"
 ```
 
+配置.zshrc
+
+```
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="random"
+ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' frequency 13
+ENABLE_CORRECTION="true"
+plugins=(git aliases alias-finder autojump autopep8 colorize command-not-found common-aliases copyfile copypath dirhistory emoji emoji-clock fzf git history npm nvm themes)
+source $ZSH/oh-my-zsh.sh
+```
+
 ## 相关链接
 
 1. [omz插件列表](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins)

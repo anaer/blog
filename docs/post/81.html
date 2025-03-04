@@ -128,10 +128,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-04 14:01:42</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在Ubuntu/Debian和macOS上安装zsh的步骤。对于Ubuntu/Debian用户，可以使用命令“sudo apt install zsh -y”进行安装；macOS用户可以通过“zsh --version”检查是否已安装。设置zsh为默认shell的命令为“chsh -s $(which zsh)”。此外，用户可以通过执行“sh -c "$(curl -fsSL https://install.ohmyz.sh)"”来安装Oh My Zsh。最后，提供了相关链接以获取更多的omz插件列表和awesome-zsh-plugins。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-04 14:03:51</time></span>
 
-优化建议：可以在安装步骤中加入对zsh的简要介绍，以及Oh My Zsh的优势和功能，以帮助用户理解为何选择这些工具。同时，提供一些常用的zsh配置示例或推荐的插件，以提升用户体验。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了在Ubuntu/Debian和macOS上安装和配置Zsh及Oh My Zsh的步骤。首先，在Ubuntu/Debian系统上使用命令“sudo apt install zsh -y”进行安装，而macOS用户可以直接检查Zsh版本。然后，通过“chsh -s $(which zsh)”将Zsh设置为默认shell。接着，使用命令“sh -c "$(curl -fsSL https://install.ohmyz.sh)"”安装Oh My Zsh，并在.zshrc文件中进行配置，包括设置主题、更新提醒及启用多个插件。
+
+优化建议：可以在安装步骤中添加对Zsh的基本介绍，以帮助用户理解其优势。此外，建议提供如何检查和解决可能的安装问题的常见故障排除步骤。同时，可以强调插件的功能，使用户更好地选择适合自己的插件。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -145,6 +147,16 @@ zsh --version</pre></div>
 <div class="markdown-heading"><h3 class="heading-element">安装<a href="https://github.com/ohmyzsh/ohmyzsh">Oh My Zsh</a>
 </h3><a id="user-content-安装oh-my-zsh" class="anchor" aria-label="Permalink: 安装Oh My Zsh" href="#安装oh-my-zsh"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>sh -c <span class="pl-s"><span class="pl-pds">"</span><span class="pl-s"><span class="pl-pds">$(</span>curl -fsSL https://install.ohmyz.sh<span class="pl-pds">)</span></span><span class="pl-pds">"</span></span></pre></div>
+<p>配置.zshrc</p>
+<pre><code>export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="random"
+ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' frequency 13
+ENABLE_CORRECTION="true"
+plugins=(git aliases alias-finder autojump autopep8 colorize command-not-found common-aliases copyfile copypath dirhistory emoji emoji-clock fzf git history npm nvm themes)
+source $ZSH/oh-my-zsh.sh
+</code></pre>
 <div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>
 <li><a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins">omz插件列表</a></li>
