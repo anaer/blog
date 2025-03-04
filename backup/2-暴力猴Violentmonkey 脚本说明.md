@@ -61,3 +61,6 @@
 ## 脚本站
 1. [脚本猫](https://scriptcat.org/zh-CN/search)
 2. [Userscript.Zone](https://www.userscript.zone)
+3. [OpenUserJS](https://openuserjs.org/)
+4. [油猴脚本](https://youhou8.com/)
+5. [油猴中文网](https://bbs.tampermonkey.net.cn/)
