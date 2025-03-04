@@ -8,10 +8,9 @@
 - 讯飞星火 https://training.xfyun.cn (限时免费)
 
 ## 相关链接
-[DeepSeek 模型兼容性检测](https://tools.thinkinai.xyz/)  
-[DeepSeek实用集成](https://github.com/deepseek-ai/awesome-deepseek-integration)  
-[DeepSeek使用大全](https://zhuanlan.zhihu.com/p/21086282882)  
-
-[全网满血版DeepSeek-R1免费使用平台汇总！](https://andrewji8-9527.xlog.app/quan-wang-man-xue-ban-DeepSeek-R1-mian-fei-shi-yong-ping-tai-hui-zong-)
-
-[Page Assist - A Web UI for Local AI Models](https://github.com/n4ze3m/page-assist)   
+1. [DeepSeek 模型兼容性检测](https://tools.thinkinai.xyz/)  
+2. [DeepSeek实用集成](https://github.com/deepseek-ai/awesome-deepseek-integration)  
+3. [DeepSeek使用大全](https://zhuanlan.zhihu.com/p/21086282882)  
+4. [全网满血版DeepSeek-R1免费使用平台汇总！](https://andrewji8-9527.xlog.app/quan-wang-man-xue-ban-DeepSeek-R1-mian-fei-shi-yong-ping-tai-hui-zong-)
+5. [Page Assist - A Web UI for Local AI Models](https://github.com/n4ze3m/page-assist)   
+6. [DeepSeek导航网](https://deepseek404.com/) 收录接入DeepSeek的网页, 软件等
