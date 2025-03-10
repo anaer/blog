@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 10 Mar 2025 05:38:57 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 10 Mar 2025 05:38:57 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>82 mysql-bin日志文件清理</title><link>https://anaer.github.io/blog/post/82.html</link><description>本文介绍了MySQL中二进制日志（mysql-bin）的清理步骤和注意事项。二进制日志记录数据库的所有更改操作，过多的日志文件可能占用大量磁盘空间。清理步骤包括确认是否需要保留日志、查看当前日志、执行清理操作以及配置自动过期策略。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 10 Mar 2025 05:42:57 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 10 Mar 2025 05:42:57 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>83 DNSMASQ使用记录</title><link>https://anaer.github.io/blog/post/83.html</link><description>本文介绍了DNSMASQ的使用记录，强调了其作为轻量级DNS转发和DHCP服务器的核心功能及配置方法。首先，提供了在不同操作系统（如Linux、macOS和Windows）上安装DNSMASQ的步骤。接着，描述了默认配置文件路径和基础配置示例，包括上游DNS设置、自定义域名解析、DHCP配置和缓存设置。随后，列举了多个常见功能场景，如自定义域名解析、多IP负载均衡、代理请求和启用DHCP。文章还涵盖了服务启动与测试的方法，以及常用参数的说明，最后提到日志与调试信息，适合开发环境和局域网管理等典型应用场景。
+
+优化建议：
+1. 在安装部分中，添加对不同Linux发行版的兼容性说明，以便用户选择合适的安装方式。
+2. 提供更多关于配置文件的注释，帮助用户理解每个配置项的具体作用。
+3. 在测试部分，建议用户使用更详细的输出选项，以便于调试和确认配置的有效性。
+4. 增加对常见错误及其解决方案的说明，帮助用户快速排查问题。
+5. 考虑提供一些示例场景的实际应用案例，以便用户更好地理解DNSMASQ的实际应用。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/83.html</guid><pubDate>Mon, 10 Mar 2025 05:42:26 +0000</pubDate></item><item><title>82 mysql-bin日志文件清理</title><link>https://anaer.github.io/blog/post/82.html</link><description>本文介绍了MySQL中二进制日志（mysql-bin）的清理步骤和注意事项。二进制日志记录数据库的所有更改操作，过多的日志文件可能占用大量磁盘空间。清理步骤包括确认是否需要保留日志、查看当前日志、执行清理操作以及配置自动过期策略。
 
 优化建议：
 1. 在确认是否需要保留二进制日志时，可以考虑使用更详细的场景分析，帮助用户更好地理解其数据恢复需求。

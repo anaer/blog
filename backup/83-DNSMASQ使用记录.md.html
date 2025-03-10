@@ -1,0 +1,203 @@
+<hr>
+<div class="markdown-heading"><h3 class="heading-element"><strong>DNSMASQ 使用记录</strong></h3><a id="user-content-dnsmasq-使用记录" class="anchor" aria-label="Permalink: DNSMASQ 使用记录" href="#dnsmasq-使用记录"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><strong>dnsmasq</strong> 是一个轻量级、灵活的 DNS 转发和 DHCP 服务器工具，常用于本地 DNS 解析、网络管理、代理 DNS 请求或自定义域名映射。以下是其核心功能和使用方法：</p>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element"><strong>1. 安装 dnsmasq</strong></h3><a id="user-content-1-安装-dnsmasq" class="anchor" aria-label="Permalink: 1. 安装 dnsmasq" href="#1-安装-dnsmasq"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h4 class="heading-element"><strong>在 Linux 上安装</strong></h4><a id="user-content-在-linux-上安装" class="anchor" aria-label="Permalink: 在 Linux 上安装" href="#在-linux-上安装"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Ubuntu/Debian</strong>：
+<div class="highlight highlight-source-shell"><pre>sudo apt update <span class="pl-k">&amp;&amp;</span> sudo apt install dnsmasq</pre></div>
+</li>
+<li>
+<strong>CentOS/RHEL</strong>：
+<div class="highlight highlight-source-shell"><pre>sudo yum install epel-release <span class="pl-k">&amp;&amp;</span> sudo yum install dnsmasq</pre></div>
+</li>
+</ul>
+<div class="markdown-heading"><h4 class="heading-element"><strong>在 macOS 上安装</strong></h4><a id="user-content-在-macos-上安装" class="anchor" aria-label="Permalink: 在 macOS 上安装" href="#在-macos-上安装"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>通过 Homebrew 安装：</p>
+<div class="highlight highlight-source-shell"><pre>brew install dnsmasq</pre></div>
+<div class="markdown-heading"><h4 class="heading-element"><strong>在 Windows 上</strong></h4><a id="user-content-在-windows-上" class="anchor" aria-label="Permalink: 在 Windows 上" href="#在-windows-上"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>DNSMASQ 本身是 Linux 工具，但可通过 <strong>Windows Subsystem for Linux (WSL)</strong> 或替代工具（如 <strong>dnscrypt-proxy</strong>）实现类似功能。</p>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element"><strong>2. 配置文件</strong></h3><a id="user-content-2-配置文件" class="anchor" aria-label="Permalink: 2. 配置文件" href="#2-配置文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>默认配置文件路径：</p>
+<ul>
+<li>
+<strong>Linux</strong>：<code>/etc/dnsmasq.conf</code>
+</li>
+<li>
+<strong>macOS</strong>：<code>/usr/local/etc/dnsmasq.conf</code>
+</li>
+</ul>
+<div class="markdown-heading"><h4 class="heading-element"><strong>基础配置示例</strong></h4><a id="user-content-基础配置示例" class="anchor" aria-label="Permalink: 基础配置示例" href="#基础配置示例"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-ini"><pre><span class="pl-k">listen-address</span>=127.0.0.1
+log-queries
+<span class="pl-k">log-facility</span>=/var/log/dnsmasq.log
+ 
+<span class="pl-c"><span class="pl-c">#</span> 设置上游 DNS（默认会使用系统配置）</span>
+<span class="pl-k">server</span>=8.8.8.8    <span class="pl-c"><span class="pl-c">#</span> Google Public DNS</span>
+<span class="pl-k">server</span>=1.1.1.1    <span class="pl-c"><span class="pl-c">#</span> Cloudflare DNS</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 自定义域名解析（静态映射）</span>
+<span class="pl-k">address</span>=/example.com/192.168.1.100
+<span class="pl-k">address</span>=/api.example.com/192.168.1.101
+<span class="pl-k">address</span>=/test.example.com/192.168.1.102
+
+<span class="pl-c"><span class="pl-c">#</span> 允许多 IP 映射（同一域名指向多个 IP）</span>
+<span class="pl-k">address</span>=/multi-ips.com/192.168.1.200,192.168.1.201
+
+<span class="pl-c"><span class="pl-c">#</span> 读取 hosts 文件（可叠加 hosts 配置）</span>
+<span class="pl-k">addn-hosts</span>=/path/to/custom-hosts
+
+<span class="pl-c"><span class="pl-c">#</span> 启用 DHCP（如果需要）</span>
+<span class="pl-k">interface</span>=eth0      <span class="pl-c"><span class="pl-c">#</span> 绑定的网络接口</span>
+<span class="pl-k">dhcp-range</span>=192.168.1.100,192.168.1.200,255.255.255.0,12h
+
+<span class="pl-c"><span class="pl-c">#</span> 缓存设置（加快重复查询）</span>
+<span class="pl-k">cache-size</span>=1000     <span class="pl-c"><span class="pl-c">#</span> 缓存大小</span></pre></div>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element"><strong>3. 常见功能与场景</strong></h3><a id="user-content-3-常见功能与场景" class="anchor" aria-label="Permalink: 3. 常见功能与场景" href="#3-常见功能与场景"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h4 class="heading-element"><strong>场景 1：自定义域名解析</strong></h4><a id="user-content-场景-1自定义域名解析" class="anchor" aria-label="Permalink: 场景 1：自定义域名解析" href="#场景-1自定义域名解析"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>需求</strong>：将 <code>dev.local</code> 解析到本地开发服务器 <code>192.168.1.50</code>。</li>
+<li>
+<strong>配置</strong>：
+<div class="highlight highlight-source-ini"><pre><span class="pl-k">address</span>=/dev.local/192.168.1.50</pre></div>
+</li>
+<li>
+<strong>测试</strong>：
+<div class="highlight highlight-source-shell"><pre>nslookup dev.local  <span class="pl-c"><span class="pl-c">#</span> 应返回 192.168.1.50</span></pre></div>
+</li>
+</ul>
+<div class="markdown-heading"><h4 class="heading-element"><strong>场景 2：多 IP 负载均衡</strong></h4><a id="user-content-场景-2多-ip-负载均衡" class="anchor" aria-label="Permalink: 场景 2：多 IP 负载均衡" href="#场景-2多-ip-负载均衡"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>需求</strong>：让 <code>service.example.com</code> 轮询解析到 <code>192.168.1.5</code> 和 <code>192.168.1.6</code>。</li>
+<li>
+<strong>配置</strong>：
+<div class="highlight highlight-source-ini"><pre><span class="pl-k">address</span>=/service.example.com/192.168.1.5,192.168.1.6</pre></div>
+</li>
+<li>
+<strong>行为</strong>：DNSMASQ 会随机选择一个 IP 返回。</li>
+</ul>
+<div class="markdown-heading"><h4 class="heading-element"><strong>场景 3：代理部分请求到指定 DNS</strong></h4><a id="user-content-场景-3代理部分请求到指定-dns" class="anchor" aria-label="Permalink: 场景 3：代理部分请求到指定 DNS" href="#场景-3代理部分请求到指定-dns"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>需求</strong>：将 <code>.cn</code> 域名解析到国内 DNS（如 <code>223.5.5.5</code>），其他域名用 <code>1.1.1.1</code>。</li>
+<li>
+<strong>配置</strong>：
+<div class="highlight highlight-source-ini"><pre><span class="pl-k">server</span>=/cn/223.5.5.5
+<span class="pl-k">server</span>=/<span class="pl-c"><span class="pl-c">#</span>/1.1.1.1    # 默认服务器</span></pre></div>
+</li>
+</ul>
+<div class="markdown-heading"><h4 class="heading-element"><strong>场景 4：启用 DHCP</strong></h4><a id="user-content-场景-4启用-dhcp" class="anchor" aria-label="Permalink: 场景 4：启用 DHCP" href="#场景-4启用-dhcp"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>需求</strong>：为局域网设备分配 IP 和 DNS。</li>
+<li>
+<strong>配置</strong>：
+<div class="highlight highlight-source-ini"><pre><span class="pl-k">interface</span>=eth0        <span class="pl-c"><span class="pl-c">#</span> 网络接口</span>
+<span class="pl-k">dhcp-range</span>=192.168.1.100,192.168.1.200,255.255.255.0,12h
+<span class="pl-k">dhcp-option</span>=option:dns-server,192.168.1.1  <span class="pl-c"><span class="pl-c">#</span> 指定 DNS 服务器</span></pre></div>
+</li>
+</ul>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element"><strong>4. 启动与测试</strong></h3><a id="user-content-4-启动与测试" class="anchor" aria-label="Permalink: 4. 启动与测试" href="#4-启动与测试"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h4 class="heading-element"><strong>启动服务</strong></h4><a id="user-content-启动服务" class="anchor" aria-label="Permalink: 启动服务" href="#启动服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Linux</strong>：
+<div class="highlight highlight-source-shell"><pre>sudo systemctl restart dnsmasq</pre></div>
+</li>
+<li>
+<strong>macOS</strong>（以命令行方式启动）：
+<div class="highlight highlight-source-shell"><pre>sudo dnsmasq -C /usr/local/etc/dnsmasq.conf</pre></div>
+</li>
+</ul>
+<div class="markdown-heading"><h4 class="heading-element"><strong>设置 DNS 客户端</strong></h4><a id="user-content-设置-dns-客户端" class="anchor" aria-label="Permalink: 设置 DNS 客户端" href="#设置-dns-客户端"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>将本地设备的 DNS 配置为 dnsmasq 的 IP（通常是 <code>127.0.0.1</code> 或局域网 IP）：</p>
+<ul>
+<li>
+<strong>Windows</strong>：
+<ul>
+<li>进入网络设置 → 更改适配器选项 → 双击 DNS → 手动设置 <code>127.0.0.1</code>。</li>
+</ul>
+</li>
+<li>
+<strong>Linux/macOS</strong>：
+修改 <code>/etc/resolv.conf</code>（或通过网络管理工具）：
+<div class="highlight highlight-source-shell"><pre>nameserver 127.0.0.1</pre></div>
+</li>
+</ul>
+<div class="markdown-heading"><h4 class="heading-element"><strong>测试 DNS 解析</strong></h4><a id="user-content-测试-dns-解析" class="anchor" aria-label="Permalink: 测试 DNS 解析" href="#测试-dns-解析"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 查看解析结果</span>
+nslookup example.com 127.0.0.1
+
+<span class="pl-c"><span class="pl-c">#</span> 或使用 dig</span>
+dig @127.0.0.1 example.com</pre></div>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element"><strong>5. 常用参数说明</strong></h3><a id="user-content-5-常用参数说明" class="anchor" aria-label="Permalink: 5. 常用参数说明" href="#5-常用参数说明"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>server</code></td>
+<td>配置上游 DNS 服务器（支持条件匹配，如 <code>server=/domain.com/8.8.8.8</code>）。</td>
+</tr>
+<tr>
+<td><code>address=/domain.com/1.2.3.4</code></td>
+<td>将 <code>domain.com</code> 解析到指定 IP。</td>
+</tr>
+<tr>
+<td><code>addn-hosts=/path/to/hosts</code></td>
+<td>读取额外的 hosts 文件（可叠加多个）。</td>
+</tr>
+<tr>
+<td><code>no-resolv</code></td>
+<td>禁用 <code>/etc/resolv.conf</code> 中的默认 DNS 配置。</td>
+</tr>
+<tr>
+<td><code>listen-address=127.0.0.1</code></td>
+<td>指定监听的 IP 地址（默认仅本地）。</td>
+</tr>
+<tr>
+<td><code>dhcp-range</code></td>
+<td>配置 DHCP 地址池（适用于局域网服务器）。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element"><strong>6. 日志与调试</strong></h3><a id="user-content-6-日志与调试" class="anchor" aria-label="Permalink: 6. 日志与调试" href="#6-日志与调试"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>日志路径</strong>：默认记录在 <code>/var/log/syslog</code>（Linux）或 <code>/var/log/dnsmasq.log</code>。</li>
+<li>
+<strong>调试模式</strong>：启动时添加 <code>-d</code> 参数查看详细日志：
+<div class="highlight highlight-source-shell"><pre>sudo dnsmasq -d -C /etc/dnsmasq.conf</pre></div>
+</li>
+</ul>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element"><strong>7. 典型应用场景</strong></h3><a id="user-content-7-典型应用场景" class="anchor" aria-label="Permalink: 7. 典型应用场景" href="#7-典型应用场景"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>开发环境</strong>：模拟生产环境的域名解析（如 <code>api.test</code> 指向本地服务）。</li>
+<li>
+<strong>局域网管理</strong>：提供 DHCP 和 DNS 服务，简化内网设备配置。</li>
+<li>
+<strong>DNS 过滤</strong>：屏蔽广告或恶意域名（通过 <code>address=/adserver.com/0.0.0.0</code>）。</li>
+<li>
+<strong>跨平台测试</strong>：模拟不同 DNS 策略（如强制使用特定 DNS 或多 IP 轮询）。</li>
+</ul>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element"><strong>相关链接</strong></h3><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<a href="http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html" rel="nofollow">dnsmasq 官方文档</a>。</li>
+</ol>
