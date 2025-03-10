@@ -57,7 +57,24 @@ let visitorCountModule, eventHandler;
                         token: browserToken
                     }),
                 });
-                const data = await response.json();
+
+                // 处理API响应
+                const processResponse = (data) => {
+                    if (!data) return { site_uv: 0, site_pv: 0, page_pv: 0 };
+
+                    if (data.status === "success" && data.data) {
+                    return data.data;
+                    }
+
+                    if (data.status === "error") {
+                    console.warn("API错误：", data.message, data);
+                    return data.data || { site_uv: 0, site_pv: 0, page_pv: 0 };
+                    }
+
+                    return data;
+                };
+
+                const data = processResponse(await response.json());
 
                 onReadyCallback(() => {
                     callback(data);
