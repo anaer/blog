@@ -118,14 +118,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/5",
             "commentNum": 0,
             "createdAt": 1698287850,
-            "updatedAt": 1737427747,
+            "updatedAt": 1741596712,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2023-10-26",
-            "dateLabelColor": "hsl(233, 45%, 25%)",
-            "description": "\n\nMaple-Mono\n\u63a8\u8350, \u76ee\u524d\u611f\u89c9\u8f83\u4e3a\u8212\u9002\u5427\n\n\nLXGW WenKai GB / \u971e\u9e5c\u6587\u6977 GB\n\u7b49\u5bbd, markdown\u8868\u683c\u683c\u5f0f\u5316 \u4e5f\u80fd\u5bf9\u9f50\n\n\nCascadia Code\n\n\nUbunt...",
-            "buildedAt": 1737427747
+            "dateLabelColor": "hsl(281, 34%, 13%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u51e0\u79cd\u9002\u5408\u7f16\u7a0b\u548c\u6587\u672c\u7f16\u8f91\u7684\u7b49\u5bbd\u5b57\u4f53\uff0c\u5305\u62ecJetBrains Mono\u548cMaple Mono\u7684\u5408\u6210\u5b57\u4f53Maple-Mono\uff0c\u63a8\u8350\u5176\u8212\u9002\u7684\u4f7f\u7528\u4f53\u9a8c\uff1bLXGW WenKai GB\u5b57\u4f53\u5728markdown\u8868\u683c\u683c\u5f0f\u5316\u4e2d\u8868\u73b0\u826f\u597d\uff0c\u80fd\u591f\u5b9e\u73b0\u5bf9\u9f50\uff1b\u6b64\u5916\uff0c\u8fd8\u63d0\u5230\u4e86Cascadia Code\u548cUbuntu Mono\u7b49\u5176\u4ed6\u5b57\u4f53\u9009\u62e9\u3002",
+            "buildedAt": 1741596712
         },
         "P6": {
             "number": "6",
