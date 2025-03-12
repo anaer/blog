@@ -1,12 +1,12 @@
 ## 系统
 
 ### 浏览器
-| 名称         | 下载地址                                                     | 说明                          |
-| ------------ | ------------------------------------------------------------ | ----------------------------- |
-| Chrome     | [官网](https://www.google.cn/chrome/?standalone=1&platform=win64&extra=stablechannel) | 
-| Edge            |                                                                                         | 三方市场插件好像没有同步
-| Floorp浏览器 | [GitHub](https://github.com/Floorp-Projects/Floorp/releases) | Firefox fork版 增加一些特性   |
-| Zen Browser  | [GitHub](https://github.com/zen-browser/desktop)             | Firefox fork版 支持左侧标签栏 |
+
+1. **Chrome** [官网](https://www.google.cn/chrome/?standalone=1&platform=win64&extra=stablechannel)
+2. Edge  三方市场插件好像没有同步, 共享标签页功能还行
+3. Floorp浏览器 [GitHub](https://github.com/Floorp-Projects/Floorp/releases) Firefox fork版 增加一些特性 
+4. Zen Browser  [GitHub](https://github.com/zen-browser/desktop) Firefox fork版 支持左侧标签栏 
+
 
 ### 传输
 | 名称   | 下载地址                                    | 说明 |
