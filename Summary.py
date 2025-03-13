@@ -29,7 +29,7 @@ def generate_summary(text):
     payload = {
         "model": f"{api_model}",  # 或具体模型ID
         "messages": [
-            {"role": "system", "content": "请生成简洁完整的文本摘要，必须以“本文介绍了”开头，直接返回纯文本。确保涵盖所有主要要点，避免空泛表述或内容截断，不使用任何格式。"},
+            {"role": "system", "content": "请生成简洁完整的文本摘要，直接返回纯文本。确保涵盖所有主要要点，避免空泛表述或内容截断，不使用任何格式, 可以提出具体的修改建议，以提升内容的清晰度和逻辑性。"},
             {"role": "user", "content": f"{text}"}
         ],
         "temperature": 0.5,
