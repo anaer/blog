@@ -19,6 +19,7 @@
 }
 ```
 
+在用户settings.json配置中添加定时任务配置
 
 ```json
 "cronTasks.tasks": [

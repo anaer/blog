@@ -132,10 +132,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-13 16:15:39</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-13 16:15:50</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-13 16:46:48</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何在VSCode的工作区中设置定时任务，以便每5分钟自动执行指定的同步脚本。首先，在.workspace的.vscode目录中创建tasks.json文件，定义一个名为“Auto Sync”的任务，指定要执行的命令为“D:\\demo\\sync.bat”。然后，在配置中添加“cronTasks.tasks”部分，设置任务的执行频率和参数，确保任务能够正确调用。同时，建议将终端的默认Profile修改为Command Prompt，以避免可能出现的问题。此外，可以通过设置“cronTasks.debug”为false来关闭调试模式，避免在输出中生成日志。
+    <strong>AI总结:</strong> 本文介绍了如何在Visual Studio Code的workspace中设置定时任务以自动同步文件。首先，在.vscode文件夹内创建或编辑tasks.json，定义一个名为“Auto Sync”的任务，指定执行的命令为本地的sync.bat脚本。接着，在用户的settings.json中添加定时任务配置，设置任务每5分钟执行一次，并指定运行“Auto Sync”任务。最后，需要确保终端的默认Profile设置为Command Prompt，以避免可能出现的问题。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -154,6 +154,7 @@ pre {
       }
     ]
 }</pre></div>
+<p>在用户settings.json配置中添加定时任务配置</p>
 <div class="highlight highlight-source-json"><pre><span class="pl-ent">"cronTasks.tasks"</span>: [
     {
         <span class="pl-ent">"at"</span>: <span class="pl-s"><span class="pl-pds">"</span>*/5 * * * *<span class="pl-pds">"</span></span>, <span class="pl-ii">// 每5分钟执行</span>
