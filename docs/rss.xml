@@ -1,12 +1,44 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 13 Mar 2025 08:47:21 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 13 Mar 2025 08:47:21 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>89 VSCode扩展配置说明</title><link>https://anaer.github.io/blog/post/89.html</link><description>本文介绍了如何在Visual Studio Code的workspace中设置定时任务以自动同步文件。首先，在.vscode文件夹内创建或编辑tasks.json，定义一个名为“Auto Sync”的任务，指定执行的命令为本地的sync.bat脚本。接着，在用户的settings.json中添加定时任务配置，设置任务每5分钟执行一次，并指定运行“Auto Sync”任务。最后，需要确保终端的默认Profile设置为Command Prompt，以避免可能出现的问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/89.html</guid><pubDate>Thu, 13 Mar 2025 08:15:39 +0000</pubDate></item><item><title>88 我关注的项目这周更新了什么-2025-03-14</title><link>https://anaer.github.io/blog/post/88.html</link><description>本文介绍了DeepChat 0.0.7和Readest 0.9.21的主要更新内容。DeepChat 0.0.7引入了全新的Artifacts交互，增强了Ollama模型管理支持，增加了多模态模型支持，包括Anthropic、Github Models和Azure，还允许Windows用户自定义安装目录，并修复了之前版本的文件嵌入问题。Readest 0.9.21则修复了移动端的垂直布局列高和拖动手柄高度不一致的问题，增加了桌面端的全屏选项和拖放导入书籍功能，同时对更新器、底部栏和笔记进行了多项修复与增强。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/88.html</guid><pubDate>Thu, 13 Mar 2025 05:19:17 +0000</pubDate></item><item><title>87 Firefox安装插件列表</title><link>https://anaer.github.io/blog/post/87.html</link><description>本文介绍了当前启用和禁用的浏览器扩展程序。启用的扩展包括uBlacklist、ChatGPTBox、Limit Tabs、FoxyTab、Block Site等，共计18个，主要功能涵盖广告拦截、标签管理、验证码解决、密码管理等。禁用的扩展则包括Vimium、FastForward、ClearURLs、Sidebery等，共计26个，涉及页面刷新、隐私保护、翻译等功能。这些扩展的组合可以提升浏览体验和效率。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/87.html</guid><pubDate>Thu, 13 Mar 2025 02:11:19 +0000</pubDate></item><item><title>86 Chrome安装插件列表</title><link>https://anaer.github.io/blog/post/86.html</link><description>本文介绍了当前启用和禁用的浏览器扩展。启用的扩展包括暴力猴、沉浸式翻译、Bitwarden 密码管理器、Checker Plus for Gmail、ErrorReloader、Extension Exporter、FeHelper、LastPass、MarkdownIt、Stylus、Web Archives和WebDAV书签同步。禁用的扩展则有快捷扩展管理、语言学家、Axure RP Extension、ChatGPTBox、Tab Wrangler和uBlacklist。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/86.html</guid><pubDate>Thu, 13 Mar 2025 02:00:39 +0000</pubDate></item><item><title>85 SmartDNS配置说明</title><link>https://anaer.github.io/blog/post/85.html</link><description>本文介绍了SmartDNS，一个用Rust编写的跨平台本地DNS服务器，旨在为用户提供更快的网站IP以提升互联网体验，支持多种DNS协议如DoT、DoQ、DoH和DoH3。用户可以通过命令行工具运行SmartDNS，管理服务，执行DNS解析，创建符号链接，测试配置等。SmartDNS的配置示例包括本地端口监听、上游DNS服务设置、日志管理、缓存配置以及测速模式等，允许用户根据需要定制DNS解析行为。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/85.html</guid><pubDate>Mon, 10 Mar 2025 09:24:44 +0000</pubDate></item><item><title>84 hosts文件管理工具</title><link>https://anaer.github.io/blog/post/84.html</link><description>本文介绍了两款hosts文件管理工具：HostsMan和SwitchHosts。HostsMan的大小为6MB，适用于管理和编辑hosts文件，提供便捷的功能。SwitchHosts版本为4.2.0，大小为70MB，支持多种操作系统，方便用户切换和管理不同的hosts文件。此外，还提供了一个hosts文件的在线链接，供用户下载和使用。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/84.html</guid><pubDate>Mon, 10 Mar 2025 08:15:59 +0000</pubDate></item><item><title>83 DNSMASQ使用记录</title><link>https://anaer.github.io/blog/post/83.html</link><description>本文介绍了DNSMASQ的使用记录，强调了其作为轻量级DNS转发和DHCP服务器的核心功能及配置方法。首先，提供了在不同操作系统（如Linux、macOS和Windows）上安装DNSMASQ的步骤。接着，描述了默认配置文件路径和基础配置示例，包括上游DNS设置、自定义域名解析、DHCP配置和缓存设置。随后，列举了多个常见功能场景，如自定义域名解析、多IP负载均衡、代理请求和启用DHCP。文章还涵盖了服务启动与测试的方法，以及常用参数的说明，最后提到日志与调试信息，适合开发环境和局域网管理等典型应用场景。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 13 Mar 2025 08:52:15 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 13 Mar 2025 08:52:15 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>89 VSCode扩展配置说明</title><link>https://anaer.github.io/blog/post/89.html</link><description>本文介绍了如何在Visual Studio Code的workspace中设置定时任务以自动同步文件。首先，在.vscode文件夹内创建或编辑tasks.json，定义一个名为“Auto Sync”的任务，指定执行的命令为本地的sync.bat脚本。接着，在用户的settings.json中添加定时任务配置，设置任务每5分钟执行一次，并指定运行“Auto Sync”任务。最后，需要确保终端的默认Profile设置为Command Prompt，以避免可能出现的问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/89.html</guid><pubDate>Thu, 13 Mar 2025 08:15:39 +0000</pubDate></item><item><title>88 我关注的项目这周更新了什么-2025-03-14</title><link>https://anaer.github.io/blog/post/88.html</link><description>本文介绍了DeepChat 0.0.7和Readest 0.9.21的主要更新内容。DeepChat 0.0.7引入了全新的Artifacts交互，增强了Ollama模型管理支持，增加了多模态模型支持，包括Anthropic、Github Models和Azure，还允许Windows用户自定义安装目录，并修复了之前版本的文件嵌入问题。Readest 0.9.21则修复了移动端的垂直布局列高和拖动手柄高度不一致的问题，增加了桌面端的全屏选项和拖放导入书籍功能，同时对更新器、底部栏和笔记进行了多项修复与增强。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/88.html</guid><pubDate>Thu, 13 Mar 2025 05:19:17 +0000</pubDate></item><item><title>87 Firefox安装插件列表</title><link>https://anaer.github.io/blog/post/87.html</link><description>本文介绍了当前启用和禁用的浏览器扩展程序。启用的扩展包括uBlacklist、ChatGPTBox、Limit Tabs、FoxyTab、Block Site等，共计18个，主要功能涵盖广告拦截、标签管理、验证码解决、密码管理等。禁用的扩展则包括Vimium、FastForward、ClearURLs、Sidebery等，共计26个，涉及页面刷新、隐私保护、翻译等功能。这些扩展的组合可以提升浏览体验和效率。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/87.html</guid><pubDate>Thu, 13 Mar 2025 02:11:19 +0000</pubDate></item><item><title>86 Chrome安装插件列表</title><link>https://anaer.github.io/blog/post/86.html</link><description>本文介绍了当前启用和禁用的浏览器扩展。启用的扩展包括暴力猴、沉浸式翻译、Bitwarden 密码管理器、Checker Plus for Gmail、ErrorReloader、Extension Exporter、FeHelper、LastPass、MarkdownIt、Stylus、Web Archives和WebDAV书签同步。禁用的扩展则有快捷扩展管理、语言学家、Axure RP Extension、ChatGPTBox、Tab Wrangler和uBlacklist。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/86.html</guid><pubDate>Thu, 13 Mar 2025 02:00:39 +0000</pubDate></item><item><title>85 SmartDNS配置说明</title><link>https://anaer.github.io/blog/post/85.html</link><description>本文介绍了SmartDNS，一个用Rust编写的跨平台本地DNS服务器，旨在为用户提供更快的网站IP以提升互联网体验，支持多种DNS协议如DoT、DoQ、DoH和DoH3。用户可以通过命令行工具运行SmartDNS，管理服务，执行DNS解析，创建符号链接，测试配置等。SmartDNS的配置示例包括本地端口监听、上游DNS服务设置、日志管理、缓存配置以及测速模式等，允许用户根据需要定制DNS解析行为。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/85.html</guid><pubDate>Mon, 10 Mar 2025 09:24:44 +0000</pubDate></item><item><title>84 hosts文件管理工具</title><link>https://anaer.github.io/blog/post/84.html</link><description>Hosts文件管理工具包括HostsMan和SwitchHosts。HostsMan的文件大小为6MB，而SwitchHosts的版本为4.2.0，大小为70MB。此外，Hosts文件的在线链接为https://raw.hellogithub.com/hosts。建议明确工具的功能和使用场景，以提升内容的清晰度。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/84.html</guid><pubDate>Mon, 10 Mar 2025 08:15:59 +0000</pubDate></item><item><title>83 dnsmasq使用记录</title><link>https://anaer.github.io/blog/post/83.html</link><description>dnsmasq 是一个轻量级的 DNS 转发和 DHCP 服务器工具，适用于本地 DNS 解析和网络管理。以下是其主要功能和使用方法：
 
-优化建议：
-1. 在安装部分中，添加对不同Linux发行版的兼容性说明，以便用户选择合适的安装方式。
-2. 提供更多关于配置文件的注释，帮助用户理解每个配置项的具体作用。
-3. 在测试部分，建议用户使用更详细的输出选项，以便于调试和确认配置的有效性。
-4. 增加对常见错误及其解决方案的说明，帮助用户快速排查问题。
-5. 考虑提供一些示例场景的实际应用案例，以便用户更好地理解DNSMASQ的实际应用。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/83.html</guid><pubDate>Mon, 10 Mar 2025 05:42:26 +0000</pubDate></item><item><title>82 mysql-bin日志文件清理</title><link>https://anaer.github.io/blog/post/82.html</link><description>本文介绍了MySQL中二进制日志（mysql-bin）的清理步骤和注意事项。二进制日志记录数据库的所有更改操作，过多的日志文件可能占用大量磁盘空间。清理步骤包括确认是否需要保留日志、查看当前日志、执行清理操作以及配置自动过期策略。
+1. **安装**：
+   - 在 Ubuntu/Debian 上使用命令 `sudo apt update &amp;&amp; sudo apt install dnsmasq`。
+   - 在 CentOS/RHEL 上使用 `sudo yum install epel-release &amp;&amp; sudo yum install dnsmasq`。
+   - 在 macOS 上通过 Homebrew 安装：`brew install dnsmasq`。
+   - Windows 用户可通过 WSL 或其他工具实现类似功能。
+
+2. **配置文件**：
+   - 默认路径：Linux 为 `/etc/dnsmasq.conf`，macOS 为 `/usr/local/etc/dnsmasq.conf`。
+   - 基础配置示例包括设置监听地址、上游 DNS、静态映射、自定义 hosts 文件、启用 DHCP 和缓存设置。
+
+3. **常见功能与场景**：
+   - 自定义域名解析：如将 `dev.local` 解析到 `192.168.1.50`。
+   - 多 IP 负载均衡：如 `service.example.com` 轮询解析到多个 IP。
+   - 代理 DNS 请求：根据域名将请求转发到不同的 DNS 服务器。
+   - 启用 DHCP，为局域网设备分配 IP。
+
+4. **启动与测试**：
+   - 启动服务：Linux 使用 `sudo systemctl restart dnsmasq`，macOS 使用 `sudo dnsmasq -C /usr/local/etc/dnsmasq.conf`。
+   - 设置 DNS 客户端为 dnsmasq 的 IP（通常是 `127.0.0.1`）。
+   - 测试 DNS 解析可使用 `nslookup` 或 `dig` 命令。
+
+5. **常用参数说明**：
+   - `server`：配置上游 DNS 服务器。
+   - `address`：将域名解析到指定 IP。
+   - `addn-hosts`：读取额外的 hosts 文件。
+   - `no-resolv`：禁用默认 DNS 配置。
+   - `dhcp-range`：配置 DHCP 地址池。
+
+6. **日志与调试**：
+   - 日志默认记录在 `/var/log/syslog` 或 `/var/log/dnsmasq.log`，可通过 `-d` 参数启动调试模式。
+
+7. **典型应用场景**：
+   - 开发环境的域名解析。
+   - 局域网 DHCP 和 DNS 服务。
+   - DNS 过滤广告或恶意域名。
+   - 跨平台测试不同 DNS 策略。
+
+建议在内容中增加具体的应用示例和配置细节，以提升实用性和可操作性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/83.html</guid><pubDate>Mon, 10 Mar 2025 05:42:26 +0000</pubDate></item><item><title>82 mysql-bin日志文件清理</title><link>https://anaer.github.io/blog/post/82.html</link><description>本文介绍了MySQL中二进制日志（mysql-bin）的清理步骤和注意事项。二进制日志记录数据库的所有更改操作，过多的日志文件可能占用大量磁盘空间。清理步骤包括确认是否需要保留日志、查看当前日志、执行清理操作以及配置自动过期策略。
 
 优化建议：
 1. 在确认是否需要保留二进制日志时，可以考虑使用更详细的场景分析，帮助用户更好地理解其数据恢复需求。

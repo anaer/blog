@@ -13,7 +13,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>83 DNSMASQ使用记录</title>
+<title>83 dnsmasq使用记录</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia.css" rel="stylesheet" />
 
 </head>
@@ -93,7 +93,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a>83 DNSMASQ使用记录</a>
+    <a>83 dnsmasq使用记录</a>
 </h1>
 
 <div class="title-right">
@@ -121,22 +121,60 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#5319e7">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Mac">Mac</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-10 13:42:26</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了DNSMASQ的使用记录，强调了其作为轻量级DNS转发和DHCP服务器的核心功能及配置方法。首先，提供了在不同操作系统（如Linux、macOS和Windows）上安装DNSMASQ的步骤。接着，描述了默认配置文件路径和基础配置示例，包括上游DNS设置、自定义域名解析、DHCP配置和缓存设置。随后，列举了多个常见功能场景，如自定义域名解析、多IP负载均衡、代理请求和启用DHCP。文章还涵盖了服务启动与测试的方法，以及常用参数的说明，最后提到日志与调试信息，适合开发环境和局域网管理等典型应用场景。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-10 16:58:52</time></span>
 
-优化建议：
-1. 在安装部分中，添加对不同Linux发行版的兼容性说明，以便用户选择合适的安装方式。
-2. 提供更多关于配置文件的注释，帮助用户理解每个配置项的具体作用。
-3. 在测试部分，建议用户使用更详细的输出选项，以便于调试和确认配置的有效性。
-4. 增加对常见错误及其解决方案的说明，帮助用户快速排查问题。
-5. 考虑提供一些示例场景的实际应用案例，以便用户更好地理解DNSMASQ的实际应用。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> dnsmasq 是一个轻量级的 DNS 转发和 DHCP 服务器工具，适用于本地 DNS 解析和网络管理。以下是其主要功能和使用方法：
+
+1. **安装**：
+   - 在 Ubuntu/Debian 上使用命令 `sudo apt update && sudo apt install dnsmasq`。
+   - 在 CentOS/RHEL 上使用 `sudo yum install epel-release && sudo yum install dnsmasq`。
+   - 在 macOS 上通过 Homebrew 安装：`brew install dnsmasq`。
+   - Windows 用户可通过 WSL 或其他工具实现类似功能。
+
+2. **配置文件**：
+   - 默认路径：Linux 为 `/etc/dnsmasq.conf`，macOS 为 `/usr/local/etc/dnsmasq.conf`。
+   - 基础配置示例包括设置监听地址、上游 DNS、静态映射、自定义 hosts 文件、启用 DHCP 和缓存设置。
+
+3. **常见功能与场景**：
+   - 自定义域名解析：如将 `dev.local` 解析到 `192.168.1.50`。
+   - 多 IP 负载均衡：如 `service.example.com` 轮询解析到多个 IP。
+   - 代理 DNS 请求：根据域名将请求转发到不同的 DNS 服务器。
+   - 启用 DHCP，为局域网设备分配 IP。
+
+4. **启动与测试**：
+   - 启动服务：Linux 使用 `sudo systemctl restart dnsmasq`，macOS 使用 `sudo dnsmasq -C /usr/local/etc/dnsmasq.conf`。
+   - 设置 DNS 客户端为 dnsmasq 的 IP（通常是 `127.0.0.1`）。
+   - 测试 DNS 解析可使用 `nslookup` 或 `dig` 命令。
+
+5. **常用参数说明**：
+   - `server`：配置上游 DNS 服务器。
+   - `address`：将域名解析到指定 IP。
+   - `addn-hosts`：读取额外的 hosts 文件。
+   - `no-resolv`：禁用默认 DNS 配置。
+   - `dhcp-range`：配置 DHCP 地址池。
+
+6. **日志与调试**：
+   - 日志默认记录在 `/var/log/syslog` 或 `/var/log/dnsmasq.log`，可通过 `-d` 参数启动调试模式。
+
+7. **典型应用场景**：
+   - 开发环境的域名解析。
+   - 局域网 DHCP 和 DNS 服务。
+   - DNS 过滤广告或恶意域名。
+   - 跨平台测试不同 DNS 策略。
+
+建议在内容中增加具体的应用示例和配置细节，以提升实用性和可操作性。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -345,7 +383,7 @@ dig @127.0.0.1 example.com</pre></div>
 </ol>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/75.html" aria-label="Previous Page">75 导航</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/82.html" aria-label="Next Page">82 mysql-bin日志文件清理</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/84.html" aria-label="Previous Page">84 hosts文件管理工具</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/82.html" aria-label="Next Page">82 mysql-bin日志文件清理</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
