@@ -1,0 +1,24 @@
+<div class="markdown-heading"><h2 class="heading-element"><a href="https://marketplace.visualstudio.com/items?itemName=Freaxys.better-cron-tasks" rel="nofollow">Better Cron Tasks</a></h2><a id="user-content-better-cron-tasks" class="anchor" aria-label="Permalink: Better Cron Tasks" href="#better-cron-tasks"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>在workspace的.vscode添加tasks.json任务</p>
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-ii">// See https://go.microsoft.com/fwlink/?LinkId=733558</span>
+    <span class="pl-ii">// for the documentation about the tasks.json format</span>
+    <span class="pl-ent">"version"</span>: <span class="pl-s"><span class="pl-pds">"</span>2.0.0<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"tasks"</span>: [
+      {
+        <span class="pl-ent">"label"</span>: <span class="pl-s"><span class="pl-pds">"</span>Auto Sync<span class="pl-pds">"</span></span>,
+        <span class="pl-ent">"type"</span>: <span class="pl-s"><span class="pl-pds">"</span>shell<span class="pl-pds">"</span></span>,
+        <span class="pl-ent">"command"</span>: <span class="pl-s"><span class="pl-pds">"</span>D:<span class="pl-cce">\\</span>demo<span class="pl-cce">\\</span>sync.bat<span class="pl-pds">"</span></span>,
+        <span class="pl-ent">"problemMatcher"</span>: []
+      }
+    ]
+}</pre></div>
+<div class="highlight highlight-source-json"><pre><span class="pl-ent">"cronTasks.tasks"</span>: [
+    {
+        <span class="pl-ent">"at"</span>: <span class="pl-s"><span class="pl-pds">"</span>*/5 * * * *<span class="pl-pds">"</span></span>, <span class="pl-ii">// 每5分钟执行</span>
+        <span class="pl-ent">"run"</span>: <span class="pl-s"><span class="pl-pds">"</span>workbench.action.tasks.runTask<span class="pl-pds">"</span></span>,
+        <span class="pl-ent">"args"</span>: [<span class="pl-s"><span class="pl-pds">"</span>Auto Sync<span class="pl-pds">"</span></span>]  <span class="pl-ii">// 对应tasks中的任务label</span>
+    },
+],
+<span class="pl-ent">"cronTasks.debug"</span>: <span class="pl-c1">false</span> <span class="pl-ii">// debug模式, 在OUTPUT输出日志</span></pre></div>
+<p>需要修改终端的默认Profile为Command Prompt, 选其它可能会有问题</p>
