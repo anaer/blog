@@ -1818,6 +1818,25 @@
             "dateLabelColor": "hsl(140, 32%, 26%)",
             "description": "\u672c\u6587\u4ecb\u7ecd\u4e86SmartDNS\uff0c\u4e00\u4e2a\u7528Rust\u7f16\u5199\u7684\u8de8\u5e73\u53f0\u672c\u5730DNS\u670d\u52a1\u5668\uff0c\u65e8\u5728\u4e3a\u7528\u6237\u63d0\u4f9b\u66f4\u5feb\u7684\u7f51\u7ad9IP\u4ee5\u63d0\u5347\u4e92\u8054\u7f51\u4f53\u9a8c\uff0c\u652f\u6301\u591a\u79cdDNS\u534f\u8bae\u5982DoT\u3001DoQ\u3001DoH\u548cDoH3\u3002\u7528\u6237\u53ef\u4ee5\u901a\u8fc7\u547d\u4ee4\u884c\u5de5\u5177\u8fd0\u884cSmartDNS\uff0c\u7ba1\u7406\u670d\u52a1\uff0c\u6267\u884cDNS\u89e3\u6790\uff0c\u521b\u5efa\u7b26\u53f7\u94fe\u63a5\uff0c\u6d4b\u8bd5\u914d\u7f6e\u7b49\u3002SmartDNS\u7684\u914d\u7f6e\u793a\u4f8b\u5305\u62ec\u672c\u5730\u7aef\u53e3\u76d1\u542c\u3001\u4e0a\u6e38DNS\u670d\u52a1\u8bbe\u7f6e\u3001\u65e5\u5fd7\u7ba1\u7406\u3001\u7f13\u5b58\u914d\u7f6e\u4ee5\u53ca\u6d4b\u901f\u6a21\u5f0f\u7b49\uff0c\u5141\u8bb8\u7528\u6237\u6839\u636e\u9700\u8981\u5b9a\u5236DNS\u89e3\u6790\u884c\u4e3a\u3002",
             "buildedAt": 1741661377
+        },
+        "P86": {
+            "number": "86",
+            "htmlDir": "docs/post/86.html",
+            "markdown": "backup/86-Chrome\u5b89\u88c5\u63d2\u4ef6\u5217\u8868.md",
+            "labels": [],
+            "postTitle": "86 Chrome\u5b89\u88c5\u63d2\u4ef6\u5217\u8868",
+            "postUrl": "post/86.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/86",
+            "commentNum": 0,
+            "createdAt": 1741831239,
+            "updatedAt": 1741831239,
+            "top": 0,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-03-13",
+            "dateLabelColor": "hsl(140, 58%, 28%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u5f53\u524d\u542f\u7528\u548c\u7981\u7528\u7684\u6d4f\u89c8\u5668\u6269\u5c55\u3002\u542f\u7528\u7684\u6269\u5c55\u5305\u62ec\u66b4\u529b\u7334\u3001\u6c89\u6d78\u5f0f\u7ffb\u8bd1\u3001Bitwarden \u5bc6\u7801\u7ba1\u7406\u5668\u3001Checker Plus for Gmail\u3001ErrorReloader\u3001Extension Exporter\u3001FeHelper\u3001LastPass\u3001MarkdownIt\u3001Stylus\u3001Web Archives\u548cWebDAV\u4e66\u7b7e\u540c\u6b65\u3002\u7981\u7528\u7684\u6269\u5c55\u5219\u6709\u5feb\u6377\u6269\u5c55\u7ba1\u7406\u3001\u8bed\u8a00\u5b66\u5bb6\u3001Axure RP Extension\u3001ChatGPTBox\u3001Tab Wrangler\u548cuBlacklist\u3002",
+            "buildedAt": 1741831239
         }
     },
     "singeListJson": {},
