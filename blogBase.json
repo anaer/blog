@@ -1837,6 +1837,27 @@
             "dateLabelColor": "hsl(140, 58%, 28%)",
             "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u5f53\u524d\u542f\u7528\u548c\u7981\u7528\u7684\u6d4f\u89c8\u5668\u6269\u5c55\u3002\u542f\u7528\u7684\u6269\u5c55\u5305\u62ec\u66b4\u529b\u7334\u3001\u6c89\u6d78\u5f0f\u7ffb\u8bd1\u3001Bitwarden \u5bc6\u7801\u7ba1\u7406\u5668\u3001Checker Plus for Gmail\u3001ErrorReloader\u3001Extension Exporter\u3001FeHelper\u3001LastPass\u3001MarkdownIt\u3001Stylus\u3001Web Archives\u548cWebDAV\u4e66\u7b7e\u540c\u6b65\u3002\u7981\u7528\u7684\u6269\u5c55\u5219\u6709\u5feb\u6377\u6269\u5c55\u7ba1\u7406\u3001\u8bed\u8a00\u5b66\u5bb6\u3001Axure RP Extension\u3001ChatGPTBox\u3001Tab Wrangler\u548cuBlacklist\u3002",
             "buildedAt": 1741831239
+        },
+        "P87": {
+            "number": "87",
+            "htmlDir": "docs/post/87.html",
+            "markdown": "backup/87-Firefox\u5b89\u88c5\u63d2\u4ef6\u5217\u8868.md",
+            "labels": [
+                "\u6d4f\u89c8\u5668"
+            ],
+            "postTitle": "87 Firefox\u5b89\u88c5\u63d2\u4ef6\u5217\u8868",
+            "postUrl": "post/87.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/87",
+            "commentNum": 0,
+            "createdAt": 1741831879,
+            "updatedAt": 1741831885,
+            "top": 0,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-03-13",
+            "dateLabelColor": "hsl(140, 65%, 24%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u5f53\u524d\u542f\u7528\u548c\u7981\u7528\u7684\u6d4f\u89c8\u5668\u6269\u5c55\u7a0b\u5e8f\u3002\u542f\u7528\u7684\u6269\u5c55\u5305\u62ecuBlacklist\u3001ChatGPTBox\u3001Limit Tabs\u3001FoxyTab\u3001Block Site\u7b49\uff0c\u5171\u8ba118\u4e2a\uff0c\u4e3b\u8981\u529f\u80fd\u6db5\u76d6\u5e7f\u544a\u62e6\u622a\u3001\u6807\u7b7e\u7ba1\u7406\u3001\u9a8c\u8bc1\u7801\u89e3\u51b3\u3001\u5bc6\u7801\u7ba1\u7406\u7b49\u3002\u7981\u7528\u7684\u6269\u5c55\u5219\u5305\u62ecVimium\u3001FastForward\u3001ClearURLs\u3001Sidebery\u7b49\uff0c\u5171\u8ba126\u4e2a\uff0c\u6d89\u53ca\u9875\u9762\u5237\u65b0\u3001\u9690\u79c1\u4fdd\u62a4\u3001\u7ffb\u8bd1\u7b49\u529f\u80fd\u3002\u8fd9\u4e9b\u6269\u5c55\u7684\u7ec4\u5408\u53ef\u4ee5\u63d0\u5347\u6d4f\u89c8\u4f53\u9a8c\u548c\u6548\u7387\u3002",
+            "buildedAt": 1741831885
         }
     },
     "singeListJson": {},
