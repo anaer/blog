@@ -130,40 +130,47 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-13 13:19:17</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-14 10:43:54</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-14 17:47:35</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 1. cherry-studio v1.1.2是测试版本，更新前需备份数据。修复了Windows版本中mcp无法使用npx命令的问题（需使用Node 22及以上版本）和代理设置问题。主要更新包括改进系统代理监控逻辑和MCP服务器环境变量解析错误。
+    <strong>AI总结:</strong> 1. cherry-studio v1.1.3 是一款测试版本，更新前需备份数据。主要修复了多个bug，包括清除上下文的问题、增强加载状态的处理、改进Markdown导出错误处理等。
 
-2. readest v0.9.21发布亮点包括修复移动端垂直布局的列高度、拖动手柄高度不一致的问题，增加桌面全屏选项和拖放导入书籍功能，以及更新器、底部栏和笔记的多项修复和增强。
+2. readest v0.9.21 主要修复了移动端的列高和拖拽手柄高度问题，增加了桌面的全屏选项和拖放导入书籍的功能，并对更新器、底部栏和笔记进行了多项修复和增强。
 
-3. Ghosten-Player v1.6.0新特性包括TV端和移动端分开打包、移动端UI更新、播放器UI更新、优化遥控器操作和手势操作逻辑，支持资源库增量同步和刮削行为选择。
+3. deepchat v0.0.7 正式发布，带来全新交互体验，支持Ollama模型管理和多模态模型，新增Anthropic、Github Models和Azure支持，同时修复了文件嵌入问题。
 
-4. deepchat v0.0.7正式发布，更新内容包括全新交互功能、Ollama管理支持、多模态模型支持、Windows自定义安装目录功能，以及修复文件嵌入问题。
+4. NeatChat v1.1.19 全面支持上传文件，并合并了上传图片和文件的功能，后续将支持OCR模型进行识图。
 
-5. ublacklist v8.10.1主要修复了Ecosia元素选择器和更新中文翻译。
+5. Ghosten-Player v1.6.0 新增了针对TV端和移动端的不同打包，进行了UI更新，优化了操作逻辑和手势操作，同时支持资源库的增量同步。
+
+6. mcp-server-jina-java v1.0.0 进行了版本更新。
+
+7. ublacklist v8.10.1 主要进行了bug修复，包括更新Ecosia元素选择器和中文翻译。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.2">cherry-studio v1.1.2</a>
-</h2><a id="user-content-1-cherry-studio-v112" class="anchor" aria-label="Permalink: 1. cherry-studio v1.1.2" href="#1-cherry-studio-v112"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.3">cherry-studio v1.1.3</a>
+</h2><a id="user-content-1-cherry-studio-v113" class="anchor" aria-label="Permalink: 1. cherry-studio v1.1.3" href="#1-cherry-studio-v113"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h1 class="heading-element"><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 此版本是测试版本，更新前务必备份数据</h1><a id="user-content-️-此版本是测试版本更新前务必备份数据" class="anchor" aria-label="Permalink: ⚠️ 此版本是测试版本，更新前务必备份数据" href="#️-此版本是测试版本更新前务必备份数据"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ol>
-<li>修复 Windows 版本 mcp 无法使用 npx 命令问题 （要使用 node 22 及以上版本）</li>
-<li>修复代理设置问题</li>
-</ol>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>fix(Proxy): improve system proxy monitor logic and proxyManager init by @DeJeune in <a href="https://github.com/CherryHQ/cherry-studio/pull/3239">https://github.com/CherryHQ/cherry-studio/pull/3239</a>
+<li>fix:<a href="https://github.com/CherryHQ/cherry-studio/issues/3249">https://github.com/CherryHQ/cherry-studio/issues/3249</a> by @MyPrototypeWhat in <a href="https://github.com/CherryHQ/cherry-studio/pull/3271">https://github.com/CherryHQ/cherry-studio/pull/3271</a>
 </li>
-<li>fix(MCPSettings): MCP server environment variables parsing error by @ocleo1 in <a href="https://github.com/CherryHQ/cherry-studio/pull/3238">https://github.com/CherryHQ/cherry-studio/pull/3238</a>
+<li>fix:Resolve bug where clearing context was invalid by @MyPrototypeWhat in <a href="https://github.com/CherryHQ/cherry-studio/pull/3280">https://github.com/CherryHQ/cherry-studio/pull/3280</a>
 </li>
-<li>feat(Painting): Modify painting addition order by @ousugo in <a href="https://github.com/CherryHQ/cherry-studio/pull/3213">https://github.com/CherryHQ/cherry-studio/pull/3213</a>
+<li>fix(OpenAIProvider): Add type property to thinking model by @DeJeune in <a href="https://github.com/CherryHQ/cherry-studio/pull/3282">https://github.com/CherryHQ/cherry-studio/pull/3282</a>
 </li>
+<li>fix(MessageMenubar, useMessageOperations): Enhance loading state hand… by @MyPrototypeWhat in <a href="https://github.com/CherryHQ/cherry-studio/pull/3284">https://github.com/CherryHQ/cherry-studio/pull/3284</a>
+</li>
+<li>fix(Export): Improve error handling and success messaging for markdown export by @ousugo in <a href="https://github.com/CherryHQ/cherry-studio/pull/3285">https://github.com/CherryHQ/cherry-studio/pull/3285</a>
+</li>
+<li>fix(ux): improve chat navigation buttons UX and fix scroll interference by @Cyfine in <a href="https://github.com/CherryHQ/cherry-studio/pull/3277">https://github.com/CherryHQ/cherry-studio/pull/3277</a>
+</li>
+<li>fix(TopicsTab): Ensure active topic is updated correctly on deletion by @ousugo in <a href="https://github.com/CherryHQ/cherry-studio/pull/3275">https://github.com/CherryHQ/cherry-studio/pull/3275</a>
+...</li>
 </ul>
-<p>...</p>
 </details>
 <div class="markdown-heading"><h2 class="heading-element">2. <a href="https://github.com/readest/readest/releases/tag/v0.9.21">readest v0.9.21</a>
 </h2><a id="user-content-2-readest-v0921" class="anchor" aria-label="Permalink: 2. readest v0.9.21" href="#2-readest-v0921"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -179,40 +186,14 @@ pre {
 </ul>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>fix: set sidebar rtl only for mandatory rtl languages, closes #512 by @chrox in <a href="https://github.com/readest/readest/pull/519">https://github.com/readest/readest/pull/519</a>
+<li>fix: set sidebar rtl only for mandatory rtl languages, closes <a href="https://api.github.com/repos/readest/readest/issues{/number}/512"> 512</a> by @chrox in <a href="https://github.com/readest/readest/pull/519">https://github.com/readest/readest/pull/519</a>
 </li>
 <li>Fixes the scrollbar gutter issue for DaisyUI by @xhuajin in <a href="https://github.com/readest/readest/pull/514">https://github.com/readest/readest/pull/514</a>
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h2 class="heading-element">3. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v1.6.0">Ghosten-Player v1.6.0</a>
-</h2><a id="user-content-3-ghosten-player-v160" class="anchor" aria-label="Permalink: 3. Ghosten-Player v1.6.0" href="#3-ghosten-player-v160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">New Feature</h2><a id="user-content-new-feature" class="anchor" aria-label="Permalink: New Feature" href="#new-feature"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ol>
-<li>TV端和移动端分开打包，两端暂时不能混用  <a href="https://anaer.github.io/blog/post/39.html" rel="nofollow">39 Deepseek API</a>
-</li>
-<li>移动端UI更新，简化操作逻辑，适配大屏的Pad  <a href="https://anaer.github.io/blog/post/23.html" rel="nofollow">23 Linux中生成文件的sha1码</a>
-</li>
-<li>播放器UI更新
-<ul>
-<li>TV端简化操作逻辑，去除不常用的按钮，优化遥控器的操作方式</li>
-<li>移动端优化手势操作逻辑，新增手势亮度调节</li>
-</ul>
-</li>
-<li>资源库同步支持增量同步，减少同步的时间  <a href="https://anaer.github.io/blog/post/47.html" rel="nofollow">47 Python查询m3u8视频信息</a>
-</li>
-<li>增加刮削的行为选择，以决定同步媒体库时，刮削到了多条数据该如何处理   <a href="https://anaer.github.io/blog/post/47.html" rel="nofollow">47 Python查询m3u8视频信息</a>
-<ul>
-<li>跳过：跳过该媒体(默认)
-...</li>
-</ul>
-</li>
-</ol>
-</details>
-<div class="markdown-heading"><h2 class="heading-element">4. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.7">deepchat v0.0.7</a>
-</h2><a id="user-content-4-deepchat-v007" class="anchor" aria-label="Permalink: 4. deepchat v0.0.7" href="#4-deepchat-v007"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">3. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.7">deepchat v0.0.7</a>
+</h2><a id="user-content-3-deepchat-v007" class="anchor" aria-label="Permalink: 3. deepchat v0.0.7" href="#3-deepchat-v007"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
 <p>🚀 DeepChat 0.0.7 正式发布 | 重新定义你的 AI 对话体验！
@@ -228,8 +209,48 @@ pre {
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h2 class="heading-element">5. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.10.1">ublacklist v8.10.1</a>
-</h2><a id="user-content-5-ublacklist-v8101" class="anchor" aria-label="Permalink: 5. ublacklist v8.10.1" href="#5-ublacklist-v8101"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">4. <a href="https://github.com/tianzhentech/NeatChat/releases/tag/v1.1.19">NeatChat v1.1.19</a>
+</h2><a id="user-content-4-neatchat-v1119" class="anchor" aria-label="Permalink: 4. NeatChat v1.1.19" href="#4-neatchat-v1119"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<p>1.已全面支持上传文件（10万字符之内），也可自动将复制的文本转附件（非rag），但能解决之前输入框卡死的问题
+支持的文件格式：.bash, .bat, .c, .cer, .conf, .cpp, .cr, .cs, .csr, .css, .csv, .doc, .docx, .go, .h, .hpp, .html, .ini, .ipynb, .java, .js, .json, .jsx, .key, .kt, .less, .m, .md, .pdf, .pem, .php, .pl, .pp, .ppt, .pptx, .ps1, .py, .rb, .rdp, .rs, .r, .scss, .sh, .sql, .svg, .swift, .tex, .toml, .ts, .tsx, .txt, .vue, .xls, .xlsx, .xml, .yaml, .yml, .zip, .zsh
+2.已将上传图片和上传文件合并成上传附件，后续将支持用一个ocr模型给其他模型做前置识别，让所有模型有识图的能力</p>
+</details>
+<div class="markdown-heading"><h2 class="heading-element">5. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v1.6.0">Ghosten-Player v1.6.0</a>
+</h2><a id="user-content-5-ghosten-player-v160" class="anchor" aria-label="Permalink: 5. Ghosten-Player v1.6.0" href="#5-ghosten-player-v160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">New Feature</h2><a id="user-content-new-feature" class="anchor" aria-label="Permalink: New Feature" href="#new-feature"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>TV端和移动端分开打包，两端暂时不能混用 <a href="https://api.github.com/repos/GhostenEditor/Ghosten-Player/issues{/number}/39"> 39</a>
+</li>
+<li>移动端UI更新，简化操作逻辑，适配大屏的Pad <a href="https://api.github.com/repos/GhostenEditor/Ghosten-Player/issues{/number}/28"> 28</a>
+</li>
+<li>播放器UI更新
+<ul>
+<li>TV端简化操作逻辑，去除不常用的按钮，优化遥控器的操作方式</li>
+<li>移动端优化手势操作逻辑，新增手势亮度调节</li>
+</ul>
+</li>
+<li>资源库同步支持增量同步，减少同步的时间 <a href="https://api.github.com/repos/GhostenEditor/Ghosten-Player/issues{/number}/47"> 47</a>
+</li>
+<li>增加刮削的行为选择，以决定同步媒体库时，刮削到了多条数据该如何处理  <a href="https://api.github.com/repos/GhostenEditor/Ghosten-Player/issues{/number}/47"> 47</a>
+<ul>
+<li>跳过：跳过该媒体(默认)
+...</li>
+</ul>
+</li>
+</ol>
+</details>
+<div class="markdown-heading"><h2 class="heading-element">6. <a href="https://github.com/GARCHENG/mcp-server-jina-java/releases/tag/v1.0.0">mcp-server-jina-java v1.0.0</a>
+</h2><a id="user-content-6-mcp-server-jina-java-v100" class="anchor" aria-label="Permalink: 6. mcp-server-jina-java v1.0.0" href="#6-mcp-server-jina-java-v100"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<p>mcp-server-jina-java</p>
+</details>
+<div class="markdown-heading"><h2 class="heading-element">7. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.10.1">ublacklist v8.10.1</a>
+</h2><a id="user-content-7-ublacklist-v8101" class="anchor" aria-label="Permalink: 7. ublacklist v8.10.1" href="#7-ublacklist-v8101"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">
@@ -237,9 +258,9 @@ pre {
 <div class="markdown-heading"><h3 class="heading-element">Bug Fixes</h3><a id="user-content-bug-fixes" class="anchor" aria-label="Permalink: Bug Fixes" href="#bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>
-<strong>ecosia:</strong> update ecosia element selectors (<a href="https://github.com/iorate/ublacklist/issues/578">#578</a>) (<a href="https://github.com/iorate/ublacklist/commit/716104b53d9e395a7aa56dbdf7dfff7e2436d4f4">716104b</a>)</li>
+<strong>ecosia:</strong> update ecosia element selectors (<a href="https://github.com/iorate/ublacklist/issues/578"></a><a href="https://api.github.com/repos/iorate/ublacklist/issues{/number}/578"> 578</a>) (<a href="https://github.com/iorate/ublacklist/commit/716104b53d9e395a7aa56dbdf7dfff7e2436d4f4">716104b</a>)</li>
 <li>
-<strong>locales:</strong> update Chinese translation (<a href="https://github.com/iorate/ublacklist/issues/574">#574</a>) (<a href="https://github.com/iorate/ublacklist/commit/05cbee085a36c0e01b2f8b316d0bd894f35eb6c8">05cbee0</a>)</li>
+<strong>locales:</strong> update Chinese translation (<a href="https://github.com/iorate/ublacklist/issues/574"></a><a href="https://api.github.com/repos/iorate/ublacklist/issues{/number}/574"> 574</a>) (<a href="https://github.com/iorate/ublacklist/commit/05cbee085a36c0e01b2f8b316d0bd894f35eb6c8">05cbee0</a>)</li>
 </ul>
 <p>...</p>
 </details>
