@@ -130,19 +130,43 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-13 13:19:17</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-14 10:16:15</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-14 10:43:54</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 1. readest v0.9.21的更新主要包括修复移动设备上垂直布局的列高度、拖动手柄高度不一致的问题，增加桌面全屏选项和拖放导入书籍功能，同时对更新器、底部栏和笔记进行了多项修复和增强。此外，侧边栏的右到左布局仅针对必要的语言进行了设置，解决了DaisyUI的滚动条间隙问题。
+    <strong>AI总结:</strong> 1. cherry-studio v1.1.2是测试版本，更新前需备份数据。修复了Windows版本中mcp无法使用npx命令的问题（需使用Node 22及以上版本）和代理设置问题。主要更新包括改进系统代理监控逻辑和MCP服务器环境变量解析错误。
 
-2. deepchat v0.0.7的发布重新定义了AI对话体验，增强了交互性和灵活性，支持完整的Ollama模型管理，新增了多模态模型支持，包括Anthropic、Github和Azure，同时允许Windows用户自定义安装目录，并修复了0.0.6版本中的文件嵌入问题。
+2. readest v0.9.21发布亮点包括修复移动端垂直布局的列高度、拖动手柄高度不一致的问题，增加桌面全屏选项和拖放导入书籍功能，以及更新器、底部栏和笔记的多项修复和增强。
 
-3. ublacklist v8.10.1的更新主要集中在修复bug，包括更新Ecosia元素选择器和中文翻译。
+3. Ghosten-Player v1.6.0新特性包括TV端和移动端分开打包、移动端UI更新、播放器UI更新、优化遥控器操作和手势操作逻辑，支持资源库增量同步和刮削行为选择。
+
+4. deepchat v0.0.7正式发布，更新内容包括全新交互功能、Ollama管理支持、多模态模型支持、Windows自定义安装目录功能，以及修复文件嵌入问题。
+
+5. ublacklist v8.10.1主要修复了Ecosia元素选择器和更新中文翻译。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">1. <a href="https://github.com/readest/readest/releases/tag/v0.9.21">readest v0.9.21</a>
-</h2><a id="user-content-1-readest-v0921" class="anchor" aria-label="Permalink: 1. readest v0.9.21" href="#1-readest-v0921"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.2">cherry-studio v1.1.2</a>
+</h2><a id="user-content-1-cherry-studio-v112" class="anchor" aria-label="Permalink: 1. cherry-studio v1.1.2" href="#1-cherry-studio-v112"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h1 class="heading-element"><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 此版本是测试版本，更新前务必备份数据</h1><a id="user-content-️-此版本是测试版本更新前务必备份数据" class="anchor" aria-label="Permalink: ⚠️ 此版本是测试版本，更新前务必备份数据" href="#️-此版本是测试版本更新前务必备份数据"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>修复 Windows 版本 mcp 无法使用 npx 命令问题 （要使用 node 22 及以上版本）</li>
+<li>修复代理设置问题</li>
+</ol>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix(Proxy): improve system proxy monitor logic and proxyManager init by @DeJeune in <a href="https://github.com/CherryHQ/cherry-studio/pull/3239">https://github.com/CherryHQ/cherry-studio/pull/3239</a>
+</li>
+<li>fix(MCPSettings): MCP server environment variables parsing error by @ocleo1 in <a href="https://github.com/CherryHQ/cherry-studio/pull/3238">https://github.com/CherryHQ/cherry-studio/pull/3238</a>
+</li>
+<li>feat(Painting): Modify painting addition order by @ousugo in <a href="https://github.com/CherryHQ/cherry-studio/pull/3213">https://github.com/CherryHQ/cherry-studio/pull/3213</a>
+</li>
+</ul>
+<p>...</p>
+</details>
+<div class="markdown-heading"><h2 class="heading-element">2. <a href="https://github.com/readest/readest/releases/tag/v0.9.21">readest v0.9.21</a>
+</h2><a id="user-content-2-readest-v0921" class="anchor" aria-label="Permalink: 2. readest v0.9.21" href="#2-readest-v0921"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -153,7 +177,7 @@ pre {
 <li>Add drag and drop to import books on desktop</li>
 <li>Various fixes and enhancements on updater, footerbar and note</li>
 </ul>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>fix: set sidebar rtl only for mandatory rtl languages, closes #512 by @chrox in <a href="https://github.com/readest/readest/pull/519">https://github.com/readest/readest/pull/519</a>
 </li>
@@ -161,8 +185,34 @@ pre {
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h2 class="heading-element">2. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.7">deepchat v0.0.7</a>
-</h2><a id="user-content-2-deepchat-v007" class="anchor" aria-label="Permalink: 2. deepchat v0.0.7" href="#2-deepchat-v007"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">3. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v1.6.0">Ghosten-Player v1.6.0</a>
+</h2><a id="user-content-3-ghosten-player-v160" class="anchor" aria-label="Permalink: 3. Ghosten-Player v1.6.0" href="#3-ghosten-player-v160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">New Feature</h2><a id="user-content-new-feature" class="anchor" aria-label="Permalink: New Feature" href="#new-feature"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>TV端和移动端分开打包，两端暂时不能混用  <a href="https://anaer.github.io/blog/post/39.html" rel="nofollow">39 Deepseek API</a>
+</li>
+<li>移动端UI更新，简化操作逻辑，适配大屏的Pad  <a href="https://anaer.github.io/blog/post/23.html" rel="nofollow">23 Linux中生成文件的sha1码</a>
+</li>
+<li>播放器UI更新
+<ul>
+<li>TV端简化操作逻辑，去除不常用的按钮，优化遥控器的操作方式</li>
+<li>移动端优化手势操作逻辑，新增手势亮度调节</li>
+</ul>
+</li>
+<li>资源库同步支持增量同步，减少同步的时间  <a href="https://anaer.github.io/blog/post/47.html" rel="nofollow">47 Python查询m3u8视频信息</a>
+</li>
+<li>增加刮削的行为选择，以决定同步媒体库时，刮削到了多条数据该如何处理   <a href="https://anaer.github.io/blog/post/47.html" rel="nofollow">47 Python查询m3u8视频信息</a>
+<ul>
+<li>跳过：跳过该媒体(默认)
+...</li>
+</ul>
+</li>
+</ol>
+</details>
+<div class="markdown-heading"><h2 class="heading-element">4. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.7">deepchat v0.0.7</a>
+</h2><a id="user-content-4-deepchat-v007" class="anchor" aria-label="Permalink: 4. deepchat v0.0.7" href="#4-deepchat-v007"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
 <p>🚀 DeepChat 0.0.7 正式发布 | 重新定义你的 AI 对话体验！
@@ -178,8 +228,8 @@ pre {
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h2 class="heading-element">3. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.10.1">ublacklist v8.10.1</a>
-</h2><a id="user-content-3-ublacklist-v8101" class="anchor" aria-label="Permalink: 3. ublacklist v8.10.1" href="#3-ublacklist-v8101"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">5. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.10.1">ublacklist v8.10.1</a>
+</h2><a id="user-content-5-ublacklist-v8101" class="anchor" aria-label="Permalink: 5. ublacklist v8.10.1" href="#5-ublacklist-v8101"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">
