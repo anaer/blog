@@ -130,10 +130,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-09 17:21:34</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-13 15:21:26</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-14 17:35:56</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了夸克网盘的获取方式及其功能，用户可通过淘宝88VIP获得6T空间的会员，支持视频原画。Koofr则允许使用Google账号登录，提供10G免费容量，用户需生成单独的App password以通过WebDAV访问。文中列出了WebDAV的应用场景，包括配置备份和书签同步，提到的工具有Cherry Studio、Tabby cloud-settings-sync、暴力猴、Stylus和TopYou等，同时介绍了Koorf的Chrome插件，支持网页或图片保存，并可连接Dropbox、Google Drive等第三方网盘。
+    <strong>AI总结:</strong> 夸克网盘通过淘宝88VIP可获取会员，提供6T空间并支持视频原画。Koofr支持Google账号登录，免费用户可获得10G容量，通过生成单独的App密码可实现WebDAV访问，地址为https://app.koofr.net/dav/Koofr，账号为Google邮箱，密码为生成的App密码。
+
+使用Save to Koofr Chrome插件可将网页或图片保存到Koofr，支持连接Dropbox、Google Drive、OneDrive、Facebook和Instagram，但免费账号只能挂载两个第三方网盘。Koofr还支持Windows、Mac和Linux客户端的直接连接。
+
+WebDAV可用于应用配置备份，例如Cherry Studio和Tabby cloud-settings-sync插件，配置时Port需留空。Chrome和Edge扩展支持暴力猴和Stylus同步，若需指定目录，则需在WebDAV上创建目录并在URL中配置。WebDAV Bookmark Sync也可通过类似方式指定目录。
+
+此外，TopYou书签同步是Edge插件，与Chrome不兼容。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -167,14 +173,18 @@ Chrome插件, 支持保存网页或图片到Koorf上</li>
 <div class="markdown-heading"><h3 class="heading-element">Chrome&amp;Edge扩展</h3><a id="user-content-chromeedge扩展" class="anchor" aria-label="Permalink: Chrome&amp;Edge扩展" href="#chromeedge扩展"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>
 <li>暴力猴同步</li>
-<li>Stylus 同步</li>
-<li><a href="https://chromewebstore.google.com/detail/webdav-bookmark-sync/opacelalohmnjnjiekmebpajbomjiejc" rel="nofollow">WebDAV Bookmark Sync</a></li>
+<li>Stylus 同步
+如果需要指定目录, 需要在Webdav上创建目录Stylus, 然后在url上配置, 如: <a href="https://app.koofr.net/dav/Koofr/Stylus" rel="nofollow">https://app.koofr.net/dav/Koofr/Stylus</a>, 否则会直接同步到根目录下</li>
+<li>
+<a href="https://chromewebstore.google.com/detail/webdav-bookmark-sync/opacelalohmnjnjiekmebpajbomjiejc" rel="nofollow">WebDAV Bookmark Sync</a>
+如果要指定目录, 配法跟👆上面的一样 提前创建目录, 并指定url: <a href="https://app.koofr.net/dav/Koofr/webdav-bookmark-sync" rel="nofollow">https://app.koofr.net/dav/Koofr/webdav-bookmark-sync</a>
+</li>
 <li>
 <a href="https://microsoftedge.microsoft.com/addons/detail/topyou%E4%B9%A6%E7%AD%BE%E5%90%8C%E6%AD%A5/mjhfligjjngfmmdnndobaeieogbbkhek" rel="nofollow"><del>TopYou 书签同步</del></a> Edge插件 与Chrome不兼容</li>
 </ol>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/34.html" aria-label="Previous Page">34 Python分词</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/32.html" aria-label="Next Page">32 电子书下载站</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/32.html" aria-label="Previous Page">32 电子书下载站</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/34.html" aria-label="Next Page">34 Python分词</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

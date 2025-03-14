@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 14 Mar 2025 02:44:21 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 14 Mar 2025 02:44:21 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>90 将应用程序添加为系统服务进行管理</title><link>https://anaer.github.io/blog/post/90.html</link><description>Win服务管理可以通过winsw.exe进行全局管理，或将其重命名为特定应用的服务程序（如myapp-server.exe）。服务配置包括服务标识、名称、描述、环境变量、可执行文件及其参数、日志路径和日志设置。具体服务管理命令包括安装、卸载、启动、停止、重启、查询状态和刷新属性。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 14 Mar 2025 09:36:25 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 14 Mar 2025 09:36:25 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>90 将应用程序添加为系统服务进行管理</title><link>https://anaer.github.io/blog/post/90.html</link><description>Win服务管理可以通过winsw.exe进行全局管理，或将其重命名为特定应用的服务程序（如myapp-server.exe）。服务配置包括服务标识、名称、描述、环境变量、可执行文件及其参数、日志路径和日志设置。具体服务管理命令包括安装、卸载、启动、停止、重启、查询状态和刷新属性。
 
 对于Mac服务，用户需创建LaunchAgent配置文件，并在~/Library/LaunchAgents目录中编辑.plist文件，配置服务标识、程序参数和加载选项。完成配置后，通过launchctl命令加载服务并验证其是否成功加载。
 
@@ -355,7 +355,13 @@ import jieba
 
 # 精确模式，试图将句子最精确地切开，适合文本分析
 text = "测试分词长字符串"
-words = jieba.cu...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/34.html</guid><pubDate>Mon, 13 Jan 2025 08:06:52 +0000</pubDate></item><item><title>33 网盘</title><link>https://anaer.github.io/blog/post/33.html</link><description>本文介绍了夸克网盘的获取方式及其功能，用户可通过淘宝88VIP获得6T空间的会员，支持视频原画。Koofr则允许使用Google账号登录，提供10G免费容量，用户需生成单独的App password以通过WebDAV访问。文中列出了WebDAV的应用场景，包括配置备份和书签同步，提到的工具有Cherry Studio、Tabby cloud-settings-sync、暴力猴、Stylus和TopYou等，同时介绍了Koorf的Chrome插件，支持网页或图片保存，并可连接Dropbox、Google Drive等第三方网盘。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/33.html</guid><pubDate>Thu, 09 Jan 2025 09:21:34 +0000</pubDate></item><item><title>32 电子书下载站</title><link>https://anaer.github.io/blog/post/32.html</link><description>Z-library
+words = jieba.cu...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/34.html</guid><pubDate>Mon, 13 Jan 2025 08:06:52 +0000</pubDate></item><item><title>33 网盘</title><link>https://anaer.github.io/blog/post/33.html</link><description>夸克网盘通过淘宝88VIP可获取会员，提供6T空间并支持视频原画。Koofr支持Google账号登录，免费用户可获得10G容量，通过生成单独的App密码可实现WebDAV访问，地址为https://app.koofr.net/dav/Koofr，账号为Google邮箱，密码为生成的App密码。
+
+使用Save to Koofr Chrome插件可将网页或图片保存到Koofr，支持连接Dropbox、Google Drive、OneDrive、Facebook和Instagram，但免费账号只能挂载两个第三方网盘。Koofr还支持Windows、Mac和Linux客户端的直接连接。
+
+WebDAV可用于应用配置备份，例如Cherry Studio和Tabby cloud-settings-sync插件，配置时Port需留空。Chrome和Edge扩展支持暴力猴和Stylus同步，若需指定目录，则需在WebDAV上创建目录并在URL中配置。WebDAV Bookmark Sync也可通过类似方式指定目录。
+
+此外，TopYou书签同步是Edge插件，与Chrome不兼容。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/33.html</guid><pubDate>Thu, 09 Jan 2025 09:21:34 +0000</pubDate></item><item><title>32 电子书下载站</title><link>https://anaer.github.io/blog/post/32.html</link><description>Z-library
 Re Z-library
 可以在tg上创建bot用于搜书下书, 不过因为tg限制, 只能下载50M以下的
 SaltyLeo的书架
