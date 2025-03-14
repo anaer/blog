@@ -130,22 +130,22 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-13 13:19:17</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-14 17:47:35</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-14 17:49:37</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 1. cherry-studio v1.1.3 是一款测试版本，更新前需备份数据。主要修复了多个bug，包括清除上下文的问题、增强加载状态的处理、改进Markdown导出错误处理等。
+    <strong>AI总结:</strong> 1. cherry-studio v1.1.3是测试版本，更新前需备份数据，修复了多个bug，包括上下文清除无效、OpenAIProvider类型属性添加、消息操作加载状态增强、Markdown导出错误处理等。
 
-2. readest v0.9.21 主要修复了移动端的列高和拖拽手柄高度问题，增加了桌面的全屏选项和拖放导入书籍的功能，并对更新器、底部栏和笔记进行了多项修复和增强。
+2. readest v0.9.21修复了移动端的列高度和拖动手柄高度问题，增加了桌面端全屏选项和拖放导入书籍功能，并对更新器、底部栏和笔记进行了多项修复和增强。
 
-3. deepchat v0.0.7 正式发布，带来全新交互体验，支持Ollama模型管理和多模态模型，新增Anthropic、Github Models和Azure支持，同时修复了文件嵌入问题。
+3. deepchat v0.0.7正式发布，新增了Ollama模型管理支持、多模态模型支持以及Anthropic、Github Models和Azure的支持，解决了文件嵌入问题。
 
-4. NeatChat v1.1.19 全面支持上传文件，并合并了上传图片和文件的功能，后续将支持OCR模型进行识图。
+4. NeatChat v1.1.19全面支持上传文件，并将上传图片和文件合并为附件，未来将支持OCR模型识别功能。
 
-5. Ghosten-Player v1.6.0 新增了针对TV端和移动端的不同打包，进行了UI更新，优化了操作逻辑和手势操作，同时支持资源库的增量同步。
+5. Ghosten-Player v1.6.0新增了TV和移动端的分包，优化了UI和操作逻辑，支持增量同步资源库，并增加了媒体同步时的刮削行为选择。
 
-6. mcp-server-jina-java v1.0.0 进行了版本更新。
+6. mcp-server-jina-java v1.0.0发布，具体变更未详细说明。
 
-7. ublacklist v8.10.1 主要进行了bug修复，包括更新Ecosia元素选择器和中文翻译。
+7. ublacklist v8.10.1修复了Ecosia元素选择器和更新了中文翻译。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -186,7 +186,7 @@ pre {
 </ul>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>fix: set sidebar rtl only for mandatory rtl languages, closes <a href="https://api.github.com/repos/readest/readest/issues{/number}/512"> 512</a> by @chrox in <a href="https://github.com/readest/readest/pull/519">https://github.com/readest/readest/pull/519</a>
+<li>fix: set sidebar rtl only for mandatory rtl languages, closes # 512 by @chrox in <a href="https://github.com/readest/readest/pull/519">https://github.com/readest/readest/pull/519</a>
 </li>
 <li>Fixes the scrollbar gutter issue for DaisyUI by @xhuajin in <a href="https://github.com/readest/readest/pull/514">https://github.com/readest/readest/pull/514</a>
 ...</li>
@@ -223,19 +223,16 @@ pre {
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">New Feature</h2><a id="user-content-new-feature" class="anchor" aria-label="Permalink: New Feature" href="#new-feature"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>
-<li>TV端和移动端分开打包，两端暂时不能混用 <a href="https://api.github.com/repos/GhostenEditor/Ghosten-Player/issues{/number}/39"> 39</a>
-</li>
-<li>移动端UI更新，简化操作逻辑，适配大屏的Pad <a href="https://api.github.com/repos/GhostenEditor/Ghosten-Player/issues{/number}/28"> 28</a>
-</li>
+<li>TV端和移动端分开打包，两端暂时不能混用 # 39</li>
+<li>移动端UI更新，简化操作逻辑，适配大屏的Pad # 28</li>
 <li>播放器UI更新
 <ul>
 <li>TV端简化操作逻辑，去除不常用的按钮，优化遥控器的操作方式</li>
 <li>移动端优化手势操作逻辑，新增手势亮度调节</li>
 </ul>
 </li>
-<li>资源库同步支持增量同步，减少同步的时间 <a href="https://api.github.com/repos/GhostenEditor/Ghosten-Player/issues{/number}/47"> 47</a>
-</li>
-<li>增加刮削的行为选择，以决定同步媒体库时，刮削到了多条数据该如何处理  <a href="https://api.github.com/repos/GhostenEditor/Ghosten-Player/issues{/number}/47"> 47</a>
+<li>资源库同步支持增量同步，减少同步的时间 # 47</li>
+<li>增加刮削的行为选择，以决定同步媒体库时，刮削到了多条数据该如何处理  # 47
 <ul>
 <li>跳过：跳过该媒体(默认)
 ...</li>
@@ -258,9 +255,9 @@ pre {
 <div class="markdown-heading"><h3 class="heading-element">Bug Fixes</h3><a id="user-content-bug-fixes" class="anchor" aria-label="Permalink: Bug Fixes" href="#bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>
-<strong>ecosia:</strong> update ecosia element selectors (<a href="https://github.com/iorate/ublacklist/issues/578"></a><a href="https://api.github.com/repos/iorate/ublacklist/issues{/number}/578"> 578</a>) (<a href="https://github.com/iorate/ublacklist/commit/716104b53d9e395a7aa56dbdf7dfff7e2436d4f4">716104b</a>)</li>
+<strong>ecosia:</strong> update ecosia element selectors (<a href="https://github.com/iorate/ublacklist/issues/578"># 578</a>) (<a href="https://github.com/iorate/ublacklist/commit/716104b53d9e395a7aa56dbdf7dfff7e2436d4f4">716104b</a>)</li>
 <li>
-<strong>locales:</strong> update Chinese translation (<a href="https://github.com/iorate/ublacklist/issues/574"></a><a href="https://api.github.com/repos/iorate/ublacklist/issues{/number}/574"> 574</a>) (<a href="https://github.com/iorate/ublacklist/commit/05cbee085a36c0e01b2f8b316d0bd894f35eb6c8">05cbee0</a>)</li>
+<strong>locales:</strong> update Chinese translation (<a href="https://github.com/iorate/ublacklist/issues/574"># 574</a>) (<a href="https://github.com/iorate/ublacklist/commit/05cbee085a36c0e01b2f8b316d0bd894f35eb6c8">05cbee0</a>)</li>
 </ul>
 <p>...</p>
 </details>
