@@ -1,0 +1,71 @@
+<div class="markdown-heading"><h2 class="heading-element">Win服务</h2><a id="user-content-win服务" class="anchor" aria-label="Permalink: Win服务" href="#win服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>可以使用winsw.exe进行全局管理, 也可以重命名为指定应用的服务程序如<code>myapp-server.exe</code></p>
+<div class="markdown-heading"><h3 class="heading-element">服务配置</h3><a id="user-content-服务配置" class="anchor" aria-label="Permalink: 服务配置" href="#服务配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">service</span>&gt;
+  &lt;<span class="pl-ent">id</span>&gt;myapp&lt;/<span class="pl-ent">id</span>&gt;
+  &lt;<span class="pl-ent">name</span>&gt;myapp&lt;/<span class="pl-ent">name</span>&gt;
+  &lt;<span class="pl-ent">description</span>&gt;myapp服务&lt;/<span class="pl-ent">description</span>&gt;
+  &lt;<span class="pl-ent">env</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>MYAPP_HOME<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>%BASE%<span class="pl-pds">"</span></span>/&gt; <span class="pl-c"><span class="pl-c">&lt;!--</span> BASE: 指向包含重命名后的 WinSW.exe 的目录 <span class="pl-c">--&gt;</span></span>
+  &lt;<span class="pl-ent">executable</span>&gt;myapp.exe&lt;/<span class="pl-ent">executable</span>&gt;
+  &lt;<span class="pl-ent">arguments</span>&gt;-f "%BASE%\myapp.yaml" -d "%BASE%"&lt;/<span class="pl-ent">arguments</span>&gt; <span class="pl-c"><span class="pl-c">&lt;!--</span> 应用程序参数 <span class="pl-c">--&gt;</span></span>
+  &lt;<span class="pl-ent">logpath</span>&gt;%BASE%\logs&lt;/<span class="pl-ent">logpath</span>&gt;
+  &lt;<span class="pl-ent">log</span> <span class="pl-e">mode</span>=<span class="pl-s"><span class="pl-pds">"</span>roll-by-size<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">sizeThreshold</span>&gt;10240&lt;/<span class="pl-ent">sizeThreshold</span>&gt;
+    &lt;<span class="pl-ent">keepFiles</span>&gt;3&lt;/<span class="pl-ent">keepFiles</span>&gt;
+  &lt;/<span class="pl-ent">log</span>&gt;
+&lt;/<span class="pl-ent">service</span>&gt;</pre></div>
+<div class="markdown-heading"><h3 class="heading-element">服务管理</h3><a id="user-content-服务管理" class="anchor" aria-label="Permalink: 服务管理" href="#服务管理"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 安装服务</span>
+winsw.exe install myapp-server.xml
+<span class="pl-c"><span class="pl-c">#</span> 卸载服务</span>
+winsw.exe uninstall myapp-server.xml
+<span class="pl-c"><span class="pl-c">#</span> 启动服务</span>
+winsw.exe start myapp-server.xml
+<span class="pl-c"><span class="pl-c">#</span> 停止服务</span>
+winsw.exe stop myapp-server.xml
+<span class="pl-c"><span class="pl-c">#</span> 重启服务</span>
+winsw.exe restart myapp-server.xml
+<span class="pl-c"><span class="pl-c">#</span> 查询服务状态</span>
+winsw.exe status myapp-server.xml
+<span class="pl-c"><span class="pl-c">#</span> 刷新服务属性</span>
+winsw.exe refresh myapp-server.xml</pre></div>
+<div class="markdown-heading"><h3 class="heading-element">相关链接</h3><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li><a href="https://github.com/winsw/winsw">winsw服务管理</a></li>
+<li><a href="https://github.com/winsw/winsw/blob/v3/docs/xml-config-file.md">服务配置文件说明</a></li>
+<li><a href="https://github.com/winsw/winsw/blob/v3/docs/logging-and-error-reporting.md">日志设置</a></li>
+</ol>
+<hr>
+<div class="markdown-heading"><h2 class="heading-element">Mac服务</h2><a id="user-content-mac服务" class="anchor" aria-label="Permalink: Mac服务" href="#mac服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">1. <strong>创建 LaunchAgent 配置文件</strong>
+</h3><a id="user-content-1-创建-launchagent-配置文件" class="anchor" aria-label="Permalink: 1. 创建 LaunchAgent 配置文件" href="#1-创建-launchagent-配置文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>在终端执行以下命令，在 <code>~/Library/LaunchAgents</code> 目录（如未存在则新增目录）新增配置文件：</p>
+<div class="highlight highlight-source-shell"><pre>vim <span class="pl-k">~</span>/Library/LaunchAgents/myapp.plist</pre></div>
+<div class="markdown-heading"><h3 class="heading-element">2. <strong>编辑 <code>.plist</code> 文件内容</strong>
+</h3><a id="user-content-2-编辑-plist-文件内容" class="anchor" aria-label="Permalink: 2. 编辑 .plist 文件内容" href="#2-编辑-plist-文件内容"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>将以下内容填入文件中，并根据 <strong>实际路径</strong> 调整以下部分：</p>
+<div class="highlight highlight-text-xml"><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>?&gt;
+&lt;!<span class="pl-ent">DOCTYPE</span> <span class="pl-e">plist</span> PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;<span class="pl-ent">plist</span> <span class="pl-e">version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">dict</span>&gt;
+    &lt;<span class="pl-ent">key</span>&gt;Label&lt;/<span class="pl-ent">key</span>&gt;
+    &lt;<span class="pl-ent">string</span>&gt;myapp.service&lt;/<span class="pl-ent">string</span>&gt;                <span class="pl-c"><span class="pl-c">&lt;!--</span> 自定义服务标识 <span class="pl-c">--&gt;</span></span>
+    &lt;<span class="pl-ent">key</span>&gt;ProgramArguments&lt;/<span class="pl-ent">key</span>&gt;
+    &lt;<span class="pl-ent">array</span>&gt;
+        &lt;<span class="pl-ent">string</span>&gt;/MYAPP_HOME/myapp&lt;/<span class="pl-ent">string</span>&gt;        <span class="pl-c"><span class="pl-c">&lt;!--</span> 应用绝对路径 <span class="pl-c">--&gt;</span></span>
+        &lt;<span class="pl-ent">string</span>&gt;-f&lt;/<span class="pl-ent">string</span>&gt;                       <span class="pl-c"><span class="pl-c">&lt;!--</span> 以下应用程序参数, 可根据实际情况进行调整 <span class="pl-c">--&gt;</span></span>
+        &lt;<span class="pl-ent">string</span>&gt;/MYAPP_HOME/myapp.yaml&lt;/<span class="pl-ent">string</span>&gt;   
+        &lt;<span class="pl-ent">string</span>&gt;-d&lt;/<span class="pl-ent">string</span>&gt;
+        &lt;<span class="pl-ent">string</span>&gt;/MYAPP_HOME&lt;/<span class="pl-ent">string</span>&gt;              
+    &lt;/<span class="pl-ent">array</span>&gt;
+    &lt;<span class="pl-ent">key</span>&gt;RunAtLoad&lt;/<span class="pl-ent">key</span>&gt;
+    &lt;<span class="pl-ent">true</span>/&gt;
+    &lt;<span class="pl-ent">key</span>&gt;KeepAlive&lt;/<span class="pl-ent">key</span>&gt;
+    &lt;<span class="pl-ent">false</span>/&gt;
+&lt;/<span class="pl-ent">dict</span>&gt;
+&lt;/<span class="pl-ent">plist</span>&gt;</pre></div>
+<div class="markdown-heading"><h3 class="heading-element">3. <strong>加载并验证服务</strong>
+</h3><a id="user-content-3-加载并验证服务" class="anchor" aria-label="Permalink: 3. 加载并验证服务" href="#3-加载并验证服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>保存文件后执行以下命令，确保服务生效：</p>
+<div class="highlight highlight-source-shell"><pre>launchctl load <span class="pl-k">~</span>/Library/LaunchAgents/myapp.plist     <span class="pl-c"><span class="pl-c">#</span> 加载服务</span>
+launchctl list <span class="pl-k">|</span> grep myapp                           <span class="pl-c"><span class="pl-c">#</span> 验证是否加载</span></pre></div>
