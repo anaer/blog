@@ -130,27 +130,42 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-13 13:19:17</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-14 23:10:28</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-15 10:14:32</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> DeepChat v0.0.7 正式发布，新增Artifacts交互和Ollama模型管理支持，支持多模态模型和多个平台。NeatChat v1.1.19 现已支持上传文件和自动附件转化，合并了图片和文件上传功能。Cherry-Studio v1.1.3 是测试版本，修复了多个bug并改善用户体验。Readest v0.9.21 修复了移动端布局和滚动条问题，新增桌面全屏和拖放导入书籍功能。Ghosten-Player v1.6.0 更新了移动端和TV端的UI，优化了操作逻辑和资源库同步功能。mcp-server-jina-java 发布了版本1.0.0。Ublacklist v8.10.1 修复了多个bug并更新了中文翻译。
+    <strong>AI总结:</strong> 1. **Readest v0.9.21**: 修复了移动端的垂直布局列高度问题和拖动句柄高度不一致问题，增加了桌面端全屏选项和拖放导入书籍功能，针对更新器、底部栏和笔记进行了多项修复和增强。
+
+2. **NeatChat v1.1.19**: 全面支持上传文件（最大10万字符），并能自动将复制的文本转为附件，解决了输入框卡死的问题。合并了上传图片和文件功能，并计划通过OCR模型增强识图能力。
+
+3. **Cherry-Studio v1.1.3**: 测试版本，更新前需备份数据。修复了一系列问题，包括上下文清除无效、OpenAI提供者的类型属性、消息操作的加载状态等，增强了Markdown导出时的错误处理和成功消息。
+
+4. **DeepChat v0.0.7**: 重新定义AI对话体验，新增Artifacts交互、Ollama模型管理支持、多模态模型支持及Windows自定义安装目录功能，修复了嵌入问题。
+
+5. **Ghosten-Player v1.6.0**: TV和移动端分开打包，移动端UI更新以简化操作，增加手势亮度调节功能，资源库同步支持增量同步，优化了刮削行为选择。
+
+6. **Mcp-server-jina-java v1.0.0**: 新版本发布，具体内容未详细说明。
+
+7. **Ublacklist v8.10.1**: 更新了Ecosia元素选择器和中文翻译，修复了一些bug。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">1. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.7">deepchat v0.0.7</a>
-</h2><a id="user-content-1-deepchat-v007" class="anchor" aria-label="Permalink: 1. deepchat v0.0.7" href="#1-deepchat-v007"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">1. <a href="https://github.com/readest/readest/releases/tag/v0.9.21">readest v0.9.21</a>
+</h2><a id="user-content-1-readest-v0921" class="anchor" aria-label="Permalink: 1. readest v0.9.21" href="#1-readest-v0921"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
-<p>🚀 DeepChat 0.0.7 正式发布 | 重新定义你的 AI 对话体验！
-—— 更强大，更灵活，更智能，开启高效沟通新高度 🌟</p>
-<p>✨ 本次主要更新内容 ✨</p>
+<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>Artifacts 全新交互，好用又实用</li>
-<li>完整的 Ollama 管理支持，支持直接在DeepChat内拉取和删除Ollama模型</li>
-<li>多模态模型支持</li>
-<li>新增了 Anthropic、Github Models、Azure支持</li>
-<li>Windows可以自定义安装目录了</li>
-<li>修复了0.0.6引起的文件不能正常嵌入问题
+<li>Fix column height in vertical layout on mobile</li>
+<li>Fix drag handle height not constant on mobile</li>
+<li>Add fullscreen option on desktop</li>
+<li>Add drag and drop to import books on desktop</li>
+<li>Various fixes and enhancements on updater, footerbar and note</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: set sidebar rtl only for mandatory rtl languages, closes  by @chrox in <a href="https://github.com/readest/readest/pull/519">https://github.com/readest/readest/pull/519</a>
+</li>
+<li>Fixes the scrollbar gutter issue for DaisyUI by @xhuajin in <a href="https://github.com/readest/readest/pull/514">https://github.com/readest/readest/pull/514</a>
 ...</li>
 </ul>
 </details>
@@ -167,7 +182,7 @@ pre {
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h1 class="heading-element"><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 此版本是测试版本，更新前务必备份数据</h1><a id="user-content-️-此版本是测试版本更新前务必备份数据" class="anchor" aria-label="Permalink: ⚠️ 此版本是测试版本，更新前务必备份数据" href="#️-此版本是测试版本更新前务必备份数据"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>fix:<a href="https://github.com/CherryHQ/cherry-studio/issues/3249">https://github.com/CherryHQ/cherry-studio/issues/3249</a> by @MyPrototypeWhat in <a href="https://github.com/CherryHQ/cherry-studio/pull/3271">https://github.com/CherryHQ/cherry-studio/pull/3271</a>
 </li>
@@ -185,23 +200,20 @@ pre {
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h2 class="heading-element">4. <a href="https://github.com/readest/readest/releases/tag/v0.9.21">readest v0.9.21</a>
-</h2><a id="user-content-4-readest-v0921" class="anchor" aria-label="Permalink: 4. readest v0.9.21" href="#4-readest-v0921"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">4. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.7">deepchat v0.0.7</a>
+</h2><a id="user-content-4-deepchat-v007" class="anchor" aria-label="Permalink: 4. deepchat v0.0.7" href="#4-deepchat-v007"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🚀 DeepChat 0.0.7 正式发布 | 重新定义你的 AI 对话体验！
+—— 更强大，更灵活，更智能，开启高效沟通新高度 🌟</p>
+<p>✨ 本次主要更新内容 ✨</p>
 <ul>
-<li>Fix column height in vertical layout on mobile</li>
-<li>Fix drag handle height not constant on mobile</li>
-<li>Add fullscreen option on desktop</li>
-<li>Add drag and drop to import books on desktop</li>
-<li>Various fixes and enhancements on updater, footerbar and note</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>fix: set sidebar rtl only for mandatory rtl languages, closes  by @chrox in <a href="https://github.com/readest/readest/pull/519">https://github.com/readest/readest/pull/519</a>
-</li>
-<li>Fixes the scrollbar gutter issue for DaisyUI by @xhuajin in <a href="https://github.com/readest/readest/pull/514">https://github.com/readest/readest/pull/514</a>
+<li>Artifacts 全新交互，好用又实用</li>
+<li>完整的 Ollama 管理支持，支持直接在DeepChat内拉取和删除Ollama模型</li>
+<li>多模态模型支持</li>
+<li>新增了 Anthropic、Github Models、Azure支持</li>
+<li>Windows可以自定义安装目录了</li>
+<li>修复了0.0.6引起的文件不能正常嵌入问题
 ...</li>
 </ul>
 </details>
