@@ -130,115 +130,31 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-13 13:19:17</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-16 10:22:36</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-16 23:08:39</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 1. DeepChat v0.0.7发布，增加Ollama模型管理、支持多模态模型、引入Anthropic和Github Models，修复文件嵌入问题，并允许Windows用户自定义安装目录。
+    <strong>AI总结:</strong> 1. Ghosten-Player v1.6.0引入了TV端和移动端分开打包，优化了移动端UI并简化操作逻辑，适配大屏设备。TV端也进行了操作逻辑简化，优化遥控器使用。资源库同步支持增量同步，新增刮削行为选择。
 
-2. Readest v0.9.22更新，新增主题颜色编辑器和垂直布局边框，修复macOS滚动模式下的布局问题，并改善翻译、脚注和滚动条功能。
+2. xpipe 15.5修复了多个macOS相关问题，包括连接层级背景更新、zsh启动失败的回退问题以及vscode远程打开功能的路径错误等。
 
-3. Xpipe v15.5修复多个macOS相关问题，确保连接层级背景更新、zsh启动失败时的回退机制，以及FreeRDP启动时的空指针问题。
+3. cherry-studio v1.1.4是测试版本，增加了API密钥验证和多密钥支持，修复了消息暂停的错误，并对模型搜索框和API URL显示进行了改进。
 
-4. Cherry-Studio v1.1.4为测试版本，修复web搜索的API主机格式问题，增强API密钥验证，改进Notion导出功能。
+4. fit-framework v3.5.0-M1是FIT Framework社区的首个里程碑版本，新增IoC插件化容器能力，支持Bean管理和生命周期管理。
 
-5. NeatChat v1.1.19全面支持文件上传，自动将复制文本转为附件，合并图片和文件上传功能，未来将支持OCR模型识图。
+5. deepchat v0.0.7正式发布，更新了交互功能，支持Ollama模型管理和多模态模型，Windows用户可自定义安装目录，并修复了前版本的问题。
 
-6. Ghosten-Player v1.6.0推出新功能，分开打包TV端和移动端，更新UI，优化操作逻辑和手势控制，支持资源库增量同步。
+6. readest v0.9.22新增主题颜色编辑器和垂直布局边框，修复了macOS滚动模式下的布局问题，并对翻译、脚注和滚动条进行了多项增强。
 
-7. MCP-Server-Jina-Java v1.0.0发布。
+7. NeatChat v1.1.19全面支持文件上传及复制文本转附件功能，合并了图片和文件上传，并计划支持OCR模型识别。
 
-8. UBlacklist v8.10.1修复Ecosia元素选择器和更新中文翻译。
+8. mcp-server-jina-java v1.0.0发布。
+
+9. ublacklist v8.10.1修复了ecosia元素选择器和中文翻译更新等问题。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">1. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.7">deepchat v0.0.7</a>
-</h2><a id="user-content-1-deepchat-v007" class="anchor" aria-label="Permalink: 1. deepchat v0.0.7" href="#1-deepchat-v007"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<details>
-<summary>变更说明</summary>
-<p>🚀 DeepChat 0.0.7 正式发布 | 重新定义你的 AI 对话体验！
-—— 更强大，更灵活，更智能，开启高效沟通新高度 🌟</p>
-<p>✨ 本次主要更新内容 ✨</p>
-<ul>
-<li>Artifacts 全新交互，好用又实用</li>
-<li>完整的 Ollama 管理支持，支持直接在DeepChat内拉取和删除Ollama模型</li>
-<li>多模态模型支持</li>
-<li>新增了 Anthropic、Github Models、Azure支持</li>
-<li>Windows可以自定义安装目录了</li>
-<li>修复了0.0.6引起的文件不能正常嵌入问题
-...</li>
-</ul>
-</details>
-<div class="markdown-heading"><h2 class="heading-element">2. <a href="https://github.com/readest/readest/releases/tag/v0.9.22">readest v0.9.22</a>
-</h2><a id="user-content-2-readest-v0922" class="anchor" aria-label="Permalink: 2. readest v0.9.22" href="#2-readest-v0922"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>Add theme color editor for more customization</li>
-<li>Add border frame for vertical layout</li>
-<li>Fix layout glitches on macOS in scroll mode</li>
-<li>Various fixes and enhancements on translator, footnote, and scrollbar</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>fix: following ordinary link in footnotes, closes  by @chrox in <a href="https://github.com/readest/readest/pull/560">https://github.com/readest/readest/pull/560</a>
-</li>
-<li>feat: add theme editor for custom theme colors, closes  by @chrox in <a href="https://github.com/readest/readest/pull/594">https://github.com/readest/readest/pull/594</a>
-</li>
-<li>fix: clear select mode when importing files, closes  by @chrox in <a href="https://github.com/readest/readest/pull/595">https://github.com/readest/readest/pull/595</a>
-...</li>
-</ul>
-</details>
-<div class="markdown-heading"><h2 class="heading-element">3. <a href="https://github.com/xpipe-io/xpipe/releases/tag/15.5">xpipe 15.5</a>
-</h2><a id="user-content-3-xpipe-155" class="anchor" aria-label="Permalink: 3. xpipe 15.5" href="#3-xpipe-155"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<details>
-<summary>变更说明</summary>
-<ul>
-<li>Fix connection hierarchy backgrounds not updating properly when expanding them</li>
-<li>Fix some issues on macOS when zsh failed to start</li>
-<li>Fix XPipe not falling back to sh in some cases on macOS when zsh failed to start</li>
-<li>Fix vscode remote open functionality using wrong app path on macOS</li>
-<li>Fix zsh module zsh/stat breaking some file browser functionality when enabled</li>
-<li>Fix tailscale refresh operations failing with an out-of-bounds error in some cases</li>
-<li>Fix some OS logos not showing correctly</li>
-<li>Fix NullPointer when launching FreeRDP</li>
-<li>Fix outdated manpages docs link</li>
-</ul>
-<p>...</p>
-</details>
-<div class="markdown-heading"><h2 class="heading-element">4. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.4">cherry-studio v1.1.4</a>
-</h2><a id="user-content-4-cherry-studio-v114" class="anchor" aria-label="Permalink: 4. cherry-studio v1.1.4" href="#4-cherry-studio-v114"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h1 class="heading-element"><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 此版本是测试版本，更新前务必备份数据</h1><a id="user-content-️-此版本是测试版本更新前务必备份数据" class="anchor" aria-label="Permalink: ⚠️ 此版本是测试版本，更新前务必备份数据" href="#️-此版本是测试版本更新前务必备份数据"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>fix(websearch): add check button and format apihost by @eeee0717 in <a href="https://github.com/CherryHQ/cherry-studio/pull/3336">https://github.com/CherryHQ/cherry-studio/pull/3336</a>
-</li>
-<li>refactor(actions): Add nightly and pr-ci workflows by @GeorgeDong32 in <a href="https://github.com/CherryHQ/cherry-studio/pull/3297">https://github.com/CherryHQ/cherry-studio/pull/3297</a>
-</li>
-<li>feat: Enhance API key verification and multi-key support for web search providers by @FunJim in <a href="https://github.com/CherryHQ/cherry-studio/pull/3346">https://github.com/CherryHQ/cherry-studio/pull/3346</a>
-</li>
-<li>Fix/messages pause bug by @MyPrototypeWhat in <a href="https://github.com/CherryHQ/cherry-studio/pull/3343">https://github.com/CherryHQ/cherry-studio/pull/3343</a>
-</li>
-<li>feat: 🎸 在顶部的模型搜索框显示固定模型的供应商 by @duanyongcheng in <a href="https://github.com/CherryHQ/cherry-studio/pull/2985">https://github.com/CherryHQ/cherry-studio/pull/2985</a>
-</li>
-<li>fix api url display by @openmynet in <a href="https://github.com/CherryHQ/cherry-studio/pull/3364">https://github.com/CherryHQ/cherry-studio/pull/3364</a>
-</li>
-<li>feat: some improvement to Notion export feature by @shiquda in <a href="https://github.com/CherryHQ/cherry-studio/pull/2562">https://github.com/CherryHQ/cherry-studio/pull/2562</a>
-...</li>
-</ul>
-</details>
-<div class="markdown-heading"><h2 class="heading-element">5. <a href="https://github.com/tianzhentech/NeatChat/releases/tag/v1.1.19">NeatChat v1.1.19</a>
-</h2><a id="user-content-5-neatchat-v1119" class="anchor" aria-label="Permalink: 5. NeatChat v1.1.19" href="#5-neatchat-v1119"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<details>
-<summary>变更说明</summary>
-<p>1.已全面支持上传文件（10万字符之内），也可自动将复制的文本转附件（非rag），但能解决之前输入框卡死的问题
-支持的文件格式：.bash, .bat, .c, .cer, .conf, .cpp, .cr, .cs, .csr, .css, .csv, .doc, .docx, .go, .h, .hpp, .html, .ini, .ipynb, .java, .js, .json, .jsx, .key, .kt, .less, .m, .md, .pdf, .pem, .php, .pl, .pp, .ppt, .pptx, .ps1, .py, .rb, .rdp, .rs, .r, .scss, .sh, .sql, .svg, .swift, .tex, .toml, .ts, .tsx, .txt, .vue, .xls, .xlsx, .xml, .yaml, .yml, .zip, .zsh
-2.已将上传图片和上传文件合并成上传附件，后续将支持用一个ocr模型给其他模型做前置识别，让所有模型有识图的能力</p>
-</details>
-<div class="markdown-heading"><h2 class="heading-element">6. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v1.6.0">Ghosten-Player v1.6.0</a>
-</h2><a id="user-content-6-ghosten-player-v160" class="anchor" aria-label="Permalink: 6. Ghosten-Player v1.6.0" href="#6-ghosten-player-v160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">1. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v1.6.0">Ghosten-Player v1.6.0</a>
+</h2><a id="user-content-1-ghosten-player-v160" class="anchor" aria-label="Permalink: 1. Ghosten-Player v1.6.0" href="#1-ghosten-player-v160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">New Feature</h2><a id="user-content-new-feature" class="anchor" aria-label="Permalink: New Feature" href="#new-feature"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -260,14 +176,114 @@ pre {
 </li>
 </ol>
 </details>
-<div class="markdown-heading"><h2 class="heading-element">7. <a href="https://github.com/GARCHENG/mcp-server-jina-java/releases/tag/v1.0.0">mcp-server-jina-java v1.0.0</a>
-</h2><a id="user-content-7-mcp-server-jina-java-v100" class="anchor" aria-label="Permalink: 7. mcp-server-jina-java v1.0.0" href="#7-mcp-server-jina-java-v100"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">2. <a href="https://github.com/xpipe-io/xpipe/releases/tag/15.5">xpipe 15.5</a>
+</h2><a id="user-content-2-xpipe-155" class="anchor" aria-label="Permalink: 2. xpipe 15.5" href="#2-xpipe-155"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>Fix connection hierarchy backgrounds not updating properly when expanding them</li>
+<li>Fix some issues on macOS when zsh failed to start</li>
+<li>Fix XPipe not falling back to sh in some cases on macOS when zsh failed to start</li>
+<li>Fix vscode remote open functionality using wrong app path on macOS</li>
+<li>Fix zsh module zsh/stat breaking some file browser functionality when enabled</li>
+<li>Fix tailscale refresh operations failing with an out-of-bounds error in some cases</li>
+<li>Fix some OS logos not showing correctly</li>
+<li>Fix NullPointer when launching FreeRDP</li>
+<li>Fix outdated manpages docs link</li>
+</ul>
+<p>...</p>
+</details>
+<div class="markdown-heading"><h2 class="heading-element">3. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.4">cherry-studio v1.1.4</a>
+</h2><a id="user-content-3-cherry-studio-v114" class="anchor" aria-label="Permalink: 3. cherry-studio v1.1.4" href="#3-cherry-studio-v114"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h1 class="heading-element"><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 此版本是测试版本，更新前务必备份数据</h1><a id="user-content-️-此版本是测试版本更新前务必备份数据" class="anchor" aria-label="Permalink: ⚠️ 此版本是测试版本，更新前务必备份数据" href="#️-此版本是测试版本更新前务必备份数据"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix(websearch): add check button and format apihost by @eeee0717 in <a href="https://github.com/CherryHQ/cherry-studio/pull/3336">https://github.com/CherryHQ/cherry-studio/pull/3336</a>
+</li>
+<li>refactor(actions): Add nightly and pr-ci workflows by @GeorgeDong32 in <a href="https://github.com/CherryHQ/cherry-studio/pull/3297">https://github.com/CherryHQ/cherry-studio/pull/3297</a>
+</li>
+<li>feat: Enhance API key verification and multi-key support for web search providers by @FunJim in <a href="https://github.com/CherryHQ/cherry-studio/pull/3346">https://github.com/CherryHQ/cherry-studio/pull/3346</a>
+</li>
+<li>Fix/messages pause bug by @MyPrototypeWhat in <a href="https://github.com/CherryHQ/cherry-studio/pull/3343">https://github.com/CherryHQ/cherry-studio/pull/3343</a>
+</li>
+<li>feat: 🎸 在顶部的模型搜索框显示固定模型的供应商 by @duanyongcheng in <a href="https://github.com/CherryHQ/cherry-studio/pull/2985">https://github.com/CherryHQ/cherry-studio/pull/2985</a>
+</li>
+<li>fix api url display by @openmynet in <a href="https://github.com/CherryHQ/cherry-studio/pull/3364">https://github.com/CherryHQ/cherry-studio/pull/3364</a>
+</li>
+<li>feat: some improvement to Notion export feature by @shiquda in <a href="https://github.com/CherryHQ/cherry-studio/pull/2562">https://github.com/CherryHQ/cherry-studio/pull/2562</a>
+...</li>
+</ul>
+</details>
+<div class="markdown-heading"><h2 class="heading-element">4. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/v3.5.0-M1">fit-framework v3.5.0-M1</a>
+</h2><a id="user-content-4-fit-framework-v350-m1" class="anchor" aria-label="Permalink: 4. fit-framework v3.5.0-M1" href="#4-fit-framework-v350-m1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h1 class="heading-element">这是 FIT Framework 社区 3.5.0 版本的第一个里程碑的发布！</h1><a id="user-content-这是-fit-framework-社区-350-版本的第一个里程碑的发布" class="anchor" aria-label="Permalink: 这是 FIT Framework 社区 3.5.0 版本的第一个里程碑的发布！" href="#这是-fit-framework-社区-350-版本的第一个里程碑的发布"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">FIT 函数平台</h2><a id="user-content-fit-函数平台" class="anchor" aria-label="Permalink: FIT 函数平台" href="#fit-函数平台"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">⭐ 新特性</h3><a id="user-content--新特性" class="anchor" aria-label="Permalink: ⭐ 新特性" href="#-新特性"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h4 class="heading-element">IoC 插件化容器能力</h4><a id="user-content-ioc-插件化容器能力" class="anchor" aria-label="Permalink: IoC 插件化容器能力" href="#ioc-插件化容器能力"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>支持 Bean 的管理，包括 Bean 的创建、实例化、注入等能力，并建立 Bean 对象之间的依赖关系。</li>
+<li>支持 Bean 的生命周期管理。
+...</li>
+</ul>
+</details>
+<div class="markdown-heading"><h2 class="heading-element">5. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.7">deepchat v0.0.7</a>
+</h2><a id="user-content-5-deepchat-v007" class="anchor" aria-label="Permalink: 5. deepchat v0.0.7" href="#5-deepchat-v007"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<p>🚀 DeepChat 0.0.7 正式发布 | 重新定义你的 AI 对话体验！
+—— 更强大，更灵活，更智能，开启高效沟通新高度 🌟</p>
+<p>✨ 本次主要更新内容 ✨</p>
+<ul>
+<li>Artifacts 全新交互，好用又实用</li>
+<li>完整的 Ollama 管理支持，支持直接在DeepChat内拉取和删除Ollama模型</li>
+<li>多模态模型支持</li>
+<li>新增了 Anthropic、Github Models、Azure支持</li>
+<li>Windows可以自定义安装目录了</li>
+<li>修复了0.0.6引起的文件不能正常嵌入问题
+...</li>
+</ul>
+</details>
+<div class="markdown-heading"><h2 class="heading-element">6. <a href="https://github.com/readest/readest/releases/tag/v0.9.22">readest v0.9.22</a>
+</h2><a id="user-content-6-readest-v0922" class="anchor" aria-label="Permalink: 6. readest v0.9.22" href="#6-readest-v0922"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Add theme color editor for more customization</li>
+<li>Add border frame for vertical layout</li>
+<li>Fix layout glitches on macOS in scroll mode</li>
+<li>Various fixes and enhancements on translator, footnote, and scrollbar</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: following ordinary link in footnotes, closes  by @chrox in <a href="https://github.com/readest/readest/pull/560">https://github.com/readest/readest/pull/560</a>
+</li>
+<li>feat: add theme editor for custom theme colors, closes  by @chrox in <a href="https://github.com/readest/readest/pull/594">https://github.com/readest/readest/pull/594</a>
+</li>
+<li>fix: clear select mode when importing files, closes  by @chrox in <a href="https://github.com/readest/readest/pull/595">https://github.com/readest/readest/pull/595</a>
+...</li>
+</ul>
+</details>
+<div class="markdown-heading"><h2 class="heading-element">7. <a href="https://github.com/tianzhentech/NeatChat/releases/tag/v1.1.19">NeatChat v1.1.19</a>
+</h2><a id="user-content-7-neatchat-v1119" class="anchor" aria-label="Permalink: 7. NeatChat v1.1.19" href="#7-neatchat-v1119"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<p>1.已全面支持上传文件（10万字符之内），也可自动将复制的文本转附件（非rag），但能解决之前输入框卡死的问题
+支持的文件格式：.bash, .bat, .c, .cer, .conf, .cpp, .cr, .cs, .csr, .css, .csv, .doc, .docx, .go, .h, .hpp, .html, .ini, .ipynb, .java, .js, .json, .jsx, .key, .kt, .less, .m, .md, .pdf, .pem, .php, .pl, .pp, .ppt, .pptx, .ps1, .py, .rb, .rdp, .rs, .r, .scss, .sh, .sql, .svg, .swift, .tex, .toml, .ts, .tsx, .txt, .vue, .xls, .xlsx, .xml, .yaml, .yml, .zip, .zsh
+2.已将上传图片和上传文件合并成上传附件，后续将支持用一个ocr模型给其他模型做前置识别，让所有模型有识图的能力</p>
+</details>
+<div class="markdown-heading"><h2 class="heading-element">8. <a href="https://github.com/GARCHENG/mcp-server-jina-java/releases/tag/v1.0.0">mcp-server-jina-java v1.0.0</a>
+</h2><a id="user-content-8-mcp-server-jina-java-v100" class="anchor" aria-label="Permalink: 8. mcp-server-jina-java v1.0.0" href="#8-mcp-server-jina-java-v100"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
 <p>mcp-server-jina-java</p>
 </details>
-<div class="markdown-heading"><h2 class="heading-element">8. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.10.1">ublacklist v8.10.1</a>
-</h2><a id="user-content-8-ublacklist-v8101" class="anchor" aria-label="Permalink: 8. ublacklist v8.10.1" href="#8-ublacklist-v8101"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">9. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.10.1">ublacklist v8.10.1</a>
+</h2><a id="user-content-9-ublacklist-v8101" class="anchor" aria-label="Permalink: 9. ublacklist v8.10.1" href="#9-ublacklist-v8101"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">
