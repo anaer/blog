@@ -7,5 +7,6 @@ MCP 是一个开放协议，用于标准化应用程序如何为大型语言模�
 
 官网有个查询天气的示例, 支持Python, Node, Java实现
 
-## 实例
-[mcp-server-jina-java 对接jina reader api的mcp服务器](https://github.com/GARCHENG/mcp-server-jina-java)
+## 相关链接
+1. [MCP服务官方列表](https://github.com/modelcontextprotocol/servers)
+2. [mcp-server-jina-java 对接jina reader api的mcp服务器](https://github.com/GARCHENG/mcp-server-jina-java)
