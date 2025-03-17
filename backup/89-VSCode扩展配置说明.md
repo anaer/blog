@@ -19,7 +19,7 @@
 }
 ```
 
-在用户settings.json配置中添加定时任务配置
+在workspace的settings.json配置中添加定时任务配置, 任务跟workspace
 
 ```json
 "cronTasks.tasks": [

@@ -1901,14 +1901,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/89",
             "commentNum": 0,
             "createdAt": 1741853739,
-            "updatedAt": 1741855608,
+            "updatedAt": 1742181427,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-03-13",
-            "dateLabelColor": "hsl(140, 45%, 11%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u5982\u4f55\u5728Visual Studio Code\u7684workspace\u4e2d\u8bbe\u7f6e\u5b9a\u65f6\u4efb\u52a1\u4ee5\u81ea\u52a8\u540c\u6b65\u6587\u4ef6\u3002\u9996\u5148\uff0c\u5728.vscode\u6587\u4ef6\u5939\u5185\u521b\u5efa\u6216\u7f16\u8f91tasks.json\uff0c\u5b9a\u4e49\u4e00\u4e2a\u540d\u4e3a\u201cAuto Sync\u201d\u7684\u4efb\u52a1\uff0c\u6307\u5b9a\u6267\u884c\u7684\u547d\u4ee4\u4e3a\u672c\u5730\u7684sync.bat\u811a\u672c\u3002\u63a5\u7740\uff0c\u5728\u7528\u6237\u7684settings.json\u4e2d\u6dfb\u52a0\u5b9a\u65f6\u4efb\u52a1\u914d\u7f6e\uff0c\u8bbe\u7f6e\u4efb\u52a1\u6bcf5\u5206\u949f\u6267\u884c\u4e00\u6b21\uff0c\u5e76\u6307\u5b9a\u8fd0\u884c\u201cAuto Sync\u201d\u4efb\u52a1\u3002\u6700\u540e\uff0c\u9700\u8981\u786e\u4fdd\u7ec8\u7aef\u7684\u9ed8\u8ba4Profile\u8bbe\u7f6e\u4e3aCommand Prompt\uff0c\u4ee5\u907f\u514d\u53ef\u80fd\u51fa\u73b0\u7684\u95ee\u9898\u3002",
-            "buildedAt": 1741855608
+            "dateLabelColor": "hsl(143, 57%, 33%)",
+            "description": "\u5728VS Code\u7684\u5de5\u4f5c\u533a\u4e2d\uff0c\u9700\u8981\u8fdb\u884c\u4ee5\u4e0b\u914d\u7f6e\u4ee5\u8bbe\u7f6e\u5b9a\u65f6\u4efb\u52a1\u3002\u9996\u5148\uff0c\u5728`.vscode`\u6587\u4ef6\u5939\u5185\u521b\u5efa\u6216\u4fee\u6539`tasks.json`\u6587\u4ef6\uff0c\u6dfb\u52a0\u4e00\u4e2a\u540d\u4e3a\u201cAuto Sync\u201d\u7684\u4efb\u52a1\uff0c\u6307\u5b9a\u5176\u7c7b\u578b\u4e3a`shell`\uff0c\u5e76\u8bbe\u7f6e\u5176\u8fd0\u884c\u7684\u547d\u4ee4\u4e3a`D:\\\\demo\\\\sync.bat`\u3002\u793a\u4f8b\u914d\u7f6e\u5982\u4e0b\uff1a\n\n```json\n{\n    \"version\": \"2.0.0\",\n    \"tasks\": [\n      {\n        \"label\": \"Auto Sync\",\n        \"type\": \"shell\",\n        \"command\": \"D:\\\\demo\\\\sync.bat\",\n        \"problemMatcher\": []\n      }\n    ]\n}\n```\n\n\u63a5\u7740\uff0c\u5728\u5de5\u4f5c\u533a\u7684`settings.json`\u4e2d\u6dfb\u52a0\u5b9a\u65f6\u4efb\u52a1\u7684\u914d\u7f6e\uff0c\u8bbe\u7f6e\u4efb\u52a1\u6bcf5\u5206\u949f\u6267\u884c\u4e00\u6b21\uff0c\u8c03\u7528\u4e4b\u524d\u5b9a\u4e49\u7684\u201cAuto Sync\u201d\u4efb\u52a1\u3002\u793a\u4f8b\u914d\u7f6e\u5982\u4e0b\uff1a\n\n```json\n\"cronTasks.tasks\": [\n    {\n        \"at\": \"*/5 * * * *\",\n        \"run\": \"workbench.action.tasks.runTask\",\n        \"args\": [\"Auto Sync\"]\n    }\n],\n\"cronTasks.debug\": false\n```\n\n\u6700\u540e\uff0c\u786e\u4fdd\u5c06\u7ec8\u7aef\u7684\u9ed8\u8ba4Profile\u8bbe\u7f6e\u4e3aCommand Prompt\uff0c\u907f\u514d\u4f7f\u7528\u5176\u4ed6Profile\u53ef\u80fd\u5bfc\u81f4\u7684\u95ee\u9898\u3002\u8fd9\u6837\u914d\u7f6e\u5b8c\u6210\u540e\uff0c\u5b9a\u65f6\u4efb\u52a1\u5c06\u6309\u9884\u671f\u8fd0\u884c\u3002",
+            "buildedAt": 1742181427
         },
         "P90": {
             "number": "90",

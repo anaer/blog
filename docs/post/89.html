@@ -123,7 +123,7 @@ pre {
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#9419EF">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#扩展">扩展</a></object>
-        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#f5fee6">
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#BB0E42">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#VSCode">VSCode</a></object>
         </span>
 </div>
@@ -132,10 +132,39 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-13 16:15:39</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-13 16:46:48</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-17 11:17:07</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何在Visual Studio Code的workspace中设置定时任务以自动同步文件。首先，在.vscode文件夹内创建或编辑tasks.json，定义一个名为“Auto Sync”的任务，指定执行的命令为本地的sync.bat脚本。接着，在用户的settings.json中添加定时任务配置，设置任务每5分钟执行一次，并指定运行“Auto Sync”任务。最后，需要确保终端的默认Profile设置为Command Prompt，以避免可能出现的问题。
+    <strong>AI总结:</strong> 在VS Code的工作区中，需要进行以下配置以设置定时任务。首先，在`.vscode`文件夹内创建或修改`tasks.json`文件，添加一个名为“Auto Sync”的任务，指定其类型为`shell`，并设置其运行的命令为`D:\\demo\\sync.bat`。示例配置如下：
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Auto Sync",
+        "type": "shell",
+        "command": "D:\\demo\\sync.bat",
+        "problemMatcher": []
+      }
+    ]
+}
+```
+
+接着，在工作区的`settings.json`中添加定时任务的配置，设置任务每5分钟执行一次，调用之前定义的“Auto Sync”任务。示例配置如下：
+
+```json
+"cronTasks.tasks": [
+    {
+        "at": "*/5 * * * *",
+        "run": "workbench.action.tasks.runTask",
+        "args": ["Auto Sync"]
+    }
+],
+"cronTasks.debug": false
+```
+
+最后，确保将终端的默认Profile设置为Command Prompt，避免使用其他Profile可能导致的问题。这样配置完成后，定时任务将按预期运行。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -154,7 +183,7 @@ pre {
       }
     ]
 }</pre></div>
-<p>在用户settings.json配置中添加定时任务配置</p>
+<p>在workspace的settings.json配置中添加定时任务配置, 任务跟workspace</p>
 <div class="highlight highlight-source-json"><pre><span class="pl-ent">"cronTasks.tasks"</span>: [
     {
         <span class="pl-ent">"at"</span>: <span class="pl-s"><span class="pl-pds">"</span>*/5 * * * *<span class="pl-pds">"</span></span>, <span class="pl-ii">// 每5分钟执行</span>
@@ -166,7 +195,7 @@ pre {
 <p>需要修改终端的默认Profile为Command Prompt, 选其它可能会有问题</p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/75.html" aria-label="Previous Page">75 导航</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/88.html" aria-label="Next Page">88 我关注的项目这周更新了什么-2025-03-14</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/88.html" aria-label="Previous Page">88 我关注的项目这周更新了什么-2025-03-14</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/90.html" aria-label="Next Page">90 将应用程序添加为系统服务进行管理</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
