@@ -351,15 +351,16 @@ class GMEEK():
 
         # 处理正文中的#数字链接
         content = issue.body
-        regex = r"\s*#(\d+)\s*"
-        matches = re.findall(regex, content)
-        for match in matches:
-            # print(f"Found number: {issue.title} {match}")
-            matchPostNum = "P"+str(match)
-            # 因为postListJson每次执行会先清空, 所以使用缓存处理, 与最新数据可能有差异, 但不太影响
-            if matchPostNum in self.cacheBlogBase[listJsonName]:
-                content = content.replace("#"+match, " ["+self.cacheBlogBase[listJsonName][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.cacheBlogBase[listJsonName][matchPostNum]["postUrl"]+") ")
-                # print(content)
+        if content:
+            regex = r"\s*#(\d+)\s*"
+            matches = re.findall(regex, content)
+            for match in matches:
+                # print(f"Found number: {issue.title} {match}")
+                matchPostNum = "P"+str(match)
+                # 因为postListJson每次执行会先清空, 所以使用缓存处理, 与最新数据可能有差异, 但不太影响
+                if matchPostNum in self.cacheBlogBase[listJsonName]:
+                    content = content.replace("#"+match, " ["+self.cacheBlogBase[listJsonName][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.cacheBlogBase[listJsonName][matchPostNum]["postUrl"]+") ")
+                    # print(content)
 
         f = open(mdPath, 'w', encoding='UTF-8')
         f.write(content)
