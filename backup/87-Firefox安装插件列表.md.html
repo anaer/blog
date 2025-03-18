@@ -52,3 +52,106 @@ Text, Replace, Insert HTML, BBCode, Markdown &amp; Custom Texts" rel="nofollow">
 eBook, Translate Video Subtitles in Bilingual" rel="nofollow">Immersive Translate - Translate Web &amp; PDF 1.9.8</a></li>
 <li><a href="https://addons.mozilla.org/firefox/downloads/file/4364493/localcdn_fork_of_decentraleyes-2.6.74.xpi" title="Protects you against tracking through CDNs (Content Delivery Networks) by redirecting to local resources." rel="nofollow">LocalCDN 2.6.74</a></li>
 </ol>
+<div class="markdown-heading"><h2 class="heading-element">导出插件列表脚本</h2><a id="user-content-导出插件列表脚本" class="anchor" aria-label="Permalink: 导出插件列表脚本" href="#导出插件列表脚本"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>能用就没优化了, 而且现在也没用Firefox, 此处只做备份
+需要根据实际情况修改config_dir配置</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-c"># -*-coding:utf-8-*-</span>
+
+<span class="pl-k">import</span> <span class="pl-s1">os</span>
+<span class="pl-k">import</span> <span class="pl-s1">json</span>
+
+<span class="pl-k">def</span> <span class="pl-en">find_firefox_profile_path</span>():
+    <span class="pl-c"># 获取当前用户的配置目录</span>
+    <span class="pl-c"># config_dir = os.path.expandvars(r'%APPDATA%\Floorp')</span>
+    <span class="pl-s1">config_dir</span> <span class="pl-c1">=</span> <span class="pl-s">'C:<span class="pl-cce">\\</span>Users<span class="pl-cce">\\</span>Administrator<span class="pl-cce">\\</span>AppData<span class="pl-cce">\\</span>Roaming<span class="pl-cce">\\</span>zen<span class="pl-cce">\\</span>'</span>
+    <span class="pl-s1">profiles_ini_path</span> <span class="pl-c1">=</span> <span class="pl-s1">os</span>.<span class="pl-c1">path</span>.<span class="pl-c1">join</span>(<span class="pl-s1">config_dir</span>, <span class="pl-s">"profiles.ini"</span>)
+
+    <span class="pl-k">if</span> <span class="pl-c1">not</span> <span class="pl-s1">os</span>.<span class="pl-c1">path</span>.<span class="pl-c1">exists</span>(<span class="pl-s1">profiles_ini_path</span>):
+        <span class="pl-k">raise</span> <span class="pl-en">FileNotFoundError</span>(<span class="pl-s">"Could not find profiles.ini file."</span>)
+
+    <span class="pl-k">with</span> <span class="pl-en">open</span>(<span class="pl-s1">profiles_ini_path</span>, <span class="pl-s">"r"</span>, <span class="pl-s1">encoding</span><span class="pl-c1">=</span><span class="pl-s">"utf-8"</span>) <span class="pl-k">as</span> <span class="pl-s1">file</span>:
+        <span class="pl-s1">lines</span> <span class="pl-c1">=</span> <span class="pl-s1">file</span>.<span class="pl-c1">readlines</span>()
+
+    <span class="pl-s1">profile_path</span> <span class="pl-c1">=</span> <span class="pl-c1">None</span>
+    <span class="pl-k">for</span> <span class="pl-s1">line</span> <span class="pl-c1">in</span> <span class="pl-s1">lines</span>:
+        <span class="pl-k">if</span> <span class="pl-s1">line</span>.<span class="pl-c1">strip</span>().<span class="pl-c1">startswith</span>(<span class="pl-s">"Path="</span>):
+            <span class="pl-s1">profile_path</span> <span class="pl-c1">=</span> <span class="pl-s1">line</span>.<span class="pl-c1">strip</span>().<span class="pl-c1">split</span>(<span class="pl-s">"="</span>)[<span class="pl-c1">1</span>]
+            <span class="pl-k">break</span>
+
+    <span class="pl-k">if</span> <span class="pl-c1">not</span> <span class="pl-s1">profile_path</span>:
+        <span class="pl-k">raise</span> <span class="pl-en">FileNotFoundError</span>(<span class="pl-s">"Could not find profile path in profiles.ini file."</span>)
+
+    <span class="pl-k">return</span> <span class="pl-s1">os</span>.<span class="pl-c1">path</span>.<span class="pl-c1">join</span>(<span class="pl-s1">config_dir</span>, <span class="pl-s1">profile_path</span>)
+
+<span class="pl-k">def</span> <span class="pl-en">get_firefox_addons</span>(<span class="pl-s1">profile_path</span>):
+    <span class="pl-c"># print("profile_path", profile_path)</span>
+    <span class="pl-s1">addons_file_path</span> <span class="pl-c1">=</span> <span class="pl-s1">os</span>.<span class="pl-c1">path</span>.<span class="pl-c1">join</span>(<span class="pl-s1">profile_path</span>, <span class="pl-s">"extensions.json"</span>)
+
+    <span class="pl-k">if</span> <span class="pl-c1">not</span> <span class="pl-s1">os</span>.<span class="pl-c1">path</span>.<span class="pl-c1">exists</span>(<span class="pl-s1">addons_file_path</span>):
+        <span class="pl-k">raise</span> <span class="pl-en">FileNotFoundError</span>(<span class="pl-s">"Could not find extensions.json file."</span>)
+
+    <span class="pl-k">with</span> <span class="pl-en">open</span>(<span class="pl-s1">addons_file_path</span>, <span class="pl-s">"r"</span>, <span class="pl-s1">encoding</span><span class="pl-c1">=</span><span class="pl-s">"utf-8"</span>) <span class="pl-k">as</span> <span class="pl-s1">file</span>:
+        <span class="pl-s1">addons_data</span> <span class="pl-c1">=</span> <span class="pl-s1">json</span>.<span class="pl-c1">load</span>(<span class="pl-s1">file</span>)
+
+    <span class="pl-s1">addons</span> <span class="pl-c1">=</span> []
+    <span class="pl-k">for</span> <span class="pl-s1">addon</span> <span class="pl-c1">in</span> <span class="pl-s1">addons_data</span>.<span class="pl-c1">get</span>(<span class="pl-s">"addons"</span>, []):
+        <span class="pl-s1">source_url</span> <span class="pl-c1">=</span> <span class="pl-s">""</span>
+        <span class="pl-s1">install_telemetry_info</span> <span class="pl-c1">=</span> <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"installTelemetryInfo"</span>)
+        <span class="pl-k">if</span> <span class="pl-s1">install_telemetry_info</span>:
+            <span class="pl-s1">source_url</span> <span class="pl-c1">=</span> <span class="pl-s1">install_telemetry_info</span>.<span class="pl-c1">get</span>(<span class="pl-s">"sourceURL"</span>, <span class="pl-s">""</span>)
+
+        <span class="pl-s1">location</span> <span class="pl-c1">=</span> <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"location"</span>, <span class="pl-s">""</span>)
+
+        <span class="pl-c"># 只导出用户安装的插件, 过滤应用内置插件</span>
+        <span class="pl-k">if</span> <span class="pl-s1">location</span> <span class="pl-c1">==</span> <span class="pl-s">"app-profile"</span>:
+            <span class="pl-s1">addons</span>.<span class="pl-c1">append</span>({
+                <span class="pl-s">"name"</span>: <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"defaultLocale"</span>, {}).<span class="pl-c1">get</span>(<span class="pl-s">"name"</span>, <span class="pl-s">""</span>),
+                <span class="pl-s">"version"</span>: <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"version"</span>, <span class="pl-s">""</span>),
+                <span class="pl-s">"description"</span>: <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"defaultLocale"</span>, {}).<span class="pl-c1">get</span>(<span class="pl-s">"description"</span>, <span class="pl-s">"No description"</span>),
+                <span class="pl-s">"manifestVersion"</span>: <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"manifestVersion"</span>, <span class="pl-s">""</span>),
+                <span class="pl-s">"active"</span>: <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"active"</span>, <span class="pl-c1">False</span>),
+                <span class="pl-s">"sourceURI"</span>: <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"sourceURI"</span>, <span class="pl-s">""</span>),
+                <span class="pl-s">"sourceURL"</span>: <span class="pl-s1">source_url</span>
+            })
+
+    <span class="pl-k">return</span> <span class="pl-s1">addons</span>
+
+<span class="pl-k">def</span> <span class="pl-en">export_addons_to_file</span>(<span class="pl-s1">addons</span>, <span class="pl-s1">output_file</span>):
+    <span class="pl-k">with</span> <span class="pl-en">open</span>(<span class="pl-s1">output_file</span>, <span class="pl-s">"w"</span>) <span class="pl-k">as</span> <span class="pl-s1">file</span>:
+        <span class="pl-s1">enable_count</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span>
+        <span class="pl-s1">disable_count</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span>
+
+        <span class="pl-s1">enable_addons</span> <span class="pl-c1">=</span> <span class="pl-s">"""<span class="pl-cce">\n</span>## Enabled Extensions<span class="pl-cce">\n</span>"""</span>
+        <span class="pl-s1">disable_addons</span> <span class="pl-c1">=</span> <span class="pl-s">"""<span class="pl-cce">\n</span>## Disabled Extensions<span class="pl-cce">\n</span>"""</span>
+
+        <span class="pl-k">for</span> <span class="pl-s1">addon</span> <span class="pl-c1">in</span> <span class="pl-s1">addons</span>:
+            <span class="pl-c"># 处理每个插件的信息</span>
+            <span class="pl-s1">name</span> <span class="pl-c1">=</span> <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"name"</span>, <span class="pl-s">"No name"</span>)
+            <span class="pl-s1">version</span> <span class="pl-c1">=</span> <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"version"</span>, <span class="pl-s">"No version"</span>)
+            <span class="pl-s1">description</span> <span class="pl-c1">=</span> <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"description"</span>, <span class="pl-s">"No description"</span>)
+            <span class="pl-s1">active</span> <span class="pl-c1">=</span> <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"active"</span>, <span class="pl-c1">False</span>)
+            <span class="pl-s1">source_uri</span> <span class="pl-c1">=</span> <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"sourceURI"</span>, <span class="pl-s">"No source URI"</span>)
+            <span class="pl-s1">source_url</span> <span class="pl-c1">=</span> <span class="pl-s1">addon</span>.<span class="pl-c1">get</span>(<span class="pl-s">"sourceURL"</span>, <span class="pl-s">"No source URL"</span>)
+
+            <span class="pl-k">if</span> <span class="pl-s1">active</span>:
+              <span class="pl-s1">enable_count</span> <span class="pl-c1">=</span> <span class="pl-s1">enable_count</span><span class="pl-c1">+</span><span class="pl-c1">1</span>
+              <span class="pl-s1">enable_addons</span> <span class="pl-c1">+=</span> <span class="pl-s">f"<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">enable_count</span><span class="pl-kos">}</span></span>. [<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">name</span><span class="pl-kos">}</span></span> <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">version</span><span class="pl-kos">}</span></span>](<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">source_uri</span><span class="pl-kos">}</span></span> <span class="pl-cce">\"</span><span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">description</span><span class="pl-kos">}</span></span><span class="pl-cce">\"</span>)<span class="pl-cce">\n</span>"</span>
+            <span class="pl-k">else</span>:
+              <span class="pl-s1">disable_count</span> <span class="pl-c1">=</span> <span class="pl-s1">disable_count</span><span class="pl-c1">+</span><span class="pl-c1">1</span>
+              <span class="pl-s1">disable_addons</span> <span class="pl-c1">+=</span> <span class="pl-s">f"<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">disable_count</span><span class="pl-kos">}</span></span>. [<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">name</span><span class="pl-kos">}</span></span> <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">version</span><span class="pl-kos">}</span></span>](<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">source_uri</span><span class="pl-kos">}</span></span> <span class="pl-cce">\"</span><span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">description</span><span class="pl-kos">}</span></span><span class="pl-cce">\"</span>)<span class="pl-cce">\n</span>"</span>
+
+        <span class="pl-s1">file</span>.<span class="pl-c1">write</span>(<span class="pl-s1">enable_addons</span>)
+        <span class="pl-s1">file</span>.<span class="pl-c1">write</span>(<span class="pl-s1">disable_addons</span>)
+
+<span class="pl-k">def</span> <span class="pl-en">main</span>():
+    <span class="pl-k">try</span>:
+        <span class="pl-s1">profile_path</span> <span class="pl-c1">=</span> <span class="pl-en">find_firefox_profile_path</span>()
+        <span class="pl-s1">addons</span> <span class="pl-c1">=</span> <span class="pl-en">get_firefox_addons</span>(<span class="pl-s1">profile_path</span>)
+        <span class="pl-s1">output_file</span> <span class="pl-c1">=</span> <span class="pl-s">"firefox_addons.md"</span>
+        <span class="pl-en">export_addons_to_file</span>(<span class="pl-s1">addons</span>, <span class="pl-s1">output_file</span>)
+        <span class="pl-en">print</span>(<span class="pl-s">f"Exported Firefox addons to <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">output_file</span><span class="pl-kos">}</span></span>"</span>)
+    <span class="pl-k">except</span> <span class="pl-v">Exception</span> <span class="pl-k">as</span> <span class="pl-s1">e</span>:
+        <span class="pl-en">print</span>(<span class="pl-s">f"An error occurred: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">e</span><span class="pl-kos">}</span></span>"</span>)
+
+<span class="pl-k">if</span> <span class="pl-s1">__name__</span> <span class="pl-c1">==</span> <span class="pl-s">"__main__"</span>:
+    <span class="pl-en">main</span>()</pre></div>
