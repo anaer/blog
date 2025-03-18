@@ -128,44 +128,51 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-17 09:26:49</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-18 12:12:30</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-18 23:11:00</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件更新的变更说明，包括Cherry Studio、DeepChat、xpipe、NeatChat和new-api等。其中，Cherry Studio v1.1.5增强了对多种语言的支持，修复了多个功能性问题并引入了新的特性；DeepChat v0.0.8则提供了更强大的交互体验和数据管理功能；xpipe 15.6修复了内存使用过多和界面异常等问题；NeatChat v1.2.0进行了深度重构以提升对话体验；new-api v0.6.0.3则是一个AI模型接口管理与分发系统，支持多种大模型格式。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新，包括Cherry Studio v1.1.7、NeatChat v1.2.0、DeepChat v0.0.8、xpipe 15.7.1和new-api v0.6.0.3。Cherry Studio进行了多项修复和功能增强，支持多种LLM提供商；NeatChat经过深度重构，提供更优雅的AI对话体验；DeepChat则增强了用户体验，增加了数据备份和投屏保护模式等功能；xpipe修复了性能回归问题，并增加了对Warp的支持；new-api则作为AI模型接口管理系统，支持多种格式调用。
 
-优化建议：在更新说明中，可以进一步细化每个功能的具体应用场景和用户受益，增加用户反馈部分以便更好地了解用户需求，同时提供更清晰的版本历史链接以便用户快速访问。
+优化建议：建议在更新说明中增加每个软件的主要功能亮点和用户受益的具体实例，以便用户更好地理解更新的价值。此外，提供更新后使用的最佳实践或常见问题解答，能够帮助用户更快适应新版本。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.5">cherry-studio v1.1.5</a>
-</h2><a id="user-content-1-cherry-studio-v115" class="anchor" aria-label="Permalink: 1. cherry-studio v1.1.5" href="#1-cherry-studio-v115"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.7">cherry-studio v1.1.7</a>
+</h1><a id="user-content-1-cherry-studio-v117" class="anchor" aria-label="Permalink: 1. cherry-studio v1.1.7" href="#1-cherry-studio-v117"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers. Support deepseek-r1</p>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>Improve zh-tw Traditional Chinese locale a bit by @PeterDaveHello in <a href="https://github.com/CherryHQ/cherry-studio/pull/2896">https://github.com/CherryHQ/cherry-studio/pull/2896</a>
+<li>refactor: handle tool content differently for doubao and deepseek  by @vaayne in <a href="https://github.com/CherryHQ/cherry-studio/pull/3474">https://github.com/CherryHQ/cherry-studio/pull/3474</a>
 </li>
-<li>feat(i18n): Add expand and collapse translations for code blocks by @Cyfine in <a href="https://github.com/CherryHQ/cherry-studio/pull/2923">https://github.com/CherryHQ/cherry-studio/pull/2923</a>
+<li>fix: MCP switch button display bug  () by @deadmau5v in <a href="https://github.com/CherryHQ/cherry-studio/pull/3482">https://github.com/CherryHQ/cherry-studio/pull/3482</a>
 </li>
-<li>feat: Translation does not show the thinking content by @ousugo in <a href="https://github.com/CherryHQ/cherry-studio/pull/2811">https://github.com/CherryHQ/cherry-studio/pull/2811</a>
+<li>fix: fix uv and bun install on linux by @happyZYM in <a href="https://github.com/CherryHQ/cherry-studio/pull/3514">https://github.com/CherryHQ/cherry-studio/pull/3514</a>
 </li>
-<li>fix(mcp): add required to tool call parameters by @luwux in <a href="https://github.com/CherryHQ/cherry-studio/pull/2897">https://github.com/CherryHQ/cherry-studio/pull/2897</a>
+<li>fix(mermaid): Mermaid theme not change after theme toggling by @pilgrimlyieu in <a href="https://github.com/CherryHQ/cherry-studio/pull/3518">https://github.com/CherryHQ/cherry-studio/pull/3518</a>
 </li>
-<li>feat: refactor web search logic and support searxng by @eeee0717 in <a href="https://github.com/CherryHQ/cherry-studio/pull/2543">https://github.com/CherryHQ/cherry-studio/pull/2543</a>
+<li>style: Disable text selection globally with selective text input exce… by @MyPrototypeWhat in <a href="https://github.com/CherryHQ/cherry-studio/pull/1913">https://github.com/CherryHQ/cherry-studio/pull/1913</a>
 </li>
-<li>fix: websearch enabled bug by @eeee0717 in <a href="https://github.com/CherryHQ/cherry-studio/pull/2944">https://github.com/CherryHQ/cherry-studio/pull/2944</a>
+<li>feat: add support for citation preview by @shiquda in <a href="https://github.com/CherryHQ/cherry-studio/pull/3354">https://github.com/CherryHQ/cherry-studio/pull/3354</a>
 </li>
-<li>feat: Focus input on mouse click by @icinggslits in <a href="https://github.com/CherryHQ/cherry-studio/pull/2940">https://github.com/CherryHQ/cherry-studio/pull/2940</a>
+<li>fix: trim() in Translation may result in malformed Markdown output for certain models. by @Konjac-XZ in <a href="https://github.com/CherryHQ/cherry-studio/pull/3523">https://github.com/CherryHQ/cherry-studio/pull/3523</a>
 </li>
-<li>feat: Windows Control Overlay button hover effect by @icinggslits in <a href="https://github.com/CherryHQ/cherry-studio/pull/2939">https://github.com/CherryHQ/cherry-studio/pull/2939</a>
+<li>fix: update url by @Pleasurecruise in <a href="https://github.com/CherryHQ/cherry-studio/pull/3478">https://github.com/CherryHQ/cherry-studio/pull/3478</a>
 </li>
-<li>feat(MCP): support gemini and claude models by @vaayne in <a href="https://github.com/CherryHQ/cherry-studio/pull/2936">https://github.com/CherryHQ/cherry-studio/pull/2936</a>
+<li>refactor: add isNameManuallyEdited flag to topic management by @ousugo in <a href="https://github.com/CherryHQ/cherry-studio/pull/3467">https://github.com/CherryHQ/cherry-studio/pull/3467</a>
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h2 class="heading-element">2. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.8">deepchat v0.0.8</a>
-</h2><a id="user-content-2-deepchat-v008" class="anchor" aria-label="Permalink: 2. deepchat v0.0.8" href="#2-deepchat-v008"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/tianzhentech/NeatChat/releases/tag/v1.2.0">NeatChat v1.2.0</a>
+</h1><a id="user-content-2-neatchat-v120" class="anchor" aria-label="Permalink: 2. NeatChat v1.2.0" href="#2-neatchat-v120"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>基于 NextChat 深度重构，一个更优雅、更强大的 AI 对话解决方案</p>
+<details>
+<summary>变更说明</summary>
+<p>M C P！</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.8">deepchat v0.0.8</a>
+</h1><a id="user-content-3-deepchat-v008" class="anchor" aria-label="Permalink: 3. deepchat v0.0.8" href="#3-deepchat-v008"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>DeepChat - 连接强大AI与个人世界的智能助手 DeepChat - A smart assistant that connects powerful AI to your personal world</p>
 <details>
 <summary>变更说明</summary>
@@ -183,32 +190,23 @@ pre {
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h2 class="heading-element">3. <a href="https://github.com/xpipe-io/xpipe/releases/tag/15.6">xpipe 15.6</a>
-</h2><a id="user-content-3-xpipe-156" class="anchor" aria-label="Permalink: 3. xpipe 15.6" href="#3-xpipe-156"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/xpipe-io/xpipe/releases/tag/15.7.1">xpipe 15.7.1</a>
+</h1><a id="user-content-4-xpipe-1571" class="anchor" aria-label="Permalink: 4. xpipe 15.7.1" href="#4-xpipe-1571"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Access your entire server infrastructure from your local desktop</p>
 <details>
 <summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Performance</h2><a id="user-content-performance" class="anchor" aria-label="Permalink: Performance" href="#performance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A severe performance regression was accidentally introduced in the recent 15.4 release. This release fixes this issue, so you will get much better performance in this version. It is recommended that you upgrade to 15.7.</p>
+<p>While investigating, there were also a few other performance issues discovered that will be addressed in one of the next releases.</p>
+<div class="markdown-heading"><h2 class="heading-element">Changes</h2><a id="user-content-changes" class="anchor" aria-label="Permalink: Changes" href="#changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>Fix some cases where the application used excessive memory</li>
-<li>Fix fish shell session scripts not getting added to PATH</li>
-<li>Fix window becoming unusable on Linux when changing appearance settings while window was maximized</li>
-<li>Fix various rare OutOfBounds exceptions that would break the GUI layout</li>
-<li>Fix StackOverflow for certain sudo elevation requests for shell environments</li>
-<li>Fix terminal launches failing for alpine LXD/incus containers</li>
-<li>Fix NullPointer when pressing undo in a filter text field</li>
-<li>Fix NumberFormatException when launching some xshell connections</li>
+<li>Add support for Warp on Windows and Linux</li>
+<li>Fix right part of file browser becoming blocked after a tab is split
+...</li>
 </ul>
-<p>...</p>
 </details>
-<div class="markdown-heading"><h2 class="heading-element">4. <a href="https://github.com/tianzhentech/NeatChat/releases/tag/v1.2.0">NeatChat v1.2.0</a>
-</h2><a id="user-content-4-neatchat-v120" class="anchor" aria-label="Permalink: 4. NeatChat v1.2.0" href="#4-neatchat-v120"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>基于 NextChat 深度重构，一个更优雅、更强大的 AI 对话解决方案</p>
-<details>
-<summary>变更说明</summary>
-<p>M C P！</p>
-</details>
-<div class="markdown-heading"><h2 class="heading-element">5. <a href="https://github.com/Calcium-Ion/new-api/releases/tag/v0.6.0.3">new-api v0.6.0.3</a>
-</h2><a id="user-content-5-new-api-v0603" class="anchor" aria-label="Permalink: 5. new-api v0.6.0.3" href="#5-new-api-v0603"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/Calcium-Ion/new-api/releases/tag/v0.6.0.3">new-api v0.6.0.3</a>
+</h1><a id="user-content-5-new-api-v0603" class="anchor" aria-label="Permalink: 5. new-api v0.6.0.3" href="#5-new-api-v0603"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
 <details>
 <summary>变更说明</summary>
