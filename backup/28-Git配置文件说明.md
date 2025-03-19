@@ -74,7 +74,20 @@ remote repository    远程仓库
 	name = random  
 
 	# email 是用户的 Git 提交签名邮箱地址
-	email = a@b.com  
+	email = r@n.dom  
+
+# 比较工具
+[diff]
+    tool = diffmerge
+[difftool "diffmerge"]
+    cmd = \"D:/WinMerge/WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\"
+[merge]
+    tool = diffmerge
+[mergetool]
+    keepbackup = false
+[mergetool "diffmerge"]
+    cmd = \"D:/WinMerge/WinMergeU.exe\" \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\"
+    trustexitcode = true
 ```
 
 ## .gitattritubes

@@ -68,7 +68,20 @@ remote repository    远程仓库</p>
 	name = random  
 
 	# email 是用户的 Git 提交签名邮箱地址
-	email = a@b.com  
+	email = r@n.dom  
+
+# 比较工具
+[diff]
+    tool = diffmerge
+[difftool "diffmerge"]
+    cmd = \"D:/WinMerge/WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\"
+[merge]
+    tool = diffmerge
+[mergetool]
+    keepbackup = false
+[mergetool "diffmerge"]
+    cmd = \"D:/WinMerge/WinMergeU.exe\" \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\"
+    trustexitcode = true
 </code></pre>
 <div class="markdown-heading"><h2 class="heading-element">.gitattritubes</h2><a id="user-content-gitattritubes" class="anchor" aria-label="Permalink: .gitattritubes" href="#gitattritubes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <pre lang="conf"><code># 设置文本文件的换行符处理规则

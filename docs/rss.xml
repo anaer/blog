@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 19 Mar 2025 02:34:34 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 19 Mar 2025 02:34:34 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>93 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 19 Mar 2025 02:37:34 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 19 Mar 2025 02:37:34 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>93 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
 
 优化建议：
 1. 在步骤中可以增加对每个命令的简要说明，帮助用户理解每一步的目的。
@@ -445,9 +445,9 @@ def extract_metadata(file_path):
 插件列表
 whistle.inspect
 安装插件后, 设置并启用Rules规则, 刷新页面生效
-支持: vco...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/29.html</guid><pubDate>Fri, 03 Jan 2025 06:19:08 +0000</pubDate></item><item><title>28 Git配置文件说明</title><link>https://anaer.github.io/blog/post/28.html</link><description>git数据传输
-workspace       index          local repository      remote repository
--------------commit -...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/28.html</guid><pubDate>Fri, 03 Jan 2025 03:05:36 +0000</pubDate></item><item><title>27 ip2region工具</title><link>https://anaer.github.io/blog/post/27.html</link><description>ip2region
+支持: vco...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/29.html</guid><pubDate>Fri, 03 Jan 2025 06:19:08 +0000</pubDate></item><item><title>28 Git配置文件说明</title><link>https://anaer.github.io/blog/post/28.html</link><description>本文介绍了Git数据传输的基本流程，包括工作空间、索引、本地仓库和远程仓库之间的操作，以及.git/config和.gitattributes的配置项，涵盖了用户信息、远程仓库设置、分支合并、换行符处理、文件合并策略等内容。
+
+优化建议：可以增加对每个操作的具体示例和说明，帮助用户更好地理解每个步骤的作用。同时，建议对.git/config和.gitattributes中的配置项进行详细解释，提供最佳实践和常见错误的解决方案，以便用户在实际使用中更有效地进行配置和管理。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/28.html</guid><pubDate>Fri, 03 Jan 2025 03:05:36 +0000</pubDate></item><item><title>27 ip2region工具</title><link>https://anaer.github.io/blog/post/27.html</link><description>ip2region
 
 ip2region-xdb  58M
 数据来自IP-API

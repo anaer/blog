@@ -130,12 +130,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-03 11:05:36</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-23 13:51:41</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-19 10:37:03</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> git数据传输
-workspace       index          local repository      remote repository
--------------commit -...
+    <strong>AI总结:</strong> 本文介绍了Git数据传输的基本流程，包括工作空间、索引、本地仓库和远程仓库之间的操作，以及.git/config和.gitattributes的配置项，涵盖了用户信息、远程仓库设置、分支合并、换行符处理、文件合并策略等内容。
+
+优化建议：可以增加对每个操作的具体示例和说明，帮助用户更好地理解每个步骤的作用。同时，建议对.git/config和.gitattributes中的配置项进行详细解释，提供最佳实践和常见错误的解决方案，以便用户在实际使用中更有效地进行配置和管理。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -209,7 +209,20 @@ remote repository    远程仓库</p>
 	name = random  
 
 	# email 是用户的 Git 提交签名邮箱地址
-	email = a@b.com  
+	email = r@n.dom  
+
+# 比较工具
+[diff]
+    tool = diffmerge
+[difftool "diffmerge"]
+    cmd = \"D:/WinMerge/WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\"
+[merge]
+    tool = diffmerge
+[mergetool]
+    keepbackup = false
+[mergetool "diffmerge"]
+    cmd = \"D:/WinMerge/WinMergeU.exe\" \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\"
+    trustexitcode = true
 </code></pre>
 <div class="markdown-heading"><h2 class="heading-element">.gitattritubes</h2><a id="user-content-gitattritubes" class="anchor" aria-label="Permalink: .gitattritubes" href="#gitattritubes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <pre lang="conf"><code># 设置文本文件的换行符处理规则
@@ -250,7 +263,7 @@ remote repository    远程仓库</p>
 </code></pre>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/29.html" aria-label="Previous Page">29 whistle抓包工具</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/27.html" aria-label="Next Page">27 ip2region工具</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/27.html" aria-label="Previous Page">27 ip2region工具</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/29.html" aria-label="Next Page">29 whistle抓包工具</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
