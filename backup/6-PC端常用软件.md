@@ -7,6 +7,11 @@
 3. Floorp浏览器 [GitHub](https://github.com/Floorp-Projects/Floorp/releases) Firefox fork版 增加一些特性 
 4. Zen Browser  [GitHub](https://github.com/zen-browser/desktop) Firefox fork版 支持左侧标签栏 
 
+### 比较
+1. WinMerge [GitHub](https://github.com/WinMerge/winmerge/releases)  在用
+2. BeyondCompare
+
+
 
 ### 传输
 | 名称   | 下载地址                                    | 说明 |
@@ -134,11 +139,6 @@
 | HeidiSQL              | [官网](https://www.heidisql.com/)                                 | 开源数据库客户端                     |
 | Navicat Premium Lite  | [官网](https://www.navicat.com.cn/download/navicat-premium-lite)  | 需要注册登录了                       |
 | SQLyog                |                                                                   | 优点: 网上有注册码 缺点: 只支持mysql |
-
-### 比较
-| 名称          | 下载地址 | 说明 |
-| ------------- | -------- | ---- |
-| BeyondCompare |          |      |
 
 ---
 

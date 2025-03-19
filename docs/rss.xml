@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 19 Mar 2025 02:04:21 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 19 Mar 2025 02:04:21 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>93 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 19 Mar 2025 02:28:55 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 19 Mar 2025 02:28:55 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>93 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
 
 优化建议：
 1. 在步骤中可以增加对每个命令的简要说明，帮助用户理解每一步的目的。
@@ -561,7 +561,13 @@ mkdir /var/ww...</description><guid isPermaLink="true">https://anaer.github.io/b
 apt-get update 需要先更新, 直接安装会提示找不到包
 
 apt-get install nginx 安装nginx
-云服务 安全组 入方向 快速添加80...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>6 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>本文介绍了多种软件和工具的分类及其下载信息，包括浏览器、内存管理、卸载工具、压缩软件、密码管理、搜索工具、文件处理、清理工具、输入法、资源管理、健康软件、办公软件、开发工具、抓包工具、数据库管理、比较工具、版本控制、终端工具、编辑器、证书管理、网络工具和翻译工具。每个类别下列出了相关软件的名称、下载地址及简要说明，涵盖了从基础办公到开发及网络管理的各类需求。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>5 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>本文介绍了几种适合编程和文本编辑的等宽字体，包括JetBrains Mono和Maple Mono的合成字体Maple-Mono，推荐其舒适的使用体验；LXGW WenKai GB字体在markdown表格格式化中表现良好，能够实现对齐；此外，还提到了Cascadia Code和Ubuntu Mono等其他字体选择。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/5.html</guid><pubDate>Thu, 26 Oct 2023 02:37:30 +0000</pubDate></item><item><title>4 pyGitHub文档</title><link>https://anaer.github.io/blog/post/4.html</link><description>Repository
+云服务 安全组 入方向 快速添加80...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>6 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>本文介绍了各种软件工具的分类和相关信息，包括浏览器、传输工具、内存管理、卸载工具、压缩工具、密码管理、搜索工具、文件处理、清理工具、输入法、资源管理、健康软件、办公软件、开发工具、抓包工具、数据库管理、版本控制、终端工具、编辑器、证书管理、网盘和翻译工具。每个工具都附有下载地址和简要说明，方便用户选择和使用。
+
+优化建议：
+1. 对每个软件工具进行简要评测，增加用户选择的参考价值。
+2. 将相似功能的工具进行对比，突出优缺点，帮助用户做出更明智的决策。
+3. 增加使用案例或推荐的使用场景，提升实用性。
+4. 定期更新软件的版本信息及下载链接，确保内容的时效性和准确性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>5 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>本文介绍了几种适合编程和文本编辑的等宽字体，包括JetBrains Mono和Maple Mono的合成字体Maple-Mono，推荐其舒适的使用体验；LXGW WenKai GB字体在markdown表格格式化中表现良好，能够实现对齐；此外，还提到了Cascadia Code和Ubuntu Mono等其他字体选择。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/5.html</guid><pubDate>Thu, 26 Oct 2023 02:37:30 +0000</pubDate></item><item><title>4 pyGitHub文档</title><link>https://anaer.github.io/blog/post/4.html</link><description>Repository
 
 
 
