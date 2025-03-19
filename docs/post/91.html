@@ -14,7 +14,7 @@
     </script>
     
 <title>91 我关注的项目这周更新了什么-2025-03-21</title>
-
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/high-contrast-dark.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -121,28 +121,96 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#1d76db">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#关注">关注</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-17 09:26:49</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-18 23:11:00</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-19 10:34:04</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新，包括Cherry Studio v1.1.7、NeatChat v1.2.0、DeepChat v0.0.8、xpipe 15.7.1和new-api v0.6.0.3。Cherry Studio进行了多项修复和功能增强，支持多种LLM提供商；NeatChat经过深度重构，提供更优雅的AI对话体验；DeepChat则增强了用户体验，增加了数据备份和投屏保护模式等功能；xpipe修复了性能回归问题，并增加了对Warp的支持；new-api则作为AI模型接口管理系统，支持多种格式调用。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新版本，包括DeepChat v0.0.8、xpipe 15.7.1、NeatChat v1.2.0、Readest v0.9.23、Cherry Studio v1.1.7和new-api v0.6.0.3。主要更新内容涵盖了性能改进、功能增强、用户体验优化和bug修复。例如，DeepChat引入了自定义搜索引擎和数据备份功能，xpipe修复了性能回退问题，Readest增加了头部和脚部显示选项等。
 
-优化建议：建议在更新说明中增加每个软件的主要功能亮点和用户受益的具体实例，以便用户更好地理解更新的价值。此外，提供更新后使用的最佳实践或常见问题解答，能够帮助用户更快适应新版本。
+优化建议：
+1. 在每个软件的更新说明中，增加更具体的用户场景或应用案例，帮助用户理解新功能的实际应用。
+2. 提供更新后的用户反馈或使用指南，以便用户快速上手新功能。
+3. 在发布说明中使用统一的格式，确保信息传达的一致性和清晰性。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.7">cherry-studio v1.1.7</a>
-</h1><a id="user-content-1-cherry-studio-v117" class="anchor" aria-label="Permalink: 1. cherry-studio v1.1.7" href="#1-cherry-studio-v117"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.8">deepchat v0.0.8</a>
+</h1><a id="user-content-1-deepchat-v008" class="anchor" aria-label="Permalink: 1. deepchat v0.0.8" href="#1-deepchat-v008"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>DeepChat - 连接强大AI与个人世界的智能助手 DeepChat - A smart assistant that connects powerful AI to your personal world</p>
+<details>
+<summary>变更说明</summary>
+<p>🚀 DeepChat 0.0.8 正式发布 | 重新定义你的 AI 对话体验！
+—— 更强大，更灵活，更智能，开启高效沟通新高度 🌟</p>
+<p>✨ 本次主要更新内容 ✨</p>
+<ul>
+<li>Artifacts 支持 React 渲染，更好的交互和体验</li>
+<li>支持自定义搜索引擎，模型自动本地解析搜索结果，猛击教程快来试试<a href="https://github.com/ThinkInAIXYZ/deepchat/wiki/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-%7C-Custom-Search-Engines">自定义搜索引擎教程</a>
+</li>
+<li>支持数据备份和还原，只需要一个文件夹，数据随身带（支持各类网盘，u盘，硬盘随意带走，随意导入，你的数据掌控在你自己手上）</li>
+<li>增加了投屏保护模式，开会投屏不方便展示DeepChat的内容？没关系，自动遮罩/隐藏，保护用户隐私</li>
+<li>增加了搜索预览模式，可以清晰的看到整个搜索的过程，了解DeepChat如何智能化的帮你搜索资料</li>
+<li>优化了体验，修复了大量bug
+...</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/xpipe-io/xpipe/releases/tag/15.7.1">xpipe 15.7.1</a>
+</h1><a id="user-content-2-xpipe-1571" class="anchor" aria-label="Permalink: 2. xpipe 15.7.1" href="#2-xpipe-1571"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Access your entire server infrastructure from your local desktop</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Performance</h2><a id="user-content-performance" class="anchor" aria-label="Permalink: Performance" href="#performance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A severe performance regression was accidentally introduced in the recent 15.4 release. This release fixes this issue, so you will get much better performance in this version. It is recommended that you upgrade to 15.7.</p>
+<p>While investigating, there were also a few other performance issues discovered that will be addressed in one of the next releases.</p>
+<div class="markdown-heading"><h2 class="heading-element">Changes</h2><a id="user-content-changes" class="anchor" aria-label="Permalink: Changes" href="#changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Add support for Warp on Windows and Linux</li>
+<li>Fix right part of file browser becoming blocked after a tab is split
+...</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/tianzhentech/NeatChat/releases/tag/v1.2.0">NeatChat v1.2.0</a>
+</h1><a id="user-content-3-neatchat-v120" class="anchor" aria-label="Permalink: 3. NeatChat v1.2.0" href="#3-neatchat-v120"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>基于 NextChat 深度重构，一个更优雅、更强大的 AI 对话解决方案</p>
+<details>
+<summary>变更说明</summary>
+<p>M C P！</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/readest/readest/releases/tag/v0.9.23">readest v0.9.23</a>
+</h1><a id="user-content-4-readest-v0923" class="anchor" aria-label="Permalink: 4. readest v0.9.23" href="#4-readest-v0923"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Add options to show/hide header and footer</li>
+<li>Add responsive window size for popup footnotes</li>
+<li>Fix theme color not applied on Safari browsers</li>
+<li>Fix progress not updated to 100% when finished reading</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: refresh page when vertical writing mode is set by @chrox in <a href="https://github.com/readest/readest/pull/615">https://github.com/readest/readest/pull/615</a>
+</li>
+<li>fix: also set color-scheme in iframe for Safari by @chrox in <a href="https://github.com/readest/readest/pull/616">https://github.com/readest/readest/pull/616</a>
+</li>
+<li>feat: add options to show/hide header and footer widgets in paginated and scrolled mode, also closes  by @chrox in <a href="https://github.com/readest/readest/pull/620">https://github.com/readest/readest/pull/620</a>
+...</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.7">cherry-studio v1.1.7</a>
+</h1><a id="user-content-5-cherry-studio-v117" class="anchor" aria-label="Permalink: 5. cherry-studio v1.1.7" href="#5-cherry-studio-v117"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers. Support deepseek-r1</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>refactor: handle tool content differently for doubao and deepseek  by @vaayne in <a href="https://github.com/CherryHQ/cherry-studio/pull/3474">https://github.com/CherryHQ/cherry-studio/pull/3474</a>
 </li>
@@ -164,49 +232,8 @@ pre {
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/tianzhentech/NeatChat/releases/tag/v1.2.0">NeatChat v1.2.0</a>
-</h1><a id="user-content-2-neatchat-v120" class="anchor" aria-label="Permalink: 2. NeatChat v1.2.0" href="#2-neatchat-v120"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>基于 NextChat 深度重构，一个更优雅、更强大的 AI 对话解决方案</p>
-<details>
-<summary>变更说明</summary>
-<p>M C P！</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.8">deepchat v0.0.8</a>
-</h1><a id="user-content-3-deepchat-v008" class="anchor" aria-label="Permalink: 3. deepchat v0.0.8" href="#3-deepchat-v008"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>DeepChat - 连接强大AI与个人世界的智能助手 DeepChat - A smart assistant that connects powerful AI to your personal world</p>
-<details>
-<summary>变更说明</summary>
-<p>🚀 DeepChat 0.0.8 正式发布 | 重新定义你的 AI 对话体验！
-—— 更强大，更灵活，更智能，开启高效沟通新高度 🌟</p>
-<p>✨ 本次主要更新内容 ✨</p>
-<ul>
-<li>Artifacts 支持 React 渲染，更好的交互和体验</li>
-<li>支持自定义搜索引擎，模型自动本地解析搜索结果，猛击教程快来试试<a href="https://github.com/ThinkInAIXYZ/deepchat/wiki/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-%7C-Custom-Search-Engines">自定义搜索引擎教程</a>
-</li>
-<li>支持数据备份和还原，只需要一个文件夹，数据随身带（支持各类网盘，u盘，硬盘随意带走，随意导入，你的数据掌控在你自己手上）</li>
-<li>增加了投屏保护模式，开会投屏不方便展示DeepChat的内容？没关系，自动遮罩/隐藏，保护用户隐私</li>
-<li>增加了搜索预览模式，可以清晰的看到整个搜索的过程，了解DeepChat如何智能化的帮你搜索资料</li>
-<li>优化了体验，修复了大量bug
-...</li>
-</ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/xpipe-io/xpipe/releases/tag/15.7.1">xpipe 15.7.1</a>
-</h1><a id="user-content-4-xpipe-1571" class="anchor" aria-label="Permalink: 4. xpipe 15.7.1" href="#4-xpipe-1571"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Access your entire server infrastructure from your local desktop</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">Performance</h2><a id="user-content-performance" class="anchor" aria-label="Permalink: Performance" href="#performance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A severe performance regression was accidentally introduced in the recent 15.4 release. This release fixes this issue, so you will get much better performance in this version. It is recommended that you upgrade to 15.7.</p>
-<p>While investigating, there were also a few other performance issues discovered that will be addressed in one of the next releases.</p>
-<div class="markdown-heading"><h2 class="heading-element">Changes</h2><a id="user-content-changes" class="anchor" aria-label="Permalink: Changes" href="#changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>Add support for Warp on Windows and Linux</li>
-<li>Fix right part of file browser becoming blocked after a tab is split
-...</li>
-</ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/Calcium-Ion/new-api/releases/tag/v0.6.0.3">new-api v0.6.0.3</a>
-</h1><a id="user-content-5-new-api-v0603" class="anchor" aria-label="Permalink: 5. new-api v0.6.0.3" href="#5-new-api-v0603"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/Calcium-Ion/new-api/releases/tag/v0.6.0.3">new-api v0.6.0.3</a>
+</h1><a id="user-content-6-new-api-v0603" class="anchor" aria-label="Permalink: 6. new-api v0.6.0.3" href="#6-new-api-v0603"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
 <details>
 <summary>变更说明</summary>
@@ -214,7 +241,7 @@ pre {
 </details>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/92.html" aria-label="Previous Page">92 MCP开发手册</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/90.html" aria-label="Next Page">90 将应用程序添加为系统服务进行管理</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/90.html" aria-label="Previous Page">90 将应用程序添加为系统服务进行管理</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/92.html" aria-label="Next Page">92 MCP开发手册</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
