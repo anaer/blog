@@ -130,57 +130,50 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-17 09:26:49</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-21 12:12:16</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-21 23:10:19</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件版本的更新内容，包括DeepChat、Cherry Studio、Docs、Xpipe、Readest、New API、Subs-Check和NeatChat等。主要更新包括DeepChat的React渲染支持、自定义搜索引擎和数据备份功能；Cherry Studio的知识库重排模型和增强的联网模式；Docs的前端功能改进；Xpipe的性能修复和Windows/Linux支持；Readest的主题修复和界面调整；New API的多语言支持；Subs-Check的订阅工具更新；NeatChat的深度重构和依赖更新。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新与变更说明，包括订阅工具subs-check v1.1.9、智能助手DeepChat v0.0.9、文档平台docs v2.5.0、服务器访问工具xpipe 15.7.1、桌面客户端Cherry Studio v1.1.8、权限认证框架Sa-Token v1.41.0、电子书阅读器Readest v0.9.23、AI模型接口管理系统new-api v0.6.0.3，以及AI对话解决方案NeatChat v1.2.0。每个软件的更新内容涉及性能优化、功能增强、bug修复等方面，旨在提升用户体验和系统效率。
 
-优化建议：在更新说明中，建议使用更明确的标题和小节划分，以便用户快速找到感兴趣的功能。此外，可以考虑增加用户反馈渠道，收集用户在使用新版本后的体验和建议，以便进行进一步的优化。
+优化建议：在更新说明中，建议提供更详细的功能描述和使用场景，以帮助用户更好地理解更新的实际影响。同时，可以考虑将变更内容按重要性排序，突出关键更新，便于用户快速获取信息。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.8">deepchat v0.0.8</a>
-</h1><a id="user-content-1-deepchat-v008" class="anchor" aria-label="Permalink: 1. deepchat v0.0.8" href="#1-deepchat-v008"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.1.9">subs-check v1.1.9</a>
+</h1><a id="user-content-1-subs-check-v119" class="anchor" aria-label="Permalink: 1. subs-check v1.1.9" href="#1-subs-check-v119"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换合并，节点可用性，测速，重命名，导出为mihomo/clash/base64订阅工具</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>917b6a2bb223dbb8333937ec9558540913f999f4 op:</li>
+<li>e82a40735e431dfeda411eda7af2b36f3908bf4e op: update README.md</li>
+<li>e435155cfa59ea7c4be0ebd2fc8f3f84e748e327 update config.example.yaml</li>
+<li>59e44f52676ec8cfdc25e0aa6cea80e950569e22 update gist.md</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.9">deepchat v0.0.9</a>
+</h1><a id="user-content-2-deepchat-v009" class="anchor" aria-label="Permalink: 2. deepchat v0.0.9" href="#2-deepchat-v009"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>DeepChat - 连接强大AI与个人世界的智能助手 DeepChat - A smart assistant that connects powerful AI to your personal world</p>
 <details>
 <summary>变更说明</summary>
-<p>🚀 DeepChat 0.0.8 正式发布 | 重新定义你的 AI 对话体验！
+<p>🚀 DeepChat 0.0.9 正式发布 | 重新定义你的 AI 对话体验！
 —— 更强大，更灵活，更智能，开启高效沟通新高度 🌟</p>
 <p>✨ 本次主要更新内容 ✨</p>
 <ul>
-<li>Artifacts 支持 React 渲染，更好的交互和体验</li>
-<li>支持自定义搜索引擎，模型自动本地解析搜索结果，猛击教程快来试试<a href="https://github.com/ThinkInAIXYZ/deepchat/wiki/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-%7C-Custom-Search-Engines">自定义搜索引擎教程</a>
-</li>
-<li>支持数据备份和还原，只需要一个文件夹，数据随身带（支持各类网盘，u盘，硬盘随意带走，随意导入，你的数据掌控在你自己手上）</li>
-<li>增加了投屏保护模式，开会投屏不方便展示DeepChat的内容？没关系，自动遮罩/隐藏，保护用户隐私</li>
-<li>增加了搜索预览模式，可以清晰的看到整个搜索的过程，了解DeepChat如何智能化的帮你搜索资料</li>
-<li>优化了体验，修复了大量bug
-...</li>
+<li>MCP 服务支持重磅上线</li>
+<li>优化了体验，修复了大量bug</li>
 </ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.8">cherry-studio v1.1.8</a>
-</h1><a id="user-content-2-cherry-studio-v118" class="anchor" aria-label="Permalink: 2. cherry-studio v1.1.8" href="#2-cherry-studio-v118"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers. Support deepseek-r1</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h1 class="heading-element">更新内容</h1><a id="user-content-更新内容" class="anchor" aria-label="Permalink: 更新内容" href="#更新内容"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ol>
-<li>知识库设置增加重排模型，提升知识库的准确性</li>
-<li>修复部分服务商无法正常对话问题</li>
-<li>自定义服务商增加兼容模式，开启兼容模式之后传文档也不会报错了</li>
-<li>增加 Github Copilot 服务商</li>
-<li>PlantUML 预览支持放大和缩小</li>
-<li>联网模式支持增强模式，可以预先处理搜索关键词</li>
-</ol>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>...</p>
+<div class="markdown-heading"><h2 class="heading-element">MCP 调用 blender 建模</h2><a id="user-content-mcp-调用-blender-建模" class="anchor" aria-label="Permalink: MCP 调用 blender 建模" href="#mcp-调用-blender-建模"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/d75eee46-3f65-4649-9065-d9e4e8728f6e"><img width="1677" alt="image" src="https://github.com/user-attachments/assets/d75eee46-3f65-4649-9065-d9e4e8728f6e" style="max-width: 100%;"></a>
+...  
 </details>
 <div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/suitenumerique/docs/releases/tag/v2.5.0">docs v2.5.0</a>
 </h1><a id="user-content-3-docs-v250" class="anchor" aria-label="Permalink: 3. docs v2.5.0" href="#3-docs-v250"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A collaborative note taking, wiki and documentation platform that scales. Built with Django and React. Opensource alternative to Notion or Outline.</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><a href="https://github.com/user-attachments/assets/3607644d-38b1-4ab4-aa7a-456c7b604073">scrnli_Qc44tsz86yubXn.webm</a></p>
 <div class="markdown-heading"><h2 class="heading-element">Added</h2><a id="user-content-added" class="anchor" aria-label="Permalink: Added" href="#added"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
@@ -206,8 +199,53 @@ pre {
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/readest/readest/releases/tag/v0.9.23">readest v0.9.23</a>
-</h1><a id="user-content-5-readest-v0923" class="anchor" aria-label="Permalink: 5. readest v0.9.23" href="#5-readest-v0923"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.8">cherry-studio v1.1.8</a>
+</h1><a id="user-content-5-cherry-studio-v118" class="anchor" aria-label="Permalink: 5. cherry-studio v1.1.8" href="#5-cherry-studio-v118"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers. Support deepseek-r1</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h1 class="heading-element">更新内容</h1><a id="user-content-更新内容" class="anchor" aria-label="Permalink: 更新内容" href="#更新内容"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>知识库设置增加重排模型，提升知识库的准确性</li>
+<li>修复部分服务商无法正常对话问题</li>
+<li>自定义服务商增加兼容模式，开启兼容模式之后传文档也不会报错了</li>
+<li>增加 Github Copilot 服务商</li>
+<li>PlantUML 预览支持放大和缩小</li>
+<li>联网模式支持增强模式，可以预先处理搜索关键词</li>
+</ol>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>...</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/dromara/Sa-Token/releases/tag/v1.41.0">Sa-Token v1.41.0</a>
+</h1><a id="user-content-6-sa-token-v1410" class="anchor" aria-label="Permalink: 6. Sa-Token v1.41.0" href="#6-sa-token-v1410"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>一个轻量级 Java 权限认证框架，让鉴权变得简单、优雅！—— 登录认证、权限认证、分布式Session会话、微服务网关鉴权、单点登录、OAuth2.0</p>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>core:
+<ul>
+<li>修复：修复 <code>StpUtil.setTokenValue("xxx")</code>、<code>loginParameter.getIsWriteHeader()</code> 空指针的问题。 fix: <a href="https://gitee.com/dromara/sa-token/issues/IBKSM0" rel="nofollow">#IBKSM0</a>
+</li>
+<li>修复：将 <code>SaDisableWrapperInfo.createNotDisabled()</code> 默认返回值封禁等级改为 -2，以保证向之前版本兼容。</li>
+<li>新增：新增基于 SPI 的插件体系。   <strong>[重要]</strong>
+</li>
+<li>重构：JSON 转换器模块。   <strong>[重要]</strong>
+</li>
+<li>新增：新增 serializer 序列化模块，控制 <code>Object</code> 与 <code>String</code> 的序列化方式。   <strong>[重要]</strong>
+</li>
+<li>重构：重构防火墙模块，增加 hooks 机制。   <strong>[重要]</strong>
+</li>
+<li>新增：防火墙新增：请求 path 禁止字符校验、Host 检测、请求 Method 检测、请求头检测、请求参数检测。重构目录遍历符检测算法。</li>
+<li>重构：重构 <code>SaTokenDao</code> 模块，将序列化与存储操作分离。   <strong>[重要]</strong>
+</li>
+<li>重构：重构 <code>SaTokenDao</code> 默认实现类，优化底层设计。
+...</li>
+</ul>
+</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/readest/readest/releases/tag/v0.9.23">readest v0.9.23</a>
+</h1><a id="user-content-7-readest-v0923" class="anchor" aria-label="Permalink: 7. readest v0.9.23" href="#7-readest-v0923"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
 <details>
 <summary>变更说明</summary>
@@ -228,27 +266,15 @@ pre {
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/Calcium-Ion/new-api/releases/tag/v0.6.0.3">new-api v0.6.0.3</a>
-</h1><a id="user-content-6-new-api-v0603" class="anchor" aria-label="Permalink: 6. new-api v0.6.0.3" href="#6-new-api-v0603"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/Calcium-Ion/new-api/releases/tag/v0.6.0.3">new-api v0.6.0.3</a>
+</h1><a id="user-content-8-new-api-v0603" class="anchor" aria-label="Permalink: 8. new-api v0.6.0.3" href="#8-new-api-v0603"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
 <details>
 <summary>变更说明</summary>
 <p><strong>Full Changelog</strong>: <a href="https://github.com/Calcium-Ion/new-api/compare/v0.6.0.2...v0.6.0.3">https://github.com/Calcium-Ion/new-api/compare/v0.6.0.2...v0.6.0.3</a></p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.1.8">subs-check v1.1.8</a>
-</h1><a id="user-content-7-subs-check-v118" class="anchor" aria-label="Permalink: 7. subs-check v1.1.8" href="#7-subs-check-v118"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>订阅转换合并，节点可用性，测速，重命名，导出为mihomo/clash/base64订阅工具</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>feb068df3429d237083d8f621f965c49e7c53908 update README.md</li>
-<li>7fe1a26bd07e34c95f10c033dcaeb88a2a85158c update README.md</li>
-<li>41ca3b836b82d68ac034b7ecd5aa4b577f67a8f1 update config.example.yaml</li>
-</ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/tianzhentech/NeatChat/releases/tag/v1.2.0">NeatChat v1.2.0</a>
-</h1><a id="user-content-8-neatchat-v120" class="anchor" aria-label="Permalink: 8. NeatChat v1.2.0" href="#8-neatchat-v120"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">9. <a href="https://github.com/tianzhentech/NeatChat/releases/tag/v1.2.0">NeatChat v1.2.0</a>
+</h1><a id="user-content-9-neatchat-v120" class="anchor" aria-label="Permalink: 9. NeatChat v1.2.0" href="#9-neatchat-v120"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>基于 NextChat 深度重构，一个更优雅、更强大的 AI 对话解决方案</p>
 <details>
 <summary>变更说明</summary>
