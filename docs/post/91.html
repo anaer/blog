@@ -130,15 +130,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-17 09:26:49</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-22 23:08:30</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-23 12:11:43</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件版本更新的变更说明，包括xpipe 15.7.1修复了性能回归问题并增加了对Warp的支持，cherry-studio v1.1.8提升了知识库准确性并修复了对话问题，subs-check v1.1.9提供了订阅转换和合并功能，docs v2.6.0是一个开源文档平台，deepchat v0.0.9优化了用户体验并修复了bug，Sa-Token v1.41.0增强了权限认证功能并进行了多项重构，readest v0.9.23改善了阅读体验并修复了浏览器兼容性问题，new-api v0.6.0.3是一个AI模型接口管理系统，NeatChat v1.2.0进行了深度重构并更新了多个依赖项。
+    <strong>AI总结:</strong> 本文介绍了多个软件版本的更新，包括xpipe、docs、cherry-studio、subs-check、deepchat、Sa-Token、readest、new-api和NeatChat等。每个版本的更新内容涵盖了性能修复、新功能添加、bug修复以及其他改进，强调了对用户体验的提升和兼容性维护。
 
-优化建议：
-1. 提供更详细的每个软件更新的具体功能和修复内容，以便用户更好地理解更新的价值。
-2. 在变更说明中增加用户反馈或使用案例，以提升用户对新功能的认知和使用意愿。
-3. 增加更新频率或版本发布的预告，以增强用户的期待感和参与感。
+优化建议：在更新说明中可以更明确地列出每个软件的主要改进点，使用小标题分类（如性能、功能、修复等），同时提供更详细的用户指南以帮助用户快速了解新功能的使用方法。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -157,25 +154,51 @@ pre {
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.8">cherry-studio v1.1.8</a>
-</h1><a id="user-content-2-cherry-studio-v118" class="anchor" aria-label="Permalink: 2. cherry-studio v1.1.8" href="#2-cherry-studio-v118"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/suitenumerique/docs/releases/tag/v2.6.0">docs v2.6.0</a>
+</h1><a id="user-content-2-docs-v260" class="anchor" aria-label="Permalink: 2. docs v2.6.0" href="#2-docs-v260"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A collaborative note taking, wiki and documentation platform that scales. Built with Django and React. Opensource alternative to Notion or Outline.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">Added</h2><a id="user-content-added" class="anchor" aria-label="Permalink: Added" href="#added"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>📝(doc) add publiccode.yml by @bzg</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Changed</h2><a id="user-content-changed" class="anchor" aria-label="Permalink: Changed" href="#changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>🚸(frontend) ctrl+k modal not when editor is focused by @AntoLC</li>
+</ul>
+<p>...</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.9">cherry-studio v1.1.9</a>
+</h1><a id="user-content-3-cherry-studio-v119" class="anchor" aria-label="Permalink: 3. cherry-studio v1.1.9" href="#3-cherry-studio-v119"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers. Support deepseek-r1</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h1 class="heading-element">更新内容</h1><a id="user-content-更新内容" class="anchor" aria-label="Permalink: 更新内容" href="#更新内容"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ol>
-<li>知识库设置增加重排模型，提升知识库的准确性</li>
-<li>修复部分服务商无法正常对话问题</li>
-<li>自定义服务商增加兼容模式，开启兼容模式之后传文档也不会报错了</li>
-<li>增加 Github Copilot 服务商</li>
-<li>PlantUML 预览支持放大和缩小</li>
-<li>联网模式支持增强模式，可以预先处理搜索关键词</li>
-</ol>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>...</p>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: race condition in new context event by @alephpiece in <a href="https://github.com/CherryHQ/cherry-studio/pull/3597">https://github.com/CherryHQ/cherry-studio/pull/3597</a>
+</li>
+<li>fix: update API URL for together provider by @ousugo in <a href="https://github.com/CherryHQ/cherry-studio/pull/3605">https://github.com/CherryHQ/cherry-studio/pull/3605</a>
+</li>
+<li>fix: mcpserver settings scrolling bar by @Pleasurecruise in <a href="https://github.com/CherryHQ/cherry-studio/pull/3604">https://github.com/CherryHQ/cherry-studio/pull/3604</a>
+</li>
+<li>chore: upgrade eslint version to 9.x by @shlroland in <a href="https://github.com/CherryHQ/cherry-studio/pull/3608">https://github.com/CherryHQ/cherry-studio/pull/3608</a>
+</li>
+<li>Unknown event handler property onsuccess . by @TangZhiZzz in <a href="https://github.com/CherryHQ/cherry-studio/pull/3603">https://github.com/CherryHQ/cherry-studio/pull/3603</a>
+</li>
+<li>feat(MCP): add external MCP search website link in MCP settings by @shiquda in <a href="https://github.com/CherryHQ/cherry-studio/pull/3602">https://github.com/CherryHQ/cherry-studio/pull/3602</a>
+</li>
+<li>feat: Export to Joplin by @0xfullex in <a href="https://github.com/CherryHQ/cherry-studio/pull/3607">https://github.com/CherryHQ/cherry-studio/pull/3607</a>
+</li>
+<li>feat[MCP]: Optimize list tool performance. by @vaayne in <a href="https://github.com/CherryHQ/cherry-studio/pull/3598">https://github.com/CherryHQ/cherry-studio/pull/3598</a>
+</li>
+<li>fix: correct typo in properties variable and add null check by @vaayne in <a href="https://github.com/CherryHQ/cherry-studio/pull/3619">https://github.com/CherryHQ/cherry-studio/pull/3619</a>
+...</li>
+</ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.1.9">subs-check v1.1.9</a>
-</h1><a id="user-content-3-subs-check-v119" class="anchor" aria-label="Permalink: 3. subs-check v1.1.9" href="#3-subs-check-v119"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.1.9">subs-check v1.1.9</a>
+</h1><a id="user-content-4-subs-check-v119" class="anchor" aria-label="Permalink: 4. subs-check v1.1.9" href="#4-subs-check-v119"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换合并，节点可用性，测速，重命名，导出为mihomo/clash/base64订阅工具</p>
 <details>
 <summary>变更说明</summary>
@@ -186,22 +209,6 @@ pre {
 <li>e435155cfa59ea7c4be0ebd2fc8f3f84e748e327 update config.example.yaml</li>
 <li>59e44f52676ec8cfdc25e0aa6cea80e950569e22 update gist.md</li>
 </ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/suitenumerique/docs/releases/tag/v2.6.0">docs v2.6.0</a>
-</h1><a id="user-content-4-docs-v260" class="anchor" aria-label="Permalink: 4. docs v2.6.0" href="#4-docs-v260"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A collaborative note taking, wiki and documentation platform that scales. Built with Django and React. Opensource alternative to Notion or Outline.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h2 class="heading-element">Added</h2><a id="user-content-added" class="anchor" aria-label="Permalink: Added" href="#added"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>📝(doc) add publiccode.yml by @bzg</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">Changed</h2><a id="user-content-changed" class="anchor" aria-label="Permalink: Changed" href="#changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>🚸(frontend) ctrl+k modal not when editor is focused by @AntoLC</li>
-</ul>
-<p>...</p>
 </details>
 <div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.9">deepchat v0.0.9</a>
 </h1><a id="user-content-5-deepchat-v009" class="anchor" aria-label="Permalink: 5. deepchat v0.0.9" href="#5-deepchat-v009"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
