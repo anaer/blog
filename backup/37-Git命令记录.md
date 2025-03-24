@@ -1,3 +1,28 @@
+## 查询Git提交用户记录
+
+```sh
+git log --format="%an <%ae>" --all | sort | uniq
+```
+
+--all：包括所有分支的提交。
+
+sort | uniq：对结果排序并去重。
+
+输出示例：
+```
+random <r@n.dom>
+```
+
+## 修改历史提交用户信息
+
+```sh
+git filter-repo --name-callback "return b\"random\"" --email-callback "return b\"r@n.dom\"" --force
+
+git push --force
+```
+
+PS: 在 Windows 的 CMD 中，单引号可能不被识别，建议用双引号
+
 ## depth=1 拉取其他分支 
 
 当你使用 git clone --depth 1 克隆仓库时，Git 只会克隆最新的提交历史（浅克隆），并且默认只拉取默认分支（通常是 main 或 master）。如果你需要获取其他分支, 执行以下命令

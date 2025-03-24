@@ -130,14 +130,27 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-14 11:24:59</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-23 16:55:11</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-24 10:07:04</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> depth=1 拉取其他分支
-当你使用 git clone --depth 1 克隆仓库时，Git 只会克隆最新的提交历史（浅克隆），并且默认只拉取默认分支（通常是 main 或 master）。如果...
+    <strong>AI总结:</strong> 本文介绍了如何查询Git提交用户记录、修改历史提交用户信息、拉取其他分支、比较分支并导出变更文件，以及删除敏感文件的历史提交记录。具体命令包括使用git log查看提交用户、git filter-repo修改用户信息、git clone进行浅克隆、git diff比较分支并导出变更为zip文件，以及使用git filter-branch删除敏感文件记录。
+
+优化建议：在介绍命令时，可以增加对每个命令的具体用途和效果的简要说明，以帮助用户更好地理解每个步骤的目的。此外，考虑提供一些常见错误及其解决方案，以提高用户操作的成功率。
 </div>
 
 <div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h2 class="heading-element">查询Git提交用户记录</h2><a id="user-content-查询git提交用户记录" class="anchor" aria-label="Permalink: 查询Git提交用户记录" href="#查询git提交用户记录"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>git log --format=<span class="pl-s"><span class="pl-pds">"</span>%an &lt;%ae&gt;<span class="pl-pds">"</span></span> --all <span class="pl-k">|</span> sort <span class="pl-k">|</span> uniq</pre></div>
+<p>--all：包括所有分支的提交。</p>
+<p>sort | uniq：对结果排序并去重。</p>
+<p>输出示例：</p>
+<pre><code>random &lt;r@n.dom&gt;
+</code></pre>
+<div class="markdown-heading"><h2 class="heading-element">修改历史提交用户信息</h2><a id="user-content-修改历史提交用户信息" class="anchor" aria-label="Permalink: 修改历史提交用户信息" href="#修改历史提交用户信息"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>git filter-repo --name-callback <span class="pl-s"><span class="pl-pds">"</span>return b<span class="pl-cce">\"</span>random<span class="pl-cce">\"</span><span class="pl-pds">"</span></span> --email-callback <span class="pl-s"><span class="pl-pds">"</span>return b<span class="pl-cce">\"</span>r@n.dom<span class="pl-cce">\"</span><span class="pl-pds">"</span></span> --force
+
+git push --force</pre></div>
+<p>PS: 在 Windows 的 CMD 中，单引号可能不被识别，建议用双引号</p>
 <div class="markdown-heading"><h2 class="heading-element">depth=1 拉取其他分支</h2><a id="user-content-depth1-拉取其他分支" class="anchor" aria-label="Permalink: depth=1 拉取其他分支" href="#depth1-拉取其他分支"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>当你使用 git clone --depth 1 克隆仓库时，Git 只会克隆最新的提交历史（浅克隆），并且默认只拉取默认分支（通常是 main 或 master）。如果你需要获取其他分支, 执行以下命令</p>
 <div class="highlight highlight-source-shell"><pre>git config remote.origin.fetch <span class="pl-s"><span class="pl-pds">"</span>+refs/heads/*:refs/remotes/origin/*<span class="pl-pds">"</span></span>
@@ -160,7 +173,7 @@ git push origin --force --all</pre></div>
 <p><a href="https://anaer.github.io/blog/post/67.html" rel="nofollow">67 Git删除大文件</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/39.html" aria-label="Previous Page">39 Deepseek API</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/34.html" aria-label="Next Page">34 Python分词</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/36.html" aria-label="Previous Page">36 中文分词API</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/38.html" aria-label="Next Page">38 Blog页面添加下雪特效</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
