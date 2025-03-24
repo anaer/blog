@@ -1,0 +1,3 @@
+<div class="markdown-heading"><h2 class="heading-element">清理日志目录超过1G的日志文件</h2><a id="user-content-清理日志目录超过1g的日志文件" class="anchor" aria-label="Permalink: 清理日志目录超过1G的日志文件" href="#清理日志目录超过1g的日志文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>不删文件只清空</p>
+<div class="highlight highlight-source-shell"><pre>find /data/app_log -type f -name <span class="pl-s"><span class="pl-pds">"</span>*.log<span class="pl-pds">"</span></span> -size +1G -exec truncate -s 0 {} <span class="pl-cce">\;</span></pre></div>
