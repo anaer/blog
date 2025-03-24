@@ -11,6 +11,14 @@
 1. WinMerge [GitHub](https://github.com/WinMerge/winmerge/releases)  在用
 2. BeyondCompare
 
+### 终端
+1. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 
+2. KiTTY [GitHub](https://github.com/cyd01/KiTTY/releases)       
+3. Putty [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
+4. WindTerm [GitHub](https://github.com/kingToolbox/WindTerm/releases/) 多端  
+5. Tabby [GitHub](https://github.com/Eugeny/tabby/releases)  
+  多端, 插件支持webdav同步, 支持集成WinSCP
+  使用较卡, 电脑差带不动
 
 
 ### 传输
@@ -148,16 +156,6 @@
 | Git  | [官网](https://git-scm.com/download) |      |
 
 ---
-
-
-### 终端
-| 名称          | 下载地址                                                   | 说明 |
-| ------------- | ---------------------------------------------------------- | ---- |
-| Cmder终端工具 | [GitHub](https://github.com/cmderdev/cmder/releases)       |      |
-| KiTTY         | [GitHub](https://github.com/cyd01/KiTTY/releases)          |      |
-| Putty         | [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html) |      |
-| WindTerm      | [GitHub](https://github.com/kingToolbox/WindTerm/releases/)| 多端     |
-| **Tabby**         | [GitHub](https://github.com/Eugeny/tabby/releases)         | 多端, 插件支持webdav同步, 支持集成WinSCP |  
 
 
 ### 编辑器
