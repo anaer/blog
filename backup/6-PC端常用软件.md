@@ -12,11 +12,12 @@
 2. BeyondCompare
 
 ### 终端
-1. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 
-2. KiTTY [GitHub](https://github.com/cyd01/KiTTY/releases)       
-3. Putty [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
-4. WindTerm [GitHub](https://github.com/kingToolbox/WindTerm/releases/) 多端  
-5. Tabby [GitHub](https://github.com/Eugeny/tabby/releases)  
+1. MobaXterm 中文版 [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) 
+2. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 
+3. KiTTY [GitHub](https://github.com/cyd01/KiTTY/releases)       
+4. Putty [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
+5. WindTerm [GitHub](https://github.com/kingToolbox/WindTerm/releases/) 多端  
+6. Tabby [GitHub](https://github.com/Eugeny/tabby/releases)  
   多端, 插件支持webdav同步, 支持集成WinSCP
   使用较卡, 电脑差带不动
 
