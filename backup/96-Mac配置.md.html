@@ -1,38 +1,49 @@
 <ol>
-<li>
-<p>设置程序坞显示与隐藏时间, 设置为 0 无延迟显示隐藏。
-defaults write com.apple.Dock autohide-delay -float 0 &amp;&amp; killall Dock</p>
-</li>
-<li>
-<p>防止 macOS 的 Finder 在网络设备或者 USB 设备上生成 .DS_Store 文件
-defaults write com.apple.desktopservices DSDontWriteNetworkStores true
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true</p>
-</li>
-<li>
-<p>不需要拖动标题栏，只要按住 Ctrl + Command 之后，在窗口任意位置就可以拖动窗口：
-defaults write -g NSWindowShouldDragOnGesture -bool true</p>
-</li>
-<li>
-<p>访达显示文件扩展名
-defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true" &amp;&amp; killall Finder</p>
-</li>
-<li>
-<p>访达显示隐藏文件
-defaults write com.apple.finder "AppleShowAllFiles" -bool "true" &amp;&amp; killall Finder</p>
-</li>
-<li>
-<p>访达显示路径栏
-defaults write com.apple.finder "ShowPathbar" -bool "true" &amp;&amp; killall Finder</p>
-</li>
-<li>
-<p>访达将文件夹放于最前方显示
-defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" &amp;&amp; killall Finder</p>
-</li>
-<li>
-<p>dmg安装提示文件损坏
-xattr -cr /Applications/demo.app</p>
-</li>
+<li>设置程序坞显示与隐藏时间, 设置为 0 无延迟显示隐藏。</li>
 </ol>
+<pre><code>defaults write com.apple.Dock autohide-delay -float 0 &amp;&amp; killall Dock
+</code></pre>
+<ol start="2">
+<li>防止 macOS 的 Finder 在网络设备或者 USB 设备上生成 .DS_Store 文件</li>
+</ol>
+<pre><code>defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+</code></pre>
+<ol start="3">
+<li>不需要拖动标题栏，只要按住 Ctrl + Command 之后，在窗口任意位置就可以拖动窗口：</li>
+</ol>
+<pre><code>defaults write -g NSWindowShouldDragOnGesture -bool true
+</code></pre>
+<ol start="4">
+<li>访达显示文件扩展名</li>
+</ol>
+<pre><code>defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true" &amp;&amp; killall Finder
+</code></pre>
+<ol start="5">
+<li>访达显示隐藏文件</li>
+</ol>
+<pre><code>defaults write com.apple.finder "AppleShowAllFiles" -bool "true" &amp;&amp; killall Finder
+</code></pre>
+<ol start="6">
+<li>访达显示路径栏</li>
+</ol>
+<pre><code>defaults write com.apple.finder "ShowPathbar" -bool "true" &amp;&amp; killall Finder
+</code></pre>
+<ol start="7">
+<li>访达将文件夹放于最前方显示</li>
+</ol>
+<pre><code>defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" &amp;&amp; killall Finder
+</code></pre>
+<ol start="8">
+<li>dmg安装提示文件损坏</li>
+</ol>
+<pre><code>xattr -cr /Applications/demo.app
+</code></pre>
+<ol start="9">
+<li>修改屏幕截图保存目录</li>
+</ol>
+<pre><code>defaults write com.apple.screencapture location /Users/xxx/Screenshots
+</code></pre>
 <div class="markdown-heading"><h3 class="heading-element">相关链接</h3><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>
 <li><a href="https://macos-defaults.com/" rel="nofollow">macOS defaults list</a></li>
