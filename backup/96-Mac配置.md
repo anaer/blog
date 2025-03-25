@@ -1,7 +1,9 @@
 
 1. 设置程序坞显示与隐藏时间, 设置为 0 无延迟显示隐藏。
 ```
-defaults write com.apple.Dock autohide-delay -float 0 && killall Dock
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.5
+killall Dock
 ```
 
 2. 防止 macOS 的 Finder 在网络设备或者 USB 设备上生成 .DS_Store 文件
@@ -33,9 +35,10 @@ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Fi
 ```
 xattr -cr /Applications/demo.app
 ```
-9. 修改屏幕截图保存目录
+9. 修改屏幕截图类型和目录
 ```
-defaults write com.apple.screencapture location /Users/xxx/Screenshots
+defaults write com.apple.screencapture type jpg
+defaults write com.apple.screencapture location ~/Downloads/
 ```
 ### 相关链接
 1. [macOS defaults list](https://macos-defaults.com/)

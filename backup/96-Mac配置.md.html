@@ -1,7 +1,9 @@
 <ol>
 <li>设置程序坞显示与隐藏时间, 设置为 0 无延迟显示隐藏。</li>
 </ol>
-<pre><code>defaults write com.apple.Dock autohide-delay -float 0 &amp;&amp; killall Dock
+<pre><code>defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.5
+killall Dock
 </code></pre>
 <ol start="2">
 <li>防止 macOS 的 Finder 在网络设备或者 USB 设备上生成 .DS_Store 文件</li>
@@ -40,9 +42,10 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 <pre><code>xattr -cr /Applications/demo.app
 </code></pre>
 <ol start="9">
-<li>修改屏幕截图保存目录</li>
+<li>修改屏幕截图类型和目录</li>
 </ol>
-<pre><code>defaults write com.apple.screencapture location /Users/xxx/Screenshots
+<pre><code>defaults write com.apple.screencapture type jpg
+defaults write com.apple.screencapture location ~/Downloads/
 </code></pre>
 <div class="markdown-heading"><h3 class="heading-element">相关链接</h3><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>

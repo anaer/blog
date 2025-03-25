@@ -130,19 +130,21 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-25 10:15:38</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-25 17:56:24</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-25 17:58:32</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多项macOS系统的配置命令，包括设置程序坞显示与隐藏时间、阻止Finder在网络和USB设备上生成.DS_Store文件、简化窗口拖动操作、显示文件扩展名和隐藏文件、显示路径栏和文件夹优先级、处理.dmg安装提示文件损坏，以及修改屏幕截图保存目录。
+    <strong>AI总结:</strong> 本文介绍了多项macOS系统的优化设置，包括调整程序坞的显示与隐藏时间、禁止Finder在网络和USB设备上生成.DS_Store文件、窗口拖动方式的改变、显示文件扩展名和隐藏文件、路径栏的显示、文件夹优先显示、处理.dmg文件损坏提示，以及修改屏幕截图的格式和保存位置。
 
-优化建议：建议将相关命令分组整理，便于用户快速查找和执行。同时，可以附上每个命令的具体用途说明，以帮助用户理解其效果。此外，提供一个恢复默认设置的命令将会更有利于用户的操作安全。
+优化建议：可以考虑将这些命令整合到一个脚本中，以便于快速应用所有设置。同时，提供每个命令的具体用途说明，以便用户理解每项设置的效果。
 </div>
 
 <div class="markdown-body" id="postBody">
 <ol>
 <li>设置程序坞显示与隐藏时间, 设置为 0 无延迟显示隐藏。</li>
 </ol>
-<pre><code>defaults write com.apple.Dock autohide-delay -float 0 &amp;&amp; killall Dock
+<pre><code>defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.5
+killall Dock
 </code></pre>
 <ol start="2">
 <li>防止 macOS 的 Finder 在网络设备或者 USB 设备上生成 .DS_Store 文件</li>
@@ -181,9 +183,10 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 <pre><code>xattr -cr /Applications/demo.app
 </code></pre>
 <ol start="9">
-<li>修改屏幕截图保存目录</li>
+<li>修改屏幕截图类型和目录</li>
 </ol>
-<pre><code>defaults write com.apple.screencapture location /Users/xxx/Screenshots
+<pre><code>defaults write com.apple.screencapture type jpg
+defaults write com.apple.screencapture location ~/Downloads/
 </code></pre>
 <div class="markdown-heading"><h3 class="heading-element">相关链接</h3><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>
