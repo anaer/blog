@@ -130,20 +130,55 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-24 12:12:53</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-26 12:12:33</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-26 23:11:00</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新和功能改进，包括clash-verge-rev的性能优化，deepchat的AI对话体验提升，readest的电子书阅读功能增强，weasel的bug修复，subs-check的订阅工具改进，以及FlowSilicon的API代理服务的修复和功能新增。每个软件都进行了不同程度的功能更新和bug修复，以提升用户体验和系统性能。
+    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新，包括Readest、DeepChat、Clash-Verge-Rev、Higress、Subs-Check、Weasel和FlowSilicon。每个软件的更新内容涵盖了新功能、修复的bug和性能优化。例如，Readest增加了导出注释的Markdown格式和TXT文件导入功能；DeepChat推出了MCP服务支持和新的AI模型；Clash-Verge-Rev进行了后端重构和性能优化；Higress增加了AI搜索插件和对OpenAI合同的支持；Subs-Check修复了更新检查的问题；Weasel解决了Vim模式的误操作；FlowSilicon修复了Linux打包失败的问题并新增了功能。
 
-优化建议：
-1. 对每个软件的更新内容进行简明扼要的分类，便于用户快速查找所需信息。
-2. 增加每个软件更新的具体使用场景或用户反馈，提升实用性。
-3. 考虑加入版本更新的发布日期，以便用户了解软件的最新状态。
+优化建议：在发布更新时，可以考虑提供更详细的用户指南或示例，以帮助用户更好地理解新功能的使用。同时，增加用户反馈渠道，以便及时收集和处理用户在使用新版本中遇到的问题。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.2.2">clash-verge-rev v2.2.2</a>
-</h1><a id="user-content-1-clash-verge-rev-v222" class="anchor" aria-label="Permalink: 1. clash-verge-rev v2.2.2" href="#1-clash-verge-rev-v222"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/readest/readest/releases/tag/v0.9.25">readest v0.9.25</a>
+</h1><a id="user-content-1-readest-v0925" class="anchor" aria-label="Permalink: 1. readest v0.9.25" href="#1-readest-v0925"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Support exporting annotations in markdown format</li>
+<li>Support importing TXT files</li>
+<li>Support setting reader language in the UI</li>
+<li>Add bottom action bar on mobile platforms</li>
+<li>Various fixes on layout settings and styles</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: dismiss popup footnotes on window resize, also closes  and closes  by @chrox in <a href="https://github.com/readest/readest/pull/638">https://github.com/readest/readest/pull/638</a>
+</li>
+<li>fix: various fixes on layout settings and styles, closes  by @chrox in <a href="https://github.com/readest/readest/pull/644">https://github.com/readest/readest/pull/644</a>
+...</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.11">deepchat v0.0.11</a>
+</h1><a id="user-content-2-deepchat-v0011" class="anchor" aria-label="Permalink: 2. deepchat v0.0.11" href="#2-deepchat-v0011"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>DeepChat - 连接强大AI与个人世界的智能助手 DeepChat - A smart assistant that connects powerful AI to your personal world</p>
+<details>
+<summary>变更说明</summary>
+<p>🚀 DeepChat 0.0.11 正式发布 | 重新定义你的 AI 对话体验！
+—— 更强大，更灵活，更智能，开启高效沟通新高度 🌟</p>
+<p>✨ 本次主要更新内容 ✨</p>
+<ul>
+<li>MCP 服务支持重磅上线</li>
+<li>支持新的 gemini 2.5 pro 模型</li>
+<li>修复无法保存 Key 的问题</li>
+<li>其他体验优化和bug修复</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">MCP 样例</h2><a id="user-content-mcp-样例" class="anchor" aria-label="Permalink: MCP 样例" href="#mcp-样例"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>...</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.2.2">clash-verge-rev v2.2.2</a>
+</h1><a id="user-content-3-clash-verge-rev-v222" class="anchor" aria-label="Permalink: 3. clash-verge-rev v2.2.2" href="#3-clash-verge-rev-v222"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A modern GUI client based on Tauri, designed to run in Windows, macOS and Linux for tailored proxy experience</p>
 <details>
 <summary>变更说明</summary>
@@ -166,46 +201,45 @@ pre {
 <p>感谢 Tunglies 对 Verge 后端重构，性能优化做出的重大贡献！</p>
 <p>...</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.11">deepchat v0.0.11</a>
-</h1><a id="user-content-2-deepchat-v0011" class="anchor" aria-label="Permalink: 2. deepchat v0.0.11" href="#2-deepchat-v0011"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>DeepChat - 连接强大AI与个人世界的智能助手 DeepChat - A smart assistant that connects powerful AI to your personal world</p>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.0-rc.1">higress v2.1.0-rc.1</a>
+</h1><a id="user-content-4-higress-v210-rc1" class="anchor" aria-label="Permalink: 4. higress v2.1.0-rc.1" href="#4-higress-v210-rc1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🤖 AI Gateway AI Native API Gateway</p>
 <details>
 <summary>变更说明</summary>
-<p>🚀 DeepChat 0.0.11 正式发布 | 重新定义你的 AI 对话体验！
-—— 更强大，更灵活，更智能，开启高效沟通新高度 🌟</p>
-<p>✨ 本次主要更新内容 ✨</p>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>MCP 服务支持重磅上线</li>
-<li>支持新的 gemini 2.5 pro模型</li>
-<li>修复无法保存 Key 的问题</li>
-<li>其他体验优化和bug修复</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">MCP 样例</h2><a id="user-content-mcp-样例" class="anchor" aria-label="Permalink: MCP 样例" href="#mcp-样例"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>...</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/readest/readest/releases/tag/v0.9.25">readest v0.9.25</a>
-</h1><a id="user-content-3-readest-v0925" class="anchor" aria-label="Permalink: 3. readest v0.9.25" href="#3-readest-v0925"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>Support exporting annotations in markdown format</li>
-<li>Support importing TXT files</li>
-<li>Support setting reader language in the UI</li>
-<li>Add bottom action bar on mobile platforms</li>
-<li>Various fixes on layout settings and styles</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>fix: dismiss popup footnotes on window resize, also closes  and closes  by @chrox in <a href="https://github.com/readest/readest/pull/638">https://github.com/readest/readest/pull/638</a>
+<li>update helm docs by @johnlanni in <a href="https://github.com/alibaba/higress/pull/1782">https://github.com/alibaba/higress/pull/1782</a>
 </li>
-<li>fix: various fixes on layout settings and styles, closes  by @chrox in <a href="https://github.com/readest/readest/pull/644">https://github.com/readest/readest/pull/644</a>
+<li>feat: add ollama embedding to ai-cache by @Beatrueman in <a href="https://github.com/alibaba/higress/pull/1794">https://github.com/alibaba/higress/pull/1794</a>
+</li>
+<li>feat: Support transforming reasoning_content returned by Qwen to OpenAI contract by @CH3CHO in <a href="https://github.com/alibaba/higress/pull/1791">https://github.com/alibaba/higress/pull/1791</a>
+</li>
+<li>fix: Fix a bug in openaiCustomUrl support by @CH3CHO in <a href="https://github.com/alibaba/higress/pull/1790">https://github.com/alibaba/higress/pull/1790</a>
+</li>
+<li>Add ai search plugin by @johnlanni in <a href="https://github.com/alibaba/higress/pull/1804">https://github.com/alibaba/higress/pull/1804</a>
+</li>
+<li>feat: Unify the SSE processing logic by @CH3CHO in <a href="https://github.com/alibaba/higress/pull/1800">https://github.com/alibaba/higress/pull/1800</a>
+</li>
+<li>fix(typo): use the correct bing name for ai-search. by @maratrixx in <a href="https://github.com/alibaba/higress/pull/1807">https://github.com/alibaba/higress/pull/1807</a>
+</li>
+<li>Add database configuration for plugins that use Redis. by @johnlanni in <a href="https://github.com/alibaba/higress/pull/1814">https://github.com/alibaba/higress/pull/1814</a>
+</li>
+<li>set include_usage by default for all model providers by @johnlanni in <a href="https://github.com/alibaba/higress/pull/1818">https://github.com/alibaba/higress/pull/1818</a>
 ...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/rime/weasel/releases/tag/latest">weasel latest</a>
-</h1><a id="user-content-4-weasel-latest" class="anchor" aria-label="Permalink: 4. weasel latest" href="#4-weasel-latest"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.0.5">subs-check v2.0.5</a>
+</h1><a id="user-content-5-subs-check-v205" class="anchor" aria-label="Permalink: 5. subs-check v2.0.5" href="#5-subs-check-v205"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换合并，节点可用性，测速，重命名，导出为mihomo/clash/base64订阅工具</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>0b8ff220906a216571fe282f6821502d1ed93528 fix: 修复substore更新检查</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/rime/weasel/releases/tag/latest">weasel latest</a>
+</h1><a id="user-content-6-weasel-latest" class="anchor" aria-label="Permalink: 6. weasel latest" href="#6-weasel-latest"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>【小狼毫】Rime for Windows</p>
 <details>
 <summary>变更说明</summary>
@@ -215,27 +249,8 @@ pre {
 <strong>RimeWithWeasel</strong>: avoid vim_mode misoperations () <a href="https://github.com/rime/weasel/pull/1543"></a> (<a href="https://github.com/rime/weasel/commit/c2beb41a63567de7b9399ede13db65f0d3254221">fxliang</a>)</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.0.2">subs-check v2.0.2</a>
-</h1><a id="user-content-5-subs-check-v202" class="anchor" aria-label="Permalink: 5. subs-check v2.0.2" href="#5-subs-check-v202"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>订阅转换合并，节点可用性，测速，重命名，导出为mihomo/clash/base64订阅工具</p>
-<details>
-<summary>变更说明</summary>
-<p><strong>注意！！！这是一个有不兼容功能的版本更新</strong>
-主要更新了以下内容</p>
-<ol>
-<li>支持输出10种+订阅类型，几乎任何设备、客户端都支持</li>
-<li>支持直接输出mihomo/clash.meta带规则的订阅链接（小白强推）</li>
-<li>内置sub-store，高阶玩家可自定义更多内容</li>
-<li>支持几乎所有主流协议，并且参数均解析正确，所以筛选出来的节点会变得更多</li>
-</ol>
-<blockquote>
-<p>等价交换</p>
-</blockquote>
-<p>代价
-...</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/HanHai-Space/FlowSilicon/releases/tag/1.3.7">FlowSilicon 1.3.7</a>
-</h1><a id="user-content-6-flowsilicon-137" class="anchor" aria-label="Permalink: 6. FlowSilicon 1.3.7" href="#6-flowsilicon-137"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/HanHai-Space/FlowSilicon/releases/tag/1.3.7">FlowSilicon 1.3.7</a>
+</h1><a id="user-content-7-flowsilicon-137" class="anchor" aria-label="Permalink: 7. FlowSilicon 1.3.7" href="#7-flowsilicon-137"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>FlowSilicon 是一个专为硅基流动 API 设计的代理服务，提供全面的 API 密钥管理、智能负载均衡、请求转发和实时监控功能。</p>
 <details>
 <summary>变更说明</summary>
