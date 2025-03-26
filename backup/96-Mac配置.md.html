@@ -42,10 +42,11 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 <pre><code>xattr -cr /Applications/demo.app
 </code></pre>
 <ol start="9">
-<li>修改屏幕截图类型和目录</li>
+<li>更改截图保存位置</li>
 </ol>
 <pre><code>defaults write com.apple.screencapture type jpg
-defaults write com.apple.screencapture location ~/Downloads/
+mkdir ~/Pictures/Screenshots
+defaults write com.apple.screencapture location -string "~/Pictures/Screenshots"; killall SystemUIServer
 </code></pre>
 <div class="markdown-heading"><h3 class="heading-element">相关链接</h3><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>

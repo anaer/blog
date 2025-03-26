@@ -130,12 +130,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-25 10:15:38</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-25 17:58:32</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-26 13:30:09</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多项macOS系统的优化设置，包括调整程序坞的显示与隐藏时间、禁止Finder在网络和USB设备上生成.DS_Store文件、窗口拖动方式的改变、显示文件扩展名和隐藏文件、路径栏的显示、文件夹优先显示、处理.dmg文件损坏提示，以及修改屏幕截图的格式和保存位置。
+    <strong>AI总结:</strong> 本文介绍了多项macOS系统的终端命令，用于优化用户体验，包括设置程序坞的显示与隐藏时间、禁止生成.DS_Store文件、简化窗口拖动、显示文件扩展名和隐藏文件、显示路径栏、确保文件夹优先显示、处理.dmg文件损坏提示以及更改截图保存位置。
 
-优化建议：可以考虑将这些命令整合到一个脚本中，以便于快速应用所有设置。同时，提供每个命令的具体用途说明，以便用户理解每项设置的效果。
+优化建议：可以将命令分类整理，增加每个命令的简要说明，便于用户理解其功能和用途。同时，考虑提供恢复默认设置的命令，以便用户在需要时可以快速恢复系统原状。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -183,10 +183,11 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 <pre><code>xattr -cr /Applications/demo.app
 </code></pre>
 <ol start="9">
-<li>修改屏幕截图类型和目录</li>
+<li>更改截图保存位置</li>
 </ol>
 <pre><code>defaults write com.apple.screencapture type jpg
-defaults write com.apple.screencapture location ~/Downloads/
+mkdir ~/Pictures/Screenshots
+defaults write com.apple.screencapture location -string "~/Pictures/Screenshots"; killall SystemUIServer
 </code></pre>
 <div class="markdown-heading"><h3 class="heading-element">相关链接</h3><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>

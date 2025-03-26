@@ -35,10 +35,11 @@ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Fi
 ```
 xattr -cr /Applications/demo.app
 ```
-9. 修改屏幕截图类型和目录
+9. 更改截图保存位置
 ```
 defaults write com.apple.screencapture type jpg
-defaults write com.apple.screencapture location ~/Downloads/
+mkdir ~/Pictures/Screenshots
+defaults write com.apple.screencapture location -string "~/Pictures/Screenshots"; killall SystemUIServer
 ```
 ### 相关链接
 1. [macOS defaults list](https://macos-defaults.com/)
