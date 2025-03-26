@@ -1,41 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 26 Mar 2025 02:23:42 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 26 Mar 2025 02:23:42 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>96 Mac配置</title><link>https://anaer.github.io/blog/post/96.html</link><description>本文介绍了多项macOS系统的优化设置，包括调整程序坞的显示与隐藏时间、禁止Finder在网络和USB设备上生成.DS_Store文件、窗口拖动方式的改变、显示文件扩展名和隐藏文件、路径栏的显示、文件夹优先显示、处理.dmg文件损坏提示，以及修改屏幕截图的格式和保存位置。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 26 Mar 2025 04:13:02 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 26 Mar 2025 04:13:02 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>96 Mac配置</title><link>https://anaer.github.io/blog/post/96.html</link><description>本文介绍了多项macOS系统的优化设置，包括调整程序坞的显示与隐藏时间、禁止Finder在网络和USB设备上生成.DS_Store文件、窗口拖动方式的改变、显示文件扩展名和隐藏文件、路径栏的显示、文件夹优先显示、处理.dmg文件损坏提示，以及修改屏幕截图的格式和保存位置。
 
 优化建议：可以考虑将这些命令整合到一个脚本中，以便于快速应用所有设置。同时，提供每个命令的具体用途说明，以便用户理解每项设置的效果。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/96.html</guid><pubDate>Tue, 25 Mar 2025 02:15:38 +0000</pubDate></item><item><title>95 Linux常用命令记录</title><link>https://anaer.github.io/blog/post/95.html</link><description>本文介绍了使用find命令清理日志目录中超过1G的日志文件，通过truncate命令将这些文件清空而不删除文件本身。
 
 优化建议：
 1. 在执行清理操作前，可以添加一个备份步骤，以防误操作导致数据丢失。
 2. 考虑将该命令放入定时任务中，以定期自动清理日志文件。
-3. 在清理前，记录被清空的文件名，以便后续审计或恢复。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/95.html</guid><pubDate>Mon, 24 Mar 2025 08:14:46 +0000</pubDate></item><item><title>94 我关注的项目这周更新了什么-2025-03-28</title><link>https://anaer.github.io/blog/post/94.html</link><description>1. clash-verge-rev v2.2.2
+3. 在清理前，记录被清空的文件名，以便后续审计或恢复。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/95.html</guid><pubDate>Mon, 24 Mar 2025 08:14:46 +0000</pubDate></item><item><title>94 我关注的项目这周更新了什么-2025-03-28</title><link>https://anaer.github.io/blog/post/94.html</link><description>本文介绍了多个软件的更新和功能改进，包括clash-verge-rev的性能优化，deepchat的AI对话体验提升，readest的电子书阅读功能增强，weasel的bug修复，subs-check的订阅工具改进，以及FlowSilicon的API代理服务的修复和功能新增。每个软件都进行了不同程度的功能更新和bug修复，以提升用户体验和系统性能。
 
-A modern GUI client based on Tauri, designed to run in Windows, macOS and Linux for tailored proxy experience
-
-变更说明
-v2.2.2
-
-
-
-Dark
-Light
-
-
-
-
-
-
-
-
-
-发行代号：拓
-感谢 Tunglies 对 Verge 后端重构，性能优化做出的重大贡献！
-...
-
-2. subs-check v2.0.2
-
-订阅转换合并，节点可用性，测速，重命名，导出为mihomo/clash/base64订阅工具
-
-变更说明
-注意...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/94.html</guid><pubDate>Mon, 24 Mar 2025 04:12:53 +0000</pubDate></item><item><title>93 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
+优化建议：
+1. 对每个软件的更新内容进行简明扼要的分类，便于用户快速查找所需信息。
+2. 增加每个软件更新的具体使用场景或用户反馈，提升实用性。
+3. 考虑加入版本更新的发布日期，以便用户了解软件的最新状态。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/94.html</guid><pubDate>Mon, 24 Mar 2025 04:12:53 +0000</pubDate></item><item><title>93 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
 
 优化建议：
 1. 在步骤中可以增加对每个命令的简要说明，帮助用户理解每一步的目的。
