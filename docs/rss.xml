@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 27 Mar 2025 06:20:10 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 27 Mar 2025 06:20:10 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>101 openresty打印请求入参和出参</title><link>https://anaer.github.io/blog/post/101.html</link><description>本文介绍了一个基于Nginx的Lua脚本，该脚本用于捕获和记录HTTP请求和响应的详细信息。脚本通过设置不同范围的配置（http、server、location），并定义了一个白名单来过滤日志记录的接口，以减少日志的数量。脚本中包括了请求头、请求体、响应头和响应体的捕获和记录。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 27 Mar 2025 15:11:40 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 27 Mar 2025 15:11:40 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>101 openresty打印请求入参和出参</title><link>https://anaer.github.io/blog/post/101.html</link><description>本文介绍了一个基于Nginx的Lua脚本，该脚本用于捕获和记录HTTP请求和响应的详细信息。脚本通过设置不同范围的配置（http、server、location），并定义了一个白名单来过滤日志记录的接口，以减少日志的数量。脚本中包括了请求头、请求体、响应头和响应体的捕获和记录。
 
 优化建议：
 1. 考虑将白名单的配置外部化，以便于维护和扩展，避免在代码中硬编码。
@@ -29,12 +29,9 @@
 优化建议：
 1. 在执行清理操作前，可以添加一个备份步骤，以防误操作导致数据丢失。
 2. 考虑将该命令放入定时任务中，以定期自动清理日志文件。
-3. 在清理前，记录被清空的文件名，以便后续审计或恢复。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/95.html</guid><pubDate>Mon, 24 Mar 2025 08:14:46 +0000</pubDate></item><item><title>94 我关注的项目这周更新了什么-2025-03-28</title><link>https://anaer.github.io/blog/post/94.html</link><description>本文介绍了多个软件的最新版本更新，包括clash-verge-rev、deepchat、subs-check、FlowSilicon、higress、readest和weasel。每个软件都进行了不同程度的功能增强、性能优化和错误修复。例如，clash-verge-rev v2.2.2引入了现代化的GUI客户端，deepchat v0.0.11则增强了AI对话体验并修复了保存问题，subs-check v2.0.5支持多种订阅格式，FlowSilicon和higress则进行了API和负载均衡方面的优化，readest v0.9.26改进了电子书阅读体验，weasel则修复了与vim_mode相关的错误。
+3. 在清理前，记录被清空的文件名，以便后续审计或恢复。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/95.html</guid><pubDate>Mon, 24 Mar 2025 08:14:46 +0000</pubDate></item><item><title>94 我关注的项目这周更新了什么-2025-03-28</title><link>https://anaer.github.io/blog/post/94.html</link><description>本文介绍了多个软件的最新版本更新，包括Readest、Clash-Verge-Rev、Higress、Termora、DeepChat、Subs-Check、FlowSilicon和Weasel等。每个软件的更新内容涵盖了新特性、功能改进、bug修复等，旨在提升用户体验和软件性能。
 
-优化建议：
-1. 在每个软件的更新说明中，增加具体的用户反馈或使用案例，以便用户更好地理解新功能的实际应用。
-2. 提供更详细的版本更新日志，尤其是对于重大更改和不兼容功能的说明，帮助用户快速适应新版本。
-3. 考虑增加视频或图文教程，帮助用户快速上手新功能，提升用户体验。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/94.html</guid><pubDate>Mon, 24 Mar 2025 04:12:53 +0000</pubDate></item><item><title>93 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
+优化建议：在发布更新时，建议提供更详细的变更日志，特别是对用户影响较大的功能变动和修复。此外，可以考虑增加用户反馈渠道，以便更好地了解用户需求和使用体验。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/94.html</guid><pubDate>Mon, 24 Mar 2025 04:12:53 +0000</pubDate></item><item><title>93 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
 
 优化建议：
 1. 在步骤中可以增加对每个命令的简要说明，帮助用户理解每一步的目的。
