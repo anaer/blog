@@ -121,7 +121,9 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#服务器">服务器</a></object>
         </span>
 </div>
@@ -130,14 +132,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-27 11:09:59</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了将 Nginx 替换为 OpenResty 的步骤，包括备份现有 Nginx 配置、卸载 Nginx、安装 OpenResty、迁移配置、启动 OpenResty 以及验证其功能。具体步骤包括备份配置文件、记录当前版本、卸载现有 Nginx、添加 OpenResty 仓库、安装 OpenResty、调整配置文件路径、验证配置、启动 OpenResty 服务、测试 Lua 脚本以及清理旧文件。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-27 14:19:39</time></span>
 
-优化建议：
-1. 在备份和迁移配置时，建议使用版本控制工具（如 Git）来管理配置文件的变更，便于追踪和恢复。
-2. 在安装 OpenResty 之前，检查系统的依赖包是否已安装，以避免安装过程中出现问题。
-3. 在验证 OpenResty 功能时，考虑添加更多的测试用例，以全面评估其性能和稳定性。
-4. 提供详细的错误处理指南，以帮助用户在安装或配置过程中遇到问题时进行排查和解决。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了将 Nginx 替换为 OpenResty 的详细步骤，包括备份现有配置、卸载 Nginx、安装 OpenResty、迁移配置、启动 OpenResty、验证功能以及清理旧文件的过程。具体步骤包括备份 Nginx 配置文件，卸载 Nginx，添加 OpenResty 仓库并安装，调整配置文件路径，启动 OpenResty 服务，测试其功能，以及创建软链接以便使用 Nginx 命令。
+
+优化建议：在每个步骤中提供更多的错误处理和故障排除建议，例如在安装或启动服务失败时的常见解决方案。此外，可以考虑在配置迁移步骤中提供示例配置文件，以帮助用户更好地理解如何调整路径和设置。同时，在验证功能时，可以推荐更复杂的 Lua 脚本示例，以展示 OpenResty 的强大能力。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -239,6 +239,9 @@ curl http://localhost/test</pre></div>
 <p>输出应为：</p>
 <pre><code>Hello from OpenResty!
 </code></pre>
+<div class="markdown-heading"><h4 class="heading-element">替换Nginx</h4><a id="user-content-替换nginx" class="anchor" aria-label="Permalink: 替换Nginx" href="#替换nginx"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>添加nginx软链接, 按nginx命令使用</p>
+<div class="highlight highlight-source-shell"><pre>ln -s /usr/bin/openresty /usr/bin/nginx</pre></div>
 <hr>
 <div class="markdown-heading"><h3 class="heading-element">清理</h3><a id="user-content-清理" class="anchor" aria-label="Permalink: 清理" href="#清理"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>如果确认 OpenResty 运行正常，可以删除备份或旧的 Nginx 文件：</p>
@@ -246,7 +249,7 @@ curl http://localhost/test</pre></div>
 <hr>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/97.html" aria-label="Previous Page">97 pip报错处理</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/97.html" aria-label="Previous Page">97 pip报错处理</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/99.html" aria-label="Next Page">99 Ubuntu服务器中文乱码问题</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

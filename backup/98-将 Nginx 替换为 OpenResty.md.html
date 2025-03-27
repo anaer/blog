@@ -96,6 +96,9 @@ curl http://localhost/test</pre></div>
 <p>输出应为：</p>
 <pre><code>Hello from OpenResty!
 </code></pre>
+<div class="markdown-heading"><h4 class="heading-element">替换Nginx</h4><a id="user-content-替换nginx" class="anchor" aria-label="Permalink: 替换Nginx" href="#替换nginx"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>添加nginx软链接, 按nginx命令使用</p>
+<div class="highlight highlight-source-shell"><pre>ln -s /usr/bin/openresty /usr/bin/nginx</pre></div>
 <hr>
 <div class="markdown-heading"><h3 class="heading-element">清理</h3><a id="user-content-清理" class="anchor" aria-label="Permalink: 清理" href="#清理"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>如果确认 OpenResty 运行正常，可以删除备份或旧的 Nginx 文件：</p>

@@ -112,6 +112,12 @@ curl http://localhost/test
 Hello from OpenResty!
 ```
 
+#### 替换Nginx
+添加nginx软链接, 按nginx命令使用
+
+```bash
+ln -s /usr/bin/openresty /usr/bin/nginx
+```
 ---
 
 
