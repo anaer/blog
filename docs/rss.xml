@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 27 Mar 2025 06:09:06 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 27 Mar 2025 06:09:06 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>100 通用.vimrc配置</title><link>https://anaer.github.io/blog/post/100.html</link><description>本文介绍了一个通用的.vimrc配置，旨在解决服务器上Vim中文乱码和Tab转空格的问题。配置包括基本设置、编码设置、Tab和缩进设置、显示设置、搜索设置、其他实用设置以及键映射，确保用户在使用Vim时有更好的体验。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 27 Mar 2025 06:11:49 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 27 Mar 2025 06:11:49 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>101 openresty打印请求入参和出参</title><link>https://anaer.github.io/blog/post/101.html</link><description>本文介绍了一个基于Nginx的Lua脚本，该脚本用于捕获和记录HTTP请求和响应的详细信息。脚本通过设置不同范围的配置（http、server、location），并定义了一个白名单来过滤日志记录的接口，以减少日志的数量。脚本中包括了请求头、请求体、响应头和响应体的捕获和记录。
+
+优化建议：
+1. 考虑将白名单的配置外部化，以便于维护和扩展，避免在代码中硬编码。
+2. 增加对异常情况的处理，比如请求体过大或文件读取错误时的日志记录。
+3. 使用更高效的字符串拼接方法，例如使用表来构建字符串，减少内存占用。
+4. 考虑增加日志级别的配置，以便在不同环境中灵活调整日志的详细程度。
+5. 增加注释，提升代码可读性，便于其他开发者理解和维护。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/101.html</guid><pubDate>Thu, 27 Mar 2025 06:11:21 +0000</pubDate></item><item><title>100 通用.vimrc配置</title><link>https://anaer.github.io/blog/post/100.html</link><description>本文介绍了一个通用的.vimrc配置，旨在解决服务器上Vim中文乱码和Tab转空格的问题。配置包括基本设置、编码设置、Tab和缩进设置、显示设置、搜索设置、其他实用设置以及键映射，确保用户在使用Vim时有更好的体验。
 
 优化建议：
 1. 可以考虑添加更多的插件支持，以增强Vim的功能，比如代码高亮和自动补全。
