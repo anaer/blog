@@ -1,0 +1,56 @@
+### 检查当前locale
+
+```sh
+locale
+```
+
+```log
+LANG=zh_CN.UTF-8
+LANGUAGE=
+LC_CTYPE="zh_CN.UTF-8"
+LC_NUMERIC="zh_CN.UTF-8"
+LC_TIME="zh_CN.UTF-8"
+LC_COLLATE="zh_CN.UTF-8"
+LC_MONETARY="zh_CN.UTF-8"
+LC_MESSAGES="zh_CN.UTF-8"
+LC_PAPER="zh_CN.UTF-8"
+LC_NAME="zh_CN.UTF-8"
+LC_ADDRESS="zh_CN.UTF-8"
+LC_TELEPHONE="zh_CN.UTF-8"
+LC_MEASUREMENT="zh_CN.UTF-8"
+LC_IDENTIFICATION="zh_CN.UTF-8"
+LC_ALL=zh_CN.UTF-8
+```
+
+### 如果不是UTF-8, 则进行设置
+
+```sh
+export LANG=zh_CN.UTF-8
+export LC_ALL=zh_CN.UTF-8
+```
+
+添加到`~/.bashrc`以永久生效
+
+### 生成locale
+
+```sh
+sudo locale-gen zh_CN.UTF-8
+sudo update-locale LANG=zh_CN.UTF-8
+```
+
+### 检查
+
+通过ls, tail等查看中文是否乱码
+
+
+### vim中文乱码
+
+添加以下内容到`~/.vimrc`配置文件中
+
+```
+set encoding=utf-8          " Vim 内部编码
+set fileencoding=utf-8      " 默认保存为 UTF-8
+set fileencodings=utf-8,gbk,gb2312,cp936  " 自动识别编码顺序
+set termencoding=utf-8      " 终端编码（与终端一致）
+```
+
