@@ -1,0 +1,13 @@
+<div class="markdown-heading"><h2 class="heading-element">pip install时 报错提示"module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'"</h2><a id="user-content-pip-install时-报错提示module-lib-has-no-attribute-x509_v_flag_notify_policy" class="anchor" aria-label="Permalink: pip install时 报错提示&quot;module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'&quot;" href="#pip-install时-报错提示module-lib-has-no-attribute-x509_v_flag_notify_policy"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>  File "/usr/lib/python3/dist-packages/OpenSSL/__init__.py", line 8, in &lt;module&gt;
+    from OpenSSL import crypto, SSL
+  File "/usr/lib/python3/dist-packages/OpenSSL/crypto.py", line 1553, in &lt;module&gt;
+    class X509StoreFlags(object):
+  File "/usr/lib/python3/dist-packages/OpenSSL/crypto.py", line 1571, in X509StoreFlags
+    NOTIFY_POLICY = _lib.X509_V_FLAG_NOTIFY_POLICY
+AttributeError: module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'
+</code></pre>
+<p>临时解决: 重命名crypto.py可临时解决</p>
+<div class="highlight highlight-source-shell"><pre>mv <span class="pl-s"><span class="pl-pds">"</span>/usr/lib/python3/dist-packages/OpenSSL/crypto.py<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>/usr/lib/python3/dist-packages/OpenSSL/crypto.py.bak<span class="pl-pds">"</span></span></pre></div>
+<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://blog.csdn.net/weixin_40548182/article/details/141133991" rel="nofollow">ansible 问题处理 AttributeError: module ‘lib‘ has no attribute ‘X509_V_FLAG_NOTIFY_POLICY‘</a></p>
