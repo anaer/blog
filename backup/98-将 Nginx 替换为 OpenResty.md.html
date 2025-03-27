@@ -1,0 +1,103 @@
+<div class="markdown-heading"><h2 class="heading-element">将 Nginx 替换为 OpenResty</h2><a id="user-content-将-nginx-替换为-openresty" class="anchor" aria-label="Permalink: 将 Nginx 替换为 OpenResty" href="#将-nginx-替换为-openresty"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>OpenResty 是基于 Nginx 核心并集成了 LuaJIT、<code>ngx_lua</code> 模块等功能的增强版本。</p>
+<div class="markdown-heading"><h2 class="heading-element">系统:  Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-187-generic x86_64)</h2><a id="user-content-系统--ubuntu-20046-lts-gnulinux-540-187-generic-x86_64" class="anchor" aria-label="Permalink: 系统:  Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-187-generic x86_64)" href="#系统--ubuntu-20046-lts-gnulinux-540-187-generic-x86_64"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">步骤 1：备份现有 Nginx 配置</h3><a id="user-content-步骤-1备份现有-nginx-配置" class="anchor" aria-label="Permalink: 步骤 1：备份现有 Nginx 配置" href="#步骤-1备份现有-nginx-配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p><strong>备份配置文件</strong>:</p>
+<div class="highlight highlight-source-shell"><pre>sudo cp -r /etc/nginx /etc/nginx-backup</pre></div>
+</li>
+<li>
+<p><strong>记录当前版本和模块</strong>:</p>
+<div class="highlight highlight-source-shell"><pre>nginx -V</pre></div>
+<p>输出会显示 Nginx 的版本和编译参数，记录下来以便后续对比。</p>
+</li>
+</ol>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">步骤 2：卸载现有 Nginx</h3><a id="user-content-步骤-2卸载现有-nginx" class="anchor" aria-label="Permalink: 步骤 2：卸载现有 Nginx" href="#步骤-2卸载现有-nginx"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>sudo systemctl stop nginx
+sudo apt remove nginx nginx-common nginx-full
+sudo apt autoremove</pre></div>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">步骤 3：安装 OpenResty</h3><a id="user-content-步骤-3安装-openresty" class="anchor" aria-label="Permalink: 步骤 3：安装 OpenResty" href="#步骤-3安装-openresty"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p>添加 OpenResty 仓库：</p>
+<div class="highlight highlight-source-shell"><pre>sudo apt update
+sudo apt install -y curl gnupg2 ca-certificates lsb-release
+wget -qO - https://openresty.org/package/pubkey.gpg <span class="pl-k">|</span> sudo apt-key add -
+<span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>deb http://openresty.org/package/ubuntu <span class="pl-s"><span class="pl-pds">$(</span>lsb_release -sc<span class="pl-pds">)</span></span> main<span class="pl-pds">"</span></span> <span class="pl-k">|</span> sudo tee /etc/apt/sources.list.d/openresty.list
+sudo apt update</pre></div>
+</li>
+<li>
+<p>安装 OpenResty：</p>
+<div class="highlight highlight-source-shell"><pre>sudo apt install -y openresty</pre></div>
+</li>
+<li>
+<p>检查安装：</p>
+</li>
+</ol>
+<div class="highlight highlight-source-shell"><pre>systemctl status openresty
+openresty -v</pre></div>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">步骤 4：迁移 Nginx 配置</h3><a id="user-content-步骤-4迁移-nginx-配置" class="anchor" aria-label="Permalink: 步骤 4：迁移 Nginx 配置" href="#步骤-4迁移-nginx-配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p><strong>复制备份的配置文件</strong>:
+可以直接复制, 或者手动将需要的配置添加的新配置文件中</p>
+<div class="highlight highlight-source-shell"><pre>sudo cp -r /etc/nginx-backup/<span class="pl-k">*</span> /etc/openresty/</pre></div>
+</li>
+<li>
+<p><strong>调整路径</strong>:</p>
+<ul>
+<li>检查 <code>nginx.conf</code> 中的路径（如 <code>access_log</code>、<code>error_log</code>、<code>root</code> 等），确保与 OpenResty 的安装路径一致。</li>
+<li>默认情况下，OpenResty 使用 <code>/usr/local/openresty/nginx/</code> 作为工作目录。</li>
+</ul>
+</li>
+<li>
+<p><strong>验证配置</strong>:</p>
+<div class="highlight highlight-source-shell"><pre>openresty -t</pre></div>
+</li>
+</ol>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">步骤 5：启动 OpenResty</h3><a id="user-content-步骤-5启动-openresty" class="anchor" aria-label="Permalink: 步骤 5：启动 OpenResty" href="#步骤-5启动-openresty"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p><strong>启动服务</strong>:</p>
+<div class="highlight highlight-source-shell"><pre>sudo systemctl start openresty
+sudo systemctl <span class="pl-c1">enable</span> openresty</pre></div>
+</li>
+<li>
+<p><strong>检查运行状态</strong>:</p>
+<div class="highlight highlight-source-shell"><pre>ps aux <span class="pl-k">|</span> grep openresty
+curl http://localhost</pre></div>
+</li>
+</ol>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">步骤 6：验证 OpenResty 功能</h3><a id="user-content-步骤-6验证-openresty-功能" class="anchor" aria-label="Permalink: 步骤 6：验证 OpenResty 功能" href="#步骤-6验证-openresty-功能"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>OpenResty 的主要优势是集成了 <code>ngx_lua</code> 模块，可以通过简单的 Lua 脚本测试是否生效。</p>
+<div class="markdown-heading"><h4 class="heading-element">测试配置</h4><a id="user-content-测试配置" class="anchor" aria-label="Permalink: 测试配置" href="#测试配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>在 <code>nginx.conf</code> 中添加：</p>
+<div class="highlight highlight-source-nginx"><pre><span class="pl-k">http</span> {
+    <span class="pl-k">server</span> {
+        <span class="pl-k">listen</span> <span class="pl-s">80</span>;
+        <span class="pl-k">server_name</span> example.com;
+
+        <span class="pl-k">location</span> <span class="pl-en">/test </span>{
+            <span class="pl-k">content_by_lua_block</span> {
+                ngx.say("<span class="pl-k">Hello</span> from OpenResty!<span class="pl-s">")</span>
+<span class="pl-s">            }</span>
+<span class="pl-s">        }</span>
+<span class="pl-s">    }</span>
+<span class="pl-s">}</span></pre></div>
+<div class="markdown-heading"><h4 class="heading-element">重载并测试</h4><a id="user-content-重载并测试" class="anchor" aria-label="Permalink: 重载并测试" href="#重载并测试"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>sudo openresty -s reload
+curl http://localhost/test</pre></div>
+<p>输出应为：</p>
+<pre><code>Hello from OpenResty!
+</code></pre>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">清理</h3><a id="user-content-清理" class="anchor" aria-label="Permalink: 清理" href="#清理"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>如果确认 OpenResty 运行正常，可以删除备份或旧的 Nginx 文件：</p>
+<div class="highlight highlight-source-shell"><pre>sudo rm -rf /etc/nginx-backup</pre></div>
+<hr>
