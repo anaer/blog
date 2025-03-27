@@ -130,15 +130,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-27 14:08:33</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-27 14:14:42</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了一个通用的.vimrc配置，旨在解决服务器上Vim中文乱码和Tab转空格的问题。配置包括基本设置、编码设置、Tab和缩进设置、显示设置、搜索设置、其他实用设置以及键映射，确保用户在使用Vim时有更好的体验。
+    <strong>AI总结:</strong> 本文介绍了一个通用的.vimrc配置，旨在解决服务器上Vim的中文乱码问题以及将Tab转换为空格的需求。配置内容包括基本设置、编码设置、Tab和缩进设置、显示设置、搜索设置、其他实用设置、键映射以及保存和退出的快捷方式。
 
 优化建议：
-1. 可以考虑添加更多的插件支持，以增强Vim的功能，比如代码高亮和自动补全。
-2. 对于编码设置，可以根据实际使用的文件类型调整fileencodings的顺序，以提高效率。
-3. 考虑在搜索设置中加入更复杂的正则表达式支持，以便进行更灵活的搜索。
-4. 适当增加注释，说明各个设置的作用，便于后续维护和他人理解。
-5. 可以添加一些常用的快捷键映射，以提高操作效率，比如复制和粘贴的快捷键。
+1. 考虑在编码设置中添加对其他常见编码格式的支持，以便于处理不同来源的文件。
+2. 在搜索设置中，可以添加set nowrapscan以防止搜索到文件开头或结尾时自动循环，提升搜索体验。
+3. 在显示设置中，可以考虑启用相对行号，以便于在代码编辑时更好地进行行间跳转。
+4. 针对键映射部分，可以将常用命令的映射进行分类，增加注释以提高可读性。
+5. 考虑在配置中加入插件管理器的配置，以便于后续扩展功能。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -168,7 +170,7 @@ set smartindent               " 智能缩进
 " 显示设置
 set number                    " 显示行号
 " set relativenumber            " 显示相对行号
-set cursorline                " 高亮当前行
+" set cursorline                " 高亮当前行
 set showcmd                   " 显示输入的命令
 set ruler                     " 显示光标位置
 set wrap                      " 自动换行
@@ -183,7 +185,7 @@ set smartcase                 " 智能大小写（配合 ignorecase）
 " 其他实用设置
 set backspace=indent,eol,start " 允许退格键删除缩进、换行符等
 set wildmenu                  " 命令补全增强
-set mouse=a                   " 启用鼠标支持
+" set mouse=a                   " 启用鼠标支持
 set clipboard=unnamedplus     " 使用系统剪贴板（需 Vim 支持 +clipboard）
 
 " 键映射
@@ -203,7 +205,7 @@ nnoremap &lt;leader&gt;q :q&lt;CR&gt;     " 快速退出
 </code></pre>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/99.html" aria-label="Previous Page">99 Ubuntu服务器中文乱码问题</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/99.html" aria-label="Previous Page">99 Ubuntu服务器中文乱码问题</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/101.html" aria-label="Next Page">101 openresty打印请求入参和出参</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
