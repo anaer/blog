@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 28 Mar 2025 02:25:31 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 28 Mar 2025 02:25:31 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时的配置方法，包括创建.minttyrc和.bashrc文件以设置主题、字符集、字体、窗口大小、颜色以及命令别名等。具体配置包括使用Dracula主题、设置中文区域、调整字体和行列数，以及定义快捷命令和提示符格式。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 28 Mar 2025 04:13:04 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 28 Mar 2025 04:13:04 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时的配置方法，包括创建.minttyrc和.bashrc文件以设置主题、字符集、字体、窗口大小、颜色以及命令别名等。具体配置包括使用Dracula主题、设置中文区域、调整字体和行列数，以及定义快捷命令和提示符格式。
 
 优化建议：可以在配置文件中添加注释，解释每个设置的作用，以便日后维护和理解。同时，确保所用字体和主题已正确安装，以避免显示问题。考虑将常用命令别名进行分类，以提高可读性和组织性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/102.html</guid><pubDate>Fri, 28 Mar 2025 02:25:04 +0000</pubDate></item><item><title>101 openresty打印请求入参和出参</title><link>https://anaer.github.io/blog/post/101.html</link><description>本文介绍了一个基于Nginx的Lua脚本，该脚本用于捕获和记录HTTP请求和响应的详细信息。脚本通过设置不同范围的配置（http、server、location），并定义了一个白名单来过滤日志记录的接口，以减少日志的数量。脚本中包括了请求头、请求体、响应头和响应体的捕获和记录。
 
@@ -31,9 +31,13 @@
 优化建议：
 1. 在执行清理操作前，可以添加一个备份步骤，以防误操作导致数据丢失。
 2. 考虑将该命令放入定时任务中，以定期自动清理日志文件。
-3. 在清理前，记录被清空的文件名，以便后续审计或恢复。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/95.html</guid><pubDate>Mon, 24 Mar 2025 08:14:46 +0000</pubDate></item><item><title>94 我关注的项目这周更新了什么-2025-03-28</title><link>https://anaer.github.io/blog/post/94.html</link><description>本文介绍了多个软件的最新版本更新，包括Readest、Clash-Verge-Rev、Higress、Termora、DeepChat、Subs-Check、FlowSilicon和Weasel等。每个软件的更新内容涵盖了新特性、功能改进、bug修复等，旨在提升用户体验和软件性能。
+3. 在清理前，记录被清空的文件名，以便后续审计或恢复。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/95.html</guid><pubDate>Mon, 24 Mar 2025 08:14:46 +0000</pubDate></item><item><title>94 我关注的项目这周更新了什么-2025-03-28</title><link>https://anaer.github.io/blog/post/94.html</link><description>本文介绍了多个软件的最新版本更新，包括clash-verge-rev、termora、deepchat、cherry-studio、readest、subs-check、higress、FlowSilicon和weasel。每个软件的更新内容涵盖了新功能、性能优化和bug修复，显示了开发者对用户体验的重视和持续改进的努力。
 
-优化建议：在发布更新时，建议提供更详细的变更日志，特别是对用户影响较大的功能变动和修复。此外，可以考虑增加用户反馈渠道，以便更好地了解用户需求和使用体验。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/94.html</guid><pubDate>Mon, 24 Mar 2025 04:12:53 +0000</pubDate></item><item><title>93 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
+优化建议：
+1. 在发布说明中使用统一的格式，以提高可读性和一致性。
+2. 在每个软件的更新中提供更多关于新功能的具体使用案例，帮助用户更好地理解和应用。
+3. 增加对重大bug修复的详细说明，突出其对用户体验的影响。
+4. 考虑增加用户反馈渠道，以便收集用户对新功能的意见和建议。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/94.html</guid><pubDate>Mon, 24 Mar 2025 04:12:53 +0000</pubDate></item><item><title>93 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
 
 优化建议：
 1. 在步骤中可以增加对每个命令的简要说明，帮助用户理解每一步的目的。
