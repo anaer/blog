@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 28 Mar 2025 04:13:04 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 28 Mar 2025 04:13:04 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时的配置方法，包括创建.minttyrc和.bashrc文件以设置主题、字符集、字体、窗口大小、颜色以及命令别名等。具体配置包括使用Dracula主题、设置中文区域、调整字体和行列数，以及定义快捷命令和提示符格式。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 28 Mar 2025 05:49:38 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 28 Mar 2025 05:49:38 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时的配置方法，包括创建.minttyrc和.bashrc文件以设置主题、字符集、字体、窗口大小、颜色以及命令别名等。具体配置包括使用Dracula主题、设置中文区域、调整字体和行列数，以及定义快捷命令和提示符格式。
 
 优化建议：可以在配置文件中添加注释，解释每个设置的作用，以便日后维护和理解。同时，确保所用字体和主题已正确安装，以避免显示问题。考虑将常用命令别名进行分类，以提高可读性和组织性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/102.html</guid><pubDate>Fri, 28 Mar 2025 02:25:04 +0000</pubDate></item><item><title>101 openresty打印请求入参和出参</title><link>https://anaer.github.io/blog/post/101.html</link><description>本文介绍了一个基于Nginx的Lua脚本，该脚本用于捕获和记录HTTP请求和响应的详细信息。脚本通过设置不同范围的配置（http、server、location），并定义了一个白名单来过滤日志记录的接口，以减少日志的数量。脚本中包括了请求头、请求体、响应头和响应体的捕获和记录。
 
@@ -261,9 +261,9 @@ CIDR（Classless Inter-Domain Routing，无类域间路由）是一种简化的 
 pip install pypinyin
 使用
 from pypinyin import lazy_pinyin,Style
-lazy_pinyin("中国",style=Style.TONE)...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/61.html</guid><pubDate>Thu, 23 Jan 2025 03:26:12 +0000</pubDate></item><item><title>60 pm2常用命令</title><link>https://anaer.github.io/blog/post/60.html</link><description>启动
-$ pm2 start app.js                  # 启动app.js应用程序
-$ pm2 start app.js -i 4             # cluster ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/60.html</guid><pubDate>Wed, 22 Jan 2025 08:36:09 +0000</pubDate></item><item><title>59 Wireshark抓包https配置</title><link>https://anaer.github.io/blog/post/59.html</link><description>抓包https配置
+lazy_pinyin("中国",style=Style.TONE)...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/61.html</guid><pubDate>Thu, 23 Jan 2025 03:26:12 +0000</pubDate></item><item><title>60 pm2常用命令</title><link>https://anaer.github.io/blog/post/60.html</link><description>本文介绍了PM2的基本命令和配置，包括启动、查看进程、监控、日志管理、停止、重载、重启、删除应用以及其他功能。用户可以通过不同的参数启动应用程序，查看和监控应用状态，管理日志文件，以及进行应用的扩展、重置和部署。还提供了一个pm2.json的示例配置文件，展示了如何设置应用的属性和行为。
+
+优化建议：可以考虑将命令按功能模块进行分组，以便于用户快速查找所需的命令。同时，提供一些常见场景的示例使用，可以帮助新手更好地理解和应用PM2。对于pm2.json配置文件，建议附加详细解释每个字段的作用，以便用户更好地定制设置。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/60.html</guid><pubDate>Wed, 22 Jan 2025 08:36:09 +0000</pubDate></item><item><title>59 Wireshark抓包https配置</title><link>https://anaer.github.io/blog/post/59.html</link><description>抓包https配置
 
 添加环境变量 SSLKEYLOGFILE
 
