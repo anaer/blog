@@ -32,6 +32,7 @@ BellTaskbar=no
 alias c:='cd /cygdrive/c'
 alias d:='cd /cygdrive/d'
 alias ll='ls -al'
+alias start='cygstart'
 
 PS1='\w\$ '
 ```

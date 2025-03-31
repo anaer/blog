@@ -132,10 +132,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-28 10:25:04</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在SmartPutty中使用Mintty时的配置方法，包括创建.minttyrc和.bashrc文件以设置主题、字符集、字体、窗口大小、颜色以及命令别名等。具体配置包括使用Dracula主题、设置中文区域、调整字体和行列数，以及定义快捷命令和提示符格式。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-31 13:34:13</time></span>
 
-优化建议：可以在配置文件中添加注释，解释每个设置的作用，以便日后维护和理解。同时，确保所用字体和主题已正确安装，以避免显示问题。考虑将常用命令别名进行分类，以提高可读性和组织性。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了在SmartPutty中使用Mintty时的配置方法，包括在个人目录下创建.minttyrc和.bashrc文件，设置主题、语言、字符集、字体、窗口大小、颜色、光标、透明度等参数，以及定义一些常用命令的别名。
+
+优化建议：
+1. 在.minttyrc中，可以考虑根据个人喜好调整Scrollbar和Transparency的设置，提升用户体验。
+2. 在.bashrc中，建议添加更多常用命令的别名，以提高工作效率。
+3. 可以在文中加入对配置文件功能的解释，帮助用户更好地理解每个参数的作用。
+4. 提供示例的使用场景，帮助用户更直观地理解如何使用这些配置。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -167,6 +173,7 @@ BellTaskbar=no
 <pre><code>alias c:='cd /cygdrive/c'
 alias d:='cd /cygdrive/d'
 alias ll='ls -al'
+alias start='cygstart'
 
 PS1='\w\$ '
 </code></pre>
