@@ -35,4 +35,7 @@ alias ll='ls -al'
 alias start='cygstart'
 
 PS1='\w\$ '
+
+# 启用补全时忽略大小写
+bind "set completion-ignore-case on"
 ```
