@@ -130,29 +130,54 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-31 23:11:00</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-01 12:13:35</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-01 23:11:02</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了三个软件的版本更新信息：subs-check v2.0.8 是一款订阅工具，支持多种格式的导出，并修复了OpenAI检查和流媒体检查的相关问题；winmerge v2.16.47 是一款开源的文件和文件夹比较合并工具，提供了可视化的差异展示；new-api v0.6.0.4 是一款AI模型接口管理与分发系统，支持多种大模型的统一调用，更新包括功能调用类型修复、系统设置选项处理更新和新增参数覆盖等功能。
+    <strong>AI总结:</strong> 本文介绍了多个软件版本的更新记录，包括higress v2.1.0-rc.2、RIME-LMDG dict-nightly、winmerge v2.16.47、subs-check v2.0.8和new-api v0.6.0.4。每个软件的更新内容涵盖了修复、功能增强和文档更新等方面，具体包括修复bug、添加新功能、更新文档和引入新贡献者等。
 
-优化建议：
-对于每个软件的更新说明，可以增加具体的使用场景或用户反馈，以便用户更好地理解这些更新的实际应用价值。同时，建议提供更详细的已知问题及其解决方案，以帮助用户更快地解决遇到的潜在问题。
+优化建议：在总结时可以更明确地分类每个软件的主要更新内容，例如将修复、功能增强和文档更新分开列出，以便读者快速获取关键信息。同时，建议增加每个软件的使用场景或适用对象，以便读者更好地理解这些更新对他们的实际影响。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.0.8">subs-check v2.0.8</a>
-</h1><a id="user-content-1-subs-check-v208" class="anchor" aria-label="Permalink: 1. subs-check v2.0.8" href="#1-subs-check-v208"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>订阅转换合并，节点可用性，测速，重命名，导出为mihomo/clash/base64/qx等等所有格式的订阅工具</p>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.0-rc.2">higress v2.1.0-rc.2</a>
+</h1><a id="user-content-1-higress-v210-rc2" class="anchor" aria-label="Permalink: 1. higress v2.1.0-rc.2" href="#1-higress-v210-rc2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🤖 AI Gateway AI Native API Gateway</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>a9c7d8446fdcbb8b6ca7dcd75b13f4e4b7f4ee0a fix: 修复openai检查</li>
-<li>7d476f10da27664f3770d6f68df9d61d03fd96d8 op: 流媒体检查不依赖重命名</li>
+<li>fix: add match list and wasm mcp-server message pub in redis  by @Jing-ze in <a href="https://github.com/alibaba/higress/pull/1963">https://github.com/alibaba/higress/pull/1963</a>
+</li>
+<li>fix: mcp server config map by @Jing-ze in <a href="https://github.com/alibaba/higress/pull/1969">https://github.com/alibaba/higress/pull/1969</a>
+</li>
+<li>doc: add ai statistics metric doc by @cr7258 in <a href="https://github.com/alibaba/higress/pull/1889">https://github.com/alibaba/higress/pull/1889</a>
+</li>
+<li>feat: add azure embedding to ai-cache by @Beatrueman in <a href="https://github.com/alibaba/higress/pull/1975">https://github.com/alibaba/higress/pull/1975</a>
+</li>
+<li>docs: Add Azure OpenAI configuration instructions by @Beatrueman in <a href="https://github.com/alibaba/higress/pull/1976">https://github.com/alibaba/higress/pull/1976</a>
+</li>
+<li>refactor mcp sdk by @johnlanni in <a href="https://github.com/alibaba/higress/pull/1977">https://github.com/alibaba/higress/pull/1977</a>
+</li>
+<li>Add all in one mcp by @johnlanni in <a href="https://github.com/alibaba/higress/pull/1978">https://github.com/alibaba/higress/pull/1978</a>
+</li>
+<li>fix inclusionRegexps not working by @hzhswyz in <a href="https://github.com/alibaba/higress/pull/1972">https://github.com/alibaba/higress/pull/1972</a>
+</li>
+<li>fix: fix bug of mcp server proxy by @Jing-ze in <a href="https://github.com/alibaba/higress/pull/1981">https://github.com/alibaba/higress/pull/1981</a>
+...</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/WinMerge/winmerge/releases/tag/v2.16.47">winmerge v2.16.47</a>
-</h1><a id="user-content-2-winmerge-v21647" class="anchor" aria-label="Permalink: 2. winmerge v2.16.47" href="#2-winmerge-v21647"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
+</h1><a id="user-content-2-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 2. RIME-LMDG dict-nightly" href="#2-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Rime输入法语法模型全流程构建教程，全局带声调词库，最全带读音单字表词典：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>
+<code>cn_dicts.zip</code>：最新的中文词库文件。</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/WinMerge/winmerge/releases/tag/v2.16.47">winmerge v2.16.47</a>
+</h1><a id="user-content-3-winmerge-v21647" class="anchor" aria-label="Permalink: 3. winmerge v2.16.47" href="#3-winmerge-v21647"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>WinMerge is an Open Source differencing and merging tool for Windows. WinMerge can compare both folders and files, presenting differences in a visual text format that is easy to understand and handle.</p>
 <details>
 <summary>变更说明</summary>
@@ -166,12 +191,23 @@ pre {
 <p>March 2025</p>
 <p>...</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/Calcium-Ion/new-api/releases/tag/v0.6.0.4">new-api v0.6.0.4</a>
-</h1><a id="user-content-3-new-api-v0604" class="anchor" aria-label="Permalink: 3. new-api v0.6.0.4" href="#3-new-api-v0604"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.0.8">subs-check v2.0.8</a>
+</h1><a id="user-content-4-subs-check-v208" class="anchor" aria-label="Permalink: 4. subs-check v2.0.8" href="#4-subs-check-v208"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换合并，节点可用性，测速，重命名，导出为mihomo/clash/base64/qx等等所有格式的订阅工具</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>a9c7d8446fdcbb8b6ca7dcd75b13f4e4b7f4ee0a fix: 修复openai检查</li>
+<li>7d476f10da27664f3770d6f68df9d61d03fd96d8 op: 流媒体检查不依赖重命名</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/Calcium-Ion/new-api/releases/tag/v0.6.0.4">new-api v0.6.0.4</a>
+</h1><a id="user-content-5-new-api-v0604" class="anchor" aria-label="Permalink: 5. new-api v0.6.0.4" href="#5-new-api-v0604"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>fix: claude function calling type by @seefs001 in <a href="https://github.com/Calcium-Ion/new-api/pull/886">https://github.com/Calcium-Ion/new-api/pull/886</a>
 </li>
