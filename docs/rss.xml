@@ -1,10 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 02 Apr 2025 04:13:17 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 02 Apr 2025 04:13:17 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>103 我关注的项目这周更新了什么-2025-04-04</title><link>https://anaer.github.io/blog/post/103.html</link><description>本文介绍了多个软件的最新版本更新，包括Readest、Higress、RIME-LMDG、WinMerge、Subs-check和New API。这些更新主要集中在修复bug、优化性能、添加新功能和改进文档等方面。例如，Readest改善了Android的登录体验和大文件加载效率，Higress引入了新的AI统计文档和Azure集成，RIME-LMDG更新了中文词库，WinMerge发布了新版本的测试版，Subs-check修复了OpenAI检查的bug，而New API则增强了参数处理和功能调用。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 02 Apr 2025 15:11:46 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 02 Apr 2025 15:11:46 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>103 我关注的项目这周更新了什么-2025-04-04</title><link>https://anaer.github.io/blog/post/103.html</link><description>1. RIME-LMDG dict-nightly
 
-优化建议：
-1. 提供更详细的版本更新说明，以便用户了解每个修复和新功能的具体影响。
-2. 统一各软件的更新格式，使用户在查阅时更加便于比较和理解。
-3. 增加用户反馈渠道，让用户能够分享使用体验和建议，从而促进软件的进一步改进。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/103.html</guid><pubDate>Mon, 31 Mar 2025 15:11:00 +0000</pubDate></item><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时，如何在个人目录下配置.minttyrc和.bashrc文件，以优化终端的显示和命令行操作。配置包括设置主题、字符集、字体、行列数、颜色、别名和提示符，以及启用补全时忽略大小写的功能。
+Rime输入法语法模型全流程构建教程，全局带声调词库，最全带读音单字表词典：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572
+
+变更说明
+
+
+cn_dicts.zip：最新的中文词库文件。
+
+
+2. higress v2.1.0
+
+🤖 AI Gateway AI Native API Gateway
+
+变更说明
+What's Changed
+
+update helm docs by @johnlanni in https://github.com/alibaba/higress/...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/103.html</guid><pubDate>Mon, 31 Mar 2025 15:11:00 +0000</pubDate></item><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时，如何在个人目录下配置.minttyrc和.bashrc文件，以优化终端的显示和命令行操作。配置包括设置主题、字符集、字体、行列数、颜色、别名和提示符，以及启用补全时忽略大小写的功能。
 
 优化建议：
 1. 确保所有配置项的有效性和兼容性，定期检查Mintty和bash的更新。
