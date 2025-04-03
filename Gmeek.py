@@ -304,7 +304,7 @@ class GMEEK():
         post["htmlDir"]=gen_Html
         post["markdown"]=mdPath
         post["labels"]=labels
-        post["postTitle"]="%d %s" % (issue.number, issue.title)
+        post["postTitle"]="%03d %s" % (issue.number, issue.title)
         post["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(issue.number))
         post["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
         post["commentNum"]=issue.get_comments().totalCount
