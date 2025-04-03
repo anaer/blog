@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 03 Apr 2025 07:36:58 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 03 Apr 2025 07:36:58 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>103 我关注的项目这周更新了什么-2025-04-04</title><link>https://anaer.github.io/blog/post/103.html</link><description>本文介绍了多个软件的更新版本，包括DeepChat v0.0.12、WinMerge v2.16.47、Higress v2.1.0、Mihomo Prerelease-Alpha、RIME-LMDG dict-nightly、Subs-check v2.0.9、Readest v0.9.29和New-api v0.6.0.4。主要更新内容涉及功能增强、bug修复、文档更新和新特性的添加。例如，DeepChat重构了MCP调用方式，WinMerge改进了比较功能，Higress增加了多项新特性和修复，Readest优化了Android登录体验等。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 03 Apr 2025 15:10:55 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 03 Apr 2025 15:10:55 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>103 我关注的项目这周更新了什么-2025-04-04</title><link>https://anaer.github.io/blog/post/103.html</link><description>本文介绍了多个软件及其更新说明，包括Mihomo Prerelease-Alpha的Pydantic模型、RIME-LMDG的输入法模型、WinMerge的比较工具、new-api的AI模型管理系统、DeepChat的智能助手、higress的AI网关、subs-check的订阅工具以及Readest的电子书阅读器。每个项目都有其特定的功能和变更，旨在提升用户体验和系统性能。
 
 优化建议：
-1. 对每个软件的更新内容进行详细分类，以便用户快速找到所需信息。
-2. 增加版本号和发布日期，以便用户了解更新的时间线。
-3. 提供每个软件的下载链接或获取方式，方便用户直接访问。
-4. 在每个软件的更新说明中加入用户反馈或使用建议，以提高用户体验。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/103.html</guid><pubDate>Mon, 31 Mar 2025 15:11:00 +0000</pubDate></item><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时，如何在个人目录下配置.minttyrc和.bashrc文件，以优化终端的显示和命令行操作。配置包括设置主题、字符集、字体、行列数、颜色、别名和提示符，以及启用补全时忽略大小写的功能。
+1. 统一格式，确保所有项目的描述结构一致，例如功能介绍、变更说明和更新日期。
+2. 对于每个项目，提供更详细的使用场景或示例，以帮助用户更好地理解其应用。
+3. 在变更说明中，强调每个更新对用户的实际影响，特别是修复和新功能的部分。
+4. 增加下载链接或获取资源的直接指引，方便用户快速访问所需文件。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/103.html</guid><pubDate>Mon, 31 Mar 2025 15:11:00 +0000</pubDate></item><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时，如何在个人目录下配置.minttyrc和.bashrc文件，以优化终端的显示和命令行操作。配置包括设置主题、字符集、字体、行列数、颜色、别名和提示符，以及启用补全时忽略大小写的功能。
 
 优化建议：
 1. 确保所有配置项的有效性和兼容性，定期检查Mintty和bash的更新。
