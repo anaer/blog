@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Sat, 05 Apr 2025 04:12:48 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Sat, 05 Apr 2025 04:12:48 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>103 我关注的项目这周更新了什么-2025-04-04</title><link>https://anaer.github.io/blog/post/103.html</link><description>本文介绍了多个软件的版本更新，包括WinMerge、DeepChat、RIME-LMDG、Cherry Studio、Mihomo、New API、Subs-Check、Readest、Higress和Ghosten Player。这些更新涵盖了功能增强、bug修复、性能改进以及新特性的引入，旨在提升用户体验和软件的稳定性。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Sat, 05 Apr 2025 15:09:21 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Sat, 05 Apr 2025 15:09:21 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>103 我关注的项目这周更新了什么-2025-04-04</title><link>https://anaer.github.io/blog/post/103.html</link><description>本文介绍了多个软件的更新和变更说明，包括DeepChat、RIME-LMDG、Cherry Studio、Readest、Subs-check、WinMerge、Mihomo、New-api、Higress和Ghosten-Player等。主要更新内容涵盖了功能增强、性能优化、bug修复、新增工具和支持的特性。
 
 优化建议：
-1. 为每个软件的更新提供更详细的背景信息，帮助用户理解新功能的实际应用。
-2. 在变更说明中使用更统一的格式，以便于用户快速查找关键信息。
-3. 考虑增加用户反馈渠道，让用户可以直接分享他们对新版本的看法和建议。
-4. 提供更新前后的对比示例，帮助用户更直观地理解改动。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/103.html</guid><pubDate>Mon, 31 Mar 2025 15:11:00 +0000</pubDate></item><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时，如何在个人目录下配置.minttyrc和.bashrc文件，以优化终端的显示和命令行操作。配置包括设置主题、字符集、字体、行列数、颜色、别名和提示符，以及启用补全时忽略大小写的功能。
+1. 对于每个软件的更新，建议使用更清晰的标题和小节，以便用户快速找到关键信息。
+2. 增加版本号的比较，便于用户了解新旧版本间的具体变化。
+3. 对于技术细节较多的更新，提供简明的使用指南或示例，帮助用户更好地理解新功能。
+4. 考虑添加用户反馈渠道，以便收集使用体验和改进建议。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/103.html</guid><pubDate>Mon, 31 Mar 2025 15:11:00 +0000</pubDate></item><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时，如何在个人目录下配置.minttyrc和.bashrc文件，以优化终端的显示和命令行操作。配置包括设置主题、字符集、字体、行列数、颜色、别名和提示符，以及启用补全时忽略大小写的功能。
 
 优化建议：
 1. 确保所有配置项的有效性和兼容性，定期检查Mintty和bash的更新。
