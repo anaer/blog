@@ -130,15 +130,102 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-07 12:12:53</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Termora 1.0.12的更新内容，包括对自动同步、X11转发、ssh-agent支持、透明度设置、系统托盘支持、身份验证回退以及SFTP文件覆盖提示等新功能的增强。 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-07 23:10:55</time></span>
 
-优化建议：可以进一步详细说明每个新功能的具体应用场景和用户受益，以便用户更好地理解更新的重要性。此外，提供使用指南或示例可能会提升用户体验。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了多个软件工具及其最新版本的更新内容。RIME-LMDG提供了输入法语法模型的构建教程和最新中文词库；subs-check v2.1.2-beta.1是一个订阅工具，增加了Web控制和GitHub代理选项；cherry-studio v1.1.19引入了QuickPanel功能，增强了对多个LLM提供商的支持；servers 2025.4.6更新了多款Model Context Protocol服务器的包；deepchat v0.0.13增强了AI对话体验，修复了内存泄漏问题；termora 1.0.12是一个终端仿真器，支持多项新特性，包括自动同步和SSH代理。
+
+优化建议：
+在更新说明中，可以更清晰地分类不同软件的主要功能和新特性，以便用户快速找到所需信息。此外，建议附上每个软件的使用场景或目标用户群体，帮助用户更好地理解软件的适用性。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/TermoraDev/termora/releases/tag/1.0.12">termora 1.0.12</a>
-</h1><a id="user-content-1-termora-1012" class="anchor" aria-label="Permalink: 1. termora 1.0.12" href="#1-termora-1012"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
+</h1><a id="user-content-1-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 1. RIME-LMDG dict-nightly" href="#1-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Rime输入法语法模型全流程构建教程，全局带声调词库：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>
+<code>cn_dicts.zip</code>：最新的中文词库文件。</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.1.2-beta.1">subs-check v2.1.2-beta.1</a>
+</h1><a id="user-content-2-subs-check-v212-beta1" class="anchor" aria-label="Permalink: 2. subs-check v2.1.2-beta.1" href="#2-subs-check-v212-beta1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换合并，节点可用性，测速，重命名，导出为clash.meta/clash/base64/qx等等所有格式的订阅工具</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>3f13321181be956e6e1bf470563ecd0231619c53 add temp log</li>
+<li>d02080487e8fc5b30437ea14d5c61eea04003e70 feat: web控制</li>
+<li>56b0ced24042825379ae2e9bc170ce54e785b557 feat: 添加github proxy选项</li>
+<li>86bcd8a43ee137aab424821889e126053909d19a op: 优化web控制的逻辑</li>
+<li>776d734938b1a9c2889ba3be37d2a4ca807822ce op: 拆分代码</li>
+<li>fab8a3e9fd917d01f45eeccf0a47e363689066fa op: 更改间隔时间逻辑</li>
+<li>a6b514891557761188203bb956995fe8dde8045e op: 检查API密钥</li>
+<li>3d17e8f566bccec0f2f41d88592b245883a35d8c op: 重构流媒体</li>
+<li>3dcc735da7d104fdc643e05de46f85da371fda00 update README.md
+......</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.1.19">cherry-studio v1.1.19</a>
+</h1><a id="user-content-3-cherry-studio-v1119" class="anchor" aria-label="Permalink: 3. cherry-studio v1.1.19" href="#3-cherry-studio-v1119"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Cherry Studio v1.1.19 更新日志</h2><a id="user-content-cherry-studio-v1119-更新日志" class="anchor" aria-label="Permalink: Cherry Studio v1.1.19 更新日志" href="#cherry-studio-v1119-更新日志"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>本次更新带来了全新的 QuickPanel 功能、对 <code>gpt-4o-mini</code> (原日志提及 <code>OpenAI-4o-web-search</code>，请确认模型名称) 及网页搜索引用的支持、多项 MCP（模型计算提供商）相关的功能增强和问题修复，以及性能优化和 Bug 修复。</p>
+<div class="markdown-heading"><h3 class="heading-element">✨ 新特性 (Features)</h3><a id="user-content--新特性-features" class="anchor" aria-label="Permalink: ✨ 新特性 (Features)" href="#-新特性-features"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>QuickPanel:</strong> 引入全新的 QuickPanel 功能，统一了应用内的输入和搜索操作，提升效率。(f9be0e0d, bc027276)</li>
+<li>
+<strong>MCP (模型计算提供商):</strong>
+<ul>
+<li>新增内存 MCP (in-memory MCP) 服务支持及配置管理。(ea059d55)</li>
+<li>为自动安装工具添加了 MCP 服务器自动注册功能。(41b9f8db)
+......</li>
+</ul>
+</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.4.6">servers 2025.4.6</a>
+</h1><a id="user-content-4-servers-202546" class="anchor" aria-label="Permalink: 4. servers 2025.4.6" href="#4-servers-202546"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Model Context Protocol Servers</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Release : v2025.4.6</h2><a id="user-content-release--v202546" class="anchor" aria-label="Permalink: Release : v2025.4.6" href="#release--v202546"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Updated packages</h2><a id="user-content-updated-packages" class="anchor" aria-label="Permalink: Updated packages" href="#updated-packages"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>@modelcontextprotocol/server-github@2025.4.6</li>
+<li>@modelcontextprotocol/server-redis@2025.4.6</li>
+<li>@modelcontextprotocol/server-gitlab@2025.4.6</li>
+<li>@modelcontextprotocol/server-puppeteer@2025.4.6</li>
+<li>mcp-server-fetch@2025.4.6</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.0.13">deepchat v0.0.13</a>
+</h1><a id="user-content-5-deepchat-v0013" class="anchor" aria-label="Permalink: 5. deepchat v0.0.13" href="#5-deepchat-v0013"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>DeepChat - 连接强大AI与个人世界的智能助手 DeepChat - A smart assistant that connects powerful AI to your personal world</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">🚀 DeepChat 0.0.13 正式发布 | 重新定义你的 AI 对话体验！</h2><a id="user-content--deepchat-0013-正式发布--重新定义你的-ai-对话体验" class="anchor" aria-label="Permalink: 🚀 DeepChat 0.0.13 正式发布 | 重新定义你的 AI 对话体验！" href="#-deepchat-0013-正式发布--重新定义你的-ai-对话体验"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>—— 更强大，更灵活，更智能，开启高效沟通新高度 🌟</p>
+<p>✨ 本次主要更新内容 ✨</p>
+<ul>
+<li>支持了 StreamableHTTP Transport 的 MCP 服务，<a href="https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/transports/#streamable-http" rel="nofollow">官方文档</a>
+</li>
+<li>修复了代码生成较多时内存泄漏问题</li>
+<li>优化了DeepLink的体验</li>
+<li>其余bug修复可在此查看： <a href="https://github.com/ThinkInAIXYZ/deepchat/compare/v0.0.12...v0.0.13">https://github.com/ThinkInAIXYZ/deepchat/compare/v0.0.12...v0.0.13</a>
+</li>
+</ul>
+<p>......</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/TermoraDev/termora/releases/tag/1.0.12">termora 1.0.12</a>
+</h1><a id="user-content-6-termora-1012" class="anchor" aria-label="Permalink: 6. termora 1.0.12" href="#6-termora-1012"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Termora is a terminal emulator and SSH client for Windows, macOS and Linux.</p>
 <details>
 <summary>变更说明</summary>
