@@ -132,14 +132,19 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-10 17:59:27</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在VSCode中使用rest-client时，由于代理配置的影响，建议通过修改rest-client扩展的代码来避免代理的干扰。具体方法是修改extension.js文件中的代理配置，使其无法找到代理设置，从而实现对新域名的灵活管理。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-10 18:03:32</time></span>
 
-优化建议：考虑使用环境变量或其他配置文件来集中管理需要排除的域名，而不是修改扩展代码。这可以提高可维护性，并减少后续更新扩展时可能出现的兼容性问题。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了在VSCode中使用rest-client时，由于代理配置导致的问题，提出了通过修改extension.js文件来绕过代理的解决方案。用户已经配置了近30个域名的excludeHostsForProxy，建议通过重命名获取代理配置的方法来解决频繁添加新域名的麻烦，但未测试环境变量对http.proxy的影响。
+
+优化建议：
+1. 考虑使用更灵活的配置方式，例如通过脚本自动更新excludeHostsForProxy，而不是手动修改文件。
+2. 检查是否可以使用其他HTTP客户端插件，提供更好的代理管理选项。
+3. 提交功能请求给rest-client开发团队，建议添加更友好的代理管理功能。
 </div>
 
 <div class="markdown-body" id="postBody">
-<p>因为VSCode配置了代理, 而用rest-client时 基本上不要代理,
+<p>因为VSCode配置了代理, 而用rest-client时 基本上不要代理, 又没有关代理的配置
 虽然rest-client提供了excludeHostsForProxy配置, 但是经常性要加新域名, 已配置近30个了</p>
 <p>可以修改以下文件:
 c:\Users\Administrator.vscode\extensions\humao.rest-client-0.25.1\dist\extension.js</p>

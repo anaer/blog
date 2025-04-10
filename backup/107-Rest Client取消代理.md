@@ -1,4 +1,4 @@
-因为VSCode配置了代理, 而用rest-client时 基本上不要代理,
+因为VSCode配置了代理, 而用rest-client时 基本上不要代理, 又没有关代理的配置
 虽然rest-client提供了excludeHostsForProxy配置, 但是经常性要加新域名, 已配置近30个了
 
 可以修改以下文件:
