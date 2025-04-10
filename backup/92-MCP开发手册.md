@@ -13,3 +13,4 @@ MCP 是一个开放协议，用于标准化应用程序如何为大型语言模�
 3. [mcp-server-jina-java 对接jina reader api的mcp服务器](https://github.com/GARCHENG/mcp-server-jina-java)
 4. [Awesome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers)
 5. [McpHubs](https://www.mcphubs.ai/)
+6. [阿里云百炼 MCP市场](https://bailian.console.aliyun.com/?tab=mcp#/mcp-market)
