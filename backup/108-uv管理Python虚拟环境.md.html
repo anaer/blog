@@ -26,7 +26,9 @@ uv add -r requirements.txt</pre></div>
 </li>
 <li>
 <p><strong>Python 版本切换</strong></p>
-<div class="highlight highlight-source-shell"><pre>uv python install 3.11    <span class="pl-c"><span class="pl-c">#</span> 安装指定版本</span>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 指定安装镜像 默认到github下载, 可能会慢</span>
+<span class="pl-k">export</span> UV_PYTHON_INSTALL_MIRROR=https://cf.ghproxy.cc/https://github.com/indygreg/python-build-standalone/releases/download
+uv python install 3.11    <span class="pl-c"><span class="pl-c">#</span> 安装指定版本</span>
 uv python use 3.11        <span class="pl-c"><span class="pl-c">#</span> 切换当前环境版本</span></pre></div>
 </li>
 </ul>

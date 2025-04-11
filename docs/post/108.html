@@ -132,13 +132,15 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-11 10:28:03</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-11 10:33:48</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用 uv 工具快速创建和管理 Python 项目，包括新项目的初始化、虚拟环境的创建、现有项目的依赖管理以及 Python 版本的切换。用户可以通过简单的命令生成项目结构、添加依赖和同步环境。
+    <strong>AI总结:</strong> 本文介绍了如何使用 uv 工具快速生成和管理 Python 项目，包括创建新项目、设置虚拟环境、依赖同步和版本切换。用户可以通过 uv init 命令创建项目结构，使用 uv venv 创建虚拟环境，并通过 uv add 添加依赖。此外，uv sync 可用于同步已有项目的环境，uv python install 和 uv python use 则用于管理 Python 版本。
 
 优化建议：
-1. 提供更多关于命令的具体用法和参数解释，以帮助用户更好地理解每个命令的功能。
-2. 增加使用示例，展示如何在实际项目中应用这些命令。
-3. 考虑添加常见问题解答，以解决用户在使用过程中可能遇到的困惑。
+1. 在使用 uv init 创建新项目时，建议提供更多关于项目结构的说明，以帮助用户理解各个配置文件的作用。
+2. 对于依赖同步功能，增加对常见错误的处理和提示，以提高用户体验。
+3. 提供示例或说明，帮助用户理解如何在不同环境中切换 Python 版本，以避免潜在的兼容性问题。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -170,7 +172,9 @@ uv add -r requirements.txt</pre></div>
 </li>
 <li>
 <p><strong>Python 版本切换</strong></p>
-<div class="highlight highlight-source-shell"><pre>uv python install 3.11    <span class="pl-c"><span class="pl-c">#</span> 安装指定版本</span>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 指定安装镜像 默认到github下载, 可能会慢</span>
+<span class="pl-k">export</span> UV_PYTHON_INSTALL_MIRROR=https://cf.ghproxy.cc/https://github.com/indygreg/python-build-standalone/releases/download
+uv python install 3.11    <span class="pl-c"><span class="pl-c">#</span> 安装指定版本</span>
 uv python use 3.11        <span class="pl-c"><span class="pl-c">#</span> 切换当前环境版本</span></pre></div>
 </li>
 </ul>

@@ -28,6 +28,8 @@
 
 - **Python 版本切换**
   ```bash
+  # 指定安装镜像 默认到github下载, 可能会慢
+  export UV_PYTHON_INSTALL_MIRROR=https://cf.ghproxy.cc/https://github.com/indygreg/python-build-standalone/releases/download
   uv python install 3.11    # 安装指定版本
   uv python use 3.11        # 切换当前环境版本
   ```
