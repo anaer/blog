@@ -1,0 +1,32 @@
+<ul>
+<li>
+<p><strong>新项目</strong>
+使用 <code>uv init</code> 命令快速生成项目结构和配置（如 <code>pyproject.toml</code>、<code>.python-version</code>）:</p>
+<div class="highlight highlight-source-shell"><pre>uv init my_project
+<span class="pl-c1">cd</span> my_project
+
+uv venv --python 3.11 .venv   <span class="pl-c"><span class="pl-c">#</span> 默认生成 .venv 目录</span>
+<span class="pl-c"><span class="pl-c">#</span> 或自定义名称</span>
+uv venv --python 3.12 my_env  <span class="pl-c"><span class="pl-c">#</span> 创建名为 my_env 的环境</span>
+
+<span class="pl-c1">source</span> .venv/bin/activate     </pre></div>
+</li>
+<li>
+<p><strong>现有项目</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> existing_project
+uv init
+uv run              <span class="pl-c"><span class="pl-c">#</span> 生成 .venv 环境</span>
+uv add flask
+uv add -r requirements.txt</pre></div>
+</li>
+<li>
+<p><strong>依赖同步</strong>
+对于已有 <code>pyproject.toml</code> 和 <code>uv.lock</code> 的项目，快速同步环境:</p>
+<div class="highlight highlight-source-shell"><pre>uv sync</pre></div>
+</li>
+<li>
+<p><strong>Python 版本切换</strong></p>
+<div class="highlight highlight-source-shell"><pre>uv python install 3.11    <span class="pl-c"><span class="pl-c">#</span> 安装指定版本</span>
+uv python use 3.11        <span class="pl-c"><span class="pl-c">#</span> 切换当前环境版本</span></pre></div>
+</li>
+</ul>
