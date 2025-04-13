@@ -130,12 +130,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-07 12:12:53</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-12 23:09:01</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-13 12:43:09</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件包的更新和变更说明，包括DeepChat、mihomo、Cherry Studio、RIME-LMDG、koreader、PowerToys、subs-check、readest、clash-verge-rev、Sa-Token、Ghosten-Player、new-api、alist、termora、bili-hardcore、docs、servers、TVBoxOSC、ollama_load_balancer和DeepLX等。每个软件包的更新内容涵盖了新特性、修复的错误、性能优化和功能增强等方面。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新和变更说明，包括DeepChat、subs-check、RIME-LMDG、Cherry Studio、PowerToys、mihomo、docs、readest、koreader、clash-verge-rev、Sa-Token、Ghosten-Player、new-api、alist、termora、bili-hardcore、servers、TVBoxOSC、ollama_load_balancer和DeepLX。这些更新涵盖了功能增强、bug修复、平台支持、性能优化等方面，旨在提升用户体验和软件的稳定性。
 
-优化建议：在发布更新时，建议提供更清晰的版本号和更新日期，以便用户快速识别新版本。同时，可以考虑将更新内容按重要性排序，突出关键修复和新特性，以提高用户的关注度和使用体验。
+优化建议：
+1. 在发布说明中增加版本号和发布日期，以便用户快速了解更新内容。
+2. 对于每个软件，提供更详细的功能变化描述，帮助用户了解新功能的具体应用。
+3. 增加用户反馈渠道，鼓励用户报告问题和建议，以便持续改进软件。
+4. 考虑将更新内容按重要性或影响程度进行优先级排序，便于用户快速获取关键信息。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -157,20 +161,40 @@ pre {
 ......</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
-</h1><a id="user-content-2-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 2. mihomo Prerelease-Alpha" href="#2-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.1.5">subs-check v2.1.5</a>
+</h1><a id="user-content-2-subs-check-v215" class="anchor" aria-label="Permalink: 2. subs-check v2.1.5" href="#2-subs-check-v215"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换合并，节点可用性，测速，重命名，导出为clash.meta/clash/base64/qx等等所有格式的订阅工具</p>
 <details>
 <summary>变更说明</summary>
-<p>Release created at  Sat Apr 12 22:52:31 CST 2025
-Synchronize Alpha branch code updates, keeping only the latest version
-<br>
-<a href="https://github.com/MetaCubeX/mihomo/wiki/FAQ">我应该下载哪个文件? / Which file should I download?</a>
-<a href="https://metacubex.github.io/Meta-Docs/startup/#_1" rel="nofollow">二进制文件筛选 / Binary file selector</a>
-<a href="https://metacubex.github.io/Meta-Docs/" rel="nofollow">查看文档 / Docs</a></p>
+<ol>
+<li>安卓平台全功能上线，<a href="https://github.com/beck-8/subs-check/blob/v2.1.5/doc/android.md">教程在这</a>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/c0e351c6-e2f5-4252-93f2-13be9b33e3ba"><img src="https://github.com/user-attachments/assets/c0e351c6-e2f5-4252-93f2-13be9b33e3ba" alt="image" style="max-width: 100%;"></a>
+</li>
+<li>mihomo底层增加更多的超时链接</li>
+<li>获取订阅时增加超时</li>
+</ol>
+<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>2c15a5f43f128c3a6d7069655071b4f963147083 feat: 完全支持安卓平台运行</li>
+<li>bc6123b9629934eb0e1d8e048fe6904a1a6292bf op: add GetDateFromSubs timeout</li>
+<li>6d8895cd5694cb031c941734ed3ddbeee59c1601 op: 保持DeduplicateProxies顺序</li>
+<li>02638f38ac809b94451849ecf8bf1fc258362e09 update android.md</li>
+<li>59ccb8edda42331571369cc0a865e669e71be9ed update mihomo
+......</li>
+</ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.2.3">cherry-studio v1.2.3</a>
-</h1><a id="user-content-3-cherry-studio-v123" class="anchor" aria-label="Permalink: 3. cherry-studio v1.2.3" href="#3-cherry-studio-v123"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
+</h1><a id="user-content-3-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 3. RIME-LMDG dict-nightly" href="#3-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Rime输入法语法模型全流程构建教程，全局带声调词库：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>
+<code>cn_dicts.zip</code>：最新的中文词库文件。</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.2.3">cherry-studio v1.2.3</a>
+</h1><a id="user-content-4-cherry-studio-v123" class="anchor" aria-label="Permalink: 4. cherry-studio v1.2.3" href="#4-cherry-studio-v123"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
 <details>
 <summary>变更说明</summary>
@@ -196,18 +220,66 @@ Synchronize Alpha branch code updates, keeping only the latest version
 ......</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
-</h1><a id="user-content-4-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 4. RIME-LMDG dict-nightly" href="#4-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Rime输入法语法模型全流程构建教程，全局带声调词库：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.90.1">PowerToys v0.90.1</a>
+</h1><a id="user-content-5-powertoys-v0901" class="anchor" aria-label="Permalink: 5. PowerToys v0.90.1" href="#5-powertoys-v0901"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Windows system utilities to maximize productivity</p>
 <details>
 <summary>变更说明</summary>
+<p>This is a patch release to fix issues in v0.90.1 we deemed important for stability based on incoming rates. See <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.90.0">v0.90.0</a> for full release notes.</p>
+<div class="markdown-heading"><h2 class="heading-element">Installer Hashes</h2><a id="user-content-installer-hashes" class="anchor" aria-label="Permalink: Installer Hashes" href="#installer-hashes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>|  Description   | Filename | sha256 hash |
+......</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
+</h1><a id="user-content-6-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 6. mihomo Prerelease-Alpha" href="#6-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
+<details>
+<summary>变更说明</summary>
+<p>Release created at  Sun Apr 13 03:09:00 CST 2025
+Synchronize Alpha branch code updates, keeping only the latest version
+<br>
+<a href="https://github.com/MetaCubeX/mihomo/wiki/FAQ">我应该下载哪个文件? / Which file should I download?</a>
+<a href="https://metacubex.github.io/Meta-Docs/startup/#_1" rel="nofollow">二进制文件筛选 / Binary file selector</a>
+<a href="https://metacubex.github.io/Meta-Docs/" rel="nofollow">查看文档 / Docs</a></p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/suitenumerique/docs/releases/tag/v3.1.0">docs v3.1.0</a>
+</h1><a id="user-content-7-docs-v310" class="anchor" aria-label="Permalink: 7. docs v3.1.0" href="#7-docs-v310"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A collaborative note taking, wiki and documentation platform that scales. Built with Django and React. Opensource alternative to Notion or Outline.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>We can now overwrite Docs at runtime ! ✨
+Some documentation about it <a href="https://github.com/suitenumerique/docs/blob/main/docs/theming.md">here</a>. 📜
+We provided a css example in the pull request, you can check it <a href="https://github.com/suitenumerique/docs/pull/771">here</a> !</p>
+<div class="markdown-heading"><h2 class="heading-element">Added</h2><a id="user-content-added" class="anchor" aria-label="Permalink: Added" href="#added"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>
-<code>cn_dicts.zip</code>：最新的中文词库文件。</li>
+<li>🚩(backend) add feature flag for the footer by @lunika</li>
+<li>🔧(backend) add view to manage footer json by @lunika
+......</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/koreader/koreader/releases/tag/v2025.04">koreader v2025.04</a>
-</h1><a id="user-content-5-koreader-v202504" class="anchor" aria-label="Permalink: 5. koreader v2025.04" href="#5-koreader-v202504"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/readest/readest/releases/tag/v0.9.33">readest v0.9.33</a>
+</h1><a id="user-content-8-readest-v0933" class="anchor" aria-label="Permalink: 8. readest v0.9.33" href="#8-readest-v0933"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>New: Redesigned update dialog with a progress bar during downloads for a smoother update experience.</li>
+<li>New: You can now set header and footer visibility separately for paginated and scroll modes.</li>
+<li>Fixed layout issues in the bottom configuration panel when using RTL (right-to-left) languages.</li>
+<li>Fixed TXT file import issues on Android by improving support for content provider file paths.</li>
+<li>Fixed transformed punctuations when highlighting text with vertical layout.</li>
+<li>Improved login flow on macOS by handling OAuth with the native ASWebAuthenticationSession.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: RTL layout for the bottom configuration panel, closes  by @chrox in <a href="https://github.com/readest/readest/pull/850">https://github.com/readest/readest/pull/850</a>
+......</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">9. <a href="https://github.com/koreader/koreader/releases/tag/v2025.04">koreader v2025.04</a>
+</h1><a id="user-content-9-koreader-v202504" class="anchor" aria-label="Permalink: 9. koreader v2025.04" href="#9-koreader-v202504"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>An ebook reader application supporting PDF, DjVu, EPUB, FB2 and many more formats, running on Cervantes, Kindle, Kobo, PocketBook and Android devices</p>
 <details>
 <summary>变更说明</summary>
@@ -223,62 +295,8 @@ Synchronize Alpha branch code updates, keeping only the latest version
 ......</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.90.1">PowerToys v0.90.1</a>
-</h1><a id="user-content-6-powertoys-v0901" class="anchor" aria-label="Permalink: 6. PowerToys v0.90.1" href="#6-powertoys-v0901"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Windows system utilities to maximize productivity</p>
-<details>
-<summary>变更说明</summary>
-<p>This is a patch release to fix issues in v0.90.1 we deemed important for stability based on incoming rates. See <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.90.0">v0.90.0</a> for full release notes.</p>
-<div class="markdown-heading"><h2 class="heading-element">Installer Hashes</h2><a id="user-content-installer-hashes" class="anchor" aria-label="Permalink: Installer Hashes" href="#installer-hashes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>|  Description   | Filename | sha256 hash |
-......</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.1.5">subs-check v2.1.5</a>
-</h1><a id="user-content-7-subs-check-v215" class="anchor" aria-label="Permalink: 7. subs-check v2.1.5" href="#7-subs-check-v215"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>订阅转换合并，节点可用性，测速，重命名，导出为clash.meta/clash/base64/qx等等所有格式的订阅工具</p>
-<details>
-<summary>变更说明</summary>
-<ol>
-<li>安卓平台全功能上线，<a href="https://github.com/beck-8/subs-check/blob/v2.1.5/doc/android.md">教程在这</a>
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/c0e351c6-e2f5-4252-93f2-13be9b33e3ba"><img src="https://github.com/user-attachments/assets/c0e351c6-e2f5-4252-93f2-13be9b33e3ba" alt="image" style="max-width: 100%;"></a>
-</li>
-<li>mihomo底层增加更多的超时链接</li>
-<li>获取订阅时增加超时</li>
-</ol>
-<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>2c15a5f43f128c3a6d7069655071b4f963147083 feat: 完全支持安卓平台运行</li>
-<li>bc6123b9629934eb0e1d8e048fe6904a1a6292bf op: add GetDateFromSubs timeout</li>
-<li>6d8895cd5694cb031c941734ed3ddbeee59c1601 op: 保持DeduplicateProxies顺序</li>
-<li>02638f38ac809b94451849ecf8bf1fc258362e09 update android.md</li>
-<li>59ccb8edda42331571369cc0a865e669e71be9ed update mihomo
-......</li>
-</ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/readest/readest/releases/tag/v0.9.32">readest v0.9.32</a>
-</h1><a id="user-content-8-readest-v0932" class="anchor" aria-label="Permalink: 8. readest v0.9.32" href="#8-readest-v0932"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>No more resetting of font size and color when you apply custom book styles</li>
-<li>The underline and squiggly highlight decorations have been adjusted to sit neatly between text lines</li>
-<li>With more font options available, the font menu is no longer forced in-line</li>
-<li>LXGW WenKai TC is now part of our CJK font list</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>fix: don't reset all font-size and font color when override book style by @chrox in <a href="https://github.com/readest/readest/pull/842">https://github.com/readest/readest/pull/842</a>
-</li>
-<li>fix: position the underline and squiggly highlight decoration at the middle between text lines by @chrox in <a href="https://github.com/readest/readest/pull/845">https://github.com/readest/readest/pull/845</a>
-</li>
-<li>fix: don't inline the font menu if more options are available by @chrox in <a href="https://github.com/readest/readest/pull/846">https://github.com/readest/readest/pull/846</a>
-......</li>
-</ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">9. <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.2.3">clash-verge-rev v2.2.3</a>
-</h1><a id="user-content-9-clash-verge-rev-v223" class="anchor" aria-label="Permalink: 9. clash-verge-rev v2.2.3" href="#9-clash-verge-rev-v223"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">10. <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.2.3">clash-verge-rev v2.2.3</a>
+</h1><a id="user-content-10-clash-verge-rev-v223" class="anchor" aria-label="Permalink: 10. clash-verge-rev v2.2.3" href="#10-clash-verge-rev-v223"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A modern GUI client based on Tauri, designed to run in Windows, macOS and Linux for tailored proxy experience</p>
 <details>
 <summary>变更说明</summary>
@@ -305,8 +323,8 @@ Synchronize Alpha branch code updates, keeping only the latest version
 ......</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">10. <a href="https://github.com/dromara/Sa-Token/releases/tag/v1.42.0">Sa-Token v1.42.0</a>
-</h1><a id="user-content-10-sa-token-v1420" class="anchor" aria-label="Permalink: 10. Sa-Token v1.42.0" href="#10-sa-token-v1420"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">11. <a href="https://github.com/dromara/Sa-Token/releases/tag/v1.42.0">Sa-Token v1.42.0</a>
+</h1><a id="user-content-11-sa-token-v1420" class="anchor" aria-label="Permalink: 11. Sa-Token v1.42.0" href="#11-sa-token-v1420"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>一个轻量级 Java 权限认证框架，让鉴权变得简单、优雅！—— 登录认证、权限认证、分布式Session会话、微服务网关鉴权、单点登录、OAuth2.0</p>
 <details>
 <summary>变更说明</summary>
@@ -333,8 +351,8 @@ Synchronize Alpha branch code updates, keeping only the latest version
 </li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">11. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v1.8.1">Ghosten-Player v1.8.1</a>
-</h1><a id="user-content-11-ghosten-player-v181" class="anchor" aria-label="Permalink: 11. Ghosten-Player v1.8.1" href="#11-ghosten-player-v181"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">12. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v1.8.1">Ghosten-Player v1.8.1</a>
+</h1><a id="user-content-12-ghosten-player-v181" class="anchor" aria-label="Permalink: 12. Ghosten-Player v1.8.1" href="#12-ghosten-player-v181"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>一个同时适配📱Android Phone和📺Android TV的视频播放器。整合影视资源，自动刮削媒体信息，支持IPTV播放，优雅打造私人影视库。界面简洁，功能丰富，开箱即用。</p>
 <details>
 <summary>变更说明</summary>
@@ -346,21 +364,21 @@ Synchronize Alpha branch code updates, keeping only the latest version
 <li>移动端两指缩放失效</li>
 <li>Pad横屏下无法弹出iptv的播放列表</li>
 </ol>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-3" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-3"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>Releases/v1.8.1 by @GhostenEditor in <a href="https://github.com/GhostenEditor/Ghosten-Player/pull/121">https://github.com/GhostenEditor/Ghosten-Player/pull/121</a>
 ......</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">12. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.6.3.1.1">new-api v0.6.3.1.1</a>
-</h1><a id="user-content-12-new-api-v06311" class="anchor" aria-label="Permalink: 12. new-api v0.6.3.1.1" href="#12-new-api-v06311"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">13. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.6.3.1.1">new-api v0.6.3.1.1</a>
+</h1><a id="user-content-13-new-api-v06311" class="anchor" aria-label="Permalink: 13. new-api v0.6.3.1.1" href="#13-new-api-v06311"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
 <details>
 <summary>变更说明</summary>
 <p><strong>Full Changelog</strong>: <a href="https://github.com/QuantumNous/new-api/compare/v0.6.3.1...v0.6.3.1.1">https://github.com/QuantumNous/new-api/compare/v0.6.3.1...v0.6.3.1.1</a></p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">13. <a href="https://github.com/AlistGo/alist/releases/tag/beta">alist beta</a>
-</h1><a id="user-content-13-alist-beta" class="anchor" aria-label="Permalink: 13. alist beta" href="#13-alist-beta"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">14. <a href="https://github.com/AlistGo/alist/releases/tag/beta">alist beta</a>
+</h1><a id="user-content-14-alist-beta" class="anchor" aria-label="Permalink: 14. alist beta" href="#14-alist-beta"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。</p>
 <details>
 <summary>变更说明</summary>
@@ -387,8 +405,8 @@ Synchronize Alpha branch code updates, keeping only the latest version
 <div class="markdown-heading"><h3 class="heading-element">   🐞 Bug Fixes</h3><a id="user-content--bug-fixes" class="anchor" aria-label="Permalink:    🐞 Bug Fixes" href="#-bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>......</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">14. <a href="https://github.com/TermoraDev/termora/releases/tag/1.0.12">termora 1.0.12</a>
-</h1><a id="user-content-14-termora-1012" class="anchor" aria-label="Permalink: 14. termora 1.0.12" href="#14-termora-1012"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">15. <a href="https://github.com/TermoraDev/termora/releases/tag/1.0.12">termora 1.0.12</a>
+</h1><a id="user-content-15-termora-1012" class="anchor" aria-label="Permalink: 15. termora 1.0.12" href="#15-termora-1012"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Termora is a terminal emulator and SSH client for Windows, macOS and Linux.</p>
 <details>
 <summary>变更说明</summary>
@@ -405,30 +423,14 @@ Synchronize Alpha branch code updates, keeping only the latest version
 ......</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">15. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.4.2">bili-hardcore v0.4.2</a>
-</h1><a id="user-content-15-bili-hardcore-v042" class="anchor" aria-label="Permalink: 15. bili-hardcore v0.4.2" href="#15-bili-hardcore-v042"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">16. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.4.2">bili-hardcore v0.4.2</a>
+</h1><a id="user-content-16-bili-hardcore-v042" class="anchor" aria-label="Permalink: 16. bili-hardcore v0.4.2" href="#16-bili-hardcore-v042"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>bilibili 硬核会员 AI 自动答题脚本，直接调用 B 站 API，非 OCR 实现</p>
 <details>
 <summary>变更说明</summary>
 <ul>
 <li>使用 Github Actions 构建全平台 release</li>
 <li>增加更多提示性日志</li>
-</ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">16. <a href="https://github.com/suitenumerique/docs/releases/tag/v3.1.0">docs v3.1.0</a>
-</h1><a id="user-content-16-docs-v310" class="anchor" aria-label="Permalink: 16. docs v3.1.0" href="#16-docs-v310"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A collaborative note taking, wiki and documentation platform that scales. Built with Django and React. Opensource alternative to Notion or Outline.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-3" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-3"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>We can now overwrite Docs at runtime ! ✨
-Some documentation about it <a href="https://github.com/suitenumerique/docs/blob/main/docs/theming.md">here</a>. 📜
-We provided a css example in the pull request, you can check it <a href="https://github.com/suitenumerique/docs/pull/771">here</a> !</p>
-<div class="markdown-heading"><h2 class="heading-element">Added</h2><a id="user-content-added" class="anchor" aria-label="Permalink: Added" href="#added"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>🚩(backend) add feature flag for the footer by @lunika</li>
-<li>🔧(backend) add view to manage footer json by @lunika
-......</li>
 </ul>
 </details>
 <div class="markdown-heading"><h1 class="heading-element">17. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.4.6">servers 2025.4.6</a>
