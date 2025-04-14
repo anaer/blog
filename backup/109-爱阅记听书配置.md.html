@@ -1,0 +1,16 @@
+<p>之前配置好后, 当导出所有书籍时, APP闪退导致配置丢失, 这里作下记录留痕</p>
+<p>设置-&gt;听书-&gt;在线语音库管理-&gt;创建</p>
+<pre><code>名称: 必填
+合成步骤.1:
+  请求方式:POST
+  Http配置:
+    自定义HTTP头 可以不配置 默认就是👇这个
+    Content-Type: application/x-www-form-urlencoded
+  地址: http://xx.xx.xx.xx/tts
+  参数: 
+    text: %@
+    voice: claire  不传时 取随机voice
+    
+  解析字段:
+    playData: ResponseData
+</code></pre>
