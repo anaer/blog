@@ -67,3 +67,11 @@ $ pm2 publish                       # Increment version, git push and npm publis
     }
   ]
 }</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">pm2-logrotate 日志切割</h2><a id="user-content-pm2-logrotate-日志切割" class="anchor" aria-label="Permalink: pm2-logrotate 日志切割" href="#pm2-logrotate-日志切割"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>pm2 install pm2-logrotate</pre></div>
+<div class="highlight highlight-source-shell"><pre>pm2 conf <span class="pl-c"><span class="pl-c">#</span> 查询配置</span></pre></div>
+<p>配置参数：</p>
+<div class="highlight highlight-source-shell"><pre>pm2 <span class="pl-c1">set</span> pm2-logrotate:max_size 10M  <span class="pl-c"><span class="pl-c">#</span> 单个文件最大10M</span>
+pm2 <span class="pl-c1">set</span> pm2-logrotate:retain 30     <span class="pl-c"><span class="pl-c">#</span> 保留30个历史文件</span>
+pm2 <span class="pl-c1">set</span> pm2-logrotate:compress <span class="pl-c1">true</span> <span class="pl-c"><span class="pl-c">#</span> 启用压缩</span>
+pm2 <span class="pl-c1">set</span> pm2-logrotate:rotateInterval <span class="pl-s"><span class="pl-pds">'</span>0 0 * * *<span class="pl-pds">'</span></span> <span class="pl-c"><span class="pl-c">#</span> 每天0点执行</span></pre></div>
