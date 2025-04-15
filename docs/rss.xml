@@ -1,16 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 15 Apr 2025 07:14:35 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 15 Apr 2025 07:14:35 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>111 jqGrid服务端排序</title><link>https://anaer.github.io/blog/post/111.html</link><description>本文介绍了一个使用jqGrid进行服务端排序的配置示例。该示例设置了不启用一次性加载数据到客户端，默认按名称降序排序，并定义了表格的列名和列模型。通过onSortCol事件处理函数，调用search函数进行服务端排序，并阻止客户端排序操作。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 15 Apr 2025 15:11:42 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 15 Apr 2025 15:11:42 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>111 jqGrid服务端排序</title><link>https://anaer.github.io/blog/post/111.html</link><description>本文介绍了一个使用jqGrid进行服务端排序的配置示例。该示例设置了不启用一次性加载数据到客户端，默认按名称降序排序，并定义了表格的列名和列模型。通过onSortCol事件处理函数，调用search函数进行服务端排序，并阻止客户端排序操作。
 
 优化建议：
 1. 在search函数中，确保完整传递所有必要的参数，以便服务端能够处理排序请求。
 2. 考虑增加错误处理机制，以应对服务端返回的异常情况。
 3. 可以添加加载指示器，以改善用户体验，提示用户正在进行数据加载。
-4. 使用更具描述性的变量名，以提高代码可读性和维护性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/111.html</guid><pubDate>Tue, 15 Apr 2025 02:24:31 +0000</pubDate></item><item><title>110 我关注的项目这周更新了什么-2025-04-18</title><link>https://anaer.github.io/blog/post/110.html</link><description>本文介绍了多个软件和工具的最新版本更新，包括DeepChat、Cherry Studio、Higress、Termora、RIME-LMDG、new-api、Readest和LangBot。每个工具的更新内容涉及新特性、修复bug、性能优化和功能增强，旨在提升用户体验和功能性。例如，DeepChat引入了视觉能力和自动更新功能，Cherry Studio优化了用户界面并增强了模型编辑功能，Higress更新了插件以支持不同响应状态的内容返回，Termora添加了背景图片设置等。
+4. 使用更具描述性的变量名，以提高代码可读性和维护性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/111.html</guid><pubDate>Tue, 15 Apr 2025 02:24:31 +0000</pubDate></item><item><title>110 我关注的项目这周更新了什么-2025-04-18</title><link>https://anaer.github.io/blog/post/110.html</link><description>1. new-api v0.6.5.0
 
-优化建议：
-1. 为每个工具的更新内容提供更详细的上下文，以帮助用户理解新功能的实际应用。
-2. 考虑将更新内容按类别（如新功能、修复、性能优化等）进行组织，便于用户快速查找相关信息。
-3. 增加用户反馈机制，鼓励用户分享他们对新功能的体验，进一步提升产品质量。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/110.html</guid><pubDate>Mon, 14 Apr 2025 04:12:55 +0000</pubDate></item><item><title>109 爱阅记听书配置</title><link>https://anaer.github.io/blog/post/109.html</link><description>本文介绍了在APP导出所有书籍时出现闪退导致配置丢失的问题，并记录了相关的设置步骤。具体的配置包括在设置中的听书选项下进行在线语音库管理，创建合成步骤并配置请求方式、HTTP头、地址及参数。
+AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.
+
+变更说明
+feat: support gemini output text and inline images. (close )
+
+2. deepchat v0.0.15
+
+🐬DeepChat...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/110.html</guid><pubDate>Mon, 14 Apr 2025 04:12:55 +0000</pubDate></item><item><title>109 爱阅记听书配置</title><link>https://anaer.github.io/blog/post/109.html</link><description>本文介绍了在APP导出所有书籍时出现闪退导致配置丢失的问题，并记录了相关的设置步骤。具体的配置包括在设置中的听书选项下进行在线语音库管理，创建合成步骤并配置请求方式、HTTP头、地址及参数。
 
 优化建议：建议在APP中增加自动保存配置的功能，以防止闪退导致的丢失。同时，可以提供错误日志记录功能，帮助用户追踪问题来源。此外，考虑在用户界面中增加提示，提醒用户在进行重要操作前备份配置。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/109.html</guid><pubDate>Mon, 14 Apr 2025 01:52:44 +0000</pubDate></item><item><title>108 uv管理Python虚拟环境</title><link>https://anaer.github.io/blog/post/108.html</link><description>本文介绍了如何使用 uv 工具快速生成和管理 Python 项目，包括创建新项目、设置虚拟环境、依赖同步和版本切换。用户可以通过 uv init 命令创建项目结构，使用 uv venv 创建虚拟环境，并通过 uv add 添加依赖。此外，uv sync 可用于同步已有项目的环境，uv python install 和 uv python use 则用于管理 Python 版本。
 
