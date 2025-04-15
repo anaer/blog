@@ -1,0 +1,29 @@
+<div class="markdown-heading"><h2 class="heading-element">服务端排序</h2><a id="user-content-服务端排序" class="anchor" aria-label="Permalink: 服务端排序" href="#服务端排序"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span><span class="pl-kos">(</span><span class="pl-s1">grid_selector</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">jqGrid</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+    <span class="pl-c1">loadonce</span>: <span class="pl-c1">false</span><span class="pl-kos">,</span> <span class="pl-c">// 是否一次性加载数据到客户端，启用本地排序</span>
+    <span class="pl-c1">sortname</span>: <span class="pl-s">'name'</span><span class="pl-kos">,</span>
+    <span class="pl-c1">sortorder</span>: <span class="pl-s">'desc'</span><span class="pl-kos">,</span>
+    <span class="pl-c1">colNames</span>: <span class="pl-kos">[</span> <span class="pl-s">'id'</span><span class="pl-kos">,</span> <span class="pl-s">'name'</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
+    <span class="pl-c1">colModel</span>: <span class="pl-kos">[</span>
+    <span class="pl-kos">{</span>
+        <span class="pl-c1">index</span>: <span class="pl-s">'id'</span><span class="pl-kos">,</span>
+        <span class="pl-c1">name</span>: <span class="pl-s">'id'</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span>
+    <span class="pl-kos">{</span>
+        <span class="pl-c1">index</span>: <span class="pl-s">'name'</span><span class="pl-kos">,</span>
+        <span class="pl-c1">name</span>: <span class="pl-s">'name'</span><span class="pl-kos">,</span>
+        <span class="pl-c1">width</span>: <span class="pl-c1">50</span><span class="pl-kos">,</span>
+        <span class="pl-c1">sortable</span>: <span class="pl-c1">true</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span>
+    <span class="pl-s1">onSortCol</span>: <span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-s1">index</span><span class="pl-kos">,</span> <span class="pl-s1">columnIndex</span><span class="pl-kos">,</span> <span class="pl-s1">sortOrder</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-en">search</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-k">return</span> <span class="pl-s">'stop'</span><span class="pl-kos">;</span> <span class="pl-c">// 阻止客户端排序操作</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span><span class="pl-kos"></span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span>
+
+<span class="pl-k">function</span> <span class="pl-en">search</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-k">var</span> <span class="pl-s1">param</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span><span class="pl-kos">}</span><span class="pl-kos">;</span>
+  <span class="pl-s1">param</span><span class="pl-kos">.</span><span class="pl-c1">sortName</span> <span class="pl-c1">=</span> <span class="pl-en">$</span><span class="pl-kos">(</span><span class="pl-s1">grid_selector</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">getGridParam</span><span class="pl-kos">(</span><span class="pl-s">"sortname"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-s1">param</span><span class="pl-kos">.</span><span class="pl-c1">sortOrder</span> <span class="pl-c1">=</span> <span class="pl-en">$</span><span class="pl-kos">(</span><span class="pl-s1">grid_selector</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">getGridParam</span><span class="pl-kos">(</span><span class="pl-s">"sortorder"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  ...
+<span class="pl-kos">}</span></pre></div>
