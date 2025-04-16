@@ -2336,14 +2336,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/110",
             "commentNum": 0,
             "createdAt": 1744603975,
-            "updatedAt": 1744729861,
+            "updatedAt": 1744776765,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-04-14",
-            "dateLabelColor": "hsl(141, 48%, 38%)",
-            "description": "1. new-api v0.6.5.0\n\nAI\u6a21\u578b\u63a5\u53e3\u7ba1\u7406\u4e0e\u5206\u53d1\u7cfb\u7edf\uff0c\u652f\u6301\u5c06\u591a\u79cd\u5927\u6a21\u578b\u8f6c\u4e3a\u7edf\u4e00\u683c\u5f0f\u8c03\u7528\uff0c\u652f\u6301OpenAI\u3001Claude\u7b49\u683c\u5f0f\uff0c\u53ef\u4f9b\u4e2a\u4eba\u6216\u8005\u4f01\u4e1a\u5185\u90e8\u7ba1\u7406\u4e0e\u5206\u53d1\u6e20\u9053\u4f7f\u7528\uff0c\u672c\u9879\u76ee\u57fa\u4e8eOne API\u4e8c\u6b21\u5f00\u53d1\u3002\ud83c\udf65 The next-generation LLM gateway and AI asset management system supports multiple languages.\n\n\u53d8\u66f4\u8bf4\u660e\nfeat: support gemini output text and inline images. (close )\n\n2. deepchat v0.0.15\n\n\ud83d\udc2cDeepChat...",
-            "buildedAt": 1744729861
+            "dateLabelColor": "hsl(141, 30%, 25%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u591a\u4e2a\u8f6f\u4ef6\u7684\u6700\u65b0\u7248\u672c\u66f4\u65b0\uff0c\u5305\u62ecDeepChat\u3001Termora\u3001Cherry Studio\u3001LangBot\u3001Mihomo\u3001TVBoxOSC\u3001new-api\u3001RIME-LMDG\u3001Higress\u548cReadest\u3002\u6bcf\u4e2a\u8f6f\u4ef6\u7684\u66f4\u65b0\u5185\u5bb9\u6db5\u76d6\u4e86\u65b0\u529f\u80fd\u3001bug\u4fee\u590d\u548c\u6027\u80fd\u4f18\u5316\u7b49\u65b9\u9762\uff0c\u65e8\u5728\u63d0\u5347\u7528\u6237\u4f53\u9a8c\u548c\u8f6f\u4ef6\u6027\u80fd\u3002\n\n\u4f18\u5316\u5efa\u8bae\uff1a\u5728\u66f4\u65b0\u8bf4\u660e\u4e2d\uff0c\u5efa\u8bae\u4f7f\u7528\u66f4\u7edf\u4e00\u7684\u683c\u5f0f\u6765\u63cf\u8ff0\u65b0\u529f\u80fd\u548c\u4fee\u590d\uff0c\u4ee5\u4fbf\u7528\u6237\u80fd\u66f4\u5feb\u901f\u5730\u4e86\u89e3\u6bcf\u4e2a\u7248\u672c\u7684\u4e3b\u8981\u6539\u52a8\u3002\u6b64\u5916\uff0c\u53ef\u4ee5\u8003\u8651\u63d0\u4f9b\u66f4\u8be6\u7ec6\u7684\u4f7f\u7528\u6848\u4f8b\u6216\u793a\u4f8b\uff0c\u4ee5\u5e2e\u52a9\u7528\u6237\u66f4\u597d\u5730\u7406\u89e3\u65b0\u529f\u80fd\u7684\u5b9e\u9645\u5e94\u7528\u3002",
+            "buildedAt": 1744776765
         },
         "P111": {
             "number": "111",
