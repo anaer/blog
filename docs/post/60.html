@@ -130,12 +130,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-22 16:36:09</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-15 15:14:06</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-16 09:57:30</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了PM2的基本命令和配置，包括启动、查看进程、监控、日志管理、停止、重载、重启、删除应用及其他功能的使用方法。此外，还介绍了pm2.json配置文件的结构和pm2-logrotate模块的安装及配置。
+    <strong>AI总结:</strong> 本文介绍了PM2的使用，包括启动、查看进程、监控、日志管理、停止、重载、重启、删除应用及其他功能。用户可以通过不同的命令来管理Node.js应用程序，设置自动重启、日志记录和监控等功能。此外，还介绍了如何使用pm2-logrotate进行日志切割。
 
-优化建议：在使用PM2时，可以考虑为常用命令创建别名以简化操作步骤，同时定期检查和更新pm2-logrotate的配置，以确保日志管理的有效性和系统性能。此外，建议在生产环境中使用pm2的监控功能，以实时跟踪应用性能。
+优化建议：可以考虑将命令分组并提供更详细的描述，以便用户更容易理解每个命令的用途。同时，增加一些常见错误及其解决方案的说明，以帮助用户在使用过程中快速排查问题。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -201,10 +201,10 @@ $ pm2 publish                       # Increment version, git push and npm publis
       <span class="pl-ent">"autorestart"</span>: <span class="pl-c1">true</span>,
       <span class="pl-ent">"watch"</span>: [<span class="pl-s"><span class="pl-pds">"</span>main.py<span class="pl-pds">"</span></span>],  <span class="pl-ii"># 监听文件变更</span>
       <span class="pl-ent">"cron_restart"</span>: <span class="pl-s"><span class="pl-pds">"</span>0 0 * * *<span class="pl-pds">"</span></span>, <span class="pl-ii"># 每天0点 定时重启</span>
-      <span class="pl-ent">"merge_logs"</span>: <span class="pl-c1">false</span>,
+      <span class="pl-ent">"merge_logs"</span>: <span class="pl-c1">false</span>,   <span class="pl-ii"># 是否合并文件, false时 按pm2 id拆分日志文件, 如error_1.log</span>
       <span class="pl-ent">"log_date_format"</span>: <span class="pl-s"><span class="pl-pds">"</span>YYYY-MM-DD HH:mm Z<span class="pl-pds">"</span></span>, <span class="pl-ii"># 日志日期格式</span>
       <span class="pl-ent">"error_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/error.log<span class="pl-pds">"</span></span>, <span class="pl-ii"># 错误日志文件</span>
-      <span class="pl-ent">"out_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/output.log<span class="pl-pds">"</span></span> <span class="pl-ii"># 日志文件</span>
+      <span class="pl-ent">"out_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/output.log<span class="pl-pds">"</span></span> <span class="pl-ii"># 日志文件  当error_file和out_file配置一样时, 可输出到同一个文件</span>
     }
   ]
 }</pre></div>
