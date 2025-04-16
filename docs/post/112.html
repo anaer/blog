@@ -128,14 +128,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-16 11:25:49</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-16 11:31:42</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用direnv工具管理Python环境，以便在进入不同项目时自动激活虚拟环境。首先，需安装direnv并配置Shell环境，接着在目标目录创建.envrc文件以指定激活命令，最后授权并验证配置的有效性。注意在使用过程中可能会遇到PS1警告信息。
+    <strong>AI总结:</strong> 本文介绍了如何使用direnv工具来管理Python环境，以便在不同项目中自动激活虚拟环境。首先，安装direnv并配置Shell环境，禁用uv对PS1的修改。然后，在目标目录创建.envrc文件以指定激活虚拟环境的命令，并授权该文件生效。最后，验证配置是否成功，确保direnv能够自动执行.envrc中的命令。
 
 优化建议：
-1. 在安装direnv前，确保系统更新，以避免潜在的依赖问题。
-2. 在配置PS1时，考虑使用更简洁的提示格式，以减少警告信息的干扰。
-3. 详细记录每一步操作，便于后续参考和排错。
-4. 定期检查direnv的文档，以获取最新的功能和最佳实践。
+1. 在安装和配置步骤中，提供更详细的命令示例，以便用户更容易理解。
+2. 在描述验证步骤时，建议用户检查direnv的日志输出，以便快速定位问题。
+3. 提供对其他Shell（如Zsh）的配置示例，以便满足不同用户的需求。
+4. 考虑添加对常见问题的解答，帮助用户解决可能遇到的配置问题。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -151,6 +153,8 @@ pre {
 <p><strong>配置 Shell 环境</strong>（以 Bash 为例）：
 编辑 <code>~/.bashrc</code> 文件，添加配置, 如果已配置PS1, 可在现有配置上添加<code>${VIRTUAL_ENV_PROMPT}</code>变量：</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">eval</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-s"><span class="pl-pds">$(</span>direnv hook bash<span class="pl-pds">)</span></span><span class="pl-pds">"</span></span>
+
+<span class="pl-k">export</span> VIRTUAL_ENV_DISABLE_PROMPT=y <span class="pl-c"><span class="pl-c">#</span> 禁用uv修改PS1</span>
 
 <span class="pl-k">export</span> PS1=<span class="pl-s"><span class="pl-pds">'</span>${VIRTUAL_ENV_PROMPT}${debian_chroot:+($debian_chroot)}\u@\h:\w\$ <span class="pl-pds">'</span></span></pre></div>
 <p>然后运行 <code>source ~/.bashrc</code> 使配置生效。</p>
@@ -174,7 +178,7 @@ export VIRTUAL_ENV_PROMPT
 <li>
 <p><strong>验证</strong>：
 进入目录时，<code>direnv</code> 会自动执行 <code>.envrc</code> 中的命令。
-会有PS1告警信息, 暂不知道怎么去掉.</p>
+PS1告警信息可通过<code>export VIRTUAL_ENV_DISABLE_PROMPT=y</code>去除</p>
 </li>
 </ol>
 <pre lang="log"><code># cd /path/to/target_directory

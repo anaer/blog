@@ -11,6 +11,8 @@
 编辑 <code>~/.bashrc</code> 文件，添加配置, 如果已配置PS1, 可在现有配置上添加<code>${VIRTUAL_ENV_PROMPT}</code>变量：</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">eval</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-s"><span class="pl-pds">$(</span>direnv hook bash<span class="pl-pds">)</span></span><span class="pl-pds">"</span></span>
 
+<span class="pl-k">export</span> VIRTUAL_ENV_DISABLE_PROMPT=y <span class="pl-c"><span class="pl-c">#</span> 禁用uv修改PS1</span>
+
 <span class="pl-k">export</span> PS1=<span class="pl-s"><span class="pl-pds">'</span>${VIRTUAL_ENV_PROMPT}${debian_chroot:+($debian_chroot)}\u@\h:\w\$ <span class="pl-pds">'</span></span></pre></div>
 <p>然后运行 <code>source ~/.bashrc</code> 使配置生效。</p>
 </li>
@@ -33,7 +35,7 @@ export VIRTUAL_ENV_PROMPT
 <li>
 <p><strong>验证</strong>：
 进入目录时，<code>direnv</code> 会自动执行 <code>.envrc</code> 中的命令。
-会有PS1告警信息, 暂不知道怎么去掉.</p>
+PS1告警信息可通过<code>export VIRTUAL_ENV_DISABLE_PROMPT=y</code>去除</p>
 </li>
 </ol>
 <pre lang="log"><code># cd /path/to/target_directory

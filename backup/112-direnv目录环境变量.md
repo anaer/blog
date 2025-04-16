@@ -14,6 +14,8 @@
    ```bash
    eval "$(direnv hook bash)"
    
+   export VIRTUAL_ENV_DISABLE_PROMPT=y # 禁用uv修改PS1
+   
    export PS1='${VIRTUAL_ENV_PROMPT}${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
    ```
    然后运行 `source ~/.bashrc` 使配置生效。
@@ -40,7 +42,7 @@
 
 5. **验证**：
    进入目录时，`direnv` 会自动执行 `.envrc` 中的命令。
-   会有PS1告警信息, 暂不知道怎么去掉.
+   PS1告警信息可通过`export VIRTUAL_ENV_DISABLE_PROMPT=y`去除
 
 ```log
 # cd /path/to/target_directory
