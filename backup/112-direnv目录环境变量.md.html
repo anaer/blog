@@ -1,0 +1,43 @@
+<p>在使用uv管理python环境后, 需要在进入不同项目时 执行<code>source .venv/bin/activate</code></p>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">使用 <code>direnv</code> 工具</h3><a id="user-content-使用-direnv-工具" class="anchor" aria-label="Permalink: 使用 direnv 工具" href="#使用-direnv-工具"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p><strong>安装 <code>direnv</code></strong>：</p>
+<div class="highlight highlight-source-shell"><pre>apt install direnv</pre></div>
+</li>
+<li>
+<p><strong>配置 Shell 环境</strong>（以 Bash 为例）：
+编辑 <code>~/.bashrc</code> 文件，添加配置, 如果已配置PS1, 可在现有配置上添加<code>${VIRTUAL_ENV_PROMPT}</code>变量：</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">eval</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-s"><span class="pl-pds">$(</span>direnv hook bash<span class="pl-pds">)</span></span><span class="pl-pds">"</span></span>
+
+<span class="pl-k">export</span> PS1=<span class="pl-s"><span class="pl-pds">'</span>${VIRTUAL_ENV_PROMPT}${debian_chroot:+($debian_chroot)}\u@\h:\w\$ <span class="pl-pds">'</span></span></pre></div>
+<p>然后运行 <code>source ~/.bashrc</code> 使配置生效。</p>
+</li>
+<li>
+<p><strong>在目标目录创建 <code>.envrc</code> 文件</strong>：</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> /path/to/target_directory
+vim .envrc</pre></div>
+<pre lang="rc"><code>source .venv/bin/activate
+if [ -z "${VIRTUAL_ENV_PROMPT:-}" ] &amp;&amp; [ -n "${VIRTUAL_ENV}" ]; then
+    VIRTUAL_ENV_PROMPT=$(basename "${VIRTUAL_ENV}")
+fi
+export VIRTUAL_ENV_PROMPT
+</code></pre>
+</li>
+<li>
+<p><strong>授权 <code>.envrc</code></strong>：</p>
+<div class="highlight highlight-source-shell"><pre>direnv allow</pre></div>
+<p>首次进入目录时需执行此命令以允许 <code>.envrc</code> 生效。</p>
+</li>
+<li>
+<p><strong>验证</strong>：
+进入目录时，<code>direnv</code> 会自动执行 <code>.envrc</code> 中的命令。
+会有PS1告警信息, 暂不知道怎么去掉.</p>
+</li>
+</ol>
+<pre lang="log"><code># cd /path/to/target_directory
+direnv: loading ~/path/to/target_directory/.envrc
+direnv: PS1 cannot be exported. For more information see https://github.com/direnv/direnv/wiki/PS1
+direnv: export ~PATH
+</code></pre>
