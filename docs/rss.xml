@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 16 Apr 2025 04:13:12 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 16 Apr 2025 04:13:12 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>112 direnv目录环境变量</title><link>https://anaer.github.io/blog/post/112.html</link><description>本文介绍了如何使用direnv工具来管理Python环境，以便在不同项目中自动激活虚拟环境。首先，安装direnv并配置Shell环境，禁用uv对PS1的修改。然后，在目标目录创建.envrc文件以指定激活虚拟环境的命令，并授权该文件生效。最后，验证配置是否成功，确保direnv能够自动执行.envrc中的命令。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 16 Apr 2025 06:35:17 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 16 Apr 2025 06:35:17 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>112 direnv目录环境变量</title><link>https://anaer.github.io/blog/post/112.html</link><description>本文介绍了如何使用direnv工具来管理Python环境，以便在不同项目中自动激活虚拟环境。首先，安装direnv并配置Shell环境，禁用uv对PS1的修改。然后，在目标目录创建.envrc文件以指定激活虚拟环境的命令，并授权该文件生效。最后，验证配置是否成功，确保direnv能够自动执行.envrc中的命令。
 
 优化建议：
 1. 在安装和配置步骤中，提供更详细的命令示例，以便用户更容易理解。
@@ -20,12 +20,13 @@
 优化建议：
 1. 在使用 uv init 创建新项目时，建议提供更多关于项目结构的说明，以帮助用户理解各个配置文件的作用。
 2. 对于依赖同步功能，增加对常见错误的处理和提示，以提高用户体验。
-3. 提供示例或说明，帮助用户理解如何在不同环境中切换 Python 版本，以避免潜在的兼容性问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/108.html</guid><pubDate>Fri, 11 Apr 2025 02:28:03 +0000</pubDate></item><item><title>107 Rest Client取消代理</title><link>https://anaer.github.io/blog/post/107.html</link><description>本文介绍了在VSCode中使用rest-client时，由于代理配置导致的问题，提出了通过修改extension.js文件来绕过代理的解决方案。用户已经配置了近30个域名的excludeHostsForProxy，建议通过重命名获取代理配置的方法来解决频繁添加新域名的麻烦，但未测试环境变量对http.proxy的影响。
+3. 提供示例或说明，帮助用户理解如何在不同环境中切换 Python 版本，以避免潜在的兼容性问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/108.html</guid><pubDate>Fri, 11 Apr 2025 02:28:03 +0000</pubDate></item><item><title>107 Rest Client使用记录</title><link>https://anaer.github.io/blog/post/107.html</link><description>本文介绍了在Visual Studio Code中自定义变量的使用，包括环境变量、文件变量、请求变量、提示变量和内置变量等。用户可以通过设置文件定义不同环境的变量，并在HTTP请求中使用这些变量来动态生成请求内容。此外，还提到如何取消VSCode中的代理设置，以便在使用rest-client时避免代理干扰。
 
 优化建议：
-1. 考虑使用更灵活的配置方式，例如通过脚本自动更新excludeHostsForProxy，而不是手动修改文件。
-2. 检查是否可以使用其他HTTP客户端插件，提供更好的代理管理选项。
-3. 提交功能请求给rest-client开发团队，建议添加更友好的代理管理功能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/107.html</guid><pubDate>Thu, 10 Apr 2025 09:59:27 +0000</pubDate></item><item><title>106 VSCode Continue插件配置自定义模型</title><link>https://anaer.github.io/blog/post/106.html</link><description>本文介绍了一个配置文件的部分内容，其中包含一个模型的相关信息，包括模型标题、名称、API基础地址、上下文长度和提供者。该模型被标识为“Pro/Qwen/Qwen2.5-Coder-7B-Instruct”，其上下文长度为32000。
+1. 提供更详细的示例代码，以帮助用户更好地理解每种变量的具体用法。
+2. 增加对常见错误和解决方案的说明，帮助用户快速排查问题。
+3. 提供环境变量和请求变量的最佳实践，以提高代码的可维护性和可读性。
+4. 考虑增加对代理设置的自动化配置选项，简化用户操作。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/107.html</guid><pubDate>Thu, 10 Apr 2025 09:59:27 +0000</pubDate></item><item><title>106 VSCode Continue插件配置自定义模型</title><link>https://anaer.github.io/blog/post/106.html</link><description>本文介绍了一个配置文件的部分内容，其中包含一个模型的相关信息，包括模型标题、名称、API基础地址、上下文长度和提供者。该模型被标识为“Pro/Qwen/Qwen2.5-Coder-7B-Instruct”，其上下文长度为32000。
 
 优化建议：确保API基础地址是有效的，并考虑将模型配置的其他参数（如版本、用途等）添加以增强文档的完整性和可理解性。同时，建议提供关于“siliconflow”提供者的更多背景信息，以便用户更好地了解模型来源。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/106.html</guid><pubDate>Wed, 09 Apr 2025 06:42:54 +0000</pubDate></item><item><title>104 我关注的项目这周更新了什么-2025-04-11</title><link>https://anaer.github.io/blog/post/104.html</link><description>本文介绍了多个软件的更新和变更说明，包括Cherry Studio、Readest、subs-check、RIME-LMDG、DeepChat、docs、koreader、Ghosten-Player、PowerToys、mihomo、clash-verge-rev、Sa-Token、new-api、alist、termora、bili-hardcore、servers、TVBoxOSC、ollama_load_balancer和DeepLX等。每个软件的更新内容涵盖了功能增强、bug修复及性能改进等方面。
 
