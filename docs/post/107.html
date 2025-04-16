@@ -132,16 +132,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-10 17:59:27</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-16 14:34:46</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-16 14:39:46</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在Visual Studio Code中自定义变量的使用，包括环境变量、文件变量、请求变量、提示变量和内置变量等。用户可以通过设置文件定义不同环境的变量，并在HTTP请求中使用这些变量来动态生成请求内容。此外，还提到如何取消VSCode中的代理设置，以便在使用rest-client时避免代理干扰。
+    <strong>AI总结:</strong> 本文介绍了如何在Visual Studio Code中使用自定义变量和环境变量来管理HTTP请求的配置。主要内容包括定义共享变量、文件变量、请求变量、提示变量和内置变量等，以及如何通过修改配置文件来取消代理设置。
 
 优化建议：
-1. 提供更详细的示例代码，以帮助用户更好地理解每种变量的具体用法。
-2. 增加对常见错误和解决方案的说明，帮助用户快速排查问题。
-3. 提供环境变量和请求变量的最佳实践，以提高代码的可维护性和可读性。
-4. 考虑增加对代理设置的自动化配置选项，简化用户操作。
+1. 考虑提供具体的示例代码，以便用户更直观地理解如何使用不同类型的变量。
+2. 增加对环境变量的详细说明，特别是如何在不同环境中切换和使用这些变量。
+3. 在取消代理部分，建议提供更安全和可维护的方法，而不是直接修改扩展的代码。
+4. 提供对常见错误和解决方案的列表，帮助用户更快地排查问题。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -249,6 +249,9 @@ envVarName: 指定本地机器环境变量
 
 {{$dotenv [%]variableName}}
 返回.env文件中设置的环境变量, .env文件与.http文件在统一目录中
+
+.env变量定义格式
+VAR1=ABC
 
 {{$aadToken [new] [public|cn|de|us|ppe] [&lt;domain|tenantId&gt;] [aud:&lt;domain|tenantId&gt;]}}
 

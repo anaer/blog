@@ -114,6 +114,9 @@ envVarName: 指定本地机器环境变量
 {{$dotenv [%]variableName}}
 返回.env文件中设置的环境变量, .env文件与.http文件在统一目录中
 
+.env变量定义格式
+VAR1=ABC
+
 {{$aadToken [new] [public|cn|de|us|ppe] [<domain|tenantId>] [aud:<domain|tenantId>]}}
 
 {{$oidcAccessToken  [new]  [<clientId:<clientId>] [<callbackPort:<callbackPort>] [authorizeEndpoint:<authorizeEndpoint}] [tokenEndpoint:<tokenEndpoint}] [scopes:<scopes}] [audience:<audience}]}
