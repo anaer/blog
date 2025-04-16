@@ -132,22 +132,24 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-24 16:14:46</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了使用find命令清理日志目录中超过1G的日志文件，通过truncate命令将这些文件清空而不删除文件本身。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-16 17:15:20</time></span>
 
-优化建议：
-1. 在执行清理操作前，可以添加一个备份步骤，以防误操作导致数据丢失。
-2. 考虑将该命令放入定时任务中，以定期自动清理日志文件。
-3. 在清理前，记录被清空的文件名，以便后续审计或恢复。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了如何清理日志目录中超过1G的日志文件，具体步骤为使用find命令查找并清空这些日志文件，而不删除文件本身。同时，介绍了使用fdupes工具检测并删除重复文件，只保留一个副本。
+
+优化建议：可以考虑在清空日志文件之前备份重要日志，以防数据丢失。此外，定期监控日志文件大小和使用情况，设置自动清理机制以提升效率。
 </div>
 
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h2 class="heading-element">清理日志目录超过1G的日志文件</h2><a id="user-content-清理日志目录超过1g的日志文件" class="anchor" aria-label="Permalink: 清理日志目录超过1G的日志文件" href="#清理日志目录超过1g的日志文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>不删文件只清空</p>
 <div class="highlight highlight-source-shell"><pre>find /data/app_log -type f -name <span class="pl-s"><span class="pl-pds">"</span>*.log<span class="pl-pds">"</span></span> -size +1G -exec truncate -s 0 {} <span class="pl-cce">\;</span></pre></div>
+<div class="markdown-heading"><h2 class="heading-element">fdupes检测重复文件</h2><a id="user-content-fdupes检测重复文件" class="anchor" aria-label="Permalink: fdupes检测重复文件" href="#fdupes检测重复文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>apt install fdupes
+fdupes -dN <span class="pl-c1">.</span> <span class="pl-c"><span class="pl-c">#</span> 删除重复内容的文件, 只保留一个</span></pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/96.html" aria-label="Previous Page">096 Mac配置</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/94.html" aria-label="Next Page">094 我关注的项目这周更新了什么-2025-03-28</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/94.html" aria-label="Previous Page">094 我关注的项目这周更新了什么-2025-03-28</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/96.html" aria-label="Next Page">096 Mac配置</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
