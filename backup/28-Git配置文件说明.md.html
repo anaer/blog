@@ -120,3 +120,25 @@ remote repository    远程仓库</p>
 # merge=union: 合并时自动保留双方的更改
 *.txt merge=union
 </code></pre>
+<div class="markdown-heading"><h2 class="heading-element">多仓库目录环境配置</h2><a id="user-content-多仓库目录环境配置" class="anchor" aria-label="Permalink: 多仓库目录环境配置" href="#多仓库目录环境配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>采用 <code>includeIf</code> 指令实现智能切换：</p>
+<div class="highlight highlight-source-ini"><pre><span class="pl-c"><span class="pl-c">#</span> ~/.gitconfig 主配置文件</span>
+<span class="pl-en">[includeIf "gitdir:D:/work/"]</span>
+    <span class="pl-k">path</span> = .gitconfig-work  <span class="pl-c"><span class="pl-c">#</span> 工作账号配置</span>
+
+<span class="pl-en">[includeIf "gitdir:D:/personal/"]</span>
+    <span class="pl-k">path</span> = .gitconfig-personal  <span class="pl-c"><span class="pl-c">#</span> 私人账号配置</span></pre></div>
+<div class="highlight highlight-source-ini"><pre><span class="pl-c"><span class="pl-c">#</span> ~/.gitconfig-work 工作专用配置</span>
+<span class="pl-en">[user]</span>
+    <span class="pl-k">name</span> = 公司开发者
+    <span class="pl-k">email</span> = work@company.com
+    <span class="pl-k">signingkey</span> = WORK-SIGN-KEY
+
+<span class="pl-en">[core]</span>
+    <span class="pl-k">autocrlf</span> = input</pre></div>
+<div class="highlight highlight-source-ini"><pre><span class="pl-c"><span class="pl-c">#</span> ~/.gitconfig-personal 私人配置</span>
+<span class="pl-en">[user]</span>
+    <span class="pl-k">name</span> = 个人开发者
+    <span class="pl-k">email</span> = me@domain.com
+<span class="pl-en">[github]</span>
+    <span class="pl-k">token</span> = xxxx-xxxx-xxxx-xxxx</pre></div>

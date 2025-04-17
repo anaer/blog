@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 17 Apr 2025 08:27:43 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 17 Apr 2025 08:27:43 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>112 direnv目录环境变量</title><link>https://anaer.github.io/blog/post/112.html</link><description>本文介绍了如何使用direnv工具来管理Python项目的虚拟环境，避免在每次进入项目时手动激活虚拟环境的繁琐步骤。首先，安装direnv并配置Shell环境，接着在目标目录创建并授权.envrc文件，最后通过direnv自动加载虚拟环境并清除PS1提示信息的告警。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 17 Apr 2025 09:22:00 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 17 Apr 2025 09:22:00 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>112 direnv目录环境变量</title><link>https://anaer.github.io/blog/post/112.html</link><description>本文介绍了如何使用direnv工具来管理Python项目的虚拟环境，避免在每次进入项目时手动激活虚拟环境的繁琐步骤。首先，安装direnv并配置Shell环境，接着在目标目录创建并授权.envrc文件，最后通过direnv自动加载虚拟环境并清除PS1提示信息的告警。
 
 优化建议：
 1. 在安装direnv前，建议检查系统是否已安装apt，以确保兼容性。
@@ -525,9 +525,9 @@ def extract_metadata(file_path):
 插件列表
 whistle.inspect
 安装插件后, 设置并启用Rules规则, 刷新页面生效
-支持: vco...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/29.html</guid><pubDate>Fri, 03 Jan 2025 06:19:08 +0000</pubDate></item><item><title>028 Git配置文件说明</title><link>https://anaer.github.io/blog/post/28.html</link><description>本文介绍了Git数据传输的基本流程，包括工作空间、索引、本地仓库和远程仓库之间的操作，以及.git/config和.gitattributes的配置项，涵盖了用户信息、远程仓库设置、分支合并、换行符处理、文件合并策略等内容。
+支持: vco...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/29.html</guid><pubDate>Fri, 03 Jan 2025 06:19:08 +0000</pubDate></item><item><title>028 Git配置文件说明</title><link>https://anaer.github.io/blog/post/28.html</link><description>本文介绍了Git数据传输的基本概念，包括工作空间、数据缓存区、本地仓库和远程仓库的结构，以及.git/config和.gitattributes文件的配置细节。配置包括用户信息、换行符处理、远程仓库设置、合并策略和差异工具等。此外，还介绍了多仓库环境的智能切换配置。
 
-优化建议：可以增加对每个操作的具体示例和说明，帮助用户更好地理解每个步骤的作用。同时，建议对.git/config和.gitattributes中的配置项进行详细解释，提供最佳实践和常见错误的解决方案，以便用户在实际使用中更有效地进行配置和管理。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/28.html</guid><pubDate>Fri, 03 Jan 2025 03:05:36 +0000</pubDate></item><item><title>027 ip2region工具</title><link>https://anaer.github.io/blog/post/27.html</link><description>ip2region
+优化建议：可以考虑添加具体的使用场景和示例，以帮助用户更好地理解各项配置的实际应用。此外，建议在文中加入常见问题解答部分，以便用户快速解决可能遇到的配置问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/28.html</guid><pubDate>Fri, 03 Jan 2025 03:05:36 +0000</pubDate></item><item><title>027 ip2region工具</title><link>https://anaer.github.io/blog/post/27.html</link><description>ip2region
 
 ip2region-xdb  58M
 数据来自IP-API

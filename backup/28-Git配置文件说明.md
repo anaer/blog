@@ -129,3 +129,35 @@ remote repository    远程仓库
 # merge=union: 合并时自动保留双方的更改
 *.txt merge=union
 ```
+
+## 多仓库目录环境配置
+采用 `includeIf` 指令实现智能切换：
+
+```ini
+# ~/.gitconfig 主配置文件
+[includeIf "gitdir:D:/work/"]
+    path = .gitconfig-work  # 工作账号配置
+
+[includeIf "gitdir:D:/personal/"]
+    path = .gitconfig-personal  # 私人账号配置
+```
+
+```ini
+# ~/.gitconfig-work 工作专用配置
+[user]
+    name = 公司开发者
+    email = work@company.com
+    signingkey = WORK-SIGN-KEY
+
+[core]
+    autocrlf = input
+```
+
+```ini
+# ~/.gitconfig-personal 私人配置
+[user]
+    name = 个人开发者
+    email = me@domain.com
+[github]
+    token = xxxx-xxxx-xxxx-xxxx
+```
