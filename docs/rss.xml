@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 17 Apr 2025 08:26:48 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 17 Apr 2025 08:26:48 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>112 direnv目录环境变量</title><link>https://anaer.github.io/blog/post/112.html</link><description>本文介绍了如何使用direnv工具来管理Python项目的虚拟环境，避免在每次进入项目时手动激活虚拟环境的繁琐步骤。首先，安装direnv并配置Shell环境，接着在目标目录创建并授权.envrc文件，最后通过direnv自动加载虚拟环境并清除PS1提示信息的告警。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 17 Apr 2025 08:27:43 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 17 Apr 2025 08:27:43 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>112 direnv目录环境变量</title><link>https://anaer.github.io/blog/post/112.html</link><description>本文介绍了如何使用direnv工具来管理Python项目的虚拟环境，避免在每次进入项目时手动激活虚拟环境的繁琐步骤。首先，安装direnv并配置Shell环境，接着在目标目录创建并授权.envrc文件，最后通过direnv自动加载虚拟环境并清除PS1提示信息的告警。
 
 优化建议：
 1. 在安装direnv前，建议检查系统是否已安装apt，以确保兼容性。
@@ -504,25 +504,9 @@ import jieba
 
 # 精确模式，试图将句子最精确地切开，适合文本分析
 text = "测试分词长字符串"
-words = jieba.cu...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/34.html</guid><pubDate>Mon, 13 Jan 2025 08:06:52 +0000</pubDate></item><item><title>033 网盘</title><link>https://anaer.github.io/blog/post/33.html</link><description>夸克网盘
-淘宝88VIP获取夸克网盘会员
-6T空间 支持视频原画
-Koofr
+words = jieba.cu...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/34.html</guid><pubDate>Mon, 13 Jan 2025 08:06:52 +0000</pubDate></item><item><title>033 网盘</title><link>https://anaer.github.io/blog/post/33.html</link><description>本文介绍了夸克网盘的功能及使用方法，包括通过淘宝88VIP获取会员、支持的视频原画和Koofr的特性。用户可以使用Google账号登录Koofr，免费用户可获得10G容量，并通过生成的App密码使用WebDAV访问。文中还提到了一些应用场景，如Cherry Studio配置备份和多种书签同步工具的使用。
 
-可使用Google账号登录
-免费用户提供10G容量
-生成单独的App password后 即可通过WebDAV访问
-
-地址: https://app.koofr.net/dav/Koofr
-账号: Google账号邮箱
-密码: 👆生成的App password
-
-
-Save to Koorf
-Chrome插件, 支持保存网页或图片到Koorf上
-支持Connect到Dropbox, Google Drive, OneDrive, Facebook, Instagram
-免费账号只能挂载2个第三方网盘
-支持连接电脑,...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/33.html</guid><pubDate>Thu, 09 Jan 2025 09:21:34 +0000</pubDate></item><item><title>032 电子书下载站</title><link>https://anaer.github.io/blog/post/32.html</link><description>Z-library
+优化建议：可以进一步明确各个功能的优缺点，并提供更详细的使用步骤和示例，以便用户更好地理解如何利用这些工具。同时，可以考虑增加对比分析，帮助用户选择最适合自己的网盘和同步工具。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/33.html</guid><pubDate>Thu, 09 Jan 2025 09:21:34 +0000</pubDate></item><item><title>032 电子书下载站</title><link>https://anaer.github.io/blog/post/32.html</link><description>Z-library
 Re Z-library
 可以在tg上创建bot用于搜书下书, 不过因为tg限制, 只能下载50M以下的
 SaltyLeo的书架
