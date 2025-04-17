@@ -2336,14 +2336,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/110",
             "commentNum": 0,
             "createdAt": 1744603975,
-            "updatedAt": 1744863179,
+            "updatedAt": 1744902660,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-04-14",
-            "dateLabelColor": "hsl(143, 59%, 28%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u591a\u4e2a\u8f6f\u4ef6\u7684\u7248\u672c\u66f4\u65b0\uff0c\u5305\u62ecCherry Studio\u3001higress\u3001mihomo\u3001DeepChat\u3001RIME-LMDG\u3001QuickLook\u3001readest\u3001new-api\u3001termora\u3001LangBot\u548cTVBoxOSC\u3002\u4e3b\u8981\u66f4\u65b0\u5185\u5bb9\u6d89\u53ca\u7528\u6237\u754c\u9762\u4f18\u5316\u3001\u529f\u80fd\u589e\u5f3a\u3001\u9519\u8bef\u4fee\u590d\u548c\u652f\u6301\u65b0\u7279\u6027\uff0c\u5982\u591a\u8bed\u8a00\u652f\u6301\u548c\u8d44\u6e90\u7ba1\u7406\u529f\u80fd\u3002\n\n\u4f18\u5316\u5efa\u8bae\uff1a\n1. \u5bf9\u4e8e\u6bcf\u4e2a\u8f6f\u4ef6\u7684\u66f4\u65b0\uff0c\u5efa\u8bae\u7a81\u51fa\u5173\u952e\u6539\u52a8\uff0c\u4fbf\u4e8e\u7528\u6237\u5feb\u901f\u8bc6\u522b\u91cd\u8981\u4fe1\u606f\u3002\n2. \u53ef\u4ee5\u589e\u52a0\u7248\u672c\u53f7\u5bf9\u6bd4\uff0c\u5e2e\u52a9\u7528\u6237\u4e86\u89e3\u65b0\u7248\u672c\u76f8\u8f83\u4e8e\u65e7\u7248\u672c\u7684\u6539\u8fdb\u4e4b\u5904\u3002\n3. \u4e3a\u6bcf\u4e2a\u8f6f\u4ef6\u63d0\u4f9b\u7b80\u77ed\u7684\u4f7f\u7528\u573a\u666f\u6216\u793a\u4f8b\uff0c\u5e2e\u52a9\u7528\u6237\u66f4\u597d\u5730\u7406\u89e3\u65b0\u529f\u80fd\u7684\u5b9e\u9645\u5e94\u7528\u3002",
-            "buildedAt": 1744863179
+            "dateLabelColor": "hsl(143, 63%, 23%)",
+            "description": "1. RIME-LMDG dict-nightly\n\nRime\u8f93\u5165\u6cd5\u8bed\u6cd5\u6a21\u578b\u5168\u6d41\u7a0b\u6784\u5efa\u6559\u7a0b\uff0c\u5168\u5c40\u5e26\u58f0\u8c03\u8bcd\u5e93\uff1aLMDG - Language, Model, Dictionary, Grammar\u3002Q\u7fa4\uff1a11033572\n\n\u53d8\u66f4\u8bf4\u660e\n\n\ncn_dicts.zip\uff1a\u6700\u65b0\u7684\u4e2d\u6587\u8bcd\u5e93\u6587\u4ef6\u3002\n\n\n2. deepchat v0.0.15\n\n\ud83d\udc2cDeepChat - \u8fde\u63a5\u5f3a\u5927AI\u4e0e\u4e2a\u4eba\u4e16\u754c\u7684\u667a\u80fd\u52a9\u624b DeepChat - A smart assistant that connects powerful AI to your personal world\n\n\u53d8\u66f4\u8bf4\u660e\n\ud83d\ude80 DeepChat 0.0.15 \u6b63\u5f0f\u53d1\u5e03...",
+            "buildedAt": 1744902660
         },
         "P111": {
             "number": "111",
