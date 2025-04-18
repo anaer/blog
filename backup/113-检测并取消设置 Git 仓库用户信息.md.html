@@ -1,0 +1,126 @@
+<div class="markdown-heading"><h2 class="heading-element">检测并取消设置 Git 仓库用户信息</h2><a id="user-content-检测并取消设置-git-仓库用户信息" class="anchor" aria-label="Permalink: 检测并取消设置 Git 仓库用户信息" href="#检测并取消设置-git-仓库用户信息"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">os</span>
+<span class="pl-k">import</span> <span class="pl-s1">argparse</span>
+<span class="pl-k">import</span> <span class="pl-s1">subprocess</span>
+<span class="pl-k">import</span> <span class="pl-s1">sys</span>
+
+<span class="pl-k">def</span> <span class="pl-en">find_git_repos</span>(<span class="pl-s1">root_dir</span>):
+    <span class="pl-s">"""</span>
+<span class="pl-s">    递归查找指定目录下的所有 Git 仓库</span>
+<span class="pl-s">    """</span>
+    <span class="pl-s1">git_repos</span> <span class="pl-c1">=</span> []
+    <span class="pl-k">for</span> <span class="pl-s1">dirpath</span>, <span class="pl-s1">dirnames</span>, <span class="pl-s1">filenames</span> <span class="pl-c1">in</span> <span class="pl-s1">os</span>.<span class="pl-c1">walk</span>(<span class="pl-s1">root_dir</span>):
+        <span class="pl-k">if</span> <span class="pl-s">'.git'</span> <span class="pl-c1">in</span> <span class="pl-s1">dirnames</span>:
+            <span class="pl-s1">repo_path</span> <span class="pl-c1">=</span> <span class="pl-s1">os</span>.<span class="pl-c1">path</span>.<span class="pl-c1">abspath</span>(<span class="pl-s1">dirpath</span>)
+            <span class="pl-s1">git_repos</span>.<span class="pl-c1">append</span>(<span class="pl-s1">repo_path</span>)
+            <span class="pl-c"># 跳过子目录遍历 (避免处理嵌套仓库)</span>
+            <span class="pl-s1">dirnames</span>[:] <span class="pl-c1">=</span> []
+    <span class="pl-k">return</span> <span class="pl-s1">git_repos</span>
+
+<span class="pl-k">def</span> <span class="pl-en">check_and_unset_config</span>(<span class="pl-s1">repo_path</span>):
+    <span class="pl-s">"""</span>
+<span class="pl-s">    检查并取消设置用户配置</span>
+<span class="pl-s">    返回格式: (是否存在name, 是否存在email, 是否执行了修改)</span>
+<span class="pl-s">    """</span>
+    <span class="pl-k">try</span>:
+        <span class="pl-c"># 检测 user.name</span>
+        <span class="pl-s1">name_check</span> <span class="pl-c1">=</span> <span class="pl-s1">subprocess</span>.<span class="pl-c1">run</span>(
+            [<span class="pl-s">'git'</span>, <span class="pl-s">'-C'</span>, <span class="pl-s1">repo_path</span>, <span class="pl-s">'config'</span>, <span class="pl-s">'--local'</span>, <span class="pl-s">'--get'</span>, <span class="pl-s">'user.name'</span>],
+            <span class="pl-s1">stdout</span><span class="pl-c1">=</span><span class="pl-s1">subprocess</span>.<span class="pl-c1">PIPE</span>,
+            <span class="pl-s1">stderr</span><span class="pl-c1">=</span><span class="pl-s1">subprocess</span>.<span class="pl-c1">PIPE</span>,
+            <span class="pl-s1">text</span><span class="pl-c1">=</span><span class="pl-c1">True</span>
+        )
+        <span class="pl-s1">has_name</span> <span class="pl-c1">=</span> <span class="pl-s1">name_check</span>.<span class="pl-c1">returncode</span> <span class="pl-c1">==</span> <span class="pl-c1">0</span>
+
+        <span class="pl-c"># 检测 user.email</span>
+        <span class="pl-s1">email_check</span> <span class="pl-c1">=</span> <span class="pl-s1">subprocess</span>.<span class="pl-c1">run</span>(
+            [<span class="pl-s">'git'</span>, <span class="pl-s">'-C'</span>, <span class="pl-s1">repo_path</span>, <span class="pl-s">'config'</span>, <span class="pl-s">'--local'</span>, <span class="pl-s">'--get'</span>, <span class="pl-s">'user.email'</span>],
+            <span class="pl-s1">stdout</span><span class="pl-c1">=</span><span class="pl-s1">subprocess</span>.<span class="pl-c1">PIPE</span>,
+            <span class="pl-s1">stderr</span><span class="pl-c1">=</span><span class="pl-s1">subprocess</span>.<span class="pl-c1">PIPE</span>,
+            <span class="pl-s1">text</span><span class="pl-c1">=</span><span class="pl-c1">True</span>
+        )
+        <span class="pl-s1">has_email</span> <span class="pl-c1">=</span> <span class="pl-s1">email_check</span>.<span class="pl-c1">returncode</span> <span class="pl-c1">==</span> <span class="pl-c1">0</span>
+
+        <span class="pl-s1">modified</span> <span class="pl-c1">=</span> <span class="pl-c1">False</span>
+
+        <span class="pl-c"># 取消设置配置</span>
+        <span class="pl-k">if</span> <span class="pl-s1">has_name</span>:
+            <span class="pl-s1">subprocess</span>.<span class="pl-c1">run</span>(
+                [<span class="pl-s">'git'</span>, <span class="pl-s">'-C'</span>, <span class="pl-s1">repo_path</span>, <span class="pl-s">'config'</span>, <span class="pl-s">'--local'</span>, <span class="pl-s">'--unset'</span>, <span class="pl-s">'user.name'</span>],
+                <span class="pl-s1">check</span><span class="pl-c1">=</span><span class="pl-c1">True</span>,
+                <span class="pl-s1">stdout</span><span class="pl-c1">=</span><span class="pl-s1">subprocess</span>.<span class="pl-c1">DEVNULL</span>,
+                <span class="pl-s1">stderr</span><span class="pl-c1">=</span><span class="pl-s1">subprocess</span>.<span class="pl-c1">DEVNULL</span>
+            )
+            <span class="pl-s1">modified</span> <span class="pl-c1">=</span> <span class="pl-c1">True</span>
+
+        <span class="pl-k">if</span> <span class="pl-s1">has_email</span>:
+            <span class="pl-s1">subprocess</span>.<span class="pl-c1">run</span>(
+                [<span class="pl-s">'git'</span>, <span class="pl-s">'-C'</span>, <span class="pl-s1">repo_path</span>, <span class="pl-s">'config'</span>, <span class="pl-s">'--local'</span>, <span class="pl-s">'--unset'</span>, <span class="pl-s">'user.email'</span>],
+                <span class="pl-s1">check</span><span class="pl-c1">=</span><span class="pl-c1">True</span>,
+                <span class="pl-s1">stdout</span><span class="pl-c1">=</span><span class="pl-s1">subprocess</span>.<span class="pl-c1">DEVNULL</span>,
+                <span class="pl-s1">stderr</span><span class="pl-c1">=</span><span class="pl-s1">subprocess</span>.<span class="pl-c1">DEVNULL</span>
+            )
+            <span class="pl-s1">modified</span> <span class="pl-c1">=</span> <span class="pl-c1">True</span>
+
+        <span class="pl-k">return</span> <span class="pl-s1">has_name</span>, <span class="pl-s1">has_email</span>, <span class="pl-s1">modified</span>
+
+    <span class="pl-k">except</span> <span class="pl-s1">subprocess</span>.<span class="pl-c1">CalledProcessError</span> <span class="pl-k">as</span> <span class="pl-s1">e</span>:
+        <span class="pl-en">print</span>(<span class="pl-s">f"处理仓库时出错 <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">repo_path</span><span class="pl-kos">}</span></span>: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-en">str</span>(<span class="pl-s1">e</span>)<span class="pl-kos">}</span></span>"</span>)
+        <span class="pl-k">return</span> <span class="pl-c1">False</span>, <span class="pl-c1">False</span>, <span class="pl-c1">False</span>
+
+<span class="pl-k">def</span> <span class="pl-en">main</span>():
+    <span class="pl-s1">parser</span> <span class="pl-c1">=</span> <span class="pl-s1">argparse</span>.<span class="pl-c1">ArgumentParser</span>(<span class="pl-s1">description</span><span class="pl-c1">=</span><span class="pl-s">'Git 用户信息清理工具'</span>)
+    <span class="pl-s1">parser</span>.<span class="pl-c1">add_argument</span>(
+        <span class="pl-s">'directory'</span>,
+        <span class="pl-s1">type</span><span class="pl-c1">=</span><span class="pl-s1">str</span>,
+        <span class="pl-s1">help</span><span class="pl-c1">=</span><span class="pl-s">'要扫描的根目录路径'</span>,
+        <span class="pl-s1">nargs</span><span class="pl-c1">=</span><span class="pl-s">'?'</span>,
+        <span class="pl-s1">default</span><span class="pl-c1">=</span><span class="pl-s1">os</span>.<span class="pl-c1">getcwd</span>()
+    )
+    <span class="pl-s1">args</span> <span class="pl-c1">=</span> <span class="pl-s1">parser</span>.<span class="pl-c1">parse_args</span>()
+
+    <span class="pl-s1">root_dir</span> <span class="pl-c1">=</span> <span class="pl-s1">os</span>.<span class="pl-c1">path</span>.<span class="pl-c1">abspath</span>(<span class="pl-s1">args</span>.<span class="pl-c1">directory</span>)
+    <span class="pl-k">if</span> <span class="pl-c1">not</span> <span class="pl-s1">os</span>.<span class="pl-c1">path</span>.<span class="pl-c1">isdir</span>(<span class="pl-s1">root_dir</span>):
+        <span class="pl-en">print</span>(<span class="pl-s">f"错误: 路径不存在或不是目录 [<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">root_dir</span><span class="pl-kos">}</span></span>]"</span>)
+        <span class="pl-s1">sys</span>.<span class="pl-c1">exit</span>(<span class="pl-c1">1</span>)
+
+    <span class="pl-s1">repositories</span> <span class="pl-c1">=</span> <span class="pl-en">find_git_repos</span>(<span class="pl-s1">root_dir</span>)
+    <span class="pl-en">print</span>(<span class="pl-s">f"共发现 <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-en">len</span>(<span class="pl-s1">repositories</span>)<span class="pl-kos">}</span></span> 个 Git 仓库"</span>)
+
+    <span class="pl-k">for</span> <span class="pl-s1">repo</span> <span class="pl-c1">in</span> <span class="pl-s1">repositories</span>:
+        <span class="pl-en">print</span>(<span class="pl-s">f"<span class="pl-cce">\n</span>🔍 正在检查仓库：<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">repo</span><span class="pl-kos">}</span></span>"</span>)
+        <span class="pl-s1">has_name</span>, <span class="pl-s1">has_email</span>, <span class="pl-s1">modified</span> <span class="pl-c1">=</span> <span class="pl-en">check_and_unset_config</span>(<span class="pl-s1">repo</span>)
+
+        <span class="pl-s1">status</span> <span class="pl-c1">=</span> []
+        <span class="pl-k">if</span> <span class="pl-s1">has_name</span>: <span class="pl-s1">status</span>.<span class="pl-c1">append</span>(<span class="pl-s">"存在 user.name"</span>)
+        <span class="pl-k">if</span> <span class="pl-s1">has_email</span>: <span class="pl-s1">status</span>.<span class="pl-c1">append</span>(<span class="pl-s">"存在 user.email"</span>)
+      
+        <span class="pl-k">if</span> <span class="pl-s1">status</span>:
+            <span class="pl-en">print</span>(<span class="pl-s">"   → 发现配置: "</span> <span class="pl-c1">+</span> <span class="pl-s">", "</span>.<span class="pl-c1">join</span>(<span class="pl-s1">status</span>))
+            <span class="pl-k">if</span> <span class="pl-s1">modified</span>:
+                <span class="pl-en">print</span>(<span class="pl-s">"   ✅ 已清理本地配置"</span>)
+        <span class="pl-k">else</span>:
+            <span class="pl-en">print</span>(<span class="pl-s">"   ✅ 未配置本地用户信息"</span>)
+
+<span class="pl-k">if</span> <span class="pl-s1">__name__</span> <span class="pl-c1">==</span> <span class="pl-s">"__main__"</span>:
+    <span class="pl-en">main</span>()</pre></div>
+<div class="markdown-heading"><h3 class="heading-element">使用方式</h3><a id="user-content-使用方式" class="anchor" aria-label="Permalink: 使用方式" href="#使用方式"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 扫描当前目录</span>
+python git_cleaner.py
+
+<span class="pl-c"><span class="pl-c">#</span> 扫描指定目录</span>
+python git_cleaner.py /path/to/projects</pre></div>
+<p>输出示例：</p>
+<pre><code>共发现 3 个 Git 仓库
+
+🔍 正在检查仓库：/home/user/projects/repo1
+   → 发现配置: 存在 user.name, 存在 user.email
+   ✅ 已清理本地配置
+
+🔍 正在检查仓库：/home/user/projects/repo2
+   ✅ 未配置本地用户信息
+
+🔍 正在检查仓库：/home/user/projects/repo3
+   → 发现配置: 存在 user.email
+   ✅ 已清理本地配置
+</code></pre>
