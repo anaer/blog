@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 18 Apr 2025 04:13:25 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 18 Apr 2025 04:13:25 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>113 检测并取消设置 Git 仓库用户信息</title><link>https://anaer.github.io/blog/post/113.html</link><description>本文介绍了一个用于清理 Git 仓库中用户信息的工具，该工具通过递归查找指定目录下的所有 Git 仓库，并检查和取消设置每个仓库的用户配置（user.name 和 user.email）。它使用 argparse 处理命令行参数，并通过 subprocess 调用 Git 命令来执行相关操作。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 18 Apr 2025 06:46:51 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 18 Apr 2025 06:46:51 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>113 检测并取消设置 Git 仓库用户信息</title><link>https://anaer.github.io/blog/post/113.html</link><description>本文介绍了一个用于清理 Git 仓库中用户信息的工具，该工具通过递归查找指定目录下的所有 Git 仓库，并检查和取消设置每个仓库的用户配置（user.name 和 user.email）。它使用 argparse 处理命令行参数，并通过 subprocess 调用 Git 命令来执行相关操作。
 
 优化建议：
 1. 增加错误处理机制，确保在执行 Git 命令时能够捕获并处理所有可能的异常情况。
@@ -219,13 +219,13 @@
 
 优化建议：可以考虑在文中加入示例代码，以帮助用户更直观地理解各特性的使用场景。此外，提供一些常见问题的解答或最佳实践，可以进一步提升用户的使用体验。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/77.html</guid><pubDate>Wed, 26 Feb 2025 02:37:29 +0000</pubDate></item><item><title>076 Jinja2模版语法</title><link>https://anaer.github.io/blog/post/76.html</link><description>本文介绍了Jinja2模板语法的各个方面，包括基础语法结构、模板继承系统、高级功能组件、安全控制机制、空白控制、注释语法以及包含与导入。基础语法结构涵盖了变量输出、逻辑控制和循环结构。模板继承系统展示了如何定义父模板和扩展子模板。高级功能组件包括宏、过滤器和测试器，增强了模板的灵活性和功能性。安全控制机制确保了用户输入的安全性，防止潜在的安全问题。空白控制用于优化输出格式，注释语法则便于调试。最后，包含与导入功能使得模板的组织和模块化更加高效。
 
-优化建议：可以增加示例代码的解释，以帮助初学者更好地理解每个语法的具体用途和应用场景。此外，可以推荐一些常见的最佳实践，以提升模板的可维护性和安全性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/76.html</guid><pubDate>Tue, 25 Feb 2025 09:19:08 +0000</pubDate></item><item><title>075 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了一个常用资源的综合列表，包括开发工具、在线服务、娱乐资源、软件服务、在线工具、IP工具、临时邮箱、下载工具、加密解密工具、Chrome&amp;Edge插件、AI工具、影视资源等，提供了多种实用链接和工具，方便用户在各个领域的需求。
+优化建议：可以增加示例代码的解释，以帮助初学者更好地理解每个语法的具体用途和应用场景。此外，可以推荐一些常见的最佳实践，以提升模板的可维护性和安全性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/76.html</guid><pubDate>Tue, 25 Feb 2025 09:19:08 +0000</pubDate></item><item><title>075 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了一个丰富的资源列表，涵盖了开发工具、在线文档、娱乐资源、软件服务、在线工具、IP工具、临时邮箱、下载工具、加密解密工具、Chrome与Edge插件、AI工具、影视资源等多个类别。每个类别下列出了相关的工具和平台，提供了广泛的选择以满足不同用户的需求。
 
 优化建议：
-1. 对资源进行分类和排序，使用户更容易找到所需工具。
-2. 提供每个工具或资源的简要描述，帮助用户快速了解其功能。
-3. 考虑添加使用评价或推荐，以便用户选择更高质量的工具。
-4. 定期更新资源列表，确保信息的时效性和有效性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>074 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的步骤，包括使用curl命令下载并解压缩Ollama，设置系统服务以便长期使用，手动启动服务，查询和拉取模型，以及如何与模型进行交互和测试接口。此外，还提供了关于RAG（Retrieval-Augmented Generation）技术的介绍及其在AnythingLLM中的应用，包括docker安装和nginx配置。最后，提到了监控GPU使用情况的方法和相关链接。
+1. 对资源进行分类整理，突出每个类别的重点工具，以便用户快速找到所需资源。
+2. 提供每个工具的简要描述和使用场景，帮助用户理解其功能和适用性。
+3. 定期更新资源列表，确保信息的时效性和准确性。
+4. 考虑增加用户评价或推荐功能，提升资源的可信度和实用性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>074 Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的步骤，包括使用curl命令下载并解压缩Ollama，设置系统服务以便长期使用，手动启动服务，查询和拉取模型，以及如何与模型进行交互和测试接口。此外，还提供了关于RAG（Retrieval-Augmented Generation）技术的介绍及其在AnythingLLM中的应用，包括docker安装和nginx配置。最后，提到了监控GPU使用情况的方法和相关链接。
 
 优化建议：
 1. 在安装步骤中，可以增加对系统依赖的检查，确保用户在安装前满足所有要求。
