@@ -2336,14 +2336,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/110",
             "commentNum": 0,
             "createdAt": 1744603975,
-            "updatedAt": 1744902660,
+            "updatedAt": 1744949573,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-04-14",
-            "dateLabelColor": "hsl(143, 63%, 23%)",
-            "description": "1. RIME-LMDG dict-nightly\n\nRime\u8f93\u5165\u6cd5\u8bed\u6cd5\u6a21\u578b\u5168\u6d41\u7a0b\u6784\u5efa\u6559\u7a0b\uff0c\u5168\u5c40\u5e26\u58f0\u8c03\u8bcd\u5e93\uff1aLMDG - Language, Model, Dictionary, Grammar\u3002Q\u7fa4\uff1a11033572\n\n\u53d8\u66f4\u8bf4\u660e\n\n\ncn_dicts.zip\uff1a\u6700\u65b0\u7684\u4e2d\u6587\u8bcd\u5e93\u6587\u4ef6\u3002\n\n\n2. deepchat v0.0.15\n\n\ud83d\udc2cDeepChat - \u8fde\u63a5\u5f3a\u5927AI\u4e0e\u4e2a\u4eba\u4e16\u754c\u7684\u667a\u80fd\u52a9\u624b DeepChat - A smart assistant that connects powerful AI to your personal world\n\n\u53d8\u66f4\u8bf4\u660e\n\ud83d\ude80 DeepChat 0.0.15 \u6b63\u5f0f\u53d1\u5e03...",
-            "buildedAt": 1744902660
+            "dateLabelColor": "hsl(143, 69%, 29%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u591a\u4e2a\u8f6f\u4ef6\u7684\u6700\u65b0\u7248\u672c\u66f4\u65b0\uff0c\u5305\u62ecDeepChat\u3001Mihomo\u3001Higress\u3001Subs-Check\u3001Cherry Studio\u3001RIME-LMDG\u3001Bili-Hardcore\u3001Readest\u3001New-API\u3001LangBot\u3001QuickLook\u3001Termora\u548cTVBoxOSC\u3002\u6bcf\u4e2a\u8f6f\u4ef6\u7684\u66f4\u65b0\u5185\u5bb9\u6d89\u53ca\u529f\u80fd\u589e\u5f3a\u3001\u6027\u80fd\u4f18\u5316\u3001bug\u4fee\u590d\u548c\u65b0\u7279\u6027\u7684\u6dfb\u52a0\uff0c\u65e8\u5728\u63d0\u5347\u7528\u6237\u4f53\u9a8c\u548c\u8f6f\u4ef6\u7684\u53ef\u9760\u6027\u3002\n\n\u4f18\u5316\u5efa\u8bae\uff1a\n1. \u5728\u53d1\u5e03\u8bf4\u660e\u4e2d\u589e\u52a0\u66f4\u65b0\u7684\u5177\u4f53\u4f7f\u7528\u6848\u4f8b\uff0c\u4ee5\u4fbf\u7528\u6237\u66f4\u597d\u5730\u7406\u89e3\u65b0\u529f\u80fd\u7684\u5e94\u7528\u3002\n2. \u63d0\u4f9b\u66f4\u8be6\u7ec6\u7684\u7248\u672c\u5bf9\u6bd4\uff0c\u5e2e\u52a9\u7528\u6237\u5feb\u901f\u8bc6\u522b\u65b0\u65e7\u7248\u672c\u7684\u5dee\u5f02\u3002\n3. \u589e\u52a0\u7528\u6237\u53cd\u9988\u6e20\u9053\uff0c\u4ee5\u4fbf\u6536\u96c6\u7528\u6237\u5bf9\u65b0\u529f\u80fd\u7684\u610f\u89c1\u548c\u5efa\u8bae\uff0c\u8fdb\u4e00\u6b65\u4f18\u5316\u8f6f\u4ef6\u3002",
+            "buildedAt": 1744949573
         },
         "P111": {
             "number": "111",
