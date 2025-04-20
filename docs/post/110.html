@@ -130,64 +130,41 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-14 12:12:55</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-19 23:08:56</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-20 12:12:10</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新和功能改进，包括Readest的跨设备书籍同步、LangBot的多平台即时通讯支持、RIME-LMDG的中文词库更新、Cherry Studio的多LLM支持、Higress的API网关功能、New-API的模型接口管理、Alist的多存储支持、DeepChat的智能助手功能、Mihomo的Python数据模型、TVBoxOSC的JS文件优化、Subs-check的订阅工具、Bili-hardcore的AI自动答题脚本、QuickLook的Windows版本以及Termora的终端模拟器更新。
+    <strong>AI总结:</strong> 本文介绍了多个软件版本更新的主要内容，包括Readest、Cherry Studio、LangBot、RIME-LMDG、Higress、New-API、Alist、DeepChat、Mihomo、TVBoxOSC、Subs-check、Bili-hardcore、QuickLook和Termora等。更新内容涵盖了新功能的添加、bug修复、性能优化以及文档更新等，旨在提升用户体验和软件性能。
 
-优化建议：在更新说明中，建议使用更清晰的结构和标题，以便用户快速找到他们关心的特定功能或修复。同时，考虑添加使用场景或用户反馈，以增强用户体验和软件的易用性。
+优化建议：建议将各软件的更新内容整理成表格形式，以便于用户快速对比和查找特定功能或修复的版本。同时，可以考虑增加每个更新的具体使用场景或示例，以帮助用户更好地理解新功能的应用。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/readest/readest/releases/tag/v0.9.35">readest v0.9.35</a>
-</h1><a id="user-content-1-readest-v0935" class="anchor" aria-label="Permalink: 1. readest v0.9.35" href="#1-readest-v0935"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/readest/readest/releases/tag/v0.9.36">readest v0.9.36</a>
+</h1><a id="user-content-1-readest-v0936" class="anchor" aria-label="Permalink: 1. readest v0.9.36" href="#1-readest-v0936"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>🛠️ Fixed an issue where books without cover images can not be synced across devices</li>
-<li>📱 Added in-app update support for Android</li>
-<li>📚 You can now sort books by title or author in your library</li>
+<li>📥 New download and upload buttons in the book detail dialog for easier file management</li>
+<li>📂 You can now open files directly in Readest from your file manager on Android and iOS</li>
+<li>🛠️ Fixed an issue where files with quotation marks in the filename could not be opened</li>
+<li>📖 Improved the immersive reading experience on the reader page for Android and iOS</li>
+<li>🌐 Added GuanKiapTsingKhai-T to the list of available CJK fonts</li>
 </ul>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>fix: books without cover images now can be synced across devices</li>
-<li>feat: in-app updater for Android</li>
-<li>feat: add books sorting by title and author in the library page, closes</li>
-<li>release: version 0.9.35<br>
+<li>feat: add download/upload buttons in book detail dialogs</li>
+<li>feat: open files with readest from file manager on Android, closes<br>
 ......</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v3.4.14.1">LangBot v3.4.14.1</a>
-</h1><a id="user-content-2-langbot-v34141" class="anchor" aria-label="Permalink: 2. LangBot v3.4.14.1" href="#2-langbot-v34141"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>😎简单易用、🧩丰富生态 - 大模型原生即时通信机器人平台 适配 QQ / 微信（企业微信、个人微信）/ 飞书 / 钉钉 / Discord / Telegram / Slack 等平台 支持 ChatGPT、DeepSeek、Dify、Claude、Gemini、xAI Grok、Ollama、LM Studio、阿里云百炼、火山方舟、SiliconFlow、Qwen、Moonshot、ChatGLM、SillyTraven、MCP 等 LLM 的机器人 / Agent LLM-based instant messaging bots platform, supports Discord, Telegram, WeChat, Lark, DingTalk, QQ, Slack</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>feat: add support for ppio</li>
-<li>doc: update README</li>
-<li>chore: release 3.4.14.1</li>
-</ul>
-<p><strong>Full Changelog</strong>:</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
-</h1><a id="user-content-3-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 3. RIME-LMDG dict-nightly" href="#3-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Rime输入法语法模型全流程构建教程，全局带声调词库：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
-<details>
-<summary>变更说明</summary>
-<ul>
-<li>
-<code>cn_dicts.zip</code>：最新的中文词库文件。</li>
-</ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.2.5">cherry-studio v1.2.5</a>
-</h1><a id="user-content-4-cherry-studio-v125" class="anchor" aria-label="Permalink: 4. cherry-studio v1.2.5" href="#4-cherry-studio-v125"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.2.5">cherry-studio v1.2.5</a>
+</h1><a id="user-content-2-cherry-studio-v125" class="anchor" aria-label="Permalink: 2. cherry-studio v1.2.5" href="#2-cherry-studio-v125"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>feat: upgrade electron-builder to 26.0.13</li>
 <li>feat(Miniapp): add Z.ai mini app with logo and migration support</li>
@@ -199,6 +176,29 @@ pre {
 <li>feat(models): add gpt-4.1 model to visionAllowedModels</li>
 <li>chore(issue-template): improve clarity and requirements in bug report checklist<br>
 ......</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v3.4.14.1">LangBot v3.4.14.1</a>
+</h1><a id="user-content-3-langbot-v34141" class="anchor" aria-label="Permalink: 3. LangBot v3.4.14.1" href="#3-langbot-v34141"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>😎简单易用、🧩丰富生态 - 大模型原生即时通信机器人平台 适配 QQ / 微信（企业微信、个人微信）/ 飞书 / 钉钉 / Discord / Telegram / Slack 等平台 支持 ChatGPT、DeepSeek、Dify、Claude、Gemini、xAI Grok、Ollama、LM Studio、阿里云百炼、火山方舟、SiliconFlow、Qwen、Moonshot、ChatGLM、SillyTraven、MCP 等 LLM 的机器人 / Agent LLM-based instant messaging bots platform, supports Discord, Telegram, WeChat, Lark, DingTalk, QQ, Slack</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>feat: add support for ppio</li>
+<li>doc: update README</li>
+<li>chore: release 3.4.14.1</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
+</h1><a id="user-content-4-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 4. RIME-LMDG dict-nightly" href="#4-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Rime输入法语法模型全流程构建教程，全局带声调词库：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>
+<code>cn_dicts.zip</code>：最新的中文词库文件。</li>
 </ul>
 </details>
 <div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.1">higress v2.1.1</a>
