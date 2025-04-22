@@ -20,16 +20,52 @@
 <li>
 <strong>代码优化</strong>: 改进代理处理和初始化逻辑。</li>
 <li>
-<strong>代码优化</strong>: 移除搜索增强模式及 Google Analytics, 集成 PostHog
-......</li>
+<strong>代码优化</strong>: 移除搜索增强模式及 Google Analytics, 集成 PostHog</li>
+<li>
+<strong>其他更新</strong>: 更新 README，替换过时截图；添加 <code>vitest</code> 测试框架支持。</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>feat: support escaping the comma character in the API key.</li>
+<li>fix(MCPService):修复MCP server 请求头不生效</li>
+<li>fix(AssistantSettings): disable transitionName to resolve modal closing issues in production</li>
+<li>fix: language error</li>
+<li>refactor(locales): fix locales errors</li>
+<li>fix: deepseek-reasoner does not support successive user or assistant messages in MCP scenario</li>
+<li>fix(AxiosProxy): windows系统设置为socks5代理问题</li>
+<li>fix: 知识库和网络搜索使用输出语言问题</li>
+<li>feat(proxy): use os-proxy-config to get system proxy info instead of resolveProxy</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>@lossercode made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.10.2">ublacklist v8.10.2</a>
+</h1><a id="user-content-2-ublacklist-v8102" class="anchor" aria-label="Permalink: 2. ublacklist v8.10.2" href="#2-ublacklist-v8102"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Blocks specific sites from appearing in Google search results</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">[8.10.2]( (2025-04-21)</h2><a id="user-content-8102-2025-04-21" class="anchor" aria-label="Permalink: [8.10.2]( (2025-04-21)" href="#8102-2025-04-21"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">Bug Fixes</h3><a id="user-content-bug-fixes" class="anchor" aria-label="Permalink: Bug Fixes" href="#bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>google:</strong> results with site link and videos ([4355ab1](</li>
+</ul>
+<hr>
+<p>This release is also available on:</p>
+<ul>
+<li>[Chrome Web Store](</li>
+<li>[Firefox Add-ons](</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.5">mihomo v1.19.5</a>
-</h1><a id="user-content-2-mihomo-v1195" class="anchor" aria-label="Permalink: 2. mihomo v1.19.5" href="#2-mihomo-v1195"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.5">mihomo v1.19.5</a>
+</h1><a id="user-content-3-mihomo-v1195" class="anchor" aria-label="Permalink: 3. mihomo v1.19.5" href="#3-mihomo-v1195"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>2a40eba0 feat: tun add <code>exclude-src-port</code>,<code>exclude-src-port-range</code>,<code>exclude-dst-port</code> and <code>exclude-dst-port-range</code> on linux by @wwqgtxx</li>
 <li>a22efd5c feat: add exclude port and exclude port range options  by @okhowang</li>
@@ -40,12 +76,69 @@
 <li>190047c8 fix: grpc transport not apply dial timeout by @wwqgtxx</li>
 <li>24a9ff6d fix: disallow dialFunc be called after grpc transport has be closed by @wwqgtxx</li>
 <li>2acb0b71 fix: tun IncludeInterface/ExcludeInterface priority by @wwqgtxx</li>
-<li>323973f2 fix: converter judgment conditions by @wwqgtxx
-......</li>
+<li>323973f2 fix: converter judgment conditions by @wwqgtxx</li>
+<li>3d2cb992 fix: grpc outbound not apply ca fingerprint by @wwqgtxx</li>
+<li>487d7fa8 fix: panic under some stupid input config by @wwqgtxx</li>
+<li>55cbbf7f fix: singledo test by @wwqgtxx</li>
+<li>577f64a6 fix: X25519MLKEM768 does not work properly with reality by @wwqgtxx</li>
+<li>664b1340 fix: websocket data losing by @wwqgtxx</li>
+<li>76052b5b fix: grpc in trojan not apply client-fingerprint by @wwqgtxx</li>
+<li>7a260f7b fix: udp dial support ip4p  by @HiMetre</li>
+<li>7b37fcfc fix: auto_redirect should only hijack DNS requests from local addresses by @wwqgtxx</li>
+<li>7de24e26 fix: StreamGunWithConn not synchronously close the incoming net.Conn by @wwqgtxx</li>
+<li>7f1225b0 fix: grpc transport can't be closed by @wwqgtxx</li>
+<li>8752f805 fix: anytls stream read error  by @anytls</li>
+<li>9e0889c0 fix: observable test by @wwqgtxx</li>
+<li>a75e570c fix: vision conn read short buffer error by @wwqgtxx</li>
+<li>b0bd4f4c fix: resources not released when hysteria2 verification failed by @wwqgtxx</li>
+<li>b21b8ee0 fix: panic in ssr packet by @wwqgtxx</li>
+<li>b5fcd1d1 fix: chacha8-ietf-poly1305 not work by @wwqgtxx</li>
+<li>bad61f91 fix: avoid panic in inbound test by @wwqgtxx</li>
+<li>daa592c7 fix: converter panic by @wwqgtxx</li>
+<li>dbb5b7db fix: SetupContextForConn should return context error to user by @wwqgtxx</li>
+<li>dcb20e28 fix: websocket server upgrade in golang1.20 by @wwqgtxx</li>
+<li>e81f3a97 fix: correctly implement references to proxies by @wwqgtxx</li>
+<li>e8af0586 fix: websocketWithEarlyDataConn can't close underlay conn when is dialing or not dialed by @wwqgtxx</li>
+<li>eaaccffc fix: race in Single.Do by @wwqgtxx</li>
+<li>efa22437 fix: shut it down more aggressively in grpc transport closing by @wwqgtxx</li>
 </ul>
+<div class="markdown-heading"><h2 class="heading-element">Maintenance</h2><a id="user-content-maintenance" class="anchor" aria-label="Permalink: Maintenance" href="#maintenance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>237e2ede chore: tun will add firewall rule for Profile ALL on windows system stack by @wwqgtxx</li>
+<li>23ffe451 chore: using http/httptrace to get local/remoteAddr for grpc client by @wwqgtxx</li>
+<li>30d90d49 chore: update option checks to use IsZeroOptions by @wwqgtxx</li>
+<li>345d3d70 chore: add inbound test for anytls by @wwqgtxx</li>
+<li>39d6a0d7 chore: update utls to 1.7.0 by @wwqgtxx</li>
+<li>3d806b5e chore: add inbound test for shadowsocks/trojan by @wwqgtxx</li>
+<li>4b15568a chore: cleanup metadata code by @wwqgtxx</li>
+<li>619c9dc0 chore: apply the default interface/mark of the dialer in the final stage by @wwqgtxx</li>
+<li>622d99d0 chore: rebuild outdated proxy auto close mechanism by @wwqgtxx</li>
+<li>6236cb1c chore: cleanup trojan code by @wwqgtxx</li>
+<li>63e66f49 chore: cleanup trojan code by @wwqgtxx</li>
+<li>69ce4d0f chore: speed up inbound test by @wwqgtxx</li>
+<li>7551c8a5 chore: remove unneed code by @wwqgtxx</li>
+<li>7d7f5c89 chore: add inbound test for tuic by @wwqgtxx</li>
+<li>8085c68b chore: decrease direct using *net.TCPConn by @wwqgtxx</li>
+<li>84cd0ef6 chore: remove internal crypto/tls fork in shadowtls by @wwqgtxx</li>
+<li>8fa4e812 chore: remove internal crypto/tls fork in reality server by @wwqgtxx</li>
+<li>9e8f4ada chore: better addr parsing by @wwqgtxx</li>
+<li>a6c0c02e chore: ignore interfaces not in IfOperStatusUp when fetch system dns server on windows by @wwqgtxx</li>
+<li>b2d28908 chore: cleanup resolveUDPAddr code by @wwqgtxx</li>
+<li>b59f11f7 chore: add singMux inbound test for shadowsocks/trojan/vless/vmess by @wwqgtxx</li>
+<li>ba3c44a1 chore: code cleanup by @wwqgtxx</li>
+<li>bfd06eba chore: rebuild SetupContextForConn with context.AfterFunc by @wwqgtxx</li>
+<li>cac2bf72 chore: cleanup netip code by @wwqgtxx</li>
+<li>cedb36df chore: using SetupContextForConn to reduce the DialContext cannot be cancelled by @wwqgtxx</li>
+<li>d0d0c392 chore: add inbound test for vmess/vless by @wwqgtxx</li>
+<li>d5243adf chore: better global-client-fingerprint handle by @wwqgtxx</li>
+<li>e79465d3 chore: add inbound test for hysteria2 by @wwqgtxx</li>
+<li>fe01033e chore: quic sniffer should use the exact length of crypto stream when assembling by @wwqgtxx</li>
+<li>feee9b32 chore: remove unneeded tls timeout in anytls by @wwqgtxx</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/o0HalfLife0o/TVBoxOSC/releases/tag/20250415-0032">TVBoxOSC 20250415-0032</a>
-</h1><a id="user-content-3-tvboxosc-20250415-0032" class="anchor" aria-label="Permalink: 3. TVBoxOSC 20250415-0032" href="#3-tvboxosc-20250415-0032"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/o0HalfLife0o/TVBoxOSC/releases/tag/20250415-0032">TVBoxOSC 20250415-0032</a>
+</h1><a id="user-content-4-tvboxosc-20250415-0032" class="anchor" aria-label="Permalink: 4. TVBoxOSC 20250415-0032" href="#4-tvboxosc-20250415-0032"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
 <p>Credit: [takagen99](
@@ -57,39 +150,44 @@ Changelog:</p>
 如果首页不是推荐站点且缓存不为空则直接加载缓存
 超级解析(同时进行嗅探和并发json);
 "style": {"ratio": "1.433" ,"type": "rect"}
-......  
-
-&lt;/details&gt;
-
-# 4. [ublacklist v8.10.2](https://github.com/iorate/ublacklist/releases/tag/v8.10.2)  
-Blocks specific sites from appearing in Google search results
-&lt;details&gt;
-&lt;summary&gt;变更说明&lt;/summary&gt;
-
-## [8.10.2]( (2025-04-21)
-
-
-### Bug Fixes
-
-* **google:** results with site link and videos ([4355ab1](
-
-
-
-
-......  
-
-&lt;/details&gt;
-
-# 5. [bili-hardcore v0.4.5](https://github.com/Karben233/bili-hardcore/releases/tag/v0.4.5)  
-bilibili 硬核会员 AI 自动答题脚本，直接调用 B 站 API，非 OCR 实现
-&lt;details&gt;
-&lt;summary&gt;变更说明&lt;/summary&gt;
-
-- 经过用户同意后，脚本将会上传题目信息以构建一个硬核会员题库
-  此操作仅会上传题目信息（题目、选项），不会上传其他任何信息！
-  [[Feature Request] 希望贵项目能加入自愿的题库共建计划 ](  
-
-&lt;/details&gt;
+1.加载jar错误时立马加载上一次的缓存jar; 2.小于于300集的倒序排序自动排序，线路过多时因自动排序导致加载过慢的问题; 3.去掉始终m3u8优先排序; 
+fix python bug 
+尝试解决jar频繁提示加载失败
+fix bug
+新增支持python的type3的点播源(byq215613905) 
+1.恢复备份时自动重启;2.优化电视遥控快进快退逻辑 更符合预期; 3.修正偶现的再按一次退出app不生效的问题;4.主页加载数据时可按返回键取消加载(避免等待);
 
 </code></pre>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/ayangweb/BongoCat/releases/tag/v0.1.0">BongoCat v0.1.0</a>
+</h1><a id="user-content-5-bongocat-v010" class="anchor" aria-label="Permalink: 5. BongoCat v0.1.0" href="#5-bongocat-v010"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>BongoCat 是一个可爱地互动桌面宠物应用，让你的桌面充满乐趣！</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h3 class="heading-element">   🚀 Features</h3><a id="user-content--features" class="anchor" aria-label="Permalink:    🚀 Features" href="#-features"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Add logging plugin to capture all promise errors  -    [<samp>(aee73)</samp>](</li>
+<li>Refactoring the project structure and adding content to the preferences window  -    [<samp>(0f26e)</samp>](</li>
+<li>Support for in-app updated versions  -    [<samp>(cf4c2)</samp>](</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">   🐞 Bug Fixes</h3><a id="user-content--bug-fixes" class="anchor" aria-label="Permalink:    🐞 Bug Fixes" href="#-bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Fix windows startup crash  -    [<samp>(ffb15)</samp>](</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">   🏎 Performance</h3><a id="user-content--performance" class="anchor" aria-label="Permalink:    🏎 Performance" href="#-performance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Model adapts to screen resolution to improve clarity  -    [<samp>(94856)</samp>](</li>
+</ul>
+<div class="markdown-heading"><h5 class="heading-element">    [View changes on GitHub](</h5><a id="user-content-view-changes-on-github" class="anchor" aria-label="Permalink:     [View changes on GitHub](" href="#view-changes-on-github"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.4.5">bili-hardcore v0.4.5</a>
+</h1><a id="user-content-6-bili-hardcore-v045" class="anchor" aria-label="Permalink: 6. bili-hardcore v0.4.5" href="#6-bili-hardcore-v045"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>bilibili 硬核会员 AI 自动答题脚本，直接调用 B 站 API，非 OCR 实现</p>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>经过用户同意后，脚本将会上传题目信息以构建一个硬核会员题库
+此操作仅会上传题目信息（题目、选项），不会上传其他任何信息！
+[[Feature Request] 希望贵项目能加入自愿的题库共建计划 ](</li>
+</ul>
 </details>
