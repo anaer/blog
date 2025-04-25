@@ -1,39 +1,129 @@
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.2.7">cherry-studio v1.2.7</a>
-</h1><a id="user-content-1-cherry-studio-v127" class="anchor" aria-label="Permalink: 1. cherry-studio v1.2.7" href="#1-cherry-studio-v127"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
+</h1><a id="user-content-1-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 1. mihomo Prerelease-Alpha" href="#1-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
+<details>
+<summary>变更说明</summary>
+<p>Release created at  Thu Apr 24 20:00:42 CST 2025
+Synchronize Alpha branch code updates, keeping only the latest version
+<br></p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.6.6.4">new-api v0.6.6.4</a>
+</h1><a id="user-content-2-new-api-v0664" class="anchor" aria-label="Permalink: 2. new-api v0.6.6.4" href="#2-new-api-v0664"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
+<details>
+<summary>变更说明</summary>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.2.8">cherry-studio v1.2.8</a>
+</h1><a id="user-content-3-cherry-studio-v128" class="anchor" aria-label="Permalink: 3. cherry-studio v1.2.8" href="#3-cherry-studio-v128"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h3 class="heading-element">v1.2.7 发布日志</h3><a id="user-content-v127-发布日志" class="anchor" aria-label="Permalink: v1.2.7 发布日志" href="#v127-发布日志"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">v1.2.8 更新日志</h2><a id="user-content-v128-更新日志" class="anchor" aria-label="Permalink: v1.2.8 更新日志" href="#v128-更新日志"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>修复知识库引用 bug 并优化提取逻辑</li>
-<li>修复大量数据无法备份的问题</li>
-<li>修复知识库搜索 UI 及相关 bug</li>
-<li>消息组件新增 MessageCitations 和 MessageTranslate，用于引用和翻译展示</li>
-<li>撤销“移除 AI Studio 默认迷你应用”修改</li>
-<li>修复 electron-builder 配置导致的构建问题</li>
-<li>修复 MinApp 用户代理标签问题</li>
-<li>更新 OpenRouter 模型 ID 和名称，简化模型组分类</li>
-<li>Markdown 移除 rehype-sanitize，采用自定义元素过滤</li>
-<li>MinApp 集成动态背景色</li>
-<li>Linux 桌面配置中为 CherryStudio 添加 StartupWMClass</li>
-<li>禁用便携式 exe 自动更新</li>
+<li>新增支持预览 MCP 调用结果功能</li>
+<li>修复图片加载中断错误及消息渲染错误</li>
+<li>修复 MessageContent.tsx 中的非安全 map 调用</li>
+<li>新增英文贡献者指南并更新问题模板</li>
+<li>修复 OpenAI 类型渲染错误</li>
+<li>新增对 grok-2-image 和 gpt-4o-image 图像支持</li>
+<li>支持便携式配置目录功能</li>
+<li>优化消息附件组件的封装</li>
+<li>增强 MinAppIcon 组件，新增 sidebar 属性</li>
+<li>窗口服务新增最大化功能并禁用 electron-window-state 自动最大化</li>
+<li>MCP 设置新增服务描述页面</li>
+<li>设置界面边框圆角改用 CSS 变量，提升一致性</li>
+<li>Streamlined GeminiProvider 流处理和中止信号处理</li>
+<li>移除 Sentry 集成及相关修复</li>
+<li>切换模型提供商时将其置顶</li>
+<li>提升流式性能</li>
+<li>Mermaid 集成更新并优化渲染逻辑</li>
+<li>自动更新功能增强</li>
+<li>支持数学引擎设置中的 "none" 选项</li>
 </ul>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>feat: disable auto update in portable exe</li>
-<li>chore(electron-builder): add StartupWMClass for CherryStudio in liunx desktop configuration</li>
-<li>fix(MinApp): integrate dynamic background color for MinappPopupContainer</li>
-<li>fix(knowledge): change search ui and fix search bug</li>
-<li>fix(knowledge): fix citation bug and optimize extract logic</li>
+<li>feat: add support for 'none' option in math engine settings</li>
+<li>fix(proxy): update os-proxy-config patch to correct proxy URL handling</li>
+<li>fix: should give more time to init autosync</li>
+<li>feat(auto-update): improve auto-update toggle functionality</li>
+<li>style: fix animation</li>
+<li>fix: mcp sse no headers</li>
+<li>refactor: switch from babel to swc for improved performance</li>
+<li>perf: improve streaming performance</li>
+<li>feat(ProviderSettings): move model provider to the top when toggled</li>
+<li>fix(settings): handle undefined content limit in BasicSettings component</li>
+<li>feat: update os-proxy-config to 1.1.2 and delete the patch</li>
+<li>feat: 添加嵌入维度配置</li>
+<li>fix(ci): Remove a step in the nightly build pipeline</li>
+<li>refactor(GeminiProvider): streamline abort signal handling and improve stream processing</li>
+<li>Update  to v1.10.2</li>
+<li>feat(mcp): mcp setting add service description page</li>
+<li>feat(WindowService): add maximize functionality and disable electron-window-state maxmize</li>
+<li>chore: create pull_request_template.md</li>
+<li>refactor(MessageAttachments): move styled component definition inside the component for better encapsulation</li>
+<li>feat(image): support grok-2-image image and gpt-4o-image</li>
+<li>fix(openai): 修复OpenAI类型渲染错误</li>
+<li>feat: add English contributor guide and update issue templates</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v3.4.14.2">LangBot v3.4.14.2</a>
-</h1><a id="user-content-2-langbot-v34142" class="anchor" aria-label="Permalink: 2. LangBot v3.4.14.2" href="#2-langbot-v34142"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
+</h1><a id="user-content-4-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 4. RIME-LMDG dict-nightly" href="#4-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Rime输入法语法模型全流程构建教程，全局带声调词库：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>
+<code>cn_dicts.zip</code>：最新的中文词库文件。</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/readest/readest/releases/tag/v0.9.37">readest v0.9.37</a>
+</h1><a id="user-content-5-readest-v0937" class="anchor" aria-label="Permalink: 5. readest v0.9.37" href="#5-readest-v0937"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Full-Screen Toggle: You can now press F11 to quickly toggle full-screen mode</li>
+<li>List View: A new list layout is available for your bookshelf</li>
+<li>Book Details: Book descriptions from metadata are now shown in the details view</li>
+<li>Enhanced Android behavior: better navigation bar handling and status bar dismissal when resuming</li>
+<li>TTS now defaults to the book’s metadata language when needed</li>
+<li>Synced custom themes reliably across sessions</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: hide navigation bar on reader page on Android 11, closes</li>
+<li>fix: prevent scrollToAnchor on focus outside content container, closes</li>
+<li>fix: compat language code for api versions</li>
+<li>fix: open book even the library is empty, closes</li>
+<li>feat: add global keyboard shortcut to toggle fullscreen with F11, closes</li>
+<li>fix: sync custom themes from global settings to localstorage, closes</li>
+<li>fix: tts now fallbacks to metadata language of the book, closes</li>
+<li>feat: add description from metadata in book details, closes</li>
+<li>fix: query status bar height on Android, closes</li>
+<li>fix: check xdg-mime before registering deeplink in Linux, closes</li>
+<li>fix: dismiss status bar when resumed from background on Android</li>
+<li>feat: add list view for the bookshelf, closes</li>
+<li>fix: popup footnotes for anchors without epub namespace, closes</li>
+<li>release: version 0.9.37</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v3.4.14.2">LangBot v3.4.14.2</a>
+</h1><a id="user-content-6-langbot-v34142" class="anchor" aria-label="Permalink: 6. LangBot v3.4.14.2" href="#6-langbot-v34142"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>😎简单易用、🧩丰富生态 - 大模型原生即时通信机器人平台 适配 QQ / 微信（企业微信、个人微信）/ 飞书 / 钉钉 / Discord / Telegram / Slack 等平台 支持 ChatGPT、DeepSeek、Dify、Claude、Gemini、xAI、PPIO、Ollama、LM Studio、阿里云百炼、火山方舟、SiliconFlow、Qwen、Moonshot、ChatGLM、SillyTraven、MCP 等 LLM 的机器人 / Agent LLM-based instant messaging bots platform, supports Discord, Telegram, WeChat, Lark, DingTalk, QQ, Slack</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>perf: reduce newline in think tag converting</li>
 <li>fix(dify runner): response message event incorrect when using agent app</li>
@@ -41,8 +131,8 @@
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.1.8">subs-check v2.1.8</a>
-</h1><a id="user-content-3-subs-check-v218" class="anchor" aria-label="Permalink: 3. subs-check v2.1.8" href="#3-subs-check-v218"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.1.8">subs-check v2.1.8</a>
+</h1><a id="user-content-7-subs-check-v218" class="anchor" aria-label="Permalink: 7. subs-check v2.1.8" href="#7-subs-check-v218"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换合并，节点可用性，测速，重命名，导出为clash.meta/clash/base64/qx等等所有格式的订阅工具</p>
 <details>
 <summary>变更说明</summary>
@@ -55,8 +145,8 @@
 <li>2245d8338cda16ede4b2494b0d7824d6819e2d8f update mihomo</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.5.0">bili-hardcore v0.5.0</a>
-</h1><a id="user-content-4-bili-hardcore-v050" class="anchor" aria-label="Permalink: 4. bili-hardcore v0.5.0" href="#4-bili-hardcore-v050"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.5.0">bili-hardcore v0.5.0</a>
+</h1><a id="user-content-8-bili-hardcore-v050" class="anchor" aria-label="Permalink: 8. bili-hardcore v0.5.0" href="#8-bili-hardcore-v050"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>bilibili 硬核会员 AI 自动答题脚本，直接调用 B 站 API，非 OCR 实现</p>
 <details>
 <summary>变更说明</summary>
@@ -64,27 +154,8 @@
 <li>答题前判断用户是否满6级</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
-</h1><a id="user-content-5-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 5. RIME-LMDG dict-nightly" href="#5-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Rime输入法语法模型全流程构建教程，全局带声调词库：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
-<details>
-<summary>变更说明</summary>
-<ul>
-<li>
-<code>cn_dicts.zip</code>：最新的中文词库文件。</li>
-</ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
-</h1><a id="user-content-6-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 6. mihomo Prerelease-Alpha" href="#6-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
-<details>
-<summary>变更说明</summary>
-<p>Release created at  Thu Apr 24 20:00:42 CST 2025
-Synchronize Alpha branch code updates, keeping only the latest version
-<br></p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/ayangweb/BongoCat/releases/tag/v0.2.1">BongoCat v0.2.1</a>
-</h1><a id="user-content-7-bongocat-v021" class="anchor" aria-label="Permalink: 7. BongoCat v0.2.1" href="#7-bongocat-v021"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">9. <a href="https://github.com/ayangweb/BongoCat/releases/tag/v0.2.1">BongoCat v0.2.1</a>
+</h1><a id="user-content-9-bongocat-v021" class="anchor" aria-label="Permalink: 9. BongoCat v0.2.1" href="#9-bongocat-v021"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>BongoCat 是一个可爱地互动桌面宠物应用，让你的桌面充满乐趣！</p>
 <details>
 <summary>变更说明</summary>
@@ -94,22 +165,15 @@ Synchronize Alpha branch code updates, keeping only the latest version
 </ul>
 <div class="markdown-heading"><h5 class="heading-element">    </h5><a id="" class="anchor" aria-label="Permalink:     " href="#"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.6.6.4">new-api v0.6.6.4</a>
-</h1><a id="user-content-8-new-api-v0664" class="anchor" aria-label="Permalink: 8. new-api v0.6.6.4" href="#8-new-api-v0664"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
-<details>
-<summary>变更说明</summary>
-<p><strong>Full Changelog</strong>:</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">9. <a href="https://github.com/fruitbars/transbridge/releases/tag/v0.0.2">transbridge v0.0.2</a>
-</h1><a id="user-content-9-transbridge-v002" class="anchor" aria-label="Permalink: 9. transbridge v0.0.2" href="#9-transbridge-v002"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">10. <a href="https://github.com/fruitbars/transbridge/releases/tag/v0.0.2">transbridge v0.0.2</a>
+</h1><a id="user-content-10-transbridge-v002" class="anchor" aria-label="Permalink: 10. transbridge v0.0.2" href="#10-transbridge-v002"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>TransBridge is a translation API proxy that offers high-quality machine translation via OpenAI-compatible APIs and supports the DeepL API format. TransBridge 是一个强大的翻译 API 代理服务，通过调用兼容 OpenAI 大语言模型的 API，提供高质量的机器翻译功能，并支持 DeepL API 接口格式。</p>
 <details>
 <summary>变更说明</summary>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">10. <a href="https://github.com/enhancedformysql/The-Art-of-Problem-Solving-in-Software-Engineering_How-to-Make-MySQL-Better/releases/tag/book-release-v4">The-Art-of-Problem-Solving-in-Software-Engineering_How-to-Make-MySQL-Better book-release-v4</a>
-</h1><a id="user-content-10-the-art-of-problem-solving-in-software-engineering_how-to-make-mysql-better-book-release-v4" class="anchor" aria-label="Permalink: 10. The-Art-of-Problem-Solving-in-Software-Engineering_How-to-Make-MySQL-Better book-release-v4" href="#10-the-art-of-problem-solving-in-software-engineering_how-to-make-mysql-better-book-release-v4"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">11. <a href="https://github.com/enhancedformysql/The-Art-of-Problem-Solving-in-Software-Engineering_How-to-Make-MySQL-Better/releases/tag/book-release-v4">The-Art-of-Problem-Solving-in-Software-Engineering_How-to-Make-MySQL-Better book-release-v4</a>
+</h1><a id="user-content-11-the-art-of-problem-solving-in-software-engineering_how-to-make-mysql-better-book-release-v4" class="anchor" aria-label="Permalink: 11. The-Art-of-Problem-Solving-in-Software-Engineering_How-to-Make-MySQL-Better book-release-v4" href="#11-the-art-of-problem-solving-in-software-engineering_how-to-make-mysql-better-book-release-v4"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>The Art of Problem-Solving in Software Engineering: How to Make MySQL Better</p>
 <details>
 <summary>变更说明</summary>
@@ -120,14 +184,14 @@ Synchronize Alpha branch code updates, keeping only the latest version
 <li>Added additional quality references</li>
 </ol>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">11. <a href="https://github.com/QL-Win/QuickLook/releases/tag/latest">QuickLook latest</a>
-</h1><a id="user-content-11-quicklook-latest" class="anchor" aria-label="Permalink: 11. QuickLook latest" href="#11-quicklook-latest"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">12. <a href="https://github.com/QL-Win/QuickLook/releases/tag/latest">QuickLook latest</a>
+</h1><a id="user-content-12-quicklook-latest" class="anchor" aria-label="Permalink: 12. QuickLook latest" href="#12-quicklook-latest"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Bring macOS “Quick Look” feature to Windows</p>
 <details>
 <summary>变更说明</summary>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">12. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.10.2">ublacklist v8.10.2</a>
-</h1><a id="user-content-12-ublacklist-v8102" class="anchor" aria-label="Permalink: 12. ublacklist v8.10.2" href="#12-ublacklist-v8102"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">13. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.10.2">ublacklist v8.10.2</a>
+</h1><a id="user-content-13-ublacklist-v8102" class="anchor" aria-label="Permalink: 13. ublacklist v8.10.2" href="#13-ublacklist-v8102"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Blocks specific sites from appearing in Google search results</p>
 <details>
 <summary>变更说明</summary>
@@ -143,8 +207,8 @@ Synchronize Alpha branch code updates, keeping only the latest version
 <li>
 </li></ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">13. <a href="https://github.com/o0HalfLife0o/TVBoxOSC/releases/tag/20250415-0032">TVBoxOSC 20250415-0032</a>
-</h1><a id="user-content-13-tvboxosc-20250415-0032" class="anchor" aria-label="Permalink: 13. TVBoxOSC 20250415-0032" href="#13-tvboxosc-20250415-0032"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">14. <a href="https://github.com/o0HalfLife0o/TVBoxOSC/releases/tag/20250415-0032">TVBoxOSC 20250415-0032</a>
+</h1><a id="user-content-14-tvboxosc-20250415-0032" class="anchor" aria-label="Permalink: 14. TVBoxOSC 20250415-0032" href="#14-tvboxosc-20250415-0032"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
 <summary>变更说明</summary>
 <p>Credit:
