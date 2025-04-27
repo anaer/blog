@@ -1,4 +1,4 @@
-
+## 安装配置
 ```sh
 mkdir -p /data/minio/data
 
@@ -38,3 +38,8 @@ Private库: 需要获取签名链接
 http://127.0.0.1:9900/my-minio-bucket/path/xxx/name.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=z8ETVdfI8spMeEhKXngv%2F20250427%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250427T081624Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=69203ea0b2278062e2fdc67cc6fd82b4c172676a04f2b066c61f8a5eb0fb6cf8
 
 ```
+
+## minio防盗链
+
+1. 存储桶配置私有Private模式
+2. 添加nginx反代, 添加白名单配置

@@ -128,13 +128,21 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-27 16:41:05</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用Docker部署MinIO服务，配置MinIO的控制台和服务端口，以及如何使用mc命令行工具进行对象存储的同步和管理。具体步骤包括创建数据目录、运行MinIO容器、设置别名、同步数据以及生成公共和私有链接。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-27 16:50:22</time></span>
 
-优化建议：在运行Docker命令时，建议使用环境变量文件来管理敏感信息（如ACCESS_KEY和ACCESS_SECRET），以增强安全性。同时，考虑在文档中加入对每个命令的详细解释，便于用户理解每一步的作用和目的。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了如何安装和配置MinIO，包括创建数据目录、运行MinIO Docker容器、设置mc命令行工具的别名与同步操作，以及如何处理公共和私有存储库的链接。此外，还提到了防盗链的配置以及使用nginx进行反向代理。
+
+优化建议：
+1. 在Docker运行命令中，建议使用更强的MINIO_ROOT_PASSWORD，避免使用简单密码以增强安全性。
+2. 在mc命令中，确保ACCESS_KEY和ACCESS_SECRET替换为真实的访问凭证，并避免在公开文档中泄露这些信息。
+3. 对于定时同步，可以考虑使用更灵活的工具（如rsync）来替代crontab，以实现更高效的文件同步。
+4. 在配置nginx反向代理时，确保正确配置SSL，以增强数据传输的安全性。
+5. 提供详细的步骤说明和示例，以便用户更容易理解配置过程。
 </div>
 
 <div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h2 class="heading-element">安装配置</h2><a id="user-content-安装配置" class="anchor" aria-label="Permalink: 安装配置" href="#安装配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>mkdir -p /data/minio/data
 
 docker run \
@@ -172,6 +180,11 @@ Public库: http://127.0.0.1:9900/my-minio-bucket/path/xxx/name.jpeg
 Private库: 需要获取签名链接
 http://127.0.0.1:9900/my-minio-bucket/path/xxx/name.jpeg<span class="pl-k">?</span>X-Amz-Algorithm=AWS4-HMAC-SHA256<span class="pl-k">&amp;</span>X-Amz-Credential=z8ETVdfI8spMeEhKXngv%2F20250427%2Fus-east-1%2Fs3%2Faws4_request<span class="pl-k">&amp;</span>X-Amz-Date=20250427T081624Z<span class="pl-k">&amp;</span>X-Amz-Expires=604800<span class="pl-k">&amp;</span>X-Amz-SignedHeaders=host<span class="pl-k">&amp;</span>X-Amz-Signature=69203ea0b2278062e2fdc67cc6fd82b4c172676a04f2b066c61f8a5eb0fb6cf8
 </pre></div>
+<div class="markdown-heading"><h2 class="heading-element">minio防盗链</h2><a id="user-content-minio防盗链" class="anchor" aria-label="Permalink: minio防盗链" href="#minio防盗链"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>存储桶配置私有Private模式</li>
+<li>添加nginx反代, 添加白名单配置</li>
+</ol>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/114.html" aria-label="Previous Page">114 我关注的项目这周更新了什么-2025-04-25</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">001 苹果CMS接口说明以及采集源搜索</a></div>
