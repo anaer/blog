@@ -1,0 +1,37 @@
+<div class="highlight highlight-source-shell"><pre>mkdir -p /data/minio/data
+
+docker run \
+   -p 9900:9000 \
+   -p 9901:9001 \
+   --name minio \
+   -v /data/minio/data:/data \
+   -e <span class="pl-s"><span class="pl-pds">"</span>MINIO_ROOT_USER=minio<span class="pl-pds">"</span></span> \
+   -e <span class="pl-s"><span class="pl-pds">"</span>MINIO_ROOT_PASSWORD=minio123<span class="pl-pds">"</span></span> \
+   quay.io/minio/minio server /data --console-address <span class="pl-s"><span class="pl-pds">"</span>:9001<span class="pl-pds">"</span></span>
+   
+ 9901: 控制台
+ 9900: 服务ip
+
+
+mc <span class="pl-c1">alias</span> <span class="pl-c1">set</span> oss https://oss-cn-shanghai.aliyuncs.com/ ACCESS_KEY ACCESS_SECRET
+
+mc <span class="pl-c1">alias</span> <span class="pl-c1">set</span> myminio http://127.0.0.1:9900 ACCESS_KEY ACCESS_SECRET
+
+mc mirror oss/my-oss-bucket/ myminio/my-minio-bucket/
+
+mc --debug mirror --watch myminio/my-minio-bucket/ oss/my-oss-bucket/ 
+
+PS: 貌似--watch的源服务只支持本地文件或者minio服务, 不支持oss, 所以自动sync, 可能需要结合crontab
+
+mc mirror \
+  --overwrite <span class="pl-cce">\ </span>           <span class="pl-c"><span class="pl-c">#</span> 覆盖目标已有文件</span>
+  --remove <span class="pl-cce">\ </span>              <span class="pl-c"><span class="pl-c">#</span> 删除目标端多余文件（保持完全同步）</span>
+  --exclude <span class="pl-s"><span class="pl-pds">"</span>*.tmp<span class="pl-pds">"</span></span> <span class="pl-cce">\ </span>     <span class="pl-c"><span class="pl-c">#</span> 排除特定文件（如临时文件）</span>
+  --watch <span class="pl-cce">\ </span>               <span class="pl-c"><span class="pl-c">#</span> 监听文件变化持续同步</span>
+  oss/my-oss-bucket/ myminio/my-minio-bucket/
+
+
+Public库: http://127.0.0.1:9900/my-minio-bucket/path/xxx/name.jpeg
+Private库: 需要获取签名链接
+http://127.0.0.1:9900/my-minio-bucket/path/xxx/name.jpeg<span class="pl-k">?</span>X-Amz-Algorithm=AWS4-HMAC-SHA256<span class="pl-k">&amp;</span>X-Amz-Credential=z8ETVdfI8spMeEhKXngv%2F20250427%2Fus-east-1%2Fs3%2Faws4_request<span class="pl-k">&amp;</span>X-Amz-Date=20250427T081624Z<span class="pl-k">&amp;</span>X-Amz-Expires=604800<span class="pl-k">&amp;</span>X-Amz-SignedHeaders=host<span class="pl-k">&amp;</span>X-Amz-Signature=69203ea0b2278062e2fdc67cc6fd82b4c172676a04f2b066c61f8a5eb0fb6cf8
+</pre></div>
