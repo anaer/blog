@@ -130,15 +130,83 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-28 12:14:07</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了两个软件工具的更新。第一个是subs-check v2.1.9，主要功能包括订阅转换合并、节点可用性检查、测速、重命名和多种格式的导出。更新内容包括修复hy的上下行问题、WebUI支持查看密钥、调整订阅获取的并发和超时时间。第二个是mihomo Prerelease-Alpha，提供了一个简单的Python Pydantic模型，用于解析来自Mihomo API的《崩坏：星穹铁道》数据，更新记录显示同步了Alpha分支的代码更新，仅保留最新版本。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-28 23:11:14</time></span>
 
-优化建议：在更新说明中，建议详细描述每项修复和功能的具体影响，以便用户更好地理解更新的意义和用途。同时，考虑添加使用示例或文档链接，帮助用户快速上手。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了多个软件项目的更新，包括higress v2.1.2-rc.1的动态获取MatchLabels功能、RIME-LMDG的中文词库更新、new-api v0.6.8.0的错误日志功能、QuickLook的Windows版本、subs-check v2.1.9的订阅工具改进，以及mihomo Prerelease-Alpha的版本同步。每个项目都有不同的功能增强和修复，旨在提升用户体验和系统兼容性。
+
+优化建议：
+1. 对于每个项目的更新，提供更详细的功能说明和使用案例，以帮助用户理解新特性。
+2. 增加对新贡献者的具体介绍，提升社区参与感。
+3. 考虑为每个变更说明增加版本号和发布日期，以便用户快速查找和跟踪更新历史。
+4. 在发布说明中加入已知问题和解决方案，以便用户提前了解可能遇到的挑战。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.1.9">subs-check v2.1.9</a>
-</h1><a id="user-content-1-subs-check-v219" class="anchor" aria-label="Permalink: 1. subs-check v2.1.9" href="#1-subs-check-v219"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.2-rc.1">higress v2.1.2-rc.1</a>
+</h1><a id="user-content-1-higress-v212-rc1" class="anchor" aria-label="Permalink: 1. higress v2.1.2-rc.1" href="#1-higress-v212-rc1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🤖 AI Gateway AI Native API Gateway</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>feat:Getting MatchLabels dynamically via gatewaySelectorKey/Value</li>
+<li>fix: update module replacements</li>
+<li>feat: optimize elasticsearch ai-search plugin and update related docs"</li>
+<li>feat: Support extracting model argument from body in multipart/form-data format</li>
+<li>update mcp descriptions</li>
+<li>feat(ai-proxy): support Amazon Bedrock</li>
+<li>update github &amp; e2bdev mcp descriptions</li>
+<li>test: add test for /pkg/ingress/kube/common</li>
+<li>add mcp yuque descriptions</li>
+<li>fix: ai_data_masking add compatibility handling for non-compliant API response structures</li>
+<li>fix: Refactor MCP Server into MCP Session and MCP Server</li>
+<li>feat : support mcp server auto discovery for nacos registry</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
+</h1><a id="user-content-2-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 2. RIME-LMDG dict-nightly" href="#2-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Rime输入法语法模型全流程构建教程，全局带声调词库：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>
+<code>cn_dicts.zip</code>：最新的中文词库文件。</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.6.8.0">new-api v0.6.8.0</a>
+</h1><a id="user-content-3-new-api-v0680" class="anchor" aria-label="Permalink: 3. new-api v0.6.8.0" href="#3-new-api-v0680"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>feat: add error logging functionality to relay and update logs table …</li>
+<li>Improve log delete api and fix OIDC saving problem</li>
+<li>feat: support searching channels by base url</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-1" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/QL-Win/QuickLook/releases/tag/latest">QuickLook latest</a>
+</h1><a id="user-content-4-quicklook-latest" class="anchor" aria-label="Permalink: 4. QuickLook latest" href="#4-quicklook-latest"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Bring macOS “Quick Look” feature to Windows</p>
+<details>
+<summary>变更说明</summary>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.1.9">subs-check v2.1.9</a>
+</h1><a id="user-content-5-subs-check-v219" class="anchor" aria-label="Permalink: 5. subs-check v2.1.9" href="#5-subs-check-v219"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换合并，节点可用性，测速，重命名，导出为clash.meta/clash/base64/qx等等所有格式的订阅工具</p>
 <details>
 <summary>变更说明</summary>
@@ -149,8 +217,8 @@ pre {
 <li>671a361aaf472927da51e5386216189c3b561910 op: 调整获取订阅并发&amp;&amp;调整超时时间</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
-</h1><a id="user-content-2-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 2. mihomo Prerelease-Alpha" href="#2-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
+</h1><a id="user-content-6-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 6. mihomo Prerelease-Alpha" href="#6-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
 <details>
 <summary>变更说明</summary>
