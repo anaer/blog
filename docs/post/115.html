@@ -128,17 +128,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-27 16:41:05</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-27 16:50:22</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-28 10:14:08</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何安装和配置MinIO，包括创建数据目录、运行MinIO Docker容器、设置mc命令行工具的别名与同步操作，以及如何处理公共和私有存储库的链接。此外，还提到了防盗链的配置以及使用nginx进行反向代理。
+    <strong>AI总结:</strong> 本文介绍了如何安装和配置MinIO，包括创建数据目录、运行MinIO Docker容器、设置mc别名、同步数据以及配置防盗链和定时任务。具体步骤包括使用Docker运行MinIO、设置访问权限、进行数据镜像和自动同步，并提供了一个同步脚本和crontab配置示例。
 
 优化建议：
-1. 在Docker运行命令中，建议使用更强的MINIO_ROOT_PASSWORD，避免使用简单密码以增强安全性。
-2. 在mc命令中，确保ACCESS_KEY和ACCESS_SECRET替换为真实的访问凭证，并避免在公开文档中泄露这些信息。
-3. 对于定时同步，可以考虑使用更灵活的工具（如rsync）来替代crontab，以实现更高效的文件同步。
-4. 在配置nginx反向代理时，确保正确配置SSL，以增强数据传输的安全性。
-5. 提供详细的步骤说明和示例，以便用户更容易理解配置过程。
+1. 在Docker运行命令中，建议使用环境变量存储敏感信息（如ACCESS_KEY和ACCESS_SECRET），以增强安全性。
+2. 对于`mc mirror`命令，建议添加日志记录功能，以便于监控同步过程中的问题。
+3. 考虑使用更复杂的错误处理机制，以确保在发生错误时能够及时通知管理员。
+4. 在脚本中，建议添加清理旧日志的功能，以防止日志文件占用过多存储空间。
+5. 提供更详细的注释和文档，以帮助用户理解每个命令和配置的作用。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -185,6 +185,41 @@ http://127.0.0.1:9900/my-minio-bucket/path/xxx/name.jpeg<span class="pl-k">?</sp
 <li>存储桶配置私有Private模式</li>
 <li>添加nginx反代, 添加白名单配置</li>
 </ol>
+<div class="markdown-heading"><h2 class="heading-element">minio同步脚本</h2><a id="user-content-minio同步脚本" class="anchor" aria-label="Permalink: minio同步脚本" href="#minio同步脚本"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>minio_sync.sh</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#!</span>/bin/bash</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 定义锁文件路径</span>
+LOCKFILE=/tmp/minio_sync.lock
+
+<span class="pl-c"><span class="pl-c">#</span> 检查锁文件是否存在</span>
+<span class="pl-k">if</span> [ <span class="pl-k">-e</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$LOCKFILE</span><span class="pl-pds">"</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span>
+  <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>minio sync is already running. Exiting.<span class="pl-pds">"</span></span>
+  <span class="pl-c1">exit</span> 1
+<span class="pl-k">fi</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 创建锁文件</span>
+touch <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$LOCKFILE</span><span class="pl-pds">"</span></span>
+
+<span class="pl-c"><span class="pl-c">#</span> 捕获脚本退出信号，删除锁文件</span>
+<span class="pl-c1">trap</span> <span class="pl-s"><span class="pl-pds">'</span>rm -f "$LOCKFILE"; exit<span class="pl-pds">'</span></span> INT TERM EXIT
+
+<span class="pl-c"><span class="pl-c">#</span> 你的任务逻辑</span>
+<span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>Running task at <span class="pl-s"><span class="pl-pds">$(</span>date<span class="pl-pds">)</span></span><span class="pl-pds">"</span></span> <span class="pl-k">&gt;&gt;</span> /data/minio/minio_sync.log
+<span class="pl-c"><span class="pl-c">#</span> 其他任务命令...</span>
+/usr/local/bin/mc mirror oss/my-oss-bucket/ myminio/my-minio-bucket/
+
+<span class="pl-c"><span class="pl-c">#</span> 任务完成后，锁文件会在 trap 中自动删除</span>
+</pre></div>
+<p><code>crontab -e</code></p>
+<pre><code>* * * * * sh /data/minio/minio_sync.sh &gt;&gt; /data/minio/minio_sync.log 2&gt;&amp;1
+</code></pre>
+<pre lang="log"><code>Running task at Mon Apr 28 10:13:02 CST 2025
+┌───────┬─────────────┬──────────┬───────┐
+│ Total │ Transferred │ Duration │ Speed │
+│ 0 B   │ 0 B         │ 00m00s   │ 0 B/s │
+└───────┴─────────────┴──────────┴───────┘
+</code></pre>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/114.html" aria-label="Previous Page">114 我关注的项目这周更新了什么-2025-04-25</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">001 苹果CMS接口说明以及采集源搜索</a></div>

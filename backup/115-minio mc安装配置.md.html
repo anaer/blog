@@ -41,3 +41,38 @@ http://127.0.0.1:9900/my-minio-bucket/path/xxx/name.jpeg<span class="pl-k">?</sp
 <li>存储桶配置私有Private模式</li>
 <li>添加nginx反代, 添加白名单配置</li>
 </ol>
+<div class="markdown-heading"><h2 class="heading-element">minio同步脚本</h2><a id="user-content-minio同步脚本" class="anchor" aria-label="Permalink: minio同步脚本" href="#minio同步脚本"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>minio_sync.sh</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#!</span>/bin/bash</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 定义锁文件路径</span>
+LOCKFILE=/tmp/minio_sync.lock
+
+<span class="pl-c"><span class="pl-c">#</span> 检查锁文件是否存在</span>
+<span class="pl-k">if</span> [ <span class="pl-k">-e</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$LOCKFILE</span><span class="pl-pds">"</span></span> ]<span class="pl-k">;</span> <span class="pl-k">then</span>
+  <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>minio sync is already running. Exiting.<span class="pl-pds">"</span></span>
+  <span class="pl-c1">exit</span> 1
+<span class="pl-k">fi</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 创建锁文件</span>
+touch <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$LOCKFILE</span><span class="pl-pds">"</span></span>
+
+<span class="pl-c"><span class="pl-c">#</span> 捕获脚本退出信号，删除锁文件</span>
+<span class="pl-c1">trap</span> <span class="pl-s"><span class="pl-pds">'</span>rm -f "$LOCKFILE"; exit<span class="pl-pds">'</span></span> INT TERM EXIT
+
+<span class="pl-c"><span class="pl-c">#</span> 你的任务逻辑</span>
+<span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>Running task at <span class="pl-s"><span class="pl-pds">$(</span>date<span class="pl-pds">)</span></span><span class="pl-pds">"</span></span> <span class="pl-k">&gt;&gt;</span> /data/minio/minio_sync.log
+<span class="pl-c"><span class="pl-c">#</span> 其他任务命令...</span>
+/usr/local/bin/mc mirror oss/my-oss-bucket/ myminio/my-minio-bucket/
+
+<span class="pl-c"><span class="pl-c">#</span> 任务完成后，锁文件会在 trap 中自动删除</span>
+</pre></div>
+<p><code>crontab -e</code></p>
+<pre><code>* * * * * sh /data/minio/minio_sync.sh &gt;&gt; /data/minio/minio_sync.log 2&gt;&amp;1
+</code></pre>
+<pre lang="log"><code>Running task at Mon Apr 28 10:13:02 CST 2025
+┌───────┬─────────────┬──────────┬───────┐
+│ Total │ Transferred │ Duration │ Speed │
+│ 0 B   │ 0 B         │ 00m00s   │ 0 B/s │
+└───────┴─────────────┴──────────┴───────┘
+</code></pre>
