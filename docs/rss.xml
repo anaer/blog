@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/4637100?s=400&amp;v=4</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 28 Apr 2025 15:11:43 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 28 Apr 2025 15:11:43 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>116 我关注的项目这周更新了什么-2025-05-02</title><link>https://anaer.github.io/blog/post/116.html</link><description>本文介绍了多个软件项目的更新，包括higress v2.1.2-rc.1的动态获取MatchLabels功能、RIME-LMDG的中文词库更新、new-api v0.6.8.0的错误日志功能、QuickLook的Windows版本、subs-check v2.1.9的订阅工具改进，以及mihomo Prerelease-Alpha的版本同步。每个项目都有不同的功能增强和修复，旨在提升用户体验和系统兼容性。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 30 Apr 2025 02:00:00 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 30 Apr 2025 02:00:00 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>116 我关注的项目这周更新了什么-2025-05-02</title><link>https://anaer.github.io/blog/post/116.html</link><description>本文介绍了多个软件项目的更新，包括higress v2.1.2-rc.1的动态获取MatchLabels功能、RIME-LMDG的中文词库更新、new-api v0.6.8.0的错误日志功能、QuickLook的Windows版本、subs-check v2.1.9的订阅工具改进，以及mihomo Prerelease-Alpha的版本同步。每个项目都有不同的功能增强和修复，旨在提升用户体验和系统兼容性。
 
 优化建议：
 1. 对于每个项目的更新，提供更详细的功能说明和使用案例，以帮助用户理解新特性。
@@ -64,14 +64,13 @@
 1. 确保所有配置项的有效性和兼容性，定期检查Mintty和bash的更新。
 2. 考虑根据个人使用习惯进一步调整字体大小和行列数，以提高可读性和操作效率。
 3. 可以增加更多常用命令的别名，简化日常操作。
-4. 定期备份配置文件，以防丢失或损坏。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/102.html</guid><pubDate>Fri, 28 Mar 2025 02:25:04 +0000</pubDate></item><item><title>101 openresty打印请求入参和出参</title><link>https://anaer.github.io/blog/post/101.html</link><description>本文介绍了一个基于Nginx的Lua脚本，该脚本用于捕获和记录HTTP请求和响应的详细信息。脚本通过设置不同范围的配置（http、server、location），并定义了一个白名单来过滤日志记录的接口，以减少日志的数量。脚本中包括了请求头、请求体、响应头和响应体的捕获和记录。
+4. 定期备份配置文件，以防丢失或损坏。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/102.html</guid><pubDate>Fri, 28 Mar 2025 02:25:04 +0000</pubDate></item><item><title>101 openresty打印请求入参和出参</title><link>https://anaer.github.io/blog/post/101.html</link><description>本文介绍了在Nginx中使用Lua脚本捕获请求和响应的头部及体，并通过白名单机制控制日志输出，以减少日志量。代码中通过设置变量和使用不同的Lua块来实现请求和响应数据的捕获，同时根据URI判断是否记录详细日志。
 
 优化建议：
-1. 考虑将白名单的配置外部化，以便于维护和扩展，避免在代码中硬编码。
-2. 增加对异常情况的处理，比如请求体过大或文件读取错误时的日志记录。
-3. 使用更高效的字符串拼接方法，例如使用表来构建字符串，减少内存占用。
-4. 考虑增加日志级别的配置，以便在不同环境中灵活调整日志的详细程度。
-5. 增加注释，提升代码可读性，便于其他开发者理解和维护。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/101.html</guid><pubDate>Thu, 27 Mar 2025 06:11:21 +0000</pubDate></item><item><title>100 通用.vimrc配置</title><link>https://anaer.github.io/blog/post/100.html</link><description>本文介绍了一个通用的.vimrc配置，旨在解决服务器上Vim的中文乱码问题以及将Tab转换为空格的需求。配置内容包括基本设置、编码设置、Tab和缩进设置、显示设置、搜索设置、其他实用设置、键映射以及保存和退出的快捷方式。
+1. 考虑将白名单配置提取到外部文件，以便于管理和扩展。
+2. 使用更高效的字符串拼接方式，例如table.concat，以减少内存占用和提高性能。
+3. 增加错误处理机制，确保在读取请求体或文件时出现问题时能够记录相应的错误日志。
+4. 考虑使用ngx.shared.DICT来存储白名单，以提高查找效率。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/101.html</guid><pubDate>Thu, 27 Mar 2025 06:11:21 +0000</pubDate></item><item><title>100 通用.vimrc配置</title><link>https://anaer.github.io/blog/post/100.html</link><description>本文介绍了一个通用的.vimrc配置，旨在解决服务器上Vim的中文乱码问题以及将Tab转换为空格的需求。配置内容包括基本设置、编码设置、Tab和缩进设置、显示设置、搜索设置、其他实用设置、键映射以及保存和退出的快捷方式。
 
 优化建议：
 1. 考虑在编码设置中添加对其他常见编码格式的支持，以便于处理不同来源的文件。
@@ -163,13 +162,12 @@
 3. 优化代码结构，考虑将重复的字符串格式化逻辑提取为单独的函数。
 4. 增加注释和文档字符串，以提高代码的可读性和可维护性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/87.html</guid><pubDate>Thu, 13 Mar 2025 02:11:19 +0000</pubDate></item><item><title>086 Chrome安装插件列表</title><link>https://anaer.github.io/blog/post/86.html</link><description>本文介绍了用户当前启用和禁用的浏览器扩展，启用的扩展包括暴力猴、沉浸式翻译、Bitwarden、Checker Plus for Gmail、ErrorReloader等，禁用的扩展则包括快捷扩展管理、语言学家、Axure RP Extension等。
 
-优化建议：考虑定期评估启用和禁用的扩展，确保只保留必要的功能，以提高浏览器性能和使用体验。同时，可以考虑对启用的扩展进行分类管理，便于快速访问和维护。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/86.html</guid><pubDate>Thu, 13 Mar 2025 02:00:39 +0000</pubDate></item><item><title>085 SmartDNS配置说明</title><link>https://anaer.github.io/blog/post/85.html</link><description>本文介绍了SmartDNS的使用及配置，包括其命令行工具的基本操作、服务管理、DNS解析、日志记录、缓存设置等功能。SmartDNS是一个用Rust编写的跨平台本地DNS服务器，旨在提供最佳的互联网体验，支持多种加密DNS协议。配置示例展示了如何设置上游DNS服务、日志管理、缓存策略以及测速模式等。
+优化建议：考虑定期评估启用和禁用的扩展，确保只保留必要的功能，以提高浏览器性能和使用体验。同时，可以考虑对启用的扩展进行分类管理，便于快速访问和维护。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/86.html</guid><pubDate>Thu, 13 Mar 2025 02:00:39 +0000</pubDate></item><item><title>085 SmartDNS配置说明</title><link>https://anaer.github.io/blog/post/85.html</link><description>本文介绍了SmartDNS的使用说明，包括其功能、命令和配置示例。SmartDNS是一个跨平台的本地DNS服务器，旨在提供最佳的互联网体验，支持多种DNS协议如DoT、DoQ、DoH和DoH3。用户可以通过不同的命令来运行、更新、管理服务、执行DNS解析、测试配置等。配置示例展示了如何设置上游DNS服务、日志记录、缓存管理等功能。
 
 优化建议：
-1. 增加对每个命令和选项的详细描述，帮助用户更好地理解其用途。
-2. 提供完整的配置示例，涵盖不同场景的最佳实践，以便用户快速上手。
-3. 在文档中加入常见问题解答部分，解决用户在使用过程中可能遇到的困惑。
-4. 考虑提供图形用户界面（GUI）选项，以吸引不熟悉命令行的用户。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/85.html</guid><pubDate>Mon, 10 Mar 2025 09:24:44 +0000</pubDate></item><item><title>084 hosts文件管理工具</title><link>https://anaer.github.io/blog/post/84.html</link><description>Hosts文件管理工具包括HostsMan和SwitchHosts。HostsMan的文件大小为6MB，而SwitchHosts的版本为4.2.0，大小为70MB。此外，Hosts文件的在线链接为https://raw.hellogithub.com/hosts。建议明确工具的功能和使用场景，以提升内容的清晰度。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/84.html</guid><pubDate>Mon, 10 Mar 2025 08:15:59 +0000</pubDate></item><item><title>083 dnsmasq使用记录</title><link>https://anaer.github.io/blog/post/83.html</link><description>dnsmasq 是一个轻量级的 DNS 转发和 DHCP 服务器工具，适用于本地 DNS 解析和网络管理。以下是其主要功能和使用方法：
+1. 在命令行帮助信息中，增加示例用法以便用户快速理解每个命令的功能。
+2. 在配置示例部分，提供更多关于每个配置项的详细解释，帮助用户更好地理解其作用。
+3. 考虑添加一个常见问题解答（FAQ）部分，以解决用户在使用过程中可能遇到的常见问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/85.html</guid><pubDate>Mon, 10 Mar 2025 09:24:44 +0000</pubDate></item><item><title>084 hosts文件管理工具</title><link>https://anaer.github.io/blog/post/84.html</link><description>Hosts文件管理工具包括HostsMan和SwitchHosts。HostsMan的文件大小为6MB，而SwitchHosts的版本为4.2.0，大小为70MB。此外，Hosts文件的在线链接为https://raw.hellogithub.com/hosts。建议明确工具的功能和使用场景，以提升内容的清晰度。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/84.html</guid><pubDate>Mon, 10 Mar 2025 08:15:59 +0000</pubDate></item><item><title>083 dnsmasq使用记录</title><link>https://anaer.github.io/blog/post/83.html</link><description>dnsmasq 是一个轻量级的 DNS 转发和 DHCP 服务器工具，适用于本地 DNS 解析和网络管理。以下是其主要功能和使用方法：
 
 1. **安装**：
    - 在 Ubuntu/Debian 上使用命令 `sudo apt update &amp;&amp; sudo apt install dnsmasq`。
@@ -319,14 +317,13 @@ pip install pypinyin
 from pypinyin import lazy_pinyin,Style
 lazy_pinyin("中国",style=Style.TONE)...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/61.html</guid><pubDate>Thu, 23 Jan 2025 03:26:12 +0000</pubDate></item><item><title>060 pm2常用命令</title><link>https://anaer.github.io/blog/post/60.html</link><description>本文介绍了PM2的基本使用方法，包括启动、查看进程、监控、日志管理、停止、重载、重启、删除应用及其他功能的命令。具体命令包括启动应用程序、设置集群模式、监控资源使用、查看和清理日志、管理应用的生命周期，以及使用pm2-logrotate进行日志切割和管理。此外，还提供了pm2.json配置文件的示例，展示了如何配置应用的属性和日志管理。
 
-优化建议：可以将命令分组并提供简要描述，以便用户快速查找所需功能。例如，可以将启动命令、监控命令、日志命令等分别归类，并在每组前添加简短的说明。同时，考虑增加示例应用场景，以帮助用户理解每个命令的实际应用。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/60.html</guid><pubDate>Wed, 22 Jan 2025 08:36:09 +0000</pubDate></item><item><title>059 Wireshark抓包https配置</title><link>https://anaer.github.io/blog/post/59.html</link><description>抓包https配置
+优化建议：可以将命令分组并提供简要描述，以便用户快速查找所需功能。例如，可以将启动命令、监控命令、日志命令等分别归类，并在每组前添加简短的说明。同时，考虑增加示例应用场景，以帮助用户理解每个命令的实际应用。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/60.html</guid><pubDate>Wed, 22 Jan 2025 08:36:09 +0000</pubDate></item><item><title>059 Wireshark抓包https配置</title><link>https://anaer.github.io/blog/post/59.html</link><description>本文介绍了如何抓包HTTPS流量，包括配置环境变量SSLKEYLOGFILE以记录SSL密钥、在Chrome浏览器中访问HTTPS网站以生成日志文件、以及在Wireshark中设置TLS协议的预主密钥日志文件路径。还提供了多种过滤器语法，用于在Wireshark中筛选特定的HTTP数据包和响应，帮助用户高效分析网络流量。
 
-添加环境变量 SSLKEYLOGFILE
-
-SSLKEYLOGFILE = C:\sslkey.log
-
-
-新打开 chrome 浏览器, 访问任意一个 https 网站, 检查...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/59.html</guid><pubDate>Wed, 22 Jan 2025 08:31:56 +0000</pubDate></item><item><title>058 Api Mocker 帮助</title><link>https://anaer.github.io/blog/post/58.html</link><description>地址: https://github.com/DXY-F2E/api-mocker
+优化建议：
+1. 增加对环境变量和Wireshark配置步骤的详细说明，以便初学者更容易理解和操作。
+2. 提供示例数据包抓取和过滤的实际应用场景，以增强用户的实践体验。
+3. 考虑将过滤器语法按功能分类，例如按请求类型、响应状态码等，便于快速查找和使用。
+4. 增加常见问题解答部分，帮助用户解决在抓包过程中可能遇到的技术问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/59.html</guid><pubDate>Wed, 22 Jan 2025 08:31:56 +0000</pubDate></item><item><title>058 Api Mocker 帮助</title><link>https://anaer.github.io/blog/post/58.html</link><description>地址: https://github.com/DXY-F2E/api-mocker
 启动命令
 source ~/nvm/nvm.sh
 nvm use v8.15.0

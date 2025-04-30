@@ -123,6 +123,8 @@ pre {
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#软件">软件</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#aaaaaa">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#配置">配置</a></object>
         </span>
 </div>
 <br>
@@ -130,17 +132,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-22 16:31:56</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-12 16:34:06</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-28 11:23:44</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 抓包https配置
+    <strong>AI总结:</strong> 本文介绍了如何抓包HTTPS流量，包括配置环境变量SSLKEYLOGFILE以记录SSL密钥、在Chrome浏览器中访问HTTPS网站以生成日志文件、以及在Wireshark中设置TLS协议的预主密钥日志文件路径。还提供了多种过滤器语法，用于在Wireshark中筛选特定的HTTP数据包和响应，帮助用户高效分析网络流量。
 
-添加环境变量 SSLKEYLOGFILE
-
-SSLKEYLOGFILE = C:\sslkey.log
-
-
-新打开 chrome 浏览器, 访问任意一个 https 网站, 检查...
+优化建议：
+1. 增加对环境变量和Wireshark配置步骤的详细说明，以便初学者更容易理解和操作。
+2. 提供示例数据包抓取和过滤的实际应用场景，以增强用户的实践体验。
+3. 考虑将过滤器语法按功能分类，例如按请求类型、响应状态码等，便于快速查找和使用。
+4. 增加常见问题解答部分，帮助用户解决在抓包过程中可能遇到的技术问题。
 </div>
 
 <div class="markdown-body" id="postBody">

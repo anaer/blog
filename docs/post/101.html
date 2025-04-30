@@ -121,22 +121,25 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#1d76db">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Nginx">Nginx</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-27 14:11:21</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-10 17:18:48</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了一个基于Nginx的Lua脚本，该脚本用于捕获和记录HTTP请求和响应的详细信息。脚本通过设置不同范围的配置（http、server、location），并定义了一个白名单来过滤日志记录的接口，以减少日志的数量。脚本中包括了请求头、请求体、响应头和响应体的捕获和记录。
+    <strong>AI总结:</strong> 本文介绍了在Nginx中使用Lua脚本捕获请求和响应的头部及体，并通过白名单机制控制日志输出，以减少日志量。代码中通过设置变量和使用不同的Lua块来实现请求和响应数据的捕获，同时根据URI判断是否记录详细日志。
 
 优化建议：
-1. 考虑将白名单的配置外部化，以便于维护和扩展，避免在代码中硬编码。
-2. 增加对异常情况的处理，比如请求体过大或文件读取错误时的日志记录。
-3. 使用更高效的字符串拼接方法，例如使用表来构建字符串，减少内存占用。
-4. 考虑增加日志级别的配置，以便在不同环境中灵活调整日志的详细程度。
-5. 增加注释，提升代码可读性，便于其他开发者理解和维护。
+1. 考虑将白名单配置提取到外部文件，以便于管理和扩展。
+2. 使用更高效的字符串拼接方式，例如table.concat，以减少内存占用和提高性能。
+3. 增加错误处理机制，确保在读取请求体或文件时出现问题时能够记录相应的错误日志。
+4. 考虑使用ngx.shared.DICT来存储白名单，以提高查找效率。
 </div>
 
 <div class="markdown-body" id="postBody">
