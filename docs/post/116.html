@@ -14,7 +14,7 @@
     </script>
     
 <title>116 我关注的项目这周更新了什么-2025-05-02</title>
-
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/dark.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -130,25 +130,490 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-28 12:14:07</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-28 23:11:14</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-01 12:16:42</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件项目的更新，包括higress v2.1.2-rc.1的动态获取MatchLabels功能、RIME-LMDG的中文词库更新、new-api v0.6.8.0的错误日志功能、QuickLook的Windows版本、subs-check v2.1.9的订阅工具改进，以及mihomo Prerelease-Alpha的版本同步。每个项目都有不同的功能增强和修复，旨在提升用户体验和系统兼容性。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新日志，包括Cherry Studio、hp、BongoCat、WinMerge、mihomo、readest、higress、xpipe、RIME-LMDG、LangBot、QuickLook、maple-font、alist、Ghosten-Player、new-api和subs-check等。各个软件的更新涵盖了功能增强、bug修复、新特性添加及性能优化等方面。例如，Cherry Studio增加了图像生成和主题管理功能，WinMerge修复了多项比较和安装问题，而readest则提升了跨平台兼容性和用户体验。
 
-优化建议：
-1. 对于每个项目的更新，提供更详细的功能说明和使用案例，以帮助用户理解新特性。
-2. 增加对新贡献者的具体介绍，提升社区参与感。
-3. 考虑为每个变更说明增加版本号和发布日期，以便用户快速查找和跟踪更新历史。
-4. 在发布说明中加入已知问题和解决方案，以便用户提前了解可能遇到的挑战。
+优化建议：在发布更新时，建议对每个软件的主要改动进行更加详细的分类，便于用户快速了解新特性和修复内容。同时，考虑添加用户反馈渠道，以便收集使用体验和进一步改进建议。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.2-rc.1">higress v2.1.2-rc.1</a>
-</h1><a id="user-content-1-higress-v212-rc1" class="anchor" aria-label="Permalink: 1. higress v2.1.2-rc.1" href="#1-higress-v212-rc1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.2.10">cherry-studio v1.2.10</a>
+</h1><a id="user-content-1-cherry-studio-v1210" class="anchor" aria-label="Permalink: 1. cherry-studio v1.2.10" href="#1-cherry-studio-v1210"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h3 class="heading-element">v1.2.10 发布日志</h3><a id="user-content-v1210-发布日志" class="anchor" aria-label="Permalink: v1.2.10 发布日志" href="#v1210-发布日志"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<strong>修复</strong>：增强图像生成逻辑、更新API key URL、修正工具调用失败、修复GitHub Copilot模型图像支持。</li>
+<li>
+<strong>功能</strong>：允许功能键设为快捷键、优化话题列表切换、增加模型备注功能、支持自动主题模式、基于模型选择启用图像生成。</li>
+<li>
+<strong>优化</strong>：简化窗口API定义、改进表单布局、增强高级设置切换功能、优化搜索结果复制按钮。</li>
+<li>
+<strong>其他</strong>：添加MCP资源下拉菜单、修复Mcp设置状态错误、细化系统消息处理。</li>
+</ol>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>feat: Enable image generation in assistant based on model selection</li>
+<li>feat: Enhance theme management with auto mode support</li>
+<li>fix: Fix the image support for the GitHub Copilot models</li>
+<li>fix(MCPSettings): fix mcp setting state error,fix mcp setting save searchKey lose</li>
+<li>Feat/mcp enhancement</li>
+<li>feat(MCPService): add method to find PowerShell executable path</li>
+<li>Add MCP resources dropdown in settings navbar</li>
+<li>fix(OpenAIProvider): refine system message handling for specific model IDs</li>
+<li>chore: add grok image alias</li>
+<li>Added a "Copy" button next to each search result.</li>
+<li>fix: update electron-updater patch and refine content-type regex</li>
+<li>revert: generate image button</li>
+<li>fix(AppUpdater): update condition for checking available updates</li>
+<li>refactor: simplify window.api definition</li>
+<li>fix(MCPService): Tool call failure caused by incorrect tool parameters</li>
+<li>feat: 增加模型备注功能</li>
+<li>feat: update theme handling in ConfigManager and WindowService</li>
+<li>feat(TopicsTab): 简单方式优化话题列表切换卡顿问题</li>
+<li>style: optimize mcp arg name display layout</li>
+<li>chore: Update runtime version in VSCode launch configuration</li>
+<li>fix(McpOAuthClientProvider): update redirect URL</li>
+<li>feat: 允许功能键(F1-F19)可以被设置为快捷键而不需要修饰键</li>
+<li>refactor: use the existing hook</li>
+<li>fix(GeminiProvider): enhance image generation logic and response configuration</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/Super1Windcloud/hp/releases/tag/4.0.2">hp 4.0.2</a>
+</h1><a id="user-content-2-hp-402" class="anchor" aria-label="Permalink: 2. hp 4.0.2" href="#2-hp-402"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>次世代更快,更强, 更精美的windows 包管理器 By Rust , windows package manager scoop by rust</p>
+<details>
+<summary>变更说明</summary>
+<p>Hp  '4.0.2'  is published, finish shim command</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/ayangweb/BongoCat/releases/tag/v0.3.0">BongoCat v0.3.0</a>
+</h1><a id="user-content-3-bongocat-v030" class="anchor" aria-label="Permalink: 3. BongoCat v0.3.0" href="#3-bongocat-v030"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>BongoCat 是一个可爱的互动桌面宠物应用，让你的桌面充满乐趣！</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h3 class="heading-element">   🚀 Features</h3><a id="user-content--features" class="anchor" aria-label="Permalink:    🚀 Features" href="#-features"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>区分左右两侧的 <code>Shift</code>、<code>Ctrl</code>、<code>Alt</code> 键  - </li>
+<li>全新升级偏好设置 UI  - </li>
+<li>新增「通用设置 &gt; 应用设置 &gt; 开机自启动」配置项  - </li>
+<li>支持通过右键菜单快捷操作猫猫  - </li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">   🐞 Bug Fixes</h3><a id="user-content--bug-fixes" class="anchor" aria-label="Permalink:    🐞 Bug Fixes" href="#-bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>修复 macOS 上鼠标按下后无法跟踪移动的问题  - </li>
+<li>修复了重启后穿透效果失效的问题  - </li>
+<li>修复更新进度显示为 NaN 的问题  - </li>
+<li>修复部分电脑上窗口持续缩小的问题  - </li>
+</ul>
+<div class="markdown-heading"><h5 class="heading-element">    </h5><a id="" class="anchor" aria-label="Permalink:     " href="#"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/WinMerge/winmerge/releases/tag/v2.16.48.2">winmerge v2.16.48.2</a>
+</h1><a id="user-content-4-winmerge-v216482" class="anchor" aria-label="Permalink: 4. winmerge v2.16.48.2" href="#4-winmerge-v216482"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>WinMerge is an Open Source differencing and merging tool for Windows. WinMerge can compare both folders and files, presenting differences in a visual text format that is easy to understand and handle.</p>
+<details>
+<summary>变更说明</summary>
+<p>!</p>
+<div class="markdown-heading"><h1 class="heading-element"></h1><a id="user-content--1" class="anchor" aria-label="Permalink: " href="#-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">WinMerge 2.16.48.2 Release Notes</h1><a id="user-content-winmerge-216482-release-notes" class="anchor" aria-label="Permalink: WinMerge 2.16.48.2 Release Notes" href="#winmerge-216482-release-notes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li><a href="#about-this-release">About This Release</a></li>
+<li><a href="#what-is-new-in-216482">What Is New in 2.16.48.2</a></li>
+<li><a href="#what-is-new-in-21648">What Is New in 2.16.48</a></li>
+<li><a href="#what-is-new-in-21647-beta">What Is New in 2.16.47 beta?</a></li>
+<li><a href="#known-issues">Known issues</a></li>
+</ul>
+<p>April 2025</p>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">About This Release</h2><a id="user-content-about-this-release" class="anchor" aria-label="Permalink: About This Release" href="#about-this-release"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>This is a WinMerge 2.16.48.2 stable release.
+This release replaces earlier WinMerge stable releases as a recommended release.</p>
+<p>Please submit bug reports to our bug-tracker.</p>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">What Is New in 2.16.48.2</h2><a id="user-content-what-is-new-in-216482" class="anchor" aria-label="Permalink: What Is New in 2.16.48.2" href="#what-is-new-in-216482"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Installer</h3><a id="user-content-installer" class="anchor" aria-label="Permalink: Installer" href="#installer"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>BugFix: Installing as "NT Authority/SYSTEM" does not work on some langauges. (, )</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">What Is New in 2.16.48</h2><a id="user-content-what-is-new-in-21648" class="anchor" aria-label="Permalink: What Is New in 2.16.48" href="#what-is-new-in-21648"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">General</h3><a id="user-content-general" class="anchor" aria-label="Permalink: General" href="#general"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p>BugFix: Setting the toolbar icons to "Extra Large" cannot save the settings.</p>
+</li>
+<li>
+<p>FR: Add <code>Ctrl+,</code> keyboard shortcut to open Options dialog box</p>
+</li>
+<li>
+<p>Update Merge.rc (PR )</p>
+</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">File compare</h3><a id="user-content-file-compare" class="anchor" aria-label="Permalink: File compare" href="#file-compare"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p>BugFix: [BUG} Phantom line added when identical blocks of text pasted</p>
+</li>
+<li>
+<p>BugFix: Fixed crash when quitting WinMerge while the search dialog is open</p>
+</li>
+<li>
+<p>Syntax/Pascal: Add initialization and finalization (PR )</p>
+</li>
+<li>
+<p>Syntax/Pascal: Support multiline strings (PR )</p>
+</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Folder compare</h3><a id="user-content-folder-compare" class="anchor" aria-label="Permalink: Folder compare" href="#folder-compare"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>BugFix: Unable to compare files with zero mtime using
+"Modified Date and Size"</li>
+<li>BugFix: Windows7 Winmerge v2.16.46.0 crash prone
+( WinMerge crashes after successfully deleting files.)</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Webpage compare</h3><a id="user-content-webpage-compare" class="anchor" aria-label="Permalink: Webpage compare" href="#webpage-compare"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>BugFix: Fixed an issue where comparisons could fail when tab characters
+were present.</li>
+<li>BugFix: Fixed incorrect line wrapping in certain HTML elements.</li>
+<li>BugFix: Fixed an issue where differences within &lt;pre&gt; elements could appear
+concatenated instead of on separate lines.</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Plugins</h3><a id="user-content-plugins" class="anchor" aria-label="Permalink: Plugins" href="#plugins"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>BugFix: ApacheTika and PlantUML plugins: Fixed issue where no error message
+was displayed when execution failed</li>
+<li>BugFix: ApacheTika plugin: Fixed failure to run when the filename contained
+non-alphanumeric characters (now uses the short filename instead)</li>
+<li>AIConvertText plugin: Added models gpt-4.1, gpt-4.1-mini, and gpt-4.1-nano</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Translations</h3><a id="user-content-translations" class="anchor" aria-label="Permalink: Translations" href="#translations"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Translation updates:
+<ul>
+<li>Brazilian (PR ,,)</li>
+<li>Chinese Simplified (PR ,)</li>
+<li>Corsican (PR )</li>
+<li>French (PR )</li>
+<li>Hungarian (PR ,,)</li>
+<li>Italian (PR ,,)</li>
+<li>Japanese</li>
+<li>Lithuanian (PR )</li>
+</ul>
+</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">What Is New in 2.16.47 Beta</h2><a id="user-content-what-is-new-in-21647-beta" class="anchor" aria-label="Permalink: What Is New in 2.16.47 Beta" href="#what-is-new-in-21647-beta"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">General</h3><a id="user-content-general-1" class="anchor" aria-label="Permalink: General" href="#general-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p>BugFix: /inifile won't work with root directory</p>
+</li>
+<li>
+<p>BugFix: "Another application has updated" message when window is deactivated</p>
+</li>
+<li>
+<p>Reduced flickering of title bar buttons and the status bar.</p>
+</li>
+<li>
+<p>Rewrite English.pot, add JXL image extension (PR )</p>
+</li>
+<li>
+<p>Add Output Pane for Logs and Messages (PR )</p>
+</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">File compare</h3><a id="user-content-file-compare-1" class="anchor" aria-label="Permalink: File compare" href="#file-compare-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p>BugFix: Fixed an issue where $ in regular expressions in Substitution filters
+didn't work correctly with "Ignore carriage return differences" enabled.</p>
+</li>
+<li>
+<p>BugFix: Syntax highlighting of Python multiline strings failed on lines &gt; 1</p>
+</li>
+<li>
+<p>BugFix: Fixed an issue where "&amp;" appeared as an underline in the status bar
+when using both Unpacker and Prediffer plugins.</p>
+</li>
+<li>
+<p>BugFix: Sync Codepage Settings on Options and Diff Window</p>
+</li>
+<li>
+<p>Update C syntax highlighting keyword list. (PR )</p>
+</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Image compare</h3><a id="user-content-image-compare" class="anchor" aria-label="Permalink: Image compare" href="#image-compare"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Rewrite English.pot, add JXL image extension (PR )</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Options dialog</h3><a id="user-content-options-dialog" class="anchor" aria-label="Permalink: Options dialog" href="#options-dialog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>BugFix: Fixed an issue where ShellExtensionU.dll was not properly
+unregistered when clicking the Unregister shell extension button in the
+Shell Integration options.</li>
+<li>Modify the "Options (Compare &gt; Image)" dialog. (PR )</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Color schemes</h3><a id="user-content-color-schemes" class="anchor" aria-label="Permalink: Color schemes" href="#color-schemes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Add Visual Studio Dark color scheme (PR )</li>
+<li>Twilight - new dark theme (PR )</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Installer</h3><a id="user-content-installer-1" class="anchor" aria-label="Permalink: Installer" href="#installer-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>BugFix: Context menu not working if installed from non-elevated (non admin)
+user on win 10 x64  (PR )</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Manual</h3><a id="user-content-manual" class="anchor" aria-label="Permalink: Manual" href="#manual"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Help pages -&gt; Appendix A. Shortcut keys</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Translations</h3><a id="user-content-translations-1" class="anchor" aria-label="Permalink: Translations" href="#translations-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Translation updates:
+<ul>
+<li>Brazilian (PR ,,)</li>
+<li>Chinese Simplified (PR )</li>
+<li>Corsican (PR ,)</li>
+<li>Hebrew (PR )</li>
+<li>Italian (PR ,)</li>
+<li>Japanese</li>
+<li>Polish (PR )</li>
+<li>Portuguese (PR ,)</li>
+<li>Swedish (PR )</li>
+<li>Turkish (PR )</li>
+</ul>
+</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Internals</h3><a id="user-content-internals" class="anchor" aria-label="Permalink: Internals" href="#internals"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>BugFix: Fix build in VS2022 17.13.0 (PR )</li>
+<li>BugFix: Use zopflipng to reduce size of splash.png (PR )</li>
+<li>README major update, Twilight theme minor edit (PR )</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Known issues</h2><a id="user-content-known-issues" class="anchor" aria-label="Permalink: Known issues" href="#known-issues"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Pressing OK in the Options window while the INI file specified by /inifile is open for comparison in WinMerge may corrupt the file.</li>
+<li>Suggestion to make the result of image comparison more reliable (391)</li>
+<li>Crashes when comparing large files</li>
+<li>Very slow to compare significantly different directories</li>
+<li>Vertical scrollbar breaks after pasting text</li>
+</ul>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">What's Changed</h3><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p>Update Corsican translation for 2.16.47</p>
+</li>
+<li>
+<p>Add Visual Studio Dark color scheme</p>
+</li>
+<li>
+<p>Turkish translation update 2.16.46</p>
+</li>
+<li>
+<p>Fix issue : Context menu not working if installed from non-elevated (non admin) user on win 10 x64</p>
+</li>
+<li>
+<p>Fix build in VS2022 17.13.0</p>
+</li>
+<li>
+<p>Use zopflipng to reduce size of splash.png</p>
+</li>
+<li>
+<p>Update Portuguese.po</p>
+</li>
+<li>
+<p>Modify the "Options (Compare &gt; Image)" dialog.</p>
+</li>
+<li>
+<p>Update C syntax highlighting keyword list.</p>
+</li>
+<li>
+<p>Fix typo in Polish translation</p>
+</li>
+<li>
+<p>Hebrew Translation Added</p>
+</li>
+<li>
+<p>Update Brazilian.islu</p>
+</li>
+<li>
+<p>Update corsican.islu for 2.16.47</p>
+</li>
+<li>
+<p>Hans Eriksson updated the Swedish translation</p>
+</li>
+<li>
+<p>Rewrite English.pot, add JXL image extension</p>
+</li>
+<li>
+<p>Update Brazilian.po</p>
+</li>
+<li>
+<p>Italian language update</p>
+</li>
+<li>
+<p>Update Portuguese.po</p>
+</li>
+<li>
+<p>Twilight - new dark theme</p>
+</li>
+<li>
+<p>README major update, Twilight theme minor edit</p>
+</li>
+<li>
+<p>Update Brazilian.po</p>
+</li>
+<li>
+<p>update zh-cn translation</p>
+</li>
+<li>
+<p>Add Output Pane for Logs and Messages</p>
+</li>
+<li>
+<p>Update Hungarian.po</p>
+</li>
+<li>
+<p>Italian language update</p>
+</li>
+<li>
+<p>Update Brazilian.po</p>
+</li>
+<li>
+<p>Update of Lithuanian translation</p>
+</li>
+<li>
+<p>update zh-cn translation</p>
+</li>
+<li>
+<p>Update Merge.rc</p>
+</li>
+<li>
+<p>Update Hungarian.po</p>
+</li>
+<li>
+<p>Update Brazilian.po</p>
+</li>
+<li>
+<p>Update French.po</p>
+</li>
+<li>
+<p>Update Russian.po</p>
+</li>
+<li>
+<p>Syntax/Pascal: Add initialization and finalization</p>
+</li>
+<li>
+<p>Syntax/Pascal: Support multiline strings</p>
+</li>
+<li>
+<p>Update Corsican translation for 2.16.48</p>
+</li>
+<li>
+<p>Itlian language update</p>
+</li>
+<li>
+<p>Update Hungarian.po</p>
+</li>
+<li>
+<p>Update Brazilian.po</p>
+</li>
+<li>
+<p>Update of Lithuanian translation</p>
+</li>
+<li>
+<p>update zh-cn translation</p>
+</li>
+<li>
+<p>Italian language update</p>
+</li>
+<li>
+<p>Syntax/Pascal: Support multiline strings</p>
+</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-1" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
+</h1><a id="user-content-5-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 5. mihomo Prerelease-Alpha" href="#5-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
+<details>
+<summary>变更说明</summary>
+<p>Release created at  Thu May  1 02:23:05 CST 2025
+Synchronize Alpha branch code updates, keeping only the latest version
+<br></p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/readest/readest/releases/tag/v0.9.38">readest v0.9.38</a>
+</h1><a id="user-content-6-readest-v0938" class="anchor" aria-label="Permalink: 6. readest v0.9.38" href="#6-readest-v0938"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Page Turning with Volume Keys: You can now turn pages using your device’s volume buttons</li>
+<li>Expanded English Voices: More English voices are available across all en locales</li>
+<li>Theme Editor: Added a primary color picker for easier customization</li>
+<li>System Fonts: Retrieve system fonts on iOS and Android, with improved font weight and style detection</li>
+<li>Popup Footnotes: Popup footnotes now inherit the book's font for consistent appearance</li>
+<li>Better Text Selection: Preserves text selection anchors when spanning paginated content</li>
+<li>Android Compatibility: Navigation bar auto-hides correctly on Android 10 and below</li>
+<li>Popup Dialogs: Back key now properly dismisses popup dialogs on Android</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>compat: auto hide navigation bar also for Android version below 11</li>
+<li>fix: don't panic on plugin log initialization error, closes</li>
+<li>fix: preserve selection anchor when spanning paginated content, closes</li>
+<li>feat: add more English voices for all en locales, closes</li>
+<li>feat: add primary color input in theme editor, closes</li>
+<li>feat: retrieve system fonts on iOS and Android and show font weight variants, closes  and closes</li>
+<li>feat: add volume keys for page turning, closes</li>
+<li>fix: intercept back keys to dismiss popup dialogs on Android, closes</li>
+<li>fix: inherit book fonts for popup footnotes</li>
+<li>release: version 0.9.38</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.2">higress v2.1.2</a>
+</h1><a id="user-content-7-higress-v212" class="anchor" aria-label="Permalink: 7. higress v2.1.2" href="#7-higress-v212"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🤖 AI Gateway AI Native API Gateway</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-3" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-3"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>feat:Getting MatchLabels dynamically via gatewaySelectorKey/Value</li>
 <li>fix: update module replacements</li>
@@ -162,9 +627,15 @@ pre {
 <li>fix: ai_data_masking add compatibility handling for non-compliant API response structures</li>
 <li>fix: Refactor MCP Server into MCP Session and MCP Server</li>
 <li>feat : support mcp server auto discovery for nacos registry</li>
+<li>Update helm translated README.zh.md</li>
+<li>fix : when nacos push empty service instance list, should skip generate</li>
+<li>fix: make mcp server redis client config based</li>
+<li>When the service source type is nacos3, if mcpserver is turned off, then the discovery mechanism of nacos2 will be enabled</li>
+<li>add: add mcp-context7 descriptions</li>
 </ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-2" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
+<li>made their first contribution in</li>
 <li>made their first contribution in</li>
 <li>made their first contribution in</li>
 <li>made their first contribution in</li>
@@ -172,8 +643,28 @@ pre {
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
-</h1><a id="user-content-2-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 2. RIME-LMDG dict-nightly" href="#2-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/xpipe-io/xpipe/releases/tag/16.1">xpipe 16.1</a>
+</h1><a id="user-content-8-xpipe-161" class="anchor" aria-label="Permalink: 8. xpipe 16.1" href="#8-xpipe-161"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Access your entire server infrastructure from your local desktop</p>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>Fix StackOverflow on Windows systems with special characters in username and no available 8.3 file names</li>
+<li>Fix docker refresh exception when a compose project did not have any associated files</li>
+<li>Fix vscode actions showing even if vscode was not installed</li>
+<li>Fix tailscale connection list being removed when tailscale daemon was stuck starting up</li>
+<li>Fix tailscale error messages not being shown properly when daemon could not connect to tailscale servers</li>
+<li>Fix file browser open with action not working for some files</li>
+<li>Fix NullPointer when parsing invalid file browser history</li>
+<li>Fix NullPointer in script context menu when having enabled a generic script</li>
+<li>Fix various other NullPointers</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Downloads</h2><a id="user-content-downloads" class="anchor" aria-label="Permalink: Downloads" href="#downloads"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>You can find all downloadable artifacts below attached to this release. For installation instructions, see the .</p>
+<p>All artifacts are signed by</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">9. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
+</h1><a id="user-content-9-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 9. RIME-LMDG dict-nightly" href="#9-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Rime输入法语法模型全流程构建教程，全局带声调词库：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
 <details>
 <summary>变更说明</summary>
@@ -182,53 +673,334 @@ pre {
 <code>cn_dicts.zip</code>：最新的中文词库文件。</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.6.8.0">new-api v0.6.8.0</a>
-</h1><a id="user-content-3-new-api-v0680" class="anchor" aria-label="Permalink: 3. new-api v0.6.8.0" href="#3-new-api-v0680"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
+<div class="markdown-heading"><h1 class="heading-element">10. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v3.4.14.3">LangBot v3.4.14.3</a>
+</h1><a id="user-content-10-langbot-v34143" class="anchor" aria-label="Permalink: 10. LangBot v3.4.14.3" href="#10-langbot-v34143"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>😎简单易用、🧩丰富生态 - 大模型原生即时通信机器人平台 适配 QQ / 微信（企业微信、个人微信）/ 飞书 / 钉钉 / Discord / Telegram / Slack 等平台 支持 ChatGPT、DeepSeek、Dify、Claude、Gemini、xAI、PPIO、Ollama、LM Studio、阿里云百炼、火山方舟、SiliconFlow、Qwen、Moonshot、ChatGLM、SillyTraven、MCP 等 LLM 的机器人 / Agent LLM-based instant messaging bots platform, supports Discord, Telegram, WeChat, Lark, DingTalk, QQ, Slack</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-4" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-4"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>feat: add error logging functionality to relay and update logs table …</li>
-<li>Improve log delete api and fix OIDC saving problem</li>
-<li>feat: support searching channels by base url</li>
+<li>优化了处理语音消息和群聊图片消息，增加了发送语音消息（只能发送silk格式语音文件链接）和转发链接消息</li>
+<li>Update README_EN.md</li>
+<li>feat(gewechat): 优化了代码结构+fix群聊艾特逻辑，新增消息类型</li>
+<li>fix: image couldn't be sent in lark</li>
+<li>fix: access_token problems in wecomcs</li>
+<li>feat(gewechat): 重构target2yiri代码+引用消息展开</li>
+<li>chore: release v3.4.14.3</li>
 </ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-1" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-3" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-3"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>made their first contribution in</li>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/QL-Win/QuickLook/releases/tag/latest">QuickLook latest</a>
-</h1><a id="user-content-4-quicklook-latest" class="anchor" aria-label="Permalink: 4. QuickLook latest" href="#4-quicklook-latest"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">11. <a href="https://github.com/QL-Win/QuickLook/releases/tag/latest">QuickLook latest</a>
+</h1><a id="user-content-11-quicklook-latest" class="anchor" aria-label="Permalink: 11. QuickLook latest" href="#11-quicklook-latest"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Bring macOS “Quick Look” feature to Windows</p>
 <details>
 <summary>变更说明</summary>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.1.9">subs-check v2.1.9</a>
-</h1><a id="user-content-5-subs-check-v219" class="anchor" aria-label="Permalink: 5. subs-check v2.1.9" href="#5-subs-check-v219"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>订阅转换合并，节点可用性，测速，重命名，导出为clash.meta/clash/base64/qx等等所有格式的订阅工具</p>
+<div class="markdown-heading"><h1 class="heading-element">12. <a href="https://github.com/subframe7536/maple-font/releases/tag/v7.2">maple-font v7.2</a>
+</h1><a id="user-content-12-maple-font-v72" class="anchor" aria-label="Permalink: 12. maple-font v7.2" href="#12-maple-font-v72"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Maple Mono: Open source monospace font with round corner, ligatures and Nerd-Font for IDE and terminal, fine-grained customization options. 带连字和控制台图标的圆角等宽字体，中英文宽度完美2:1，细粒度的自定义选项</p>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Fix issues introduced in V7.1</li>
+<li>add unicodes in IPA extension and Latin extended</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Download</h2><a id="user-content-download" class="anchor" aria-label="Permalink: Download" href="#download"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>|</p>
+<p>If you want to get the font that similar to <code>JetBrains Mono</code>, please download the "Normal-Ligature" or "Normal-No-Ligature"</p>
+<p>如果你想用的是和 <code>JetBrains Mono</code> 相近的字体，请下载 "Normal-Ligature" 或者 "Normal-No-Ligature"</p>
+<p>If you don't want to choose, please download</p>
+<p>懒人首选下载</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Ligature (default)</th>
+<th>No-Ligature</th>
+<th>Normal-Ligature</th>
+<th>Normal-No-Ligature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Variable</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TTF</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OTF</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WOFF2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NF</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CN</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NF-CN</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">13. <a href="https://github.com/AlistGo/alist/releases/tag/beta">alist beta</a>
+</h1><a id="user-content-13-alist-beta" class="anchor" aria-label="Permalink: 13. alist beta" href="#13-alist-beta"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h3 class="heading-element">   🚀 Features</h3><a id="user-content--features-1" class="anchor" aria-label="Permalink:    🚀 Features" href="#-features-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Add h2c for http server  -  by <strong>j2rong4cn</strong> in</li>
+<li>Add UseLargeThumbnail for 139  -  by <strong>bigQY</strong> in</li>
+<li>
+<strong>139</strong>:
+<ul>
+<li>Add option ReportRealSize ( close )  -  by <strong>MadDogOwner</strong> and <strong>Copilot</strong> in  and</li>
+</ul>
+</li>
+<li>
+<strong>azure_blob</strong>:
+<ul>
+<li>Implement GetRootId interface in Addition struct  -  by <strong>New Future</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>cloudreve</strong>:
+<ul>
+<li>S3 policy support  -  by <strong>MadDogOwner</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>doubao</strong>:
+<ul>
+<li>Support upload ( close )  -  by <strong>asdfghjkl</strong> and <strong>Copilot</strong> in  and</li>
+<li>Add get_download_info API and download_api option  -  by <strong>MadDogOwner</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>doubao_share</strong>:
+<ul>
+<li>Support doubao_share link  -  by <strong>asdfghjkl</strong> and <strong>anobodys</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>driver</strong>:
+<ul>
+<li>Add Azure Blob Storage driver  -  by <strong>New Future</strong> and <strong>Copilot</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>url-tree</strong>:
+<ul>
+<li>Implement the Put interface to support adding links directly to the UrlTree on the web side  -  by <strong>Lee CQ</strong> and <strong>Copilot</strong> in</li>
+</ul>
+</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">   🐞 Bug Fixes</h3><a id="user-content--bug-fixes-1" class="anchor" aria-label="Permalink:    🐞 Bug Fixes" href="#-bug-fixes-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Revert "refactor(net): pass request header"  -  by <strong>j2rong4cn</strong> in</li>
+<li>Shebang of entrypoint.sh  -  by <strong>Mmx</strong> in</li>
+<li>Remove auth middleware for authn login  -  by <strong>Mmx</strong> in</li>
+<li>Prevent guest user from updating profile  -  by <strong>yoclo</strong> in</li>
+<li>
+<strong>139</strong>:
+<ul>
+<li>Incorrect host  -  by <strong>Sam- Pan（潘绍森）</strong> and <strong>Copilot</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>aliyundrive_open</strong>:
+<ul>
+<li>Resolve file duplication issues and improve path handling  -  by <strong>Yifan Gao</strong> and <strong>Copilot</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>archive</strong>:
+<ul>
+<li>Unable to preview  -  by <strong>j2rong4cn</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>baidu_netdisk</strong>:
+<ul>
+<li>Add another video crack api  -  by <strong>asdfghjkl</strong> and <strong>anobodys</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>deps</strong>:
+<ul>
+<li>Update 115-sdk-go to v0.1.5  -  by <strong>Andy Hsu</strong>
+</li>
+</ul>
+</li>
+<li>
+<strong>docker_release</strong>:
+<ul>
+<li>Avoid duplicate occupation in docker image ( close )  -  by <strong>wxnq</strong> in  and</li>
+</ul>
+</li>
+<li>
+<strong>doubao</strong>:
+<ul>
+<li>Update file size type to int64  -  by <strong>MadDogOwner</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>fs</strong>:
+<ul>
+<li>Remove old target object from cache before updating  -  by <strong>Yifan Gao</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>ipfs</strong>:
+<ul>
+<li>Fix problems  -  by <strong>jerry</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>lanzou</strong>:
+<ul>
+<li>Remove JavaScript comments from response data  -  by <strong>MadDogOwner</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>mega</strong>:
+<ul>
+<li>Use newest file for same filename ( close )  -  by <strong>gdm257</strong> in  and</li>
+</ul>
+</li>
+<li>
+<strong>net</strong>:
+<ul>
+<li>Unexpected write ( close )  -  by <strong>j2rong4cn</strong> in  and</li>
+</ul>
+</li>
+<li>
+<strong>netease_music</strong>:
+<ul>
+<li>Change ListResp size fields from string to int64  -  by <strong>MadDogOwner</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>pikpak&amp;pikpak_share</strong>:
+<ul>
+<li>Update algorithms  -  by <strong>YangXu</strong> in</li>
+<li>Fix WebPackageName  -  by <strong>Dgs</strong> in</li>
+</ul>
+</li>
+<li>
+<strong>thunder</strong>:
+<ul>
+<li>Fix login issue ( close )  -  by <strong>Dgs</strong> in  and</li>
+</ul>
+</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">   🏎 Performance</h3><a id="user-content--performance" class="anchor" aria-label="Permalink:    🏎 Performance" href="#-performance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Optimize IO read/write usage  -  by <strong>j2rong4cn</strong> and <strong>MadDogOwner</strong> in</li>
+<li>
+<strong>local</strong>: Avoid duplicate parsing of VideoThumbPos  -  by <strong>Lin Tianchuan</strong> in</li>
+<li>
+<strong>quark_uc&amp;quark_uc_tv</strong>: Native proxy multithreading  -  by <strong>xiaoQQya</strong> in</li>
+</ul>
+<h5>    </h5>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">14. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v2.0.0-alpha.1">Ghosten-Player v2.0.0-alpha.1</a>
+</h1><a id="user-content-14-ghosten-player-v200-alpha1" class="anchor" aria-label="Permalink: 14. Ghosten-Player v2.0.0-alpha.1" href="#14-ghosten-player-v200-alpha1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>一个同时适配📱Android Phone和📺Android TV的视频播放器。整合影视资源，自动刮削媒体信息，支持IPTV播放，优雅打造私人影视库。界面简洁，功能丰富，开箱即用。</p>
+<details>
+<summary>变更说明</summary>
+<blockquote>
+<p>[!WARNING]
+预览版功能不稳定，谨慎更新</p>
+</blockquote>
+<blockquote>
+<p>如果项目对您有帮助，就请给颗吧。
+QQ群 1033449405</p>
+</blockquote>
+<div class="markdown-heading"><h2 class="heading-element">🎉New Features</h2><a id="user-content-new-features" class="anchor" aria-label="Permalink: 🎉New Features" href="#new-features"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>TV端更新至2.0.0</li>
+</ol>
+<div class="markdown-heading"><h2 class="heading-element">🐞Bug Fixed</h2><a id="user-content-bug-fixed" class="anchor" aria-label="Permalink: 🐞Bug Fixed" href="#bug-fixed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>IPTV 的EPG现支持gzip解压缩</li>
+</ol>
+<div class="markdown-heading"><h2 class="heading-element">🚀 Improvement</h2><a id="user-content--improvement" class="anchor" aria-label="Permalink: 🚀 Improvement" href="#-improvement"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>提升http请求传输速度</li>
+</ol>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-5" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-5"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>build(deps): bump provider from 6.1.2 to 6.1.4</li>
+<li>build(deps): bump volume_controller from 3.3.1 to 3.3.3</li>
+<li>build(deps): bump shared_preferences from 2.5.2 to 2.5.3</li>
+<li>Releases/v2.0.0 alpha.1</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-4" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-4"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">15. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.6.8.2">new-api v0.6.8.2</a>
+</h1><a id="user-content-15-new-api-v0682" class="anchor" aria-label="Permalink: 15. new-api v0.6.8.2" href="#15-new-api-v0682"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
+<details>
+<summary>变更说明</summary>
+<p>feat: 支持设置环境变量<code>ERROR_LOG_ENABLED=false</code>关闭错误日志</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">16. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.1.9">subs-check v2.1.9</a>
+</h1><a id="user-content-16-subs-check-v219" class="anchor" aria-label="Permalink: 16. subs-check v2.1.9" href="#16-subs-check-v219"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换合并，节点可用性，测速，重命名，导出为clash.meta/clash/base64/qx等等所有格式的订阅工具</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog-1" class="anchor" aria-label="Permalink: Changelog" href="#changelog-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>d99a729d3e0d9f3ab2cef528c57cecd73d970d05 fix: 修复hy up/down</li>
 <li>f710c2fa51dc631f3d30e34c52eb2235b0f37ea8 op: webui支持查看密钥</li>
 <li>671a361aaf472927da51e5386216189c3b561910 op: 调整获取订阅并发&amp;&amp;调整超时时间</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
-</h1><a id="user-content-6-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 6. mihomo Prerelease-Alpha" href="#6-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
-<details>
-<summary>变更说明</summary>
-<p>Release created at  Mon Apr 28 11:17:40 CST 2025
-Synchronize Alpha branch code updates, keeping only the latest version
-<br></p>
-</details>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/75.html" aria-label="Previous Page">075 导航</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/115.html" aria-label="Next Page">115 minio mc安装配置</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/115.html" aria-label="Previous Page">115 minio mc安装配置</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/117.html" aria-label="Next Page">117 rclone</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
