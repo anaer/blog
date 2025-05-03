@@ -1,9 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 02 May 2025 15:11:19 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 02 May 2025 15:11:19 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>117 rclone</title><link>https://anaer.github.io/blog/post/117.html</link><description>本文介绍了与rclone相关的用户手册和命令索引，提供了使用rclone的必要信息和指引。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Sat, 03 May 2025 04:13:14 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Sat, 03 May 2025 04:13:14 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>117 rclone</title><link>https://anaer.github.io/blog/post/117.html</link><description>本文介绍了与rclone相关的用户手册和命令索引，提供了使用rclone的必要信息和指引。
 
-优化建议：可以增加对rclone功能和常见应用场景的简要说明，以帮助用户更好地理解和使用rclone。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/117.html</guid><pubDate>Wed, 30 Apr 2025 05:18:11 +0000</pubDate></item><item><title>116 我关注的项目这周更新了什么-2025-05-02</title><link>https://anaer.github.io/blog/post/116.html</link><description>本文介绍了多个软件的更新和变更说明，包括hp 4.0.3、cherry-studio v1.2.10、RIME-LMDG dict-nightly、deepchat v0.1.0、readest v0.9.38、winmerge v2.16.48.2、xpipe 16.2.1、alist beta、new-api v0.6.8.2、maple-font v7.2、Ghosten-Player v2.0.0-alpha.1、mihomo Prerelease-Alpha、BongoCat v0.3.0、higress v2.1.2、LangBot v3.4.14.3、QuickLook latest、subs-check v2.1.9等。每个软件的更新涉及功能增强、bug修复和性能优化等方面。
+优化建议：可以增加对rclone功能和常见应用场景的简要说明，以帮助用户更好地理解和使用rclone。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/117.html</guid><pubDate>Wed, 30 Apr 2025 05:18:11 +0000</pubDate></item><item><title>116 我关注的项目这周更新了什么-2025-05-02</title><link>https://anaer.github.io/blog/post/116.html</link><description>1. hp 4.0.4
 
-优化建议：在未来的更新中，建议对每个软件的主要功能进行更详细的描述，突出其独特性和用户价值。同时，提供更清晰的版本历史和变更摘要，以便用户快速了解更新内容。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/116.html</guid><pubDate>Mon, 28 Apr 2025 04:14:07 +0000</pubDate></item><item><title>115 minio mc安装配置</title><link>https://anaer.github.io/blog/post/115.html</link><description>本文介绍了如何安装和配置MinIO，包括创建数据目录、运行MinIO容器、设置别名、同步数据和防盗链配置。此外，还提供了一个用于定期同步的脚本和其在crontab中的设置。
+次世代更快,更强, 更精美的windows 包管理器 By Rust , windows package manager scoop by rust
+
+变更说明
+Hp  '4.0.4'  is published, finish msi and inno install
+
+2. xpipe 16.2.1
+
+Access your entire server infrastructure from your local desktop
+
+变更说明
+
+Fix SSH config parsing failing for some host definitions in 1...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/116.html</guid><pubDate>Mon, 28 Apr 2025 04:14:07 +0000</pubDate></item><item><title>115 minio mc安装配置</title><link>https://anaer.github.io/blog/post/115.html</link><description>本文介绍了如何安装和配置MinIO，包括创建数据目录、运行MinIO容器、设置别名、同步数据和防盗链配置。此外，还提供了一个用于定期同步的脚本和其在crontab中的设置。
 
 优化建议：
 1. 在脚本中添加日志记录的详细信息，以便更好地跟踪同步过程中的问题。

@@ -2460,14 +2460,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/116",
             "commentNum": 0,
             "createdAt": 1745813647,
-            "updatedAt": 1746198650,
+            "updatedAt": 1746245553,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-04-28",
-            "dateLabelColor": "hsl(144, 34%, 31%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u591a\u4e2a\u8f6f\u4ef6\u7684\u66f4\u65b0\u548c\u53d8\u66f4\u8bf4\u660e\uff0c\u5305\u62echp 4.0.3\u3001cherry-studio v1.2.10\u3001RIME-LMDG dict-nightly\u3001deepchat v0.1.0\u3001readest v0.9.38\u3001winmerge v2.16.48.2\u3001xpipe 16.2.1\u3001alist beta\u3001new-api v0.6.8.2\u3001maple-font v7.2\u3001Ghosten-Player v2.0.0-alpha.1\u3001mihomo Prerelease-Alpha\u3001BongoCat v0.3.0\u3001higress v2.1.2\u3001LangBot v3.4.14.3\u3001QuickLook latest\u3001subs-check v2.1.9\u7b49\u3002\u6bcf\u4e2a\u8f6f\u4ef6\u7684\u66f4\u65b0\u6d89\u53ca\u529f\u80fd\u589e\u5f3a\u3001bug\u4fee\u590d\u548c\u6027\u80fd\u4f18\u5316\u7b49\u65b9\u9762\u3002\n\n\u4f18\u5316\u5efa\u8bae\uff1a\u5728\u672a\u6765\u7684\u66f4\u65b0\u4e2d\uff0c\u5efa\u8bae\u5bf9\u6bcf\u4e2a\u8f6f\u4ef6\u7684\u4e3b\u8981\u529f\u80fd\u8fdb\u884c\u66f4\u8be6\u7ec6\u7684\u63cf\u8ff0\uff0c\u7a81\u51fa\u5176\u72ec\u7279\u6027\u548c\u7528\u6237\u4ef7\u503c\u3002\u540c\u65f6\uff0c\u63d0\u4f9b\u66f4\u6e05\u6670\u7684\u7248\u672c\u5386\u53f2\u548c\u53d8\u66f4\u6458\u8981\uff0c\u4ee5\u4fbf\u7528\u6237\u5feb\u901f\u4e86\u89e3\u66f4\u65b0\u5185\u5bb9\u3002",
-            "buildedAt": 1746198650
+            "dateLabelColor": "hsl(144, 69%, 31%)",
+            "description": "1. hp 4.0.4\n\n\u6b21\u4e16\u4ee3\u66f4\u5feb,\u66f4\u5f3a, \u66f4\u7cbe\u7f8e\u7684windows \u5305\u7ba1\u7406\u5668 By Rust , windows package manager scoop by rust\n\n\u53d8\u66f4\u8bf4\u660e\nHp  '4.0.4'  is published, finish msi and inno install\n\n2. xpipe 16.2.1\n\nAccess your entire server infrastructure from your local desktop\n\n\u53d8\u66f4\u8bf4\u660e\n\nFix SSH config parsing failing for some host definitions in 1...",
+            "buildedAt": 1746245553
         },
         "P117": {
             "number": "117",
