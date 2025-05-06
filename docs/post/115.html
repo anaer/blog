@@ -128,16 +128,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-27 16:41:05</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-30 13:15:51</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-06 10:49:58</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何安装和配置MinIO，包括创建数据目录、运行MinIO容器、设置别名、同步数据和防盗链配置。此外，还提供了一个用于定期同步的脚本和其在crontab中的设置。
+    <strong>AI总结:</strong> 本文介绍了如何安装和配置MinIO，包括创建数据目录、使用Docker运行MinIO服务、设置mc命令行工具的别名、进行数据同步和管理存储桶。还提到了MinIO的防盗链配置、私有存储桶的设置以及使用crontab定时同步的脚本示例。此外，列出了mc命令的常用功能和相关文档。
 
 优化建议：
-1. 在脚本中添加日志记录的详细信息，以便更好地跟踪同步过程中的问题。
-2. 考虑使用环境变量来存储敏感信息（如ACCESS_KEY和ACCESS_SECRET），而不是在命令中硬编码。
-3. 提供MinIO的完整文档链接，以便用户可以更深入地了解使用和配置。
-4. 对于防盗链配置，建议详细说明如何设置nginx反向代理和白名单规则。
+1. 在docker run命令中，建议使用环境变量来存储敏感信息，如ACCESS_KEY和ACCESS_SECRET，以增强安全性。
+2. 在同步脚本中，添加对错误处理的支持，以便在任务失败时能够记录日志并进行相应处理。
+3. 对于防盗链的配置，建议提供详细的nginx配置示例，以便用户更容易理解和实施。
+4. 在mc命令部分，可以提供每个命令的具体示例，以帮助用户更快上手。
+5. 增加对MinIO和mc命令的性能优化建议，例如使用多线程或并行处理来提高数据同步效率。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -219,6 +220,28 @@ touch <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$LOCK
 │ 0 B   │ 0 B         │ 00m00s   │ 0 B/s │
 └───────┴─────────────┴──────────┴───────┘
 </code></pre>
+<div class="markdown-heading"><h2 class="heading-element">mc命令</h2><a id="user-content-mc命令" class="anchor" aria-label="Permalink: mc命令" href="#mc命令"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>alias：管理配置文件中的服务器凭据。
+ls：列出存储桶和对象。
+mb：创建存储桶。
+rb：删除存储桶。
+cp：复制对象。
+mv：移动对象。
+rm：删除对象。
+mirror：将对象同步到远程站点。
+cat：显示对象内容。
+head：显示对象的前n行。
+pipe：将STDIN流传输到对象。
+find：搜索对象。
+sql：在对象上运行SQL查询。
+stat：显示对象元数据。
+tree：以树状格式列出存储桶和对象。
+du：递归地总结磁盘使用情况。
+retention：为对象设置保留。
+legalhold：管理对象的法律保留。
+support：与支持相关的命令。
+license：与许可相关的命令。
+share：生成临时访问对象的URL。</p>
 <div class="markdown-heading"><h2 class="heading-element">相关文档</h2><a id="user-content-相关文档" class="anchor" aria-label="Permalink: 相关文档" href="#相关文档"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>
 <li><a href="https://min.io/docs/minio/linux/developers/minio-drivers.html" rel="nofollow">minio sdk</a></li>

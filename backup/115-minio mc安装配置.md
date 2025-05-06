@@ -88,6 +88,29 @@ Running task at Mon Apr 28 10:13:02 CST 2025
 └───────┴─────────────┴──────────┴───────┘
 ```
 
+## mc命令
+
+alias：管理配置文件中的服务器凭据。
+ls：列出存储桶和对象。
+mb：创建存储桶。
+rb：删除存储桶。
+cp：复制对象。
+mv：移动对象。
+rm：删除对象。
+mirror：将对象同步到远程站点。
+cat：显示对象内容。
+head：显示对象的前n行。
+pipe：将STDIN流传输到对象。
+find：搜索对象。
+sql：在对象上运行SQL查询。
+stat：显示对象元数据。
+tree：以树状格式列出存储桶和对象。
+du：递归地总结磁盘使用情况。
+retention：为对象设置保留。
+legalhold：管理对象的法律保留。
+support：与支持相关的命令。
+license：与许可相关的命令。
+share：生成临时访问对象的URL。
 
 ## 相关文档
 1. [minio sdk](https://min.io/docs/minio/linux/developers/minio-drivers.html)
