@@ -21,19 +21,17 @@
   多端, 插件支持webdav同步, 支持集成WinSCP
   使用较卡, 电脑差带不动
 
+### 内存
+1. memory_cleaner [GitHub](https://github.com/H3d9/memory_cleaner/releases/)
+2. Reduce Memory [官网](https://www.sordum.org/9197/reduce-memory-v1-7/) 
+3. Mem Reduct [GitHub](https://github.com/henrypp/memreduct) 内存释放, Q:偶尔选项置灰
+4. Windows Memory Cleaner 2.8 [GitHub](https://github.com/IgorMundstein/WinMemoryCleaner/) 
+5. Wise Memory Optimizer [官网](https://www.wisecleaner.com.cn/wise-memory-optimizer.html) Windows 内存整理和优化工具
 
 ### 传输
 | 名称   | 下载地址                                    | 说明 |
 | ------ | ------------------------------------------- | ---- |
 | WinSCP | [官网](https://winscp.net/eng/download.php) |      |
-
-### 内存
-| 名称                       | 下载地址                                                          | 说明                       |
-| -------------------------- | ----------------------------------------------------------------- | -------------------------- |
-| Reduce Memory             | [官网](https://www.sordum.org/9197/reduce-memory-v1-7/) | 在用
-| Mem Reduct                 | [GitHub](https://github.com/henrypp/memreduct)                    | 内存释放, Q:偶尔选项置灰   |
-| Windows Memory Cleaner 2.8 | [GitHub](https://github.com/IgorMundstein/WinMemoryCleaner/)      |                            |
-| Wise Memory Optimizer      | [官网](https://www.wisecleaner.com.cn/wise-memory-optimizer.html) | Windows 内存整理和优化工具 |
 
 ### 卸载
 | 名称                  | 下载地址                                                            | 说明     |
