@@ -128,17 +128,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-27 16:41:05</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-06 10:49:58</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-06 16:19:40</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何安装和配置MinIO，包括创建数据目录、使用Docker运行MinIO服务、设置mc命令行工具的别名、进行数据同步和管理存储桶。还提到了MinIO的防盗链配置、私有存储桶的设置以及使用crontab定时同步的脚本示例。此外，列出了mc命令的常用功能和相关文档。
+    <strong>AI总结:</strong> 本文介绍了MinIO的安装配置过程，包括创建数据目录、启动MinIO服务、配置mc命令行工具与云存储服务的别名、同步数据以及使用cron定时任务实现自动同步。同时，文中还提到如何设置MinIO的公共和私有存储桶、生成签名链接、配置防盗链、以及管理存储桶和对象的命令。
 
 优化建议：
-1. 在docker run命令中，建议使用环境变量来存储敏感信息，如ACCESS_KEY和ACCESS_SECRET，以增强安全性。
-2. 在同步脚本中，添加对错误处理的支持，以便在任务失败时能够记录日志并进行相应处理。
-3. 对于防盗链的配置，建议提供详细的nginx配置示例，以便用户更容易理解和实施。
-4. 在mc命令部分，可以提供每个命令的具体示例，以帮助用户更快上手。
-5. 增加对MinIO和mc命令的性能优化建议，例如使用多线程或并行处理来提高数据同步效率。
+1. 在docker run命令中，建议使用环境变量文件来管理敏感信息（如ACCESS_KEY和SECRET_KEY），以提高安全性。
+2. 可以在脚本中添加日志记录功能，以便跟踪同步任务的执行情况。
+3. 提供更详细的错误处理机制，以便在任务失败时能够及时通知管理员。
+4. 考虑使用更复杂的调度策略，而不仅仅是每分钟执行一次，以提高资源利用效率。
+5. 对于mc命令的分类，可以考虑将其整理成表格形式，以便于查阅和使用。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -221,27 +221,170 @@ touch <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$LOCK
 └───────┴─────────────┴──────────┴───────┘
 </code></pre>
 <div class="markdown-heading"><h2 class="heading-element">mc命令</h2><a id="user-content-mc命令" class="anchor" aria-label="Permalink: mc命令" href="#mc命令"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>alias：管理配置文件中的服务器凭据。
-ls：列出存储桶和对象。
-mb：创建存储桶。
-rb：删除存储桶。
-cp：复制对象。
-mv：移动对象。
-rm：删除对象。
-mirror：将对象同步到远程站点。
-cat：显示对象内容。
-head：显示对象的前n行。
-pipe：将STDIN流传输到对象。
-find：搜索对象。
-sql：在对象上运行SQL查询。
-stat：显示对象元数据。
-tree：以树状格式列出存储桶和对象。
-du：递归地总结磁盘使用情况。
-retention：为对象设置保留。
-legalhold：管理对象的法律保留。
-support：与支持相关的命令。
-license：与许可相关的命令。
-share：生成临时访问对象的URL。</p>
+<table>
+<thead>
+<tr>
+<th><strong>分类</strong></th>
+<th><strong>命令</strong></th>
+<th><strong>功能说明</strong></th>
+<th><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>配置管理</strong></td>
+<td><code>mc alias</code></td>
+<td>添加/管理云存储服务别名</td>
+<td><code>mc alias set myminio http://localhost:9000 ACCESS_KEY SECRET_KEY</code></td>
+</tr>
+<tr>
+<td><strong>配置管理</strong></td>
+<td><code>mc config host list</code></td>
+<td>列出所有已配置的别名</td>
+<td><code>mc config host list</code></td>
+</tr>
+<tr>
+<td><strong>存储桶操作</strong></td>
+<td><code>mc mb</code></td>
+<td>创建存储桶</td>
+<td><code>mc mb myminio/mybucket</code></td>
+</tr>
+<tr>
+<td><strong>存储桶操作</strong></td>
+<td><code>mc ls</code></td>
+<td>列出存储桶或对象（支持 <code>--recursive</code> 递归）</td>
+<td><code>mc ls myminio/mybucket/docs/</code></td>
+</tr>
+<tr>
+<td><strong>存储桶操作</strong></td>
+<td><code>mc rb</code></td>
+<td>删除空存储桶</td>
+<td><code>mc rb myminio/mybucket</code></td>
+</tr>
+<tr>
+<td><strong>存储桶操作</strong></td>
+<td><code>mc du</code></td>
+<td>显示存储桶/目录占用空间</td>
+<td><code>mc du myminio/mybucket --recursive</code></td>
+</tr>
+<tr>
+<td><strong>存储桶操作</strong></td>
+<td><code>mc mirror</code></td>
+<td>同步本地目录到存储桶</td>
+<td><code>mc mirror ./local_dir myminio/mybucket</code></td>
+</tr>
+<tr>
+<td><strong>对象操作</strong></td>
+<td><code>mc cp</code></td>
+<td>上传/下载文件或目录</td>
+<td>
+<code>mc cp file.txt myminio/mybucket/docs/</code><br><code>mc cp myminio/mybucket/file.txt ./</code>
+</td>
+</tr>
+<tr>
+<td><strong>对象操作</strong></td>
+<td><code>mc mv</code></td>
+<td>移动对象</td>
+<td><code>mc mv myminio/mybucket/old.txt myminio/mybucket/new.txt</code></td>
+</tr>
+<tr>
+<td><strong>对象操作</strong></td>
+<td><code>mc rm</code></td>
+<td>删除对象（支持 <code>--recursive</code> 递归）</td>
+<td><code>mc rm myminio/mybucket/temp --recursive</code></td>
+</tr>
+<tr>
+<td><strong>对象操作</strong></td>
+<td><code>mc stat</code></td>
+<td>查看对象详细信息</td>
+<td><code>mc stat myminio/mybucket/file.zip</code></td>
+</tr>
+<tr>
+<td><strong>对象操作</strong></td>
+<td><code>mc cat</code></td>
+<td>直接输出对象内容到控制台</td>
+<td><code>mc cat myminio/mybucket/logs/app.log</code></td>
+</tr>
+<tr>
+<td><strong>对象操作</strong></td>
+<td><code>mc diff</code></td>
+<td>比较两个存储桶/目录内容差异</td>
+<td><code>mc diff myminio/mybucket myminio/anotherbucket</code></td>
+</tr>
+<tr>
+<td><strong>权限管理</strong></td>
+<td><code>mc policy</code></td>
+<td>设置存储桶访问策略（<code>none</code>, <code>download</code>, <code>upload</code>, <code>public</code>）</td>
+<td><code>mc policy set public myminio/mybucket</code></td>
+</tr>
+<tr>
+<td><strong>权限管理</strong></td>
+<td><code>mc admin policy</code></td>
+<td>管理用户权限策略（需管理员权限）</td>
+<td><code>mc admin policy create myminio mypolicy policy.json</code></td>
+</tr>
+<tr>
+<td><strong>权限管理</strong></td>
+<td><code>mc admin user</code></td>
+<td>管理用户（添加/删除/启用/禁用）</td>
+<td><code>mc admin user add myminio newuser newpassword</code></td>
+</tr>
+<tr>
+<td><strong>分享与访问</strong></td>
+<td><code>mc share download</code></td>
+<td>生成文件临时下载链接（默认7天有效期）</td>
+<td><code>mc share download myminio/mybucket/file.pdf --expire=72h</code></td>
+</tr>
+<tr>
+<td><strong>分享与访问</strong></td>
+<td><code>mc share upload</code></td>
+<td>生成文件上传链接</td>
+<td><code>mc share upload myminio/mybucket/ --expire=24h</code></td>
+</tr>
+<tr>
+<td><strong>运维与监控</strong></td>
+<td><code>mc admin info</code></td>
+<td>显示服务器健康状态</td>
+<td><code>mc admin info myminio</code></td>
+</tr>
+<tr>
+<td><strong>运维与监控</strong></td>
+<td><code>mc admin server info</code></td>
+<td>查看单个节点详细信息</td>
+<td><code>mc admin server info myminio/</code></td>
+</tr>
+<tr>
+<td><strong>运维与监控</strong></td>
+<td><code>mc support diag</code></td>
+<td>生成诊断报告</td>
+<td><code>mc support diag myminio</code></td>
+</tr>
+<tr>
+<td><strong>运维与监控</strong></td>
+<td><code>mc watch</code></td>
+<td>实时监控存储桶事件</td>
+<td><code>mc watch myminio/mybucket</code></td>
+</tr>
+<tr>
+<td><strong>其他实用</strong></td>
+<td><code>mc find</code></td>
+<td>根据条件查找文件（名称、大小、时间等）</td>
+<td><code>mc find myminio/mybucket --name "*.log" --size "+10MB"</code></td>
+</tr>
+<tr>
+<td><strong>其他实用</strong></td>
+<td><code>mc sql</code></td>
+<td>使用 SQL 查询对象数据（需配置）</td>
+<td><code>mc sql myminio/mybucket "SELECT * FROM S3Object"</code></td>
+</tr>
+<tr>
+<td><strong>其他实用</strong></td>
+<td><code>mc encrypt</code></td>
+<td>配置存储桶加密</td>
+<td><code>mc encrypt set sse-s3 myminio/mybucket</code></td>
+</tr>
+</tbody>
+</table>
 <div class="markdown-heading"><h2 class="heading-element">相关文档</h2><a id="user-content-相关文档" class="anchor" aria-label="Permalink: 相关文档" href="#相关文档"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>
 <li><a href="https://min.io/docs/minio/linux/developers/minio-drivers.html" rel="nofollow">minio sdk</a></li>
