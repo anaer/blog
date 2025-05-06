@@ -130,17 +130,67 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-05-05 12:14:47</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-05 23:11:18</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-06 23:13:48</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了三个软件项目的变更说明。首先，RIME-LMDG dict-nightly提供了Rime输入法的语法模型构建教程和最新中文词库文件。其次，QuickLook latest将macOS的“快速查看”功能引入Windows。最后，mihomo Prerelease-Alpha是一个用于Honkai: Star Rail的Python Pydantic模型，已更新至最新版本。
+    <strong>AI总结:</strong> 本文介绍了多个软件和工具的最新版本及其变更说明，包括一个开源的协作笔记和文档平台、RIME输入法的语法模型、Windows的Quick Look功能、一个高效的Windows包管理器以及一个用于Honkai: Star Rail数据解析的Python模型。主要更新内容涵盖了表格功能的增强、文档搜索优化、语言支持、文件安全性提升以及新贡献者的加入等多个方面。
 
-优化建议：在变更说明中增加具体的功能改进和用户反馈，以便用户更清楚地了解每个项目的更新内容和实用性。此外，可以考虑提供使用指南或示例，以帮助用户更有效地利用这些软件。
+优化建议：
+1. 对每个软件的主要功能和目标进行简要描述，以便用户快速理解其用途。
+2. 在变更说明中，使用统一的格式和术语，确保信息的清晰和一致性。
+3. 提供每个软件的下载链接或获取方式，方便用户直接访问。
+4. 增加用户反馈或使用案例，以帮助潜在用户评估软件的实用性。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
-</h1><a id="user-content-1-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 1. RIME-LMDG dict-nightly" href="#1-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/suitenumerique/docs/releases/tag/v3.2.0">docs v3.2.0</a>
+</h1><a id="user-content-1-docs-v320" class="anchor" aria-label="Permalink: 1. docs v3.2.0" href="#1-docs-v320"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A collaborative note taking, wiki and documentation platform that scales. Built with Django and React. Opensource alternative to Notion or Outline.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Thanks to  - Tables have gotten a huge overhaul, gaining some big new features along the way:</p>
+<ul>
+<li>Merging &amp; splitting cells</li>
+<li>Cell background &amp; text color</li>
+<li>Cell text alignment</li>
+<li>Table header rows &amp; columns</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Added</h2><a id="user-content-added" class="anchor" aria-label="Permalink: Added" href="#added"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>🚸(backend) make document search on title accent-insensitive</li>
+<li>🚩 add homepage feature flag</li>
+<li>✨(settings) Allow configuring PKCE for the SSO</li>
+<li>🌐(i18n) activate chinese and spanish languages</li>
+<li>🔧(backend) allow overwriting the data directory</li>
+<li>➕(backend) add  <code>django-lasuite</code> dependency</li>
+<li>✨(frontend) advanced table features</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Changed</h2><a id="user-content-changed" class="anchor" aria-label="Permalink: Changed" href="#changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>⚡️(frontend) reduce unblocking time for config</li>
+<li>♻️(frontend) bind UI with ability access</li>
+<li>♻️(frontend) use built-in Quote block</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Fixed</h2><a id="user-content-fixed" class="anchor" aria-label="Permalink: Fixed" href="#fixed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>🐛(nginx) fix 404 when accessing a doc</li>
+<li>🔒️(drf) disable browsable HTML API renderer</li>
+<li>🔒(frontend) enhance file download security</li>
+<li>🐛(backend) race condition create doc</li>
+<li>🐛(frontend) fix breaklines in custom blocks</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+<p><strong>Full Blocknotejs Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
+</h1><a id="user-content-2-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 2. RIME-LMDG dict-nightly" href="#2-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Rime输入法语法模型全流程构建教程，全局带声调词库：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
 <details>
 <summary>变更说明</summary>
@@ -149,14 +199,21 @@ pre {
 <code>cn_dicts.zip</code>：最新的中文词库文件。</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/QL-Win/QuickLook/releases/tag/latest">QuickLook latest</a>
-</h1><a id="user-content-2-quicklook-latest" class="anchor" aria-label="Permalink: 2. QuickLook latest" href="#2-quicklook-latest"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/QL-Win/QuickLook/releases/tag/latest">QuickLook latest</a>
+</h1><a id="user-content-3-quicklook-latest" class="anchor" aria-label="Permalink: 3. QuickLook latest" href="#3-quicklook-latest"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Bring macOS “Quick Look” feature to Windows</p>
 <details>
 <summary>变更说明</summary>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
-</h1><a id="user-content-3-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 3. mihomo Prerelease-Alpha" href="#3-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/Super1Windcloud/hyperscoop/releases/tag/4.0.6">hyperscoop 4.0.6</a>
+</h1><a id="user-content-4-hyperscoop-406" class="anchor" aria-label="Permalink: 4. hyperscoop 4.0.6" href="#4-hyperscoop-406"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>次世代更快,更强, 更精美的windows 包管理器 By Rust , Next-generation, faster, more powerful, and more refined Windows package manager</p>
+<details>
+<summary>变更说明</summary>
+<p>Hp  '4.0.6'  is published, 已支持URL直链安装。见hp i -h</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
+</h1><a id="user-content-5-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 5. mihomo Prerelease-Alpha" href="#5-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
 <details>
 <summary>变更说明</summary>
