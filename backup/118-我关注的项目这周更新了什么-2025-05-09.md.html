@@ -1,9 +1,165 @@
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/suitenumerique/docs/releases/tag/v3.2.0">docs v3.2.0</a>
-</h1><a id="user-content-1-docs-v320" class="anchor" aria-label="Permalink: 1. docs v3.2.0" href="#1-docs-v320"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/readest/readest/releases/tag/v0.9.39">readest v0.9.39</a>
+</h1><a id="user-content-1-readest-v0939" class="anchor" aria-label="Permalink: 1. readest v0.9.39" href="#1-readest-v0939"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Enhanced Navigation: Added location information to the table of contents</li>
+<li>Enhanced Navigation: Larger touch targets for table of contents expansion icons</li>
+<li>Screen Orientation Lock: You can now lock your device's screen orientation when reading</li>
+<li>Quick Access to Recent Books: Option to automatically open your last read book when starting the app</li>
+<li>Better Language Support: Improved handling of CJK characters in search</li>
+<li>Enhanced Text-to-Speech: More accurate language detection for TTS</li>
+<li>Enhanced Text-to-Speech: Text-to-Speech now maintains your position in scroll mode</li>
+<li>Enhanced Annotations: Better handling of annotations with ruby elements in Japanese books</li>
+<li>Smoother Scrolling: We've made continuous scrolling more reliable for a seamless reading experience 1</li>
+<li>Compact View: Reading view is more compact when header and footer are hidden 1</li>
+<li>TXT Parsing: More robust handling of TXT book format</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: reactivating volume keys interception when resumed from background on iOS</li>
+<li>fix: import system fonts list on Android</li>
+<li>fix: filter out some non-free fonts on Android and Linux, closes</li>
+<li>fix: also overriding anchor color when overriding font in dark mode, closes</li>
+<li>fix: handle full CJK Unified Ideographs in search terms, closes</li>
+<li>fix: more robust method to detect language for TTS</li>
+<li>fix: skip rt elements in annotation and search for Japanese books, closes</li>
+<li>fix: more robust txt parser</li>
+<li>fix: volume retained when app is in background for iOS</li>
+<li>feat: add location info for each entry in table of contents</li>
+<li>fix: more robust continuous scroll, closes</li>
+<li>refactor: unify hooks for pagination and continuous scroll</li>
+<li>fix: don't preview font style for system fonts on Linux, closes</li>
+<li>fix: escape special characters when converting from txt to epub, closes</li>
+<li>feat: support locking screen orientation, closes</li>
+<li>fix: TTS timeout options should popup now in iOS</li>
+<li>fix: override text-indent when overriding book layout, closes</li>
+<li>fix: padding drag handler on Android, closes</li>
+<li>fix: more robust txt parser, closes</li>
+<li>fix: expanding clickable region of TOC expander icons, closes</li>
+<li>fix: calculate vw/vh size from iframe viewport, closes</li>
+<li>fix: don't scroll when selection is in current page in TTS, closes</li>
+<li>fix: use separate compact margin and gap when header and footer are dismissed, closes</li>
+<li>feat: add option to open last book on start, closes</li>
+<li>fix: replace bg color only for non-default theme color, closes</li>
+<li>fix: temporarily disable font name with style for windows</li>
+<li>release: version 0.9.39</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/v3.5.0-M2">fit-framework v3.5.0-M2</a>
+</h1><a id="user-content-2-fit-framework-v350-m2" class="anchor" aria-label="Permalink: 2. fit-framework v3.5.0-M2" href="#2-fit-framework-v350-m2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">这是 FIT Framework 社区 3.5.0 版本的第二个里程碑的发布！</h2><a id="user-content-这是-fit-framework-社区-350-版本的第二个里程碑的发布" class="anchor" aria-label="Permalink: 这是 FIT Framework 社区 3.5.0 版本的第二个里程碑的发布！" href="#这是-fit-framework-社区-350-版本的第二个里程碑的发布"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">FIT 函数平台</h2><a id="user-content-fit-函数平台" class="anchor" aria-label="Permalink: FIT 函数平台" href="#fit-函数平台"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">✨ 升级优化</h3><a id="user-content--升级优化" class="anchor" aria-label="Permalink: ✨ 升级优化" href="#-升级优化"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>支持 mybatis 配置自动下划线转驼峰</li>
+<li>添加 fit-security-simple 插件</li>
+<li>捕获流式调用报错信息</li>
+<li>升级 python 依赖三方包的版本</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">✅ 问题修复</h3><a id="user-content--问题修复" class="anchor" aria-label="Permalink: ✅ 问题修复" href="#-问题修复"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>修复校验泛型元素为空时的错误</li>
+<li>修复 http 进行流式下载时，status code 返回 0 导致链接中断的问题</li>
+<li>修复广播模式下如果 genericable 无返回值时的报错问题</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Waterflow 流调度平台</h2><a id="user-content-waterflow-流调度平台" class="anchor" aria-label="Permalink: Waterflow 流调度平台" href="#waterflow-流调度平台"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">🚀 功能特性</h3><a id="user-content--功能特性" class="anchor" aria-label="Permalink: 🚀 功能特性" href="#-功能特性"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>支持 FIT for Java 插件自动扫描并生成工具元数据。</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">✨ 升级优化</h3><a id="user-content--升级优化-1" class="anchor" aria-label="Permalink: ✨ 升级优化" href="#-升级优化-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>修改 ohscript 生成随机 uuid 方式提升性能</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Elsa 图形编辑平台</h2><a id="user-content-elsa-图形编辑平台" class="anchor" aria-label="Permalink: Elsa 图形编辑平台" href="#elsa-图形编辑平台"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">🚀 功能特性</h3><a id="user-content--功能特性-1" class="anchor" aria-label="Permalink: 🚀 功能特性" href="#-功能特性-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h4 class="heading-element">核心框架 (elsa)</h4><a id="user-content-核心框架-elsa" class="anchor" aria-label="Permalink: 核心框架 (elsa)" href="#核心框架-elsa"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p>图形具备统一的抽象数据结构。</p>
+<ul>
+<li>Graph、Page、Shape 结构通用于任意业务场景。</li>
+<li>全链路 JSON 序列化能力，兼容任何持久化存储方案。</li>
+</ul>
+</li>
+<li>
+<p>支持拖拽式流程编排。</p>
+<ul>
+<li>支持图形拖拽和画布拖拽，并提供节点整理和一键显示所有节点的能力。</li>
+</ul>
+</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h4 class="heading-element">前端应用 (elsa-react)</h4><a id="user-content-前端应用-elsa-react" class="anchor" aria-label="Permalink: 前端应用 (elsa-react)" href="#前端应用-elsa-react"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p>集成 React 的能力。</p>
+<ul>
+<li>基于 Context 的上下文传递机制。</li>
+<li>节点渲染缓存：React.memo + 自定义 shouldComponentUpdate。</li>
+</ul>
+</li>
+<li>
+<p>集成 Ant Design 的能力。</p>
+<ul>
+<li>基于 Form 组件的实时校验提示系统。</li>
+<li>基于 Tree 组件封装的节点上下文观察者机制。</li>
+</ul>
+</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">❤️ 贡献者</h2><a id="user-content-️-贡献者" class="anchor" aria-label="Permalink: ❤️ 贡献者" href="#️-贡献者"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p>以及感谢所有为此次发布做出贡献的人：</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/QL-Win/QuickLook/releases/tag/latest">QuickLook latest</a>
+</h1><a id="user-content-3-quicklook-latest" class="anchor" aria-label="Permalink: 3. QuickLook latest" href="#3-quicklook-latest"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Bring macOS “Quick Look” feature to Windows</p>
+<details>
+<summary>变更说明</summary>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.7.0-alpha.3">new-api v0.7.0-alpha.3</a>
+</h1><a id="user-content-4-new-api-v070-alpha3" class="anchor" aria-label="Permalink: 4. new-api v0.7.0-alpha.3" href="#4-new-api-v070-alpha3"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>feat: add original password verification when changing password</li>
+<li>fix: Redis limit ignoring max eq 0</li>
+<li>feat: implement OpenAI responses built-in tool tracking</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/suitenumerique/docs/releases/tag/v3.2.0">docs v3.2.0</a>
+</h1><a id="user-content-5-docs-v320" class="anchor" aria-label="Permalink: 5. docs v3.2.0" href="#5-docs-v320"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A collaborative note taking, wiki and documentation platform that scales. Built with Django and React. Opensource alternative to Notion or Outline.</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Thanks to  - Tables have gotten a huge overhaul, gaining some big new features along the way:</p>
 <ul>
 <li>Merging &amp; splitting cells</li>
@@ -35,7 +191,7 @@
 <li>🐛(backend) race condition create doc</li>
 <li>🐛(frontend) fix breaklines in custom blocks</li>
 </ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-1" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>made their first contribution in</li>
 <li>made their first contribution in</li>
@@ -44,8 +200,8 @@
 <p><strong>Full Changelog</strong>:</p>
 <p><strong>Full Blocknotejs Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
-</h1><a id="user-content-2-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 2. RIME-LMDG dict-nightly" href="#2-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/amzxyz/RIME-LMDG/releases/tag/dict-nightly">RIME-LMDG dict-nightly</a>
+</h1><a id="user-content-6-rime-lmdg-dict-nightly" class="anchor" aria-label="Permalink: 6. RIME-LMDG dict-nightly" href="#6-rime-lmdg-dict-nightly"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Rime输入法语法模型全流程构建教程，全局带声调词库：LMDG - Language, Model, Dictionary, Grammar。Q群：11033572</p>
 <details>
 <summary>变更说明</summary>
@@ -54,21 +210,8 @@
 <code>cn_dicts.zip</code>：最新的中文词库文件。</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/QL-Win/QuickLook/releases/tag/latest">QuickLook latest</a>
-</h1><a id="user-content-3-quicklook-latest" class="anchor" aria-label="Permalink: 3. QuickLook latest" href="#3-quicklook-latest"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Bring macOS “Quick Look” feature to Windows</p>
-<details>
-<summary>变更说明</summary>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/Super1Windcloud/hyperscoop/releases/tag/4.0.6">hyperscoop 4.0.6</a>
-</h1><a id="user-content-4-hyperscoop-406" class="anchor" aria-label="Permalink: 4. hyperscoop 4.0.6" href="#4-hyperscoop-406"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>次世代更快,更强, 更精美的windows 包管理器 By Rust , Next-generation, faster, more powerful, and more refined Windows package manager</p>
-<details>
-<summary>变更说明</summary>
-<p>Hp  '4.0.6'  is published, 已支持URL直链安装。见hp i -h</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
-</h1><a id="user-content-5-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 5. mihomo Prerelease-Alpha" href="#5-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
+</h1><a id="user-content-7-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 7. mihomo Prerelease-Alpha" href="#7-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
 <details>
 <summary>变更说明</summary>
