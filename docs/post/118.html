@@ -130,17 +130,83 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-05-05 12:14:47</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-07 23:11:54</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-08 12:14:55</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件项目的最新版本及其更新，包括FIT Framework、ublacklist、new-api、anx-reader、readest、mihomo、Ghosten-Player和termora。每个项目的更新内容涵盖了功能增强、问题修复以及新增特性，旨在提升用户体验和软件性能。例如，FIT Framework引入了流式调用的错误捕获和插件自动扫描功能；ublacklist增加了对yandex.ru的支持；anx-reader新增了DeepL翻译服务和E-ink模式等。同时，readest和Ghosten-Player也进行了多项优化和修复，提升了用户界面的友好性和操作的流畅性。
+    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新，包括Readest、TVBoxOSC、new-api、fit-framework、ublacklist、anx-reader、mihomo、Ghosten-Player和Termora。每个软件更新都包含了新功能、修复的bug和其他改进，旨在提升用户体验和软件性能。
 
-优化建议：在发布更新时，建议提供更详细的使用案例或示例，以帮助用户更好地理解新功能的实际应用。此外，考虑增加用户反馈渠道，以便收集使用体验和改进建议，从而持续优化软件。
+优化建议：
+1. 在每个软件的更新说明中，建议使用更清晰的标题和小节划分，以便用户快速找到关键信息。
+2. 对于修复的bug，添加具体的用户反馈或使用场景，以提升透明度。
+3. 考虑提供更新的版本对比，帮助用户了解新版本的优势。
+4. 增加用户使用指南或常见问题解答链接，以便用户更好地理解新功能的使用。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/v3.5.0-M2">fit-framework v3.5.0-M2</a>
-</h1><a id="user-content-1-fit-framework-v350-m2" class="anchor" aria-label="Permalink: 1. fit-framework v3.5.0-M2" href="#1-fit-framework-v350-m2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/readest/readest/releases/tag/v0.9.40">readest v0.9.40</a>
+</h1><a id="user-content-1-readest-v0940" class="anchor" aria-label="Permalink: 1. readest v0.9.40" href="#1-readest-v0940"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Prevented oversized images from causing layout issues</li>
+<li>Resolved issue with transient navigation bar on Android 9</li>
+<li>Action bar now closes properly when the footbar is dismissed</li>
+<li>Smoother experience when expanding Table of Contents sections</li>
+<li>Reverted unintended style overrides</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>doc: format issue templates</li>
+<li>fix: dialog drag handler layout, closes</li>
+<li>fix: segment separator now should be more than 8 dash, closes</li>
+<li>fix: avoid glitches when expanding toc subitems, closes</li>
+<li>fix: styling links and also the content of links, closes</li>
+<li>fix: revert to unlock screen orientation for library page, closes</li>
+<li>fix: transient navigation bar in Android 9, closes</li>
+<li>fix: close action bar when the footbar is dismissed, closes</li>
+<li>compat: fix insane img dimension might cause layout miscalculation, closes</li>
+<li>revert: unbreak style overriding, closes  and closes</li>
+<li>release: version 0.9.40</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/o0HalfLife0o/TVBoxOSC/releases/tag/20250508-0056">TVBoxOSC 20250508-0056</a>
+</h1><a id="user-content-2-tvboxosc-20250508-0056" class="anchor" aria-label="Permalink: 2. TVBoxOSC 20250508-0056" href="#2-tvboxosc-20250508-0056"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary>变更说明</summary>
+<p>Credit:
+Commit: 946f367807623f5a6a813446f072665c99f01cee
+Changelog:</p>
+<pre><code>fix bug
+规则rules配置兼容script{"name": "剧圈圈","hosts": ["jqqzx"],"script": ["document.getElementById('playleft').children[0].contentWindow.document.getElementById('start').click"]} 
+优化正则缓存和去广告 
+
+</code></pre>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.7.0-alpha.4">new-api v0.7.0-alpha.4</a>
+</h1><a id="user-content-3-new-api-v070-alpha4" class="anchor" aria-label="Permalink: 3. new-api v0.7.0-alpha.4" href="#3-new-api-v070-alpha4"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>feat: support model mapping chain 【支持链式模型重定向】</li>
+<li>fix: gemini response json schema</li>
+<li>fix: correct error messages for dall-e models size parameters</li>
+<li>Fix grok-2-image request error</li>
+<li>fix: tool quota calculate</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/v3.5.0-M2">fit-framework v3.5.0-M2</a>
+</h1><a id="user-content-4-fit-framework-v350-m2" class="anchor" aria-label="Permalink: 4. fit-framework v3.5.0-M2" href="#4-fit-framework-v350-m2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。</p>
 <details>
 <summary>变更说明</summary>
@@ -221,8 +287,8 @@ pre {
 </ul>
 <p>以及感谢所有为此次发布做出贡献的人：</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.11.0">ublacklist v8.11.0</a>
-</h1><a id="user-content-2-ublacklist-v8110" class="anchor" aria-label="Permalink: 2. ublacklist v8.11.0" href="#2-ublacklist-v8110"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.11.0">ublacklist v8.11.0</a>
+</h1><a id="user-content-5-ublacklist-v8110" class="anchor" aria-label="Permalink: 5. ublacklist v8.11.0" href="#5-ublacklist-v8110"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Blocks specific sites from appearing in Google search results</p>
 <details>
 <summary>变更说明</summary>
@@ -248,25 +314,8 @@ pre {
 <li>
 </li></ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.7.0-alpha.3">new-api v0.7.0-alpha.3</a>
-</h1><a id="user-content-3-new-api-v070-alpha3" class="anchor" aria-label="Permalink: 3. new-api v0.7.0-alpha.3" href="#3-new-api-v070-alpha3"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>feat: add original password verification when changing password</li>
-<li>fix: Redis limit ignoring max eq 0</li>
-<li>feat: implement OpenAI responses built-in tool tracking</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>made their first contribution in</li>
-</ul>
-<p><strong>Full Changelog</strong>:</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/Anxcye/anx-reader/releases/tag/beta-1.4.5-5">anx-reader beta-1.4.5-5</a>
-</h1><a id="user-content-4-anx-reader-beta-145-5" class="anchor" aria-label="Permalink: 4. anx-reader beta-1.4.5-5" href="#4-anx-reader-beta-145-5"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/Anxcye/anx-reader/releases/tag/beta-1.4.5-5">anx-reader beta-1.4.5-5</a>
+</h1><a id="user-content-6-anx-reader-beta-145-5" class="anchor" aria-label="Permalink: 6. anx-reader beta-1.4.5-5" href="#6-anx-reader-beta-145-5"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.</p>
 <details>
 <summary>变更说明</summary>
@@ -370,59 +419,8 @@ pre {
 </li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/readest/readest/releases/tag/v0.9.39">readest v0.9.39</a>
-</h1><a id="user-content-5-readest-v0939" class="anchor" aria-label="Permalink: 5. readest v0.9.39" href="#5-readest-v0939"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Readest is a modern, feature-rich ebook reader designed for avid readers offering seamless cross-platform access, powerful tools, and an intuitive interface to elevate your reading experience.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">Release Highlight</h2><a id="user-content-release-highlight" class="anchor" aria-label="Permalink: Release Highlight" href="#release-highlight"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>Enhanced Navigation: Added location information to the table of contents</li>
-<li>Enhanced Navigation: Larger touch targets for table of contents expansion icons</li>
-<li>Screen Orientation Lock: You can now lock your device's screen orientation when reading</li>
-<li>Quick Access to Recent Books: Option to automatically open your last read book when starting the app</li>
-<li>Better Language Support: Improved handling of CJK characters in search</li>
-<li>Enhanced Text-to-Speech: More accurate language detection for TTS</li>
-<li>Enhanced Text-to-Speech: Text-to-Speech now maintains your position in scroll mode</li>
-<li>Enhanced Annotations: Better handling of annotations with ruby elements in Japanese books</li>
-<li>Smoother Scrolling: We've made continuous scrolling more reliable for a seamless reading experience 1</li>
-<li>Compact View: Reading view is more compact when header and footer are hidden 1</li>
-<li>TXT Parsing: More robust handling of TXT book format</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>fix: reactivating volume keys interception when resumed from background on iOS</li>
-<li>fix: import system fonts list on Android</li>
-<li>fix: filter out some non-free fonts on Android and Linux, closes</li>
-<li>fix: also overriding anchor color when overriding font in dark mode, closes</li>
-<li>fix: handle full CJK Unified Ideographs in search terms, closes</li>
-<li>fix: more robust method to detect language for TTS</li>
-<li>fix: skip rt elements in annotation and search for Japanese books, closes</li>
-<li>fix: more robust txt parser</li>
-<li>fix: volume retained when app is in background for iOS</li>
-<li>feat: add location info for each entry in table of contents</li>
-<li>fix: more robust continuous scroll, closes</li>
-<li>refactor: unify hooks for pagination and continuous scroll</li>
-<li>fix: don't preview font style for system fonts on Linux, closes</li>
-<li>fix: escape special characters when converting from txt to epub, closes</li>
-<li>feat: support locking screen orientation, closes</li>
-<li>fix: TTS timeout options should popup now in iOS</li>
-<li>fix: override text-indent when overriding book layout, closes</li>
-<li>fix: padding drag handler on Android, closes</li>
-<li>fix: more robust txt parser, closes</li>
-<li>fix: expanding clickable region of TOC expander icons, closes</li>
-<li>fix: calculate vw/vh size from iframe viewport, closes</li>
-<li>fix: don't scroll when selection is in current page in TTS, closes</li>
-<li>fix: use separate compact margin and gap when header and footer are dismissed, closes</li>
-<li>feat: add option to open last book on start, closes</li>
-<li>fix: replace bg color only for non-default theme color, closes</li>
-<li>fix: temporarily disable font name with style for windows</li>
-<li>release: version 0.9.39</li>
-</ul>
-<p><strong>Full Changelog</strong>:</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
-</h1><a id="user-content-6-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 6. mihomo Prerelease-Alpha" href="#6-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
+</h1><a id="user-content-7-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 7. mihomo Prerelease-Alpha" href="#7-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
 <details>
 <summary>变更说明</summary>
@@ -430,8 +428,8 @@ pre {
 Synchronize Alpha branch code updates, keeping only the latest version
 <br></p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v2.0.2">Ghosten-Player v2.0.2</a>
-</h1><a id="user-content-7-ghosten-player-v202" class="anchor" aria-label="Permalink: 7. Ghosten-Player v2.0.2" href="#7-ghosten-player-v202"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v2.0.2">Ghosten-Player v2.0.2</a>
+</h1><a id="user-content-8-ghosten-player-v202" class="anchor" aria-label="Permalink: 8. Ghosten-Player v2.0.2" href="#8-ghosten-player-v202"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>一个同时适配📱Android Phone和📺Android TV的视频播放器。整合影视资源，自动刮削媒体信息，支持IPTV播放，优雅打造私人影视库。界面简洁，功能丰富，开箱即用。</p>
 <details>
 <summary>变更说明</summary>
@@ -452,8 +450,8 @@ QQ群 1033449405</p>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/TermoraDev/termora/releases/tag/1.0.14">termora 1.0.14</a>
-</h1><a id="user-content-8-termora-1014" class="anchor" aria-label="Permalink: 8. termora 1.0.14" href="#8-termora-1014"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">9. <a href="https://github.com/TermoraDev/termora/releases/tag/1.0.14">termora 1.0.14</a>
+</h1><a id="user-content-9-termora-1014" class="anchor" aria-label="Permalink: 9. termora 1.0.14" href="#9-termora-1014"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Termora is a terminal emulator and SSH client for Windows, macOS and Linux.</p>
 <details>
 <summary>变更说明</summary>
