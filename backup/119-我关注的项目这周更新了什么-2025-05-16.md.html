@@ -1,0 +1,28 @@
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.7">mihomo v1.19.7</a>
+</h1><a id="user-content-1-mihomo-v1197" class="anchor" aria-label="Permalink: 1. mihomo v1.19.7" href="#1-mihomo-v1197"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>The incompatible updates of the restful api not mentioned in the previous version of the changelog have been rolled back, solving the problem that the related gui cannot refresh the configuration</li>
+<li>Note that for security reasons, we are currently planning to restrict the "path" parameter of <code>/configs</code> in restful api in the next version, and its directory also needs to be in <code>SAFE_PATHS</code> or workdir. It is recommended that downstream clients adapt to this change in advance. (This change has been applied to alpha version 2116640)</li>
+<li>Other incompatible updates are the same as v1.19.6:</li>
+</ul>
+<blockquote>
+<ul>
+<li>For security reasons, all paths appearing in the configuration file will be limited to workdir (regardless of whether they are relative or absolute). If there is a specific need, please specify additional safe paths by setting the <code>SAFE_PATHS</code> environment variable while ensuring safety. The syntax of this environment variable is the same as the PATH environment variable parsing rules of this operating system (i.e., semicolon-separated under Windows and colon-separated under other systems)</li>
+<li>In addition, support for specifying <code>routing-mark</code> and <code>interface-name</code> for <code>proxy-groups</code> has been removed. Please specify the relevant parameters in <code>proxies</code> directly.</li>
+</ul>
+</blockquote>
+<div class="markdown-heading"><h2 class="heading-element">BUG &amp; Fix</h2><a id="user-content-bug--fix" class="anchor" aria-label="Permalink: BUG &amp; Fix" href="#bug--fix"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>d22a8930 fix: hysteria server port hopping compatibility issues</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Maintenance</h2><a id="user-content-maintenance" class="anchor" aria-label="Permalink: Maintenance" href="#maintenance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>00cceba8 docs: update config.yaml follow 7e7016b</li>
+<li>a4fcd3af chore: rollback incompatible changes to updateConfigs api</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
