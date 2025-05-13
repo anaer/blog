@@ -130,16 +130,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-05-12 12:15:19</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-12 23:12:00</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-13 12:14:42</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新和变更说明，包括mihomo v1.19.7、ublacklist v8.11.1、anx-reader beta-1.5.2-2、LangBot v4.0.0和LazyVim v14.15.0。主要更新内容涉及API的安全性和兼容性改进、性能提升、增强用户界面、修复已知漏洞等。特别是LangBot 4.0进行了大量代码重构，提升了易用性，并引入了全新的WebUI，简化了配置过程。
+    <strong>AI总结:</strong> 本文介绍了多个软件版本的更新，包括mihomo、LangBot、subs-check、duplicati、ublacklist、anx-reader和LazyVim。这些更新涵盖了API变更、功能增强、用户界面改进、Bug修复和性能优化等方面。例如，mihomo v1.19.7回滚了不兼容的API更新，LangBot v4.0.0重构了代码并引入了全新的WebUI，duplicati v2.1.0.118增强了“修复”命令的逻辑等。
 
-优化建议：
-1. 对于每个软件的更新，建议明确列出新功能和修复的具体影响，以便用户快速了解变化。
-2. 在变更说明中增加版本号和发布日期，以便用户跟踪更新历史。
-3. 提供更详细的安全性改进说明，帮助用户理解潜在风险和应对措施。
-4. 对于LangBot的WebUI，建议附上使用示例或教程，帮助用户更好地适应新界面。
+优化建议：在每个软件更新的描述中，增加具体的使用场景和用户反馈，以帮助用户更好地理解新功能的实际应用。同时，提供简明的升级指南和注意事项，以便用户顺利过渡到新版本。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -171,76 +167,8 @@ pre {
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.11.1">ublacklist v8.11.1</a>
-</h1><a id="user-content-2-ublacklist-v8111" class="anchor" aria-label="Permalink: 2. ublacklist v8.11.1" href="#2-ublacklist-v8111"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Blocks specific sites from appearing in Google search results</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">(2025-05-12)</h2><a id="user-content-2025-05-12" class="anchor" aria-label="Permalink: (2025-05-12)" href="#2025-05-12"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h3 class="heading-element">Bug Fixes</h3><a id="user-content-bug-fixes" class="anchor" aria-label="Permalink: Bug Fixes" href="#bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>
-<strong>serpinfo:</strong> reject invalid prop names</li>
-<li>update website URLs. Ref</li>
-</ul>
-<div class="markdown-heading"><h3 class="heading-element">Performance Improvements</h3><a id="user-content-performance-improvements" class="anchor" aria-label="Permalink: Performance Improvements" href="#performance-improvements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>
-<strong>serpinfo:</strong> improve performance</li>
-</ul>
-<hr>
-<div class="markdown-heading"><h2 class="heading-element">This release is also available on:</h2><a id="user-content-this-release-is-also-available-on" class="anchor" aria-label="Permalink: This release is also available on:" href="#this-release-is-also-available-on"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>
-</li></ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/Anxcye/anx-reader/releases/tag/beta-1.5.2-2">anx-reader beta-1.5.2-2</a>
-</h1><a id="user-content-3-anx-reader-beta-152-2" class="anchor" aria-label="Permalink: 3. anx-reader beta-1.5.2-2" href="#3-anx-reader-beta-152-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">1.5.2</h2><a id="user-content-152" class="anchor" aria-label="Permalink: 1.5.2" href="#152"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>
-<p>Feat: iOS dark and tinted icons</p>
-</li>
-<li>
-<p>Feat: Custom reading background image</p>
-</li>
-<li>
-<p>Feat: Import any custom reading background</p>
-</li>
-<li>
-<p>Feat: Custom writing direction(Horizontal, Vertical)</p>
-</li>
-<li>
-<p>Fix: WebDAV sync may override cloud data</p>
-</li>
-<li>
-<p>Fix: TTS may stop when encountering some punctuation</p>
-</li>
-<li>
-<p>新增：iOS 深色、着色图标</p>
-</li>
-<li>
-<p>新增：设置阅读背景图片</p>
-</li>
-<li>
-<p>新增：导入任意自定义阅读背景</p>
-</li>
-<li>
-<p>新增：可以选择文字方向（横排、竖排）</p>
-</li>
-<li>
-<p>修复：WebDAV 同步时可能会覆盖云端数据</p>
-</li>
-<li>
-<p>修复：遇到部分标点时朗读停止</p>
-</li>
-</ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v4.0.0">LangBot v4.0.0</a>
-</h1><a id="user-content-4-langbot-v400" class="anchor" aria-label="Permalink: 4. LangBot v4.0.0" href="#4-langbot-v400"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v4.0.0">LangBot v4.0.0</a>
+</h1><a id="user-content-2-langbot-v400" class="anchor" aria-label="Permalink: 2. LangBot v4.0.0" href="#2-langbot-v400"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>😎简单易用、🧩丰富生态 - 大模型原生即时通信机器人平台 适配 QQ / 微信（企业微信、个人微信）/ 飞书 / 钉钉 / Discord / Telegram / Slack 等平台 支持 ChatGPT、DeepSeek、Dify、Claude、Gemini、xAI、PPIO、Ollama、LM Studio、阿里云百炼、火山方舟、SiliconFlow、Qwen、Moonshot、ChatGLM、SillyTraven、MCP 等 LLM 的机器人 / Agent LLM-based instant messaging bots platform, supports Discord, Telegram, WeChat, Lark, DingTalk, QQ, Slack</p>
 <details>
 <summary>变更说明</summary>
@@ -301,8 +229,161 @@ pre {
 *  made their first contribution in 
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/LazyVim/LazyVim/releases/tag/v14.15.0">LazyVim v14.15.0</a>
-</h1><a id="user-content-5-lazyvim-v14150" class="anchor" aria-label="Permalink: 5. LazyVim v14.15.0" href="#5-lazyvim-v14150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.2.2">subs-check v2.2.2</a>
+</h1><a id="user-content-3-subs-check-v222" class="anchor" aria-label="Permalink: 3. subs-check v2.2.2" href="#3-subs-check-v222"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换合并，节点可用性，测速，重命名，导出为clash.meta/clash/base64/qx等等所有格式的订阅工具</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>73fe38716a1c7967719fa81516e91ea8c8fcea33 fix: 临时注释ss mux，防止卡住</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/duplicati/duplicati/releases/tag/v2.1.0.118_canary_2025-05-12">duplicati v2.1.0.118_canary_2025-05-12</a>
+</h1><a id="user-content-4-duplicati-v210118_canary_2025-05-12" class="anchor" aria-label="Permalink: 4. duplicati v2.1.0.118_canary_2025-05-12" href="#4-duplicati-v210118_canary_2025-05-12"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Store securely encrypted backups in the cloud!</p>
+<details>
+<summary>变更说明</summary>
+<p>This release is a canary release intended to be used for testing.</p>
+<h1></h1>
+<div class="markdown-heading"><h1 class="heading-element">Major changes in this version</h1><a id="user-content-major-changes-in-this-version" class="anchor" aria-label="Permalink: Major changes in this version" href="#major-changes-in-this-version"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>This version has a number of minor fixes and a major rewrite of the the "repair" command.
+The logic for the "repair" command is that it should be possible to recover loss of <code>.dblock</code> files, if the data is still present locally.
+This logic has been fixed in multiple ways and now also supports recovering data, even if no individual <code>.dblock</code> volumes can be fully recovered.
+In this case, the repair will recreate as much data as possible in new <code>.dblock</code> files, and configure it so as many files as possible are available.</p>
+<p>The <code>purge-broken-files</code> can be used after repair has failed to recover eveything, and will only purge the files that were lost.
+The <code>purge-broken-files</code> command has also been updated to support using incorrect metadata, such that files are not purged if they are only missing metadata.</p>
+<p>There are again numerous fixes to ngclient, including some faster browsing of restore contents, and better remote validation of folder contents.
+The UI now supports a number of different languages.</p>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Database version upgrade to v16</h2><a id="user-content-database-version-upgrade-to-v16" class="anchor" aria-label="Permalink: Database version upgrade to v16" href="#database-version-upgrade-to-v16"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>The local database is again upgraded with two index changes for correctness and performance.
+The bundled <code>Duplicati.CommandLine.DatabaseTool.exe</code> / <code>duplicati-database-tool</code> can downgrade databases.
+Since the change is only index addition, there is no data loss on downgrades.</p>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Detailed list of changes:</h2><a id="user-content-detailed-list-of-changes" class="anchor" aria-label="Permalink: Detailed list of changes:" href="#detailed-list-of-changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Support <code>CACHEDIR.TAG</code> as a default exclude file marker</li>
+<li>Improved <code>list-broken-files</code> to more accurately show contents, thanks</li>
+<li>Added new faster API for listing restores (only used in ngclient)</li>
+<li>Added new API for testing to check for existing files (only used in ngclient)</li>
+<li>Updated translations, thanks to all the translators</li>
+<li>Fixed pCloud OAuth url in CLI</li>
+<li>Improved logic for combining Regex filters, thanks</li>
+<li>Improved error parsing for <code>box.com</code> backend</li>
+<li>Simplified log closing to avoid cases where the log file is kept open</li>
+<li>Prevent database actions when delete is invoked with no versions to delete</li>
+<li>Updated throttle library to force more smooth output</li>
+<li>Tracking task metadata (start/stop time) for better log scoping</li>
+<li>Fixed AuthID not being reported as a password property</li>
+<li>Removed CloudFiles backend</li>
+<li>Fixed issue with throttle not working correctly on some backends</li>
+<li>Fixed an issue with rclone giving errors after each operation</li>
+<li>Fixed repair command to support repairs with partial data available</li>
+<li>Updated local DB schema to v16 (two new indexes)</li>
+<li>Fixed scheduling order when starting a backup</li>
+<li>Fixed case where warnings were emitted if the local data contains duplicates during repair, thanks  and</li>
+<li>Updated iDrivee2 to use HttpClient</li>
+<li>Updated TahoeLAFS to use HttpClient</li>
+<li>Removed long-standing <code>FIXMEGlobal</code> class</li>
+<li>Fixed issue with <code>server-util</code> timing out after 15 min, if using the <code>--wait</code> option</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Ngclient changes:</h2><a id="user-content-ngclient-changes" class="anchor" aria-label="Permalink: Ngclient changes:" href="#ngclient-changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Fixed "Export as commandline"</li>
+<li>Prevent GUI commandline from sending empty arguments</li>
+<li>Fixed some options were missing from the commandline view</li>
+<li>Added some confirmation dialogs</li>
+<li>Added indicator to show if backup is encrypted</li>
+<li>Improved notification state not always showing errors</li>
+<li>Fixed issue with multiple request fired on restore browsing</li>
+<li>Updated restore to use new faster API, if available</li>
+<li>Fixed issue with percent-encoded paths from configuration import</li>
+<li>Fixed issues with Test button not detecting SSL certificates or SSH key changes in all places</li>
+<li>Updated the Test button to check for existing files if the API is available</li>
+<li>Stop restore attempts early on known fatal errors (passphrase missing, empty folder, etc)</li>
+<li>Fixed an issue with advanced option lists not showing the correct labels</li>
+<li>Added a restore progress page</li>
+<li>Support multiple root folders on restore</li>
+<li>Test destination has a spinner while active</li>
+<li>Added spinners for long-running tasks from the start page</li>
+<li>Added TahoeLAFS UI</li>
+<li>Fixed the Live logs area</li>
+<li>Added multiple languages to the UI, thanks to all the translators</li>
+<li>Updated login page and loading indicator</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.11.1">ublacklist v8.11.1</a>
+</h1><a id="user-content-5-ublacklist-v8111" class="anchor" aria-label="Permalink: 5. ublacklist v8.11.1" href="#5-ublacklist-v8111"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Blocks specific sites from appearing in Google search results</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">(2025-05-12)</h2><a id="user-content-2025-05-12" class="anchor" aria-label="Permalink: (2025-05-12)" href="#2025-05-12"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">Bug Fixes</h3><a id="user-content-bug-fixes" class="anchor" aria-label="Permalink: Bug Fixes" href="#bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>serpinfo:</strong> reject invalid prop names</li>
+<li>update website URLs. Ref</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">Performance Improvements</h3><a id="user-content-performance-improvements" class="anchor" aria-label="Permalink: Performance Improvements" href="#performance-improvements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>serpinfo:</strong> improve performance</li>
+</ul>
+<hr>
+<div class="markdown-heading"><h2 class="heading-element">This release is also available on:</h2><a id="user-content-this-release-is-also-available-on" class="anchor" aria-label="Permalink: This release is also available on:" href="#this-release-is-also-available-on"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+</li></ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/Anxcye/anx-reader/releases/tag/beta-1.5.2-2">anx-reader beta-1.5.2-2</a>
+</h1><a id="user-content-6-anx-reader-beta-152-2" class="anchor" aria-label="Permalink: 6. anx-reader beta-1.5.2-2" href="#6-anx-reader-beta-152-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">1.5.2</h2><a id="user-content-152" class="anchor" aria-label="Permalink: 1.5.2" href="#152"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p>Feat: iOS dark and tinted icons</p>
+</li>
+<li>
+<p>Feat: Custom reading background image</p>
+</li>
+<li>
+<p>Feat: Import any custom reading background</p>
+</li>
+<li>
+<p>Feat: Custom writing direction(Horizontal, Vertical)</p>
+</li>
+<li>
+<p>Fix: WebDAV sync may override cloud data</p>
+</li>
+<li>
+<p>Fix: TTS may stop when encountering some punctuation</p>
+</li>
+<li>
+<p>新增：iOS 深色、着色图标</p>
+</li>
+<li>
+<p>新增：设置阅读背景图片</p>
+</li>
+<li>
+<p>新增：导入任意自定义阅读背景</p>
+</li>
+<li>
+<p>新增：可以选择文字方向（横排、竖排）</p>
+</li>
+<li>
+<p>修复：WebDAV 同步时可能会覆盖云端数据</p>
+</li>
+<li>
+<p>修复：遇到部分标点时朗读停止</p>
+</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/LazyVim/LazyVim/releases/tag/v14.15.0">LazyVim v14.15.0</a>
+</h1><a id="user-content-7-lazyvim-v14150" class="anchor" aria-label="Permalink: 7. LazyVim v14.15.0" href="#7-lazyvim-v14150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Neovim config for the lazy</p>
 <details>
 <summary>变更说明</summary>
