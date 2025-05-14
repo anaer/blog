@@ -15,6 +15,8 @@ git push --force</pre></div>
 <div class="highlight highlight-source-shell"><pre>git config remote.origin.fetch <span class="pl-s"><span class="pl-pds">"</span>+refs/heads/*:refs/remotes/origin/*<span class="pl-pds">"</span></span>
 git fetch --depth=1
 git checkout branch-name</pre></div>
+<p>将浅克隆转换为完整克隆</p>
+<div class="highlight highlight-source-shell"><pre>git fetch --unshallow</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">比较分支并导出变更文件</h2><a id="user-content-比较分支并导出变更文件" class="anchor" aria-label="Permalink: 比较分支并导出变更文件" href="#比较分支并导出变更文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>git diff 6db1256718a184ece757df2b7d8bf22444801661 8906e42d5aeff10b70086bd7aece0f3663edbddd --name-only <span class="pl-k">|</span> xargs zip update.zip
 
@@ -29,4 +31,4 @@ git diff feature/xxx-0719 origin/master --name-only <span class="pl-k">|</span> 
 git add <span class="pl-c1">.</span>
 git commit -am <span class="pl-s"><span class="pl-pds">"</span>commit<span class="pl-pds">"</span></span>
 git push origin --force --all</pre></div>
-<p><a href="https://anaer.github.io/blog/post/67.html" rel="nofollow">67 Git删除大文件</a></p>
+<p><a href="https://anaer.github.io/blog/post/67.html" rel="nofollow">067 Git删除大文件</a></p>

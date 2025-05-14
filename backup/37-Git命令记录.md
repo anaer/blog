@@ -33,6 +33,10 @@ git fetch --depth=1
 git checkout branch-name
 ```
 
+将浅克隆转换为完整克隆
+```sh
+git fetch --unshallow
+```
 
 ## 比较分支并导出变更文件
 

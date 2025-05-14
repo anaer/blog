@@ -130,12 +130,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-14 11:24:59</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-24 10:07:04</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-14 16:45:25</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何查询Git提交用户记录、修改历史提交用户信息、拉取其他分支、比较分支并导出变更文件，以及删除敏感文件的历史提交记录。具体命令包括使用git log查看提交用户、git filter-repo修改用户信息、git clone进行浅克隆、git diff比较分支并导出变更为zip文件，以及使用git filter-branch删除敏感文件记录。
+    <strong>AI总结:</strong> 本文介绍了查询Git提交用户记录、修改历史提交用户信息、拉取其他分支、将浅克隆转换为完整克隆、比较分支并导出变更文件，以及删除敏感文件历史提交记录的相关命令和步骤。具体包括使用git log获取用户信息，git filter-repo修改用户信息，git clone进行浅克隆和获取其他分支，git diff导出变更文件为zip压缩包，以及使用git filter-branch删除敏感文件的历史记录。
 
-优化建议：在介绍命令时，可以增加对每个命令的具体用途和效果的简要说明，以帮助用户更好地理解每个步骤的目的。此外，考虑提供一些常见错误及其解决方案，以提高用户操作的成功率。
+优化建议：
+1. 在执行命令时，建议在每个步骤前添加简要说明，以便于理解和操作。
+2. 对于复杂命令，提供示例输出或预期结果，以帮助用户确认操作是否成功。
+3. 考虑添加常见错误及其解决方案，以提高用户体验。
+4. 建议将敏感文件删除的步骤与其他操作分开，以避免误操作。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -156,6 +160,8 @@ git push --force</pre></div>
 <div class="highlight highlight-source-shell"><pre>git config remote.origin.fetch <span class="pl-s"><span class="pl-pds">"</span>+refs/heads/*:refs/remotes/origin/*<span class="pl-pds">"</span></span>
 git fetch --depth=1
 git checkout branch-name</pre></div>
+<p>将浅克隆转换为完整克隆</p>
+<div class="highlight highlight-source-shell"><pre>git fetch --unshallow</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">比较分支并导出变更文件</h2><a id="user-content-比较分支并导出变更文件" class="anchor" aria-label="Permalink: 比较分支并导出变更文件" href="#比较分支并导出变更文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>git diff 6db1256718a184ece757df2b7d8bf22444801661 8906e42d5aeff10b70086bd7aece0f3663edbddd --name-only <span class="pl-k">|</span> xargs zip update.zip
 
@@ -170,10 +176,10 @@ git diff feature/xxx-0719 origin/master --name-only <span class="pl-k">|</span> 
 git add <span class="pl-c1">.</span>
 git commit -am <span class="pl-s"><span class="pl-pds">"</span>commit<span class="pl-pds">"</span></span>
 git push origin --force --all</pre></div>
-<p><a href="https://anaer.github.io/blog/post/67.html" rel="nofollow">67 Git删除大文件</a></p>
+<p><a href="https://anaer.github.io/blog/post/67.html" rel="nofollow">067 Git删除大文件</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/39.html" aria-label="Previous Page">039 Deepseek API</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/34.html" aria-label="Next Page">034 Python分词</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/36.html" aria-label="Previous Page">036 中文分词API</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/38.html" aria-label="Next Page">038 Blog页面添加下雪特效</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
