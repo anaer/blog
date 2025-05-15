@@ -1,5 +1,111 @@
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.91.0">PowerToys v0.91.0</a>
-</h1><a id="user-content-1-powertoys-v0910" class="anchor" aria-label="Permalink: 1. PowerToys v0.91.0" href="#1-powertoys-v0910"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.3.3">cherry-studio v1.3.3</a>
+</h1><a id="user-content-1-cherry-studio-v133" class="anchor" aria-label="Permalink: 1. cherry-studio v1.3.3" href="#1-cherry-studio-v133"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: ensure modelId is case-insensitive in findTokenLimit function</li>
+<li>docs: Improve the README for better readability</li>
+<li>fix: copilot annotation bug</li>
+<li>chore(workflows): update workflows for new repo structure</li>
+<li>fix: multi-window entry html</li>
+<li>feat(i18n): add page zoom settings in English, Japanese, and Russian …</li>
+<li>feat: add undo functionality to agent prompt generation</li>
+<li>revert: openai compatible type</li>
+<li>fix: OpenAIResponseProvider summaryForSearch impl model wrong</li>
+<li>feature: Hide disabled options for web search</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/duplicati/duplicati/releases/tag/v2.1.0.118_canary_2025-05-12">duplicati v2.1.0.118_canary_2025-05-12</a>
+</h1><a id="user-content-2-duplicati-v210118_canary_2025-05-12" class="anchor" aria-label="Permalink: 2. duplicati v2.1.0.118_canary_2025-05-12" href="#2-duplicati-v210118_canary_2025-05-12"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Store securely encrypted backups in the cloud!</p>
+<details>
+<summary>变更说明</summary>
+<p>This release is a canary release intended to be used for testing.</p>
+<h1></h1>
+<div class="markdown-heading"><h1 class="heading-element">Major changes in this version</h1><a id="user-content-major-changes-in-this-version" class="anchor" aria-label="Permalink: Major changes in this version" href="#major-changes-in-this-version"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>This version has a number of minor fixes and a major rewrite of the the "repair" command.
+The logic for the "repair" command is that it should be possible to recover loss of <code>.dblock</code> files, if the data is still present locally.
+This logic has been fixed in multiple ways and now also supports recovering data, even if no individual <code>.dblock</code> volumes can be fully recovered.
+In this case, the repair will recreate as much data as possible in new <code>.dblock</code> files, and configure it so as many files as possible are available.</p>
+<p>The <code>purge-broken-files</code> can be used after repair has failed to recover eveything, and will only purge the files that were lost.
+The <code>purge-broken-files</code> command has also been updated to support using incorrect metadata, such that files are not purged if they are only missing metadata.</p>
+<p>There are again numerous fixes to ngclient, including some faster browsing of restore contents, and better remote validation of folder contents.
+The UI now supports a number of different languages.</p>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Database version upgrade to v16</h2><a id="user-content-database-version-upgrade-to-v16" class="anchor" aria-label="Permalink: Database version upgrade to v16" href="#database-version-upgrade-to-v16"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>The local database is again upgraded with two index changes for correctness and performance.
+The bundled <code>Duplicati.CommandLine.DatabaseTool.exe</code> / <code>duplicati-database-tool</code> can downgrade databases.
+Since the change is only index addition, there is no data loss on downgrades.</p>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Detailed list of changes:</h2><a id="user-content-detailed-list-of-changes" class="anchor" aria-label="Permalink: Detailed list of changes:" href="#detailed-list-of-changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Support <code>CACHEDIR.TAG</code> as a default exclude file marker</li>
+<li>Improved <code>list-broken-files</code> to more accurately show contents, thanks</li>
+<li>Added new faster API for listing restores (only used in ngclient)</li>
+<li>Added new API for testing to check for existing files (only used in ngclient)</li>
+<li>Updated translations, thanks to all the translators</li>
+<li>Fixed pCloud OAuth url in CLI</li>
+<li>Improved logic for combining Regex filters, thanks</li>
+<li>Improved error parsing for <code>box.com</code> backend</li>
+<li>Simplified log closing to avoid cases where the log file is kept open</li>
+<li>Prevent database actions when delete is invoked with no versions to delete</li>
+<li>Updated throttle library to force more smooth output</li>
+<li>Tracking task metadata (start/stop time) for better log scoping</li>
+<li>Fixed AuthID not being reported as a password property</li>
+<li>Removed CloudFiles backend</li>
+<li>Fixed issue with throttle not working correctly on some backends</li>
+<li>Fixed an issue with rclone giving errors after each operation</li>
+<li>Fixed repair command to support repairs with partial data available</li>
+<li>Updated local DB schema to v16 (two new indexes)</li>
+<li>Fixed scheduling order when starting a backup</li>
+<li>Fixed case where warnings were emitted if the local data contains duplicates during repair, thanks  and</li>
+<li>Updated iDrivee2 to use HttpClient</li>
+<li>Updated TahoeLAFS to use HttpClient</li>
+<li>Removed long-standing <code>FIXMEGlobal</code> class</li>
+<li>Fixed issue with <code>server-util</code> timing out after 15 min, if using the <code>--wait</code> option</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Ngclient changes:</h2><a id="user-content-ngclient-changes" class="anchor" aria-label="Permalink: Ngclient changes:" href="#ngclient-changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Fixed "Export as commandline"</li>
+<li>Prevent GUI commandline from sending empty arguments</li>
+<li>Fixed some options were missing from the commandline view</li>
+<li>Added some confirmation dialogs</li>
+<li>Added indicator to show if backup is encrypted</li>
+<li>Improved notification state not always showing errors</li>
+<li>Fixed issue with multiple request fired on restore browsing</li>
+<li>Updated restore to use new faster API, if available</li>
+<li>Fixed issue with percent-encoded paths from configuration import</li>
+<li>Fixed issues with Test button not detecting SSL certificates or SSH key changes in all places</li>
+<li>Updated the Test button to check for existing files if the API is available</li>
+<li>Stop restore attempts early on known fatal errors (passphrase missing, empty folder, etc)</li>
+<li>Fixed an issue with advanced option lists not showing the correct labels</li>
+<li>Added a restore progress page</li>
+<li>Support multiple root folders on restore</li>
+<li>Test destination has a spinner while active</li>
+<li>Added spinners for long-running tasks from the start page</li>
+<li>Added TahoeLAFS UI</li>
+<li>Fixed the Live logs area</li>
+<li>Added multiple languages to the UI, thanks to all the translators</li>
+<li>Updated login page and loading indicator</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v4.0.3">LangBot v4.0.3</a>
+</h1><a id="user-content-3-langbot-v403" class="anchor" aria-label="Permalink: 3. LangBot v4.0.3" href="#3-langbot-v403"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🤩 IM bot platform for the LLM era / 简单易用的大模型即时通信机器人平台 ⚡️ 适配 QQ / 微信（企业微信、个人微信）/ 飞书 / 钉钉 / Discord / Telegram / Slack 等平台 🧩 支持 ChatGPT、DeepSeek、Dify、Claude、Google Gemini、xAI、PPIO、Ollama、阿里云百炼、SiliconFlow、Qwen、Moonshot、SillyTraven、MCP 等 LLM &amp; Agent</p>
+<details>
+<summary>变更说明</summary>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.91.0">PowerToys v0.91.0</a>
+</h1><a id="user-content-4-powertoys-v0910" class="anchor" aria-label="Permalink: 4. PowerToys v0.91.0" href="#4-powertoys-v0910"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Windows system utilities to maximize productivity</p>
 <details>
 <summary>变更说明</summary>
@@ -187,125 +293,14 @@
 <li>Added PowerShell script and CI integration to enforce consistent use of Common.Dotnet.CsWinRT.props across all C# projects under the src folder.</li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v4.0.3">LangBot v4.0.3</a>
-</h1><a id="user-content-2-langbot-v403" class="anchor" aria-label="Permalink: 2. LangBot v4.0.3" href="#2-langbot-v403"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🤩 IM bots platform for the LLM era / 简单易用的大模型即时通信机器人平台 ⚡️ 适配 QQ / 微信（企业微信、个人微信）/ 飞书 / 钉钉 / Discord / Telegram / Slack 等平台 支持 ChatGPT、DeepSeek、Dify、Claude、Google Gemini、xAI、PPIO、Ollama、阿里云百炼、SiliconFlow、Qwen、Moonshot、SillyTraven、MCP 等 LLM Agent</p>
-<details>
-<summary>变更说明</summary>
-<p><strong>Full Changelog</strong>:</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
-</h1><a id="user-content-3-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 3. mihomo Prerelease-Alpha" href="#3-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/Prerelease-Alpha">mihomo Prerelease-Alpha</a>
+</h1><a id="user-content-5-mihomo-prerelease-alpha" class="anchor" aria-label="Permalink: 5. mihomo Prerelease-Alpha" href="#5-mihomo-prerelease-alpha"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
 <details>
 <summary>变更说明</summary>
-<p>Release created at  Thu May 15 10:42:09 CST 2025
+<p>Release created at  Thu May 15 18:17:08 CST 2025
 Synchronize Alpha branch code updates, keeping only the latest version
 <br></p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/duplicati/duplicati/releases/tag/v2.1.0.118_canary_2025-05-12">duplicati v2.1.0.118_canary_2025-05-12</a>
-</h1><a id="user-content-4-duplicati-v210118_canary_2025-05-12" class="anchor" aria-label="Permalink: 4. duplicati v2.1.0.118_canary_2025-05-12" href="#4-duplicati-v210118_canary_2025-05-12"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Store securely encrypted backups in the cloud!</p>
-<details>
-<summary>变更说明</summary>
-<p>This release is a canary release intended to be used for testing.</p>
-<h1></h1>
-<div class="markdown-heading"><h1 class="heading-element">Major changes in this version</h1><a id="user-content-major-changes-in-this-version" class="anchor" aria-label="Permalink: Major changes in this version" href="#major-changes-in-this-version"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>This version has a number of minor fixes and a major rewrite of the the "repair" command.
-The logic for the "repair" command is that it should be possible to recover loss of <code>.dblock</code> files, if the data is still present locally.
-This logic has been fixed in multiple ways and now also supports recovering data, even if no individual <code>.dblock</code> volumes can be fully recovered.
-In this case, the repair will recreate as much data as possible in new <code>.dblock</code> files, and configure it so as many files as possible are available.</p>
-<p>The <code>purge-broken-files</code> can be used after repair has failed to recover eveything, and will only purge the files that were lost.
-The <code>purge-broken-files</code> command has also been updated to support using incorrect metadata, such that files are not purged if they are only missing metadata.</p>
-<p>There are again numerous fixes to ngclient, including some faster browsing of restore contents, and better remote validation of folder contents.
-The UI now supports a number of different languages.</p>
-<h1></h1>
-<div class="markdown-heading"><h2 class="heading-element">Database version upgrade to v16</h2><a id="user-content-database-version-upgrade-to-v16" class="anchor" aria-label="Permalink: Database version upgrade to v16" href="#database-version-upgrade-to-v16"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>The local database is again upgraded with two index changes for correctness and performance.
-The bundled <code>Duplicati.CommandLine.DatabaseTool.exe</code> / <code>duplicati-database-tool</code> can downgrade databases.
-Since the change is only index addition, there is no data loss on downgrades.</p>
-<h1></h1>
-<div class="markdown-heading"><h2 class="heading-element">Detailed list of changes:</h2><a id="user-content-detailed-list-of-changes" class="anchor" aria-label="Permalink: Detailed list of changes:" href="#detailed-list-of-changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>Support <code>CACHEDIR.TAG</code> as a default exclude file marker</li>
-<li>Improved <code>list-broken-files</code> to more accurately show contents, thanks</li>
-<li>Added new faster API for listing restores (only used in ngclient)</li>
-<li>Added new API for testing to check for existing files (only used in ngclient)</li>
-<li>Updated translations, thanks to all the translators</li>
-<li>Fixed pCloud OAuth url in CLI</li>
-<li>Improved logic for combining Regex filters, thanks</li>
-<li>Improved error parsing for <code>box.com</code> backend</li>
-<li>Simplified log closing to avoid cases where the log file is kept open</li>
-<li>Prevent database actions when delete is invoked with no versions to delete</li>
-<li>Updated throttle library to force more smooth output</li>
-<li>Tracking task metadata (start/stop time) for better log scoping</li>
-<li>Fixed AuthID not being reported as a password property</li>
-<li>Removed CloudFiles backend</li>
-<li>Fixed issue with throttle not working correctly on some backends</li>
-<li>Fixed an issue with rclone giving errors after each operation</li>
-<li>Fixed repair command to support repairs with partial data available</li>
-<li>Updated local DB schema to v16 (two new indexes)</li>
-<li>Fixed scheduling order when starting a backup</li>
-<li>Fixed case where warnings were emitted if the local data contains duplicates during repair, thanks  and</li>
-<li>Updated iDrivee2 to use HttpClient</li>
-<li>Updated TahoeLAFS to use HttpClient</li>
-<li>Removed long-standing <code>FIXMEGlobal</code> class</li>
-<li>Fixed issue with <code>server-util</code> timing out after 15 min, if using the <code>--wait</code> option</li>
-</ul>
-<h1></h1>
-<div class="markdown-heading"><h2 class="heading-element">Ngclient changes:</h2><a id="user-content-ngclient-changes" class="anchor" aria-label="Permalink: Ngclient changes:" href="#ngclient-changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>Fixed "Export as commandline"</li>
-<li>Prevent GUI commandline from sending empty arguments</li>
-<li>Fixed some options were missing from the commandline view</li>
-<li>Added some confirmation dialogs</li>
-<li>Added indicator to show if backup is encrypted</li>
-<li>Improved notification state not always showing errors</li>
-<li>Fixed issue with multiple request fired on restore browsing</li>
-<li>Updated restore to use new faster API, if available</li>
-<li>Fixed issue with percent-encoded paths from configuration import</li>
-<li>Fixed issues with Test button not detecting SSL certificates or SSH key changes in all places</li>
-<li>Updated the Test button to check for existing files if the API is available</li>
-<li>Stop restore attempts early on known fatal errors (passphrase missing, empty folder, etc)</li>
-<li>Fixed an issue with advanced option lists not showing the correct labels</li>
-<li>Added a restore progress page</li>
-<li>Support multiple root folders on restore</li>
-<li>Test destination has a spinner while active</li>
-<li>Added spinners for long-running tasks from the start page</li>
-<li>Added TahoeLAFS UI</li>
-<li>Fixed the Live logs area</li>
-<li>Added multiple languages to the UI, thanks to all the translators</li>
-<li>Updated login page and loading indicator</li>
-</ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.3.2">cherry-studio v1.3.2</a>
-</h1><a id="user-content-5-cherry-studio-v132" class="anchor" aria-label="Permalink: 5. cherry-studio v1.3.2" href="#5-cherry-studio-v132"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element"><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 更新务必备份数据，如果没有备份数据，升级后无法降级</h2><a id="user-content-️-更新务必备份数据如果没有备份数据升级后无法降级" class="anchor" aria-label="Permalink: ⚠️ 更新务必备份数据，如果没有备份数据，升级后无法降级" href="#️-更新务必备份数据如果没有备份数据升级后无法降级"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<h1></h1>
-<div class="markdown-heading"><h3 class="heading-element">v1.3.x 测试版本讨论区：</h3><a id="user-content-v13x-测试版本讨论区" class="anchor" aria-label="Permalink: v1.3.x 测试版本讨论区：" href="#v13x-测试版本讨论区"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<h1></h1>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>fix: ensure modelId is case-insensitive in findTokenLimit function</li>
-<li>docs: Improve the README for better readability</li>
-<li>fix: copilot annotation bug</li>
-<li>chore(workflows): update workflows for new repo structure</li>
-<li>fix: multi-window entry html</li>
-<li>feat(i18n): add page zoom settings in English, Japanese, and Russian …</li>
-<li>feat: add undo functionality to agent prompt generation</li>
-<li>revert: openai compatible type</li>
-<li>fix: OpenAIResponseProvider summaryForSearch impl model wrong</li>
-<li>feature: Hide disabled options for web search</li>
-</ul>
-<h1></h1>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>made their first contribution in</li>
-</ul>
-<p><strong>Full Changelog</strong>:</p>
 </details>
 <div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/iorate/ublacklist/releases/tag/v8.11.1">ublacklist v8.11.1</a>
 </h1><a id="user-content-6-ublacklist-v8111" class="anchor" aria-label="Permalink: 6. ublacklist v8.11.1" href="#6-ublacklist-v8111"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
