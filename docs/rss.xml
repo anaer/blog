@@ -1,11 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 16 May 2025 04:15:48 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 16 May 2025 04:15:48 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>119 我关注的项目这周更新了什么-2025-05-16</title><link>https://anaer.github.io/blog/post/119.html</link><description>1. weasel latest
-
-【小狼毫】Rime for Windows
-
-变更说明
-
-2. PowerToys v0.91.0
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 16 May 2025 15:10:52 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 16 May 2025 15:10:52 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>119 我关注的项目这周更新了什么-2025-05-16</title><link>https://anaer.github.io/blog/post/119.html</link><description>1. PowerToys v0.91.0
 
 Windows system utilities to maximize productivity
 
@@ -22,7 +16,9 @@ sha256 hash
 
 
 
-Per ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/119.html</guid><pubDate>Mon, 12 May 2025 04:15:19 +0000</pubDate></item><item><title>118 我关注的项目这周更新了什么-2025-05-09</title><link>https://anaer.github.io/blog/post/118.html</link><description>本文介绍了多个软件更新的变更说明，包括Cherry Studio、DeepChat、anx-reader、subs-check、new-api、xpipe、alist、mihomo、ublacklist、Ghosten-Player、higress、termora、TVBoxOSC和fit-framework等。每个软件的更新内容涵盖了新功能的添加、性能优化、bug修复以及其他改进，旨在提升用户体验和软件稳定性。
+Per user - x64
+PowerToysUserSetup-0.91.0-x64.exe
+19...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/119.html</guid><pubDate>Mon, 12 May 2025 04:15:19 +0000</pubDate></item><item><title>118 我关注的项目这周更新了什么-2025-05-09</title><link>https://anaer.github.io/blog/post/118.html</link><description>本文介绍了多个软件更新的变更说明，包括Cherry Studio、DeepChat、anx-reader、subs-check、new-api、xpipe、alist、mihomo、ublacklist、Ghosten-Player、higress、termora、TVBoxOSC和fit-framework等。每个软件的更新内容涵盖了新功能的添加、性能优化、bug修复以及其他改进，旨在提升用户体验和软件稳定性。
 
 优化建议：
 1. 对每个软件的更新内容进行分类，明确标识出新功能、修复的bug和性能优化，以便用户快速找到所需信息。

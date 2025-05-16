@@ -2524,14 +2524,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/119",
             "commentNum": 0,
             "createdAt": 1747023319,
-            "updatedAt": 1747368919,
+            "updatedAt": 1747408217,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-05-12",
-            "dateLabelColor": "hsl(144, 41%, 21%)",
-            "description": "1. weasel latest\n\n\u3010\u5c0f\u72fc\u6beb\u3011Rime for Windows\n\n\u53d8\u66f4\u8bf4\u660e\n\n2. PowerToys v0.91.0\n\nWindows system utilities to maximize productivity\n\n\u53d8\u66f4\u8bf4\u660e\nIn the [v0.91 release cycle][github-current-release-work], we focused on new features, stability, and automation.\nInstaller Hashes\n\n\n\nDescription\nFilename\nsha256 hash\n\n\n\n\nPer ...",
-            "buildedAt": 1747368919
+            "dateLabelColor": "hsl(144, 54%, 20%)",
+            "description": "1. PowerToys v0.91.0\n\nWindows system utilities to maximize productivity\n\n\u53d8\u66f4\u8bf4\u660e\nIn the [v0.91 release cycle][github-current-release-work], we focused on new features, stability, and automation.\nInstaller Hashes\n\n\n\nDescription\nFilename\nsha256 hash\n\n\n\n\nPer user - x64\nPowerToysUserSetup-0.91.0-x64.exe\n19...",
+            "buildedAt": 1747408217
         }
     },
     "singeListJson": {},
