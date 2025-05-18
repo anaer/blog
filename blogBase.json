@@ -2524,14 +2524,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/119",
             "commentNum": 0,
             "createdAt": 1747023319,
-            "updatedAt": 1747494570,
+            "updatedAt": 1747541808,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-05-12",
-            "dateLabelColor": "hsl(145, 65%, 37%)",
-            "description": "1. weasel latest\n\n\u3010\u5c0f\u72fc\u6beb\u3011Rime for Windows\n\n\u53d8\u66f4\u8bf4\u660e\nChores\n\n\nrelease: 0.17.0 \ud83c\udf89\n\n\n2. cherry-studio v1.3.5\n\n\ud83c\udf52 Cherry Studio is a desktop client that supports for multiple LLM providers.\n\n\u53d8\u66f4\u8bf4\u660e\nWhat's Changed\n\nfix: mcp params error(issues/6050)\n\u7981\u6b62\u201c\u81ea\u5b9a\u4e49CSS\u201d\u8f93\u5165\u6846\u7684\u62fc\u5199\u68c0\u67e5\nhotfix: openai websearch render and gemini thi...",
-            "buildedAt": 1747494570
+            "dateLabelColor": "hsl(146, 46%, 12%)",
+            "description": "1. LangBot v4.0.3\n\n\ud83e\udd29 IM bot platform designed for the LLM era / \u7b80\u5355\u6613\u7528\u7684\u5927\u6a21\u578b\u5373\u65f6\u901a\u4fe1\u673a\u5668\u4eba\u5e73\u53f0 \u26a1\ufe0f \u9002\u914d QQ / \u5fae\u4fe1\uff08\u4f01\u4e1a\u5fae\u4fe1\u3001\u4e2a\u4eba\u5fae\u4fe1\uff09/ \u98de\u4e66 / \u9489\u9489 / Discord / Telegram / Slack \u7b49\u5e73\u53f0 \ud83e\udde9 \u652f\u6301 ChatGPT\u3001DeepSeek\u3001Dify\u3001Claude\u3001Google Gemini\u3001xAI\u3001PPIO\u3001Ollama\u3001\u963f\u91cc\u4e91\u767e\u70bc\u3001SiliconFlow\u3001Qwen\u3001Moonshot\u3001SillyTraven\u3001MCP \u7b49 LLM & Agent\n\n\u53d8\u66f4\u8bf4\u660e\nFull Changelog:\n\n2....",
+            "buildedAt": 1747541808
         }
     },
     "singeListJson": {},
