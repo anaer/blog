@@ -2532,6 +2532,27 @@
             "dateLabelColor": "hsl(146, 64%, 40%)",
             "description": "1. cherry-studio v1.3.5\n\n\ud83c\udf52 Cherry Studio is a desktop client that supports for multiple LLM providers.\n\n\u53d8\u66f4\u8bf4\u660e\nWhat's Changed\n\nfix: mcp params error(issues/6050)\n\u7981\u6b62\u201c\u81ea\u5b9a\u4e49CSS\u201d\u8f93\u5165\u6846\u7684\u62fc\u5199\u68c0\u67e5\nhotfix: openai websearch render and gemini think\nHotfix/thinking time render\nfix: Update the state of the last message bl...",
             "buildedAt": 1747580965
+        },
+        "P120": {
+            "number": "120",
+            "htmlDir": "docs/post/120.html",
+            "markdown": "backup/120-\u6211\u5173\u6ce8\u7684\u9879\u76ee\u8fd9\u5468\u66f4\u65b0\u4e86\u4ec0\u4e48-2025-05-23.md",
+            "labels": [
+                "\u5173\u6ce8"
+            ],
+            "postTitle": "120 \u6211\u5173\u6ce8\u7684\u9879\u76ee\u8fd9\u5468\u66f4\u65b0\u4e86\u4ec0\u4e48-2025-05-23",
+            "postUrl": "post/120.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/120",
+            "commentNum": 0,
+            "createdAt": 1747628362,
+            "updatedAt": 1747628362,
+            "top": 0,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-05-19",
+            "dateLabelColor": "hsl(140, 31%, 18%)",
+            "description": "1. termora 1.0.15\n\nTermora is a terminal emulator and SSH client for Windows, macOS and Linux.\n\n\u53d8\u66f4\u8bf4\u660e\nNew features/Updates\n\nSupport for disabling hyperlink\nModify permissions to support recursion\n\nBug fixes\n\nFix snippet unescape\nFix double-click to open the host\nFix process Device Status Report (DSR)...",
+            "buildedAt": 1747628362
         }
     },
     "singeListJson": {},
