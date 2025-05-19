@@ -1,19 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 19 May 2025 04:19:49 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 19 May 2025 04:19:49 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>120 我关注的项目这周更新了什么-2025-05-23</title><link>https://anaer.github.io/blog/post/120.html</link><description>1. termora 1.0.15
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 19 May 2025 15:12:32 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 19 May 2025 15:12:32 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>120 我关注的项目这周更新了什么-2025-05-23</title><link>https://anaer.github.io/blog/post/120.html</link><description>1. LangBot v4.0.3.1
 
-Termora is a terminal emulator and SSH client for Windows, macOS and Linux.
+🤩 IM bot platform designed for the LLM era / 简单易用的大模型即时通信机器人平台 ⚡️ 适配 QQ / 微信（企业微信、个人微信）/ 飞书 / 钉钉 / Discord / Telegram / Slack 等平台 🧩 支持 ChatGPT、DeepSeek、Dify、Claude、Google Gemini、xAI、PPIO、Ollama、阿里云百炼、SiliconFlow、Qwen、Moonshot、SillyTraven、MCP、WeClone 等 LLM &amp; Agent
 
 变更说明
-New features/Updates
-
-Support for disabling hyperlink
-Modify permissions to support recursion
-
-Bug fixes
-
-Fix snippet unescape
-Fix double-click to open the host
-Fix process Device Status Report (DSR)...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/120.html</guid><pubDate>Mon, 19 May 2025 04:19:22 +0000</pubDate></item><item><title>119 我关注的项目这周更新了什么-2025-05-16</title><link>https://anaer.github.io/blog/post/119.html</link><description>1. cherry-studio v1.3.5
+What's Ch...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/120.html</guid><pubDate>Mon, 19 May 2025 04:19:22 +0000</pubDate></item><item><title>119 我关注的项目这周更新了什么-2025-05-16</title><link>https://anaer.github.io/blog/post/119.html</link><description>1. cherry-studio v1.3.5
 
 🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.
 

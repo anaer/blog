@@ -2545,14 +2545,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/120",
             "commentNum": 0,
             "createdAt": 1747628362,
-            "updatedAt": 1747628362,
+            "updatedAt": 1747667524,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-05-19",
-            "dateLabelColor": "hsl(140, 31%, 18%)",
-            "description": "1. termora 1.0.15\n\nTermora is a terminal emulator and SSH client for Windows, macOS and Linux.\n\n\u53d8\u66f4\u8bf4\u660e\nNew features/Updates\n\nSupport for disabling hyperlink\nModify permissions to support recursion\n\nBug fixes\n\nFix snippet unescape\nFix double-click to open the host\nFix process Device Status Report (DSR)...",
-            "buildedAt": 1747628362
+            "dateLabelColor": "hsl(140, 36%, 27%)",
+            "description": "1. LangBot v4.0.3.1\n\n\ud83e\udd29 IM bot platform designed for the LLM era / \u7b80\u5355\u6613\u7528\u7684\u5927\u6a21\u578b\u5373\u65f6\u901a\u4fe1\u673a\u5668\u4eba\u5e73\u53f0 \u26a1\ufe0f \u9002\u914d QQ / \u5fae\u4fe1\uff08\u4f01\u4e1a\u5fae\u4fe1\u3001\u4e2a\u4eba\u5fae\u4fe1\uff09/ \u98de\u4e66 / \u9489\u9489 / Discord / Telegram / Slack \u7b49\u5e73\u53f0 \ud83e\udde9 \u652f\u6301 ChatGPT\u3001DeepSeek\u3001Dify\u3001Claude\u3001Google Gemini\u3001xAI\u3001PPIO\u3001Ollama\u3001\u963f\u91cc\u4e91\u767e\u70bc\u3001SiliconFlow\u3001Qwen\u3001Moonshot\u3001SillyTraven\u3001MCP\u3001WeClone \u7b49 LLM & Agent\n\n\u53d8\u66f4\u8bf4\u660e\nWhat's Ch...",
+            "buildedAt": 1747667524
         }
     },
     "singeListJson": {},
