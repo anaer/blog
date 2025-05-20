@@ -1,15 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 20 May 2025 04:15:13 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 20 May 2025 04:15:13 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>120 我关注的项目这周更新了什么-2025-05-23</title><link>https://anaer.github.io/blog/post/120.html</link><description>1. cherry-studio v1.3.7
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 20 May 2025 07:09:13 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 20 May 2025 07:09:13 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>120 我关注的项目这周更新了什么-2025-05-23</title><link>https://anaer.github.io/blog/post/120.html</link><description>1. PowerToys v0.91.1
 
-🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.
+Windows system utilities to maximize productivity
 
 变更说明
-What's Changed
+This is a patch release to fix issues in v0.91 we deemed important for stability based on incoming rates. See  for full release notes.
+Installer Hashes
 
-fix: update mcp sdk version to solve the bug-preserve custom paths in SSE endpoint URLs
-feat: upgrade electron to 35.2.2
-拓宽”请选择要检测的模型“模态框
-feat: add citation list right-click c...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/120.html</guid><pubDate>Mon, 19 May 2025 04:19:22 +0000</pubDate></item><item><title>119 我关注的项目这周更新了什么-2025-05-16</title><link>https://anaer.github.io/blog/post/119.html</link><description>1. cherry-studio v1.3.5
+
+
+Description
+Filename
+sha256 hash
+
+
+
+
+Per user - x64
+PowerToysUserSe...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/120.html</guid><pubDate>Mon, 19 May 2025 04:19:22 +0000</pubDate></item><item><title>119 我关注的项目这周更新了什么-2025-05-16</title><link>https://anaer.github.io/blog/post/119.html</link><description>1. cherry-studio v1.3.5
 
 🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.
 
