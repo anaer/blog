@@ -2545,14 +2545,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/120",
             "commentNum": 0,
             "createdAt": 1747628362,
-            "updatedAt": 1747724918,
+            "updatedAt": 1747753889,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-05-19",
-            "dateLabelColor": "hsl(141, 67%, 14%)",
+            "dateLabelColor": "hsl(141, 43%, 20%)",
             "description": "1. PowerToys v0.91.1\n\nWindows system utilities to maximize productivity\n\n\u53d8\u66f4\u8bf4\u660e\nThis is a patch release to fix issues in v0.91 we deemed important for stability based on incoming rates. See  for full release notes.\nInstaller Hashes\n\n\n\nDescription\nFilename\nsha256 hash\n\n\n\n\nPer user - x64\nPowerToysUserSe...",
-            "buildedAt": 1747724918
+            "buildedAt": 1747753889
         }
     },
     "singeListJson": {},
