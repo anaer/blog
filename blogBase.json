@@ -2545,14 +2545,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/120",
             "commentNum": 0,
             "createdAt": 1747628362,
-            "updatedAt": 1747667524,
+            "updatedAt": 1747714485,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-05-19",
-            "dateLabelColor": "hsl(140, 36%, 27%)",
-            "description": "1. LangBot v4.0.3.1\n\n\ud83e\udd29 IM bot platform designed for the LLM era / \u7b80\u5355\u6613\u7528\u7684\u5927\u6a21\u578b\u5373\u65f6\u901a\u4fe1\u673a\u5668\u4eba\u5e73\u53f0 \u26a1\ufe0f \u9002\u914d QQ / \u5fae\u4fe1\uff08\u4f01\u4e1a\u5fae\u4fe1\u3001\u4e2a\u4eba\u5fae\u4fe1\uff09/ \u98de\u4e66 / \u9489\u9489 / Discord / Telegram / Slack \u7b49\u5e73\u53f0 \ud83e\udde9 \u652f\u6301 ChatGPT\u3001DeepSeek\u3001Dify\u3001Claude\u3001Google Gemini\u3001xAI\u3001PPIO\u3001Ollama\u3001\u963f\u91cc\u4e91\u767e\u70bc\u3001SiliconFlow\u3001Qwen\u3001Moonshot\u3001SillyTraven\u3001MCP\u3001WeClone \u7b49 LLM & Agent\n\n\u53d8\u66f4\u8bf4\u660e\nWhat's Ch...",
-            "buildedAt": 1747667524
+            "dateLabelColor": "hsl(140, 33%, 15%)",
+            "description": "1. cherry-studio v1.3.7\n\n\ud83c\udf52 Cherry Studio is a desktop client that supports for multiple LLM providers.\n\n\u53d8\u66f4\u8bf4\u660e\nWhat's Changed\n\nfix: update mcp sdk version to solve the bug-preserve custom paths in SSE endpoint URLs\nfeat: upgrade electron to 35.2.2\n\u62d3\u5bbd\u201d\u8bf7\u9009\u62e9\u8981\u68c0\u6d4b\u7684\u6a21\u578b\u201c\u6a21\u6001\u6846\nfeat: add citation list right-click c...",
+            "buildedAt": 1747714485
         }
     },
     "singeListJson": {},
