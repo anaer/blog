@@ -2545,14 +2545,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/120",
             "commentNum": 0,
             "createdAt": 1747628362,
-            "updatedAt": 1747753889,
+            "updatedAt": 1747800879,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-05-19",
-            "dateLabelColor": "hsl(141, 43%, 20%)",
-            "description": "1. PowerToys v0.91.1\n\nWindows system utilities to maximize productivity\n\n\u53d8\u66f4\u8bf4\u660e\nThis is a patch release to fix issues in v0.91 we deemed important for stability based on incoming rates. See  for full release notes.\nInstaller Hashes\n\n\n\nDescription\nFilename\nsha256 hash\n\n\n\n\nPer user - x64\nPowerToysUserSe...",
-            "buildedAt": 1747753889
+            "dateLabelColor": "hsl(141, 48%, 32%)",
+            "description": "1. cherry-studio v1.3.8\n\n\ud83c\udf52 Cherry Studio is a desktop client that supports for multiple LLM providers.\n\n\u53d8\u66f4\u8bf4\u660e\nWhat's Changed\n\nfix: update mcp sdk version to solve the bug-preserve custom paths in SSE endpoint URLs\nfeat: upgrade electron to 35.2.2\n\u62d3\u5bbd\u201d\u8bf7\u9009\u62e9\u8981\u68c0\u6d4b\u7684\u6a21\u578b\u201c\u6a21\u6001\u6846\nfeat: add citation list right-click c...",
+            "buildedAt": 1747800879
         }
     },
     "singeListJson": {},
