@@ -2545,14 +2545,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/120",
             "commentNum": 0,
             "createdAt": 1747628362,
-            "updatedAt": 1747887327,
+            "updatedAt": 1747926675,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-05-19",
-            "dateLabelColor": "hsl(142, 33%, 28%)",
+            "dateLabelColor": "hsl(143, 53%, 26%)",
             "description": "1. cherry-studio v1.3.9\n\n\ud83c\udf52 Cherry Studio is a desktop client that supports for multiple LLM providers.\n\n\u53d8\u66f4\u8bf4\u660e\nWhat's Changed\n\nrefactor(PasteService): optimize handler registration logic\nFeat/mcp run python\nfix: handle undefined html title\nfix: improve CodeEditor controlled mode, prevent unnecessary t...",
-            "buildedAt": 1747887327
+            "buildedAt": 1747926675
         },
         "P121": {
             "number": "121",
