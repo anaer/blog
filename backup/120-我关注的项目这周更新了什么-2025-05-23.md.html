@@ -1,73 +1,16 @@
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.3.8">cherry-studio v1.3.8</a>
-</h1><a id="user-content-1-cherry-studio-v138" class="anchor" aria-label="Permalink: 1. cherry-studio v1.3.8" href="#1-cherry-studio-v138"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.3.9">cherry-studio v1.3.9</a>
+</h1><a id="user-content-1-cherry-studio-v139" class="anchor" aria-label="Permalink: 1. cherry-studio v1.3.9" href="#1-cherry-studio-v139"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>fix: update mcp sdk version to solve the bug-preserve custom paths in SSE endpoint URLs</li>
-<li>feat: upgrade electron to 35.2.2</li>
-<li>拓宽”请选择要检测的模型“模态框</li>
-<li>feat: add citation list right-click copy</li>
-<li>Gitee AI:update name, update models</li>
-<li>refactor(CodeEditor): add more options to props for better customization, fix auto theme</li>
-<li>Fix: Update file API usage for Electron 35.2.2 and add translations f…</li>
-<li>feat: Drop file improvements</li>
-<li>fix: change minimax's URL</li>
-<li>chore: reduce package size</li>
-<li>fix: Ensure last app is displayed when no filtered apps are found</li>
-<li>feat: support skipping files during backup(slim backup)</li>
-<li>feat: implement useFullscreen hook and integrate with NavbarRight for dynamic padding</li>
-<li>feat: Highlighted search in chat page</li>
-<li>fix: font-family changed in Windows with new Electron</li>
-<li>fix: Prevent sending message during input method composition in mini window</li>
-<li>chore: remove unused packages</li>
-<li>refactor: clean up code for <code>MessageGroupModelList</code>
-</li>
-<li>feat: make sidebar setting group collapsible</li>
-<li>fix: Summary for single message export doesn't work.</li>
-<li>fix(i18n): websearch has no translation</li>
-<li>hotfix: github models check error</li>
-<li>fix: Search results are on the right side</li>
-<li>feat: add buildFunctionCallToolName utility for generating tool names</li>
-<li>feat: add MCP Run Python server and integrate Pyodide for executing P…</li>
-<li>Revert "feat: add MCP Run Python server and integrate Pyodide for exe…</li>
-<li>fix: 多发消息时除fold布局以外的其他布局不能被渲染</li>
-<li>refactor: serif messageFont &amp; index.scss structure</li>
-<li>refactor: transparent border for code blocks</li>
-<li>feat: add FloatingSidebar component and integrate assistant switching…</li>
-<li>refactor: improve sanitization and formatting in buildFunctionCallToo…</li>
-<li>fix: update token limits for Claude models</li>
-<li>refactor(messageThunk): optimize message update logic with atomic mod…</li>
-<li>refactor: implement message editing and resend functionality</li>
-<li>Add-aihubmix-ideogram-v3</li>
-<li>refactor(Scrollbar): Optimize scroll handling logic to support external scroll events</li>
-<li>hotfix: enhance reasoning summary handling in OpenAI response processing</li>
-<li>feat: add zoom factor handling on window restore in WindowService</li>
-<li>Hotfix/gemini-para-bug</li>
-<li>hotfix: respect user-defined model group name</li>
-<li>feat(settings): add OpenAI alert</li>
-<li>hotfix: add OpenAI settings tab and related functionality</li>
-<li>feat: support default Quick Assistant model</li>
-<li>feat: add resolveFilePath functionality to resolve restoring from different computer</li>
-<li>fix: update file path resolution in new Electron</li>
-<li>feat: add MCP servers via JSON quickly</li>
-<li>refactor: centralize paste handling logic with PasteService</li>
-<li>chore: update Hailuo logo</li>
-<li>feat: add new model provider BurnCloud</li>
-<li>fix(mcp): mcp result preview is missing parameters</li>
-<li>fix: knowledge icon consistency across components</li>
-<li>fix: add context menu trigger to FloatingSidebar component</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
+<li>refactor(PasteService): optimize handler registration logic</li>
+<li>Feat/mcp run python</li>
+<li>fix: handle undefined html title</li>
+<li>fix: improve CodeEditor controlled mode, prevent unnecessary trimming</li>
+<li>feat: add message multiple select</li>
+<li>feat/notification</li>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
@@ -128,29 +71,82 @@
 </li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v4.0.3.2">LangBot v4.0.3.2</a>
-</h1><a id="user-content-3-langbot-v4032" class="anchor" aria-label="Permalink: 3. LangBot v4.0.3.2" href="#3-langbot-v4032"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🤩 IM bot platform designed for the LLM era / 简单易用的大模型即时通信机器人平台 ⚡️ 适配 QQ / 微信（企业微信、个人微信）/ 飞书 / 钉钉 / Discord / Telegram / Slack 等平台 🧩 支持 ChatGPT、DeepSeek、Dify、Claude、Google Gemini、xAI、PPIO、Ollama、阿里云百炼、SiliconFlow、Qwen、Moonshot、SillyTraven、MCP、WeClone 等 LLM &amp; Agent</p>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.9">mihomo v1.19.9</a>
+</h1><a id="user-content-3-mihomo-v1199" class="anchor" aria-label="Permalink: 3. mihomo v1.19.9" href="#3-mihomo-v1199"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>解决webUI模型配置页面卡片溢出问题</li>
-<li>St/webui</li>
-<li>feat:add qoute message process and add Whether to enable this function</li>
-<li>feat: add supports for testing llm models</li>
-<li>Update bug-report_en.yml</li>
-<li>fix: update auto-reply probability description in trigger.yaml</li>
+<li>188372cb feat: add <code>tls.ech-key</code> for <code>external-controller-tls</code>
+</li>
+<li>5cf0f18c feat: reality add <code>support-x25519mlkem768</code>, it only works with new version server</li>
+<li>a1350d49 feat: add <code>ech-key</code> for listeners</li>
+<li>c6d7ef8c feat: add <code>ech-opts</code> for anytls/shadowsocks/trojan/vmess/vless outbound</li>
+<li>dc958e6a feat: add <code>ech-opts</code> for hysteria/hysteria2/tuic outbound</li>
+<li>Other incompatible updates are the same as v1.19.6~v1.19.8:</li>
 </ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-1" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<blockquote>
 <ul>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
+<li>For security reasons, all paths appearing in the configuration file will be limited to <strong>workdir</strong> (regardless of whether they are relative or absolute). If there is a specific need, please specify additional safe paths by setting the <code>SAFE_PATHS</code> environment variable while ensuring safety. The syntax of this environment variable is the same as the PATH environment variable parsing rules of this operating system (i.e., semicolon-separated under Windows and colon-separated under other systems)</li>
+<li>For security reasons, the "path" parameter of <code>/configs</code> in the restful api has been restricted, and its directory also needs to be in <strong>workdir</strong> or <code>SAFE_PATHS</code>.</li>
+<li>In addition, support for specifying <code>routing-mark</code> and <code>interface-name</code> for <code>proxy-groups</code> has been removed. Please specify the relevant parameters in <code>proxies</code> directly.</li>
+<li>Note: The <strong>workdir</strong> mentioned above is specified by the <code>-d</code> parameter when the program is started or the <code>CLASH_HOME_DIR</code> environment variable. If neither of the above is specified, the default is:
+<ul>
+<li>on Unix systems, <code>$HOME/.config/mihomo</code>.</li>
+<li>on Windows, <code>%USERPROFILE%/.config/mihomo</code>.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<div class="markdown-heading"><h2 class="heading-element">BUG &amp; Fix</h2><a id="user-content-bug--fix" class="anchor" aria-label="Permalink: BUG &amp; Fix" href="#bug--fix"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>41b57afb fix: grpc deadline implement</li>
+<li>608ddb1b fix: <code>external-ui-name</code> must in local</li>
+<li>90ed01ed fix: backoff not reset when the file unchanged</li>
+<li>bb8c47d8 fix: error typo</li>
+<li>c489c526 fix: hysteria2 hop ports init</li>
+<li>d036d981 fix: http server does not handle http2 logic correctly</li>
+<li>d5a03901 fix: race in close grpc transport</li>
+<li>d900c712 fix: shadowtls v2 not work with X25519MLKEM768</li>
+<li>f91a586d fix: inline proxy provider's healthcheck not work</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Maintenance</h2><a id="user-content-maintenance" class="anchor" aria-label="Permalink: Maintenance" href="#maintenance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>1672750c chore: simplifying the old fingerprint processing method</li>
+<li>257fead5 docs: update config.yaml follow 5cf0f18c</li>
+<li>83213d49 chore: adjust min backoff from 1s to 10s</li>
+<li>8a5f3b89 chore: simplify port hop costs</li>
+<li>8f92b1de chore: simplify the single root decompression process</li>
+<li>9f7a2a36 chore: unpack externalUI in a separate temporary directory to avoid malicious compressed packages from polluting workdir</li>
+<li>a9347912 chore: stricter path checking when unpacking zip/tgz</li>
+<li>ed42c4fe chore: disallow symlink in unzip</li>
+<li>fd959fef chore: update dependencies</li>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v2.1.0">Ghosten-Player v2.1.0</a>
-</h1><a id="user-content-4-ghosten-player-v210" class="anchor" aria-label="Permalink: 4. Ghosten-Player v2.1.0" href="#4-ghosten-player-v210"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v4.0.3.3">LangBot v4.0.3.3</a>
+</h1><a id="user-content-4-langbot-v4033" class="anchor" aria-label="Permalink: 4. LangBot v4.0.3.3" href="#4-langbot-v4033"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🤩 IM bot platform designed for the LLM era / 简单易用的大模型即时通信机器人平台 ⚡️ 适配 QQ / 微信（企业微信、个人微信）/ 飞书 / 钉钉 / Discord / Telegram / Slack 等平台 🧩 支持 ChatGPT、DeepSeek、Dify、Claude、Google Gemini、xAI、PPIO、Ollama、阿里云百炼、SiliconFlow、Qwen、Moonshot、SillyTraven、MCP、WeClone 等 LLM &amp; Agent</p>
+<details>
+<summary>变更说明</summary>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/xpipe-io/xpipe/releases/tag/16.4.1">xpipe 16.4.1</a>
+</h1><a id="user-content-5-xpipe-1641" class="anchor" aria-label="Permalink: 5. xpipe 16.4.1" href="#5-xpipe-1641"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Access your entire server infrastructure from your local desktop</p>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>Fix key file selection throwing NullPointer for VMs in 16.4</li>
+<li>Fix choco updater showing updates prior to availability</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Downloads</h2><a id="user-content-downloads" class="anchor" aria-label="Permalink: Downloads" href="#downloads"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>You can find all downloadable artifacts below attached to this release. For installation instructions, see the .</p>
+<p>All artifacts are signed by</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/GhostenEditor/Ghosten-Player/releases/tag/v2.1.0">Ghosten-Player v2.1.0</a>
+</h1><a id="user-content-6-ghosten-player-v210" class="anchor" aria-label="Permalink: 6. Ghosten-Player v2.1.0" href="#6-ghosten-player-v210"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>一个同时适配📱Android Phone和📺Android TV的视频播放器。整合影视资源，自动刮削媒体信息，支持IPTV播放，优雅打造私人影视库。界面简洁，功能丰富，开箱即用。</p>
 <details>
 <summary>变更说明</summary>
@@ -184,21 +180,8 @@ QQ群 1033449405</p>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/xpipe-io/xpipe/releases/tag/16.4.1">xpipe 16.4.1</a>
-</h1><a id="user-content-5-xpipe-1641" class="anchor" aria-label="Permalink: 5. xpipe 16.4.1" href="#5-xpipe-1641"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Access your entire server infrastructure from your local desktop</p>
-<details>
-<summary>变更说明</summary>
-<ul>
-<li>Fix key file selection throwing NullPointer for VMs in 16.4</li>
-<li>Fix choco updater showing updates prior to availability</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">Downloads</h2><a id="user-content-downloads" class="anchor" aria-label="Permalink: Downloads" href="#downloads"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>You can find all downloadable artifacts below attached to this release. For installation instructions, see the .</p>
-<p>All artifacts are signed by</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/TermoraDev/termora/releases/tag/1.0.15">termora 1.0.15</a>
-</h1><a id="user-content-6-termora-1015" class="anchor" aria-label="Permalink: 6. termora 1.0.15" href="#6-termora-1015"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/TermoraDev/termora/releases/tag/1.0.15">termora 1.0.15</a>
+</h1><a id="user-content-7-termora-1015" class="anchor" aria-label="Permalink: 7. termora 1.0.15" href="#7-termora-1015"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Termora is a terminal emulator and SSH client for Windows, macOS and Linux.</p>
 <details>
 <summary>变更说明</summary>
