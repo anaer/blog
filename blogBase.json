@@ -2545,14 +2545,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/120",
             "commentNum": 0,
             "createdAt": 1747628362,
-            "updatedAt": 1747926675,
+            "updatedAt": 1747973660,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-05-19",
-            "dateLabelColor": "hsl(143, 61%, 16%)",
-            "description": "1. cherry-studio v1.3.9\n\n\ud83c\udf52 Cherry Studio is a desktop client that supports for multiple LLM providers.\n\n\u53d8\u66f4\u8bf4\u660e\nWhat's Changed\n\nrefactor(PasteService): optimize handler registration logic\nFeat/mcp run python\nfix: handle undefined html title\nfix: improve CodeEditor controlled mode, prevent unnecessary t...",
-            "buildedAt": 1747926675
+            "dateLabelColor": "hsl(143, 31%, 35%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u591a\u4e2a\u8f6f\u4ef6\u5de5\u5177\u7684\u66f4\u65b0\u548c\u4fee\u590d\uff0c\u5305\u62ecPowerToys v0.91.1\u3001Cherry Studio v1.3.10\u3001Xpipe 16.4.1\u3001LangBot v4.0.3.3\u3001LightBulb 2.6.3\u3001Awesome-Mac v1.9.0\u3001New-API v0.7.2.0\u3001Mihomo v1.19.9\u3001Subs-Check v2.2.4\u548cTermora 1.0.15\u3002\u6bcf\u4e2a\u5de5\u5177\u7684\u53d8\u66f4\u8bf4\u660e\u6db5\u76d6\u4e86\u4fee\u590d\u3001\u529f\u80fd\u589e\u5f3a\u548c\u65b0\u7279\u6027\u7684\u6dfb\u52a0\uff0c\u65e8\u5728\u63d0\u5347\u7528\u6237\u4f53\u9a8c\u548c\u7cfb\u7edf\u7a33\u5b9a\u6027\u3002\n\n\u4f18\u5316\u5efa\u8bae\uff1a\n1. \u5bf9\u4e8e\u6bcf\u4e2a\u5de5\u5177\u7684\u66f4\u65b0\uff0c\u63d0\u4f9b\u66f4\u660e\u786e\u7684\u7248\u672c\u53f7\u548c\u53d1\u5e03\u65e5\u671f\uff0c\u4ee5\u4fbf\u7528\u6237\u5feb\u901f\u8bc6\u522b\u6700\u65b0\u7248\u672c\u3002\n2. \u589e\u52a0\u6bcf\u4e2a\u8f6f\u4ef6\u7684\u5b89\u88c5\u6216\u66f4\u65b0\u6307\u5357\u94fe\u63a5\uff0c\u65b9\u4fbf\u7528\u6237\u64cd\u4f5c\u3002\n3. \u5bf9\u4e8e\u529f\u80fd\u589e\u5f3a\u90e8\u5206\uff0c\u63d0\u4f9b\u4f7f\u7528\u793a\u4f8b\u6216\u573a\u666f\uff0c\u4ee5\u5e2e\u52a9\u7528\u6237\u7406\u89e3\u65b0\u7279\u6027\u7684\u5e94\u7528\u3002\n4. \u6574\u7406\u53d8\u66f4\u5185\u5bb9\uff0c\u7a81\u51fa\u6700\u91cd\u8981\u7684\u4fee\u590d\u548c\u529f\u80fd\uff0c\u4ee5\u5f15\u5bfc\u7528\u6237\u5173\u6ce8\u5173\u952e\u66f4\u65b0\u3002",
+            "buildedAt": 1747973660
         },
         "P121": {
             "number": "121",

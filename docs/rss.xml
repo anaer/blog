@@ -1,22 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 23 May 2025 03:05:57 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 23 May 2025 03:05:57 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>122 blog相关</title><link>https://anaer.github.io/blog/post/122.html</link><description>本文介绍了在GitHub上设置AI总结所需的变量信息，包括API_URL、API_KEY和API_MODEL，并强调了API_KEY的创建步骤和Models权限的设置。未设置正确权限会导致访问错误。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 23 May 2025 04:14:50 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 23 May 2025 04:14:50 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>122 blog相关</title><link>https://anaer.github.io/blog/post/122.html</link><description>本文介绍了在GitHub上设置AI总结所需的变量信息，包括API_URL、API_KEY和API_MODEL，并强调了API_KEY的创建步骤和Models权限的设置。未设置正确权限会导致访问错误。
 
 优化建议：提供详细的步骤说明，确保用户能够顺利创建API_KEY并设置Models权限。同时，可以增加对错误信息的解释，以帮助用户理解如何解决问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/122.html</guid><pubDate>Fri, 23 May 2025 03:02:48 +0000</pubDate></item><item><title>121 Android TV软件</title><link>https://anaer.github.io/blog/post/121.html</link><description>
 TV Bro: 专为电视遥控优化的简单网页浏览器 [GitHub]
 SmartTube: 适用于 Android 电视和电视盒的先进（YouTube）播放器 [GitHub]
 LocalSend： 允许您在没有互联网连接的情况下，通过本地网络与附近设备安全地分享文件和消息 [GitHub]
 
-...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/121.html</guid><pubDate>Thu, 22 May 2025 08:45:45 +0000</pubDate></item><item><title>120 我关注的项目这周更新了什么-2025-05-23</title><link>https://anaer.github.io/blog/post/120.html</link><description>1. cherry-studio v1.3.9
+...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/121.html</guid><pubDate>Thu, 22 May 2025 08:45:45 +0000</pubDate></item><item><title>120 我关注的项目这周更新了什么-2025-05-23</title><link>https://anaer.github.io/blog/post/120.html</link><description>本文介绍了多个软件工具的更新和修复，包括PowerToys v0.91.1、Cherry Studio v1.3.10、Xpipe 16.4.1、LangBot v4.0.3.3、LightBulb 2.6.3、Awesome-Mac v1.9.0、New-API v0.7.2.0、Mihomo v1.19.9、Subs-Check v2.2.4和Termora 1.0.15。每个工具的变更说明涵盖了修复、功能增强和新特性的添加，旨在提升用户体验和系统稳定性。
 
-🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.
-
-变更说明
-What's Changed
-
-refactor(PasteService): optimize handler registration logic
-Feat/mcp run python
-fix: handle undefined html title
-fix: improve CodeEditor controlled mode, prevent unnecessary t...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/120.html</guid><pubDate>Mon, 19 May 2025 04:19:22 +0000</pubDate></item><item><title>119 我关注的项目这周更新了什么-2025-05-16</title><link>https://anaer.github.io/blog/post/119.html</link><description>1. cherry-studio v1.3.5
+优化建议：
+1. 对于每个工具的更新，提供更明确的版本号和发布日期，以便用户快速识别最新版本。
+2. 增加每个软件的安装或更新指南链接，方便用户操作。
+3. 对于功能增强部分，提供使用示例或场景，以帮助用户理解新特性的应用。
+4. 整理变更内容，突出最重要的修复和功能，以引导用户关注关键更新。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/120.html</guid><pubDate>Mon, 19 May 2025 04:19:22 +0000</pubDate></item><item><title>119 我关注的项目这周更新了什么-2025-05-16</title><link>https://anaer.github.io/blog/post/119.html</link><description>1. cherry-studio v1.3.5
 
 🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.
 
