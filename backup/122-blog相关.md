@@ -5,9 +5,11 @@ https://github.com/anaer/blog/settings/secrets/actions
 
 ![Image](https://github.com/user-attachments/assets/33a8b0a5-2b38-42bd-8526-e7e7075b6bd2)
 
+```
 API_URL = "https://models.inference.ai.azure.com/chat/completions"
 API_KEY = "github_pat_xxxxxxx"
 API_MODEL = "gpt-4o"
+```
 
 2. API_KEY 需要在以下链接进行创建
 https://github.com/settings/personal-access-tokens

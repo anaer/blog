@@ -128,10 +128,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-05-23 11:02:48</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在GitHub上设置AI总结所需的变量信息，包括API_URL、API_KEY和API_MODEL。用户需在指定链接创建API_KEY，并确保GitHub Models key的权限为Read-only，以避免因权限不足而导致的错误。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-23 11:05:25</time></span>
 
-优化建议：提供详细的步骤说明，确保用户清楚如何创建API_KEY和设置权限。同时，可以增加对错误信息的解释和解决方案，以帮助用户更好地理解和处理潜在问题。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了在GitHub上设置AI总结所需的变量信息，包括API_URL、API_KEY和API_MODEL，并强调了API_KEY的创建步骤和Models权限的设置。未设置正确权限会导致访问错误。
+
+优化建议：提供详细的步骤说明，确保用户能够顺利创建API_KEY并设置Models权限。同时，可以增加对错误信息的解释，以帮助用户理解如何解决问题。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -142,9 +144,10 @@ pre {
 </li>
 </ol>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/33a8b0a5-2b38-42bd-8526-e7e7075b6bd2"><img src="https://github.com/user-attachments/assets/33a8b0a5-2b38-42bd-8526-e7e7075b6bd2" alt="Image" style="max-width: 100%;"></a></p>
-<p>API_URL = "<a href="https://models.inference.ai.azure.com/chat/completions" rel="nofollow">https://models.inference.ai.azure.com/chat/completions</a>"
+<pre><code>API_URL = "https://models.inference.ai.azure.com/chat/completions"
 API_KEY = "github_pat_xxxxxxx"
-API_MODEL = "gpt-4o"</p>
+API_MODEL = "gpt-4o"
+</code></pre>
 <ol start="2">
 <li>API_KEY 需要在以下链接进行创建
 <a href="https://github.com/settings/personal-access-tokens">https://github.com/settings/personal-access-tokens</a>
