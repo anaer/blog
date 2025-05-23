@@ -17,21 +17,7 @@ jobs:
       API_MODEL: ${{ secrets.API_MODEL }}
 
     if: github.event.repository.owner.id == github.event.sender.id
-    permissions: 
-      actions: write
-      attestations: write
-      checks: write
-      contents: write
-      deployments: write
-      id-token: write
-      issues: write
-      models: read
-      discussions: write
-      packages: write
-      pages: write
-      pull-requests: write
-      security-events: write
-      statuses: write
+    permissions: write-all
     steps:
       - name: Checkout
         uses: actions/checkout@v4
