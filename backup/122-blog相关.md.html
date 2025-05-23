@@ -1,0 +1,19 @@
+<div class="markdown-heading"><h3 class="heading-element">AI总结</h3><a id="user-content-ai总结" class="anchor" aria-label="Permalink: AI总结" href="#ai总结"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>AI总结需要在以下地址设置变量信息
+<a href="https://github.com/anaer/blog/settings/secrets/actions">https://github.com/anaer/blog/settings/secrets/actions</a>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/33a8b0a5-2b38-42bd-8526-e7e7075b6bd2"><img src="https://github.com/user-attachments/assets/33a8b0a5-2b38-42bd-8526-e7e7075b6bd2" alt="Image" style="max-width: 100%;"></a></p>
+<p>API_URL = "<a href="https://models.inference.ai.azure.com/chat/completions" rel="nofollow">https://models.inference.ai.azure.com/chat/completions</a>"
+API_KEY = "github_pat_xxxxxxx"
+API_MODEL = "gpt-4o"</p>
+<ol start="2">
+<li>API_KEY 需要在以下链接进行创建
+<a href="https://github.com/settings/personal-access-tokens">https://github.com/settings/personal-access-tokens</a>
+</li>
+</ol>
+<p>GitHub Models key 需要设置Models权限为Read-only</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/c1efd265-a865-4440-8b00-fe7d4a0b00cc"><img src="https://github.com/user-attachments/assets/c1efd265-a865-4440-8b00-fe7d4a0b00cc" alt="Image" style="max-width: 100%;"></a></p>
+<p>如果未设置权限 会报错</p>
+<div class="highlight highlight-source-json"><pre>{<span class="pl-ent">"error"</span>:{<span class="pl-ent">"code"</span>:<span class="pl-s"><span class="pl-pds">"</span>unauthorized<span class="pl-pds">"</span></span>,<span class="pl-ent">"message"</span>:<span class="pl-s"><span class="pl-pds">"</span>The `models` permission is required to access this endpoint<span class="pl-pds">"</span></span>,<span class="pl-ent">"details"</span>:<span class="pl-s"><span class="pl-pds">"</span>The `models` permission is required to access this endpoint<span class="pl-pds">"</span></span>}}</pre></div>
