@@ -12,12 +12,13 @@
 2. BeyondCompare
 
 ### 终端
-1. MobaXterm 中文版 [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) 
-2. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 
-3. KiTTY [GitHub](https://github.com/cyd01/KiTTY/releases)       
-4. Putty [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
-5. WindTerm [GitHub](https://github.com/kingToolbox/WindTerm/releases/) 多端  
-6. Tabby [GitHub](https://github.com/Eugeny/tabby/releases)  
+1. SmartPutty [GitHub](https://github.com/anaer/SmartPutty) Windows
+2. MobaXterm 中文版 [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) 有注册机
+3. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 可集成到VSCode中
+4. KiTTY [GitHub](https://github.com/cyd01/KiTTY/releases)       
+5. Putty [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
+6. WindTerm [GitHub](https://github.com/kingToolbox/WindTerm/releases/) 多端  
+7. Tabby [GitHub](https://github.com/Eugeny/tabby/releases)  
   多端, 插件支持webdav同步, 支持集成WinSCP
   使用较卡, 电脑差带不动
 
@@ -29,15 +30,12 @@
 5. Wise Memory Optimizer [官网](https://www.wisecleaner.com.cn/wise-memory-optimizer.html) Windows 内存整理和优化工具
 
 ### 传输
-| 名称   | 下载地址                                    | 说明 |
-| ------ | ------------------------------------------- | ---- |
-| WinSCP | [官网](https://winscp.net/eng/download.php) |      |
+1. LocalSend [GitHub](https://github.com/localsend/localsend/releases/tag/v1.17.0) 多端 支持Mac, iPhone, Android, TV等
+2. WinSCP [官网](https://winscp.net/eng/download.php)
 
 ### 卸载
-| 名称                  | 下载地址                                                            | 说明     |
-| --------------------- | ------------------------------------------------------------------- | -------- |
-| Bulk-Crap-Uninstaller | [GitHub](https://github.com/Klocman/Bulk-Crap-Uninstaller/releases) | 卸载工具 |
-| HiBit Uninstaller     | [官网](https://www.hibitsoft.ir/Uninstaller.html)                   | 卸载工具 |
+1. HiBit Uninstaller [官网](https://www.hibitsoft.ir/Uninstaller.html) 卸载工具
+2. Bulk-Crap-Uninstaller [GitHub](https://github.com/Klocman/Bulk-Crap-Uninstaller/releases) 卸载工具
 
 ### 压缩
 | 名称 | 下载地址                              | 说明 |
