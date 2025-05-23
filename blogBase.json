@@ -142,14 +142,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/6",
             "commentNum": 0,
             "createdAt": 1698656488,
-            "updatedAt": 1747967160,
+            "updatedAt": 1747967677,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2023-10-30",
-            "dateLabelColor": "hsl(350, 59%, 10%)",
+            "dateLabelColor": "hsl(350, 59%, 33%)",
             "description": "\u7cfb\u7edf\n\u6d4f\u89c8\u5668\n\n\nChrome \u5b98\u7f51\n\nEdge  \u4e09\u65b9\u5e02\u573a\u63d2\u4ef6\u597d\u50cf\u6ca1\u6709\u540c\u6b65, \u5171\u4eab\u6807\u7b7e\u9875\u529f\u80fd\u8fd8\u884c\nFloorp\u6d4f\u89c8\u5668 GitHub Firefox fork\u7248 \u589e\u52a0\u4e00\u4e9b\u7279\u6027\nZen Browser  GitHub Firefox fork\u7248 \u652f\u6301\u5de6\u4fa7\u6807\u7b7e\u680f\n\n\u6bd4\u8f83\n\nWinMerge GitHub  \u5728\u7528\nBeyondCompare\n\n\u7ec8\u7aef\n\nSmartPutty GitHub Windows\nMobaXterm \u4e2d\u6587\u7248 GitHub \u6709\u6ce8\u518c\u673a\nCmder\u7ec8\u7aef\u5de5\u5177 GitHub \u53ef\u96c6\u6210\u5230VSCode\u4e2d\nKiTTY GitHub\n\nPutty \u963f\u91cc\u4e91\u955c\u50cf\n\nWindTerm GitHub \u591a\u7aef...",
-            "buildedAt": 1747967160
+            "buildedAt": 1747967677
         },
         "P7": {
             "number": "7",
