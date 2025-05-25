@@ -55,72 +55,29 @@
 <p>💬 反馈有礼：欢迎提交你的宝贵建议，加入 VIP 用户社群，与我们一同塑造 DeepChat 的未来！
 &lt;img width="400px" src="</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.3.11">cherry-studio v1.3.11</a>
-</h1><a id="user-content-2-cherry-studio-v1311" class="anchor" aria-label="Permalink: 2. cherry-studio v1.3.11" href="#2-cherry-studio-v1311"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.7.2.2">new-api v0.7.2.2</a>
+</h1><a id="user-content-2-new-api-v0722" class="anchor" aria-label="Permalink: 2. new-api v0.7.2.2" href="#2-new-api-v0722"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix aws claude-sonnet-4-20250514</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.3.11">cherry-studio v1.3.11</a>
+</h1><a id="user-content-3-cherry-studio-v1311" class="anchor" aria-label="Permalink: 3. cherry-studio v1.3.11" href="#3-cherry-studio-v1311"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>fix: editing user messages is not re-sent; it can only be saved</li>
 <li>feat: support pin topic to the top</li>
 <li>feat: add navigation buttons for webview history in MinApp popup</li>
 <li>chore: update electron version to 35.4.0 in package.json and yarn.lock</li>
 <li>Feat/support tokenflux provider</li>
-</ul>
-<p><strong>Full Changelog</strong>:</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.9">mihomo v1.19.9</a>
-</h1><a id="user-content-3-mihomo-v1199" class="anchor" aria-label="Permalink: 3. mihomo v1.19.9" href="#3-mihomo-v1199"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>188372cb feat: add <code>tls.ech-key</code> for <code>external-controller-tls</code>
-</li>
-<li>5cf0f18c feat: reality add <code>support-x25519mlkem768</code>, it only works with new version server</li>
-<li>a1350d49 feat: add <code>ech-key</code> for listeners</li>
-<li>c6d7ef8c feat: add <code>ech-opts</code> for anytls/shadowsocks/trojan/vmess/vless outbound</li>
-<li>dc958e6a feat: add <code>ech-opts</code> for hysteria/hysteria2/tuic outbound</li>
-<li>Other incompatible updates are the same as v1.19.6~v1.19.8:</li>
-</ul>
-<blockquote>
-<ul>
-<li>For security reasons, all paths appearing in the configuration file will be limited to <strong>workdir</strong> (regardless of whether they are relative or absolute). If there is a specific need, please specify additional safe paths by setting the <code>SAFE_PATHS</code> environment variable while ensuring safety. The syntax of this environment variable is the same as the PATH environment variable parsing rules of this operating system (i.e., semicolon-separated under Windows and colon-separated under other systems)</li>
-<li>For security reasons, the "path" parameter of <code>/configs</code> in the restful api has been restricted, and its directory also needs to be in <strong>workdir</strong> or <code>SAFE_PATHS</code>.</li>
-<li>In addition, support for specifying <code>routing-mark</code> and <code>interface-name</code> for <code>proxy-groups</code> has been removed. Please specify the relevant parameters in <code>proxies</code> directly.</li>
-<li>Note: The <strong>workdir</strong> mentioned above is specified by the <code>-d</code> parameter when the program is started or the <code>CLASH_HOME_DIR</code> environment variable. If neither of the above is specified, the default is:
-<ul>
-<li>on Unix systems, <code>$HOME/.config/mihomo</code>.</li>
-<li>on Windows, <code>%USERPROFILE%/.config/mihomo</code>.</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<div class="markdown-heading"><h2 class="heading-element">BUG &amp; Fix</h2><a id="user-content-bug--fix" class="anchor" aria-label="Permalink: BUG &amp; Fix" href="#bug--fix"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>41b57afb fix: grpc deadline implement</li>
-<li>608ddb1b fix: <code>external-ui-name</code> must in local</li>
-<li>90ed01ed fix: backoff not reset when the file unchanged</li>
-<li>bb8c47d8 fix: error typo</li>
-<li>c489c526 fix: hysteria2 hop ports init</li>
-<li>d036d981 fix: http server does not handle http2 logic correctly</li>
-<li>d5a03901 fix: race in close grpc transport</li>
-<li>d900c712 fix: shadowtls v2 not work with X25519MLKEM768</li>
-<li>f91a586d fix: inline proxy provider's healthcheck not work</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">Maintenance</h2><a id="user-content-maintenance" class="anchor" aria-label="Permalink: Maintenance" href="#maintenance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>1672750c chore: simplifying the old fingerprint processing method</li>
-<li>257fead5 docs: update config.yaml follow 5cf0f18c</li>
-<li>83213d49 chore: adjust min backoff from 1s to 10s</li>
-<li>8a5f3b89 chore: simplify port hop costs</li>
-<li>8f92b1de chore: simplify the single root decompression process</li>
-<li>9f7a2a36 chore: unpack externalUI in a separate temporary directory to avoid malicious compressed packages from polluting workdir</li>
-<li>a9347912 chore: stricter path checking when unpacking zip/tgz</li>
-<li>ed42c4fe chore: disallow symlink in unzip</li>
-<li>fd959fef chore: update dependencies</li>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
@@ -181,8 +138,62 @@
 </li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/xpipe-io/xpipe/releases/tag/16.4.1">xpipe 16.4.1</a>
-</h1><a id="user-content-5-xpipe-1641" class="anchor" aria-label="Permalink: 5. xpipe 16.4.1" href="#5-xpipe-1641"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.9">mihomo v1.19.9</a>
+</h1><a id="user-content-5-mihomo-v1199" class="anchor" aria-label="Permalink: 5. mihomo v1.19.9" href="#5-mihomo-v1199"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>188372cb feat: add <code>tls.ech-key</code> for <code>external-controller-tls</code>
+</li>
+<li>5cf0f18c feat: reality add <code>support-x25519mlkem768</code>, it only works with new version server</li>
+<li>a1350d49 feat: add <code>ech-key</code> for listeners</li>
+<li>c6d7ef8c feat: add <code>ech-opts</code> for anytls/shadowsocks/trojan/vmess/vless outbound</li>
+<li>dc958e6a feat: add <code>ech-opts</code> for hysteria/hysteria2/tuic outbound</li>
+<li>Other incompatible updates are the same as v1.19.6~v1.19.8:</li>
+</ul>
+<blockquote>
+<ul>
+<li>For security reasons, all paths appearing in the configuration file will be limited to <strong>workdir</strong> (regardless of whether they are relative or absolute). If there is a specific need, please specify additional safe paths by setting the <code>SAFE_PATHS</code> environment variable while ensuring safety. The syntax of this environment variable is the same as the PATH environment variable parsing rules of this operating system (i.e., semicolon-separated under Windows and colon-separated under other systems)</li>
+<li>For security reasons, the "path" parameter of <code>/configs</code> in the restful api has been restricted, and its directory also needs to be in <strong>workdir</strong> or <code>SAFE_PATHS</code>.</li>
+<li>In addition, support for specifying <code>routing-mark</code> and <code>interface-name</code> for <code>proxy-groups</code> has been removed. Please specify the relevant parameters in <code>proxies</code> directly.</li>
+<li>Note: The <strong>workdir</strong> mentioned above is specified by the <code>-d</code> parameter when the program is started or the <code>CLASH_HOME_DIR</code> environment variable. If neither of the above is specified, the default is:
+<ul>
+<li>on Unix systems, <code>$HOME/.config/mihomo</code>.</li>
+<li>on Windows, <code>%USERPROFILE%/.config/mihomo</code>.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<div class="markdown-heading"><h2 class="heading-element">BUG &amp; Fix</h2><a id="user-content-bug--fix" class="anchor" aria-label="Permalink: BUG &amp; Fix" href="#bug--fix"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>41b57afb fix: grpc deadline implement</li>
+<li>608ddb1b fix: <code>external-ui-name</code> must in local</li>
+<li>90ed01ed fix: backoff not reset when the file unchanged</li>
+<li>bb8c47d8 fix: error typo</li>
+<li>c489c526 fix: hysteria2 hop ports init</li>
+<li>d036d981 fix: http server does not handle http2 logic correctly</li>
+<li>d5a03901 fix: race in close grpc transport</li>
+<li>d900c712 fix: shadowtls v2 not work with X25519MLKEM768</li>
+<li>f91a586d fix: inline proxy provider's healthcheck not work</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Maintenance</h2><a id="user-content-maintenance" class="anchor" aria-label="Permalink: Maintenance" href="#maintenance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>1672750c chore: simplifying the old fingerprint processing method</li>
+<li>257fead5 docs: update config.yaml follow 5cf0f18c</li>
+<li>83213d49 chore: adjust min backoff from 1s to 10s</li>
+<li>8a5f3b89 chore: simplify port hop costs</li>
+<li>8f92b1de chore: simplify the single root decompression process</li>
+<li>9f7a2a36 chore: unpack externalUI in a separate temporary directory to avoid malicious compressed packages from polluting workdir</li>
+<li>a9347912 chore: stricter path checking when unpacking zip/tgz</li>
+<li>ed42c4fe chore: disallow symlink in unzip</li>
+<li>fd959fef chore: update dependencies</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/xpipe-io/xpipe/releases/tag/16.4.1">xpipe 16.4.1</a>
+</h1><a id="user-content-6-xpipe-1641" class="anchor" aria-label="Permalink: 6. xpipe 16.4.1" href="#6-xpipe-1641"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Access your entire server infrastructure from your local desktop</p>
 <details>
 <summary>变更说明</summary>
@@ -193,17 +204,6 @@
 <div class="markdown-heading"><h2 class="heading-element">Downloads</h2><a id="user-content-downloads" class="anchor" aria-label="Permalink: Downloads" href="#downloads"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>You can find all downloadable artifacts below attached to this release. For installation instructions, see the .</p>
 <p>All artifacts are signed by</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.7.2.2">new-api v0.7.2.2</a>
-</h1><a id="user-content-6-new-api-v0722" class="anchor" aria-label="Permalink: 6. new-api v0.7.2.2" href="#6-new-api-v0722"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>fix aws claude-sonnet-4-20250514</li>
-</ul>
-<p><strong>Full Changelog</strong>:</p>
 </details>
 <div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v4.0.3.3">LangBot v4.0.3.3</a>
 </h1><a id="user-content-7-langbot-v4033" class="anchor" aria-label="Permalink: 7. LangBot v4.0.3.3" href="#7-langbot-v4033"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
