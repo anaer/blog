@@ -130,21 +130,36 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-05-19 12:19:22</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-25 12:17:52</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-25 23:09:20</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新和变更说明，包括DeepChat、new-api、Cherry Studio、PowerToys、mihomo、xpipe、LangBot、alist、weasel、subs-check、LightBulb和awesome-mac等。其中，DeepChat 0.2.0引入了多窗口和多标签功能，优化了用户界面和模型兼容性；new-api 0.7.2.2改进了AI模型接口管理；Cherry Studio 1.3.11增加了对多个LLM提供者的支持；PowerToys 0.91.1进行了重要稳定性修复；mihomo 1.19.9增强了安全性和功能；xpipe 16.4.1修复了虚拟机的文件选择问题；LangBot 4.0.3.3是一个适配多平台的IM机器人；alist 3.45.0增加了多存储支持；weasel 0.17.3修复了用户目录的问题；subs-check 2.2.5调整了重命名逻辑；LightBulb 2.6.3更新了依赖项；awesome-mac 1.9.0增加了多个新软件和修复。
+    <strong>AI总结:</strong> 本文介绍了多个软件更新的主要变更，包括Cherry Studio、DeepChat、Mihomo、PowerToys、新API、Xpipe、Anx-Reader、Subs-Check、LangBot、Alist、Weasel、LightBulb和Awesome-Mac等。各个软件的更新内容涉及功能增强、bug修复和用户体验优化，例如DeepChat引入多窗口和多标签功能，Anx-Reader支持AI翻译，PowerToys修复了管理权限问题，以及Mihomo的安全性改进等。
 
 优化建议：
-1. 统一格式，确保所有软件的变更说明结构相似，便于阅读和比较。
-2. 增加每个软件的主要功能和目标用户的简短描述，以帮助用户快速了解软件价值。
-3. 在每个版本更新后，提供用户反馈渠道，鼓励用户报告问题和建议功能。
-4. 对于较大的更新，考虑提供版本间的变化对比，以突出新功能和改进。
+1. 在更新说明中使用清晰的标题和小节，以便用户快速找到关键信息。
+2. 采用简洁的语言描述功能和修复，避免技术细节过于复杂。
+3. 提供示例或使用场景，帮助用户理解新功能的实际应用。
+4. 考虑增加用户反馈渠道，鼓励用户分享使用体验和建议。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.2.0">deepchat v0.2.0</a>
-</h1><a id="user-content-1-deepchat-v020" class="anchor" aria-label="Permalink: 1. deepchat v0.2.0" href="#1-deepchat-v020"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.3.11">cherry-studio v1.3.11</a>
+</h1><a id="user-content-1-cherry-studio-v1311" class="anchor" aria-label="Permalink: 1. cherry-studio v1.3.11" href="#1-cherry-studio-v1311"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: editing user messages is not re-sent; it can only be saved</li>
+<li>feat: support pin topic to the top</li>
+<li>feat: add navigation buttons for webview history in MinApp popup</li>
+<li>chore: update electron version to 35.4.0 in package.json and yarn.lock</li>
+<li>Feat/support tokenflux provider</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.2.0">deepchat v0.2.0</a>
+</h1><a id="user-content-2-deepchat-v020" class="anchor" aria-label="Permalink: 2. deepchat v0.2.0" href="#2-deepchat-v020"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🐬DeepChat - A smart assistant that connects powerful AI to your personal world</p>
 <details>
 <summary>变更说明</summary>
@@ -200,29 +215,57 @@ pre {
 <p>💬 反馈有礼：欢迎提交你的宝贵建议，加入 VIP 用户社群，与我们一同塑造 DeepChat 的未来！
 &lt;img width="400px" src="</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.7.2.2">new-api v0.7.2.2</a>
-</h1><a id="user-content-2-new-api-v0722" class="anchor" aria-label="Permalink: 2. new-api v0.7.2.2" href="#2-new-api-v0722"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>fix aws claude-sonnet-4-20250514</li>
-</ul>
-<p><strong>Full Changelog</strong>:</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.3.11">cherry-studio v1.3.11</a>
-</h1><a id="user-content-3-cherry-studio-v1311" class="anchor" aria-label="Permalink: 3. cherry-studio v1.3.11" href="#3-cherry-studio-v1311"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.9">mihomo v1.19.9</a>
+</h1><a id="user-content-3-mihomo-v1199" class="anchor" aria-label="Permalink: 3. mihomo v1.19.9" href="#3-mihomo-v1199"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>fix: editing user messages is not re-sent; it can only be saved</li>
-<li>feat: support pin topic to the top</li>
-<li>feat: add navigation buttons for webview history in MinApp popup</li>
-<li>chore: update electron version to 35.4.0 in package.json and yarn.lock</li>
-<li>Feat/support tokenflux provider</li>
+<li>188372cb feat: add <code>tls.ech-key</code> for <code>external-controller-tls</code>
+</li>
+<li>5cf0f18c feat: reality add <code>support-x25519mlkem768</code>, it only works with new version server</li>
+<li>a1350d49 feat: add <code>ech-key</code> for listeners</li>
+<li>c6d7ef8c feat: add <code>ech-opts</code> for anytls/shadowsocks/trojan/vmess/vless outbound</li>
+<li>dc958e6a feat: add <code>ech-opts</code> for hysteria/hysteria2/tuic outbound</li>
+<li>Other incompatible updates are the same as v1.19.6~v1.19.8:</li>
+</ul>
+<blockquote>
+<ul>
+<li>For security reasons, all paths appearing in the configuration file will be limited to <strong>workdir</strong> (regardless of whether they are relative or absolute). If there is a specific need, please specify additional safe paths by setting the <code>SAFE_PATHS</code> environment variable while ensuring safety. The syntax of this environment variable is the same as the PATH environment variable parsing rules of this operating system (i.e., semicolon-separated under Windows and colon-separated under other systems)</li>
+<li>For security reasons, the "path" parameter of <code>/configs</code> in the restful api has been restricted, and its directory also needs to be in <strong>workdir</strong> or <code>SAFE_PATHS</code>.</li>
+<li>In addition, support for specifying <code>routing-mark</code> and <code>interface-name</code> for <code>proxy-groups</code> has been removed. Please specify the relevant parameters in <code>proxies</code> directly.</li>
+<li>Note: The <strong>workdir</strong> mentioned above is specified by the <code>-d</code> parameter when the program is started or the <code>CLASH_HOME_DIR</code> environment variable. If neither of the above is specified, the default is:
+<ul>
+<li>on Unix systems, <code>$HOME/.config/mihomo</code>.</li>
+<li>on Windows, <code>%USERPROFILE%/.config/mihomo</code>.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<div class="markdown-heading"><h2 class="heading-element">BUG &amp; Fix</h2><a id="user-content-bug--fix" class="anchor" aria-label="Permalink: BUG &amp; Fix" href="#bug--fix"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>41b57afb fix: grpc deadline implement</li>
+<li>608ddb1b fix: <code>external-ui-name</code> must in local</li>
+<li>90ed01ed fix: backoff not reset when the file unchanged</li>
+<li>bb8c47d8 fix: error typo</li>
+<li>c489c526 fix: hysteria2 hop ports init</li>
+<li>d036d981 fix: http server does not handle http2 logic correctly</li>
+<li>d5a03901 fix: race in close grpc transport</li>
+<li>d900c712 fix: shadowtls v2 not work with X25519MLKEM768</li>
+<li>f91a586d fix: inline proxy provider's healthcheck not work</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Maintenance</h2><a id="user-content-maintenance" class="anchor" aria-label="Permalink: Maintenance" href="#maintenance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>1672750c chore: simplifying the old fingerprint processing method</li>
+<li>257fead5 docs: update config.yaml follow 5cf0f18c</li>
+<li>83213d49 chore: adjust min backoff from 1s to 10s</li>
+<li>8a5f3b89 chore: simplify port hop costs</li>
+<li>8f92b1de chore: simplify the single root decompression process</li>
+<li>9f7a2a36 chore: unpack externalUI in a separate temporary directory to avoid malicious compressed packages from polluting workdir</li>
+<li>a9347912 chore: stricter path checking when unpacking zip/tgz</li>
+<li>ed42c4fe chore: disallow symlink in unzip</li>
+<li>fd959fef chore: update dependencies</li>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
@@ -283,57 +326,14 @@ pre {
 </li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.9">mihomo v1.19.9</a>
-</h1><a id="user-content-5-mihomo-v1199" class="anchor" aria-label="Permalink: 5. mihomo v1.19.9" href="#5-mihomo-v1199"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/QuantumNous/new-api/releases/tag/v0.7.2.2">new-api v0.7.2.2</a>
+</h1><a id="user-content-5-new-api-v0722" class="anchor" aria-label="Permalink: 5. new-api v0.7.2.2" href="#5-new-api-v0722"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>AI模型接口管理与分发系统，支持将多种大模型转为统一格式调用，支持OpenAI、Claude等格式，可供个人或者企业内部管理与分发渠道使用，本项目基于One API二次开发。🍥 The next-generation LLM gateway and AI asset management system supports multiple languages.</p>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>188372cb feat: add <code>tls.ech-key</code> for <code>external-controller-tls</code>
-</li>
-<li>5cf0f18c feat: reality add <code>support-x25519mlkem768</code>, it only works with new version server</li>
-<li>a1350d49 feat: add <code>ech-key</code> for listeners</li>
-<li>c6d7ef8c feat: add <code>ech-opts</code> for anytls/shadowsocks/trojan/vmess/vless outbound</li>
-<li>dc958e6a feat: add <code>ech-opts</code> for hysteria/hysteria2/tuic outbound</li>
-<li>Other incompatible updates are the same as v1.19.6~v1.19.8:</li>
-</ul>
-<blockquote>
-<ul>
-<li>For security reasons, all paths appearing in the configuration file will be limited to <strong>workdir</strong> (regardless of whether they are relative or absolute). If there is a specific need, please specify additional safe paths by setting the <code>SAFE_PATHS</code> environment variable while ensuring safety. The syntax of this environment variable is the same as the PATH environment variable parsing rules of this operating system (i.e., semicolon-separated under Windows and colon-separated under other systems)</li>
-<li>For security reasons, the "path" parameter of <code>/configs</code> in the restful api has been restricted, and its directory also needs to be in <strong>workdir</strong> or <code>SAFE_PATHS</code>.</li>
-<li>In addition, support for specifying <code>routing-mark</code> and <code>interface-name</code> for <code>proxy-groups</code> has been removed. Please specify the relevant parameters in <code>proxies</code> directly.</li>
-<li>Note: The <strong>workdir</strong> mentioned above is specified by the <code>-d</code> parameter when the program is started or the <code>CLASH_HOME_DIR</code> environment variable. If neither of the above is specified, the default is:
-<ul>
-<li>on Unix systems, <code>$HOME/.config/mihomo</code>.</li>
-<li>on Windows, <code>%USERPROFILE%/.config/mihomo</code>.</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<div class="markdown-heading"><h2 class="heading-element">BUG &amp; Fix</h2><a id="user-content-bug--fix" class="anchor" aria-label="Permalink: BUG &amp; Fix" href="#bug--fix"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>41b57afb fix: grpc deadline implement</li>
-<li>608ddb1b fix: <code>external-ui-name</code> must in local</li>
-<li>90ed01ed fix: backoff not reset when the file unchanged</li>
-<li>bb8c47d8 fix: error typo</li>
-<li>c489c526 fix: hysteria2 hop ports init</li>
-<li>d036d981 fix: http server does not handle http2 logic correctly</li>
-<li>d5a03901 fix: race in close grpc transport</li>
-<li>d900c712 fix: shadowtls v2 not work with X25519MLKEM768</li>
-<li>f91a586d fix: inline proxy provider's healthcheck not work</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">Maintenance</h2><a id="user-content-maintenance" class="anchor" aria-label="Permalink: Maintenance" href="#maintenance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>1672750c chore: simplifying the old fingerprint processing method</li>
-<li>257fead5 docs: update config.yaml follow 5cf0f18c</li>
-<li>83213d49 chore: adjust min backoff from 1s to 10s</li>
-<li>8a5f3b89 chore: simplify port hop costs</li>
-<li>8f92b1de chore: simplify the single root decompression process</li>
-<li>9f7a2a36 chore: unpack externalUI in a separate temporary directory to avoid malicious compressed packages from polluting workdir</li>
-<li>a9347912 chore: stricter path checking when unpacking zip/tgz</li>
-<li>ed42c4fe chore: disallow symlink in unzip</li>
-<li>fd959fef chore: update dependencies</li>
+<li>fix aws claude-sonnet-4-20250514</li>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
@@ -350,15 +350,131 @@ pre {
 <p>You can find all downloadable artifacts below attached to this release. For installation instructions, see the .</p>
 <p>All artifacts are signed by</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v4.0.3.3">LangBot v4.0.3.3</a>
-</h1><a id="user-content-7-langbot-v4033" class="anchor" aria-label="Permalink: 7. LangBot v4.0.3.3" href="#7-langbot-v4033"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.5.3">anx-reader v1.5.3</a>
+</h1><a id="user-content-7-anx-reader-v153" class="anchor" aria-label="Permalink: 7. anx-reader v1.5.3" href="#7-anx-reader-v153"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">1.5.3</h2><a id="user-content-153" class="anchor" aria-label="Permalink: 1.5.3" href="#153"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p>Feat: Support AI translation and dictionary(, )</p>
+</li>
+<li>
+<p>Feat: Support setting DeepL URL</p>
+</li>
+<li>
+<p>Feat: Show data update time while choosing sync direction</p>
+</li>
+<li>
+<p>Feat: Add Crimean Tatar translation support</p>
+</li>
+<li>
+<p>Feat: Support modifying the original text content in the note editing diaglog</p>
+</li>
+<li>
+<p>Feat: Support import books via share</p>
+</li>
+<li>
+<p>Feat: Add this app to open with</p>
+</li>
+<li>
+<p>Fix: adjust margin icons in style settings</p>
+</li>
+<li>
+<p>Fix: TTS may get stuck on punctuation</p>
+</li>
+<li>
+<p>Fix: Fix garbled text when importing some TXT files</p>
+</li>
+<li>
+<p>Fix: Fix excessive spacing between some file segments</p>
+</li>
+<li>
+<p>UI: Update background and button styles in BookDetail</p>
+</li>
+<li>
+<p>Fix: Fix inaccurate click position in pdf files</p>
+</li>
+<li>
+<p>Fix: macOS Launchpad icon edge anomaly</p>
+</li>
+<li>
+<p>Fix: Fix issue where short TXT files cannot be imported</p>
+</li>
+<li>
+<p>Fix: Fix DeepL translation error</p>
+</li>
+<li>
+<p>新增：支持 AI 翻译和词典(, )</p>
+</li>
+<li>
+<p>新增：支持设置 DeepL URL</p>
+</li>
+<li>
+<p>新增：在选择同步方向时提示两端的数据更新时间</p>
+</li>
+<li>
+<p>新增：添加克里米亚鞑靼语翻译支持</p>
+</li>
+<li>
+<p>新增：支持在笔记编辑界面中修改笔记的原文内容</p>
+</li>
+<li>
+<p>新增：iOS 支持通过分享的方式导入图书</p>
+</li>
+<li>
+<p>新增：支持 打开方式 中选择本App</p>
+</li>
+<li>
+<p>修复：修改样式设置中的边距图标</p>
+</li>
+<li>
+<p>修复：TTS 有时会被标点符号卡住</p>
+</li>
+<li>
+<p>修复：部分 TXT 文件导入乱码的问题</p>
+</li>
+<li>
+<p>修复：部分文件段间距过大</p>
+</li>
+<li>
+<p>UI: 修改书籍详情页背景和按钮样式</p>
+</li>
+<li>
+<p>修复：pdf 文件点击位置不准确的问题</p>
+</li>
+<li>
+<p>修复：macOS 启动台中图标边缘异常</p>
+</li>
+<li>
+<p>修复：内容较短的 TXT 文件无法导入的问题</p>
+</li>
+<li>
+<p>修复：DeepL 翻译出错</p>
+</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.2.6">subs-check v2.2.6</a>
+</h1><a id="user-content-8-subs-check-v226" class="anchor" aria-label="Permalink: 8. subs-check v2.2.6" href="#8-subs-check-v226"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换合并，节点可用性，测速，重命名，导出为clash.meta/clash/base64/qx等等所有格式的订阅工具</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>3aa4adf0c6a5f20eb68cc6c656b75ba6b6d9fb07 update mihomo</li>
+<li>85ceea6f8175a5d60992cce385a64f5e9038724d update sub-store to 2.19.51</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">9. <a href="https://github.com/RockChinQ/LangBot/releases/tag/v4.0.3.3">LangBot v4.0.3.3</a>
+</h1><a id="user-content-9-langbot-v4033" class="anchor" aria-label="Permalink: 9. LangBot v4.0.3.3" href="#9-langbot-v4033"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🤩 IM bot platform designed for the LLM era / 简单易用的大模型即时通信机器人平台 ⚡️ 适配 QQ / 微信（企业微信、个人微信）/ 飞书 / 钉钉 / Discord / Telegram / Slack 等平台 🧩 支持 ChatGPT、DeepSeek、Dify、Claude、Google Gemini、xAI、PPIO、Ollama、阿里云百炼、SiliconFlow、Qwen、Moonshot、SillyTraven、MCP、WeClone 等 LLM &amp; Agent</p>
 <details>
 <summary>变更说明</summary>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/AlistGo/alist/releases/tag/v3.45.0">alist v3.45.0</a>
-</h1><a id="user-content-8-alist-v3450" class="anchor" aria-label="Permalink: 8. alist v3.45.0" href="#8-alist-v3450"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">10. <a href="https://github.com/AlistGo/alist/releases/tag/v3.45.0">alist v3.45.0</a>
+</h1><a id="user-content-10-alist-v3450" class="anchor" aria-label="Permalink: 10. alist v3.45.0" href="#10-alist-v3450"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。</p>
 <details>
 <summary>变更说明</summary>
@@ -536,8 +652,8 @@ pre {
 </ul>
 <h5>    </h5>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">9. <a href="https://github.com/rime/weasel/releases/tag/0.17.3">weasel 0.17.3</a>
-</h1><a id="user-content-9-weasel-0173" class="anchor" aria-label="Permalink: 9. weasel 0.17.3" href="#9-weasel-0173"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">11. <a href="https://github.com/rime/weasel/releases/tag/0.17.3">weasel 0.17.3</a>
+</h1><a id="user-content-11-weasel-0173" class="anchor" aria-label="Permalink: 11. weasel 0.17.3" href="#11-weasel-0173"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>【小狼毫】Rime for Windows</p>
 <details>
 <summary>变更说明</summary>
@@ -554,19 +670,8 @@ fix(RimeWithWeasel): color parsing for decimal number fix(RimeWithWeasel): highl
 <div class="markdown-heading"><h4 class="heading-element">Commits</h4><a id="user-content-commits" class="anchor" aria-label="Permalink: Commits" href="#commits"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Revert "fix(tsf): ime status "</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">10. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.2.5">subs-check v2.2.5</a>
-</h1><a id="user-content-10-subs-check-v225" class="anchor" aria-label="Permalink: 10. subs-check v2.2.5" href="#10-subs-check-v225"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>订阅转换合并，节点可用性，测速，重命名，导出为clash.meta/clash/base64/qx等等所有格式的订阅工具</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>ddde832db99bae7e998f13443c6c365c5f9bd09d op: 调整重命名逻辑</li>
-<li>1213065edd4e7ecf9c2fb3d911b55ea83d44a3cb update mihomo</li>
-</ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">11. <a href="https://github.com/Tyrrrz/LightBulb/releases/tag/2.6.3">LightBulb 2.6.3</a>
-</h1><a id="user-content-11-lightbulb-263" class="anchor" aria-label="Permalink: 11. LightBulb 2.6.3" href="#11-lightbulb-263"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">12. <a href="https://github.com/Tyrrrz/LightBulb/releases/tag/2.6.3">LightBulb 2.6.3</a>
+</h1><a id="user-content-12-lightbulb-263" class="anchor" aria-label="Permalink: 12. LightBulb 2.6.3" href="#12-lightbulb-263"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Reduces eye strain by adjusting screen gamma based on the current time</p>
 <details>
 <summary>变更说明</summary>
@@ -580,8 +685,8 @@ fix(RimeWithWeasel): color parsing for decimal number fix(RimeWithWeasel): highl
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">12. <a href="https://github.com/jaywcjlove/awesome-mac/releases/tag/v1.9.0">awesome-mac v1.9.0</a>
-</h1><a id="user-content-12-awesome-mac-v190" class="anchor" aria-label="Permalink: 12. awesome-mac v1.9.0" href="#12-awesome-mac-v190"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">13. <a href="https://github.com/jaywcjlove/awesome-mac/releases/tag/v1.9.0">awesome-mac v1.9.0</a>
+</h1><a id="user-content-13-awesome-mac-v190" class="anchor" aria-label="Permalink: 13. awesome-mac v1.9.0" href="#13-awesome-mac-v190"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p> Now we have become very big, Different from the original idea. Collect premium software in various categories.</p>
 <details>
 <summary>变更说明</summary>
