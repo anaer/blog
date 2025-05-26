@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <script>
+        if(localStorage.getItem("meek_theme")==null){}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
+    </script>
+    
+<title>123 我关注的项目这周更新了什么-2025-05-30</title>
+
+
+</head>
+<style>
+body{
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 45px;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.25;
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 767px) {body {padding: 8px;}}
+
+pre {
+    white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
+    word-wrap: break-word; /* 允许长单词或 URL 换行 */
+    overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
+}
+
+.new-post {
+    bottom: 20px; /* 距离底部 20px */
+}
+
+.edit-post {
+    bottom: 60px; /* 距离底部60px */
+}
+
+/* 悬浮按钮样式 */
+.floating-button {
+    position: fixed; /* 固定位置 */
+    right: 5%; /* 距离右侧 5% */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 32px; /* 宽度 */
+    height: 32px; /* 高度 */
+    font-size: 16px; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    z-index: 1000; /* 确保按钮在最上层 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* 添加悬停效果 */
+}
+
+/* 按钮悬停效果 */
+.floating-button:hover {
+    background-color: #0056b3; /* 悬停时改变背景颜色 */
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1>
+    <a style="font-size:18px">123 我关注的项目这周更新了什么-2025-05-30</a>
+</h1>
+
+<div class="title-right">
+
+    <a href="https://anaer.github.io/blog"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    <a href="https://github.com/anaer/blog/issues/123" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+</div>
+</div>
+    <div id="content">
+
+<div class="listLabels">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#1d76db">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#关注">关注</a></object>
+        </span>
+</div>
+<br>
+
+<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
+<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-05-26 23:10:48</time></span>
+
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了DeepChat v0.2.1、Cherry Studio v1.3.12和IPTV API v1.7.2的更新内容。DeepChat的更新包括修复引文标记、消息流合并崩溃、提示词添加等功能，同时引入了内存深度研究和模板化自动提示工具。Cherry Studio则改善了多选功能、引入了禁用MCP服务器的功能，并提升了消息导出中的引用处理。IPTV API新增了定时更新间隔的设置，优化了频道别名数据，并修复了多个bug。
+
+优化建议：
+1. 对于DeepChat，建议进一步提升用户界面的友好性，增加更多自定义选项，以增强用户体验。
+2. Cherry Studio可以考虑增加更多对多种语言的支持，以吸引更广泛的用户群体。
+3. IPTV API应确保文档的清晰度，特别是在配置和使用说明方面，以降低用户的学习曲线。
+</div>
+
+<div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.2.1">deepchat v0.2.1</a>
+</h1><a id="user-content-1-deepchat-v021" class="anchor" aria-label="Permalink: 1. deepchat v0.2.1" href="#1-deepchat-v021"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🐬DeepChat - A smart assistant that connects powerful AI to your personal world</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">🚀 DeepChat 0.2.1 正式发布 | 重新定义你的 AI 对话体验！</h2><a id="user-content--deepchat-021-正式发布--重新定义你的-ai-对话体验" class="anchor" aria-label="Permalink: 🚀 DeepChat 0.2.1 正式发布 | 重新定义你的 AI 对话体验！" href="#-deepchat-021-正式发布--重新定义你的-ai-对话体验"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>—— 不再是简单的 ChatBot，而是你的自然语言 Agent  工具🌟</p>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">✨ 本次主要更新内容 ✨</h2><a id="user-content--本次主要更新内容-" class="anchor" aria-label="Permalink: ✨ 本次主要更新内容 ✨" href="#-本次主要更新内容-"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix(openai): remove citation markers from forced search results in context / 修复(openai): 从上下文中的强制搜索结果中移除引文标记，避免遗留幽灵引用</li>
+<li>fix(openai): fix crash caused by message stream merge in fc call; remove forced citation remnants from search results in both native and non-native fc contexts; improve search intent recognition / 修复(openai): 修正消息流合并导致fc调用崩溃的bug；去除原生及非原生fc上下文中强制搜索结果中遗留的引文；完善搜索意图识别</li>
+<li>fix prompt add / 修复提示词添加</li>
+<li>Some bug fixes for multiple windows / 多窗口的一些bug修复</li>
+<li>Refactor/migration new sdks / 重构/迁移新SDK</li>
+<li>fix(artifacts): improve code detection accuracy / 修复(artifacts): 提升代码检测准确性</li>
+<li>refactor(prompts): extract customprompt from powerpack / 重构(prompts): 从powerpack中提取自定义提示词</li>
+<li>Optimize/components / 优化/组件</li>
+<li>Fix/prompt reload / 修复/提示词重载</li>
+<li>new tab set default provider / 新标签页设置默认提供者</li>
+<li>[Feature]inmemory deep research mcp / [功能]内存深度研究MCP</li>
+<li>add copy-as-image button for artifact preview / 为artifact预览添加“复制为图片”按钮</li>
+<li>feat(prompt): add template-based auto-prompting tools / 功能(提示词): 添加基于模板的自动提示工具</li>
+<li>Modify CI strategy to easily create Release drafts / 修改CI的策略，能够简单的创建 Release 的草稿</li>
+<li>Optimize/mcpserverui / 优化/MCP服务器UI</li>
+<li>support card style / 支持卡片样式</li>
+<li>Dialog description / 对话框描述</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+<p>🔥 为什么选择 DeepChat？</p>
+<p>✅ <strong>商业友好</strong>：基于原版  开源，无任何协议外的额外约束，面向开源。
+✅ <strong>开箱即用</strong>：极简配置，即刻开启你的智能对话之旅。
+✅ <strong>极致灵活</strong>：自由切换模型，自定义模型源，满足你多样化的对话和探索需求。
+✅ <strong>体验绝佳</strong>：LaTeX 公式渲染、代码高亮、Markdown 支持，模型对话从未如此顺畅。
+✅ <strong>持续进化</strong>：我们倾听用户反馈，不断迭代更新，为你带来更卓越的 AI 对话体验。</p>
+<p>📥 立即体验未来</p>
+<p>💬 反馈有礼：欢迎提交你的宝贵建议，加入 VIP 用户社群，与我们一同塑造 DeepChat 的未来！
+&lt;img width="400px" src="</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.3.12">cherry-studio v1.3.12</a>
+</h1><a id="user-content-2-cherry-studio-v1312" class="anchor" aria-label="Permalink: 2. cherry-studio v1.3.12" href="#2-cherry-studio-v1312"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: floating-sidebar header sticky</li>
+<li>chore: add dependabot</li>
+<li>fix: improve multi-select functionality in Messages and SelectionBox</li>
+<li>feat: add disable MCP server functionality and update translations</li>
+<li>fix: handle optional usage properties in AnthropicProvider</li>
+<li>fix: ensure args are an array in AddMcpServerModal and MCPService com…</li>
+<li>fix: update dimensions handling in KnowledgeBaseParams</li>
+<li>fix: MessageMenubar copy uses latest content</li>
+<li>refactor(CodeTool): use hook for codeblock tools rather than context</li>
+<li>fix：修复DMXAPI文字生成画bug</li>
+<li>feat: enhance citation handling in message export functionality</li>
+<li>fix: enhance ExportService to support nested bold and italic formatting</li>
+<li>fix: enhance web search recognization in AI providers</li>
+<li>fix: escape special characters in search pattern for improved filtering</li>
+<li>feat: throttle updateTranslationBlock dispatch for improved performance</li>
+<li>Fix Chinese input issue in AddProviderPopup</li>
+<li>chore: remove postinstall script from package.json</li>
+<li>feat: improve header styling in CustomCollapse component</li>
+<li>fix: return value from appUpdater.checkForUpdates in IPC handler</li>
+<li>fix: update popup content to improve user interaction in MessageGroup</li>
+<li>fix: 修复Nutstore设置中的自动同步状态和错误消息内容</li>
+<li>chore: update electron configuration and add debug script</li>
+<li>Feat: Supports sorting of textarea function buttons by dragging</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/Guovin/iptv-api/releases/tag/1.7.2">iptv-api 1.7.2</a>
+</h1><a id="user-content-3-iptv-api-172" class="anchor" aria-label="Permalink: 3. iptv-api 1.7.2" href="#3-iptv-api-172"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>📺IPTV电视直播源更新项目『✨秒播级体验🚀』：支持自定义频道与EPG；支持多种源获取方式；支持RTMP推流；支持IPv4/IPv6；支持获取归属地与运营商；每天自动更新两次，结果可用于TVBox等播放软件；支持工作流、Docker amd64/arm64/arm v7 、命令行、GUI运行方式 IPTV live TV source update project</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h3 class="heading-element">2025/5/26</h3><a id="user-content-2025526" class="anchor" aria-label="Permalink: 2025/5/26" href="#2025526"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">🚀 新功能</h3><a id="user-content--新功能" class="anchor" aria-label="Permalink: 🚀 新功能" href="#-新功能"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<hr>
+<ul>
+<li>新增支持设置<code>定时更新间隔</code>，<code>命令行</code> <code>GUI</code> <code>Docker</code>均可实现定时间隔更新，可通过配置<code>update_interval</code>设置执行更新任务时间的间隔，默认<code>12小时</code>，不作用于工作流，工作流依旧每日<code>6点与18点</code>执行更新</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">🌟 优化</h3><a id="user-content--优化" class="anchor" aria-label="Permalink: 🌟 优化" href="#-优化"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<hr>
+<ul>
+<li>更新频道别名数据，欢迎提供更多别名，参见：💖</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">🐛 修复</h3><a id="user-content--修复" class="anchor" aria-label="Permalink: 🐛 修复" href="#-修复"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<hr>
+<ul>
+<li>修复公网推流<code>APP_HOST</code>配置应用（）</li>
+<li>修复部分场景下未开启测速获取结果未保存问题（）</li>
+<li>修复频道缓存结果<code>解冻</code>失败</li>
+<li>修复部分设备无法打开<code>GUI</code>界面</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">🗑️ 移除</h3><a id="user-content-️-移除" class="anchor" aria-label="Permalink: 🗑️ 移除" href="#️-移除"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<hr>
+<ul>
+<li>移除Docker<code>UPDATE_CRON</code>环境变量，请使用<code>config/config.ini</code>文件中<code>update_interval</code>参数控制更新时间间隔</li>
+</ul>
+<details>
+  <summary>English</summary>
+<div class="markdown-heading"><h3 class="heading-element">🚀 New Features</h3><a id="user-content--new-features" class="anchor" aria-label="Permalink: 🚀 New Features" href="#-new-features"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<hr>
+<ul>
+<li>Added support for setting <code>scheduled update interval</code>. Both <code>CLI</code>, <code>GUI</code>, and <code>Docker</code> now support scheduled interval
+updates. You can set the interval for executing update tasks via the <code>update_interval</code> configuration. The default is
+<code>12 hours</code>. This does not apply to workflows, which still update daily at
+<code>6:00 and 18:00</code>.</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">🌟 Optimization</h3><a id="user-content--optimization" class="anchor" aria-label="Permalink: 🌟 Optimization" href="#-optimization"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<hr>
+<ul>
+<li>Updated channel alias data. Contributions for more aliases are welcome. See:
+💖</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">🐛 Bug Fixes</h3><a id="user-content--bug-fixes" class="anchor" aria-label="Permalink: 🐛 Bug Fixes" href="#-bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<hr>
+<ul>
+<li>Fixed the application of the public streaming APP_HOST configuration</li>
+<li>Fixed the issue where results were not saved when speed test was not enabled in some scenarios</li>
+<li>Fixed failure to "unfreeze" channel cache results</li>
+<li>Fixed some devices unable to open the <code>GUI</code> interface</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">🗑️ Removal</h3><a id="user-content-️-removal" class="anchor" aria-label="Permalink: 🗑️ Removal" href="#️-removal"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<hr>
+<ul>
+<li>Removed Docker <code>UPDATE_CRON</code> environment variable. Please use the <code>update_interval</code> parameter in the
+<code>config/config.ini</code> file to control the update interval.</li>
+</ul>
+</details>  
+</details>
+
+</div><nav class="paginate-container" aria-label="Pagination">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/122.html" aria-label="Previous Page">122 blog相关</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">001 苹果CMS接口说明以及采集源搜索</a></div>
+</nav>
+
+<!-- 编辑按钮 -->
+<a href="https://github.com/anaer/blog/issues/123" target="_blank">
+    <button class="floating-button edit-post">🖋</button>
+</a>
+
+<!-- 新增按钮 -->
+<a href="https://github.com/anaer/blog/issues/new" target="_blank">
+    <button class="floating-button new-post">+</button>
+</a>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
+
+<script>
+if("2023-09-08"!=""){
+    var now=new Date();
+    var startSite=new Date("2023-09-08");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script></div>
+</body>
+<script>
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
+var utterancesLoad=0;
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek v2.4 %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+<script>
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","anaer/blog");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+
+
+<script src="https://anaer.github.io/blog/assets/toc.js"></script>
+
+
+</html>
