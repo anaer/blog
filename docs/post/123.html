@@ -130,15 +130,15 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-05-26 23:10:48</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-27 12:16:46</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-27 23:11:31</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了三个软件的更新内容：Cherry Studio v1.3.12、DeepChat v0.2.1 和 IPTV API v1.7.2。Cherry Studio 主要修复了浮动侧边栏、消息多选功能等，并新增了禁用MCP服务器功能和改进了翻译更新性能。DeepChat 则重构了SDK，修复了OpenAI相关的多个bug，新增了基于模板的自动提示工具。IPTV API 则新增了定时更新间隔功能，优化了频道别名数据，并修复了多个bug。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新内容，主要包括Cherry Studio v1.3.12、DeepChat v0.2.1、IPTV API v1.7.2、Subs Check v2.2.7和Bilibili第三方Android TV应用的变更说明。Cherry Studio更新了多项功能和修复，包括改进多选功能和翻译处理；DeepChat提升了搜索意图识别和代码检测准确性；IPTV API新增定时更新功能并修复了一些BUG；Subs Check修复了认证中间件错误；Bilibili应用则修复了部分视频播放问题。
 
 优化建议：
-1. 对于每个软件的更新内容，建议添加具体的用户场景或使用案例，以帮助用户更好地理解新功能的应用。
-2. 增加对新功能的详细说明和示例，特别是对复杂功能的使用说明，以提高用户的使用体验。
-3. 考虑将变更说明中的修复和新增功能以表格形式呈现，便于用户快速查阅和比较。
+1. 对于每个软件的更新内容，可以考虑将主要功能和修复分为两个小节，以便用户快速了解。
+2. 增加版本号和发布日期的明确标识，便于用户跟踪更新历史。
+3. 对于涉及到用户体验的功能提升，可以提供具体的使用场景或示例，以增强用户理解。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -278,6 +278,28 @@ updates. You can set the interval for executing update tasks via the <code>updat
 <code>config/config.ini</code> file to control the update interval.</li>
 </ul>
 </details>  
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.2.7">subs-check v2.2.7</a>
+</h1><a id="user-content-4-subs-check-v227" class="anchor" aria-label="Permalink: 4. subs-check v2.2.7" href="#4-subs-check-v227"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换合并，节点可用性，测速，重命名，导出为clash.meta/clash/base64/qx等等所有格式的订阅工具</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>f199e54724ae9942e825336a896b59d6745c2c66 fix: fix authMiddleware error</li>
+<li>4e968af73f4130c11445ac571b4313c67f0f2769 op: update config.example.yaml</li>
+<li>fcfc49a761856df166a999776f98b6bb8ccc99c6 update sub-store to 2.19.54</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/ldm0206/bv/releases/tag/alpha-r862">bv alpha-r862</a>
+</h1><a id="user-content-5-bv-alpha-r862" class="anchor" aria-label="Permalink: 5. bv alpha-r862" href="#5-bv-alpha-r862"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>哔哩哔哩 的第三方 Android TV 应用。A third-party Android TV app for Bilibili. （自用修改版）</p>
+<details>
+<summary>变更说明</summary>
+<ul>
+<li>Merge branch 'develop' of  into develop (a19daf7)</li>
+<li>修复部分 h.265 视频无法播放 (a96a220)</li>
+</ul>
 </details>
 
 </div><nav class="paginate-container" aria-label="Pagination">
