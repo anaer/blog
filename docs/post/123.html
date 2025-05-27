@@ -130,18 +130,57 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-05-26 23:10:48</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-27 12:16:46</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了DeepChat v0.2.1、Cherry Studio v1.3.12和IPTV API v1.7.2的更新内容。DeepChat的更新包括修复引文标记、消息流合并崩溃、提示词添加等功能，同时引入了内存深度研究和模板化自动提示工具。Cherry Studio则改善了多选功能、引入了禁用MCP服务器的功能，并提升了消息导出中的引用处理。IPTV API新增了定时更新间隔的设置，优化了频道别名数据，并修复了多个bug。
+    <strong>AI总结:</strong> 本文介绍了三个软件的更新内容：Cherry Studio v1.3.12、DeepChat v0.2.1 和 IPTV API v1.7.2。Cherry Studio 主要修复了浮动侧边栏、消息多选功能等，并新增了禁用MCP服务器功能和改进了翻译更新性能。DeepChat 则重构了SDK，修复了OpenAI相关的多个bug，新增了基于模板的自动提示工具。IPTV API 则新增了定时更新间隔功能，优化了频道别名数据，并修复了多个bug。
 
 优化建议：
-1. 对于DeepChat，建议进一步提升用户界面的友好性，增加更多自定义选项，以增强用户体验。
-2. Cherry Studio可以考虑增加更多对多种语言的支持，以吸引更广泛的用户群体。
-3. IPTV API应确保文档的清晰度，特别是在配置和使用说明方面，以降低用户的学习曲线。
+1. 对于每个软件的更新内容，建议添加具体的用户场景或使用案例，以帮助用户更好地理解新功能的应用。
+2. 增加对新功能的详细说明和示例，特别是对复杂功能的使用说明，以提高用户的使用体验。
+3. 考虑将变更说明中的修复和新增功能以表格形式呈现，便于用户快速查阅和比较。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.2.1">deepchat v0.2.1</a>
-</h1><a id="user-content-1-deepchat-v021" class="anchor" aria-label="Permalink: 1. deepchat v0.2.1" href="#1-deepchat-v021"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.3.12">cherry-studio v1.3.12</a>
+</h1><a id="user-content-1-cherry-studio-v1312" class="anchor" aria-label="Permalink: 1. cherry-studio v1.3.12" href="#1-cherry-studio-v1312"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: floating-sidebar header sticky</li>
+<li>chore: add dependabot</li>
+<li>fix: improve multi-select functionality in Messages and SelectionBox</li>
+<li>feat: add disable MCP server functionality and update translations</li>
+<li>fix: handle optional usage properties in AnthropicProvider</li>
+<li>fix: ensure args are an array in AddMcpServerModal and MCPService com…</li>
+<li>fix: update dimensions handling in KnowledgeBaseParams</li>
+<li>fix: MessageMenubar copy uses latest content</li>
+<li>refactor(CodeTool): use hook for codeblock tools rather than context</li>
+<li>fix：修复DMXAPI文字生成画bug</li>
+<li>feat: enhance citation handling in message export functionality</li>
+<li>fix: enhance ExportService to support nested bold and italic formatting</li>
+<li>fix: enhance web search recognization in AI providers</li>
+<li>fix: escape special characters in search pattern for improved filtering</li>
+<li>feat: throttle updateTranslationBlock dispatch for improved performance</li>
+<li>Fix Chinese input issue in AddProviderPopup</li>
+<li>chore: remove postinstall script from package.json</li>
+<li>feat: improve header styling in CustomCollapse component</li>
+<li>fix: return value from appUpdater.checkForUpdates in IPC handler</li>
+<li>fix: update popup content to improve user interaction in MessageGroup</li>
+<li>fix: 修复Nutstore设置中的自动同步状态和错误消息内容</li>
+<li>chore: update electron configuration and add debug script</li>
+<li>Feat: Supports sorting of textarea function buttons by dragging</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v0.2.1">deepchat v0.2.1</a>
+</h1><a id="user-content-2-deepchat-v021" class="anchor" aria-label="Permalink: 2. deepchat v0.2.1" href="#2-deepchat-v021"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🐬DeepChat - A smart assistant that connects powerful AI to your personal world</p>
 <details>
 <summary>变更说明</summary>
@@ -178,43 +217,6 @@ pre {
 <p>📥 立即体验未来</p>
 <p>💬 反馈有礼：欢迎提交你的宝贵建议，加入 VIP 用户社群，与我们一同塑造 DeepChat 的未来！
 &lt;img width="400px" src="</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.3.12">cherry-studio v1.3.12</a>
-</h1><a id="user-content-2-cherry-studio-v1312" class="anchor" aria-label="Permalink: 2. cherry-studio v1.3.12" href="#2-cherry-studio-v1312"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>fix: floating-sidebar header sticky</li>
-<li>chore: add dependabot</li>
-<li>fix: improve multi-select functionality in Messages and SelectionBox</li>
-<li>feat: add disable MCP server functionality and update translations</li>
-<li>fix: handle optional usage properties in AnthropicProvider</li>
-<li>fix: ensure args are an array in AddMcpServerModal and MCPService com…</li>
-<li>fix: update dimensions handling in KnowledgeBaseParams</li>
-<li>fix: MessageMenubar copy uses latest content</li>
-<li>refactor(CodeTool): use hook for codeblock tools rather than context</li>
-<li>fix：修复DMXAPI文字生成画bug</li>
-<li>feat: enhance citation handling in message export functionality</li>
-<li>fix: enhance ExportService to support nested bold and italic formatting</li>
-<li>fix: enhance web search recognization in AI providers</li>
-<li>fix: escape special characters in search pattern for improved filtering</li>
-<li>feat: throttle updateTranslationBlock dispatch for improved performance</li>
-<li>Fix Chinese input issue in AddProviderPopup</li>
-<li>chore: remove postinstall script from package.json</li>
-<li>feat: improve header styling in CustomCollapse component</li>
-<li>fix: return value from appUpdater.checkForUpdates in IPC handler</li>
-<li>fix: update popup content to improve user interaction in MessageGroup</li>
-<li>fix: 修复Nutstore设置中的自动同步状态和错误消息内容</li>
-<li>chore: update electron configuration and add debug script</li>
-<li>Feat: Supports sorting of textarea function buttons by dragging</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>made their first contribution in</li>
-</ul>
-<p><strong>Full Changelog</strong>:</p>
 </details>
 <div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/Guovin/iptv-api/releases/tag/1.7.2">iptv-api 1.7.2</a>
 </h1><a id="user-content-3-iptv-api-172" class="anchor" aria-label="Permalink: 3. iptv-api 1.7.2" href="#3-iptv-api-172"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
