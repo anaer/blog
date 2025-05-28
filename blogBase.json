@@ -2607,14 +2607,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/123",
             "commentNum": 0,
             "createdAt": 1748272248,
-            "updatedAt": 1748405738,
+            "updatedAt": 1748444999,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-05-26",
-            "dateLabelColor": "hsl(141, 33%, 23%)",
+            "dateLabelColor": "hsl(141, 30%, 32%)",
             "description": "1. cherry-studio v1.3.12\n\n\ud83c\udf52 Cherry Studio is a desktop client that supports for multiple LLM providers.\n\n\u53d8\u66f4\u8bf4\u660e\nWhat's Changed\n\nfix: floating-sidebar header sticky\nchore: add dependabot\nfix: improve multi-select functionality in Messages and SelectionBox\nfeat: add disable MCP server functionality and ...",
-            "buildedAt": 1748405738
+            "buildedAt": 1748444999
         }
     },
     "singeListJson": {},
