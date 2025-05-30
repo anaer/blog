@@ -1,0 +1,54 @@
+<p>vim script/free.py</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">subprocess</span>
+<span class="pl-k">from</span> <span class="pl-s1">bark</span> <span class="pl-k">import</span> <span class="pl-s1">send_bark_notification</span>
+
+<span class="pl-c"># 执行 free -m 命令并获取结果</span>
+<span class="pl-s1">result</span> <span class="pl-c1">=</span> <span class="pl-s1">subprocess</span>.<span class="pl-c1">run</span>([<span class="pl-s">'free'</span>, <span class="pl-s">'-m'</span>], <span class="pl-s1">stdout</span><span class="pl-c1">=</span><span class="pl-s1">subprocess</span>.<span class="pl-c1">PIPE</span>)
+
+<span class="pl-c"># 处理结果并提取 total 和 available 两项</span>
+<span class="pl-s1">lines</span> <span class="pl-c1">=</span> <span class="pl-s1">result</span>.<span class="pl-c1">stdout</span>.<span class="pl-c1">decode</span>().<span class="pl-c1">split</span>(<span class="pl-s">'<span class="pl-cce">\n</span>'</span>)
+<span class="pl-s1">headers</span> <span class="pl-c1">=</span> <span class="pl-s1">lines</span>[<span class="pl-c1">0</span>].<span class="pl-c1">split</span>()
+<span class="pl-s1">values</span> <span class="pl-c1">=</span> <span class="pl-s1">lines</span>[<span class="pl-c1">1</span>].<span class="pl-c1">split</span>()
+
+<span class="pl-c"># 提取 total 和 available 两项</span>
+<span class="pl-s1">total</span> <span class="pl-c1">=</span> <span class="pl-s1">values</span>[<span class="pl-s1">headers</span>.<span class="pl-c1">index</span>(<span class="pl-s">'total'</span>)<span class="pl-c1">+</span><span class="pl-c1">1</span>]
+<span class="pl-s1">available</span> <span class="pl-c1">=</span> <span class="pl-s1">values</span>[<span class="pl-s1">headers</span>.<span class="pl-c1">index</span>(<span class="pl-s">'available'</span>)<span class="pl-c1">+</span><span class="pl-c1">1</span>]
+
+<span class="pl-c"># 打印结果</span>
+<span class="pl-s1">content</span> <span class="pl-c1">=</span> <span class="pl-s">f"Total Memory: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">total</span><span class="pl-kos">}</span></span> MB <span class="pl-cce">\n</span>Available Memory: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">available</span><span class="pl-kos">}</span></span> MB"</span>
+<span class="pl-c">#print(content)</span>
+<span class="pl-en">send_bark_notification</span>(<span class="pl-s">"服务器内存信息"</span>, <span class="pl-s1">content</span>)</pre></div>
+<p><code>crontab -e</code>  配置定时任务</p>
+<pre><code># 每小时通知服务器内存信息
+0 * * * * python3 script/free.py
+</code></pre>
+<p>vim script/bark.py</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">requests</span>
+<span class="pl-k">import</span> <span class="pl-s1">sys</span>
+<span class="pl-k">from</span> <span class="pl-s1">urllib</span>.<span class="pl-s1">parse</span> <span class="pl-k">import</span> <span class="pl-s1">quote</span>
+
+<span class="pl-c"># Bark 的通知 API xxx为token信息</span>
+<span class="pl-c1">BARK_API</span> <span class="pl-c1">=</span> <span class="pl-s">"https://api.day.app/xxx"</span>
+
+<span class="pl-k">def</span> <span class="pl-en">send_bark_notification</span>(<span class="pl-s1">param1</span>, <span class="pl-s1">param2</span>):
+ <span class="pl-c"># quote默认safe='/', 不进行处理, 如需处理将safe置空</span>
+ <span class="pl-s1">title</span> <span class="pl-c1">=</span> <span class="pl-en">quote</span>(<span class="pl-s1">param1</span>, <span class="pl-s1">safe</span><span class="pl-c1">=</span><span class="pl-s">""</span>)
+ <span class="pl-s1">content</span> <span class="pl-c1">=</span> <span class="pl-en">quote</span>(<span class="pl-s1">param2</span>, <span class="pl-s1">safe</span><span class="pl-c1">=</span><span class="pl-s">""</span>)
+ <span class="pl-en">print</span>(<span class="pl-s1">title</span>, <span class="pl-s1">content</span>)
+ <span class="pl-s1">url</span> <span class="pl-c1">=</span> <span class="pl-s">f"<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-c1">BARK_API</span><span class="pl-kos">}</span></span>/<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">title</span><span class="pl-kos">}</span></span>/<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">content</span><span class="pl-kos">}</span></span>"</span>
+ <span class="pl-en">print</span>(<span class="pl-s1">url</span>)
+ <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-s1">requests</span>.<span class="pl-c1">get</span>(<span class="pl-s1">url</span>)
+ <span class="pl-k">if</span> <span class="pl-s1">response</span>.<span class="pl-c1">status_code</span> <span class="pl-c1">==</span> <span class="pl-c1">200</span>:
+     <span class="pl-en">print</span>(<span class="pl-s">"发送 Bark 通知成功"</span>)
+ <span class="pl-k">else</span>:
+     <span class="pl-en">print</span>(<span class="pl-s">f"发送 Bark 通知失败: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">response</span>.<span class="pl-c1">text</span><span class="pl-kos">}</span></span>"</span>)
+
+<span class="pl-k">if</span> <span class="pl-s1">__name__</span> <span class="pl-c1">==</span> <span class="pl-s">"__main__"</span>:
+ <span class="pl-k">if</span> <span class="pl-en">len</span>(<span class="pl-s1">sys</span>.<span class="pl-c1">argv</span>) <span class="pl-c1">&gt;</span> <span class="pl-c1">2</span>:
+     <span class="pl-s1">title</span> <span class="pl-c1">=</span> <span class="pl-s1">sys</span>.<span class="pl-c1">argv</span>[<span class="pl-c1">1</span>]
+     <span class="pl-s1">content</span> <span class="pl-c1">=</span> <span class="pl-s1">sys</span>.<span class="pl-c1">argv</span>[<span class="pl-c1">2</span>]
+     <span class="pl-en">send_bark_notification</span>(<span class="pl-s1">title</span>, <span class="pl-s1">content</span>)</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li><a href="https://bark.day.app/#/encryption" rel="nofollow">推送加密</a></li>
+</ol>

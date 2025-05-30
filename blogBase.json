@@ -264,24 +264,24 @@
         "P12": {
             "number": "12",
             "htmlDir": "docs/post/12.html",
-            "markdown": "backup/12-\u68c0\u6d4b\u670d\u52a1\u5668\u5185\u5b58\u4fe1\u606f, \u5e76\u7528bark\u901a\u77e5.md",
+            "markdown": "backup/12-bark\u6d88\u606f\u63a8\u9001.md",
             "labels": [
                 "\u5de5\u5177",
                 "\u670d\u52a1"
             ],
-            "postTitle": "012 \u68c0\u6d4b\u670d\u52a1\u5668\u5185\u5b58\u4fe1\u606f, \u5e76\u7528bark\u901a\u77e5",
+            "postTitle": "012 bark\u6d88\u606f\u63a8\u9001",
             "postUrl": "post/12.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/12",
             "commentNum": 0,
             "createdAt": 1699436300,
-            "updatedAt": 1737439354,
+            "updatedAt": 1748597238,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2023-11-08",
-            "dateLabelColor": "hsl(219, 67%, 19%)",
-            "description": "vim script/free.py\nimport subprocess\nfrom bark import send_bark_notification\n\n# \u6267\u884c free -m \u547d\u4ee4\u5e76\u83b7\u53d6\u7ed3\u679c\nr...",
-            "buildedAt": 1737439354
+            "dateLabelColor": "hsl(348, 40%, 37%)",
+            "description": "vim script/free.py\nimport subprocess\nfrom bark import send_bark_notification\n\n# \u6267\u884c free -m \u547d\u4ee4\u5e76\u83b7\u53d6\u7ed3\u679c\nresult = subprocess.run(['free', '-m'], stdout=subprocess.PIPE)\n\n# \u5904\u7406\u7ed3\u679c\u5e76\u63d0\u53d6 total \u548c available \u4e24\u9879\nlines = result.stdout.decode().split('\\n')\nheaders = lines[0].split()\nvalues = lines[1].split()\n\n# \u63d0\u53d6 tot...",
+            "buildedAt": 1748597238
         },
         "P13": {
             "number": "13",
