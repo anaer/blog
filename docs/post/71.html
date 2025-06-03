@@ -132,16 +132,19 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23 14:24:42</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-25 16:39:53</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-03 14:54:42</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何查询PEM和P12证书的有效期。使用openssl命令可以分别查看cacert.pem和dev.p12文件中的证书有效期。对于PEM证书，使用命令“openssl x509 -enddate -noout -in cacert.pem”可以查看到有效期结束时间。对于P12证书，使用“openssl pkcs12 -in dev.p12 -nokeys -clcerts | openssl x509 -noout -dates”命令可以查看有效期的开始和结束时间。需要注意的是，在读取P12文件时，如果存在密码，则会提示输入密码，用户也可以通过“-passin”参数直接提供密码。
+    <strong>AI总结:</strong> 本文介绍了如何查询pem和p12证书的有效期，使用openssl命令行工具分别提取和显示证书的到期时间。对于pem证书，使用命令“openssl x509 -enddate -noout -in cacert.pem”获取有效期；对于p12证书，使用“openssl pkcs12 -in dev.p12 -nokeys -clcerts | openssl x509 -noout -dates”命令，并在需要时输入密码以获取有效期信息。
 
-优化建议：可以在命令示例中添加更多的上下文信息，例如说明如何安装openssl工具，或者提供常见错误的解决方案。此外，建议在说明参数时，使用更清晰的格式来增强可读性，例如将参数说明与相关命令分开。
+优化建议：
+1. 在命令示例中增加对输出结果的解释，帮助用户理解每个字段的含义。
+2. 提供更多关于如何处理不同类型证书的示例，增强实用性。
+3. 考虑增加错误处理的说明，例如如何处理密码错误或文件不存在的情况。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">查询pem证书有效期</h2><a id="user-content-查询pem证书有效期" class="anchor" aria-label="Permalink: 查询pem证书有效期" href="#查询pem证书有效期"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">查询pem/cer证书有效期</h2><a id="user-content-查询pemcer证书有效期" class="anchor" aria-label="Permalink: 查询pem/cer证书有效期" href="#查询pemcer证书有效期"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>$ openssl x509 -enddate -noout -in cacert.pem
 notAfter=May 29 02:07:58 2021 GMT</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">查询p12证书有效期</h2><a id="user-content-查询p12证书有效期" class="anchor" aria-label="Permalink: 查询p12证书有效期" href="#查询p12证书有效期"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -160,7 +163,7 @@ notAfter=Jul 19 05:48:09 2025 GMT</pre></div>
 <div class="highlight highlight-source-shell"><pre>openssl pkcs12 -in dev.p12 -nokeys -clcerts -passin pass:123456 <span class="pl-k">|</span> openssl x509 -noout -dates</pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/72.html" aria-label="Previous Page">072 Java Stream用法记录</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/70.html" aria-label="Next Page">070 @Scheduled定时任务不执行问题解决</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/70.html" aria-label="Previous Page">070 @Scheduled定时任务不执行问题解决</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/72.html" aria-label="Next Page">072 Java Stream用法记录</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
