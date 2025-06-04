@@ -130,17 +130,32 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-02 23:11:48</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-04 12:17:52</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-04 23:35:55</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了anx-reader v1.6.0和subs-check v2.2.8的更新内容。anx-reader v1.6.0引入了多项新功能，包括支持在目录中定位当前章节、自定义页眉和页脚、显示页码、运行JavaScript、添加和删除书签等。同时，修复了多个问题，如翻页动画卡顿和点击位置识别不准确。subs-check v2.2.8则提供了订阅转换、测速、流媒体检测等功能，并对工作流程和相关工具进行了优化。
+    <strong>AI总结:</strong> 本文介绍了三个软件的更新内容：weasel 0.17.4主要修复了用户目录路径处理问题，并进行了代码重构；anx-reader v1.6.0新增了多项功能，如支持JavaScript、书签管理和目录显示优化，同时修复了多个bug；subs-check v2.2.8则优化了工作流程，并更新了相关组件。
 
-优化建议：在发布更新说明时，可以考虑将新功能和修复问题进行分类，以便用户更容易找到相关信息。此外，增加用户反馈渠道，可以帮助开发团队进一步改进产品。
+优化建议：在更新说明中，建议将每个软件的主要功能和修复点进行分类，并突出显示重要更新，以便用户快速识别关键信息。同时，可以考虑增加用户反馈渠道，以便收集使用体验和改进建议。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.6.0">anx-reader v1.6.0</a>
-</h1><a id="user-content-1-anx-reader-v160" class="anchor" aria-label="Permalink: 1. anx-reader v1.6.0" href="#1-anx-reader-v160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/rime/weasel/releases/tag/0.17.4">weasel 0.17.4</a>
+</h1><a id="user-content-1-weasel-0174" class="anchor" aria-label="Permalink: 1. weasel 0.17.4" href="#1-weasel-0174"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>【小狼毫】Rime for Windows</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">(2025-06-04)</h2><a id="user-content-2025-06-04" class="anchor" aria-label="Permalink: (2025-06-04)" href="#2025-06-04"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">主要更新</h3><a id="user-content-主要更新" class="anchor" aria-label="Permalink: 主要更新" href="#主要更新"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>修复 未处理完整的用户目录路径打开处理问题</li>
+</ul>
+<div class="markdown-heading"><h4 class="heading-element">Code Refactor</h4><a id="user-content-code-refactor" class="anchor" aria-label="Permalink: Code Refactor" href="#code-refactor"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>refactor(WeaselTSF): add error handling when try open RimeUserDir</p>
+<div class="markdown-heading"><h4 class="heading-element">Bug Fixes</h4><a id="user-content-bug-fixes" class="anchor" aria-label="Permalink: Bug Fixes" href="#bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>fix(WeaselSetup): RimeUserDir in registry is empty when default location</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.6.0">anx-reader v1.6.0</a>
+</h1><a id="user-content-2-anx-reader-v160" class="anchor" aria-label="Permalink: 2. anx-reader v1.6.0" href="#2-anx-reader-v160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.</p>
 <details>
 <summary>变更说明</summary>
@@ -270,11 +285,12 @@ pre {
 </li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.2.8">subs-check v2.2.8</a>
-</h1><a id="user-content-2-subs-check-v228" class="anchor" aria-label="Permalink: 2. subs-check v2.2.8" href="#2-subs-check-v228"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.2.8">subs-check v2.2.8</a>
+</h1><a id="user-content-3-subs-check-v228" class="anchor" aria-label="Permalink: 3. subs-check v2.2.8" href="#3-subs-check-v228"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为clash.meta/clash/base64/qx等等所有格式的工具</p>
 <details>
 <summary>变更说明</summary>
+<p>subs-check 问题沟通、使用交流渠道：</p>
 <div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>2128a0750ad732680e9fd46a85d4e7e7ce6fbbcb op: optimize s3</li>
