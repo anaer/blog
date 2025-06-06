@@ -130,17 +130,96 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-02 23:11:48</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-05 23:11:31</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-06 12:17:12</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件版本的更新说明，包括anx-reader v1.6.0、cherry-studio v1.4.1、weasel 0.17.4和subs-check v2.2.8。anx-reader引入了多项新功能，如支持JavaScript、书签管理和目录页显示等，同时修复了一些性能和界面问题。cherry-studio进行了代码重构和多项修复，提升了多语言文档的显示和用户体验。weasel修复了用户目录路径的问题。subs-check则优化了工作流程并更新了相关组件。
+    <strong>AI总结:</strong> 本文介绍了多个软件版本的更新说明，包括YuyanIme、cherry-studio、anx-reader、weasel和subs-check。YuyanIme主要优化了输入法的性能和修复了一些缺陷。cherry-studio进行了多项功能增强和错误修复，提升了用户体验。anx-reader新增了多项功能以改善阅读体验，并提醒用户在使用WebDAV同步时的注意事项。weasel修复了用户目录路径处理问题。subs-check则优化了多个操作和更新了相关组件。
 
-优化建议：在发布更新时，可以考虑提供更详细的用户指南或示例，以帮助用户更好地理解新功能的使用。此外，增加用户反馈渠道，收集使用体验和建议，有助于未来版本的改进。
+优化建议：在更新说明中，建议使用更清晰的结构来突出新特性和修复内容，便于用户快速查找重要信息。此外，可以考虑添加版本更新的影响和用户反馈部分，以提升用户对更新的理解与接受度。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.6.0">anx-reader v1.6.0</a>
-</h1><a id="user-content-1-anx-reader-v160" class="anchor" aria-label="Permalink: 1. anx-reader v1.6.0" href="#1-anx-reader-v160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/gurecn/YuyanIme/releases/tag/v20250606.09">YuyanIme v20250606.09</a>
+</h1><a id="user-content-1-yuyanime-v2025060609" class="anchor" aria-label="Permalink: 1. YuyanIme v20250606.09" href="#1-yuyanime-v2025060609"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>语燕拼音输入法-一款基于Rime定制开发的九键、全拼、双拼、手写、火星文等方案、支持悬浮、单手、数字行等键盘模式的中文输入法</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">新特性：</h2><a id="user-content-新特性" class="anchor" aria-label="Permalink: 新特性：" href="#新特性"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>优化九宫格模式卡顿问题，扩充<code>腾讯向量词库</code>；</li>
+<li>优化<code>候选词匹配</code>机制，修复九宫格<code>单韵母</code>汉字输入问题，实现2、3、6键匹配简拼；</li>
+<li>优化项目<code>资源冗余</code>问题，优化<code>键盘显示</code>效果。</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">缺陷修复：</h2><a id="user-content-缺陷修复" class="anchor" aria-label="Permalink: 缺陷修复：" href="#缺陷修复"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>修复<code>候选词栏</code>输入异常问题；</li>
+<li>优化<code>拼音</code>选择栏高度过低；</li>
+<li>修复<code>键盘切换</code>概率崩溃问题；</li>
+<li>修复<code>符号界面返回</code>，概率汉字输入失效问题。</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.1">cherry-studio v1.4.1</a>
+</h1><a id="user-content-2-cherry-studio-v141" class="anchor" aria-label="Permalink: 2. cherry-studio v1.4.1" href="#2-cherry-studio-v141"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>refactor: sort mentioned models in QuickPanel</li>
+<li>fix(OpenAIProvider): prevent atob error with non-base64 image URLs</li>
+<li>fix: replace franc with franc-min for improved performance</li>
+<li>fix: provider o3 docs not found</li>
+<li>feat(SelectionService): predefined filter list only available in Selected mode</li>
+<li>fix: adjust sidebar icon margins based on fullscreen state</li>
+<li>test: more unit tests for message rendering</li>
+<li>fix: token usage not updated after editing message</li>
+<li>fix: qwen3 cannot name a topic</li>
+<li>fix: assistant emoji displaying incorrectly in specific situations</li>
+<li>fix: mcp uv&amp;bun installation status icon in nav bar not updated after…</li>
+<li>hotfix(OpenAIProvider): remove redundant 'unkown' chunk</li>
+<li>hotfix: update qwen3 model identification logic to use startsWith for im…</li>
+<li>feat(AppUpdater): implement localized update dialog</li>
+<li>Fix: outdated provider websites and models</li>
+<li>chore(gitignore): exclude cursor settings</li>
+<li>fix: prevent message overflow when minimized width</li>
+<li>refactor(BackupManager, WebDav): streamline WebDAV client initialization and enhance directory listing functionality</li>
+<li>fix(SelectionAssistant): customCSS should not override background</li>
+<li>feat(SelectionAssistant): Smart Translation ( aka BiDirectionTranslate)</li>
+<li>fix: chat navigation triggering</li>
+<li>fix(ci): Update the nightly-build workflow</li>
+<li>fix: optimize multilingual display of documents</li>
+<li>fix: correct variable name obsidianVault in Obsidian export</li>
+<li>fix: transparent window flashing when show</li>
+<li>feat(SelectionAssistant): fullscreen game/presentation mode</li>
+<li>fix: codeblock overflow in bubble style</li>
+<li>fix(MermaidPreview): debounce mermaid rendering to alleviate flickering</li>
+<li>hotfix: gemini auto thinking</li>
+<li>fix(SelectionAssistant): JetBrains IDEs, Remote desktop, Gaming, PDF views, etc</li>
+<li>fix: use monospace font for theme colorpicker</li>
+<li>fix(AnthropicProvider): update usage and metrics handling to prevent TypeError</li>
+<li>fix: sync active topic after rename</li>
+<li>fix: OpenAI provider api check doesn't handle error</li>
+<li>feat(constants): expand supported file extensions and categorize text…</li>
+<li>feat(Settings): Add token count display toggle</li>
+<li>hotfix: ensure show token usage setting defaults to true</li>
+<li>fix(SelectionAssistant): ignore ctrl pressing when user is zooming in/out</li>
+<li>refactor: enhance export functions</li>
+<li>fix: add blank lines between reasoning summary parts</li>
+<li>support tokenflux image generation for [Flux.1 Kontext]</li>
+<li>chore: update OpenAI package to version 5.1.0 and adjust related patches</li>
+<li>remove unused Delete tokenflux_painting_page.md</li>
+<li>fix: Improve the switching logic in multi-tab state</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.6.0">anx-reader v1.6.0</a>
+</h1><a id="user-content-3-anx-reader-v160" class="anchor" aria-label="Permalink: 3. anx-reader v1.6.0" href="#3-anx-reader-v160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.</p>
 <details>
 <summary>变更说明</summary>
@@ -270,68 +349,8 @@ pre {
 </li>
 </ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.1">cherry-studio v1.4.1</a>
-</h1><a id="user-content-2-cherry-studio-v141" class="anchor" aria-label="Permalink: 2. cherry-studio v1.4.1" href="#2-cherry-studio-v141"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>refactor: sort mentioned models in QuickPanel</li>
-<li>fix(OpenAIProvider): prevent atob error with non-base64 image URLs</li>
-<li>fix: replace franc with franc-min for improved performance</li>
-<li>fix: provider o3 docs not found</li>
-<li>feat(SelectionService): predefined filter list only available in Selected mode</li>
-<li>fix: adjust sidebar icon margins based on fullscreen state</li>
-<li>test: more unit tests for message rendering</li>
-<li>fix: token usage not updated after editing message</li>
-<li>fix: qwen3 cannot name a topic</li>
-<li>fix: assistant emoji displaying incorrectly in specific situations</li>
-<li>fix: mcp uv&amp;bun installation status icon in nav bar not updated after…</li>
-<li>hotfix(OpenAIProvider): remove redundant 'unkown' chunk</li>
-<li>hotfix: update qwen3 model identification logic to use startsWith for im…</li>
-<li>feat(AppUpdater): implement localized update dialog</li>
-<li>Fix: outdated provider websites and models</li>
-<li>chore(gitignore): exclude cursor settings</li>
-<li>fix: prevent message overflow when minimized width</li>
-<li>refactor(BackupManager, WebDav): streamline WebDAV client initialization and enhance directory listing functionality</li>
-<li>fix(SelectionAssistant): customCSS should not override background</li>
-<li>feat(SelectionAssistant): Smart Translation ( aka BiDirectionTranslate)</li>
-<li>fix: chat navigation triggering</li>
-<li>fix(ci): Update the nightly-build workflow</li>
-<li>fix: optimize multilingual display of documents</li>
-<li>fix: correct variable name obsidianVault in Obsidian export</li>
-<li>fix: transparent window flashing when show</li>
-<li>feat(SelectionAssistant): fullscreen game/presentation mode</li>
-<li>fix: codeblock overflow in bubble style</li>
-<li>fix(MermaidPreview): debounce mermaid rendering to alleviate flickering</li>
-<li>hotfix: gemini auto thinking</li>
-<li>fix(SelectionAssistant): JetBrains IDEs, Remote desktop, Gaming, PDF views, etc</li>
-<li>fix: use monospace font for theme colorpicker</li>
-<li>fix(AnthropicProvider): update usage and metrics handling to prevent TypeError</li>
-<li>fix: sync active topic after rename</li>
-<li>fix: OpenAI provider api check doesn't handle error</li>
-<li>feat(constants): expand supported file extensions and categorize text…</li>
-<li>feat(Settings): Add token count display toggle</li>
-<li>hotfix: ensure show token usage setting defaults to true</li>
-<li>fix(SelectionAssistant): ignore ctrl pressing when user is zooming in/out</li>
-<li>refactor: enhance export functions</li>
-<li>fix: add blank lines between reasoning summary parts</li>
-<li>support tokenflux image generation for [Flux.1 Kontext]</li>
-<li>chore: update OpenAI package to version 5.1.0 and adjust related patches</li>
-<li>remove unused Delete tokenflux_painting_page.md</li>
-<li>fix: Improve the switching logic in multi-tab state</li>
-</ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-</ul>
-<p><strong>Full Changelog</strong>:</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/rime/weasel/releases/tag/0.17.4">weasel 0.17.4</a>
-</h1><a id="user-content-3-weasel-0174" class="anchor" aria-label="Permalink: 3. weasel 0.17.4" href="#3-weasel-0174"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/rime/weasel/releases/tag/0.17.4">weasel 0.17.4</a>
+</h1><a id="user-content-4-weasel-0174" class="anchor" aria-label="Permalink: 4. weasel 0.17.4" href="#4-weasel-0174"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>【小狼毫】Rime for Windows</p>
 <details>
 <summary>变更说明</summary>
@@ -345,8 +364,8 @@ pre {
 <div class="markdown-heading"><h4 class="heading-element">Bug Fixes</h4><a id="user-content-bug-fixes" class="anchor" aria-label="Permalink: Bug Fixes" href="#bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>fix(WeaselSetup): RimeUserDir in registry is empty when default location</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.2.8">subs-check v2.2.8</a>
-</h1><a id="user-content-4-subs-check-v228" class="anchor" aria-label="Permalink: 4. subs-check v2.2.8" href="#4-subs-check-v228"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.2.8">subs-check v2.2.8</a>
+</h1><a id="user-content-5-subs-check-v228" class="anchor" aria-label="Permalink: 5. subs-check v2.2.8" href="#5-subs-check-v228"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为clash.meta/clash/base64/qx等等所有格式的工具</p>
 <details>
 <summary>变更说明</summary>
