@@ -14,7 +14,7 @@
     </script>
     
 <title>125 我关注的项目这周更新了什么-2025-06-13</title>
-
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -130,23 +130,325 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-10 23:11:32</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了higress v2.1.4版本的变更，包括对Amazon Bedrock图像生成的支持、Nacos 3 MCP服务器的重写配置修复、AI代理的多项功能增强，以及对日志记录和API认证的改进。此外，新增了多个功能特性，如支持Google Cloud Vertex和Claude图像理解能力，同时修复了多个bug和优化了现有功能。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-11 23:11:40</time></span>
 
-优化建议：
-1. 进一步明确每个功能的具体实现和应用场景，以帮助用户更好地理解新特性。
-2. 增加对新贡献者的详细介绍，提升社区参与感。
-3. 提供示例代码或使用案例，便于开发者快速上手新功能。
-4. 考虑将变更说明按功能模块分类，提升可读性和查找效率。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了dify 1.4.2版本的更新，包括增强的用户体验、新功能、稳定性改进和安全更新。主要新增功能包括智能Web应用输入、快速文档提取、市场界面更新、个性化聊天机器人用户体验、强大的文件上传能力和改进的知识库API特性。此外，修复了多个bug并进行了安全性增强，确保了更流畅的使用体验。
+
+优化建议：在更新说明中，可以更清晰地分类功能和修复内容，以便用户快速找到他们关心的部分。同时，建议增加更新的影响和预期效果的描述，让用户了解这些改进如何提升他们的使用体验。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.4">higress v2.1.4</a>
-</h1><a id="user-content-1-higress-v214" class="anchor" aria-label="Permalink: 1. higress v2.1.4" href="#1-higress-v214"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.4.2">dify 1.4.2</a>
+</h1><a id="user-content-1-dify-142" class="anchor" aria-label="Permalink: 1. dify 1.4.2" href="#1-dify-142"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-ready platform for agentic workflow development.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">🚀 What's New in v1.4.2?</h2><a id="user-content--whats-new-in-v142" class="anchor" aria-label="Permalink: 🚀 What's New in v1.4.2?" href="#-whats-new-in-v142"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>We've packed v1.4.2 with usability upgrades, polished features, and stability enhancements. Check out what's new:</p>
+<div class="markdown-heading"><h3 class="heading-element">🌟 New Features &amp; Improvements</h3><a id="user-content--new-features--improvements" class="anchor" aria-label="Permalink: 🌟 New Features &amp; Improvements" href="#-new-features--improvements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p><strong>Smarter Webapp Inputs</strong>: Automatically fill hidden fields using URL parameters ,</p>
+</li>
+<li>
+<p><strong>Efficient Document Extraction</strong>: Faster, streamlined processing for Excel and CSV files , thanks to</p>
+</li>
+<li>
+<p><strong>Marketplace UI Update</strong>: Easier browsing with improved sorting for app types , courtesy of</p>
+</li>
+<li>
+<p><strong>Personalized Chatbot UX</strong>: Chat input placeholder now dynamically displays your bot's name , thanks to</p>
+</li>
+<li>
+<p><strong>Robust File Uploads</strong>: Addressed issues with multiple file extension mappings ,</p>
+</li>
+<li>
+<p><strong>Advanced Knowledge Base API Features</strong>:</p>
+<ul>
+<li>Refined metadata filtering for precise querying. Targeted searches using chunk IDs ,</li>
+<li>Improved tagging and dataset binding capabilities , thanks to</li>
+</ul>
+</li>
+<li>
+<p><strong>Weave Tracing &amp; W&amp;B Integration</strong>: Enhanced support for dedicated cloud instances for better operations monitoring , from</p>
+</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">🔒 Security Updates</h3><a id="user-content--security-updates" class="anchor" aria-label="Permalink: 🔒 Security Updates" href="#-security-updates"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Flask-Cors Upgrade</strong>: Enhanced security by updating to the latest Flask-Cors version ,</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">🐛 Bug Fixes</h3><a id="user-content--bug-fixes" class="anchor" aria-label="Permalink: 🐛 Bug Fixes" href="#-bug-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p><strong>Resolved 401 Errors</strong>:</p>
+<ul>
+<li>Smooth parallel workflow execution .</li>
+<li>Fixed authentication issues in <code>workflow_as_tool</code> .</li>
+<li>Eliminated backward invoke errors .
+All thanks to</li>
+</ul>
+</li>
+<li>
+<p><strong>Agent Node Refinements</strong>:</p>
+<ul>
+<li>Corrected enum syntax for Python 3.11 ,</li>
+<li>Improved handling of long tokens in LLM invocation ,</li>
+</ul>
+</li>
+<li>
+<p><strong>Annotation API Fix</strong>: Restored the missing <code>end_user</code> argument , courtesy of</p>
+</li>
+<li>
+<p><strong>Docker Environment Corrections</strong>: Fixed erroneous handling of environment variables ,</p>
+</li>
+<li>
+<p><strong>Code Node &amp; Trace Management</strong>:</p>
+<ul>
+<li>Enhanced array validation in code nodes ,</li>
+<li>
+<code>app_id</code> now included in TraceTasks for better management , thanks to</li>
+</ul>
+</li>
+<li>
+<p><strong>HTTP Node Reliability</strong>: Corrected curl operations using <code>--data</code> ,</p>
+</li>
+<li>
+<p><strong>Memory Leak Prevention</strong>: Fixed Celery worker leaks ensuring jobs close correctly ,</p>
+</li>
+<li>
+<p><strong>Improved Housekeeping Command</strong>: Now preserves avatar images and app icons correctly , thanks to</p>
+</li>
+<li>
+<p><strong>Email Invitation Fixes</strong>: SMTP authentication errors resolved ,</p>
+</li>
+<li>
+<p><strong>Consistent App Tagging</strong>: Resolved app tag update issues ,</p>
+</li>
+<li>
+<p><strong>Markdown Rendering Fixes</strong>: Ensured abbreviations display properly in react-markdown ,</p>
+</li>
+<li>
+<p><strong>LLM Node Image Parsing</strong>: Improved reliability for single-step executions with images ,</p>
+</li>
+<li>
+<p><strong>Restored Agent Moderation</strong>: Functionality fully restored ,</p>
+</li>
+<li>
+<p><strong>Plugin Extension Performance</strong>: Restored responsiveness and speed ,</p>
+</li>
+<li>
+<p><strong>Question Classifier Stability</strong>: Executions now error-free , thanks to</p>
+</li>
+<li>
+<p><strong>Enhanced Web UX</strong>: Single-run modals now auto-dismiss for better usability ,</p>
+</li>
+</ul>
+<p>Enjoy these improvements and a smoother, more stable experience! 🚀</p>
+<hr>
+<div class="markdown-heading"><h2 class="heading-element">Upgrade Guide</h2><a id="user-content-upgrade-guide" class="anchor" aria-label="Permalink: Upgrade Guide" href="#upgrade-guide"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">Docker Compose Deployments</h3><a id="user-content-docker-compose-deployments" class="anchor" aria-label="Permalink: Docker Compose Deployments" href="#docker-compose-deployments"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p>Back up your customized docker-compose YAML file (optional)</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> docker
+cp docker-compose.yaml docker-compose.yaml.<span class="pl-s"><span class="pl-pds">$(</span>date +%s<span class="pl-pds">)</span></span>.bak</pre></div>
+</li>
+<li>
+<p>Get the latest code from the main branch</p>
+<div class="highlight highlight-source-shell"><pre>git checkout main
+git pull origin main</pre></div>
+</li>
+<li>
+<p>Stop the service. Please execute in the docker directory</p>
+<div class="highlight highlight-source-shell"><pre>docker compose down</pre></div>
+</li>
+<li>
+<p>Back up data</p>
+<div class="highlight highlight-source-shell"><pre>tar -cvf volumes-<span class="pl-s"><span class="pl-pds">$(</span>date +%s<span class="pl-pds">)</span></span>.tgz volumes</pre></div>
+</li>
+<li>
+<p>Upgrade services</p>
+<div class="highlight highlight-source-shell"><pre>docker compose up -d</pre></div>
+</li>
+</ol>
+<div class="markdown-heading"><h3 class="heading-element">Source Code Deployments</h3><a id="user-content-source-code-deployments" class="anchor" aria-label="Permalink: Source Code Deployments" href="#source-code-deployments"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p>Stop the API server, Worker, and Web frontend Server.</p>
+</li>
+<li>
+<p>Get the latest code from the release branch:</p>
+<div class="highlight highlight-source-shell"><pre>git checkout 1.4.2</pre></div>
+</li>
+<li>
+<p>Update Python dependencies:</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> api
+uv sync</pre></div>
+</li>
+<li>
+<p>Then, let's run the migration script:</p>
+<div class="highlight highlight-source-shell"><pre>uv run flask db upgrade</pre></div>
+</li>
+<li>
+<p>Finally, run the API server, Worker, and Web frontend Server again.</p>
+</li>
+</ol>
+<hr>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>update img</li>
+<li>Chore/update img</li>
+<li>chore: enchance the copywriting of tool</li>
+<li>fix: i18n auto run failed</li>
+<li>fix: Enhances tenant ID handling in telemetry</li>
+<li>[Observability] Add type check and try-except in otel</li>
+<li>fix(workflow): fetch user failed when workflow run in parallel mode</li>
+<li>fix: Instance  is not bound to a Session
+</li>
+<li>fix: reset password page dark style</li>
+<li>Fixes some i18n(ko) translations.</li>
+<li>fix(http): force multipart/form-data even without files</li>
+<li>fix: workflow plugins list update</li>
+<li>feat(agent_node): ensure that the enum-checking syntax is compatible with Python 3.11.</li>
+<li>fix: register user model to current_user in backward invoke.</li>
+<li>Fix/branding broken</li>
+<li>fix: inner invoke llm token too long</li>
+<li>chore: remove agent turn limits</li>
+<li>docs: Update PR template to emphasize guidelines and issue linking</li>
+<li>fix: show 'reset brand' button after set branding image</li>
+<li>fix: apps/annotation missing 1 required positional argument: 'end_user'</li>
+<li>fix: wrong env usage in middleware</li>
+<li>chore: improve error logging for requests to plugin daemon</li>
+<li>fix: handle values in output arrays for CodeNode transformation</li>
+<li>tests: Removes outdated marketplace download test</li>
+<li>refactor: Remove db from cycle manager</li>
+<li>refactor(workflow): Rename NodeRunMetadataKey to WorkflowNodeExecutionMetadataKey</li>
+<li>refactor(workflow): Rename workflow node execution models</li>
+<li>fix(models): WorkflowRun's total_steps and exceptions_count mismatch with database</li>
+<li>fix(ops_trace_manager): Adds app_id to TraceTask initialization</li>
+<li>chore: Colorize new OpenAI LLM versions</li>
+<li>Feat/15534 support replacing the bot in chat input placeholder with the bots name</li>
+<li>fix: import from curl not work for --data</li>
+<li>chore: translate i18n files</li>
+<li>refactor(api/core/workflow/enums): Rename WORKFLOW_RUN_ID to WORKFLOW_EXECUTION_ID</li>
+<li>fix: some display error in dark mode</li>
+<li>Refactor/markdown component split</li>
+<li>fix(json-schema-editor): Add container reference for resize observer in CodeEditor; Update language hook and help doc URL in JsonSchemaConfig</li>
+<li>fix: drop some type fixme</li>
+<li>Refactor/message cycle manage and knowledge retrieval</li>
+<li>fix celery job not closed issue</li>
+<li>Improve CONVERSATION_TITLE_PROMPT to correctly handle Japanese and input</li>
+<li>update knowledge base api</li>
+<li>Add APIs for Knowledge Base Tag Management and Dataset Binding</li>
+<li>fix: resolve unstable scrolling in workflow debug panel with multiple input fields</li>
+<li>fix: agent app tool update</li>
+<li>Amend color typo</li>
+<li>fix: fetch tenant_id in other trace providers besides langfuse</li>
+<li>fix: the plugin order is not the same as passed to api in DSL</li>
+<li>fix(housekeeping): exclude files that are used as app icons or avatar images from being removed</li>
+<li>nacos config init , and force add ts parms.</li>
+<li>fix ts5097</li>
+<li>check zilliz cloud of full-text search</li>
+<li>Fixes : Allow $ref in parameter for custom tools</li>
+<li>Fix : Force header in custom tool be string</li>
+<li>fix: ensure proper conversation role alternation for vLLM</li>
+<li>fix:  When elasticsearch is used as the vector database, the Retrieval Test fails to filter the data after setting the Score Threshold, and the score of the recalled results is empty</li>
+<li>Fix/dark theme style issues</li>
+<li>fix: agent thought replaced by response text</li>
+<li>chore: update pnpm version to 10.11.1</li>
+<li>refactor: Replaces direct DB session usage with context managers</li>
+<li>fix: Upgrade Flask-Cors</li>
+<li>refactor: Removes unused LLMMode value_of method</li>
+<li>fix: Ensure model config integrity in retrieval processes</li>
+<li>fixes</li>
+<li>♻️ refactor(middleware): remove duplicate CSP header assignment</li>
+<li>chore: prepare the plugin daemon base url to yarl URL ahead intstead of in every invocation</li>
+<li>Revert "♻️ refactor(middleware): remove duplicate CSP header assignment"</li>
+<li>fix: variable aggregator with group and file raise exception</li>
+<li>fix: ensure newlines around think tags for proper markdown rendering</li>
+<li>refactor: Removes tenant ID check from rate limit logic</li>
+<li>fix: unable to upload custom file in case of incorrect inffered by multiple extensions mapped from mime type with filename extension hints</li>
+<li>fix: adjust sticky header properties in Container component</li>
+<li>fix: update app tag error</li>
+<li>fix: autocorrect everything in web</li>
+<li>raise error when process_rule is required but missing</li>
+<li>chore: fix some security issues in markdown</li>
+<li>fix: plugin update redcorner mark display incorrect</li>
+<li>chore: ensure web code consistency by applying <code>pnpm fix</code>
+</li>
+<li>feat: plugin storage support volcengine tos</li>
+<li>fix(markdown): Ensure abbr: links render correctly in react-markdown v9+</li>
+<li>Feat/queue monitor</li>
+<li>refactor: Improve model status handling and structured output</li>
+<li>feat: allow fill inputs from url params</li>
+<li>assign dataset indexing_technique to args if not explicitly provided</li>
+<li>fix(llm_node): update file variable mapping to use vision configs</li>
+<li>Fix 500 error</li>
+<li>Fix/webapp access scope</li>
+<li>fix: the locale format</li>
+<li>Update template.zh.mdx-fix document update metadata body param</li>
+<li>Add vscode debugger</li>
+<li>chore: translate i18n files</li>
+<li>fix: update text_to_audio method to send data as JSON</li>
+<li>fix: agent moderation not working</li>
+<li>A more concise and effective extractor for excel and csv files</li>
+<li>Fix: style of radio checked</li>
+<li>feat: reorder app types</li>
+<li>Fix builtin_providers for tools.</li>
+<li>fix: opensearch fulltext search with metadata filtering dsl error</li>
+<li>fix(inner_api/plugin/wraps): refresh user model after creation in get user function</li>
+<li>chore: bump uv to 0.7.x</li>
+<li>fix: opensearch metadata filtering returns empty</li>
+<li>chore: remove repeat public api and service api panel</li>
+<li>chore: replace pseudo-random generators with secrets module</li>
+<li>feat: add browser list</li>
+<li>chore: chart panel ui enhance</li>
+<li>fix: opensearch vector search falls back to keyword search</li>
+<li>fix: missing bot name in orchestrate</li>
+<li>feat(api): Adjust <code>WorkflowDraftVariable</code> and <code>WorkflowNodeExecutionModel</code>
+</li>
+<li>Add support for W&amp;B dedicated cloud instances in Weave tracing integration</li>
+<li>fix: clean up two unreachable code</li>
+<li>Fix/webapp no permission page</li>
+<li>fix: some dark mode display incorrect</li>
+<li>Feat/webapp verified sso main</li>
+<li>refactor(DSL imports): using organization/name/version to fetch DSL dependencies.</li>
+<li>fix(api): Resolve error encountered when executing <code>QuestionClassifieNode</code>
+</li>
+<li>refactor(api): Decouple <code>ParameterExtractorNode</code> from <code>LLMNode</code>
+</li>
+<li>fix(web): optimize prompt change logic for LLM nodes</li>
+<li>fix auto metadata filter</li>
+<li>chore: update plugin publish link text</li>
+<li>chore: bump mypy to 1.16</li>
+<li>fix: only enterprise version request app access mode</li>
+<li>refactor: replace compact response generation with length-prefixed response for backwards invocation api</li>
+<li>chore(package): Bump version to 1.4.2</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.4">higress v2.1.4</a>
+</h1><a id="user-content-2-higress-v214" class="anchor" aria-label="Permalink: 2. higress v2.1.4" href="#2-higress-v214"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🤖 AI Gateway AI Native API Gateway</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>feat(ai-proxy): support Amazon Bedrock Image Generation</li>
 <li>fix: Fix the incorrect rewrite config generated for Nacos 3 MCP Servers</li>
@@ -186,7 +488,7 @@ pre {
 <li>fix: Support mixing line breaks in a single SSE response</li>
 <li>Update CRD file in the helm folder</li>
 </ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-1" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>made their first contribution in</li>
 <li>made their first contribution in</li>
