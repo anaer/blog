@@ -90,8 +90,8 @@
 ## 开发
 
 ### Java
-1. JDK23 [官网](https://www.oracle.com/java/technologies/downloads/#jdk23-windows)  [injdk下载](https://d.injdk.cn/download/oraclejdk/23)
-2. JDK17 [官网](https://www.oracle.com/java/technologies/downloads/#jdk17-windows)           
+1. JDK23 [官网](https://www.oracle.com/java/technologies/downloads/#jdk23-windows) 
+2. JDK17 [官网](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)           
 3. JDK8 [官网](https://www.oracle.com/java/technologies/downloads/#java8-windows)           
 4. Maven [阿里云镜像](https://mirrors.aliyun.com/apache/maven/maven-3/3.9.5/binaries/)                                                   
 
