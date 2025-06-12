@@ -1,0 +1,15 @@
+<div class="markdown-heading"><h1 class="heading-element">安装编译依赖</h1><a id="user-content-安装编译依赖" class="anchor" aria-label="Permalink: 安装编译依赖" href="#安装编译依赖"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>sudo yum install -y bison gcc make</pre></div>
+<div class="markdown-heading"><h1 class="heading-element">下载源码</h1><a id="user-content-下载源码" class="anchor" aria-label="Permalink: 下载源码" href="#下载源码"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>wget https://ftp.gnu.org/gnu/glibc/glibc-2.18.tar.gz
+tar -zxvf glibc-2.18.tar.gz
+<span class="pl-c1">cd</span> glibc-2.18</pre></div>
+<div class="markdown-heading"><h1 class="heading-element">创建编译目录</h1><a id="user-content-创建编译目录" class="anchor" aria-label="Permalink: 创建编译目录" href="#创建编译目录"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>mkdir build <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> build
+../configure --prefix=/usr --disable-profile --enable-add-ons</pre></div>
+<div class="markdown-heading"><h1 class="heading-element">编译安装</h1><a id="user-content-编译安装" class="anchor" aria-label="Permalink: 编译安装" href="#编译安装"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>make -j<span class="pl-s"><span class="pl-pds">$(</span>nproc<span class="pl-pds">)</span></span>
+sudo make install</pre></div>
+<div class="markdown-heading"><h1 class="heading-element">验证</h1><a id="user-content-验证" class="anchor" aria-label="Permalink: 验证" href="#验证"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>strings /lib64/libc.so.6 | grep GLIBC_2.18
+</code></pre>
