@@ -130,17 +130,103 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-10 23:11:32</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-11 23:11:40</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-12 12:18:19</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了dify 1.4.2版本的更新，包括增强的用户体验、新功能、稳定性改进和安全更新。主要新增功能包括智能Web应用输入、快速文档提取、市场界面更新、个性化聊天机器人用户体验、强大的文件上传能力和改进的知识库API特性。此外，修复了多个bug并进行了安全性增强，确保了更流畅的使用体验。
+    <strong>AI总结:</strong> 本文介绍了多个软件版本的更新，包括Cherry Studio v1.4.2、Dify v1.4.2、Higress v2.1.4和FIT Framework Elsa v0.2.0。这些更新涵盖了新功能、用户界面优化、稳定性增强和多项错误修复。例如，Cherry Studio新增了文本选择和纯文本复制功能，Dify改进了文档提取和知识库API功能，Higress支持多种图像生成和API代理功能，而FIT Framework则引入了并行节点特性和用户界面调整。
 
-优化建议：在更新说明中，可以更清晰地分类功能和修复内容，以便用户快速找到他们关心的部分。同时，建议增加更新的影响和预期效果的描述，让用户了解这些改进如何提升他们的使用体验。
+优化建议：
+1. 在版本更新说明中，突出关键新功能和修复，以便用户快速了解变化。
+2. 提供更详细的升级指南，尤其是涉及重大变更时，以减少用户在迁移过程中的困惑。
+3. 考虑增加用户反馈渠道，以便在未来版本中更好地满足用户需求。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.4.2">dify 1.4.2</a>
-</h1><a id="user-content-1-dify-142" class="anchor" aria-label="Permalink: 1. dify 1.4.2" href="#1-dify-142"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.2">cherry-studio v1.4.2</a>
+</h1><a id="user-content-1-cherry-studio-v142" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.2" href="#1-cherry-studio-v142"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>划词助手：支持文本选择快捷键、开关快捷键、思考块支持和引用功能</li>
+<li>复制功能：新增纯文本复制（去除Markdown格式符号）</li>
+<li>知识库：支持设置向量维度，修复Ollama分数错误和维度编辑问题</li>
+<li>多语言：增加模型名称多语言提示和翻译源语言手动选择</li>
+<li>文件管理：修复主题/消息删除时文件未清理问题，优化文件选择流程</li>
+<li>模型：修复Gemini模型推理预算、Voyage AI嵌入问题和DeepSeek翻译模型更新</li>
+<li>图像功能：统一图片查看器，支持Base64图片渲染，修复图片预览相关问题</li>
+<li>UI：实现标签折叠/拖拽排序，修复气泡溢出，增加引文索引显示</li>
+</ul>
+<ul>
+<li>fix(SelectionAssistant): ignore CtrlKey mode when ctrl+click</li>
+<li>fix(SelectionToolbar): prevent CSS updates in settings page</li>
+<li>fix(OpenAIProvider): ensure tool_calls are only yielded when present</li>
+<li>feat: enable rendering and download of inline base64-encoded images</li>
+<li>refactor(CodePreview): improve the triggering timing for highlighting</li>
+<li>perf: improve responsiveness on streaming formulas</li>
+<li>hotfix: gemini-2.5-pro-preview-06-05 using error</li>
+<li>fix(Inputbar): fix textarea expansion and collapse issues with long text (CherryHQ)</li>
+<li>fix(SelectionAssistant): support selection when alt key pressed</li>
+<li>refactor(SelectionToolbar): add transition effects to action buttons</li>
+<li>fix(SelectionToolbar): prevent dragging the demo</li>
+<li>fix(SelectionAssistant): default disabled</li>
+<li>fix(Inputbar): remove unnecessary flex properties from Inputbar styles</li>
+<li>hotfix: enhance OpenAI stream handling and error management</li>
+<li>feat: add set feed url functionality for early access</li>
+<li>feat(SelectionAssistant): add the "quote" action</li>
+<li>refactor: unified image viewer with integrated context menu</li>
+<li>fix: message editor doesn't resize</li>
+<li>fix: set thinking budget to 0 for gemini-2.5-flash when reasoning effort is off</li>
+<li>fix: couldn't edit text when sent file-only message</li>
+<li>fix: set message translate dropdown height</li>
+<li>fix: update silicon docs and models</li>
+<li>feat(restoreFromWebdav): make credentials and path optional</li>
+<li>fix: voyage ai can't be used on text embedding</li>
+<li>fix: update default translate model to deepseek-v3</li>
+<li>refactor: better semantic of obsidian export options</li>
+<li>增加自动更新文档中版本号的github workflow</li>
+<li>Feature/dmxapi_images_to_image</li>
+<li>fix: prevent emoji picker from closing unexpectedly with IME</li>
+<li>fix: Implement label folding, drag-and-drop sorting of assistants within labels, and drag-and-drop sorting of labels</li>
+<li>fix(BackupManager): add content length to WebDAV file upload options</li>
+<li>fix(migrate): old translateModel incorrect</li>
+<li>fix: streamline file selection and ensure deletion of topic-related f…</li>
+<li>fix: update README files to enhance navigation and add project badges</li>
+<li>feat: add prompt variables description</li>
+<li>fix: ollama embedding knowledge query score always 100%</li>
+<li>fix: add Youdao and Nomic logos to model logo mapping</li>
+<li>fix: check if embedding is base64 encoded before convert it to float …</li>
+<li>feat: enhance unresponsive renderer handling and crash reporting</li>
+<li>refactor: use CodeEditor for customizing css</li>
+<li>feat(SelectionAssistant): support thinking block in action window</li>
+<li>fix: fix waring in usetags</li>
+<li>fix: shouldn't edit embedding dimension on existing knowledge base</li>
+<li>翻译功能增加手动选择源语言的选项</li>
+<li>Fix: bubble-style unnecessary menu background (Plan D)</li>
+<li>feat: add citation index to show</li>
+<li>fix: bubble overflow patch</li>
+<li>fix(SelectionAssistant): reduce Copy conflict</li>
+<li>feat(i18n): add tooltips for model name in multiple languages</li>
+<li>Feat: Allows setting the vector dimension of the knowledge base embedding model</li>
+<li>fix(SelectionAssistant): improve auto-scroll behavior in action window</li>
+<li>feat(SelectionAssistant): shortcut key to toggle on/off</li>
+<li>fix: readme twitter link error</li>
+<li>feat: add plain text copy functionality for messages and topics. 添加了复制纯文本的功能（去除Markdown格式符号）</li>
+<li>feat(SelectionAssistant): add shortcut for selecting text</li>
+<li>fix(SelectionAssistant): shortcut in mac and running handling</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.4.2">dify 1.4.2</a>
+</h1><a id="user-content-2-dify-142" class="anchor" aria-label="Permalink: 2. dify 1.4.2" href="#2-dify-142"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
 <details>
 <summary>变更说明</summary>
@@ -296,7 +382,7 @@ uv sync</pre></div>
 </li>
 </ol>
 <hr>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>update img</li>
 <li>Chore/update img</li>
@@ -427,7 +513,7 @@ uv sync</pre></div>
 <li>refactor: replace compact response generation with length-prefixed response for backwards invocation api</li>
 <li>chore(package): Bump version to 1.4.2</li>
 </ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-1" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>made their first contribution in</li>
 <li>made their first contribution in</li>
@@ -443,12 +529,12 @@ uv sync</pre></div>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.4">higress v2.1.4</a>
-</h1><a id="user-content-2-higress-v214" class="anchor" aria-label="Permalink: 2. higress v2.1.4" href="#2-higress-v214"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.4">higress v2.1.4</a>
+</h1><a id="user-content-3-higress-v214" class="anchor" aria-label="Permalink: 3. higress v2.1.4" href="#3-higress-v214"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🤖 AI Gateway AI Native API Gateway</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>feat(ai-proxy): support Amazon Bedrock Image Generation</li>
 <li>fix: Fix the incorrect rewrite config generated for Nacos 3 MCP Servers</li>
@@ -488,7 +574,7 @@ uv sync</pre></div>
 <li>fix: Support mixing line breaks in a single SSE response</li>
 <li>Update CRD file in the helm folder</li>
 </ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-1" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-2" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>made their first contribution in</li>
 <li>made their first contribution in</li>
@@ -498,9 +584,105 @@ uv sync</pre></div>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/elsa-v0.2.0">fit-framework elsa-v0.2.0</a>
+</h1><a id="user-content-4-fit-framework-elsa-v020" class="anchor" aria-label="Permalink: 4. fit-framework elsa-v0.2.0" href="#4-fit-framework-elsa-v020"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">🌟 Overview</h2><a id="user-content--overview" class="anchor" aria-label="Permalink: 🌟 Overview" href="#-overview"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>This release introduces <strong>parallel node features</strong>, <strong>UI optimizations</strong>, <strong>file extraction improvements</strong>, and <strong>critical bug fixes</strong> for stability and usability.</p>
+<div class="markdown-heading"><h2 class="heading-element">🔍 What's Changed</h2><a id="user-content--whats-changed" class="anchor" aria-label="Permalink: 🔍 What's Changed" href="#-whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">🚀 Features</h3><a id="user-content--features" class="anchor" aria-label="Permalink: 🚀 Features" href="#-features"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>[elsa] 并行节点特性添加</li>
+<li>feat: Add readOnly mode to JadeFlowEntry for history view</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">✨ Enhancements</h3><a id="user-content--enhancements" class="anchor" aria-label="Permalink: ✨ Enhancements" href="#-enhancements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>[elsa] 大模型节点模型下拉框宽度自适应</li>
+<li>[elsa] elsa-react打包添加翻译文件</li>
+<li>[elsa] 添加README</li>
+<li>[elsa] 知识检索节点参数修改</li>
+<li>[elsa] enhance reference-type config protection</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">✅ Bug Fixes</h3><a id="user-content--bug-fixes-1" class="anchor" aria-label="Permalink: ✅ Bug Fixes" href="#-bug-fixes-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>[elsa] 序列化保存改同步</li>
+<li>[elsa] 隐藏文件提取节点中的提取说明配置,避免引起歧义</li>
+<li>[elsa] Bug Fixes: Address UI Dropdown Resize, Knowledge Graph Updates, and GraphOperator.js Stability</li>
+<li>[elsa] ci: fix version branch regex matching</li>
+<li>[elsa] fix(GraphOperator): optimize single-key update handling</li>
+<li>fix(ConnectorProvider): Sync connector name changes with connected lines</li>
+<li>[elsa] fix(OutputVariableRow): preserve data type when switching from Reference to Input</li>
+<li>[elsa] fix(JadeObservableOutput): conditionally render description column to avoid empty space</li>
+<li>[elsa] fix(JadeReferenceTreeSelect): Force reference updates on same selection</li>
+</ul>
+<p><strong>Full Changelog</strong>: elsa-v0.1.0...elsa-v0.2.0</p>
+<div class="markdown-heading"><h2 class="heading-element">📌 Summary</h2><a id="user-content--summary" class="anchor" aria-label="Permalink: 📌 Summary" href="#-summary"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">1. New Features &amp; Improvements</h3><a id="user-content-1-new-features--improvements" class="anchor" aria-label="Permalink: 1. New Features &amp; Improvements" href="#1-new-features--improvements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Parallel Node Support : Added parallel execution capabilities for workflow nodes.</li>
+<li>Dynamic UI Adjustments : Model selection dropdown now auto-adjusts width for better readability.</li>
+<li>Localization Support : Added translation files for <code>elsa-react</code> builds.</li>
+<li>Knowledge Retrieval Node Updates : Modified parameters for improved functionality.</li>
+<li>Read-Only Mode for Flow History : Enabled non-editable view for historical workflow inspection.</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">2. Critical Fixes &amp; Stability</h3><a id="user-content-2-critical-fixes--stability" class="anchor" aria-label="Permalink: 2. Critical Fixes &amp; Stability" href="#2-critical-fixes--stability"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Synchronous Serialization : Changed serialization to synchronous to prevent state corruption.</li>
+<li>File Extraction Clarity : Removed ambiguous extraction instructions from file nodes.</li>
+<li>Connector Sync Fix : Ensured connector name changes propagate to connected lines.</li>
+<li>Data Type Preservation : Fixed data type loss when switching variable modes.</li>
+<li>UI Optimization : Eliminated empty space in description columns.</li>
+<li>Reference Update Reliability : Forced updates on repeated selections in <code>JadeReferenceTreeSelect</code>.</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">3. Documentation &amp; Maintenance</h3><a id="user-content-3-documentation--maintenance" class="anchor" aria-label="Permalink: 3. Documentation &amp; Maintenance" href="#3-documentation--maintenance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>Added README : Improved project documentation for better onboarding.</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">4. Knowledge Retrieval Node Refactor</h3><a id="user-content-4-knowledge-retrieval-node-refactor" class="anchor" aria-label="Permalink: 4. Knowledge Retrieval Node Refactor" href="#4-knowledge-retrieval-node-refactor"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Breaking Change</strong>: Removed deprecated <code>userId</code> parameter in favor of <code>knowledgeConfigId</code> for improved traceability.</li>
+<li>Added <code>DEFAULT_KNOWLEDGE_RETRIEVAL_NODE_KNOWLEDGE_CONFIG_ID</code> constant.</li>
+<li>Upgraded <code>UpdateGroupIdReducer</code> to <code>UpdateGroupIdAndConfigIdReducer</code> for synchronized updates of <code>groupId</code> and <code>knowledgeConfigId</code>.</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">5. UI/UX Improvements</h3><a id="user-content-5-uiux-improvements" class="anchor" aria-label="Permalink: 5. UI/UX Improvements" href="#5-uiux-improvements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Model Selection Dropdown</strong>: Now dynamically adjusts width based on content length via <code>dropdownMatchSelectWidth={false}</code>.</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">6. GraphOperator Enhancements</h3><a id="user-content-6-graphoperator-enhancements" class="anchor" aria-label="Permalink: 6. GraphOperator Enhancements" href="#6-graphoperator-enhancements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Auto-Creation</strong>: The <code>update</code> method now automatically initializes missing config paths.</li>
+<li>
+<strong>Type Inference</strong>: New <code>getTypeFromUpdates</code> utility infers data types (String, Array, Object, etc.) from input.</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element"><strong>7. CI/CD Fixes</strong></h3><a id="user-content-7-cicd-fixes" class="anchor" aria-label="Permalink: 7. CI/CD Fixes" href="#7-cicd-fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Branch Matching</strong>: Fixed regex to correctly target version branches (e.g., <code>elsa-0.1.x</code>). Escaped decimal points in patterns.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element"><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> <strong>Breaking Changes</strong>
+</h2><a id="user-content-️-breaking-changes" class="anchor" aria-label="Permalink: ⚠️ Breaking Changes" href="#️-breaking-changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Migration Required</strong>: Existing flows using<code>userId</code>must switch to<code>knowledgeConfigId</code>.</li>
+<li>
+<strong>CI/CD Compliance</strong>: Version branches must follow <code>elsa-{major}.{minor}.x</code> format (e.g., <code>elsa-0.1.x</code>).</li>
+<li>
+<strong>Serialization Behavior</strong> : Now synchronous—ensure dependent code handles blocking operations.</li>
+<li>
+<strong>File Extraction Node</strong> : Extraction instructions removed; update any dependent configurations.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">❤️ <strong>Contributors</strong>
+</h2><a id="user-content-️-contributors" class="anchor" aria-label="Permalink: ❤️ Contributors" href="#️-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Special thanks to all contributors for this release:</p>
+</details>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/124.html" aria-label="Previous Page">124 我关注的项目这周更新了什么-2025-06-06</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">001 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/124.html" aria-label="Previous Page">124 我关注的项目这周更新了什么-2025-06-06</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/126.html" aria-label="Next Page">126 glibc2.18安装</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
