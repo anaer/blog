@@ -1,3 +1,9 @@
+# 前因
+doris manager 安装studio时 报错提示
+```
+/lib64/libc.so.6: version `GLIBC_2.18' not found (required by /lib64/libstdc++.so.6)
+```
+
 # 安装编译依赖
 ```sh
 sudo yum install -y bison gcc make

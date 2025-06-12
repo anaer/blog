@@ -132,13 +132,23 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-12 10:18:54</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在Linux系统上安装GLIBC-2.18的步骤，包括安装编译依赖、下载源码、创建编译目录、配置、编译安装及验证的具体命令。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-12 10:20:25</time></span>
 
-优化建议：在每个步骤之间添加简要说明，以便用户更好地理解每个命令的目的和作用。此外，可以提供一些常见问题的解决方案，例如编译过程中可能出现的错误及其处理方法。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了在安装Doris Manager Studio时遇到的GLIBC版本缺失问题及其解决步骤，包括安装编译依赖、下载GLIBC源码、创建编译目录、编译安装以及验证安装结果。
+
+优化建议：
+1. 在安装依赖时，建议检查系统是否已经安装了相关包，以避免重复安装。
+2. 在下载和编译GLIBC时，建议提供更详细的错误处理步骤，以便用户在遇到问题时能够快速解决。
+3. 考虑在文中加入对GLIBC版本更新的影响及兼容性的提示，以帮助用户理解为何需要特定版本。
+4. 在验证步骤中，可以加入如何检查其他依赖项是否也需要更新的建议。
 </div>
 
 <div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h1 class="heading-element">前因</h1><a id="user-content-前因" class="anchor" aria-label="Permalink: 前因" href="#前因"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>doris manager 安装studio时 报错提示</p>
+<pre><code>/lib64/libc.so.6: version `GLIBC_2.18' not found (required by /lib64/libstdc++.so.6)
+</code></pre>
 <div class="markdown-heading"><h1 class="heading-element">安装编译依赖</h1><a id="user-content-安装编译依赖" class="anchor" aria-label="Permalink: 安装编译依赖" href="#安装编译依赖"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>sudo yum install -y bison gcc make</pre></div>
 <div class="markdown-heading"><h1 class="heading-element">下载源码</h1><a id="user-content-下载源码" class="anchor" aria-label="Permalink: 下载源码" href="#下载源码"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
