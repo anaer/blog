@@ -130,15 +130,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-10 23:11:32</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-12 12:18:19</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-12 23:11:33</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件版本的更新，包括Cherry Studio v1.4.2、Dify v1.4.2、Higress v2.1.4和FIT Framework Elsa v0.2.0。这些更新涵盖了新功能、用户界面优化、稳定性增强和多项错误修复。例如，Cherry Studio新增了文本选择和纯文本复制功能，Dify改进了文档提取和知识库API功能，Higress支持多种图像生成和API代理功能，而FIT Framework则引入了并行节点特性和用户界面调整。
+    <strong>AI总结:</strong> 本文介绍了多个软件版本更新的主要变更，包括Cherry Studio、subs-check、higress、dify和fit-framework等。这些更新涵盖了功能增强、错误修复和性能优化，具体包括文本处理功能的改进、多语言支持、文件管理的优化、AI代理的功能扩展等。此外，多个项目还进行了UI优化和安全性增强，并修复了影响用户体验的各种问题。
 
 优化建议：
-1. 在版本更新说明中，突出关键新功能和修复，以便用户快速了解变化。
-2. 提供更详细的升级指南，尤其是涉及重大变更时，以减少用户在迁移过程中的困惑。
-3. 考虑增加用户反馈渠道，以便在未来版本中更好地满足用户需求。
+1. 对于每个软件版本的更新，增加简洁的概述，以便用户快速了解主要改动。
+2. 在功能增强部分，使用图标或颜色标示新功能与修复功能，提升可读性。
+3. 结尾增加总结段落，强调更新的重要性和对用户的影响，鼓励用户及时更新。
+4. 考虑提供更新的具体步骤或链接，方便用户获取更多信息。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -225,8 +226,80 @@ pre {
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.4.2">dify 1.4.2</a>
-</h1><a id="user-content-2-dify-142" class="anchor" aria-label="Permalink: 2. dify 1.4.2" href="#2-dify-142"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.2.9">subs-check v2.2.9</a>
+</h1><a id="user-content-2-subs-check-v229" class="anchor" aria-label="Permalink: 2. subs-check v2.2.9" href="#2-subs-check-v229"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换、测速、测活、流媒体检测、重命名、导出为clash.meta/clash/base64/qx等等所有格式的工具</p>
+<details>
+<summary>变更说明</summary>
+<p>subs-check 问题沟通、使用交流渠道：</p>
+<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>debf752f7d8122ca2d313dd2d892e3bf934ca4fa fix: add ua</li>
+<li>058a0a6bf3fb547171b5c4a44ae30a9d5e02fa36 op: add MIHOMO_DEBUG env</li>
+<li>d37374aa70439fad6d852074060f4919b0090482 op: add web version</li>
+<li>b927dbd910e1e6a57d39fb484d35882772220877 op: delete check cloudflare &amp;&amp; reduce convert</li>
+<li>51a1819ebfdd9a3171296e7a5c0046c779b55117 op: 调整页面高度</li>
+<li>a38aac5c04f1e9ceb1ff5cfc6b8b09ce2bc194e7 update mihomo</li>
+<li>0c3af2ab1a8748330ffe60cbac853619812a8be7 update sub-store to 2.19.63</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.4">higress v2.1.4</a>
+</h1><a id="user-content-3-higress-v214" class="anchor" aria-label="Permalink: 3. higress v2.1.4" href="#3-higress-v214"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🤖 AI Gateway AI Native API Gateway</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>feat(ai-proxy): support Amazon Bedrock Image Generation</li>
+<li>fix: Fix the incorrect rewrite config generated for Nacos 3 MCP Servers</li>
+<li>feat: update translate-readme action</li>
+<li>fix: Remove the Authorization request header when using AI-proxy to proxy Gemini</li>
+<li>fix : fix issue</li>
+<li>Add test translation workflow</li>
+<li>mcp server support API auth through OAS3 <code>security schemes</code>
+</li>
+<li>Fix : add fail strategy for wasmplugin generated by mcp server</li>
+<li>fix: modify log level WARN -&gt; DEBUG in key-auth plugin</li>
+<li>fix proxy-wasm-cpp-sdk</li>
+<li>feat: Supports recording request header, request body, response header and response body information in the access log</li>
+<li>feat(mcp-server): add HackMD mcp server</li>
+<li>add mcp service  shebao tools</li>
+<li>feat: Add a github action to copy CRD definitions from api folder to helm folder</li>
+<li>feat:  allow skipping higress dev image build during wasmplugin e2e tests</li>
+<li>feat: Refactor mcpServer.matchList config generation logic</li>
+<li>add info log of ai-search plugin</li>
+<li>fix(ai-proxy): URL encode model name in Bedrock requests</li>
+<li>feat(ai-proxy): add doubao Image Generation support</li>
+<li>feat: cluster-key-rate-limit support setting global rate limit thresholds for routes​</li>
+<li>feat(ai-proxy): support OpenAI-compatible image and audio model Mapping</li>
+<li>fix: set "EnableSemanticCachefalse" to false when no vector configured in ai-cache</li>
+<li>feat(ai-proxy): add batches &amp; files support</li>
+<li>feat: support dify ai-proxy e2e test || feat: support diify ai-proxy e2e test</li>
+<li>fix content-length header not remove in ai-search plugin</li>
+<li>feat(ai-proxy): add modelMapping regexp support</li>
+<li>feat(ai-proxy): Fixed the issue that the API pass-through path error does not support openaiCustomUrl after openai is configured.</li>
+<li>feat(frontend-gray): Add uniqueGrayTag configuration detection</li>
+<li>feat(ai-proxy): add models &amp; image generation support for gemini</li>
+<li>feat(ai-proxy): support Google Cloud Vertex</li>
+<li>add upstream override wasm abi</li>
+<li>feat(ai-proxy): Add Claude image understanding and Tools calling capabilities</li>
+<li>fix: refactored mcp server auto discovery logic and fix some issue</li>
+<li>fix : fix credential process logic for nacos mcp util and add ut for it</li>
+<li>fix: Support mixing line breaks in a single SSE response</li>
+<li>Update CRD file in the helm folder</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-1" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/langgenius/dify/releases/tag/1.4.2">dify 1.4.2</a>
+</h1><a id="user-content-4-dify-142" class="anchor" aria-label="Permalink: 4. dify 1.4.2" href="#4-dify-142"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
 <details>
 <summary>变更说明</summary>
@@ -382,7 +455,7 @@ uv sync</pre></div>
 </li>
 </ol>
 <hr>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>update img</li>
 <li>Chore/update img</li>
@@ -513,67 +586,6 @@ uv sync</pre></div>
 <li>refactor: replace compact response generation with length-prefixed response for backwards invocation api</li>
 <li>chore(package): Bump version to 1.4.2</li>
 </ul>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-1" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-</ul>
-<p><strong>Full Changelog</strong>:</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.4">higress v2.1.4</a>
-</h1><a id="user-content-3-higress-v214" class="anchor" aria-label="Permalink: 3. higress v2.1.4" href="#3-higress-v214"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🤖 AI Gateway AI Native API Gateway</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>feat(ai-proxy): support Amazon Bedrock Image Generation</li>
-<li>fix: Fix the incorrect rewrite config generated for Nacos 3 MCP Servers</li>
-<li>feat: update translate-readme action</li>
-<li>fix: Remove the Authorization request header when using AI-proxy to proxy Gemini</li>
-<li>fix : fix issue</li>
-<li>Add test translation workflow</li>
-<li>mcp server support API auth through OAS3 <code>security schemes</code>
-</li>
-<li>Fix : add fail strategy for wasmplugin generated by mcp server</li>
-<li>fix: modify log level WARN -&gt; DEBUG in key-auth plugin</li>
-<li>fix proxy-wasm-cpp-sdk</li>
-<li>feat: Supports recording request header, request body, response header and response body information in the access log</li>
-<li>feat(mcp-server): add HackMD mcp server</li>
-<li>add mcp service  shebao tools</li>
-<li>feat: Add a github action to copy CRD definitions from api folder to helm folder</li>
-<li>feat:  allow skipping higress dev image build during wasmplugin e2e tests</li>
-<li>feat: Refactor mcpServer.matchList config generation logic</li>
-<li>add info log of ai-search plugin</li>
-<li>fix(ai-proxy): URL encode model name in Bedrock requests</li>
-<li>feat(ai-proxy): add doubao Image Generation support</li>
-<li>feat: cluster-key-rate-limit support setting global rate limit thresholds for routes​</li>
-<li>feat(ai-proxy): support OpenAI-compatible image and audio model Mapping</li>
-<li>fix: set "EnableSemanticCachefalse" to false when no vector configured in ai-cache</li>
-<li>feat(ai-proxy): add batches &amp; files support</li>
-<li>feat: support dify ai-proxy e2e test || feat: support diify ai-proxy e2e test</li>
-<li>fix content-length header not remove in ai-search plugin</li>
-<li>feat(ai-proxy): add modelMapping regexp support</li>
-<li>feat(ai-proxy): Fixed the issue that the API pass-through path error does not support openaiCustomUrl after openai is configured.</li>
-<li>feat(frontend-gray): Add uniqueGrayTag configuration detection</li>
-<li>feat(ai-proxy): add models &amp; image generation support for gemini</li>
-<li>feat(ai-proxy): support Google Cloud Vertex</li>
-<li>add upstream override wasm abi</li>
-<li>feat(ai-proxy): Add Claude image understanding and Tools calling capabilities</li>
-<li>fix: refactored mcp server auto discovery logic and fix some issue</li>
-<li>fix : fix credential process logic for nacos mcp util and add ut for it</li>
-<li>fix: Support mixing line breaks in a single SSE response</li>
-<li>Update CRD file in the helm folder</li>
-</ul>
 <div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-2" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>made their first contribution in</li>
@@ -581,11 +593,17 @@ uv sync</pre></div>
 <li>made their first contribution in</li>
 <li>made their first contribution in</li>
 <li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/elsa-v0.2.0">fit-framework elsa-v0.2.0</a>
-</h1><a id="user-content-4-fit-framework-elsa-v020" class="anchor" aria-label="Permalink: 4. fit-framework elsa-v0.2.0" href="#4-fit-framework-elsa-v020"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/elsa-v0.2.0">fit-framework elsa-v0.2.0</a>
+</h1><a id="user-content-5-fit-framework-elsa-v020" class="anchor" aria-label="Permalink: 5. fit-framework elsa-v0.2.0" href="#5-fit-framework-elsa-v020"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。</p>
 <details>
 <summary>变更说明</summary>
