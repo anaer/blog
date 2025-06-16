@@ -13,7 +13,8 @@
 
 <span class="pl-k">export</span> VIRTUAL_ENV_DISABLE_PROMPT=y <span class="pl-c"><span class="pl-c">#</span> 禁用uv修改PS1</span>
 
-<span class="pl-k">export</span> PS1=<span class="pl-s"><span class="pl-pds">'</span>(${VIRTUAL_ENV_PROMPT})${debian_chroot:+($debian_chroot)}\u@\h:\w\$ <span class="pl-pds">'</span></span></pre></div>
+<span class="pl-k">export</span> PS1=<span class="pl-s"><span class="pl-pds">'</span>${VIRTUAL_ENV_PROMPT:+($VIRTUAL_ENV_PROMPT)}${debian_chroot:+($debian_chroot)}\u@\h:\w\$ <span class="pl-pds">'</span></span>
+</pre></div>
 <p>然后运行 <code>source ~/.bashrc</code> 使配置生效。</p>
 </li>
 <li>

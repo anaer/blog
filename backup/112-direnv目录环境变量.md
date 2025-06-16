@@ -16,7 +16,8 @@
    
    export VIRTUAL_ENV_DISABLE_PROMPT=y # 禁用uv修改PS1
    
-   export PS1='(${VIRTUAL_ENV_PROMPT})${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+   export PS1='${VIRTUAL_ENV_PROMPT:+($VIRTUAL_ENV_PROMPT)}${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+
    ```
    然后运行 `source ~/.bashrc` 使配置生效。
 

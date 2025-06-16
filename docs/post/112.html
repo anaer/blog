@@ -128,17 +128,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-16 11:25:49</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-16 16:19:28</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-16 17:13:14</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用direnv工具来管理Python环境，以便在进入不同项目时自动激活相应的虚拟环境。首先需要安装direnv并配置Shell环境，然后在目标目录创建.envrc文件以指定虚拟环境的激活命令，并授权此文件以使其生效。最后，验证设置是否成功，并提供了还原PS1的方式。
+    <strong>AI总结:</strong> 本文介绍了如何使用direnv工具管理Python环境，以便在进入不同项目时自动激活相应的虚拟环境。安装direnv后，需要配置Shell环境并在目标目录创建.envrc文件以包含激活虚拟环境的命令。通过授权.envrc并验证配置，可以实现目录切换时自动激活虚拟环境。
 
 优化建议：
-1. 在安装direnv之前，建议检查系统是否已安装apt，以避免安装过程中的错误。
-2. 在编辑.bashrc文件时，建议使用注释标识出direnv相关的配置，以便于日后维护。
-3. 在创建.envrc文件时，可以提供一个示例文件内容，以帮助用户更快速地配置。
-4. 在授权.envrc之前，提醒用户检查文件内容的正确性，以避免潜在的安全隐患。
-5. 提供更多关于direnv命令的使用示例，以帮助用户更好地理解和使用该工具。
+1. 在安装direnv前，检查系统是否已安装，以避免重复安装。
+2. 在编辑.bashrc时，建议备份原文件，以防配置错误导致Shell环境异常。
+3. 在创建.envrc文件时，可以提供示例代码，帮助用户更快上手。
+4. 在授权.envrc后，提供常见问题及解决方案，以便用户在遇到问题时能快速查找。
+5. 提供详细的还原步骤，确保用户能轻松恢复原始Shell配置。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -157,7 +157,8 @@ pre {
 
 <span class="pl-k">export</span> VIRTUAL_ENV_DISABLE_PROMPT=y <span class="pl-c"><span class="pl-c">#</span> 禁用uv修改PS1</span>
 
-<span class="pl-k">export</span> PS1=<span class="pl-s"><span class="pl-pds">'</span>(${VIRTUAL_ENV_PROMPT})${debian_chroot:+($debian_chroot)}\u@\h:\w\$ <span class="pl-pds">'</span></span></pre></div>
+<span class="pl-k">export</span> PS1=<span class="pl-s"><span class="pl-pds">'</span>${VIRTUAL_ENV_PROMPT:+($VIRTUAL_ENV_PROMPT)}${debian_chroot:+($debian_chroot)}\u@\h:\w\$ <span class="pl-pds">'</span></span>
+</pre></div>
 <p>然后运行 <code>source ~/.bashrc</code> 使配置生效。</p>
 </li>
 <li>
