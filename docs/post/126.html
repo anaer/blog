@@ -132,19 +132,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-12 10:18:54</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-12 10:20:25</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-16 16:33:14</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在安装Doris Manager Studio时遇到的GLIBC版本缺失问题及其解决步骤，包括安装编译依赖、下载GLIBC源码、创建编译目录、编译安装以及验证安装结果。
+    <strong>AI总结:</strong> 本文介绍了在安装Doris Manager时遇到glibc版本不足的错误，并提供了手动编译和安装glibc 2.18的步骤。然而，手动升级glibc可能会导致服务器崩溃，进而需要重新部署。 
 
-优化建议：
-1. 在安装依赖时，建议检查系统是否已经安装了相关包，以避免重复安装。
-2. 在下载和编译GLIBC时，建议提供更详细的错误处理步骤，以便用户在遇到问题时能够快速解决。
-3. 考虑在文中加入对GLIBC版本更新的影响及兼容性的提示，以帮助用户理解为何需要特定版本。
-4. 在验证步骤中，可以加入如何检查其他依赖项是否也需要更新的建议。
+优化建议：建议使用系统包管理工具安装glibc的更新版本，避免手动编译和安装带来的风险。同时，可以考虑使用容器化技术隔离依赖，减少系统级别的干扰。
 </div>
 
 <div class="markdown-body" id="postBody">
+<p>PS: 可以的话还是不要手动升级glibc, 容易搞挂服务器, 导致需要重新部署.</p>
 <div class="markdown-heading"><h1 class="heading-element">前因</h1><a id="user-content-前因" class="anchor" aria-label="Permalink: 前因" href="#前因"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>doris manager 安装studio时 报错提示</p>
 <pre><code>/lib64/libc.so.6: version `GLIBC_2.18' not found (required by /lib64/libstdc++.so.6)
@@ -166,7 +163,7 @@ sudo make install</pre></div>
 </code></pre>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/125.html" aria-label="Previous Page">125 我关注的项目这周更新了什么-2025-06-13</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">001 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/125.html" aria-label="Previous Page">125 我关注的项目这周更新了什么-2025-06-13</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/127.html" aria-label="Next Page">127 我关注的项目这周更新了什么-2025-06-20</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
