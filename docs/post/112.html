@@ -128,17 +128,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-16 11:25:49</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-16 14:54:11</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-16 16:19:28</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用direnv工具来管理Python项目的虚拟环境，避免在每次进入项目时手动激活虚拟环境的繁琐步骤。首先，安装direnv并配置Shell环境，接着在目标目录创建并授权.envrc文件，最后通过direnv自动加载虚拟环境并清除PS1提示信息的告警。
+    <strong>AI总结:</strong> 本文介绍了如何使用direnv工具来管理Python环境，以便在进入不同项目时自动激活相应的虚拟环境。首先需要安装direnv并配置Shell环境，然后在目标目录创建.envrc文件以指定虚拟环境的激活命令，并授权此文件以使其生效。最后，验证设置是否成功，并提供了还原PS1的方式。
 
 优化建议：
-1. 在安装direnv前，建议检查系统是否已安装apt，以确保兼容性。
-2. 在配置Shell环境时，提供针对不同Shell（如Zsh或Fish）的配置示例，以覆盖更广泛的用户群体。
-3. 在创建.envrc文件时，建议提供模板或示例，以帮助用户更快上手。
-4. 提供direnv的常见问题解答，帮助用户解决可能遇到的问题，例如如何处理权限问题或环境变量冲突。
-5. 在还原PS1时，建议说明如何安全地恢复默认设置，避免不必要的错误。
+1. 在安装direnv之前，建议检查系统是否已安装apt，以避免安装过程中的错误。
+2. 在编辑.bashrc文件时，建议使用注释标识出direnv相关的配置，以便于日后维护。
+3. 在创建.envrc文件时，可以提供一个示例文件内容，以帮助用户更快速地配置。
+4. 在授权.envrc之前，提醒用户检查文件内容的正确性，以避免潜在的安全隐患。
+5. 提供更多关于direnv命令的使用示例，以帮助用户更好地理解和使用该工具。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -157,7 +157,7 @@ pre {
 
 <span class="pl-k">export</span> VIRTUAL_ENV_DISABLE_PROMPT=y <span class="pl-c"><span class="pl-c">#</span> 禁用uv修改PS1</span>
 
-<span class="pl-k">export</span> PS1=<span class="pl-s"><span class="pl-pds">'</span>${VIRTUAL_ENV_PROMPT}${debian_chroot:+($debian_chroot)}\u@\h:\w\$ <span class="pl-pds">'</span></span></pre></div>
+<span class="pl-k">export</span> PS1=<span class="pl-s"><span class="pl-pds">'</span>(${VIRTUAL_ENV_PROMPT})${debian_chroot:+($debian_chroot)}\u@\h:\w\$ <span class="pl-pds">'</span></span></pre></div>
 <p>然后运行 <code>source ~/.bashrc</code> 使配置生效。</p>
 </li>
 <li>
@@ -195,7 +195,7 @@ direnv: export ~PATH
 </code></pre>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/113.html" aria-label="Previous Page">113 检测并取消设置 Git 仓库用户信息</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/111.html" aria-label="Next Page">111 jqGrid服务端排序</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/111.html" aria-label="Previous Page">111 jqGrid服务端排序</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/113.html" aria-label="Next Page">113 检测并取消设置 Git 仓库用户信息</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

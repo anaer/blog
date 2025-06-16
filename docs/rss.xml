@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 16 Jun 2025 04:24:02 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 16 Jun 2025 04:24:02 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了clash-verge-rev v2.3.0，这是一个基于Tauri的现代GUI客户端，旨在为Windows、macOS和Linux提供量身定制的代理体验。该版本增加了更多新功能的支持。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 16 Jun 2025 08:20:05 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 16 Jun 2025 08:20:05 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了clash-verge-rev v2.3.0，这是一个基于Tauri的现代GUI客户端，旨在为Windows、macOS和Linux提供量身定制的代理体验。该版本增加了更多新功能的支持。
 
 优化建议：详细列出新增功能和改进的具体内容，以便用户更好地了解更新的价值和使用方法。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/127.html</guid><pubDate>Mon, 16 Jun 2025 04:23:32 +0000</pubDate></item><item><title>126 glibc2.18安装</title><link>https://anaer.github.io/blog/post/126.html</link><description>本文介绍了在安装Doris Manager Studio时遇到的GLIBC版本缺失问题及其解决步骤，包括安装编译依赖、下载GLIBC源码、创建编译目录、编译安装以及验证安装结果。
 
@@ -62,14 +62,14 @@ fix: Update the state of the last message bl...</description><guid isPermaLink="
 2. 为用户提供更多的反馈信息，例如清理完成后的总结，显示清理了多少个仓库的用户信息。
 3. 提供日志功能，记录每个仓库的处理结果，以便后续审查。
 4. 增加对不同操作系统的兼容性测试，确保在 Windows 和 Unix 系统上都能正常运行。
-5. 考虑将用户信息的清理操作设为可选，允许用户选择是否清理特定的配置。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/113.html</guid><pubDate>Fri, 18 Apr 2025 03:08:30 +0000</pubDate></item><item><title>112 direnv目录环境变量</title><link>https://anaer.github.io/blog/post/112.html</link><description>本文介绍了如何使用direnv工具来管理Python项目的虚拟环境，避免在每次进入项目时手动激活虚拟环境的繁琐步骤。首先，安装direnv并配置Shell环境，接着在目标目录创建并授权.envrc文件，最后通过direnv自动加载虚拟环境并清除PS1提示信息的告警。
+5. 考虑将用户信息的清理操作设为可选，允许用户选择是否清理特定的配置。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/113.html</guid><pubDate>Fri, 18 Apr 2025 03:08:30 +0000</pubDate></item><item><title>112 direnv目录环境变量</title><link>https://anaer.github.io/blog/post/112.html</link><description>本文介绍了如何使用direnv工具来管理Python环境，以便在进入不同项目时自动激活相应的虚拟环境。首先需要安装direnv并配置Shell环境，然后在目标目录创建.envrc文件以指定虚拟环境的激活命令，并授权此文件以使其生效。最后，验证设置是否成功，并提供了还原PS1的方式。
 
 优化建议：
-1. 在安装direnv前，建议检查系统是否已安装apt，以确保兼容性。
-2. 在配置Shell环境时，提供针对不同Shell（如Zsh或Fish）的配置示例，以覆盖更广泛的用户群体。
-3. 在创建.envrc文件时，建议提供模板或示例，以帮助用户更快上手。
-4. 提供direnv的常见问题解答，帮助用户解决可能遇到的问题，例如如何处理权限问题或环境变量冲突。
-5. 在还原PS1时，建议说明如何安全地恢复默认设置，避免不必要的错误。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/112.html</guid><pubDate>Wed, 16 Apr 2025 03:25:49 +0000</pubDate></item><item><title>111 jqGrid服务端排序</title><link>https://anaer.github.io/blog/post/111.html</link><description>本文介绍了一个使用jqGrid进行服务端排序的配置示例。该示例设置了不启用一次性加载数据到客户端，默认按名称降序排序，并定义了表格的列名和列模型。通过onSortCol事件处理函数，调用search函数进行服务端排序，并阻止客户端排序操作。
+1. 在安装direnv之前，建议检查系统是否已安装apt，以避免安装过程中的错误。
+2. 在编辑.bashrc文件时，建议使用注释标识出direnv相关的配置，以便于日后维护。
+3. 在创建.envrc文件时，可以提供一个示例文件内容，以帮助用户更快速地配置。
+4. 在授权.envrc之前，提醒用户检查文件内容的正确性，以避免潜在的安全隐患。
+5. 提供更多关于direnv命令的使用示例，以帮助用户更好地理解和使用该工具。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/112.html</guid><pubDate>Wed, 16 Apr 2025 03:25:49 +0000</pubDate></item><item><title>111 jqGrid服务端排序</title><link>https://anaer.github.io/blog/post/111.html</link><description>本文介绍了一个使用jqGrid进行服务端排序的配置示例。该示例设置了不启用一次性加载数据到客户端，默认按名称降序排序，并定义了表格的列名和列模型。通过onSortCol事件处理函数，调用search函数进行服务端排序，并阻止客户端排序操作。
 
 优化建议：
 1. 在search函数中，确保完整传递所有必要的参数，以便服务端能够处理排序请求。
