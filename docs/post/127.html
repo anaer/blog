@@ -14,7 +14,7 @@
     </script>
     
 <title>127 我关注的项目这周更新了什么-2025-06-20</title>
-
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/colorblind-dark.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -130,19 +130,375 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-16 12:23:32</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了clash-verge-rev v2.3.0，这是一个基于Tauri的现代GUI客户端，旨在为Windows、macOS和Linux提供量身定制的代理体验。该版本增加了更多新功能的支持。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-16 23:11:42</time></span>
 
-优化建议：详细列出新增功能和改进的具体内容，以便用户更好地了解更新的价值和使用方法。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了三个软件版本更新的主要内容。Cherry Studio v1.4.3 增加了新的 LLM 服务提供商和 MCP 服务器，并实现了话题重命名动画效果。Dify v1.4.3 主要关注于增强灵活性和修复错误，改进了 LLM 节点、Gemini LLM 支持、Markdown 按钮功能以及登录限制等多个方面。Clash Verge Rev v2.3.0 通过一系列修复和新增功能，提升了系统稳定性和安全性，并优化了用户体验，尤其是在代理设置和自动更新机制方面。
+
+优化建议：
+1. 对于每个软件的更新内容，可以增加具体的使用场景或示例，以帮助用户更好地理解新功能的应用。
+2. 在变更说明中，建议使用更直观的标签（如“新增功能”、“修复问题”等）来分类信息，便于用户快速查找相关内容。
+3. 提供更详细的升级指南，尤其是针对不同操作系统的用户，以确保用户能够顺利完成升级过程。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.3.0">clash-verge-rev v2.3.0</a>
-</h1><a id="user-content-1-clash-verge-rev-v230" class="anchor" aria-label="Permalink: 1. clash-verge-rev v2.3.0" href="#1-clash-verge-rev-v230"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.3">cherry-studio v1.4.3</a>
+</h1><a id="user-content-1-cherry-studio-v143" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.3" href="#1-cherry-studio-v143"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<p>服务商：新增端脑云、302.AI、蓝耘服务商
+MCP: 新增蓝耘 MCP 服务器
+实现话题重命名动画效果
+错误修复</p>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.4.3">dify 1.4.3</a>
+</h1><a id="user-content-2-dify-143" class="anchor" aria-label="Permalink: 2. dify 1.4.3" href="#2-dify-143"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-ready platform for agentic workflow development.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">🚀 What’s New in v1.4.3? 🚀</h2><a id="user-content--whats-new-in-v143-" class="anchor" aria-label="Permalink: 🚀 What’s New in v1.4.3? 🚀" href="#-whats-new-in-v143-"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>It’s all about smoothing out the wrinkles and enhancing flexibility in this update. Here’s the rundown:</p>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">🛠 Fixes and Improvements</h2><a id="user-content--fixes-and-improvements" class="anchor" aria-label="Permalink: 🛠 Fixes and Improvements" href="#-fixes-and-improvements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p><strong>LLM Node Enhancements</strong>: We've ironed out issues with missing parameters for structured outputs; now your LLM node is more robust and prepared for all it can handle thanks to  .</p>
+</li>
+<li>
+<p><strong>Gemini LLM Support</strong>: For those integrating with Gemini, you'll now find support for the Gemini 0.2.x plugin running smoothly in your agent apps, as addressed  .</p>
+</li>
+<li>
+<p><strong>Markdown Button Fix</strong>: Sending messages through the Markdown button should now work flawlessly, thanks to  .</p>
+</li>
+<li>
+<p><strong>Login Rate Limit Clearing</strong>: After a password reset, we’ve made sure the login rate limits are cleared, preventing any unnecessary hurdles, addressed  .</p>
+</li>
+<li>
+<p><strong>App Info Update</strong>: For better transparency, the author_name is now part of the app info, thanks to  .</p>
+</li>
+<li>
+<p><strong>Documentation Link Fixes</strong>: We’ve generalized the method for retrieving documentation links to respect localizations and squashed those error link paths, thanks to insights from  .</p>
+</li>
+<li>
+<p><strong>Document Indexing Boundaries</strong>: A fix ensures document indexing is correctly bound to a session, reducing those pesky unbound errors, tackled  .</p>
+</li>
+<li>
+<p><strong>Conversation Panel Optimization</strong>: We've fine-tuned the width adjustment logic for the conversation-panel modal, ensuring a smoother user interface experience, improved  .</p>
+</li>
+<li>
+<p><strong>CI Tests with Oceanbase</strong>: Integration tests now run the VDB tests of Oceanbase using Docker Compose within CI, streamlining our testing procedures thanks to  .</p>
+</li>
+<li>
+<p><strong>Dead Code Cleanup</strong>: We’ve removed some obsolete code utilizing Vulture, keeping our codebase leaner and cleaner, courtesy of  .</p>
+</li>
+<li>
+<p><strong>Localized Documentation Updates</strong>: Documentation link updates now support localization across various components, enhancing accessibility for our global community, thanks to  .</p>
+</li>
+</ul>
+<p>Keep those pull requests coming as we aim to make your user experience as seamless and intuitive as possible! 🌟</p>
+<hr>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Upgrade Guide</h2><a id="user-content-upgrade-guide" class="anchor" aria-label="Permalink: Upgrade Guide" href="#upgrade-guide"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Docker Compose Deployments</h3><a id="user-content-docker-compose-deployments" class="anchor" aria-label="Permalink: Docker Compose Deployments" href="#docker-compose-deployments"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p>Back up your customized docker-compose YAML file (optional)</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> docker
+cp docker-compose.yaml docker-compose.yaml.<span class="pl-s"><span class="pl-pds">$(</span>date +%s<span class="pl-pds">)</span></span>.bak</pre></div>
+</li>
+<li>
+<p>Get the latest code from the main branch</p>
+<div class="highlight highlight-source-shell"><pre>git checkout main
+git pull origin main</pre></div>
+</li>
+<li>
+<p>Stop the service. Please execute in the docker directory</p>
+<div class="highlight highlight-source-shell"><pre>docker compose down</pre></div>
+</li>
+<li>
+<p>Back up data</p>
+<div class="highlight highlight-source-shell"><pre>tar -cvf volumes-<span class="pl-s"><span class="pl-pds">$(</span>date +%s<span class="pl-pds">)</span></span>.tgz volumes</pre></div>
+</li>
+<li>
+<p>Upgrade services</p>
+<div class="highlight highlight-source-shell"><pre>docker compose up -d</pre></div>
+</li>
+</ol>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Source Code Deployments</h3><a id="user-content-source-code-deployments" class="anchor" aria-label="Permalink: Source Code Deployments" href="#source-code-deployments"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p>Stop the API server, Worker, and Web frontend Server.</p>
+</li>
+<li>
+<p>Get the latest code from the release branch:</p>
+<div class="highlight highlight-source-shell"><pre>git checkout 1.4.3</pre></div>
+</li>
+<li>
+<p>Update Python dependencies:</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> api
+uv sync</pre></div>
+</li>
+<li>
+<p>Then, let's run the migration script:</p>
+<div class="highlight highlight-source-shell"><pre>uv run flask db upgrade</pre></div>
+</li>
+<li>
+<p>Finally, run the API server, Worker, and Web frontend Server again.</p>
+</li>
+</ol>
+<hr>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix remote ip header CF-Connecting-IP</li>
+<li>fix(llm_node): missing parameters for structure outputs</li>
+<li>🐛 Fix(Gemini LLM): Support Gemini 0.2.x plugin on agent app</li>
+<li>fix: markdown button can't send message</li>
+<li>refactor(sqlalchemy_workflow_execution_repository): Use the max funtion for getting next_sequence_number.</li>
+<li>feat: add S3_USE_AWS env var to explicitly distinguish AWS S3 usage in plugin-daemon</li>
+<li>fix(auth): Clear login rate limit after password reset</li>
+<li>chore: app info add author_name</li>
+<li>refactor: generalize method for getting doc link respecting locale and fix error link paths</li>
+<li>docs: conv and user_id</li>
+<li>document indexing not bound to a Session</li>
+<li>fix: correct description for edu coupon</li>
+<li>fix(web): optimize conversation-panel Modal width adjustment logic</li>
+<li>test: run vdb test of oceanbase with docker compose in CI tests</li>
+<li>fix: delete some dead code using vulture</li>
+<li>Feat/add rag dev deploy</li>
+<li>fix: update documentation links for various components to support localization</li>
+<li>chore: rename workflow blocks</li>
+<li>chore: bump version to 1.4.3</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.3.0">clash-verge-rev v2.3.0</a>
+</h1><a id="user-content-3-clash-verge-rev-v230" class="anchor" aria-label="Permalink: 3. clash-verge-rev v2.3.0" href="#3-clash-verge-rev-v230"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A modern GUI client based on Tauri, designed to run in Windows, macOS and Linux for tailored proxy experience</p>
 <details>
 <summary>变更说明</summary>
-<p>More new features are now supported.</p>
+<div class="markdown-heading"><h2 class="heading-element">v2.3.0</h2><a id="user-content-v230" class="anchor" aria-label="Permalink: v2.3.0" href="#v230"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><strong>发行代号：御</strong>
+代号释义： 「御」，象征掌控与守护，寓意本次版本对系统稳定性、安全性与用户体验的全面驾驭与提升。</p>
+<p>尽管 <code>external-controller</code> 密钥现已自动补全默认值且不允许为空，<strong>仍建议手动修改密钥以提高安全性</strong>。</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Dark</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a target="_blank" rel="noopener noreferrer" href="./docs/preview_dark.png"><img src="./docs/preview_dark.png" alt="预览" style="max-width: 100%;"></a></td>
+<td><a target="_blank" rel="noopener noreferrer" href="./docs/preview_light.png"><img src="./docs/preview_light.png" alt="预览" style="max-width: 100%;"></a></td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading"><h3 class="heading-element"><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 已知问题</h3><a id="user-content-️-已知问题" class="anchor" aria-label="Permalink: ⚠️ 已知问题" href="#️-已知问题"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p>仅在 Ubuntu 22.04/24.04、Fedora 41 的 <strong>GNOME 桌面环境</strong> 做过简单测试，不保证其他 Linux 发行版兼容，后续将逐步适配和优化。</p>
+</li>
+<li>
+<p>macOS：</p>
+<ul>
+<li>MacOS 下自动升级成功后请关闭程序等待 30 秒重启，因为 MacOS 的端口释放特性，卸载服务后需重启应用等 30 秒才能恢复内核通信。立即启动可能无法正常启动内核。</li>
+<li>墙贴主要为浅色，深色 Tray 图标存在闪烁问题；</li>
+<li>彩色 Tray 图标颜色偏淡；</li>
+</ul>
+</li>
+<li>
+<p>已确认窗口状态管理器存在上游缺陷，已暂时移除窗口大小与位置记忆功能。</p>
+</li>
+</ul>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">🐞 修复问题</h3><a id="user-content--修复问题" class="anchor" aria-label="Permalink: 🐞 修复问题" href="#-修复问题"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>修复首页“代理模式”快速切换导致的卡死问题</li>
+<li>修复 MacOS 快捷键关闭窗口无法启用自动轻量模式</li>
+<li>修复静默启动异常窗口的创建与关闭流程</li>
+<li>修复 Windows 下错误注册的全局快捷键 <code>Ctrl+Q</code>
+</li>
+<li>修复解锁测试报错信息与 VLESS URL 解码时的网络类型错误</li>
+<li>修复切换自定义代理地址后系统代理状态异常</li>
+<li>修复 macOS TUN 默认无效网卡名称</li>
+<li>修复更改订阅后托盘 UI 不同步的问题</li>
+<li>修复服务模式安装后无法立即开启 TUN 模式</li>
+<li>修复无法删除 <code>.window-state.json</code>
+</li>
+<li>修复无法修改配置更新 HTTP 请求超时问题</li>
+<li>修复 <code>getDelayFix</code> 钩子异常</li>
+<li>修复外部扩展脚本覆写代理组时首页无法显示代理组</li>
+<li>修复 Verge 导出诊断版本与设置页面不同步</li>
+<li>修复切换语言时设置页面可能加载失败</li>
+<li>修复编辑器中连字符处理问题</li>
+<li>修复提权漏洞，改用带认证的 IPC 通信机制</li>
+<li>修复静默启动无法使用自动轻量模式</li>
+<li>修复 JS 脚本转义特殊字符报错</li>
+<li>修复 macOS 静默启动时异常启动 Dock 栏图标</li>
+</ul>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">✨ 新增功能</h3><a id="user-content--新增功能" class="anchor" aria-label="Permalink: ✨ 新增功能" href="#-新增功能"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p><strong>Mihomo(Meta) 内核升级至 v1.19.10</strong></p>
+</li>
+<li>
+<p>支持设置代理地址为非 <code>127.0.0.1</code>，提升 WSL 兼容性</p>
+</li>
+<li>
+<p>系统代理守卫：可检测意外变更并自动恢复</p>
+</li>
+<li>
+<p>托盘新增当前轻量模式状态显示</p>
+</li>
+<li>
+<p>关闭系统代理时同时断开已建立的连接</p>
+</li>
+<li>
+<p>新增 WebDAV 功能：</p>
+<ul>
+<li>加入 UA 请求头</li>
+<li>支持目录重定向</li>
+<li>备份目录检查与上传重试机制</li>
+</ul>
+</li>
+<li>
+<p>自动订阅更新机制：</p>
+<ul>
+<li>加入请求超时机制防止卡死</li>
+<li>支持在代理状态下自动重试订阅更新</li>
+<li>支持订阅卡片点击切换下次自动更新时间，并显示更新结果提示</li>
+</ul>
+</li>
+<li>
+<p>DNS 设置新增 Hosts 配置功能</p>
+</li>
+<li>
+<p>首页代理节点支持排序</p>
+</li>
+<li>
+<p>支持服务模式手动卸载，回退至 Sidecar 模式</p>
+</li>
+<li>
+<p>核心状态管理支持切换、升级、重启</p>
+</li>
+<li>
+<p>配置加载阶段自动补全 <code>external-controller secret</code></p>
+</li>
+<li>
+<p>新增日志自动清理周期选项（含1天）</p>
+</li>
+<li>
+<p>新增 Zashboard 一键跳转入口</p>
+</li>
+<li>
+<p>使用系统默认窗口管理器</p>
+</li>
+</ul>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">🚀 优化改进</h3><a id="user-content--优化改进" class="anchor" aria-label="Permalink: 🚀 优化改进" href="#-优化改进"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p><strong>系统相关：</strong></p>
+<ul>
+<li>系统代理 Bypass 设置优化</li>
+<li>优化代理设置更新逻辑与守卫机制</li>
+<li>Windows 启动方式调整为 Startup 文件夹，解决管理员模式下自启问题</li>
+</ul>
+</li>
+<li>
+<p><strong>性能与稳定性：</strong></p>
+<ul>
+<li>全面异步化处理配置加载、UI 启动、事件通知等关键流程，解决卡顿问题</li>
+<li>优化 MihomoManager 实现与窗口创建流程</li>
+<li>改进内核日志等级为 <code>warn</code>，减少噪音输出</li>
+<li>重构主进程与通知系统，提升响应性与分离度</li>
+<li>优化网络请求与错误处理机制</li>
+<li>添加网络管理器防止资源竞争引发 UI 卡死</li>
+<li>优化配置文件加载内存使用</li>
+<li>优化缓存 Mihomo proxy 和 providers 信息内存使用</li>
+</ul>
+</li>
+<li>
+<p><strong>前端与界面体验：</strong></p>
+<ul>
+<li>切换规则页自动刷新数据</li>
+<li>非激活订阅编辑时不再触发配置重载</li>
+<li>优化托盘速率显示，macOS 下默认关闭</li>
+<li>Windows 快捷键名称更名为 <code>Clash Verge</code>
+</li>
+<li>更新失败可回退至使用代理重试</li>
+<li>支持异步端口查找与保存，端口支持随机生成</li>
+<li>修改端口检测范围至 <code>1111-65536</code>
+</li>
+<li>优化保存机制，使用平滑函数防止卡顿</li>
+</ul>
+</li>
+<li>
+<p><strong>配置增强与安全性：</strong></p>
+<ul>
+<li>配置缺失 <code>secret</code> 字段时自动补全为 <code>set-your-secret</code>
+</li>
+<li>强制为 Mihomo 配置补全 <code>external-controller-cors</code> 字段（默认不允许跨域，限制本地访问）计划后续支持自定义 cors</li>
+<li>优化窗口权限设置与状态初始化逻辑</li>
+<li>网络延迟测试替换为 HTTPS 协议：`</li>
+<li>优化 IP 信息获取流程，添加去重机制与轮询检测算法</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>同步修复翻译错误与不一致项，优化整体语言体验</li>
+<li>加强语言切换后的页面稳定性，避免加载异常</li>
+</ul>
+<hr>
+<div class="markdown-heading"><h3 class="heading-element">🗑️ 移除内容</h3><a id="user-content-️-移除内容" class="anchor" aria-label="Permalink: 🗑️ 移除内容" href="#️-移除内容"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>窗口状态管理器（上游存在缺陷）</li>
+<li>WebDAV 跨平台备份恢复限制</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">下载</h3><a id="user-content-下载" class="anchor" aria-label="Permalink: 下载" href="#下载"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Windows (不支持win7)：</p>
+<ul>
+<li>安装版： |  （因为便携版问题较多不再提供便携版）</li>
+</ul>
+<p>macOS 11+：</p>
+<ul>
+<li>DMG： |</li>
+</ul>
+<p>Linux：</p>
+<ul>
+<li>DEB： |  (Debian系) 使用 apt ./路径 安装</li>
+<li>RPM： |  (Redhat系) 使用 dnf ./路径 安装</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">快速上手</h3><a id="user-content-快速上手" class="anchor" aria-label="Permalink: 快速上手" href="#快速上手"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+</li></ul>
+<div class="markdown-heading"><h3 class="heading-element">稳定机场VPN推荐</h3><a id="user-content-稳定机场vpn推荐" class="anchor" aria-label="Permalink: 稳定机场VPN推荐" href="#稳定机场vpn推荐"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+</li></ul>
+<div class="markdown-heading"><h3 class="heading-element">赞助项目</h3><a id="user-content-赞助项目" class="anchor" aria-label="Permalink: 赞助项目" href="#赞助项目"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+</li></ul>
+<div class="markdown-heading"><h3 class="heading-element">Clash Verge Rev TG频道：</h3><a id="user-content-clash-verge-rev-tg频道" class="anchor" aria-label="Permalink: Clash Verge Rev TG频道：" href="#clash-verge-rev-tg频道"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+</li></ul>
 </details>
 
 </div><nav class="paginate-container" aria-label="Pagination">
