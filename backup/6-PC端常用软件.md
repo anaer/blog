@@ -23,7 +23,7 @@
   使用较卡, 电脑差带不动
 
 ### 内存清理
-1. ~~memory_cleaner~~ [GitHub](https://github.com/H3d9/memory_cleaner/releases/)
+1. memory_cleaner [GitHub](https://github.com/H3d9/memory_cleaner/releases/)
 2. ~~Reduce Memory~~ [官网](https://www.sordum.org/9197/reduce-memory-v1-7/) 
 3. ~~Mem Reduct~~ [GitHub](https://github.com/henrypp/memreduct) 内存释放, Q:偶尔选项置灰
 4. ~~Windows Memory Cleaner 2.8~~ [GitHub](https://github.com/IgorMundstein/WinMemoryCleaner/) 
