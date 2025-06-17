@@ -136,3 +136,4 @@
 
 ### 命令行
 1. lsx 命令帮助 [GitHub](https://github.com/CJSen/lsx)
+2. chsrc 换源 [GitHub](https://github.com/RubyMetric/chsrc/releases/)
