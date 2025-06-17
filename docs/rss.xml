@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 17 Jun 2025 06:40:39 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 17 Jun 2025 06:40:39 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了clash-verge-rev v2.3.0和dify 1.4.3及cherry-studio v1.4.3的更新内容。clash-verge-rev v2.3.0主要增强了系统稳定性和安全性，修复了多项已知问题，新增了WebDAV功能和自动订阅更新机制。dify 1.4.3则着重于提高灵活性，修复了LLM节点和Markdown按钮等功能的问题，并增强了文档的本地化支持。cherry-studio v1.4.3新增了多个服务商支持和动画效果。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 17 Jun 2025 07:01:57 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 17 Jun 2025 07:01:57 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了clash-verge-rev v2.3.0和dify 1.4.3及cherry-studio v1.4.3的更新内容。clash-verge-rev v2.3.0主要增强了系统稳定性和安全性，修复了多项已知问题，新增了WebDAV功能和自动订阅更新机制。dify 1.4.3则着重于提高灵活性，修复了LLM节点和Markdown按钮等功能的问题，并增强了文档的本地化支持。cherry-studio v1.4.3新增了多个服务商支持和动画效果。
 
 优化建议：在更新说明中，建议使用更明确的标题和段落结构，以便用户快速查找特定信息。同时，可以考虑提供更详细的用户指导，帮助用户理解新功能和修复的具体影响。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/127.html</guid><pubDate>Mon, 16 Jun 2025 04:23:32 +0000</pubDate></item><item><title>126 glibc2.18安装</title><link>https://anaer.github.io/blog/post/126.html</link><description>本文介绍了在安装Doris Manager时遇到glibc版本不足的错误，并提供了手动编译和安装glibc 2.18的步骤。然而，手动升级glibc可能会导致服务器崩溃，进而需要重新部署。 
 
@@ -707,13 +707,13 @@ mkdir /var/ww...</description><guid isPermaLink="true">https://anaer.github.io/b
 apt-get update 需要先更新, 直接安装会提示找不到包
 
 apt-get install nginx 安装nginx
-云服务 安全组 入方向 快速添加80...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>006 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>本文介绍了各种软件工具的分类和功能，包括浏览器、终端、内存清理工具、传输工具、卸载工具、AI、压缩工具、密码管理、搜索工具、文件处理、清理工具、输入法、资源管理、健康软件、办公软件、开发工具、抓包工具、数据库管理、版本控制、编辑器、证书管理、网络和翻译工具等。每类工具都有其特定功能和使用场景，提供了丰富的选择。
+云服务 安全组 入方向 快速添加80...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>006 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>本文介绍了各种软件和工具的推荐，包括浏览器、终端、内存清理、传输、卸载工具、AI、压缩、搜索、文件清理、输入法、资源管理、健康、办公、开发、抓包、数据库、版本控制、编辑器、证书管理、网络和翻译等多个类别。每个类别下列出了具体的工具及其特点，部分工具还提供了GitHub链接或官网信息。
 
 优化建议：
-1. 对每个工具的功能进行更详细的描述，帮助用户理解其具体用途。
-2. 提供工具的优缺点对比，以便用户选择最适合自己的工具。
-3. 增加安装或使用的简易教程，降低用户使用门槛。
-4. 定期更新软件列表，确保所列工具的有效性和最新版本。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>005 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>本文介绍了几种适合编程和文本编辑的等宽字体，包括JetBrains Mono和Maple Mono的合成字体Maple-Mono，推荐其舒适的使用体验；LXGW WenKai GB字体在markdown表格格式化中表现良好，能够实现对齐；此外，还提到了Cascadia Code和Ubuntu Mono等其他字体选择。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/5.html</guid><pubDate>Thu, 26 Oct 2023 02:37:30 +0000</pubDate></item><item><title>004 pyGitHub文档</title><link>https://anaer.github.io/blog/post/4.html</link><description>Repository
+1. 对各类软件进行分类整理时，可以考虑增加使用场景或适用人群的说明，以帮助用户更快找到适合自己的工具。
+2. 在列出软件时，建议加入简要的优缺点分析，帮助用户做出更明智的选择。
+3. 考虑将一些常用软件的下载链接或使用教程附上，提供更全面的支持。
+4. 更新软件推荐时，确保信息的时效性和准确性，以反映最新的版本和功能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>005 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>本文介绍了几种适合编程和文本编辑的等宽字体，包括JetBrains Mono和Maple Mono的合成字体Maple-Mono，推荐其舒适的使用体验；LXGW WenKai GB字体在markdown表格格式化中表现良好，能够实现对齐；此外，还提到了Cascadia Code和Ubuntu Mono等其他字体选择。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/5.html</guid><pubDate>Thu, 26 Oct 2023 02:37:30 +0000</pubDate></item><item><title>004 pyGitHub文档</title><link>https://anaer.github.io/blog/post/4.html</link><description>Repository
 
 
 
