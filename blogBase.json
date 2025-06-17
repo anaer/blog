@@ -2694,14 +2694,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/127",
             "commentNum": 0,
             "createdAt": 1750047812,
-            "updatedAt": 1750134002,
+            "updatedAt": 1750173094,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-06-16",
-            "dateLabelColor": "hsl(140, 43%, 40%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86clash-verge-rev v2.3.0\u548cdify 1.4.3\u53cacherry-studio v1.4.3\u7684\u66f4\u65b0\u5185\u5bb9\u3002clash-verge-rev v2.3.0\u4e3b\u8981\u589e\u5f3a\u4e86\u7cfb\u7edf\u7a33\u5b9a\u6027\u548c\u5b89\u5168\u6027\uff0c\u4fee\u590d\u4e86\u591a\u9879\u5df2\u77e5\u95ee\u9898\uff0c\u65b0\u589e\u4e86WebDAV\u529f\u80fd\u548c\u81ea\u52a8\u8ba2\u9605\u66f4\u65b0\u673a\u5236\u3002dify 1.4.3\u5219\u7740\u91cd\u4e8e\u63d0\u9ad8\u7075\u6d3b\u6027\uff0c\u4fee\u590d\u4e86LLM\u8282\u70b9\u548cMarkdown\u6309\u94ae\u7b49\u529f\u80fd\u7684\u95ee\u9898\uff0c\u5e76\u589e\u5f3a\u4e86\u6587\u6863\u7684\u672c\u5730\u5316\u652f\u6301\u3002cherry-studio v1.4.3\u65b0\u589e\u4e86\u591a\u4e2a\u670d\u52a1\u5546\u652f\u6301\u548c\u52a8\u753b\u6548\u679c\u3002\n\n\u4f18\u5316\u5efa\u8bae\uff1a\u5728\u66f4\u65b0\u8bf4\u660e\u4e2d\uff0c\u5efa\u8bae\u4f7f\u7528\u66f4\u660e\u786e\u7684\u6807\u9898\u548c\u6bb5\u843d\u7ed3\u6784\uff0c\u4ee5\u4fbf\u7528\u6237\u5feb\u901f\u67e5\u627e\u7279\u5b9a\u4fe1\u606f\u3002\u540c\u65f6\uff0c\u53ef\u4ee5\u8003\u8651\u63d0\u4f9b\u66f4\u8be6\u7ec6\u7684\u7528\u6237\u6307\u5bfc\uff0c\u5e2e\u52a9\u7528\u6237\u7406\u89e3\u65b0\u529f\u80fd\u548c\u4fee\u590d\u7684\u5177\u4f53\u5f71\u54cd\u3002",
-            "buildedAt": 1750134002
+            "dateLabelColor": "hsl(141, 62%, 10%)",
+            "description": "1. cherry-studio v1.4.3\n\n\ud83c\udf52 Cherry Studio is a desktop client that supports for multiple LLM providers.\n\n\u53d8\u66f4\u8bf4\u660e\n\u670d\u52a1\u5546\uff1a\u65b0\u589e\u7aef\u8111\u4e91\u3001302.AI\u3001\u84dd\u8018\u670d\u52a1\u5546\nMCP: \u65b0\u589e\u84dd\u8018 MCP \u670d\u52a1\u5668\n\u5b9e\u73b0\u8bdd\u9898\u91cd\u547d\u540d\u52a8\u753b\u6548\u679c\n\u9519\u8bef\u4fee\u590d\nFull Changelog:\n\n2. dify 1.4.3\n\nProduction-ready platform for agentic workflow development.\n\n\u53d8\u66f4\u8bf4\u660e\n\ud83d\ude80 What\u2019s New in v1.4.3? \ud83d\ude80\nIt\u2019s all ...",
+            "buildedAt": 1750173094
         }
     },
     "singeListJson": {},

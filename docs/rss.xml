@@ -1,7 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 17 Jun 2025 07:01:57 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 17 Jun 2025 07:01:57 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了clash-verge-rev v2.3.0和dify 1.4.3及cherry-studio v1.4.3的更新内容。clash-verge-rev v2.3.0主要增强了系统稳定性和安全性，修复了多项已知问题，新增了WebDAV功能和自动订阅更新机制。dify 1.4.3则着重于提高灵活性，修复了LLM节点和Markdown按钮等功能的问题，并增强了文档的本地化支持。cherry-studio v1.4.3新增了多个服务商支持和动画效果。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 17 Jun 2025 15:12:15 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 17 Jun 2025 15:12:15 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>1. cherry-studio v1.4.3
 
-优化建议：在更新说明中，建议使用更明确的标题和段落结构，以便用户快速查找特定信息。同时，可以考虑提供更详细的用户指导，帮助用户理解新功能和修复的具体影响。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/127.html</guid><pubDate>Mon, 16 Jun 2025 04:23:32 +0000</pubDate></item><item><title>126 glibc2.18安装</title><link>https://anaer.github.io/blog/post/126.html</link><description>本文介绍了在安装Doris Manager时遇到glibc版本不足的错误，并提供了手动编译和安装glibc 2.18的步骤。然而，手动升级glibc可能会导致服务器崩溃，进而需要重新部署。 
+🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.
+
+变更说明
+服务商：新增端脑云、302.AI、蓝耘服务商
+MCP: 新增蓝耘 MCP 服务器
+实现话题重命名动画效果
+错误修复
+Full Changelog:
+
+2. dify 1.4.3
+
+Production-ready platform for agentic workflow development.
+
+变更说明
+🚀 What’s New in v1.4.3? 🚀
+It’s all ...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/127.html</guid><pubDate>Mon, 16 Jun 2025 04:23:32 +0000</pubDate></item><item><title>126 glibc2.18安装</title><link>https://anaer.github.io/blog/post/126.html</link><description>本文介绍了在安装Doris Manager时遇到glibc版本不足的错误，并提供了手动编译和安装glibc 2.18的步骤。然而，手动升级glibc可能会导致服务器崩溃，进而需要重新部署。 
 
 优化建议：建议使用系统包管理工具安装glibc的更新版本，避免手动编译和安装带来的风险。同时，可以考虑使用容器化技术隔离依赖，减少系统级别的干扰。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/126.html</guid><pubDate>Thu, 12 Jun 2025 02:18:54 +0000</pubDate></item><item><title>125 我关注的项目这周更新了什么-2025-06-13</title><link>https://anaer.github.io/blog/post/125.html</link><description>本文介绍了多个软件版本更新的变更说明，包括Cherry Studio、Higress、Dify、Subs-check、Fit-framework和Latest等。Cherry Studio v1.4.2引入了多项新功能和修复，改善了用户界面和文件管理。Higress v2.1.4增强了AI代理功能，支持多种图像生成和API认证。Dify v1.4.2提升了文档处理和用户体验，修复了多个bug。Subs-check v2.3.1优化了节点重命名逻辑，并增加了可配置的成功率参数。Fit-framework elsa-v0.2.0引入了并行节点特性和UI优化。Latest 0.11则提供了应用更新检查的新功能和多项修复。
 
