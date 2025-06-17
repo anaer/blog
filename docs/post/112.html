@@ -121,24 +121,26 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-16 11:25:49</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-16 17:13:14</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-17 14:21:24</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用direnv工具管理Python环境，以便在进入不同项目时自动激活相应的虚拟环境。安装direnv后，需要配置Shell环境并在目标目录创建.envrc文件以包含激活虚拟环境的命令。通过授权.envrc并验证配置，可以实现目录切换时自动激活虚拟环境。
+    <strong>AI总结:</strong> 本文介绍了如何使用direnv工具管理Python项目中的虚拟环境，具体步骤包括安装direnv、配置Shell环境、创建和授权.envrc文件，以及验证direnv的自动加载功能。通过这些步骤，可以在进入不同项目时自动激活相应的Python虚拟环境，避免手动执行source命令。
 
 优化建议：
-1. 在安装direnv前，检查系统是否已安装，以避免重复安装。
-2. 在编辑.bashrc时，建议备份原文件，以防配置错误导致Shell环境异常。
-3. 在创建.envrc文件时，可以提供示例代码，帮助用户更快上手。
-4. 在授权.envrc后，提供常见问题及解决方案，以便用户在遇到问题时能快速查找。
-5. 提供详细的还原步骤，确保用户能轻松恢复原始Shell配置。
+1. 在安装direnv之前，建议检查系统是否已安装apt，并确保用户具有安装软件的权限。
+2. 提供针对其他Shell（如Zsh）的配置示例，以便于不同用户的使用。
+3. 在创建.envrc文件时，建议添加注释以说明每个命令的功能，增加可读性。
+4. 在授权.envrc之前，建议提醒用户检查文件内容，以确保安全性。
+5. 提供常见问题的解决方案，例如direnv未能自动加载.envrc文件时的排查步骤。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -187,13 +189,7 @@ direnv: PS1 cannot be exported. For more information see https://github.com/dire
 direnv: export ~PATH
 </code></pre>
 </li>
-<li>
-<p><strong>还原</strong>:
-如果想在cd到主目录时 恢复PS1, 可添加主目录下.envrc</p>
-</li>
 </ol>
-<pre><code>export VIRTUAL_ENV_PROMPT=
-</code></pre>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/111.html" aria-label="Previous Page">111 jqGrid服务端排序</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/113.html" aria-label="Next Page">113 检测并取消设置 Git 仓库用户信息</a></div>

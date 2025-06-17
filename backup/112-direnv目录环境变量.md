@@ -51,9 +51,3 @@
     direnv: PS1 cannot be exported. For more information see https://github.com/direnv/direnv/wiki/PS1
     direnv: export ~PATH
     ```
-
-6. **还原**:
-  如果想在cd到主目录时 恢复PS1, 可添加主目录下.envrc
-  ```
-  export VIRTUAL_ENV_PROMPT=
-  ```
