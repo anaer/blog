@@ -1,144 +1,5 @@
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.3">cherry-studio v1.4.3</a>
-</h1><a id="user-content-1-cherry-studio-v143" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.3" href="#1-cherry-studio-v143"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
-<details>
-<summary>变更说明</summary>
-<p>服务商：新增端脑云、302.AI、蓝耘服务商
-MCP: 新增蓝耘 MCP 服务器
-实现话题重命名动画效果
-错误修复</p>
-<p><strong>Full Changelog</strong>:</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.4.3">dify 1.4.3</a>
-</h1><a id="user-content-2-dify-143" class="anchor" aria-label="Permalink: 2. dify 1.4.3" href="#2-dify-143"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Production-ready platform for agentic workflow development.</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">🚀 What’s New in v1.4.3? 🚀</h2><a id="user-content--whats-new-in-v143-" class="anchor" aria-label="Permalink: 🚀 What’s New in v1.4.3? 🚀" href="#-whats-new-in-v143-"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>It’s all about smoothing out the wrinkles and enhancing flexibility in this update. Here’s the rundown:</p>
-<h1></h1>
-<div class="markdown-heading"><h2 class="heading-element">🛠 Fixes and Improvements</h2><a id="user-content--fixes-and-improvements" class="anchor" aria-label="Permalink: 🛠 Fixes and Improvements" href="#-fixes-and-improvements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>
-<p><strong>LLM Node Enhancements</strong>: We've ironed out issues with missing parameters for structured outputs; now your LLM node is more robust and prepared for all it can handle thanks to  .</p>
-</li>
-<li>
-<p><strong>Gemini LLM Support</strong>: For those integrating with Gemini, you'll now find support for the Gemini 0.2.x plugin running smoothly in your agent apps, as addressed  .</p>
-</li>
-<li>
-<p><strong>Markdown Button Fix</strong>: Sending messages through the Markdown button should now work flawlessly, thanks to  .</p>
-</li>
-<li>
-<p><strong>Login Rate Limit Clearing</strong>: After a password reset, we’ve made sure the login rate limits are cleared, preventing any unnecessary hurdles, addressed  .</p>
-</li>
-<li>
-<p><strong>App Info Update</strong>: For better transparency, the author_name is now part of the app info, thanks to  .</p>
-</li>
-<li>
-<p><strong>Documentation Link Fixes</strong>: We’ve generalized the method for retrieving documentation links to respect localizations and squashed those error link paths, thanks to insights from  .</p>
-</li>
-<li>
-<p><strong>Document Indexing Boundaries</strong>: A fix ensures document indexing is correctly bound to a session, reducing those pesky unbound errors, tackled  .</p>
-</li>
-<li>
-<p><strong>Conversation Panel Optimization</strong>: We've fine-tuned the width adjustment logic for the conversation-panel modal, ensuring a smoother user interface experience, improved  .</p>
-</li>
-<li>
-<p><strong>CI Tests with Oceanbase</strong>: Integration tests now run the VDB tests of Oceanbase using Docker Compose within CI, streamlining our testing procedures thanks to  .</p>
-</li>
-<li>
-<p><strong>Dead Code Cleanup</strong>: We’ve removed some obsolete code utilizing Vulture, keeping our codebase leaner and cleaner, courtesy of  .</p>
-</li>
-<li>
-<p><strong>Localized Documentation Updates</strong>: Documentation link updates now support localization across various components, enhancing accessibility for our global community, thanks to  .</p>
-</li>
-</ul>
-<p>Keep those pull requests coming as we aim to make your user experience as seamless and intuitive as possible! 🌟</p>
-<hr>
-<h1></h1>
-<div class="markdown-heading"><h2 class="heading-element">Upgrade Guide</h2><a id="user-content-upgrade-guide" class="anchor" aria-label="Permalink: Upgrade Guide" href="#upgrade-guide"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<h1></h1>
-<div class="markdown-heading"><h3 class="heading-element">Docker Compose Deployments</h3><a id="user-content-docker-compose-deployments" class="anchor" aria-label="Permalink: Docker Compose Deployments" href="#docker-compose-deployments"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ol>
-<li>
-<p>Back up your customized docker-compose YAML file (optional)</p>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> docker
-cp docker-compose.yaml docker-compose.yaml.<span class="pl-s"><span class="pl-pds">$(</span>date +%s<span class="pl-pds">)</span></span>.bak</pre></div>
-</li>
-<li>
-<p>Get the latest code from the main branch</p>
-<div class="highlight highlight-source-shell"><pre>git checkout main
-git pull origin main</pre></div>
-</li>
-<li>
-<p>Stop the service. Please execute in the docker directory</p>
-<div class="highlight highlight-source-shell"><pre>docker compose down</pre></div>
-</li>
-<li>
-<p>Back up data</p>
-<div class="highlight highlight-source-shell"><pre>tar -cvf volumes-<span class="pl-s"><span class="pl-pds">$(</span>date +%s<span class="pl-pds">)</span></span>.tgz volumes</pre></div>
-</li>
-<li>
-<p>Upgrade services</p>
-<div class="highlight highlight-source-shell"><pre>docker compose up -d</pre></div>
-</li>
-</ol>
-<h1></h1>
-<div class="markdown-heading"><h3 class="heading-element">Source Code Deployments</h3><a id="user-content-source-code-deployments" class="anchor" aria-label="Permalink: Source Code Deployments" href="#source-code-deployments"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ol>
-<li>
-<p>Stop the API server, Worker, and Web frontend Server.</p>
-</li>
-<li>
-<p>Get the latest code from the release branch:</p>
-<div class="highlight highlight-source-shell"><pre>git checkout 1.4.3</pre></div>
-</li>
-<li>
-<p>Update Python dependencies:</p>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> api
-uv sync</pre></div>
-</li>
-<li>
-<p>Then, let's run the migration script:</p>
-<div class="highlight highlight-source-shell"><pre>uv run flask db upgrade</pre></div>
-</li>
-<li>
-<p>Finally, run the API server, Worker, and Web frontend Server again.</p>
-</li>
-</ol>
-<hr>
-<h1></h1>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>fix remote ip header CF-Connecting-IP</li>
-<li>fix(llm_node): missing parameters for structure outputs</li>
-<li>🐛 Fix(Gemini LLM): Support Gemini 0.2.x plugin on agent app</li>
-<li>fix: markdown button can't send message</li>
-<li>refactor(sqlalchemy_workflow_execution_repository): Use the max funtion for getting next_sequence_number.</li>
-<li>feat: add S3_USE_AWS env var to explicitly distinguish AWS S3 usage in plugin-daemon</li>
-<li>fix(auth): Clear login rate limit after password reset</li>
-<li>chore: app info add author_name</li>
-<li>refactor: generalize method for getting doc link respecting locale and fix error link paths</li>
-<li>docs: conv and user_id</li>
-<li>document indexing not bound to a Session</li>
-<li>fix: correct description for edu coupon</li>
-<li>fix(web): optimize conversation-panel Modal width adjustment logic</li>
-<li>test: run vdb test of oceanbase with docker compose in CI tests</li>
-<li>fix: delete some dead code using vulture</li>
-<li>Feat/add rag dev deploy</li>
-<li>fix: update documentation links for various components to support localization</li>
-<li>chore: rename workflow blocks</li>
-<li>chore: bump version to 1.4.3</li>
-</ul>
-<h1></h1>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>made their first contribution in</li>
-</ul>
-<p><strong>Full Changelog</strong>:</p>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.3.0">clash-verge-rev v2.3.0</a>
-</h1><a id="user-content-3-clash-verge-rev-v230" class="anchor" aria-label="Permalink: 3. clash-verge-rev v2.3.0" href="#3-clash-verge-rev-v230"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.3.0">clash-verge-rev v2.3.0</a>
+</h1><a id="user-content-1-clash-verge-rev-v230" class="anchor" aria-label="Permalink: 1. clash-verge-rev v2.3.0" href="#1-clash-verge-rev-v230"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A modern GUI client based on Tauri, designed to run in Windows, macOS and Linux for tailored proxy experience</p>
 <details>
 <summary>变更说明</summary>
@@ -355,4 +216,143 @@ uv sync</pre></div>
 <ul>
 <li>
 </li></ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.4.3">dify 1.4.3</a>
+</h1><a id="user-content-2-dify-143" class="anchor" aria-label="Permalink: 2. dify 1.4.3" href="#2-dify-143"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-ready platform for agentic workflow development.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">🚀 What’s New in v1.4.3? 🚀</h2><a id="user-content--whats-new-in-v143-" class="anchor" aria-label="Permalink: 🚀 What’s New in v1.4.3? 🚀" href="#-whats-new-in-v143-"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>It’s all about smoothing out the wrinkles and enhancing flexibility in this update. Here’s the rundown:</p>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">🛠 Fixes and Improvements</h2><a id="user-content--fixes-and-improvements" class="anchor" aria-label="Permalink: 🛠 Fixes and Improvements" href="#-fixes-and-improvements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<p><strong>LLM Node Enhancements</strong>: We've ironed out issues with missing parameters for structured outputs; now your LLM node is more robust and prepared for all it can handle thanks to  .</p>
+</li>
+<li>
+<p><strong>Gemini LLM Support</strong>: For those integrating with Gemini, you'll now find support for the Gemini 0.2.x plugin running smoothly in your agent apps, as addressed  .</p>
+</li>
+<li>
+<p><strong>Markdown Button Fix</strong>: Sending messages through the Markdown button should now work flawlessly, thanks to  .</p>
+</li>
+<li>
+<p><strong>Login Rate Limit Clearing</strong>: After a password reset, we’ve made sure the login rate limits are cleared, preventing any unnecessary hurdles, addressed  .</p>
+</li>
+<li>
+<p><strong>App Info Update</strong>: For better transparency, the author_name is now part of the app info, thanks to  .</p>
+</li>
+<li>
+<p><strong>Documentation Link Fixes</strong>: We’ve generalized the method for retrieving documentation links to respect localizations and squashed those error link paths, thanks to insights from  .</p>
+</li>
+<li>
+<p><strong>Document Indexing Boundaries</strong>: A fix ensures document indexing is correctly bound to a session, reducing those pesky unbound errors, tackled  .</p>
+</li>
+<li>
+<p><strong>Conversation Panel Optimization</strong>: We've fine-tuned the width adjustment logic for the conversation-panel modal, ensuring a smoother user interface experience, improved  .</p>
+</li>
+<li>
+<p><strong>CI Tests with Oceanbase</strong>: Integration tests now run the VDB tests of Oceanbase using Docker Compose within CI, streamlining our testing procedures thanks to  .</p>
+</li>
+<li>
+<p><strong>Dead Code Cleanup</strong>: We’ve removed some obsolete code utilizing Vulture, keeping our codebase leaner and cleaner, courtesy of  .</p>
+</li>
+<li>
+<p><strong>Localized Documentation Updates</strong>: Documentation link updates now support localization across various components, enhancing accessibility for our global community, thanks to  .</p>
+</li>
+</ul>
+<p>Keep those pull requests coming as we aim to make your user experience as seamless and intuitive as possible! 🌟</p>
+<hr>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Upgrade Guide</h2><a id="user-content-upgrade-guide" class="anchor" aria-label="Permalink: Upgrade Guide" href="#upgrade-guide"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Docker Compose Deployments</h3><a id="user-content-docker-compose-deployments" class="anchor" aria-label="Permalink: Docker Compose Deployments" href="#docker-compose-deployments"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p>Back up your customized docker-compose YAML file (optional)</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> docker
+cp docker-compose.yaml docker-compose.yaml.<span class="pl-s"><span class="pl-pds">$(</span>date +%s<span class="pl-pds">)</span></span>.bak</pre></div>
+</li>
+<li>
+<p>Get the latest code from the main branch</p>
+<div class="highlight highlight-source-shell"><pre>git checkout main
+git pull origin main</pre></div>
+</li>
+<li>
+<p>Stop the service. Please execute in the docker directory</p>
+<div class="highlight highlight-source-shell"><pre>docker compose down</pre></div>
+</li>
+<li>
+<p>Back up data</p>
+<div class="highlight highlight-source-shell"><pre>tar -cvf volumes-<span class="pl-s"><span class="pl-pds">$(</span>date +%s<span class="pl-pds">)</span></span>.tgz volumes</pre></div>
+</li>
+<li>
+<p>Upgrade services</p>
+<div class="highlight highlight-source-shell"><pre>docker compose up -d</pre></div>
+</li>
+</ol>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Source Code Deployments</h3><a id="user-content-source-code-deployments" class="anchor" aria-label="Permalink: Source Code Deployments" href="#source-code-deployments"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p>Stop the API server, Worker, and Web frontend Server.</p>
+</li>
+<li>
+<p>Get the latest code from the release branch:</p>
+<div class="highlight highlight-source-shell"><pre>git checkout 1.4.3</pre></div>
+</li>
+<li>
+<p>Update Python dependencies:</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> api
+uv sync</pre></div>
+</li>
+<li>
+<p>Then, let's run the migration script:</p>
+<div class="highlight highlight-source-shell"><pre>uv run flask db upgrade</pre></div>
+</li>
+<li>
+<p>Finally, run the API server, Worker, and Web frontend Server again.</p>
+</li>
+</ol>
+<hr>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix remote ip header CF-Connecting-IP</li>
+<li>fix(llm_node): missing parameters for structure outputs</li>
+<li>🐛 Fix(Gemini LLM): Support Gemini 0.2.x plugin on agent app</li>
+<li>fix: markdown button can't send message</li>
+<li>refactor(sqlalchemy_workflow_execution_repository): Use the max funtion for getting next_sequence_number.</li>
+<li>feat: add S3_USE_AWS env var to explicitly distinguish AWS S3 usage in plugin-daemon</li>
+<li>fix(auth): Clear login rate limit after password reset</li>
+<li>chore: app info add author_name</li>
+<li>refactor: generalize method for getting doc link respecting locale and fix error link paths</li>
+<li>docs: conv and user_id</li>
+<li>document indexing not bound to a Session</li>
+<li>fix: correct description for edu coupon</li>
+<li>fix(web): optimize conversation-panel Modal width adjustment logic</li>
+<li>test: run vdb test of oceanbase with docker compose in CI tests</li>
+<li>fix: delete some dead code using vulture</li>
+<li>Feat/add rag dev deploy</li>
+<li>fix: update documentation links for various components to support localization</li>
+<li>chore: rename workflow blocks</li>
+<li>chore: bump version to 1.4.3</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.3">cherry-studio v1.4.3</a>
+</h1><a id="user-content-3-cherry-studio-v143" class="anchor" aria-label="Permalink: 3. cherry-studio v1.4.3" href="#3-cherry-studio-v143"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<p>服务商：新增端脑云、302.AI、蓝耘服务商
+MCP: 新增蓝耘 MCP 服务器
+实现话题重命名动画效果
+错误修复</p>
+<p><strong>Full Changelog</strong>:</p>
 </details>
