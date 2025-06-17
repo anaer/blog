@@ -133,3 +133,6 @@
 
 ### 翻译
 1. ~~STranslate~~ [GitHub](https://github.com/ZGGSONG/STranslate/releases)
+
+### 命令行
+1. lsx 命令帮助 [GitHub](https://github.com/CJSen/lsx)
