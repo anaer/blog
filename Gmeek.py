@@ -232,12 +232,7 @@ class GMEEK():
         feed.rss_file(self.root_dir+'rss.xml')
 
     def build_desc(self, content):
-        summary = generate_summary(content)
-
-        if summary == "":
-            summary = content[:300] + "..."
-
-        return summary
+        return generate_summary(content)
 
     def get_background_color(self, createdAt, updatedAt):
         # 色相：0 到 360
