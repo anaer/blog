@@ -33,3 +33,17 @@
   uv python install 3.11    # 安装指定版本
   uv python use 3.11        # 切换当前环境版本
   ```
+
+
+- **检测无用依赖**
+`uv pip install deptry`
+
+```log
+# deptry .
+Scanning 7 files...
+
+pyproject.toml: DEP002 'flask' defined as a dependency but not used in the codebase
+pyproject.toml: DEP002 'loguru' defined as a dependency but not used in the codebase
+Found 2 dependency issues.
+```
+

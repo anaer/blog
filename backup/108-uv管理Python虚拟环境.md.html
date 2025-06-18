@@ -31,4 +31,15 @@ uv add -r requirements.txt</pre></div>
 uv python install 3.11    <span class="pl-c"><span class="pl-c">#</span> 安装指定版本</span>
 uv python use 3.11        <span class="pl-c"><span class="pl-c">#</span> 切换当前环境版本</span></pre></div>
 </li>
+<li>
+<p><strong>检测无用依赖</strong>
+<code>uv pip install deptry</code></p>
+</li>
 </ul>
+<pre lang="log"><code># deptry .
+Scanning 7 files...
+
+pyproject.toml: DEP002 'flask' defined as a dependency but not used in the codebase
+pyproject.toml: DEP002 'loguru' defined as a dependency but not used in the codebase
+Found 2 dependency issues.
+</code></pre>
