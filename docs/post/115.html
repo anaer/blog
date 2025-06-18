@@ -121,24 +121,28 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#软件">软件</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#服务器">服务器</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-27 16:41:05</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-06 16:19:40</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-03 09:34:41</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了MinIO的安装配置过程，包括创建数据目录、启动MinIO服务、配置mc命令行工具与云存储服务的别名、同步数据以及使用cron定时任务实现自动同步。同时，文中还提到如何设置MinIO的公共和私有存储桶、生成签名链接、配置防盗链、以及管理存储桶和对象的命令。
+    <strong>AI总结:</strong> 本文介绍了使用Docker安装和配置MinIO的过程，包括创建数据目录、运行MinIO服务、配置MinIO客户端（mc）别名、同步数据，并提供了MinIO的各种命令及其功能说明。此外，还涵盖了MinIO防盗链、私有存储桶配置、同步脚本的编写及定时任务的设置。
 
 优化建议：
-1. 在docker run命令中，建议使用环境变量文件来管理敏感信息（如ACCESS_KEY和SECRET_KEY），以提高安全性。
-2. 可以在脚本中添加日志记录功能，以便跟踪同步任务的执行情况。
-3. 提供更详细的错误处理机制，以便在任务失败时能够及时通知管理员。
-4. 考虑使用更复杂的调度策略，而不仅仅是每分钟执行一次，以提高资源利用效率。
-5. 对于mc命令的分类，可以考虑将其整理成表格形式，以便于查阅和使用。
+1. 在Docker命令中，考虑使用环境变量文件来管理敏感信息，如MINIO_ROOT_USER和MINIO_ROOT_PASSWORD，以提高安全性。
+2. 在脚本中添加日志记录功能，以便于后续的故障排查和监控。
+3. 对于crontab的配置，建议使用绝对路径，以避免因环境变量问题导致脚本无法执行。
+4. 考虑使用更详细的注释，帮助用户理解每个命令的功能和用途，尤其是对初学者。
+5. 在命令示例中，提供更多的上下文信息，帮助用户快速理解命令的实际应用场景。
 </div>
 
 <div class="markdown-body" id="postBody">
