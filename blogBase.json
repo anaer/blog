@@ -2697,14 +2697,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/127",
             "commentNum": 0,
             "createdAt": 1750047812,
-            "updatedAt": 1750173094,
+            "updatedAt": 1750220392,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-06-16",
-            "dateLabelColor": "hsl(141, 68%, 14%)",
-            "description": "1. cherry-studio v1.4.3\n\n\ud83c\udf52 Cherry Studio is a desktop client that supports for multiple LLM providers.\n\n\u53d8\u66f4\u8bf4\u660e\n\u670d\u52a1\u5546\uff1a\u65b0\u589e\u7aef\u8111\u4e91\u3001302.AI\u3001\u84dd\u8018\u670d\u52a1\u5546\nMCP: \u65b0\u589e\u84dd\u8018 MCP \u670d\u52a1\u5668\n\u5b9e\u73b0\u8bdd\u9898\u91cd\u547d\u540d\u52a8\u753b\u6548\u679c\n\u9519\u8bef\u4fee\u590d\nFull Changelog:\n\n2. dify 1.4.3\n\nProduction-ready platform for agentic workflow development.\n\n\u53d8\u66f4\u8bf4\u660e\n\ud83d\ude80 What\u2019s New in v1.4.3? \ud83d\ude80\nIt\u2019s all ...",
-            "buildedAt": 1750173094
+            "dateLabelColor": "hsl(141, 30%, 31%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u591a\u4e2a\u8f6f\u4ef6\u7684\u66f4\u65b0\u7248\u672c\uff0c\u5305\u62ecCherry Studio v1.4.3\u3001Dify v1.4.3\u3001Higress v2.1.5-rc.1\u3001Clash Verge Rev v2.3.0\u548cToaster 13.0\u3002\u6bcf\u4e2a\u7248\u672c\u5747\u5305\u542b\u65b0\u589e\u529f\u80fd\u3001\u4fee\u590d\u9519\u8bef\u548c\u4f18\u5316\u6539\u8fdb\u7684\u8be6\u7ec6\u8bf4\u660e\u3002\u4f8b\u5982\uff0cCherry Studio\u65b0\u589e\u4e86\u591a\u4e2aLLM\u670d\u52a1\u5546\uff0cDify\u5728LLM\u8282\u70b9\u548c\u6587\u6863\u7d22\u5f15\u65b9\u9762\u8fdb\u884c\u4e86\u589e\u5f3a\uff0cHigress\u652f\u6301k8s\u90e8\u7f72\u5e76\u4fee\u590d\u4e86\u591a\u9879\u95ee\u9898\uff0cClash Verge Rev\u6539\u5584\u4e86\u7528\u6237\u4f53\u9a8c\u548c\u7cfb\u7edf\u7a33\u5b9a\u6027\uff0c\u800cToaster\u5219\u4f18\u5316\u4e86Toast\u6846\u67b6\u7684\u5b9e\u73b0\u3002\n\n\u4f18\u5316\u5efa\u8bae\uff1a\u5728\u53d1\u5e03\u66f4\u65b0\u65f6\uff0c\u5efa\u8bae\u63d0\u4f9b\u66f4\u4e3a\u7b80\u6d01\u7684\u53d8\u66f4\u65e5\u5fd7\uff0c\u7a81\u51fa\u4e3b\u8981\u529f\u80fd\u548c\u4fee\u590d\u7684\u5f71\u54cd\uff0c\u4ee5\u4fbf\u7528\u6237\u5feb\u901f\u4e86\u89e3\u66f4\u65b0\u5185\u5bb9\u3002\u540c\u65f6\uff0c\u589e\u52a0\u7528\u6237\u53cd\u9988\u6e20\u9053\uff0c\u4ee5\u4fbf\u53ca\u65f6\u6536\u96c6\u548c\u89e3\u51b3\u4f7f\u7528\u4e2d\u7684\u95ee\u9898\u3002",
+            "buildedAt": 1750220392
         }
     },
     "singeListJson": {},
