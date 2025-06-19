@@ -25,6 +25,7 @@ $ pm2 stop 0                        # 停止 id为 0的指定应用程序
 <div class="markdown-heading"><h2 class="heading-element">重载</h2><a id="user-content-重载" class="anchor" aria-label="Permalink: 重载" href="#重载"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <pre><code>$ pm2 reload all                    # 重启 cluster mode下的所有应用
 $ pm2 gracefulReload all            # Graceful reload all apps in cluster mode
+$ pm2 reload pm2.json --update-env   #配置修改后使用 --update-env 重载, 否则新配置如"cron_restart"可能不会生效
 </code></pre>
 <div class="markdown-heading"><h2 class="heading-element">重启</h2><a id="user-content-重启" class="anchor" aria-label="Permalink: 重启" href="#重启"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <pre><code>$ pm2 restart all                   # 重启所有应用
