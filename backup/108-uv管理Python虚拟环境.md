@@ -26,7 +26,7 @@
   uv sync
   ```
 
--**重新生成requirements.txt**
+- **重新生成requirements.txt**
 ```bash
 uv pip freeze > requirements.txt
 ```
@@ -35,6 +35,11 @@ uv pip freeze > requirements.txt
 ```bash
 uv pip list --outdated
 uv pip install --upgrade urllib3
+```
+
+- **查看依赖树**
+```bash
+uv tree
 ```
 
 - **Python 版本切换**

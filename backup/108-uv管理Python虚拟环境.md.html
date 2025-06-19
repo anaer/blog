@@ -24,14 +24,20 @@ uv add -r requirements.txt</pre></div>
 对于已有 <code>pyproject.toml</code> 和 <code>uv.lock</code> 的项目，快速同步环境:</p>
 <div class="highlight highlight-source-shell"><pre>uv sync</pre></div>
 </li>
+<li>
+<p><strong>重新生成requirements.txt</strong></p>
+</li>
 </ul>
-<p>-<strong>重新生成requirements.txt</strong></p>
 <div class="highlight highlight-source-shell"><pre>uv pip freeze <span class="pl-k">&gt;</span> requirements.txt</pre></div>
 <ul>
 <li><strong>检测并升级依赖</strong></li>
 </ul>
 <div class="highlight highlight-source-shell"><pre>uv pip list --outdated
 uv pip install --upgrade urllib3</pre></div>
+<ul>
+<li><strong>查看依赖树</strong></li>
+</ul>
+<div class="highlight highlight-source-shell"><pre>uv tree</pre></div>
 <ul>
 <li>
 <p><strong>Python 版本切换</strong></p>
