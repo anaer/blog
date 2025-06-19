@@ -130,12 +130,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-22 16:36:09</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-17 10:14:42</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-19 09:55:24</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了PM2的基本使用方法，包括启动、查看进程、监控、日志管理、停止、重载、重启、删除应用及其他功能的命令。具体命令包括启动应用程序、设置集群模式、监控资源使用、查看和清理日志、管理应用的生命周期，以及使用pm2-logrotate进行日志切割和管理。此外，还提供了pm2.json配置文件的示例，展示了如何配置应用的属性和日志管理。
+    <strong>AI总结:</strong> 本文介绍了PM2的基本使用方法，包括启动、查看进程、监控、日志管理、停止、重载、重启和删除应用等功能。同时也介绍了如何使用pm2-logrotate进行日志切割和管理配置文件。
 
-优化建议：可以将命令分组并提供简要描述，以便用户快速查找所需功能。例如，可以将启动命令、监控命令、日志命令等分别归类，并在每组前添加简短的说明。同时，考虑增加示例应用场景，以帮助用户理解每个命令的实际应用。
+优化建议：
+1. 在每个功能模块前添加简短的标题，以便用户快速查找所需命令。
+2. 对于复杂的命令，提供简单的示例或用法说明，帮助用户更好地理解。
+3. 在“其他”部分中，考虑增加常见错误及其解决方案，以提高实用性。
+4. 在pm2.json配置示例中，增加对每个字段的简要说明，帮助用户理解其作用。
+5. 提供对pm2-logrotate的更多背景信息，说明其重要性和应用场景。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -217,13 +222,15 @@ pm2 <span class="pl-c1">set</span> pm2-logrotate:retain 30     <span class="pl-c
 pm2 <span class="pl-c1">set</span> pm2-logrotate:compress <span class="pl-c1">true</span> <span class="pl-c"><span class="pl-c">#</span> 启用压缩</span>
 pm2 <span class="pl-c1">set</span> pm2-logrotate:workerInterval 30 <span class="pl-c"><span class="pl-c">#</span> 每30秒检查日志文件大小</span>
 pm2 <span class="pl-c1">set</span> pm2-logrotate:rotateInterval <span class="pl-s"><span class="pl-pds">'</span>0 0 * * *<span class="pl-pds">'</span></span> <span class="pl-c"><span class="pl-c">#</span> 每天0点执行</span></pre></div>
+<p>手动触发日志切割</p>
+<div class="highlight highlight-source-shell"><pre>pm2 reloadLogs</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>
 <li><a href="https://github.com/keymetrics/pm2-logrotate">pm2-logrotate</a></li>
 </ol>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/61.html" aria-label="Previous Page">061 pypinyin用法</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/59.html" aria-label="Next Page">059 Wireshark抓包https配置</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/59.html" aria-label="Previous Page">059 Wireshark抓包https配置</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/61.html" aria-label="Next Page">061 pypinyin用法</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
