@@ -132,16 +132,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-11 10:28:03</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-18 17:39:36</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-19 14:06:56</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用 uv 工具快速生成和管理 Python 项目，包括新项目的创建、现有项目的环境同步、Python 版本切换以及无用依赖的检测。用户可以通过 uv init 命令快速设置项目结构，创建虚拟环境，并使用 uv sync 同步依赖，此外，还可以指定安装镜像和检测未使用的依赖。
+    <strong>AI总结:</strong> 本文介绍了如何使用 uv 工具快速创建和管理 Python 项目，包括新项目的初始化、虚拟环境的创建、依赖管理和版本切换。用户可以通过 uv init 命令生成项目结构，使用 uv venv 创建虚拟环境，利用 uv sync 同步依赖，并通过 uv pip 检查和升级依赖。同时，用户可以指定安装镜像来安装或切换 Python 版本，并使用 deptry 检测无用依赖。
 
 优化建议：
-1. 在新项目创建时，建议添加项目描述和作者信息，以便于后续维护。
-2. 在依赖同步时，可以考虑使用版本锁定，确保环境一致性。
-3. 在检测无用依赖后，建议提供清理无用依赖的命令，以便于自动化管理。
-4. 增加对常见错误和解决方案的文档，帮助用户快速上手和排查问题。
+1. 提供更详细的命令示例和参数说明，以帮助用户更好地理解每个命令的用法。
+2. 增加项目管理的最佳实践，比如如何组织项目文件和目录结构。
+3. 介绍常见的错误处理方法和解决方案，以便用户在遇到问题时能快速找到解决办法。
+4. 考虑添加图示或流程图，以便用户更直观地理解项目管理流程。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -171,6 +171,15 @@ uv add -r requirements.txt</pre></div>
 对于已有 <code>pyproject.toml</code> 和 <code>uv.lock</code> 的项目，快速同步环境:</p>
 <div class="highlight highlight-source-shell"><pre>uv sync</pre></div>
 </li>
+</ul>
+<p>-<strong>重新生成requirements.txt</strong></p>
+<div class="highlight highlight-source-shell"><pre>uv pip freeze <span class="pl-k">&gt;</span> requirements.txt</pre></div>
+<ul>
+<li><strong>检测并升级依赖</strong></li>
+</ul>
+<div class="highlight highlight-source-shell"><pre>uv pip list --outdated
+uv pip install --upgrade urllib3</pre></div>
+<ul>
 <li>
 <p><strong>Python 版本切换</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 指定安装镜像 默认到github下载, 可能会慢</span>

@@ -26,6 +26,17 @@
   uv sync
   ```
 
+-**重新生成requirements.txt**
+```bash
+uv pip freeze > requirements.txt
+```
+
+- **检测并升级依赖**
+```bash
+uv pip list --outdated
+uv pip install --upgrade urllib3
+```
+
 - **Python 版本切换**
   ```bash
   # 指定安装镜像 默认到github下载, 可能会慢

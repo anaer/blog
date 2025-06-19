@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 19 Jun 2025 05:26:22 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 19 Jun 2025 05:26:22 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了多个软件版本的更新，包括dify 1.4.3、cherry-studio v1.4.3、clash-verge-rev v2.3.1、rclone v1.70.0、higress v2.1.5-rc.1及Toaster 13.0。每个版本都包含了新功能、错误修复和优化改进，旨在提升用户体验和系统稳定性。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 19 Jun 2025 06:07:29 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 19 Jun 2025 06:07:29 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了多个软件版本的更新，包括dify 1.4.3、cherry-studio v1.4.3、clash-verge-rev v2.3.1、rclone v1.70.0、higress v2.1.5-rc.1及Toaster 13.0。每个版本都包含了新功能、错误修复和优化改进，旨在提升用户体验和系统稳定性。
 
 优化建议：在发布说明中，建议使用更清晰的结构，例如分点列出每个功能的具体改进和修复，以便用户快速理解每个版本的关键变化。此外，可以考虑添加更详细的升级指南和注意事项，帮助用户顺利过渡到新版本。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/127.html</guid><pubDate>Mon, 16 Jun 2025 04:23:32 +0000</pubDate></item><item><title>126 glibc2.18安装</title><link>https://anaer.github.io/blog/post/126.html</link><description>本文介绍了在安装Doris Manager时遇到glibc版本不足的错误，并提供了手动编译和安装glibc 2.18的步骤。然而，手动升级glibc可能会导致服务器崩溃，进而需要重新部署。 
 
@@ -75,13 +75,13 @@ fix: Update the state of the last message bl...</description><guid isPermaLink="
 
 优化建议：在更新说明中，可以进一步简化和归类各软件的功能改进和修复内容，以便用户快速查找感兴趣的功能。同时，提供更详细的使用场景或案例可以帮助用户更好地理解更新的实际应用价值。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/110.html</guid><pubDate>Mon, 14 Apr 2025 04:12:55 +0000</pubDate></item><item><title>109 爱阅记听书配置</title><link>https://anaer.github.io/blog/post/109.html</link><description>本文介绍了在APP导出所有书籍时出现闪退导致配置丢失的问题，并记录了相关的设置步骤。具体的配置包括在设置中的听书选项下进行在线语音库管理，创建合成步骤并配置请求方式、HTTP头、地址及参数。
 
-优化建议：建议在APP中增加自动保存配置的功能，以防止闪退导致的丢失。同时，可以提供错误日志记录功能，帮助用户追踪问题来源。此外，考虑在用户界面中增加提示，提醒用户在进行重要操作前备份配置。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/109.html</guid><pubDate>Mon, 14 Apr 2025 01:52:44 +0000</pubDate></item><item><title>108 uv管理Python虚拟环境</title><link>https://anaer.github.io/blog/post/108.html</link><description>本文介绍了如何使用 uv 工具快速生成和管理 Python 项目，包括新项目的创建、现有项目的环境同步、Python 版本切换以及无用依赖的检测。用户可以通过 uv init 命令快速设置项目结构，创建虚拟环境，并使用 uv sync 同步依赖，此外，还可以指定安装镜像和检测未使用的依赖。
+优化建议：建议在APP中增加自动保存配置的功能，以防止闪退导致的丢失。同时，可以提供错误日志记录功能，帮助用户追踪问题来源。此外，考虑在用户界面中增加提示，提醒用户在进行重要操作前备份配置。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/109.html</guid><pubDate>Mon, 14 Apr 2025 01:52:44 +0000</pubDate></item><item><title>108 uv管理Python虚拟环境</title><link>https://anaer.github.io/blog/post/108.html</link><description>本文介绍了如何使用 uv 工具快速创建和管理 Python 项目，包括新项目的初始化、虚拟环境的创建、依赖管理和版本切换。用户可以通过 uv init 命令生成项目结构，使用 uv venv 创建虚拟环境，利用 uv sync 同步依赖，并通过 uv pip 检查和升级依赖。同时，用户可以指定安装镜像来安装或切换 Python 版本，并使用 deptry 检测无用依赖。
 
 优化建议：
-1. 在新项目创建时，建议添加项目描述和作者信息，以便于后续维护。
-2. 在依赖同步时，可以考虑使用版本锁定，确保环境一致性。
-3. 在检测无用依赖后，建议提供清理无用依赖的命令，以便于自动化管理。
-4. 增加对常见错误和解决方案的文档，帮助用户快速上手和排查问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/108.html</guid><pubDate>Fri, 11 Apr 2025 02:28:03 +0000</pubDate></item><item><title>107 Rest Client使用记录</title><link>https://anaer.github.io/blog/post/107.html</link><description>本文介绍了如何在Visual Studio Code中使用自定义变量和环境变量来管理HTTP请求的配置。主要内容包括定义共享变量、文件变量、请求变量、提示变量和内置变量等，以及如何通过修改配置文件来取消代理设置。
+1. 提供更详细的命令示例和参数说明，以帮助用户更好地理解每个命令的用法。
+2. 增加项目管理的最佳实践，比如如何组织项目文件和目录结构。
+3. 介绍常见的错误处理方法和解决方案，以便用户在遇到问题时能快速找到解决办法。
+4. 考虑添加图示或流程图，以便用户更直观地理解项目管理流程。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/108.html</guid><pubDate>Fri, 11 Apr 2025 02:28:03 +0000</pubDate></item><item><title>107 Rest Client使用记录</title><link>https://anaer.github.io/blog/post/107.html</link><description>本文介绍了如何在Visual Studio Code中使用自定义变量和环境变量来管理HTTP请求的配置。主要内容包括定义共享变量、文件变量、请求变量、提示变量和内置变量等，以及如何通过修改配置文件来取消代理设置。
 
 优化建议：
 1. 考虑提供具体的示例代码，以便用户更直观地理解如何使用不同类型的变量。
