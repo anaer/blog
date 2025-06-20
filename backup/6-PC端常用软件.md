@@ -103,7 +103,7 @@
 
 ### 抓包
 1. Charles [官网](https://www.charlesproxy.com/latest-release/download.do)  [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
-2. Proxifier [官网](http://www.proxifier.com/) 代理工具 指定软件走代理
+2. Proxifier [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN) 代理工具 指定软件走代理
 3. Wireshark [官网](https://www.wireshark.org)
 
 ### 数据库
