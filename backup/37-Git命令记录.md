@@ -1,3 +1,11 @@
+## 使用 Git 配置强制识别大小写变化
+Git 默认在 大小写不敏感的系统（如 Windows/macOS 默认设置）中不会提交 仅大小写不同的文件名更改。
+
+```sh
+# 临时设置
+git config core.ignorecase false
+```
+
 ## 查询Git提交用户记录
 
 ```sh

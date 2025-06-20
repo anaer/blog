@@ -130,19 +130,23 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-14 11:24:59</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-14 16:45:25</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-20 16:42:32</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了查询Git提交用户记录、修改历史提交用户信息、拉取其他分支、将浅克隆转换为完整克隆、比较分支并导出变更文件，以及删除敏感文件历史提交记录的相关命令和步骤。具体包括使用git log获取用户信息，git filter-repo修改用户信息，git clone进行浅克隆和获取其他分支，git diff导出变更文件为zip压缩包，以及使用git filter-branch删除敏感文件的历史记录。
+    <strong>AI总结:</strong> 本文介绍了如何在 Git 中配置强制识别大小写变化、查询和修改历史提交用户信息、处理浅克隆、比较分支并导出变更文件，以及删除敏感文件的历史提交记录。具体步骤包括临时设置 Git 的大小写敏感性、使用 git log 查询用户记录、利用 git filter-repo 修改用户信息、执行浅克隆并获取其他分支、将浅克隆转换为完整克隆、导出变更文件为压缩包，以及删除敏感文件的提交历史。
 
 优化建议：
-1. 在执行命令时，建议在每个步骤前添加简要说明，以便于理解和操作。
-2. 对于复杂命令，提供示例输出或预期结果，以帮助用户确认操作是否成功。
-3. 考虑添加常见错误及其解决方案，以提高用户体验。
-4. 建议将敏感文件删除的步骤与其他操作分开，以避免误操作。
+1. 在每个操作前提供简要说明，以帮助用户理解每个命令的目的。
+2. 可以增加示例输出，帮助用户确认操作是否成功。
+3. 在涉及多个命令的操作中，考虑将步骤分组并明确每组的目的，以提高可读性。
+4. 对于复杂的命令，可以提供更详细的解释或链接到官方文档，以便用户深入了解。
 </div>
 
 <div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h2 class="heading-element">使用 Git 配置强制识别大小写变化</h2><a id="user-content-使用-git-配置强制识别大小写变化" class="anchor" aria-label="Permalink: 使用 Git 配置强制识别大小写变化" href="#使用-git-配置强制识别大小写变化"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Git 默认在 大小写不敏感的系统（如 Windows/macOS 默认设置）中不会提交 仅大小写不同的文件名更改。</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 临时设置</span>
+git config core.ignorecase <span class="pl-c1">false</span></pre></div>
 <div class="markdown-heading"><h2 class="heading-element">查询Git提交用户记录</h2><a id="user-content-查询git提交用户记录" class="anchor" aria-label="Permalink: 查询Git提交用户记录" href="#查询git提交用户记录"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre>git log --format=<span class="pl-s"><span class="pl-pds">"</span>%an &lt;%ae&gt;<span class="pl-pds">"</span></span> --all <span class="pl-k">|</span> sort <span class="pl-k">|</span> uniq</pre></div>
 <p>--all：包括所有分支的提交。</p>
@@ -179,7 +183,7 @@ git push origin --force --all</pre></div>
 <p><a href="https://anaer.github.io/blog/post/67.html" rel="nofollow">067 Git删除大文件</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/39.html" aria-label="Previous Page">039 Deepseek API</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/34.html" aria-label="Next Page">034 Python分词</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/36.html" aria-label="Previous Page">036 中文分词API</a><span style="width:200px" aria-disabled="true"></span><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/38.html" aria-label="Next Page">038 Blog页面添加下雪特效</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
