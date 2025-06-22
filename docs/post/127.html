@@ -130,118 +130,41 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-16 12:23:32</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-22 12:22:43</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-22 23:09:43</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件版本更新的主要变更，包括Cherry Studio、Clash Verge Rev、Dify、Higress、Rclone和Toaster等。Cherry Studio引入了多种新功能和修复，增强了用户体验和多模型支持；Clash Verge Rev改进了系统稳定性和界面交互；Dify更新了LLM节点和文档索引功能；Higress增强了AI代理功能并修复了相关问题；Rclone发布了新版本，提供了云存储的同步功能；Toaster框架优化了Toast消息处理。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新和改进，包括Cherry Studio、Clash Verge Rev、Subs Check、Dify、Higress、Rclone和Toaster。每个软件的更新内容涵盖了新功能、修复问题和优化改进，旨在提升用户体验和系统稳定性。
 
-优化建议：在未来的更新说明中，建议增加用户反馈部分，鼓励用户提供使用体验和建议，以便更好地满足用户需求。同时，考虑在每个软件的更新中突出最重要的功能和修复，以便用户快速了解版本变化。
+优化建议：
+1. 在发布说明中提供更详细的用户指南，以帮助用户快速了解新功能的使用方法。
+2. 增加版本更新的背景信息，帮助用户理解更新的重要性和必要性。
+3. 对于修复的问题，提供具体的案例或场景，以便用户更好地理解问题的影响。
+4. 考虑增加用户反馈渠道，以便收集用户对新版本的意见和建议。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.4">cherry-studio v1.4.4</a>
-</h1><a id="user-content-1-cherry-studio-v144" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.4" href="#1-cherry-studio-v144"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.5">cherry-studio v1.4.5</a>
+</h1><a id="user-content-1-cherry-studio-v145" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.5" href="#1-cherry-studio-v145"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
 <details>
 <summary>变更说明</summary>
 <div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>新功能：选择用户数据保存的目录</li>
-<li>快捷助手：支持单独选择助手，支持暂停、上下文、思考过程、流式</li>
-<li>划词助手：通过系统托盘菜单开关</li>
-<li>翻译(Sidebar)：新增翻译设置的 Markdown 预览选项</li>
-<li>新供应商：新增Vertex AI支持、新增Lanyu</li>
-<li>修复API：OpenAI 响应工具使用问题、Anthropic非流式工具调用的处理、Gemini消息初始化和处理逻辑、SiliconFlow失效文生图模型、Doubao/Mistral推理控制支持</li>
-<li>修复文件与内容处理：优化块检索中的图片文件处理、改进知识库搜索的重写逻辑、修复知识库创建时嵌入维度获取失败的问题</li>
-<li>修复UI与交互：统一发送消息快捷键行为、多模型响应中锚点点击无法跳转的问题、输入栏回车键处理</li>
-<li>修复MCP：MCP 服务器工具获取的错误处理、移除已弃用的MCP和知识库逻辑</li>
-</ul>
-<ul>
-<li>fix(Markdown): inline math overflow</li>
-<li>feat:add cephalon provider</li>
-<li>Feat/support 302ai provider</li>
-<li>feat: add middleware support for provider</li>
-<li>feat(Markdown): customize table to support source copying</li>
-<li>feat: animate topic renaming</li>
-<li>fix: start animation only if the topic should be renamed</li>
-<li>feat: Support reasoning control for Doubao/Mistral models.</li>
-<li>fix: token usage always display when assistant msg generation aborted</li>
-<li>feat: Reduce app size</li>
-<li>feat: Enhance AppUpdater for Windows installation directory support</li>
-<li>refactor(CodeEditor): remove the right border of gutters</li>
-<li>fix(MermaidPreview): re-render mermaid on display change</li>
-<li>fix(TopicRenaming): captured activeTopic.id is outdated and causes accidental topic changing after renaming</li>
-<li>refactor(ImageBlock): enhance loading state presentation and improve …</li>
-<li>feat:  clean up Windows license files</li>
-<li>chore(electron.vite.config): update Rollup configuration for single file packaging</li>
-<li>fix(SelectionAssistant): make add custom action button bigger</li>
-<li>feat: add prompt variable "username"</li>
-<li>fix: model_name prompt var always use default model</li>
-<li>fix: missing topic prompt on resend/regenerate and duplicate prevention</li>
-<li>fix: transparent background on translate dropdown</li>
-<li>fix: remove margin-bottom for loading animation</li>
-<li>feat: add prompt variables docs on topic naming modal popup</li>
-<li>fix: update app-builder-lib patch and add excludeReBuildModules option</li>
-<li>fix: update app-builder-lib patch and adjust minimumSystemVersion handling</li>
-<li>fix(model): qwen3 model detection</li>
-<li>fix(ImageGenerationMiddleware): correctly process image URLs</li>
-<li>chore(ci): remove --fix from lint</li>
-<li>fix: 7127</li>
-<li>fix: send message shortcut doesn't work when editing existing message</li>
-<li>feat:add lanyun mcp server</li>
-<li>feat: use variables in topic naming and improve default prompt</li>
-<li>refactor: optimize notion export</li>
-<li>fix: prevent update button from rendering when auto-check for updates…</li>
-<li>fix(SelectionService): Win10 showing problem &amp; AlwaysOnTop level</li>
-<li>feat: Add PDF file support for OpenAI vision models</li>
-<li>fix: include image files in block retrieval for improved file handling</li>
-<li>fix: enable stream output in assistant settings for chat completion</li>
-<li>fix: gemini generateImage model detection</li>
-<li>fix: reranker i18n</li>
-<li>feat: add quick assistant settings panel and management functionality</li>
-<li>fix: enhance AppUpdater with IP country detection</li>
-<li>Feat/vertex ai support</li>
-<li>fix: modify siliconflow text-to-image available models</li>
-<li>[功能]: aihubmix 更新默认模型</li>
-<li>fix: support tei</li>
-<li>fix(PromptPopup): Textarea overflow causes modal's close button  unclickable</li>
-<li>fix(Inputbar): handle Enter key press correctly during composition</li>
-<li>fix(MessageMenubar): add "copy plain text" control</li>
-<li>Update models.ts, fix doubao-seed-1-6</li>
-<li>fix: unified the behavior of SendMessage shortcut</li>
-<li>fix: add Markdown preview option in translation settings</li>
-<li>fix: classify agents as Chinese and English</li>
-<li>fix: use rewrite to search knowledge</li>
-<li>fix: refactor provider middleware</li>
-<li>feat: Add pricing configuration and display for models</li>
-<li>fix: update buildSdkMessages to handle undefined output in API clients</li>
-<li>feat: toggle Selection Assistant on tray menu</li>
-<li>fix: update dify icon</li>
-<li>feat: Add app data path selection and relaunch functionality</li>
-<li>fix: initialize messageContents and improve message handling in GeminiAPIClient; add new Gemini model to configuration</li>
-<li>fix: lint</li>
-<li>fix(OpenAI): respect successful stream without finish reason</li>
-<li>refactor(QuickAssistant): fix loop rendering &amp; support context/pause/thinking block</li>
-<li>feat: update gemini-2.5 model capabilities and thinking budget</li>
-<li>fix(AnthropicAPIClient): non stream tooluse</li>
-<li>Fix: Handle embedding dimension retrieval failure when creating knowledge base</li>
-<li>fix: 修复多模型回答的锚点点击无法跳转问题</li>
-<li>fix(ApiService): improve error handling when fetching tools from MCP servers</li>
-<li>fix: openai response tool use</li>
-<li>chore(WebDav): remove useless webdav restore</li>
-<li>refactor: remove deprecated MCP server handling and knowledge base ID logic from Inputbar and related services</li>
-<li>refactor(CodeBlock): support more file extensions for code downloading</li>
-<li>refactor: hard-coded language map</li>
-<li>fix: update WindowService transparency and improve Inputbar resizing …</li>
+<li>feat(Markdown): disable indented code blocks</li>
+<li>fix(AssistantService): add default settings configuration to assistant initialization</li>
+<li>fix(i18n): fix model name export help text</li>
+<li>fix(GeminiAPIClient): update abortSignal option and ensure userLastMessage is pushed to messages</li>
+<li>fix: Chat does not work properly when configuring multiple API keys</li>
+<li>fix(ApiService): correct enableWebSearch conditional logic error</li>
+<li>fix(models): Unexpected inability to disable image generation feature</li>
+<li>fix: add node-stream-zip for zip file extraction in install-bun script</li>
+<li>fix: remove duplicated deepseek-v3 in volcengine</li>
+<li>fix: 修复数据目录迁移的bug</li>
+<li>fix: update source language handling and persist user selection in TranslatePage component</li>
+<li>refactor(middleware): Add error property to CompletionResult and handle errors when checking API</li>
 </ul>
 <div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
-<li>made their first contribution in</li>
 <li>made their first contribution in</li>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
@@ -320,8 +243,25 @@ pre {
 <li>
 </li></ul>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/langgenius/dify/releases/tag/1.4.3">dify 1.4.3</a>
-</h1><a id="user-content-3-dify-143" class="anchor" aria-label="Permalink: 3. dify 1.4.3" href="#3-dify-143"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.3.2">subs-check v2.3.2</a>
+</h1><a id="user-content-3-subs-check-v232" class="anchor" aria-label="Permalink: 3. subs-check v2.3.2" href="#3-subs-check-v232"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换、测速、测活、流媒体检测、重命名、导出为clash.meta/clash/base64/qx等等所有格式的工具</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">Changelog</h2><a id="user-content-changelog" class="anchor" aria-label="Permalink: Changelog" href="#changelog"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>ba8963c58380b09e9e61ffb200b414c71e3b8240 fix: fix GetProxyCountry</li>
+<li>4f5c4d7a25df2c8fa00898feb4ccbea36aa1fd21 fix: sync workflow</li>
+<li>6303c46e2e4f927f1ba3f64b8345f535926b201a op: GetProxyCountry add ua</li>
+<li>c3022949890cb3fc03a470ec853b68bb37e88426 op: update release.yml</li>
+<li>376c1af712de2e4c315b1f59922260b0f72dcec4 op: 优化位置获取逻辑</li>
+<li>8e8d79a6c51250845a8b8b69d1fa571a79a46a4f op: 优化最近日志滑动逻辑</li>
+<li>3fa984920a0b45b7e8dbdb98e96bf5ed69427c18 update mihomo</li>
+<li>93aadc5c0120287c612769d824785a0758e1f40d update sub-store to 2.19.64</li>
+</ul>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/langgenius/dify/releases/tag/1.4.3">dify 1.4.3</a>
+</h1><a id="user-content-4-dify-143" class="anchor" aria-label="Permalink: 4. dify 1.4.3" href="#4-dify-143"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
 <details>
 <summary>变更说明</summary>
@@ -448,8 +388,8 @@ uv sync</pre></div>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.5-rc.1">higress v2.1.5-rc.1</a>
-</h1><a id="user-content-4-higress-v215-rc1" class="anchor" aria-label="Permalink: 4. higress v2.1.5-rc.1" href="#4-higress-v215-rc1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.5-rc.1">higress v2.1.5-rc.1</a>
+</h1><a id="user-content-5-higress-v215-rc1" class="anchor" aria-label="Permalink: 5. higress v2.1.5-rc.1" href="#5-higress-v215-rc1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🤖 AI Gateway AI Native API Gateway</p>
 <details>
 <summary>变更说明</summary>
@@ -482,16 +422,16 @@ uv sync</pre></div>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/rclone/rclone/releases/tag/v1.70.1">rclone v1.70.1</a>
-</h1><a id="user-content-5-rclone-v1701" class="anchor" aria-label="Permalink: 5. rclone v1.70.1" href="#5-rclone-v1701"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/rclone/rclone/releases/tag/v1.70.1">rclone v1.70.1</a>
+</h1><a id="user-content-6-rclone-v1701" class="anchor" aria-label="Permalink: 6. rclone v1.70.1" href="#6-rclone-v1701"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files</p>
 <details>
 <summary>变更说明</summary>
 <p>This is the v1.70.1 release of rclone.</p>
 <p>Full details of the changes can be found in .</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/getActivity/Toaster/releases/tag/13.0">Toaster 13.0</a>
-</h1><a id="user-content-6-toaster-130" class="anchor" aria-label="Permalink: 6. Toaster 13.0" href="#6-toaster-130"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/getActivity/Toaster/releases/tag/13.0">Toaster 13.0</a>
+</h1><a id="user-content-7-toaster-130" class="anchor" aria-label="Permalink: 7. Toaster 13.0" href="#7-toaster-130"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Android 吐司框架，专治 Toast 各种疑难杂症</p>
 <details>
 <summary>变更说明</summary>
