@@ -130,91 +130,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-16 12:23:32</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-21 23:09:29</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-22 12:22:43</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件版本更新的详细信息，包括clash-verge-rev v2.3.1、cherry-studio v1.4.4、dify v1.4.3、higress v2.1.5-rc.1、rclone v1.70.1和Toaster 13.0。每个更新都包含了修复的问题、新增的功能和优化的改进，旨在提升用户体验和软件性能。
+    <strong>AI总结:</strong> 本文介绍了多个软件版本更新的主要变更，包括Cherry Studio、Clash Verge Rev、Dify、Higress、Rclone和Toaster等。Cherry Studio引入了多种新功能和修复，增强了用户体验和多模型支持；Clash Verge Rev改进了系统稳定性和界面交互；Dify更新了LLM节点和文档索引功能；Higress增强了AI代理功能并修复了相关问题；Rclone发布了新版本，提供了云存储的同步功能；Toaster框架优化了Toast消息处理。
 
-优化建议：在发布说明中，可以考虑将不同类型的更新（如修复、功能新增和优化）分开列出，以便用户更清晰地了解每个版本的具体变动。同时，增加用户反馈链接，以便收集用户对新版本的意见和建议。
+优化建议：在未来的更新说明中，建议增加用户反馈部分，鼓励用户提供使用体验和建议，以便更好地满足用户需求。同时，考虑在每个软件的更新中突出最重要的功能和修复，以便用户快速了解版本变化。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.3.1">clash-verge-rev v2.3.1</a>
-</h1><a id="user-content-1-clash-verge-rev-v231" class="anchor" aria-label="Permalink: 1. clash-verge-rev v2.3.1" href="#1-clash-verge-rev-v231"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A modern GUI client based on Tauri, designed to run in Windows, macOS and Linux for tailored proxy experience</p>
-<details>
-<summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">v2.3.1</h2><a id="user-content-v231" class="anchor" aria-label="Permalink: v2.3.1" href="#v231"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><strong>发行代号：御</strong>
-代号释义： 「御」，象征掌控与守护，寓意本次版本对系统稳定性、安全性与用户体验的全面驾驭与提升。</p>
-<table>
-<thead>
-<tr>
-<th>Dark</th>
-<th>Light</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a target="_blank" rel="noopener noreferrer" href="./docs/preview_dark.png"><img src="./docs/preview_dark.png" alt="预览" style="max-width: 100%;"></a></td>
-<td><a target="_blank" rel="noopener noreferrer" href="./docs/preview_light.png"><img src="./docs/preview_light.png" alt="预览" style="max-width: 100%;"></a></td>
-</tr>
-</tbody>
-</table>
-<div class="markdown-heading"><h2 class="heading-element">v2.3.1</h2><a id="user-content-v231-1" class="anchor" aria-label="Permalink: v2.3.1" href="#v231-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h3 class="heading-element">🐞 修复问题</h3><a id="user-content--修复问题" class="anchor" aria-label="Permalink: 🐞 修复问题" href="#-修复问题"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>增加配置文件校验，修复从古老版本升级上来的"No such file or directory (os error 2)"错误</li>
-<li>修复扩展脚本转义错误</li>
-<li>修复 macOS Intel X86 架构构建错误导致无法运行</li>
-<li>修复 Linux 下界面边框白边问题</li>
-<li>修复 托盘 无响应问题</li>
-<li>修复 托盘 无法从轻量模式退出并恢复窗口</li>
-<li>修复 快速切换订阅可能导致的卡死问题</li>
-</ul>
-<div class="markdown-heading"><h3 class="heading-element">✨ 新增功能</h3><a id="user-content--新增功能" class="anchor" aria-label="Permalink: ✨ 新增功能" href="#-新增功能"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>新增 window-state 窗口状态管理和恢复</li>
-</ul>
-<div class="markdown-heading"><h3 class="heading-element">🚀 优化改进</h3><a id="user-content--优化改进" class="anchor" aria-label="Permalink: 🚀 优化改进" href="#-优化改进"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>优化 托盘 统一响应</li>
-<li>优化 静默启动+自启动轻量模式 运行方式</li>
-<li>升级依赖</li>
-</ul>
-<div class="markdown-heading"><h3 class="heading-element">下载</h3><a id="user-content-下载" class="anchor" aria-label="Permalink: 下载" href="#下载"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Windows (不支持win7)：</p>
-<ul>
-<li>安装版： |  （因为便携版问题较多不再提供便携版）</li>
-</ul>
-<p>macOS 11+：</p>
-<ul>
-<li>DMG： |</li>
-</ul>
-<p>Linux：</p>
-<ul>
-<li>DEB： |  (Debian系) 使用 apt ./路径 安装</li>
-<li>RPM： |  (Redhat系) 使用 dnf ./路径 安装</li>
-</ul>
-<div class="markdown-heading"><h3 class="heading-element">快速上手</h3><a id="user-content-快速上手" class="anchor" aria-label="Permalink: 快速上手" href="#快速上手"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>
-</li></ul>
-<div class="markdown-heading"><h3 class="heading-element">稳定机场VPN推荐</h3><a id="user-content-稳定机场vpn推荐" class="anchor" aria-label="Permalink: 稳定机场VPN推荐" href="#稳定机场vpn推荐"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>
-</li></ul>
-<div class="markdown-heading"><h3 class="heading-element">赞助项目</h3><a id="user-content-赞助项目" class="anchor" aria-label="Permalink: 赞助项目" href="#赞助项目"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>
-</li></ul>
-<div class="markdown-heading"><h3 class="heading-element">Clash Verge Rev TG频道：</h3><a id="user-content-clash-verge-rev-tg频道" class="anchor" aria-label="Permalink: Clash Verge Rev TG频道：" href="#clash-verge-rev-tg频道"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<ul>
-<li>
-</li></ul>
-</details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.4">cherry-studio v1.4.4</a>
-</h1><a id="user-content-2-cherry-studio-v144" class="anchor" aria-label="Permalink: 2. cherry-studio v1.4.4" href="#2-cherry-studio-v144"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.4">cherry-studio v1.4.4</a>
+</h1><a id="user-content-1-cherry-studio-v144" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.4" href="#1-cherry-studio-v144"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
 <details>
 <summary>变更说明</summary>
@@ -319,6 +245,80 @@ pre {
 <li>made their first contribution in</li>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.3.1">clash-verge-rev v2.3.1</a>
+</h1><a id="user-content-2-clash-verge-rev-v231" class="anchor" aria-label="Permalink: 2. clash-verge-rev v2.3.1" href="#2-clash-verge-rev-v231"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A modern GUI client based on Tauri, designed to run in Windows, macOS and Linux for tailored proxy experience</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">v2.3.1</h2><a id="user-content-v231" class="anchor" aria-label="Permalink: v2.3.1" href="#v231"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><strong>发行代号：御</strong>
+代号释义： 「御」，象征掌控与守护，寓意本次版本对系统稳定性、安全性与用户体验的全面驾驭与提升。</p>
+<table>
+<thead>
+<tr>
+<th>Dark</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a target="_blank" rel="noopener noreferrer" href="./docs/preview_dark.png"><img src="./docs/preview_dark.png" alt="预览" style="max-width: 100%;"></a></td>
+<td><a target="_blank" rel="noopener noreferrer" href="./docs/preview_light.png"><img src="./docs/preview_light.png" alt="预览" style="max-width: 100%;"></a></td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading"><h2 class="heading-element">v2.3.1</h2><a id="user-content-v231-1" class="anchor" aria-label="Permalink: v2.3.1" href="#v231-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">🐞 修复问题</h3><a id="user-content--修复问题" class="anchor" aria-label="Permalink: 🐞 修复问题" href="#-修复问题"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>增加配置文件校验，修复从古老版本升级上来的"No such file or directory (os error 2)"错误</li>
+<li>修复扩展脚本转义错误</li>
+<li>修复 macOS Intel X86 架构构建错误导致无法运行</li>
+<li>修复 Linux 下界面边框白边问题</li>
+<li>修复 托盘 无响应问题</li>
+<li>修复 托盘 无法从轻量模式退出并恢复窗口</li>
+<li>修复 快速切换订阅可能导致的卡死问题</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">✨ 新增功能</h3><a id="user-content--新增功能" class="anchor" aria-label="Permalink: ✨ 新增功能" href="#-新增功能"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>新增 window-state 窗口状态管理和恢复</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">🚀 优化改进</h3><a id="user-content--优化改进" class="anchor" aria-label="Permalink: 🚀 优化改进" href="#-优化改进"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>优化 托盘 统一响应</li>
+<li>优化 静默启动+自启动轻量模式 运行方式</li>
+<li>升级依赖</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">下载</h3><a id="user-content-下载" class="anchor" aria-label="Permalink: 下载" href="#下载"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Windows (不支持win7)：</p>
+<ul>
+<li>安装版： |  （因为便携版问题较多不再提供便携版）</li>
+</ul>
+<p>macOS 11+：</p>
+<ul>
+<li>DMG： |</li>
+</ul>
+<p>Linux：</p>
+<ul>
+<li>DEB： |  (Debian系) 使用 apt ./路径 安装</li>
+<li>RPM： |  (Redhat系) 使用 dnf ./路径 安装</li>
+</ul>
+<div class="markdown-heading"><h3 class="heading-element">快速上手</h3><a id="user-content-快速上手" class="anchor" aria-label="Permalink: 快速上手" href="#快速上手"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+</li></ul>
+<div class="markdown-heading"><h3 class="heading-element">稳定机场VPN推荐</h3><a id="user-content-稳定机场vpn推荐" class="anchor" aria-label="Permalink: 稳定机场VPN推荐" href="#稳定机场vpn推荐"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+</li></ul>
+<div class="markdown-heading"><h3 class="heading-element">赞助项目</h3><a id="user-content-赞助项目" class="anchor" aria-label="Permalink: 赞助项目" href="#赞助项目"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+</li></ul>
+<div class="markdown-heading"><h3 class="heading-element">Clash Verge Rev TG频道：</h3><a id="user-content-clash-verge-rev-tg频道" class="anchor" aria-label="Permalink: Clash Verge Rev TG频道：" href="#clash-verge-rev-tg频道"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+</li></ul>
 </details>
 <div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/langgenius/dify/releases/tag/1.4.3">dify 1.4.3</a>
 </h1><a id="user-content-3-dify-143" class="anchor" aria-label="Permalink: 3. dify 1.4.3" href="#3-dify-143"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
