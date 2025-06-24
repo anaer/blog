@@ -39,18 +39,16 @@ uv pip install --upgrade urllib3</pre></div>
 </ul>
 <div class="highlight highlight-source-shell"><pre>uv tree</pre></div>
 <ul>
-<li>
-<p><strong>Python 版本切换</strong></p>
+<li><strong>Python 版本切换</strong></li>
+</ul>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 指定安装镜像 默认到github下载, 使用时查询当前可用的加速镜像地址</span>
 <span class="pl-k">export</span> UV_PYTHON_INSTALL_MIRROR=https://github.com/indygreg/python-build-standalone/releases/download
 uv python install 3.11    <span class="pl-c"><span class="pl-c">#</span> 安装指定版本</span>
 uv python use 3.11        <span class="pl-c"><span class="pl-c">#</span> 切换当前环境版本</span></pre></div>
-</li>
-<li>
-<p><strong>检测无用依赖</strong>
-<code>uv pip install deptry</code></p>
-</li>
+<ul>
+<li><strong>检测无用依赖</strong></li>
 </ul>
+<p><code>uv pip install deptry</code></p>
 <pre lang="log"><code># deptry .
 Scanning 7 files...
 

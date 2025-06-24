@@ -132,16 +132,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-11 10:28:03</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-19 14:14:52</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-24 10:52:06</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用 uv 工具快速生成和管理 Python 项目，包括创建新项目、管理现有项目、依赖同步、版本切换和检测无用依赖等功能。用户可以通过 uv init 命令生成项目结构，并使用 uv venv 创建虚拟环境。此外，uv 还支持依赖管理，如添加依赖、同步环境和查看依赖树。用户可以通过指定安装镜像来安装或切换 Python 版本，并使用 deptry 检测未使用的依赖。
+    <strong>AI总结:</strong> 本文介绍了如何使用 uv 命令行工具快速生成和管理 Python 项目，包括新项目的创建、现有项目的环境设置、依赖同步、依赖检测与升级、版本切换以及无用依赖的检测。具体步骤包括使用 uv init 命令初始化项目，创建虚拟环境，添加依赖，生成 requirements.txt 文件，检查和升级过时依赖，查看依赖树，切换 Python 版本，以及使用 deptry 工具检测无用依赖。
 
-优化建议：
-1. 在项目初始化时，提供更多可选配置项，以满足不同开发需求。
-2. 增加对依赖冲突的自动检测和解决方案，以提升用户体验。
-3. 提供更详细的命令行帮助文档，帮助用户快速上手。
-4. 考虑集成测试工具，方便用户在项目中进行单元测试和集成测试。
+优化建议：在使用 uv 命令时，可以考虑编写一个简短的脚本来自动化常用的命令序列，以提高效率。同时，建议在项目中维护详细的文档，记录每个命令的用途和执行结果，以便团队成员更好地理解和使用这些工具。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -186,18 +182,16 @@ uv pip install --upgrade urllib3</pre></div>
 </ul>
 <div class="highlight highlight-source-shell"><pre>uv tree</pre></div>
 <ul>
-<li>
-<p><strong>Python 版本切换</strong></p>
+<li><strong>Python 版本切换</strong></li>
+</ul>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 指定安装镜像 默认到github下载, 使用时查询当前可用的加速镜像地址</span>
 <span class="pl-k">export</span> UV_PYTHON_INSTALL_MIRROR=https://github.com/indygreg/python-build-standalone/releases/download
 uv python install 3.11    <span class="pl-c"><span class="pl-c">#</span> 安装指定版本</span>
 uv python use 3.11        <span class="pl-c"><span class="pl-c">#</span> 切换当前环境版本</span></pre></div>
-</li>
-<li>
-<p><strong>检测无用依赖</strong>
-<code>uv pip install deptry</code></p>
-</li>
+<ul>
+<li><strong>检测无用依赖</strong></li>
 </ul>
+<p><code>uv pip install deptry</code></p>
 <pre lang="log"><code># deptry .
 Scanning 7 files...
 
