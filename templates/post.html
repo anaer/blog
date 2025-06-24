@@ -55,6 +55,9 @@ pre {
 .floating-button:hover {
     background-color: #0056b3; /* 悬停时改变背景颜色 */
 }
+
+.previous_page {text-align: left;}
+.next_page {text-align: right;}
 </style>
 {{ blogBase['style'] }}
 
@@ -121,7 +124,7 @@ pre {
         {%- if blogBase['prevTitle'] -%}
         <a class="previous_page" rel="previous" href="{{ blogBase['prevUrl'] }}" aria-label="Previous Page">{{ blogBase['prevTitle'] }}</a>
         {%- endif -%}
-        <span style="width:200px" aria-disabled="true"></span>
+        <!-- <span style="width:200px" aria-disabled="true"></span> -->
         {%- if blogBase['nextTitle'] -%}
         <a class="next_page" rel="next" href="{{ blogBase['nextUrl'] }}" aria-label="Next Page">{{ blogBase['nextTitle'] }}</a>
         {%- endif -%}
