@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <script>
+        if(localStorage.getItem("meek_theme")==null){}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
+    </script>
+    
+<title>128 我关注的项目这周更新了什么-2025-06-27</title>
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/colorblind-light.css" rel="stylesheet" />
+
+</head>
+<style>
+body{
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 45px;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.25;
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 767px) {body {padding: 8px;}}
+
+pre {
+    white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
+    word-wrap: break-word; /* 允许长单词或 URL 换行 */
+    overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
+}
+
+.new-post {
+    bottom: 20px; /* 距离底部 20px */
+}
+
+.edit-post {
+    bottom: 60px; /* 距离底部60px */
+}
+
+/* 悬浮按钮样式 */
+.floating-button {
+    position: fixed; /* 固定位置 */
+    right: 5%; /* 距离右侧 5% */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 32px; /* 宽度 */
+    height: 32px; /* 高度 */
+    font-size: 16px; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    z-index: 1000; /* 确保按钮在最上层 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* 添加悬停效果 */
+}
+
+/* 按钮悬停效果 */
+.floating-button:hover {
+    background-color: #0056b3; /* 悬停时改变背景颜色 */
+}
+
+.previous_page {text-align: left;}
+.next_page {text-align: right;}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1>
+    <a style="font-size:18px">128 我关注的项目这周更新了什么-2025-06-27</a>
+</h1>
+
+<div class="title-right">
+
+    <a href="https://anaer.github.io/blog"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    <a href="https://github.com/anaer/blog/issues/128" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+</div>
+</div>
+    <div id="content">
+
+<div class="listLabels">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#1d76db">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#关注">关注</a></object>
+        </span>
+</div>
+<br>
+
+<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
+<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-25 23:12:02</time></span>
+
+<p>
+
+<div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.11">mihomo v1.19.11</a>
+</h1><a id="user-content-1-mihomo-v11911" class="anchor" aria-label="Permalink: 1. mihomo v1.19.11" href="#1-mihomo-v11911"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>29a37f4f feat: all dns client support <code>disable-ipv4</code> and <code>disable-ipv6</code> params</li>
+<li>40587b62 feat: all dns client support <code>skip-cert-verify</code> params</li>
+<li>617fef84 feat: converter support anytls/socks/http</li>
+<li>85e6d25d feat: all dns client support <code>ecs</code> and <code>ecs-override</code> params</li>
+<li>9283cb0f feat: add <code>loopback-address</code> support for tun</li>
+<li>Other incompatible updates are the same as v1.19.6~v1.19.10:</li>
+</ul>
+<blockquote>
+<ul>
+<li>For security reasons, all paths appearing in the configuration file will be limited to <strong>workdir</strong> (regardless of whether they are relative or absolute). If there is a specific need, please specify additional safe paths by setting the <code>SAFE_PATHS</code> environment variable while ensuring safety. The syntax of this environment variable is the same as the PATH environment variable parsing rules of this operating system (i.e., semicolon-separated under Windows and colon-separated under other systems)</li>
+<li>For security reasons, the "path" parameter of <code>/configs</code> in the restful api has been restricted, and its directory also needs to be in <strong>workdir</strong> or <code>SAFE_PATHS</code>.</li>
+<li>In addition, support for specifying <code>routing-mark</code> and <code>interface-name</code> for <code>proxy-groups</code> has been removed. Please specify the relevant parameters in <code>proxies</code> directly.</li>
+<li>Note: The <strong>workdir</strong> mentioned above is specified by the <code>-d</code> parameter when the program is started or the <code>CLASH_HOME_DIR</code> environment variable. If neither of the above is specified, the default is:
+<ul>
+<li>on Unix systems, <code>$HOME/.config/mihomo</code>.</li>
+<li>on Windows, <code>%USERPROFILE%/.config/mihomo</code>.</li>
+</ul>
+</li>
+<li>The DNS resolution of the overall UDP part has been delayed to the connection initiation stage. It will be triggered only when the IP rule without no-resolve is matched during the rule matching process.
+<ul>
+<li>For direct and wireguard outbound, the same logic as the TCP part will be followed, that is, when direct-nameserver (or DNS configured by wireguard) exists, the resolution result in the rule matching process will be discarded and the domain name will be re-resolved. This re-resolution logic is only effective for fakeip.</li>
+<li>For reject and DNS outbound, no resolution is required.</li>
+<li>For other outbound, resolution will still be performed when the UDP connection is initiated, and the domain name will not be sent directly to the remote server.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<div class="markdown-heading"><h2 class="heading-element">BUG &amp; Fix</h2><a id="user-content-bug--fix" class="anchor" aria-label="Permalink: BUG &amp; Fix" href="#bug--fix"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>31f0060b fix: chacha20 counter overflow</li>
+<li>32d447ce fix: convert https</li>
+<li>40ea0ba0 fix: correct constructor for <code>2022-blake3-chacha8-poly1305</code>
+</li>
+<li>5344e869 fix: ssr uri decode</li>
+<li>5b975275 fix: incorrect checking of strings.Split return value</li>
+<li>6cfaf15c fix: missing error return</li>
+<li>71a87056 fix: remote dst parse</li>
+<li>8d7f947a fix: TypedValue.CompareAndSwap</li>
+<li>ebf5918e fix: v2ray-plugin mux maybe not close underlay connection</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Maintenance</h2><a id="user-content-maintenance" class="anchor" aria-label="Permalink: Maintenance" href="#maintenance"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>01f8f2db chore: cleanup allocator code</li>
+<li>082bcec2 chore: apply find process mode in direct/global mode</li>
+<li>166392fe chore: sniffer replace domain only if domain is valid</li>
+<li>255ff5e9 chore: add rate limiting support for reality listener</li>
+<li>2f9a3b34 chore: cleanup code</li>
+<li>5c6aa433 chore: unconditionally allow clients with passwords for password-free socks5 inbound</li>
+<li>85bb40aa chore: add Int32Enum for common/atomic</li>
+<li>87795e3a chore: add yaml marshal for common/atomic</li>
+<li>939e4109 chore: write dns reply in single syscall</li>
+<li>93ca1851 chore: converter support fingerprint for anytls</li>
+<li>ae7967f6 chore: the resolve and findProcess behaviors of Logic and SubRules follow the order and needs of the internal rules</li>
+<li>c60750d5 chore: allow tun to skip the system ipv6 check when starting by environment variable <code>SKIP_SYSTEM_IPV6_CHECK</code>
+</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.5.0">dify 1.5.0</a>
+</h1><a id="user-content-2-dify-150" class="anchor" aria-label="Permalink: 2. dify 1.5.0" href="#2-dify-150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-ready platform for agentic workflow development.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">🚀 What's New in v1.5.0?</h2><a id="user-content--whats-new-in-v150" class="anchor" aria-label="Permalink: 🚀 What's New in v1.5.0?" href="#-whats-new-in-v150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Meet <strong>v1.5.0</strong>—a sleek, powerful update boosting your productivity with simplified debugging and powerful integrations. Let's jump right in:</p>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">🏗️ Major Feature: Enhanced Workflow Debugging</h2><a id="user-content-️-major-feature-enhanced-workflow-debugging" class="anchor" aria-label="Permalink: 🏗️ Major Feature: Enhanced Workflow Debugging" href="#️-major-feature-enhanced-workflow-debugging"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>We've completely rebuilt our workflow debugging tools! Effortlessly visualize and troubleshoot workflows with improved interfaces, persistent debugging variables (, thanks  and enhanced dashboard integration (, kudos to  Easily track your workflow runs directly from the dashboard, and spend less time debugging and more time creating amazing workflows. Dive deeper in our .</p>
+<p>!</p>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">✨ New &amp; Improved Features</h2><a id="user-content--new--improved-features" class="anchor" aria-label="Permalink: ✨ New &amp; Improved Features" href="#-new--improved-features"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Drag-and-Drop DSL:</strong> Easily create apps by dropping DSL files directly into your browser (,</li>
+<li>
+<strong>Enhanced Default Templates:</strong> <code>sys.files</code> now included for more powerful web apps (,</li>
+<li>
+<strong>Hidden Form Attributes:</strong> Greater UI flexibility and control (,</li>
+<li>
+<strong>MatrixOne Integration:</strong> Advanced data strategies with MatrixOne VDB integration (,</li>
+<li>
+<strong>Firecrawl Deep Search:</strong> Richer content discovery with an enhanced search endpoint (,</li>
+<li>
+<strong>Notion Pagination:</strong> Easier navigation through extracted Notion data (,</li>
+<li>
+<strong>SendGrid Integration:</strong> Seamless, reliable email delivery (,</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">🛠️ Refinements &amp; Fixes</h2><a id="user-content-️-refinements--fixes" class="anchor" aria-label="Permalink: 🛠️ Refinements &amp; Fixes" href="#️-refinements--fixes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Smart Login Redirects:</strong> Intelligent user navigation with automatic login redirects (,</li>
+<li>
+<strong>Environment Sync:</strong> Automatic syncing of environment and conversation variables on import (,</li>
+<li>
+<strong>API UX Improvements:</strong> Enhanced loading states, icon support, and rendering fixes (, ,</li>
+<li>
+<strong>Responsive Charts:</strong> Improved analytics interactions with smoother, responsive charts (,</li>
+<li>
+<strong>Stable Markdown:</strong> Prevent crashes and enhance data integrity with improved markdown handling (, ,</li>
+<li>
+<strong>App Icon Picker:</strong> Cleaner and better-organized UI with stable heights and collapsible sections .</li>
+<li>
+<strong>Instant Dataset Insights:</strong> Quickly access essential dataset information directly from your workflows (, ,</li>
+</ul>
+<p>We crafted <strong>v1.5.0</strong> to enhance your productivity—dive in, explore, and start building! 🎉</p>
+<hr>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">Upgrade Guide</h2><a id="user-content-upgrade-guide" class="anchor" aria-label="Permalink: Upgrade Guide" href="#upgrade-guide"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Docker Compose Deployments</h3><a id="user-content-docker-compose-deployments" class="anchor" aria-label="Permalink: Docker Compose Deployments" href="#docker-compose-deployments"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p>Back up your customized docker-compose YAML file (optional)</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> docker
+cp docker-compose.yaml docker-compose.yaml.<span class="pl-s"><span class="pl-pds">$(</span>date +%s<span class="pl-pds">)</span></span>.bak</pre></div>
+</li>
+<li>
+<p>Get the latest code from the main branch</p>
+<div class="highlight highlight-source-shell"><pre>git checkout main
+git pull origin main</pre></div>
+</li>
+<li>
+<p>Stop the service. Please execute in the docker directory</p>
+<div class="highlight highlight-source-shell"><pre>docker compose down</pre></div>
+</li>
+<li>
+<p>Back up data</p>
+<div class="highlight highlight-source-shell"><pre>tar -cvf volumes-<span class="pl-s"><span class="pl-pds">$(</span>date +%s<span class="pl-pds">)</span></span>.tgz volumes</pre></div>
+</li>
+<li>
+<p>Upgrade services</p>
+<div class="highlight highlight-source-shell"><pre>docker compose up -d</pre></div>
+</li>
+</ol>
+<h1></h1>
+<div class="markdown-heading"><h3 class="heading-element">Source Code Deployments</h3><a id="user-content-source-code-deployments" class="anchor" aria-label="Permalink: Source Code Deployments" href="#source-code-deployments"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol>
+<li>
+<p>Stop the API server, Worker, and Web frontend Server.</p>
+</li>
+<li>
+<p>Get the latest code from the release branch:</p>
+<div class="highlight highlight-source-shell"><pre>git checkout 1.5.0</pre></div>
+</li>
+<li>
+<p>Update Python dependencies:</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> api
+uv sync</pre></div>
+</li>
+<li>
+<p>Then, let's run the migration script:</p>
+<div class="highlight highlight-source-shell"><pre>uv run flask db upgrade</pre></div>
+</li>
+<li>
+<p>Finally, run the API server, Worker, and Web frontend Server again.</p>
+</li>
+</ol>
+<hr>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: redirect to apps page if current user has no permission to visit dataset page</li>
+<li>fix: Replace GenericProviderID with ToolProviderID</li>
+<li>Fix/webapp loop login</li>
+<li>fix: auto redirect to login page if web app needs login</li>
+<li>fix: page loop in datasets and apps if current user is dataset_operator</li>
+<li>fix: doc error</li>
+<li>fix: prevent nodes from being unintentionally deleted by pressing the backspace key.</li>
+<li>fix: some dark theme display incorrect</li>
+<li>chore: cleanup wrong and unused doc links in i18 translations by appling docLink method usage</li>
+<li>fix: remove the x overflow scroll bar of monitoring page</li>
+<li>chore: check input variable key of code/template node is valid</li>
+<li>feat: add a flask_context_manager.</li>
+<li>chore: responsive header</li>
+<li>fix(agent_node):Fix spelling errors.</li>
+<li>chore: translate i18n files</li>
+<li>fix(code-editor): optimize the loading style of the CodeEditor component in dark mode</li>
+<li>fix(web): enhance API test page experience by adding loading state for test button</li>
+<li>fix: shorten connection timeout to pypi.org for deprecation check for weaviate client</li>
+<li>[Bug] fix misusing ACCESS_TOKEN_EXPIRE_MINUTES in jwt on exp</li>
+<li>fix(web): fix unique key issue</li>
+<li>feat: Add support for hidden attributes to form item types</li>
+<li>feat: add pagenation to notion extractor</li>
+<li>fix Multiple \n Interface rendering exception
+</li>
+<li>fix(web): number type prompt variable required validation not effective</li>
+<li>Set a default value for the PLUGIN_S3_USE_AWS environment variable in the dify-plugin-daemon.</li>
+<li>feat: Support drop DSL file into the browser to create app</li>
+<li>add healthcheck to oceanbase container</li>
+<li>chore: cancel enforcing uppercase of the text of plugin navigation button on the header bar</li>
+<li>add service api ratelimit check</li>
+<li>feat: Embedded chat window supports userVariables configuration.</li>
+<li>refactor(graph_engine): Merge duplicated if block</li>
+<li>unreachable-code for lb model fetch.</li>
+<li>clean duplicate validate for dataset_configs</li>
+<li>Fixes  KnowledgeRetrievalNode return all external documents when reranker disabled even top-k configed</li>
+<li>fix(api): add support for "image" icon when duplicate app</li>
+<li>feat: add search endpoint for Firecrawl Integration</li>
+<li>fix: add environment variable POSTGRES_USER</li>
+<li>wip: add check before install plugin</li>
+<li>fix: remove redundant PG_USER</li>
+<li>chore: translate i18n files</li>
+<li>bug: fix sequence number may be duplicated when multi-threads running the same workflow</li>
+<li>Fix: web app auth maybe failed</li>
+<li>Feat/plugin install scope management</li>
+<li>fix: workflow shortcuts</li>
+<li>Minor Improvements for File Validation and Configuration Handling</li>
+<li>fix(echarts): Resolve interaction issues on charts with timelines</li>
+<li>add func args missing in apps chat.</li>
+<li>Translation fix</li>
+<li>feat: improve the orgnize node operation</li>
+<li>Add Filter of Get Workflow Logs</li>
+<li>feat: add support for Matrixone database</li>
+<li>feat:conversation variable support file array</li>
+<li>Feat/support sendgrid</li>
+<li>fix keyword search top-k not initial</li>
+<li>fix wrongly remove reset nodes</li>
+<li>Revert "bug: fix sequence number may be duplicated when multi-threads running the same workflow "</li>
+<li>fix(plugin/migrations) refactor data migration to use specific provider ID classes.</li>
+<li>Fix/dataset page may redirect to apps if it still getting user info and workspace info</li>
+<li>fix: fix load_balancing_config save error</li>
+<li>fix: workflow import sync env and conversation variables</li>
+<li>chore: remove redundant code</li>
+<li>feat: use default access mode when importing dsl</li>
+<li>fix(workflow_run): sequence_number race.</li>
+<li>fix: not permitted schema of markdown link cause page crash</li>
+<li>bug: fix minor exception msg missing</li>
+<li>Feat: support selecting model in auto generator</li>
+<li>fix: update auto translations for days of the week</li>
+<li>feat(mermaid): Rearchitect component for robustness, security, and theming</li>
+<li>Revert "feat:conversation variable support file array"</li>
+<li>critical!  insert_explore_app_list_api</li>
+<li>style(dark): Adjust chat bubble background color (langgenius)</li>
+<li>fix notion dataset rule not found</li>
+<li>Fixes  Add a rapid deployment solution for deploying to Alibaba Cloud throug…</li>
+<li>Knowledge base API supports status updates</li>
+<li>fix: wrong translation</li>
+<li>refactor: env check with function</li>
+<li>fix: markdown_extractor lost chunks if it starts without a header</li>
+<li>Feature：Refactor batch update document status for</li>
+<li>fix: hide marketplace information</li>
+<li>fix: Update the logic for segment type settings to support parent-child mode selection.</li>
+<li>fix: Update segmentation type initialization to support parent-child mode based on document form</li>
+<li>fix segment display the default</li>
+<li>fix: web error</li>
+<li>feat: add config for max-tree-depth</li>
+<li>Fixes</li>
+<li>fix(migrate/tools): Correct parameter name in tool_builtin_providers migration function</li>
+<li>feat: Persist Variables for Enhanced Debugging Workflow</li>
+<li>feat: last run frontend</li>
+<li>chore: translate i18n files</li>
+<li>Fixes  Correct the wrong link destination (#quick-start)</li>
+<li>Fixes : Add link to the one-click Dify deployment solution on Alibaba Cloud DMS</li>
+<li>feat: make <code>RESPECT_XFORWARD_HEADERS_ENABLED</code> configurable in Compose</li>
+<li>Improve App Icon Picker: Stable Modal Height &amp; Collapsible Emoji Style Section</li>
+<li>add dataset info in response</li>
+<li>fix(document_extractor): xlsx file column int type error</li>
+<li>fix missing style of conversation variable panel default value textarea</li>
+<li>add dataset info in response</li>
+<li>fix: last run not export var and ts problem</li>
+<li>feat(api): Explicitly define version method for all BaseNode subclasses</li>
+<li>fix: first message query error</li>
+<li>fix: text generation app log not show</li>
+<li>feat: persist debug-and-preview panel width in localstorage</li>
+<li>fix(knowledge_base): Unchecked metadata name length</li>
+<li>chore: translate i18n files</li>
+<li>fix (conf/code): Variables not correctly filled can still be referenced</li>
+<li>fix: inputs.items is undefined</li>
+<li>fix: in plugin config panel appselector can not list all apps</li>
+<li>fix: update DocumentList to include max height and overflow styles</li>
+<li>fix: prompt editor click to insert variable</li>
+<li>Refactor update dataset (fix )</li>
+<li>fix(api): adding variable to variable pool recursively while loading draft variables.</li>
+<li>feat(web): Contains sys.files in the default template.</li>
+<li>Update smtp.py</li>
+<li>feat(oauth): plugin oauth service</li>
+<li>feat(oauth): refactor proxy context</li>
+<li>chore: update cover image</li>
+<li>fix(event_handlers): DB dead lock</li>
+<li>fix: app description too long break ui</li>
+<li>chore(version): Bump to 1.5.0</li>
+<li>fix(update_provider_when_message_created): Fix db transaction</li>
+</ul>
+<h1></h1>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+
+</div><nav class="paginate-container" aria-label="Pagination">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/127.html" aria-label="Previous Page">127 我关注的项目这周更新了什么-2025-06-20</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">001 苹果CMS接口说明以及采集源搜索</a></div>
+</nav>
+
+<!-- 编辑按钮 -->
+<a href="https://github.com/anaer/blog/issues/128" target="_blank">
+    <button class="floating-button edit-post">🖋</button>
+</a>
+
+<!-- 新增按钮 -->
+<a href="https://github.com/anaer/blog/issues/new" target="_blank">
+    <button class="floating-button new-post">+</button>
+</a>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
+
+<script>
+if("2023-09-08"!=""){
+    var now=new Date();
+    var startSite=new Date("2023-09-08");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script></div>
+</body>
+<script>
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
+var utterancesLoad=0;
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek v2.4 %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+<script>
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","anaer/blog");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+
+
+<script src="https://anaer.github.io/blog/assets/toc.js"></script>
+
+
+</html>
