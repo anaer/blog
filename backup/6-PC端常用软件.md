@@ -82,9 +82,10 @@
 1. ~~LightBulb~~ 开源护眼软件 [GitHub](https://github.com/Tyrrrz/LightBulb/releases/) 效果一般
 
 ## 办公
-1. LibreOffice [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
-2. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
-3. 
+1. OnlyOffice [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
+2. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
+3. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
+
 ## 开发
 
 ### Java
