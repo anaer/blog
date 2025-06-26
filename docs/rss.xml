@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 26 Jun 2025 08:11:23 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 26 Jun 2025 08:11:23 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>128 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了dify 1.5.0和mihomo v1.19.11的更新内容。dify 1.5.0引入了增强的工作流调试工具、拖放DSL功能、MatrixOne集成以及多项修复和改进，以提升用户的生产力。mihomo v1.19.11则关注于安全性和DNS客户端的增强，限制配置文件路径并引入新的参数支持，同时修复了多个bug和维护问题。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 26 Jun 2025 15:12:24 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 26 Jun 2025 15:12:24 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>128 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了三个软件版本的更新内容，包括Cherry Studio v1.4.6、Dify v1.5.0和Mihomo v1.19.11。Cherry Studio的更新主要集中在修复和功能增强，如支持.doc文件、改进上下文菜单等。Dify的更新则重构了工作流调试工具，增强了用户体验，并增加了多个集成功能。Mihomo的更新包含安全性增强和多个DNS客户端的功能改进。
 
 优化建议：
-1. 提供更详细的使用示例和文档链接，以帮助用户快速上手新功能。
-2. 在更新说明中突出关键功能变化，使用小节或列表形式，使信息更易于消化。
-3. 考虑增加用户反馈机制，以便收集使用体验和改进建议。
-4. 对于bug修复，建议提供问题发生的场景和解决方案，以帮助用户理解和预防类似问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/128.html</guid><pubDate>Wed, 25 Jun 2025 15:12:02 +0000</pubDate></item><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了多个软件的更新和改进，包括Cherry Studio、Clash Verge Rev、Subs Check、Dify、Higress、Rclone和Toaster。每个软件的更新内容涵盖了新功能、修复问题和优化改进，旨在提升用户体验和系统稳定性。
+1. 对于每个软件的更新，建议使用小节标题来清晰划分不同软件的变更内容。
+2. 在描述功能增强时，可以提供具体的使用场景或示例，以帮助用户更好地理解更新的价值。
+3. 在列出修复和改进时，考虑分类（如Bug修复、功能增强等），以提高可读性和条理性。
+4. 对于新贡献者部分，可以附上贡献者的名字或贡献的具体内容，以增加社区参与感。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/128.html</guid><pubDate>Wed, 25 Jun 2025 15:12:02 +0000</pubDate></item><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了多个软件的更新和改进，包括Cherry Studio、Clash Verge Rev、Subs Check、Dify、Higress、Rclone和Toaster。每个软件的更新内容涵盖了新功能、修复问题和优化改进，旨在提升用户体验和系统稳定性。
 
 优化建议：
 1. 在发布说明中提供更详细的用户指南，以帮助用户快速了解新功能的使用方法。

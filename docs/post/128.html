@@ -133,21 +133,79 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-25 23:12:02</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-26 12:20:43</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-26 23:11:41</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了dify 1.5.0和mihomo v1.19.11的更新内容。dify 1.5.0引入了增强的工作流调试工具、拖放DSL功能、MatrixOne集成以及多项修复和改进，以提升用户的生产力。mihomo v1.19.11则关注于安全性和DNS客户端的增强，限制配置文件路径并引入新的参数支持，同时修复了多个bug和维护问题。
+    <strong>AI总结:</strong> 本文介绍了三个软件版本的更新内容，包括Cherry Studio v1.4.6、Dify v1.5.0和Mihomo v1.19.11。Cherry Studio的更新主要集中在修复和功能增强，如支持.doc文件、改进上下文菜单等。Dify的更新则重构了工作流调试工具，增强了用户体验，并增加了多个集成功能。Mihomo的更新包含安全性增强和多个DNS客户端的功能改进。
 
 优化建议：
-1. 提供更详细的使用示例和文档链接，以帮助用户快速上手新功能。
-2. 在更新说明中突出关键功能变化，使用小节或列表形式，使信息更易于消化。
-3. 考虑增加用户反馈机制，以便收集使用体验和改进建议。
-4. 对于bug修复，建议提供问题发生的场景和解决方案，以帮助用户理解和预防类似问题。
+1. 对于每个软件的更新，建议使用小节标题来清晰划分不同软件的变更内容。
+2. 在描述功能增强时，可以提供具体的使用场景或示例，以帮助用户更好地理解更新的价值。
+3. 在列出修复和改进时，考虑分类（如Bug修复、功能增强等），以提高可读性和条理性。
+4. 对于新贡献者部分，可以附上贡献者的名字或贡献的具体内容，以增加社区参与感。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.5.0">dify 1.5.0</a>
-</h1><a id="user-content-1-dify-150" class="anchor" aria-label="Permalink: 1. dify 1.5.0" href="#1-dify-150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.6">cherry-studio v1.4.6</a>
+</h1><a id="user-content-1-cherry-studio-v146" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.6" href="#1-cherry-studio-v146"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<details>
+<summary>变更说明</summary>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>fix: use shouldThrow param in checkApi instead of adding error property to CompletionsResult</li>
+<li>feat(FileStorage): add support for .doc files using word-extractor</li>
+<li>fix(rename): disable thinking for topic rename</li>
+<li>feat(TopicsTab): Allow deletion of inactive topics</li>
+<li>fix: re-add newline separator between reasoning_summary parts after openai middleware refactor</li>
+<li>fix(Markdown): improve latex brackets handling</li>
+<li>feat(mcpServers): Add a thought field to sequential thinking mcp server</li>
+<li>fix: Data config improvement</li>
+<li>feat(ContextMenu): add spell check and dictionary suggestions to context menu</li>
+<li>fix: display updated timestamp when available in knowledge base</li>
+<li>feat: Update API Key Management Interface</li>
+<li>refactor(CodePreview): auto resize gutters</li>
+<li>refactor: file actions into FileAction service</li>
+<li>fix: add tag collapse state management for assistants</li>
+<li>fix(model): doubao thinking param</li>
+<li>feat: Implement occupied directories handling during data copy</li>
+<li>feat: add appcode</li>
+<li>fix: non streamoutput sometimes</li>
+<li>feat:  一些UI上的优化和重构</li>
+<li>fix: bailian reranker</li>
+<li>feat: implement Python MCP server using existing Pyodide infrastructure</li>
+<li>refactor: rename isWindows to isWin for consistency across main/renderer</li>
+<li>refactor: data migration modal logic in DataSettings</li>
+<li>fix: clear search cache on resending</li>
+<li>fix: Resolve vllm bad request caused by always sending dimensions in embedding requests</li>
+<li>feat: Support custom registry address when configuring mcp for npm &amp; fix lint error</li>
+<li>refactor(GeminiAPIClient): separate model and user message handling to adapt vertex</li>
+<li>feat(SelectionAssistant): actionWindow show footer a while when initial showing and key pressing</li>
+<li>fix(SelectionAssistant): opacity slider too slow when sliding in settings page</li>
+<li>fix(AihubmixAPIClient): add getBaseURL method to handle client base URL retrieval</li>
+<li>refactor(SelectionAssistant): make all Toolbar CSS variables customizable</li>
+<li>fix(CodeEditor): save to db</li>
+<li>style: 优化消息滚动条</li>
+<li>fix: Gemini reasoning model check and improve citation popover structure</li>
+<li>Fix anthropic request cannot handle webSearch and knowbase references</li>
+<li>refactor(CodePreview): handle chunking in ShikiStreamService, make the algorithm more robust</li>
+<li>fix(models): update isReasoningModel function to exclude embedding models</li>
+<li>feat(MentionedModels): improve feedback for MessageGroupModelList</li>
+<li>feat: implement early access feature toggle and update related configurations</li>
+<li>fix(Markdown): falsely early return for display <code>\[\n...\n\]</code>
+</li>
+<li>feat(FileStorage): enhance open dialog to handle large files by retur…</li>
+<li>fix(Messages): Fix single model response style issue</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>made their first contribution in</li>
+<li>made their first contribution in</li>
+</ul>
+<p><strong>Full Changelog</strong>:</p>
+</details>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.5.0">dify 1.5.0</a>
+</h1><a id="user-content-2-dify-150" class="anchor" aria-label="Permalink: 2. dify 1.5.0" href="#2-dify-150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
 <details>
 <summary>变更说明</summary>
@@ -248,7 +306,7 @@ uv sync</pre></div>
 </ol>
 <hr>
 <h1></h1>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>fix: redirect to apps page if current user has no permission to visit dataset page</li>
 <li>fix: Replace GenericProviderID with ToolProviderID</li>
@@ -373,7 +431,7 @@ uv sync</pre></div>
 <li>fix(update_provider_when_message_created): Fix db transaction</li>
 </ul>
 <h1></h1>
-<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">New Contributors</h2><a id="user-content-new-contributors-1" class="anchor" aria-label="Permalink: New Contributors" href="#new-contributors-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>made their first contribution in</li>
 <li>made their first contribution in</li>
@@ -399,12 +457,12 @@ uv sync</pre></div>
 </ul>
 <p><strong>Full Changelog</strong>:</p>
 </details>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.11">mihomo v1.19.11</a>
-</h1><a id="user-content-2-mihomo-v11911" class="anchor" aria-label="Permalink: 2. mihomo v1.19.11" href="#2-mihomo-v11911"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.11">mihomo v1.19.11</a>
+</h1><a id="user-content-3-mihomo-v11911" class="anchor" aria-label="Permalink: 3. mihomo v1.19.11" href="#3-mihomo-v11911"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
 <details>
 <summary>变更说明</summary>
-<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-1" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">What's Changed</h2><a id="user-content-whats-changed-2" class="anchor" aria-label="Permalink: What's Changed" href="#whats-changed-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ul>
 <li>29a37f4f feat: all dns client support <code>disable-ipv4</code> and <code>disable-ipv6</code> params</li>
 <li>40587b62 feat: all dns client support <code>skip-cert-verify</code> params</li>
