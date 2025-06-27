@@ -133,135 +133,194 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-25 23:12:02</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-27 15:51:41</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-27 23:12:22</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Dify v1.5.0、Cherry Studio v1.4.6和Mihomo v1.19.11三个软件的最新版本更新。Dify v1.5.0引入了工作流调试工具、集成MatrixOne数据库和SendGrid邮件服务，改进了用户体验和API响应。Cherry Studio v1.4.6增加了对.doc格式的支持、拼写检查功能和自定义npm注册地址，同时修复了多个错误并进行了代码重构。Mihomo v1.19.11则新增了DNS客户端参数支持和安全更新，修复了多个BUG并进行了代码优化。
-
-优化建议：
-1. 对于Dify，考虑增加用户反馈机制，以便进一步优化工作流调试工具和API体验。
-2. Cherry Studio可以增强文档支持的多样性，增加对其他文件格式的支持。
-3. Mihomo应提供更详细的文档说明，帮助用户更好地理解新功能和安全更新的使用。
-</div>
+<p>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.5.0">dify 1.5.0</a>
-</h1><a id="user-content-1-dify-150" class="anchor" aria-label="Permalink: 1. dify 1.5.0" href="#1-dify-150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Production-ready platform for agentic workflow development.
-Dify v1.5.0 版本更新摘要：</p>
-<p>主要功能：</p>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.6">cherry-studio v1.4.6</a>
+</h1><a id="user-content-1-cherry-studio-v146" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.6" href="#1-cherry-studio-v146"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<p>本次更新包含多项功能改进和问题修复，主要涉及以下几个方面：</p>
 <ol>
-<li>全新工作流调试工具：改进界面设计，支持持久化调试变量和仪表板集成，可直接在仪表板跟踪工作流运行状态。</li>
+<li>API优化：</li>
 </ol>
-<p>新特性与改进：</p>
+<ul>
+<li>修复checkApi中shouldThrow参数的使用问题</li>
+<li>改进vllm嵌入请求维度处理</li>
+<li>更新API密钥管理界面</li>
+</ul>
+<ol start="2">
+<li>文件处理增强：</li>
+</ol>
+<ul>
+<li>增加对.doc文件的word-extractor支持</li>
+<li>优化大文件打开对话框处理</li>
+<li>重构文件操作为FileAction服务</li>
+</ul>
+<ol start="3">
+<li>编辑器改进：</li>
+</ol>
+<ul>
+<li>自动调整代码预览边栏</li>
+<li>修复代码编辑器保存问题</li>
+<li>增强Markdown对LaTeX括号的处理</li>
+</ul>
+<ol start="4">
+<li>功能新增：</li>
+</ol>
+<ul>
+<li>支持删除非活跃主题</li>
+<li>添加拼写检查和词典建议到右键菜单</li>
+<li>实现Python MCP服务器</li>
+<li>支持npm自定义注册地址配置</li>
+</ul>
+<ol start="5">
+<li>界面优化：</li>
+</ol>
+<ul>
+<li>改进消息滚动条样式</li>
+<li>优化选择助手工具栏可定制性</li>
+<li>修复单模型响应样式问题</li>
+</ul>
+<ol start="6">
+<li>其他：</li>
+</ol>
+<ul>
+<li>改进知识库更新时间显示</li>
+<li>添加应用代码支持</li>
+<li>实现早期访问功能开关</li>
+<li>修复多个模型推理相关问题</li>
+</ul>
+<p>本次更新还包含多项错误修复和性能优化，并迎来2位新贡献者。完整变更列表可查看版本比较链接。</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/subframe7536/maple-font/releases/tag/v7.4">maple-font v7.4</a>
+</h1><a id="user-content-2-maple-font-v74" class="anchor" aria-label="Permalink: 2. maple-font v7.4" href="#2-maple-font-v74"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Maple Mono: Open source monospace font with round corner, ligatures and Nerd-Font icons for IDE and terminal, fine-grained customization options. 带连字和控制台图标的圆角等宽字体，中英文宽度完美2:1，细粒度的自定义选项</p>
+<p>本次更新主要包含以下内容：</p>
+<ol>
+<li>
+<p>修复了无限连字箭头（如<code>====&gt;</code>）在提示字体中的显示问题，默认禁用该功能，可通过<code>--keep-infinite-arrow</code>标志自定义构建启用。</p>
+</li>
+<li>
+<p>其他改进：</p>
+<ul>
+<li>修复无限箭头连字问题</li>
+<li>重新设计数字6和9以解决字体提示问题</li>
+<li>填补箭头内部微小间隙</li>
+<li>支持在config.json中自定义ttfautohint参数</li>
+<li>修复变量子族名称问题</li>
+<li>新增禁用标签连字的选项</li>
+<li>支持更多货币符号</li>
+<li>增加西里尔字母支持</li>
+<li>放宽对jinja模板中<code>{{-</code>的忽略处理</li>
+<li>优化无限箭头连字中的冒号显示</li>
+<li>支持在<code>--cn-scale-factor</code>中使用scaleX和scaleY</li>
+<li>禁用数字中的连字（如<code>1&gt;-1</code>）</li>
+<li>升级foundrytools-cli@2</li>
+<li>在CI中检测use_font_patcher配置</li>
+</ul>
+</li>
+<li>
+<p>下载说明：</p>
+<ul>
+<li>提供多种格式下载：变量字体、TTF（含提示版本）、OTF、WOFF2、NF、CN、NF-CN等</li>
+<li>推荐类似JetBrains Mono风格的字体下载"Normal-Ligature"或"Normal-No-Ligature"版本</li>
+<li>提供懒人包直接下载链接</li>
+<li>包含中文版和英文版下载说明链接</li>
+</ul>
+</li>
+<li>
+<p>下载选项分为四种类型：</p>
+<ul>
+<li>默认连字版本</li>
+<li>无连字版本</li>
+<li>标准连字版本（类似JetBrains Mono）</li>
+<li>标准无连字版本
+每种类型都提供多种文件格式下载，部分格式还提供提示版本。</li>
+</ul>
+</li>
+</ol>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/rclone/rclone/releases/tag/v1.70.2">rclone v1.70.2</a>
+</h1><a id="user-content-3-rclone-v1702" class="anchor" aria-label="Permalink: 3. rclone v1.70.2" href="#3-rclone-v1702"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files</p>
+<p>rclone v1.70.2版本发布。完整变更内容详见更新日志。</p>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/langgenius/dify/releases/tag/1.5.0">dify 1.5.0</a>
+</h1><a id="user-content-4-dify-150" class="anchor" aria-label="Permalink: 4. dify 1.5.0" href="#4-dify-150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-ready platform for agentic workflow development.</p>
+<p>Dify v1.5.0 主要更新内容：</p>
+<p>核心功能：</p>
+<ol>
+<li>全新工作流调试工具：改进可视化界面，支持持久化调试变量，增强与仪表板集成，可直接跟踪工作流运行状态</li>
+</ol>
+<p>新特性：</p>
 <ul>
 <li>支持拖拽DSL文件创建应用</li>
 <li>增强默认模板，包含sys.files支持</li>
-<li>新增隐藏表单属性功能</li>
+<li>新增表单隐藏属性功能</li>
 <li>集成MatrixOne向量数据库</li>
-<li>增强Firecrawl深度搜索</li>
-<li>新增Notion数据分页功能</li>
-<li>集成SendGrid邮件服务</li>
+<li>强化Firecrawl深度搜索功能</li>
+<li>Notion数据提取支持分页</li>
+<li>新增SendGrid邮件集成</li>
 </ul>
 <p>优化与修复：</p>
 <ul>
 <li>智能登录重定向</li>
-<li>环境变量自动同步</li>
-<li>API用户体验改进</li>
+<li>导入时自动同步环境变量</li>
+<li>改进API用户体验（加载状态、图标支持等）</li>
 <li>响应式图表优化</li>
-<li>Markdown处理稳定性提升</li>
-<li>应用图标选择器UI优化</li>
-<li>数据集信息快速访问</li>
+<li>增强Markdown处理稳定性</li>
+<li>应用图标选择器UI改进</li>
+<li>工作流中快速查看数据集信息</li>
 </ul>
 <p>升级指南：</p>
-<ul>
-<li>Docker部署：备份数据→获取最新代码→停止服务→升级</li>
-<li>源码部署：停止服务→获取1.5.0分支代码→更新依赖→运行迁移脚本→重启服务</li>
-</ul>
-<p>变更内容：
-包含210多项功能改进和问题修复，涉及工作流调试、数据集管理、API优化等多个方面，新增对MatrixOne数据库和SendGrid的支持。</p>
-<p>新增贡献者：
-本次版本共有16位新开发者参与贡献，涉及调试工具、数据库集成等多个功能模块。</p>
-<p>完整变更日志可查看官方GitHub仓库1.4.3到1.5.0版本的比较。</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.6">cherry-studio v1.4.6</a>
-</h1><a id="user-content-2-cherry-studio-v146" class="anchor" aria-label="Permalink: 2. cherry-studio v1.4.6" href="#2-cherry-studio-v146"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.
-本次更新主要包含功能优化和错误修复：</p>
 <ol>
-<li>功能新增：</li>
+<li>Docker部署：备份数据→拉取代码→停止服务→执行升级</li>
+<li>源码部署：停止服务→切换分支→更新依赖→运行迁移→重启服务</li>
 </ol>
+<p>其他改进：</p>
 <ul>
-<li>文件存储支持.doc格式</li>
-<li>允许删除非活跃主题</li>
-<li>MCP服务器新增思维字段</li>
-<li>上下文菜单增加拼写检查和词典建议</li>
-<li>实现Python MCP服务器</li>
-<li>支持自定义npm注册地址</li>
-<li>新增应用代码功能</li>
-<li>优化UI界面和消息滚动条</li>
-<li>实现早期访问功能开关</li>
+<li>新增15位贡献者</li>
+<li>修复超过100个问题</li>
+<li>包含多项性能优化和稳定性提升</li>
 </ul>
-<ol start="2">
-<li>错误修复：</li>
-</ol>
-<ul>
-<li>修复API检查参数问题</li>
-<li>修复主题重命名功能</li>
-<li>改进LaTeX括号处理</li>
-<li>修复知识库时间戳显示</li>
-<li>修复流输出问题</li>
-<li>改进数据配置</li>
-<li>修复模型参数问题</li>
-<li>解决请求维度问题</li>
-</ul>
-<ol start="3">
-<li>代码重构：</li>
-</ol>
-<ul>
-<li>文件操作重构为服务</li>
-<li>重命名变量保持一致性</li>
-<li>代码预览自动调整边距</li>
-<li>数据迁移逻辑重构</li>
-<li>改进代码块处理算法</li>
-</ul>
-<ol start="4">
-<li>新增贡献者：</li>
-</ol>
-<ul>
-<li>@Ying-xi</li>
-<li>@silenceboychen</li>
-</ul>
-<p>版本从v1.4.5升级到v1.4.6，包含多项功能增强和稳定性改进。</p>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.11">mihomo v1.19.11</a>
-</h1><a id="user-content-3-mihomo-v11911" class="anchor" aria-label="Permalink: 3. mihomo v1.19.11" href="#3-mihomo-v11911"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.
-本次更新主要包含功能新增、BUG修复和代码维护三方面内容：</p>
+<p>该版本重点提升工作流调试能力和系统集成性，同时优化了多项用户体验。</p>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.11">mihomo v1.19.11</a>
+</h1><a id="user-content-5-mihomo-v11911" class="anchor" aria-label="Permalink: 5. mihomo v1.19.11" href="#5-mihomo-v11911"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
+<p>本次更新主要包含以下内容：</p>
 <p>功能新增：</p>
 <ol>
-<li>DNS客户端新增支持disable-ipv4/ipv6、skip-cert-verify、ecs和ecs-override参数</li>
-<li>转换器新增支持anytls/socks/http协议</li>
-<li>tun模式新增loopback-address支持</li>
+<li>DNS客户端全面支持禁用IPv4/IPv6参数</li>
+<li>DNS客户端新增跳过证书验证参数</li>
+<li>转换器支持anytls/socks/http协议</li>
+<li>DNS客户端支持ECS和ECS覆盖参数</li>
+<li>为TUN添加环回地址支持</li>
 </ol>
-<p>安全更新（与v1.19.6~v1.19.10相同）：</p>
+<p>安全更新：</p>
 <ol>
-<li>配置文件路径限制在workdir内，可通过SAFE_PATHS环境变量添加安全路径</li>
-<li>RESTful API的/configs接口路径受限</li>
+<li>配置文件路径限制在工作目录内，可通过SAFE_PATHS环境变量扩展</li>
+<li>限制RESTful API中/configs的路径参数</li>
 <li>移除proxy-groups中的routing-mark和interface-name参数</li>
-<li>UDP解析逻辑调整</li>
+<li>UDP DNS解析延迟到连接阶段执行</li>
 </ol>
-<p>BUG修复：</p>
+<p>问题修复：</p>
 <ol>
-<li>修复chacha20计数器溢出、https转换、ssr解码等9个问题</li>
-<li>修正2022-blake3-chacha8-poly1305构造函数</li>
+<li>修复chacha20计数器溢出问题</li>
+<li>修复https转换问题</li>
+<li>修复2022-blake3-chacha8-poly1305构造器</li>
+<li>修复SSR URI解码问题</li>
+<li>修复字符串分割返回值检查错误</li>
+<li>修复远程目标解析等多项问题</li>
 </ol>
-<p>代码优化：</p>
+<p>维护优化：</p>
 <ol>
-<li>清理分配器代码，优化DNS响应写入方式</li>
-<li>新增速率限制支持，改进密码验证逻辑</li>
-<li>添加原子操作和YAML序列化支持</li>
-<li>新增SKIP_SYSTEM_IPV6_CHECK环境变量跳过IPv6检查</li>
+<li>清理分配器代码</li>
+<li>添加速率限制支持</li>
+<li>优化DNS响应写入方式</li>
+<li>允许通过环境变量跳过系统IPv6检查</li>
+<li>多项代码清理和优化工作</li>
 </ol>
-<p>注：workdir默认路径为Unix系统的$HOME/.config/mihomo或Windows的%USERPROFILE%/.config/mihomo</p>
+<p>注：工作目录默认路径为Unix系统的$HOME/.config/mihomo或Windows的%USERPROFILE%/.config/mihomo</p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/127.html" aria-label="Previous Page">127 我关注的项目这周更新了什么-2025-06-20</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">001 苹果CMS接口说明以及采集源搜索</a></div>
