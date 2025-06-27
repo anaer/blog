@@ -133,21 +133,54 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-25 23:12:02</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-27 15:43:41</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-27 15:46:32</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了三个软件版本：dify 1.5.0是一个用于代理工作流开发的生产就绪平台；cherry-studio v1.4.6是一个支持多个LLM提供商的桌面客户端；mihomo v1.19.11是一个用于从Mihomo API解析数据的简单Python Pydantic模型，专为Honkai: Star Rail设计。
+    <strong>AI总结:</strong> 本文介绍了Cherry Studio v1.4.6的更新，主要包括功能优化、问题修复和代码重构。功能优化方面，增加了对.doc文件的支持、删除非活跃主题的功能、MCP服务器的思考字段、拼写检查和字典建议、知识库更新时间戳显示、API密钥管理界面更新、Python MCP服务器实现、npm配置自定义注册地址支持以及早期访问功能开关。问题修复方面，解决了API检查参数错误、禁用主题重命名时的思考状态、Markdown中LaTeX括号处理、数据配置改进、非流式输出问题、搜索缓存清除、VLLM错误请求和代码编辑器保存问题。代码重构方面，重构了文件操作为FileAction服务、代码预览自动调整边栏、一致性重命名、数据迁移模态逻辑优化和消息滚动条样式优化。新增贡献者为@Ying-xi和@silenceboychen。此外，dify 1.5.0推出了一个生产就绪的平台用于代理工作流开发，而mihomo v1.19.11提供了一个简单的Python Pydantic模型，用于解析来自Mihomo API的Honkai: Star Rail数据。
 
-优化建议：可以考虑增加每个软件的主要功能和应用场景的详细描述，以帮助用户更好地理解其用途和优势。同时，提供下载链接和安装说明将提升用户体验。
+优化建议：在更新说明中，可以增加对每个新功能的具体应用场景和用户受益的描述，以便用户更好地理解更新的价值。同时，考虑将问题修复部分按严重性进行优先级排序，便于用户关注最重要的问题。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.5.0">dify 1.5.0</a>
-</h1><a id="user-content-1-dify-150" class="anchor" aria-label="Permalink: 1. dify 1.5.0" href="#1-dify-150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.6">cherry-studio v1.4.6</a>
+</h1><a id="user-content-1-cherry-studio-v146" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.6" href="#1-cherry-studio-v146"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.
+本次更新主要包含功能优化、问题修复和代码重构三个方面：</p>
+<p>功能优化：</p>
+<ol>
+<li>新增对.doc文件的处理支持</li>
+<li>允许删除非活跃主题</li>
+<li>新增MCP服务器的思考字段</li>
+<li>上下文菜单增加拼写检查和字典建议</li>
+<li>知识库显示更新时间戳</li>
+<li>更新API密钥管理界面</li>
+<li>实现Python MCP服务器</li>
+<li>支持npm配置自定义注册地址</li>
+<li>添加早期访问功能开关</li>
+</ol>
+<p>问题修复：</p>
+<ol>
+<li>修复API检查参数错误</li>
+<li>禁用主题重命名时的思考状态</li>
+<li>修复Markdown中LaTeX括号处理</li>
+<li>改进数据配置</li>
+<li>修复非流式输出问题</li>
+<li>清除搜索缓存</li>
+<li>修复VLLM错误请求</li>
+<li>修复代码编辑器保存问题</li>
+</ol>
+<p>代码重构：</p>
+<ol>
+<li>文件操作重构为FileAction服务</li>
+<li>代码预览自动调整边栏</li>
+<li>重命名isWindows为isWin保持一致性</li>
+<li>重构数据迁移模态逻辑</li>
+<li>优化消息滚动条样式</li>
+</ol>
+<p>新增贡献者：@Ying-xi和@silenceboychen</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.5.0">dify 1.5.0</a>
+</h1><a id="user-content-2-dify-150" class="anchor" aria-label="Permalink: 2. dify 1.5.0" href="#2-dify-150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.6">cherry-studio v1.4.6</a>
-</h1><a id="user-content-2-cherry-studio-v146" class="anchor" aria-label="Permalink: 2. cherry-studio v1.4.6" href="#2-cherry-studio-v146"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
 <div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.11">mihomo v1.19.11</a>
 </h1><a id="user-content-3-mihomo-v11911" class="anchor" aria-label="Permalink: 3. mihomo v1.19.11" href="#3-mihomo-v11911"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
