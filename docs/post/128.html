@@ -133,179 +133,192 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-25 23:12:02</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-28 23:10:26</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-29 12:28:44</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新内容，包括Cherry Studio v1.4.6、mihomo v1.19.11、rclone v1.70.2、maple-font v7.4和dify v1.5.0。这些更新主要涉及功能优化、问题修复和代码重构，涵盖文件处理、UI优化、API改进、字体特性调整和工作流开发工具等方面。每个软件的更新都包含新的功能、解决的Bug和代码维护，部分软件还新增了贡献者。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新日志，包括Maple-font v7.4、Cherry Studio v1.4.7、CloudflareSpeedTest v2.3.0、Mihomo v1.19.11、Rclone v1.70.2和Dify v1.5.0。每个软件的更新内容涵盖了新功能、问题修复和优化改进，强调了用户体验和安全性提升。
 
-优化建议：建议在更新说明中提供更详细的使用场景或示例，以便用户更好地理解新功能的应用。同时，可以考虑将更新内容按重要性或用户影响程度进行排序，突出关键改进。
+优化建议：
+1. 对于每个软件的更新，可以提供更详细的使用场景或实际应用示例，以便用户更好地理解新功能的价值。
+2. 增加更新内容的对比表，帮助用户快速识别新旧版本之间的主要差异。
+3. 在下载说明中，增加安装和使用的简要指南，降低用户上手难度。
+4. 考虑将更新内容按重要性排序，突出关键改动，便于用户快速获取信息。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.6">cherry-studio v1.4.6</a>
-</h1><a id="user-content-1-cherry-studio-v146" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.6" href="#1-cherry-studio-v146"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/subframe7536/maple-font/releases/tag/v7.4">maple-font v7.4</a>
+</h1><a id="user-content-1-maple-font-v74" class="anchor" aria-label="Permalink: 1. maple-font v7.4" href="#1-maple-font-v74"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Maple Mono: Open source monospace font with round corner, ligatures and Nerd-Font icons for IDE and terminal, fine-grained customization options. 带连字和控制台图标的圆角等宽字体，中英文宽度完美2:1，细粒度的自定义选项</p>
+<p>Maple 字体更新日志 v7.4</p>
+<p>主要变更：</p>
+<ol>
+<li>默认禁用无限连字功能（如 ====&gt;），可通过 --keep-infinite-arrow 标志自定义构建启用</li>
+<li>修复无限箭头连字问题 #510</li>
+<li>重新设计数字6/9以修复字体提示问题 #518</li>
+<li>增加更多货币符号支持 #533</li>
+<li>添加更多西里尔字母 #532</li>
+<li>支持在 config.json 中自定义 ttfautohint 参数 #518</li>
+<li>新增禁用标签连字选项 #528</li>
+<li>修复变量子族名称问题 #163</li>
+<li>升级 foundrytools-cli@2</li>
+</ol>
+<p>下载说明：</p>
+<ul>
+<li>如需类似 JetBrains Mono 的字体，请下载"Normal-Ligature"或"Normal-No-Ligature"版本</li>
+<li>提供懒人包下载链接</li>
+<li>提供多种格式下载（Variable/TTF/OTF/WOFF2）</li>
+<li>包含四种版本：默认连字版、无连字版、标准连字版、标准无连字版</li>
+<li>每种版本又细分为：常规版、CN版、NF版、NF-CN版</li>
+<li>大部分版本提供常规版和经过hint处理的版本</li>
+</ul>
+<p>中英文下载指南链接已提供，用户可根据需要选择合适版本。</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.7">cherry-studio v1.4.7</a>
+</h1><a id="user-content-2-cherry-studio-v147" class="anchor" aria-label="Permalink: 2. cherry-studio v1.4.7" href="#2-cherry-studio-v147"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
-<p>本次更新主要包含功能优化、问题修复和代码重构三个方面：</p>
-<p>功能优化方面：</p>
+<p>本次更新主要包含以下内容：</p>
+<p>功能改进：</p>
 <ol>
-<li>新增支持.doc文件处理能力</li>
-<li>允许删除非活跃主题</li>
-<li>为MCP服务器添加思考字段</li>
-<li>上下文菜单增加拼写检查和字典建议功能</li>
-<li>实现Python MCP服务器</li>
-<li>增强大文件处理能力</li>
-<li>新增应用代码功能</li>
-<li>改进API密钥管理界面</li>
-</ol>
-<p>问题修复方面：</p>
-<ol>
-<li>修复主题重命名时的思考状态问题</li>
-<li>改进Markdown中LaTeX括号处理</li>
-<li>修复知识库时间戳显示问题</li>
-<li>解决流输出异常问题</li>
-<li>修复嵌入模型请求维度问题</li>
-<li>优化消息滚动条样式</li>
-<li>改进代码编辑器保存功能</li>
-</ol>
-<p>代码重构方面：</p>
-<ol>
-<li>重构文件操作服务</li>
-<li>优化代码预览自动调整</li>
-<li>重命名isWindows为isWin保持一致性</li>
-<li>重构数据迁移模态逻辑</li>
-<li>改进GeminiAPI客户端消息处理</li>
-</ol>
-<p>新增两位贡献者：@Ying-xi和@silenceboychen。本次更新共包含40多项改进和修复，涵盖文件处理、UI优化、API改进等多个方面。</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.11">mihomo v1.19.11</a>
-</h1><a id="user-content-2-mihomo-v11911" class="anchor" aria-label="Permalink: 2. mihomo v1.19.11" href="#2-mihomo-v11911"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
-<p>本次更新主要包含功能新增、问题修复和代码维护三方面内容：</p>
-<p>功能新增：</p>
-<ol>
-<li>DNS客户端新增支持<code>disable-ipv4</code>、<code>disable-ipv6</code>、<code>skip-cert-verify</code>、<code>ecs</code>和<code>ecs-override</code>参数</li>
-<li>转换器新增支持anytls/socks/http协议</li>
-<li>为tun添加<code>loopback-address</code>支持</li>
-</ol>
-<p>不兼容变更：</p>
-<ol>
-<li>配置文件中的路径限制在workdir内，可通过<code>SAFE_PATHS</code>环境变量添加额外安全路径</li>
-<li>移除<code>proxy-groups</code>中指定<code>routing-mark</code>和<code>interface-name</code>的功能</li>
-<li>调整UDP DNS解析逻辑，延迟到连接发起阶段执行</li>
+<li>新增支持外部网络搜索的RAG功能，并优化反馈机制</li>
+<li>提高网络搜索结果的上限</li>
+<li>为迷你应用增加拼写检查支持</li>
+<li>新增对qwen-plus和qwen-turbo推理模型的检测</li>
 </ol>
 <p>问题修复：</p>
 <ol>
-<li>修复chacha20计数器溢出等加密相关问题</li>
-<li>修复SSR URI解码错误</li>
-<li>修复字符串分割返回值检查等代码逻辑问题</li>
-<li>修复v2ray-plugin mux可能不关闭底层连接等问题</li>
+<li>修复Selector组件选择问题</li>
+<li>解决模型名称大小写敏感问题</li>
+<li>修复Markdown和LaTeX中转义括号的处理</li>
+<li>修复TEI重新排序器问题</li>
+<li>移除FileStorage中冗余的WordExtractor导入</li>
+<li>更新Doubao模型的正则表达式模式并增强功能检查</li>
+<li>修复迁移过程中的状态处理和升级通道设置</li>
 </ol>
-<p>代码维护：</p>
+<p>代码优化：</p>
+<ol>
+<li>增加CSS编辑器高度，修复EditMcpJsonPopup</li>
+<li>将CodePreview的行号显示改为元素形式</li>
+<li>调整Menubar多选图标</li>
+<li>重构ContentSearch使用CSS高亮API</li>
+</ol>
+<p>文档更新：</p>
+<ol>
+<li>添加README的20种语言链接</li>
+</ol>
+<p>新增贡献者：
+@shps951023首次参与贡献</p>
+<p>版本更新范围：v1.4.6到v1.4.7</p>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.0">CloudflareSpeedTest v2.3.0</a>
+</h1><a id="user-content-3-cloudflarespeedtest-v230" class="anchor" aria-label="Permalink: 3. CloudflareSpeedTest v2.3.0" href="#3-cloudflarespeedtest-v230"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 网站 IP ~</p>
+<p>CloudflareSpeedTest v2.3.0 更新内容：</p>
+<ol>
+<li>新增支持显示地区码（机场三字码），适用于Cloudflare和AWS CloudFront，获取失败显示为N/A</li>
+<li>新增调试模式参数-debug，帮助排查下载速度为0的问题</li>
+<li>新增彩色输出功能</li>
+<li>调整未找到符合条件IP时的处理逻辑，统一为仅在调试模式下输出全部结果</li>
+<li>优化其他细节改进</li>
+</ol>
+<p>下载地址：</p>
+<ul>
+<li>国内用户推荐蓝奏云：<a href="https://xiu.lanzoub.com/b0742hkxe" rel="nofollow">https://xiu.lanzoub.com/b0742hkxe</a>
+</li>
+<li>提供多平台版本：MacOS（amd64/arm64）、Linux（x86/ARM/Mips等架构）、Windows（386/amd64/arm64）</li>
+</ul>
+<p>注意事项：</p>
+<ol>
+<li>路由器用户需根据CPU架构选择对应版本</li>
+<li>Android手机多为ARM架构，需区分32/64位</li>
+<li>MacOS用户需通过命令行运行</li>
+<li>各版本详细对应关系见完整更新说明</li>
+</ol>
+<p>开发者提示：</p>
+<ol>
+<li>欢迎测试新版本并反馈BUG</li>
+<li>对颜色方案和地区码占位符可提出改进建议</li>
+<li>特别关注ARM架构版本的正确选择</li>
+</ol>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.11">mihomo v1.19.11</a>
+</h1><a id="user-content-4-mihomo-v11911" class="anchor" aria-label="Permalink: 4. mihomo v1.19.11" href="#4-mihomo-v11911"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.</p>
+<p>本次更新主要包含以下内容：</p>
+<p>新功能：</p>
+<ol>
+<li>DNS客户端新增支持<code>disable-ipv4</code>、<code>disable-ipv6</code>、<code>skip-cert-verify</code>、<code>ecs</code>和<code>ecs-override</code>参数</li>
+<li>转换器新增支持anytls/socks/http协议</li>
+<li>为tun模式新增<code>loopback-address</code>支持</li>
+</ol>
+<p>安全更新：</p>
+<ol>
+<li>配置文件中的所有路径将被限制在工作目录内（可通过<code>SAFE_PATHS</code>环境变量添加额外安全路径）</li>
+<li>移除<code>proxy-groups</code>中的<code>routing-mark</code>和<code>interface-name</code>参数支持</li>
+<li>UDP部分的DNS解析延迟到连接发起阶段执行</li>
+</ol>
+<p>BUG修复：</p>
+<ol>
+<li>修复chacha20计数器溢出问题</li>
+<li>修复<code>2022-blake3-chacha8-poly1305</code>构造器错误</li>
+<li>修复SSR URI解码问题</li>
+<li>修复字符串分割返回值检查错误</li>
+<li>修复v2ray-plugin多路复用可能不关闭底层连接的问题</li>
+</ol>
+<p>维护改进：</p>
 <ol>
 <li>优化分配器代码</li>
-<li>添加速率限制支持</li>
-<li>改进DNS响应写入方式</li>
-<li>允许tun通过环境变量跳过系统IPv6检查</li>
+<li>为Reality监听器添加速率限制支持</li>
+<li>允许无密码Socks5入站连接</li>
+<li>添加原子操作相关工具</li>
+<li>允许通过环境变量<code>SKIP_SYSTEM_IPV6_CHECK</code>跳过系统IPv6检查</li>
 </ol>
-<p>完整变更请参考版本对比链接。</p>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/rclone/rclone/releases/tag/v1.70.2">rclone v1.70.2</a>
-</h1><a id="user-content-3-rclone-v1702" class="anchor" aria-label="Permalink: 3. rclone v1.70.2" href="#3-rclone-v1702"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>工作目录默认位置：</p>
+<ul>
+<li>Unix系统：<code>$HOME/.config/mihomo</code>
+</li>
+<li>Windows系统：<code>%USERPROFILE%/.config/mihomo</code>
+</li>
+</ul>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/rclone/rclone/releases/tag/v1.70.2">rclone v1.70.2</a>
+</h1><a id="user-content-5-rclone-v1702" class="anchor" aria-label="Permalink: 5. rclone v1.70.2" href="#5-rclone-v1702"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files</p>
-<p>rclone v1.70.2版本发布。完整更新内容详见项目变更日志。</p>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/subframe7536/maple-font/releases/tag/v7.4">maple-font v7.4</a>
-</h1><a id="user-content-4-maple-font-v74" class="anchor" aria-label="Permalink: 4. maple-font v7.4" href="#4-maple-font-v74"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Maple Mono: Open source monospace font with round corner, ligatures and Nerd-Font icons for IDE and terminal, fine-grained customization options. 带连字和控制台图标的圆角等宽字体，中英文宽度完美2:1，细粒度的自定义选项</p>
-<p>本次更新主要包含以下内容：</p>
-<ol>
-<li>功能调整：</li>
-</ol>
-<ul>
-<li>默认禁用无限连字功能（如<code>====&gt;</code>），可通过<code>--keep-infinite-arrow</code>参数自定义构建启用</li>
-<li>新增禁用标签连字选项</li>
-<li>支持在<code>--cn-scale-factor</code>中使用<code>scaleX</code>和<code>scaleY</code>参数</li>
-<li>禁止数字间的连字（如<code>1&gt;-1</code>）</li>
-</ul>
-<ol start="2">
-<li>问题修复：</li>
-</ol>
-<ul>
-<li>修复无限箭头连字问题</li>
-<li>重新设计数字6/9以解决字体提示问题</li>
-<li>修复箭头内部微小间隙</li>
-<li>修正变量字体的子家族名称</li>
-<li>改进无限箭头连字中的冒号显示</li>
-<li>优化Jinja模板中<code>{{-</code>的忽略规则</li>
-</ul>
-<ol start="3">
-<li>新增支持：</li>
-</ol>
-<ul>
-<li>增加更多货币符号</li>
-<li>在cv中添加更多西里尔字母</li>
-<li>支持在config.json中自定义ttfautohint参数</li>
-<li>检测CI中的use_font_patcher配置</li>
-</ul>
-<ol start="4">
-<li>下载选项：</li>
-</ol>
-<ul>
-<li>提供多种格式下载（Variable/TTF/OTF/WOFF2）</li>
-<li>包含四种版本：带连字版、无连字版、标准连字版、标准无连字版</li>
-<li>提供中文版（CN）、Nerd Font版（NF）及两者合并版（NF-CN）</li>
-<li>各版本均提供hinted和unhinted两种选择</li>
-</ul>
-<ol start="5">
-<li>推荐下载：</li>
-</ol>
-<ul>
-<li>如需类似JetBrains Mono的字体，建议选择"Normal-Ligature"或"Normal-No-Ligature"</li>
-<li>提供懒人包一键下载选项</li>
-</ul>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/langgenius/dify/releases/tag/1.5.0">dify 1.5.0</a>
-</h1><a id="user-content-5-dify-150" class="anchor" aria-label="Permalink: 5. dify 1.5.0" href="#5-dify-150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>rclone v1.70.2版本发布。完整变更内容详见官方更新日志。</p>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/langgenius/dify/releases/tag/1.5.0">dify 1.5.0</a>
+</h1><a id="user-content-6-dify-150" class="anchor" aria-label="Permalink: 6. dify 1.5.0" href="#6-dify-150"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
-<p>Dify v1.5.0 版本更新摘要：</p>
+<p>Dify v1.5.0版本主要更新内容包括：</p>
 <p>核心功能：</p>
 <ol>
-<li>全新工作流调试工具：可视化调试界面、持久化调试变量、改进的仪表板集成，支持直接跟踪工作流运行状态。</li>
-</ol>
-<p>新增功能：</p>
-<ul>
-<li>支持拖拽DSL文件创建应用</li>
-<li>增强默认模板（包含sys.files）</li>
+<li>全新工作流调试工具，支持可视化调试、持久化调试变量和仪表板集成</li>
+<li>新增拖拽DSL文件创建应用功能</li>
+<li>增强默认模板，包含sys.files支持</li>
 <li>新增隐藏表单属性功能</li>
 <li>集成MatrixOne向量数据库</li>
-<li>改进Firecrawl深度搜索</li>
+<li>增强Firecrawl深度搜索功能</li>
 <li>新增Notion数据分页功能</li>
 <li>集成SendGrid邮件服务</li>
-</ul>
-<p>优化改进：</p>
-<ul>
+</ol>
+<p>优化与修复：</p>
+<ol>
 <li>智能登录重定向</li>
 <li>环境变量自动同步</li>
-<li>API用户体验优化（加载状态、图标支持等）</li>
-<li>响应式图表改进</li>
-<li>更稳定的Markdown处理</li>
-<li>应用图标选择器UI优化</li>
+<li>API用户体验改进</li>
+<li>响应式图表优化</li>
+<li>Markdown处理稳定性增强</li>
+<li>应用图标选择器UI改进</li>
 <li>数据集信息快速访问</li>
-</ul>
+</ol>
 <p>升级指南：</p>
 <ul>
-<li>Docker部署：需备份数据，拉取最新代码后升级服务</li>
-<li>源码部署：需停止服务，更新代码和依赖后重新启动</li>
+<li>Docker部署：备份数据后拉取最新代码并重启服务</li>
+<li>源码部署：停止服务后更新代码和依赖，执行数据库迁移</li>
 </ul>
-<p>修复内容：</p>
-<ul>
-<li>修复登录循环问题</li>
-<li>修复数据集页面重定向问题</li>
-<li>修复工作流节点意外删除问题</li>
-<li>修复暗色主题显示问题</li>
-<li>修复Markdown链接导致的页面崩溃</li>
-<li>修复多线程工作流序号重复问题</li>
-<li>修复文档提取器错误</li>
-</ul>
-<p>新贡献者：
-本次更新有18位新开发者参与贡献，涉及功能开发、问题修复等多方面工作。</p>
-<p>完整更新包含超过100项改进和修复，详细变更请查看完整更新日志。</p>
+<p>其他改进：</p>
+<ol>
+<li>新增14位贡献者</li>
+<li>修复多个UI和功能问题</li>
+<li>增强插件管理</li>
+<li>改进文档和翻译</li>
+<li>优化工作流运行日志</li>
+</ol>
+<p>完整更新内容请查看项目Changelog。</p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/127.html" aria-label="Previous Page">127 我关注的项目这周更新了什么-2025-06-20</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">001 苹果CMS接口说明以及采集源搜索</a></div>
