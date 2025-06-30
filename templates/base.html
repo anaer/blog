@@ -11,7 +11,6 @@
     <link rel="icon" href="{{ blogBase['faviconUrl'] }}">
     {%- endif -%}
     <script src="{{ blogBase['homeUrl'] }}/assets/vercount.js"></script>
-    <script src="{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.js" data-cat="./assets/oneko.js/oneko.gif"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
@@ -43,6 +42,9 @@ body{
     <div id="header">{% block header %}{% endblock %}</div>
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">{% include 'footer.html' %}</div>
+
+    <!-- oneko.js中用到document.body, 需要在body块中加载 否则提示为null -->
+    <script src="{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.js" data-cat="./assets/oneko.js/oneko.gif"></script>
 </body>
 <script>
 var IconList={{ IconList }};
@@ -75,5 +77,6 @@ function utterancesTheme(theme){
 
 console.log("\n %c Gmeek {{ blogBase['GMEEK_VERSION'] }} %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
 </script>
+
 {% block script %}{% endblock %}
 </html>
