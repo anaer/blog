@@ -124,7 +124,9 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#0A7358">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#脚本">脚本</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#0A7358">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Python">Python</a></object>
         </span>
 </div>
@@ -133,12 +135,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23 11:26:12</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-30 17:02:21</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-30 17:20:15</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用pypinyin库来将中文字符转换为拼音，包括不同的拼音样式。用户可以通过安装pypinyin库并使用lazy_pinyin函数，结合不同的样式参数来获取拼音的多种表示形式。
+    <strong>AI总结:</strong> 本文介绍了如何使用pypinyin库来获取汉字的拼音，包括不同的拼音风格。用户可以通过安装pypinyin库，并使用lazy_pinyin函数来获取汉字的拼音，并根据不同的风格输出结果，风格包括普通风格、带声调的拼音、声母和韵母风格等。
 
-优化建议：在使用示例中，可以增加对每种样式的具体应用场景说明，以帮助用户更好地理解何时使用特定的拼音格式。同时，建议提供更多的示例词汇，以展示不同拼音样式的效果。
+优化建议：
+1. 在代码示例中添加注释，以便初学者理解每一行代码的作用。
+2. 提供更多示例，展示如何处理不同的汉字和组合，以增强实用性。
+3. 在描述风格时，增加对应的拼音示例，使读者更直观地理解每种风格的输出效果。
+4. 说明安装pypinyin库的环境要求，确保用户在正确的环境中操作。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -156,6 +162,7 @@ pre {
 <th>Style Name</th>
 <th>Style</th>
 <th>PinYin</th>
+<th>Remark</th>
 </tr>
 </thead>
 <tbody>
@@ -163,110 +170,94 @@ pre {
 <td>NORMAL</td>
 <td>0</td>
 <td>zhong guo</td>
+<td>普通风格，不带声调。</td>
 </tr>
 <tr>
 <td>TONE</td>
 <td>1</td>
 <td>zhōng guó</td>
+<td>标准声调风格，拼音声调在韵母第一个字母上（默认风格）。</td>
 </tr>
 <tr>
 <td>TONE2</td>
 <td>2</td>
 <td>zho1ng guo2</td>
+<td>声调风格2，即拼音声调在各个韵母之后，用数字 [1-4] 进行表示。</td>
 </tr>
 <tr>
 <td>TONE3</td>
 <td>8</td>
 <td>zhong1 guo2</td>
+<td>声调风格3，即拼音声调在各个拼音之后，用数字 [1-4] 进行表示。</td>
 </tr>
 <tr>
 <td>INITIALS</td>
 <td>3</td>
 <td>zh g</td>
+<td>声母风格，只返回各个拼音的声母部分。</td>
 </tr>
 <tr>
 <td>FIRST_LETTER</td>
 <td>4</td>
 <td>z g</td>
+<td>首字母风格，只返回拼音的首字母部分。</td>
 </tr>
 <tr>
 <td>FINALS</td>
 <td>5</td>
 <td>ong uo</td>
+<td>韵母风格，只返回各个拼音的韵母部分，不带声调。</td>
 </tr>
 <tr>
 <td>FINALS_TONE</td>
 <td>6</td>
 <td>ōng uó</td>
+<td>标准韵母风格，带声调，声调在韵母第一个字母上。</td>
 </tr>
 <tr>
 <td>FINALS_TONE2</td>
 <td>7</td>
 <td>o1ng uo2</td>
+<td>韵母风格2，带声调，声调在各个韵母之后，用数字 [1-4] 进行表示。</td>
 </tr>
 <tr>
 <td>FINALS_TONE3</td>
 <td>9</td>
 <td>ong1 uo2</td>
+<td>韵母风格3，带声调，声调在各个拼音之后，用数字 [1-4] 进行表示。</td>
 </tr>
 <tr>
 <td>BOPOMOFO</td>
 <td>10</td>
 <td>ㄓㄨㄥ ㄍㄨㄛˊ</td>
+<td>注音风格，仅首字母。</td>
 </tr>
 <tr>
 <td>BOPOMOFO_FIRST</td>
 <td>11</td>
 <td>ㄓ ㄍ</td>
+<td>注音风格，仅首字母。</td>
 </tr>
 <tr>
 <td>CYRILLIC</td>
 <td>12</td>
 <td>чжун1 го2</td>
+<td>汉语拼音与俄语字母对照风格，声调在各个拼音之后，用数字 [1-4] 进行表示。</td>
 </tr>
 <tr>
 <td>CYRILLIC_FIRST</td>
 <td>13</td>
 <td>ч г</td>
+<td>汉语拼音与俄语字母对照风格，仅首字母。</td>
 </tr>
 <tr>
 <td>WADEGILES</td>
 <td>14</td>
 <td>chung kuo</td>
+<td>威妥玛拼音/韦氏拼音/威式拼音风格，无声调。</td>
 </tr>
 </tbody>
 </table>
-<div class="markdown-heading"><h2 class="heading-element">样式</h2><a id="user-content-样式" class="anchor" aria-label="Permalink: 样式" href="#样式"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span>: 普通风格，不带声调。如： 中国 -&gt; ``zhong guo``</span>
-NORMAL  =  0
-<span class="pl-c"><span class="pl-c">#</span>: 标准声调风格，拼音声调在韵母第一个字母上（默认风格）。如： 中国 -&gt; ``zhōng guó``</span>
-TONE  =  1
-<span class="pl-c"><span class="pl-c">#</span>: 声调风格2，即拼音声调在各个韵母之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``zho1ng guo2``</span>
-TONE2  =  2
-<span class="pl-c"><span class="pl-c">#</span>: 声调风格3，即拼音声调在各个拼音之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``zhong1 guo2``</span>
-TONE3  =  8
-<span class="pl-c"><span class="pl-c">#</span>: 声母风格，只返回各个拼音的声母部分。如： 中国 -&gt; ``zh g``</span>
-INITIALS  =  3
-<span class="pl-c"><span class="pl-c">#</span>: 首字母风格，只返回拼音的首字母部分。如： 中国 -&gt; ``z g``</span>
-FIRST_LETTER  =  4
-<span class="pl-c"><span class="pl-c">#</span>: 韵母风格，只返回各个拼音的韵母部分，不带声调。如： 中国 -&gt; ``ong uo``</span>
-FINALS  =  5
-<span class="pl-c"><span class="pl-c">#</span>: 标准韵母风格，带声调，声调在韵母第一个字母上。如：中国 -&gt; ``ōng uó``</span>
-FINALS_TONE  =  6
-<span class="pl-c"><span class="pl-c">#</span>: 韵母风格2，带声调，声调在各个韵母之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``o1ng uo2``</span>
-FINALS_TONE2  =  7
-<span class="pl-c"><span class="pl-c">#</span>: 韵母风格3，带声调，声调在各个拼音之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``ong1 uo2``</span>
-FINALS_TONE3  =  9
-<span class="pl-c"><span class="pl-c">#</span>: 注音风格，带声调，阴平（第一声）不标。如： 中国 -&gt; ``ㄓㄨㄥ ㄍㄨㄛˊ``</span>
-BOPOMOFO  =  10
-<span class="pl-c"><span class="pl-c">#</span>: 注音风格，仅首字母。如： 中国 -&gt; ``ㄓ ㄍ``</span>
-BOPOMOFO_FIRST  =  11
-<span class="pl-c"><span class="pl-c">#</span>: 汉语拼音与俄语字母对照风格，声调在各个拼音之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``чжун1 го2``</span>
-CYRILLIC  =  12
-<span class="pl-c"><span class="pl-c">#</span>: 汉语拼音与俄语字母对照风格，仅首字母。如： 中国 -&gt; ``ч г``</span>
-CYRILLIC_FIRST  =  13
-<span class="pl-c"><span class="pl-c">#</span>: 威妥玛拼音/韦氏拼音/威式拼音风格，无声调 如： 中国 -&gt; ``chung kuo``</span>
-WADEGILES = 14</pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/60.html" aria-label="Previous Page">060 pm2常用命令</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/62.html" aria-label="Next Page">062 CIDR表示法</a></div>

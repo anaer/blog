@@ -12,6 +12,7 @@
 <th>Style Name</th>
 <th>Style</th>
 <th>PinYin</th>
+<th>Remark</th>
 </tr>
 </thead>
 <tbody>
@@ -19,107 +20,91 @@
 <td>NORMAL</td>
 <td>0</td>
 <td>zhong guo</td>
+<td>普通风格，不带声调。</td>
 </tr>
 <tr>
 <td>TONE</td>
 <td>1</td>
 <td>zhōng guó</td>
+<td>标准声调风格，拼音声调在韵母第一个字母上（默认风格）。</td>
 </tr>
 <tr>
 <td>TONE2</td>
 <td>2</td>
 <td>zho1ng guo2</td>
+<td>声调风格2，即拼音声调在各个韵母之后，用数字 [1-4] 进行表示。</td>
 </tr>
 <tr>
 <td>TONE3</td>
 <td>8</td>
 <td>zhong1 guo2</td>
+<td>声调风格3，即拼音声调在各个拼音之后，用数字 [1-4] 进行表示。</td>
 </tr>
 <tr>
 <td>INITIALS</td>
 <td>3</td>
 <td>zh g</td>
+<td>声母风格，只返回各个拼音的声母部分。</td>
 </tr>
 <tr>
 <td>FIRST_LETTER</td>
 <td>4</td>
 <td>z g</td>
+<td>首字母风格，只返回拼音的首字母部分。</td>
 </tr>
 <tr>
 <td>FINALS</td>
 <td>5</td>
 <td>ong uo</td>
+<td>韵母风格，只返回各个拼音的韵母部分，不带声调。</td>
 </tr>
 <tr>
 <td>FINALS_TONE</td>
 <td>6</td>
 <td>ōng uó</td>
+<td>标准韵母风格，带声调，声调在韵母第一个字母上。</td>
 </tr>
 <tr>
 <td>FINALS_TONE2</td>
 <td>7</td>
 <td>o1ng uo2</td>
+<td>韵母风格2，带声调，声调在各个韵母之后，用数字 [1-4] 进行表示。</td>
 </tr>
 <tr>
 <td>FINALS_TONE3</td>
 <td>9</td>
 <td>ong1 uo2</td>
+<td>韵母风格3，带声调，声调在各个拼音之后，用数字 [1-4] 进行表示。</td>
 </tr>
 <tr>
 <td>BOPOMOFO</td>
 <td>10</td>
 <td>ㄓㄨㄥ ㄍㄨㄛˊ</td>
+<td>注音风格，仅首字母。</td>
 </tr>
 <tr>
 <td>BOPOMOFO_FIRST</td>
 <td>11</td>
 <td>ㄓ ㄍ</td>
+<td>注音风格，仅首字母。</td>
 </tr>
 <tr>
 <td>CYRILLIC</td>
 <td>12</td>
 <td>чжун1 го2</td>
+<td>汉语拼音与俄语字母对照风格，声调在各个拼音之后，用数字 [1-4] 进行表示。</td>
 </tr>
 <tr>
 <td>CYRILLIC_FIRST</td>
 <td>13</td>
 <td>ч г</td>
+<td>汉语拼音与俄语字母对照风格，仅首字母。</td>
 </tr>
 <tr>
 <td>WADEGILES</td>
 <td>14</td>
 <td>chung kuo</td>
+<td>威妥玛拼音/韦氏拼音/威式拼音风格，无声调。</td>
 </tr>
 </tbody>
 </table>
-<div class="markdown-heading"><h2 class="heading-element">样式</h2><a id="user-content-样式" class="anchor" aria-label="Permalink: 样式" href="#样式"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span>: 普通风格，不带声调。如： 中国 -&gt; ``zhong guo``</span>
-NORMAL  =  0
-<span class="pl-c"><span class="pl-c">#</span>: 标准声调风格，拼音声调在韵母第一个字母上（默认风格）。如： 中国 -&gt; ``zhōng guó``</span>
-TONE  =  1
-<span class="pl-c"><span class="pl-c">#</span>: 声调风格2，即拼音声调在各个韵母之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``zho1ng guo2``</span>
-TONE2  =  2
-<span class="pl-c"><span class="pl-c">#</span>: 声调风格3，即拼音声调在各个拼音之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``zhong1 guo2``</span>
-TONE3  =  8
-<span class="pl-c"><span class="pl-c">#</span>: 声母风格，只返回各个拼音的声母部分。如： 中国 -&gt; ``zh g``</span>
-INITIALS  =  3
-<span class="pl-c"><span class="pl-c">#</span>: 首字母风格，只返回拼音的首字母部分。如： 中国 -&gt; ``z g``</span>
-FIRST_LETTER  =  4
-<span class="pl-c"><span class="pl-c">#</span>: 韵母风格，只返回各个拼音的韵母部分，不带声调。如： 中国 -&gt; ``ong uo``</span>
-FINALS  =  5
-<span class="pl-c"><span class="pl-c">#</span>: 标准韵母风格，带声调，声调在韵母第一个字母上。如：中国 -&gt; ``ōng uó``</span>
-FINALS_TONE  =  6
-<span class="pl-c"><span class="pl-c">#</span>: 韵母风格2，带声调，声调在各个韵母之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``o1ng uo2``</span>
-FINALS_TONE2  =  7
-<span class="pl-c"><span class="pl-c">#</span>: 韵母风格3，带声调，声调在各个拼音之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``ong1 uo2``</span>
-FINALS_TONE3  =  9
-<span class="pl-c"><span class="pl-c">#</span>: 注音风格，带声调，阴平（第一声）不标。如： 中国 -&gt; ``ㄓㄨㄥ ㄍㄨㄛˊ``</span>
-BOPOMOFO  =  10
-<span class="pl-c"><span class="pl-c">#</span>: 注音风格，仅首字母。如： 中国 -&gt; ``ㄓ ㄍ``</span>
-BOPOMOFO_FIRST  =  11
-<span class="pl-c"><span class="pl-c">#</span>: 汉语拼音与俄语字母对照风格，声调在各个拼音之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``чжун1 го2``</span>
-CYRILLIC  =  12
-<span class="pl-c"><span class="pl-c">#</span>: 汉语拼音与俄语字母对照风格，仅首字母。如： 中国 -&gt; ``ч г``</span>
-CYRILLIC_FIRST  =  13
-<span class="pl-c"><span class="pl-c">#</span>: 威妥玛拼音/韦氏拼音/威式拼音风格，无声调 如： 中国 -&gt; ``chung kuo``</span>
-WADEGILES = 14</pre></div>
