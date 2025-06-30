@@ -44,7 +44,7 @@ body{
     <div id="footer">{% include 'footer.html' %}</div>
 
     <!-- oneko.js中用到document.body, 需要在body块中加载 否则提示为null -->
-    <script src="{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.js" data-cat="/assets/oneko.js/oneko.gif"></script>
+    <script src="{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.js" data-cat="{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.gif"></script>
 </body>
 <script>
 var IconList={{ IconList }};
