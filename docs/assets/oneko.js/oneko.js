@@ -101,7 +101,13 @@
     if (curScript && curScript.dataset.cat) {
       nekoFile = curScript.dataset.cat
     }
-    nekoEl.style.backgroundImage = `url(${nekoFile})`;
+
+    // 判断nekoFile是否http链接
+    if (!nekoFile.startsWith('http')) {
+      nekoEl.style.backgroundImage = `url(${nekoFile})`;
+    } else {
+      nekoEl.style.backgroundImage = `${nekoFile}`;
+    }
 
     document.body.appendChild(nekoEl);
 
