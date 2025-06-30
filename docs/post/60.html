@@ -126,6 +126,8 @@ pre {
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#8740A6">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#服务">服务</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
         </span>
 </div>
 <br>
@@ -133,12 +135,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-22 16:36:09</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-19 13:25:53</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-30 16:41:06</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了使用PM2进行应用程序管理的基本命令，包括启动、查看、监控、日志管理、停止、重载、重启、删除应用以及其他功能的使用。还介绍了如何配置pm2.json文件和使用pm2-logrotate模块进行日志切割。
+    <strong>AI总结:</strong> 本文介绍了PM2的基本操作，包括启动、查看进程、监控、日志管理、停止、重载、重启、删除应用以及其他功能的使用方法。此外，还介绍了如何配置pm2.json文件和使用pm2-logrotate进行日志切割。
 
-优化建议：可以考虑将命令分组以提高可读性，例如将启动、停止、重启等命令按功能分类，并添加简要说明。同时，可以增加示例以帮助用户更好地理解每个命令的用法。
+优化建议：
+1. 在启动应用时，建议详细说明各个参数的用途，以便用户更好地理解。
+2. 增加示例说明，展示如何使用pm2.json文件进行配置，便于用户快速上手。
+3. 提供常见问题解答，帮助用户解决使用PM2时可能遇到的困惑。
+4. 对于日志管理部分，建议加入如何查看日志的最佳实践，以便用户有效地监控应用状态。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -195,20 +201,20 @@ $ pm2 uninstall pm2-logrotate       # Uninstall module
 $ pm2 publish                       # Increment version, git push and npm publish
 </code></pre>
 <div class="markdown-heading"><h2 class="heading-element">pm2.json</h2><a id="user-content-pm2json" class="anchor" aria-label="Permalink: pm2.json" href="#pm2json"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-json"><pre>{
-  <span class="pl-ent">"apps"</span>: [
+<div class="highlight highlight-source-json-comments"><pre>{
+  <span class="pl-s">"apps"</span>: [
     {
-      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>名称<span class="pl-pds">"</span></span>,
-      <span class="pl-ent">"script"</span>: <span class="pl-s"><span class="pl-pds">"</span>脚本名.py<span class="pl-pds">"</span></span>,
-      <span class="pl-ent">"instances"</span>: <span class="pl-c1">1</span>,
-      <span class="pl-ent">"interpreter"</span>: <span class="pl-s"><span class="pl-pds">"</span>./.venv/bin/python<span class="pl-pds">"</span></span>,
-      <span class="pl-ent">"autorestart"</span>: <span class="pl-c1">true</span>,
-      <span class="pl-ent">"watch"</span>: [<span class="pl-s"><span class="pl-pds">"</span>main.py<span class="pl-pds">"</span></span>],  <span class="pl-ii"># 监听文件变更</span>
-      <span class="pl-ent">"cron_restart"</span>: <span class="pl-s"><span class="pl-pds">"</span>0 0 * * *<span class="pl-pds">"</span></span>, <span class="pl-ii"># 每天0点 定时重启</span>
-      <span class="pl-ent">"merge_logs"</span>: <span class="pl-c1">false</span>,   <span class="pl-ii"># 是否合并文件, false时 按pm2 id拆分日志文件, 如error_1.log</span>
-      <span class="pl-ent">"log_date_format"</span>: <span class="pl-s"><span class="pl-pds">"</span>YYYY-MM-DD HH:mm Z<span class="pl-pds">"</span></span>, <span class="pl-ii"># 日志日期格式</span>
-      <span class="pl-ent">"error_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/error.log<span class="pl-pds">"</span></span>, <span class="pl-ii"># 错误日志文件</span>
-      <span class="pl-ent">"out_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/output.log<span class="pl-pds">"</span></span> <span class="pl-ii"># 日志文件  当error_file和out_file配置一样时, 可输出到同一个文件</span>
+      <span class="pl-s">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>名称<span class="pl-pds">"</span></span>,
+      <span class="pl-s">"script"</span>: <span class="pl-s"><span class="pl-pds">"</span>脚本名.py<span class="pl-pds">"</span></span>,
+      <span class="pl-s">"instances"</span>: <span class="pl-c1">1</span>,
+      <span class="pl-s">"interpreter"</span>: <span class="pl-s"><span class="pl-pds">"</span>./.venv/bin/python<span class="pl-pds">"</span></span>,
+      <span class="pl-s">"autorestart"</span>: <span class="pl-c1">true</span>,
+      <span class="pl-s">"watch"</span>: [<span class="pl-s"><span class="pl-pds">"</span>main.py<span class="pl-pds">"</span></span>],  <span class="pl-ii">#</span> <span class="pl-ii">监听文件变更</span>
+      <span class="pl-s">"cron_restart"</span>: <span class="pl-s"><span class="pl-pds">"</span>0 0 * * *<span class="pl-pds">"</span></span>, <span class="pl-ii">#</span> <span class="pl-ii">每天0点</span> <span class="pl-ii">定时重启</span>
+      <span class="pl-s">"merge_logs"</span>: <span class="pl-c1">false</span>,   <span class="pl-ii">#</span> <span class="pl-ii">是否合并文件,</span> <span class="pl-ii">false时</span> <span class="pl-ii">按pm2</span> <span class="pl-ii">id拆分日志文件,</span> <span class="pl-ii">如error_1.log</span>
+      <span class="pl-s">"log_date_format"</span>: <span class="pl-s"><span class="pl-pds">"</span>YYYY-MM-DD HH:mm Z<span class="pl-pds">"</span></span>, <span class="pl-ii">#</span> <span class="pl-ii">日志日期格式</span>
+      <span class="pl-s">"error_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/error.log<span class="pl-pds">"</span></span>, <span class="pl-ii">#</span> <span class="pl-ii">错误日志文件</span>
+      <span class="pl-s">"out_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/output.log<span class="pl-pds">"</span></span> <span class="pl-ii">#</span> <span class="pl-ii">日志文件</span>  <span class="pl-ii">当error_file和out_file配置一样时</span>, <span class="pl-ii">可输出到同一个文件</span>
     }
   ]
 }</pre></div>
@@ -229,7 +235,7 @@ pm2 <span class="pl-c1">set</span> pm2-logrotate:rotateInterval <span class="pl-
 </ol>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/61.html" aria-label="Previous Page">061 pypinyin用法</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/59.html" aria-label="Next Page">059 Wireshark抓包https配置</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/59.html" aria-label="Previous Page">059 Wireshark抓包https配置</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/61.html" aria-label="Next Page">061 pypinyin用法</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

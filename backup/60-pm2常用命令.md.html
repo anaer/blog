@@ -51,20 +51,20 @@ $ pm2 uninstall pm2-logrotate       # Uninstall module
 $ pm2 publish                       # Increment version, git push and npm publish
 </code></pre>
 <div class="markdown-heading"><h2 class="heading-element">pm2.json</h2><a id="user-content-pm2json" class="anchor" aria-label="Permalink: pm2.json" href="#pm2json"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-json"><pre>{
-  <span class="pl-ent">"apps"</span>: [
+<div class="highlight highlight-source-json-comments"><pre>{
+  <span class="pl-s">"apps"</span>: [
     {
-      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>名称<span class="pl-pds">"</span></span>,
-      <span class="pl-ent">"script"</span>: <span class="pl-s"><span class="pl-pds">"</span>脚本名.py<span class="pl-pds">"</span></span>,
-      <span class="pl-ent">"instances"</span>: <span class="pl-c1">1</span>,
-      <span class="pl-ent">"interpreter"</span>: <span class="pl-s"><span class="pl-pds">"</span>./.venv/bin/python<span class="pl-pds">"</span></span>,
-      <span class="pl-ent">"autorestart"</span>: <span class="pl-c1">true</span>,
-      <span class="pl-ent">"watch"</span>: [<span class="pl-s"><span class="pl-pds">"</span>main.py<span class="pl-pds">"</span></span>],  <span class="pl-ii"># 监听文件变更</span>
-      <span class="pl-ent">"cron_restart"</span>: <span class="pl-s"><span class="pl-pds">"</span>0 0 * * *<span class="pl-pds">"</span></span>, <span class="pl-ii"># 每天0点 定时重启</span>
-      <span class="pl-ent">"merge_logs"</span>: <span class="pl-c1">false</span>,   <span class="pl-ii"># 是否合并文件, false时 按pm2 id拆分日志文件, 如error_1.log</span>
-      <span class="pl-ent">"log_date_format"</span>: <span class="pl-s"><span class="pl-pds">"</span>YYYY-MM-DD HH:mm Z<span class="pl-pds">"</span></span>, <span class="pl-ii"># 日志日期格式</span>
-      <span class="pl-ent">"error_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/error.log<span class="pl-pds">"</span></span>, <span class="pl-ii"># 错误日志文件</span>
-      <span class="pl-ent">"out_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/output.log<span class="pl-pds">"</span></span> <span class="pl-ii"># 日志文件  当error_file和out_file配置一样时, 可输出到同一个文件</span>
+      <span class="pl-s">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>名称<span class="pl-pds">"</span></span>,
+      <span class="pl-s">"script"</span>: <span class="pl-s"><span class="pl-pds">"</span>脚本名.py<span class="pl-pds">"</span></span>,
+      <span class="pl-s">"instances"</span>: <span class="pl-c1">1</span>,
+      <span class="pl-s">"interpreter"</span>: <span class="pl-s"><span class="pl-pds">"</span>./.venv/bin/python<span class="pl-pds">"</span></span>,
+      <span class="pl-s">"autorestart"</span>: <span class="pl-c1">true</span>,
+      <span class="pl-s">"watch"</span>: [<span class="pl-s"><span class="pl-pds">"</span>main.py<span class="pl-pds">"</span></span>],  <span class="pl-ii">#</span> <span class="pl-ii">监听文件变更</span>
+      <span class="pl-s">"cron_restart"</span>: <span class="pl-s"><span class="pl-pds">"</span>0 0 * * *<span class="pl-pds">"</span></span>, <span class="pl-ii">#</span> <span class="pl-ii">每天0点</span> <span class="pl-ii">定时重启</span>
+      <span class="pl-s">"merge_logs"</span>: <span class="pl-c1">false</span>,   <span class="pl-ii">#</span> <span class="pl-ii">是否合并文件,</span> <span class="pl-ii">false时</span> <span class="pl-ii">按pm2</span> <span class="pl-ii">id拆分日志文件,</span> <span class="pl-ii">如error_1.log</span>
+      <span class="pl-s">"log_date_format"</span>: <span class="pl-s"><span class="pl-pds">"</span>YYYY-MM-DD HH:mm Z<span class="pl-pds">"</span></span>, <span class="pl-ii">#</span> <span class="pl-ii">日志日期格式</span>
+      <span class="pl-s">"error_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/error.log<span class="pl-pds">"</span></span>, <span class="pl-ii">#</span> <span class="pl-ii">错误日志文件</span>
+      <span class="pl-s">"out_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/output.log<span class="pl-pds">"</span></span> <span class="pl-ii">#</span> <span class="pl-ii">日志文件</span>  <span class="pl-ii">当error_file和out_file配置一样时</span>, <span class="pl-ii">可输出到同一个文件</span>
     }
   ]
 }</pre></div>
