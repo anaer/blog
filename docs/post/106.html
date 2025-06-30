@@ -135,26 +135,100 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-09 14:42:54</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了一个配置文件的部分内容，其中包含一个模型的相关信息，包括模型标题、名称、API基础地址、上下文长度和提供者。该模型被标识为“Pro/Qwen/Qwen2.5-Coder-7B-Instruct”，其上下文长度为32000。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-30 16:35:31</time></span>
 
-优化建议：确保API基础地址是有效的，并考虑将模型配置的其他参数（如版本、用途等）添加以增强文档的完整性和可理解性。同时，建议提供关于“siliconflow”提供者的更多背景信息，以便用户更好地了解模型来源。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了一个配置文件，包含多个部分，包括自动补全模型、不同的模型设置、自定义命令、上下文提供者以及斜杠命令。每个模型和命令都有相应的标题、模型名称、API基础地址、上下文长度和提供者信息，提供了丰富的功能以支持代码测试和版本控制等。
+
+优化建议：
+1. 确保API基础地址的可访问性，避免因网络问题导致功能失效。
+2. 考虑增加对模型的版本控制，以便于管理不同版本的模型。
+3. 对自定义命令的描述进行更详细的说明，以便用户更好地理解其用途。
+4. 在上下文提供者中加入更多参数选项，以增强灵活性和适应性。
+5. 定期更新和维护配置文件，确保它始终与最新的需求和技术相匹配。
 </div>
 
 <div class="markdown-body" id="postBody">
-<p>.continue/config.json</p>
-<div class="highlight highlight-source-json"><pre>  <span class="pl-ent">"models"</span>: [
+<p>C:\Users\Administrator.continue\config.json</p>
+<div class="highlight highlight-source-json"><pre>{
+  <span class="pl-ent">"tabAutocompleteModel"</span>: {
+    <span class="pl-ent">"title"</span>: <span class="pl-s"><span class="pl-pds">"</span>Pro/Qwen/Qwen2.5-Coder-7B-Instruct | ME<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"model"</span>: <span class="pl-s"><span class="pl-pds">"</span>Pro/Qwen/Qwen2.5-Coder-7B-Instruct<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"apiBase"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://myecs/v1/<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"contextLength"</span>: <span class="pl-c1">32000</span>,
+    <span class="pl-ent">"provider"</span>: <span class="pl-s"><span class="pl-pds">"</span>siliconflow<span class="pl-pds">"</span></span>
+  },
+  <span class="pl-ent">"models"</span>: [
     {
-      <span class="pl-ent">"title"</span>: <span class="pl-s"><span class="pl-pds">"</span>Pro/Qwen/Qwen2.5-Coder-7B-Instruct | ME<span class="pl-pds">"</span></span>,
-      <span class="pl-ent">"model"</span>: <span class="pl-s"><span class="pl-pds">"</span>Pro/Qwen/Qwen2.5-Coder-7B-Instruct<span class="pl-pds">"</span></span>,
-      <span class="pl-ent">"apiBase"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://xx.xx.xx.xx/v1/<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"title"</span>: <span class="pl-s"><span class="pl-pds">"</span>Qwen/Qwen2.5-Coder-32B-Instruct | ME<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"model"</span>: <span class="pl-s"><span class="pl-pds">"</span>Qwen/Qwen2.5-Coder-32B-Instruct<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"apiBase"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://myecs/v1/<span class="pl-pds">"</span></span>,
       <span class="pl-ent">"contextLength"</span>: <span class="pl-c1">32000</span>,
       <span class="pl-ent">"provider"</span>: <span class="pl-s"><span class="pl-pds">"</span>siliconflow<span class="pl-pds">"</span></span>
     },
-  ],</pre></div>
+    {
+      <span class="pl-ent">"title"</span>: <span class="pl-s"><span class="pl-pds">"</span>deepseek-ai/DeepSeek-R1 | ME<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"model"</span>: <span class="pl-s"><span class="pl-pds">"</span>deepseek-ai/DeepSeek-R1<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"apiBase"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://myecs/v1/<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"contextLength"</span>: <span class="pl-c1">32000</span>,
+      <span class="pl-ent">"provider"</span>: <span class="pl-s"><span class="pl-pds">"</span>siliconflow<span class="pl-pds">"</span></span>
+    }
+  ],
+  <span class="pl-ent">"customCommands"</span>: [
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"prompt"</span>: <span class="pl-s"><span class="pl-pds">"</span>{{{ input }}}<span class="pl-cce">\n\n</span>Write a comprehensive set of unit tests for the selected code. It should setup, run tests that check for correctness including important edge cases, and teardown. Ensure that the tests are complete and sophisticated. Give the tests just as chat output, don't edit any file.<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"description"</span>: <span class="pl-s"><span class="pl-pds">"</span>Write unit tests for highlighted code<span class="pl-pds">"</span></span>
+    }
+  ],
+  <span class="pl-ent">"contextProviders"</span>: [
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>code<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>docs<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>diff<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>terminal<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>problems<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>folder<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>codebase<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    }
+  ],
+  <span class="pl-ent">"slashCommands"</span>: [
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>share<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"description"</span>: <span class="pl-s"><span class="pl-pds">"</span>Export the current chat session to markdown<span class="pl-pds">"</span></span>
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>cmd<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"description"</span>: <span class="pl-s"><span class="pl-pds">"</span>Generate a shell command<span class="pl-pds">"</span></span>
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>commit<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"description"</span>: <span class="pl-s"><span class="pl-pds">"</span>Generate a git commit message<span class="pl-pds">"</span></span>
+    }
+  ]
+}</pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/107.html" aria-label="Previous Page">107 Rest Client使用记录</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/102.html" aria-label="Next Page">102 Mintty默认配置</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/104.html" aria-label="Previous Page">104 我关注的项目这周更新了什么-2025-04-11</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/107.html" aria-label="Next Page">107 Rest Client使用记录</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

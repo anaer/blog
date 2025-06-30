@@ -1,10 +1,77 @@
-<p>.continue/config.json</p>
-<div class="highlight highlight-source-json"><pre>  <span class="pl-ent">"models"</span>: [
+<p>C:\Users\Administrator.continue\config.json</p>
+<div class="highlight highlight-source-json"><pre>{
+  <span class="pl-ent">"tabAutocompleteModel"</span>: {
+    <span class="pl-ent">"title"</span>: <span class="pl-s"><span class="pl-pds">"</span>Pro/Qwen/Qwen2.5-Coder-7B-Instruct | ME<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"model"</span>: <span class="pl-s"><span class="pl-pds">"</span>Pro/Qwen/Qwen2.5-Coder-7B-Instruct<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"apiBase"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://myecs/v1/<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"contextLength"</span>: <span class="pl-c1">32000</span>,
+    <span class="pl-ent">"provider"</span>: <span class="pl-s"><span class="pl-pds">"</span>siliconflow<span class="pl-pds">"</span></span>
+  },
+  <span class="pl-ent">"models"</span>: [
     {
-      <span class="pl-ent">"title"</span>: <span class="pl-s"><span class="pl-pds">"</span>Pro/Qwen/Qwen2.5-Coder-7B-Instruct | ME<span class="pl-pds">"</span></span>,
-      <span class="pl-ent">"model"</span>: <span class="pl-s"><span class="pl-pds">"</span>Pro/Qwen/Qwen2.5-Coder-7B-Instruct<span class="pl-pds">"</span></span>,
-      <span class="pl-ent">"apiBase"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://xx.xx.xx.xx/v1/<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"title"</span>: <span class="pl-s"><span class="pl-pds">"</span>Qwen/Qwen2.5-Coder-32B-Instruct | ME<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"model"</span>: <span class="pl-s"><span class="pl-pds">"</span>Qwen/Qwen2.5-Coder-32B-Instruct<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"apiBase"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://myecs/v1/<span class="pl-pds">"</span></span>,
       <span class="pl-ent">"contextLength"</span>: <span class="pl-c1">32000</span>,
       <span class="pl-ent">"provider"</span>: <span class="pl-s"><span class="pl-pds">"</span>siliconflow<span class="pl-pds">"</span></span>
     },
-  ],</pre></div>
+    {
+      <span class="pl-ent">"title"</span>: <span class="pl-s"><span class="pl-pds">"</span>deepseek-ai/DeepSeek-R1 | ME<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"model"</span>: <span class="pl-s"><span class="pl-pds">"</span>deepseek-ai/DeepSeek-R1<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"apiBase"</span>: <span class="pl-s"><span class="pl-pds">"</span>http://myecs/v1/<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"contextLength"</span>: <span class="pl-c1">32000</span>,
+      <span class="pl-ent">"provider"</span>: <span class="pl-s"><span class="pl-pds">"</span>siliconflow<span class="pl-pds">"</span></span>
+    }
+  ],
+  <span class="pl-ent">"customCommands"</span>: [
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"prompt"</span>: <span class="pl-s"><span class="pl-pds">"</span>{{{ input }}}<span class="pl-cce">\n\n</span>Write a comprehensive set of unit tests for the selected code. It should setup, run tests that check for correctness including important edge cases, and teardown. Ensure that the tests are complete and sophisticated. Give the tests just as chat output, don't edit any file.<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"description"</span>: <span class="pl-s"><span class="pl-pds">"</span>Write unit tests for highlighted code<span class="pl-pds">"</span></span>
+    }
+  ],
+  <span class="pl-ent">"contextProviders"</span>: [
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>code<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>docs<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>diff<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>terminal<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>problems<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>folder<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>codebase<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"params"</span>: {}
+    }
+  ],
+  <span class="pl-ent">"slashCommands"</span>: [
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>share<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"description"</span>: <span class="pl-s"><span class="pl-pds">"</span>Export the current chat session to markdown<span class="pl-pds">"</span></span>
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>cmd<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"description"</span>: <span class="pl-s"><span class="pl-pds">"</span>Generate a shell command<span class="pl-pds">"</span></span>
+    },
+    {
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>commit<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"description"</span>: <span class="pl-s"><span class="pl-pds">"</span>Generate a git commit message<span class="pl-pds">"</span></span>
+    }
+  ]
+}</pre></div>
