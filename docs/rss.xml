@@ -1,63 +1,48 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 30 Jun 2025 01:50:22 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 30 Jun 2025 01:50:22 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>128 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了多个软件的最新版本更新，包括Cherry Studio v1.4.7、dify v1.5.0、maple-font v7.4、CloudflareSpeedTest v2.3.0、mihomo v1.19.11和rclone v1.70.2。每个软件的更新内容涵盖了问题修复、功能改进、代码重构和新增特性等方面，旨在提升用户体验和软件性能。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 30 Jun 2025 06:45:34 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 30 Jun 2025 06:45:34 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>128 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了多个软件的最新版本更新，包括Cherry Studio v1.4.7、dify v1.5.0、maple-font v7.4、CloudflareSpeedTest v2.3.0、mihomo v1.19.11和rclone v1.70.2。每个软件的更新内容涵盖了问题修复、功能改进、代码重构和新增特性等方面，旨在提升用户体验和软件性能。
 
-优化建议：在更新说明中，可以考虑加入具体的用户反馈机制和更新后的使用效果评估，以便更好地指导用户进行版本升级。同时，提供更为详细的安装和使用指南，帮助用户快速上手新功能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/128.html</guid><pubDate>Wed, 25 Jun 2025 15:12:02 +0000</pubDate></item><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了多个软件的更新和改进，包括Cherry Studio、Clash Verge Rev、Subs Check、Dify、Higress、Rclone和Toaster。每个软件的更新内容涵盖了新功能、修复问题和优化改进，旨在提升用户体验和系统稳定性。
+优化建议：在更新说明中，可以考虑加入具体的用户反馈机制和更新后的使用效果评估，以便更好地指导用户进行版本升级。同时，提供更为详细的安装和使用指南，帮助用户快速上手新功能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/128.html</guid><pubDate>Wed, 25 Jun 2025 15:12:02 +0000</pubDate></item><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了多个软件版本更新的详细信息，包括Cherry Studio v1.4.5、clash-verge-rev v2.3.1、subs-check v2.3.2、dify v1.4.3、higress v2.1.5-rc.1、rclone v1.70.1和Toaster 13.0。每个版本的变更说明涵盖了新功能、修复的错误、优化改进及新贡献者的介绍，强调了对用户体验和系统稳定性的提升。
 
-优化建议：
-1. 在发布说明中提供更详细的用户指南，以帮助用户快速了解新功能的使用方法。
-2. 增加版本更新的背景信息，帮助用户理解更新的重要性和必要性。
-3. 对于修复的问题，提供具体的案例或场景，以便用户更好地理解问题的影响。
-4. 考虑增加用户反馈渠道，以便收集用户对新版本的意见和建议。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/127.html</guid><pubDate>Mon, 16 Jun 2025 04:23:32 +0000</pubDate></item><item><title>126 glibc2.18安装</title><link>https://anaer.github.io/blog/post/126.html</link><description>本文介绍了在安装Doris Manager时遇到glibc版本不足的错误，并提供了手动编译和安装glibc 2.18的步骤。然而，手动升级glibc可能会导致服务器崩溃，进而需要重新部署。 
+优化建议：在总结时，可以更明确地突出每个软件的核心功能和主要修复，以便用户快速了解更新的重要性。同时，建议提供每个软件的下载链接或获取方式，提升用户的便利性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/127.html</guid><pubDate>Mon, 16 Jun 2025 04:23:32 +0000</pubDate></item><item><title>126 glibc2.18安装</title><link>https://anaer.github.io/blog/post/126.html</link><description>本文介绍了在安装Doris Manager时遇到glibc版本不足的错误，并提供了手动编译和安装glibc 2.18的步骤。然而，手动升级glibc可能会导致服务器崩溃，进而需要重新部署。 
 
-优化建议：建议使用系统包管理工具安装glibc的更新版本，避免手动编译和安装带来的风险。同时，可以考虑使用容器化技术隔离依赖，减少系统级别的干扰。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/126.html</guid><pubDate>Thu, 12 Jun 2025 02:18:54 +0000</pubDate></item><item><title>125 我关注的项目这周更新了什么-2025-06-13</title><link>https://anaer.github.io/blog/post/125.html</link><description>本文介绍了多个软件版本更新的变更说明，包括Cherry Studio、Higress、Dify、Subs-check、Fit-framework和Latest等。Cherry Studio v1.4.2引入了多项新功能和修复，改善了用户界面和文件管理。Higress v2.1.4增强了AI代理功能，支持多种图像生成和API认证。Dify v1.4.2提升了文档处理和用户体验，修复了多个bug。Subs-check v2.3.1优化了节点重命名逻辑，并增加了可配置的成功率参数。Fit-framework elsa-v0.2.0引入了并行节点特性和UI优化。Latest 0.11则提供了应用更新检查的新功能和多项修复。
-
-优化建议：为每个软件的更新内容提供更详细的分类和背景信息，以帮助用户更好地理解每项新功能的实际应用场景。同时，建议在发布说明中增加示例或使用案例，以便用户更直观地掌握新功能的使用方法。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/125.html</guid><pubDate>Tue, 10 Jun 2025 15:11:32 +0000</pubDate></item><item><title>124 我关注的项目这周更新了什么-2025-06-06</title><link>https://anaer.github.io/blog/post/124.html</link><description>本文介绍了多个软件的更新，包括Cherry Studio v1.4.1、xpipe 16.6、Sa-Token v1.44.0、YuyanIme v20250606.09、anx-reader v1.6.0、weasel 0.17.4和subs-check v2.2.8。每个软件更新中包含了修复的bug、新增的功能以及优化的性能，旨在提升用户体验和软件的稳定性。
-
-优化建议：在更新说明中增加每个软件的主要功能介绍，以帮助用户快速了解软件的核心用途和新特性。同时，建议将每个版本的变更按功能分类，以便用户更容易找到相关信息。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/124.html</guid><pubDate>Mon, 02 Jun 2025 15:11:48 +0000</pubDate></item><item><title>123 我关注的项目这周更新了什么-2025-05-30</title><link>https://anaer.github.io/blog/post/123.html</link><description>本文介绍了多个软件版本的更新，包括Maple-font、xpipe、Cherry Studio、IPTV API、Mihomo、LangBot、Subs-check和Bilibili的第三方Android TV应用。每个软件的更新内容涵盖了新增功能、修复bug、优化性能等方面。例如，Maple-font增加了对Nerd Font图标的支持，xpipe修复了VNC会话中的剪贴板问题，Cherry Studio引入了选择助手功能，IPTV API实现了定时更新功能，Mihomo进行了DNS解析优化，LangBot修复了bug并增加了事件日志功能，Subs-check更新了配置示例，Bilibili应用修复了视频播放问题。
+优化建议：建议使用系统包管理工具安装glibc的更新版本，避免手动编译和安装带来的风险。同时，可以考虑使用容器化技术隔离依赖，减少系统级别的干扰。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/126.html</guid><pubDate>Thu, 12 Jun 2025 02:18:54 +0000</pubDate></item><item><title>125 我关注的项目这周更新了什么-2025-06-13</title><link>https://anaer.github.io/blog/post/125.html</link><description>本文介绍了多个软件版本的更新，包括Cherry Studio、Higress、Dify、Subs-Check、FIT Framework和Latest。每个软件的更新内容涉及功能增强、bug修复和用户体验改进。例如，Cherry Studio增加了多语言支持和文件管理优化；Higress增强了AI代理功能并修复了配置问题；Dify提高了文档提取效率并优化了用户界面；Subs-Check改进了节点重命名逻辑；FIT Framework引入了并行节点特性和UI优化；Latest应用则增加了自定义位置检查和界面修复。
 
 优化建议：
-1. 在发布更新时，提供更详细的功能说明和使用指南，以便用户更好地理解新特性。
-2. 统一版本更新的格式，确保每个软件的更新说明结构一致，便于用户快速查找所需信息。
-3. 考虑增加用户反馈渠道，收集用户体验和建议，进一步改善软件功能和性能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/123.html</guid><pubDate>Mon, 26 May 2025 15:10:48 +0000</pubDate></item><item><title>122 blog相关</title><link>https://anaer.github.io/blog/post/122.html</link><description>本文介绍了在GitHub上设置AI总结所需的变量信息，包括API_URL、API_KEY和API_MODEL，并强调了API_KEY的创建步骤和Models权限的设置。未设置正确权限会导致访问错误。
+1. 在更新说明中，使用更统一的格式来提升可读性，例如统一使用“新增”、“修复”、“优化”等关键词。
+2. 对于每个软件的更新，提供具体的使用场景或示例，以便用户更好地理解新功能的应用。
+3. 考虑添加用户反馈部分，收集用户对新功能的看法，帮助进一步优化软件。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/125.html</guid><pubDate>Tue, 10 Jun 2025 15:11:32 +0000</pubDate></item><item><title>124 我关注的项目这周更新了什么-2025-06-06</title><link>https://anaer.github.io/blog/post/124.html</link><description>本文介绍了多个软件版本的更新，包括Cherry Studio、xpipe、Sa-Token、YuyanIme、anx-reader、weasel和subs-check。主要变更涉及功能优化、错误修复及新特性添加。例如，Cherry Studio引入了多项修复和新功能，如改进的模型排序和多语言支持；xpipe增强了通知管理；Sa-Token修复了SSO相关问题并新增OAuth2支持；YuyanIme优化了拼音输入体验；anx-reader增加了书签管理功能；weasel修复了用户目录路径问题；subs-check进行了工具优化和版本更新。
+
+优化建议：在后续更新中，建议增加详细的功能演示或使用案例，以帮助用户更好地理解新功能的应用。同时，可以考虑提供更直观的更新日志格式，便于用户快速获取关键信息。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/124.html</guid><pubDate>Mon, 02 Jun 2025 15:11:48 +0000</pubDate></item><item><title>123 我关注的项目这周更新了什么-2025-05-30</title><link>https://anaer.github.io/blog/post/123.html</link><description>本文介绍了多个软件的更新内容，包括Maple-font、xpipe、Cherry Studio、IPTV API、Mihomo、LangBot、Subs-check和Bilibili Android TV应用等。每个软件的变更说明中提到了一些新功能、修复的bug、优化和其他改进。例如，Maple-font增加了细粒度的自定义选项和修复了多个字体相关问题；xpipe改进了VNC会话的剪贴板功能和错误处理；Cherry Studio增加了对多种LLM提供商的支持；IPTV API添加了定时更新功能；Mihomo优化了UDP部分的内存使用；LangBot修复了bug并新增了事件日志；Subs-check更新了配置示例和修复了认证中间件错误；Bilibili应用修复了部分视频播放问题。
+
+优化建议：
+1. 对每个软件的更新内容进行更详细的分类，比如将新功能、修复和优化分开列出，便于用户快速查找。
+2. 增加每个软件的使用场景或适用对象的说明，以帮助用户更好地理解软件的价值。
+3. 提供更新版本的下载链接或获取方式，方便用户直接获取最新版本。
+4. 考虑加入用户反馈或使用案例，以增强社区互动和软件的可用性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/123.html</guid><pubDate>Mon, 26 May 2025 15:10:48 +0000</pubDate></item><item><title>122 blog相关</title><link>https://anaer.github.io/blog/post/122.html</link><description>本文介绍了在GitHub上设置AI总结所需的变量信息，包括API_URL、API_KEY和API_MODEL，并强调了API_KEY的创建步骤和Models权限的设置。未设置正确权限会导致访问错误。
 
 优化建议：提供详细的步骤说明，确保用户能够顺利创建API_KEY并设置Models权限。同时，可以增加对错误信息的解释，以帮助用户理解如何解决问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/122.html</guid><pubDate>Fri, 23 May 2025 03:02:48 +0000</pubDate></item><item><title>121 Android TV软件</title><link>https://anaer.github.io/blog/post/121.html</link><description>本文介绍了几款适用于手机和电视的应用程序，包括HTV手机和电视直播软件、BV Bilibili解除国区封锁工具、TV Bro电视遥控优化浏览器、SmartTube Android电视和盒子专用的YouTube播放器，以及LocalSend本地网络文件和消息分享工具。
 
-优化建议：可以为每款应用提供更详细的功能介绍和使用场景，以帮助用户更好地理解应用的优势和适用性。同时，增加用户评价或使用反馈的部分，将有助于提升内容的可信度和实用性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/121.html</guid><pubDate>Thu, 22 May 2025 08:45:45 +0000</pubDate></item><item><title>120 我关注的项目这周更新了什么-2025-05-23</title><link>https://anaer.github.io/blog/post/120.html</link><description>本文介绍了多个软件更新的主要变更，包括Cherry Studio、DeepChat、Mihomo、PowerToys、新API、Xpipe、Anx-Reader、Subs-Check、LangBot、Alist、Weasel、LightBulb和Awesome-Mac等。各个软件的更新内容涉及功能增强、bug修复和用户体验优化，例如DeepChat引入多窗口和多标签功能，Anx-Reader支持AI翻译，PowerToys修复了管理权限问题，以及Mihomo的安全性改进等。
+优化建议：可以为每款应用提供更详细的功能介绍和使用场景，以帮助用户更好地理解应用的优势和适用性。同时，增加用户评价或使用反馈的部分，将有助于提升内容的可信度和实用性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/121.html</guid><pubDate>Thu, 22 May 2025 08:45:45 +0000</pubDate></item><item><title>120 我关注的项目这周更新了什么-2025-05-23</title><link>https://anaer.github.io/blog/post/120.html</link><description>本文介绍了多个软件及其更新内容，包括Cherry Studio、DeepChat、Mihomo、PowerToys、new-api、xpipe、anx-reader、subs-check、LangBot、alist、weasel、LightBulb和awesome-mac等。每个软件的更新内容涵盖了新功能、修复的bug以及优化的细节，强调了用户体验和安全性的重要性。
+
+优化建议：可以将每个软件的更新内容进行分类，例如按功能、修复和其他，以便用户更容易找到所需信息。此外，考虑提供每个软件的使用案例或场景，以帮助用户理解新功能的实际应用。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/120.html</guid><pubDate>Mon, 19 May 2025 04:19:22 +0000</pubDate></item><item><title>119 我关注的项目这周更新了什么-2025-05-16</title><link>https://anaer.github.io/blog/post/119.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/119.html</guid><pubDate>Mon, 12 May 2025 04:15:19 +0000</pubDate></item><item><title>118 我关注的项目这周更新了什么-2025-05-09</title><link>https://anaer.github.io/blog/post/118.html</link><description>本文介绍了多个软件版本的更新内容，包括Cherry Studio、DeepChat、anx-reader等。每个软件的更新包含了新特性、修复的错误以及性能优化等方面的改进。例如，Cherry Studio v1.3.0增加了对多种LLM提供者的支持，DeepChat v0.1.1优化了打包尺寸并修复了一些Bug，anx-reader v1.5.1则解决了E-ink模式下的上下文菜单可读性问题等。
 
 优化建议：
-1. 在更新说明中使用清晰的标题和小节，以便用户快速找到关键信息。
-2. 采用简洁的语言描述功能和修复，避免技术细节过于复杂。
-3. 提供示例或使用场景，帮助用户理解新功能的实际应用。
-4. 考虑增加用户反馈渠道，鼓励用户分享使用体验和建议。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/120.html</guid><pubDate>Mon, 19 May 2025 04:19:22 +0000</pubDate></item><item><title>119 我关注的项目这周更新了什么-2025-05-16</title><link>https://anaer.github.io/blog/post/119.html</link><description>1. cherry-studio v1.3.5
+1. 对每个软件的更新内容进行分类，明确区分新特性、修复和性能优化，以便用户快速找到所需信息。
+2. 在每个软件的变更说明中增加版本号和发布日期，以提高版本管理的清晰度。
+3. 提供用户反馈渠道，鼓励用户提交建议和Bug报告，形成良好的互动和迭代机制。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/118.html</guid><pubDate>Mon, 05 May 2025 04:14:47 +0000</pubDate></item><item><title>117 rclone</title><link>https://anaer.github.io/blog/post/117.html</link><description>本文介绍了与rclone相关的用户手册和命令索引，提供了使用rclone的必要信息和指引。
 
-🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.
+优化建议：可以增加对rclone功能和常见应用场景的简要说明，以帮助用户更好地理解和使用rclone。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/117.html</guid><pubDate>Wed, 30 Apr 2025 05:18:11 +0000</pubDate></item><item><title>116 我关注的项目这周更新了什么-2025-05-02</title><link>https://anaer.github.io/blog/post/116.html</link><description>本文介绍了多个软件的更新和功能增强，包括DeepChat、Cherry Studio、RIME-LMDG、Readest、new-api、xpipe、Ghosten-Player、WinMerge、LangBot、hp、QuickLook、mihomo、alist、maple-font、BongoCat、higress和subs-check等。每个软件的更新内容涵盖了新特性、修复的bug、性能优化和用户反馈的改进，旨在提升用户体验和软件的功能性。
 
-变更说明
-What's Changed
-
-fix: mcp params error(issues/6050)
-禁止“自定义CSS”输入框的拼写检查
-hotfix: openai websearch render and gemini think
-Hotfix/thinking time render
-fix: Update the state of the last message bl...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/119.html</guid><pubDate>Mon, 12 May 2025 04:15:19 +0000</pubDate></item><item><title>118 我关注的项目这周更新了什么-2025-05-09</title><link>https://anaer.github.io/blog/post/118.html</link><description>本文介绍了多个软件更新的变更说明，包括Cherry Studio、DeepChat、anx-reader、subs-check、new-api、xpipe、alist、mihomo、ublacklist、Ghosten-Player、higress、termora、TVBoxOSC和fit-framework等。每个软件的更新内容涵盖了新功能的添加、性能优化、bug修复以及其他改进，旨在提升用户体验和软件稳定性。
-
-优化建议：
-1. 对每个软件的更新内容进行分类，明确标识出新功能、修复的bug和性能优化，以便用户快速找到所需信息。
-2. 增加版本号和发布日期的清晰标注，方便用户了解更新的时效性。
-3. 提供用户反馈渠道，鼓励用户报告问题和提出建议，进一步完善软件。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/118.html</guid><pubDate>Mon, 05 May 2025 04:14:47 +0000</pubDate></item><item><title>117 rclone</title><link>https://anaer.github.io/blog/post/117.html</link><description>本文介绍了与rclone相关的用户手册和命令索引，提供了使用rclone的必要信息和指引。
-
-优化建议：可以增加对rclone功能和常见应用场景的简要说明，以帮助用户更好地理解和使用rclone。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/117.html</guid><pubDate>Wed, 30 Apr 2025 05:18:11 +0000</pubDate></item><item><title>116 我关注的项目这周更新了什么-2025-05-02</title><link>https://anaer.github.io/blog/post/116.html</link><description>本文介绍了多个软件和工具的最新版本更新，包括DeepChat、Cherry Studio、RIME-LMDG、Readest、new-api、xpipe、Ghosten-Player、WinMerge、LangBot、hp、QuickLook、mihomo、alist、maple-font、BongoCat、higress和subs-check等。这些更新涵盖了功能增强、bug修复、性能优化以及新特性的添加，旨在提升用户体验和软件性能。
-
-优化建议：对于每个软件的更新内容，可以进一步简化语言，突出关键变化，并在每个软件的描述中加入用户受益的具体示例，以便用户快速了解更新的重要性和使用价值。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/116.html</guid><pubDate>Mon, 28 Apr 2025 04:14:07 +0000</pubDate></item><item><title>115 minio mc安装配置</title><link>https://anaer.github.io/blog/post/115.html</link><description>本文介绍了使用Docker安装和配置MinIO的过程，包括创建数据目录、运行MinIO服务、配置MinIO客户端（mc）别名、同步数据，并提供了MinIO的各种命令及其功能说明。此外，还涵盖了MinIO防盗链、私有存储桶配置、同步脚本的编写及定时任务的设置。
+优化建议：在发布更新时，建议提供更详细的版本间比较，突出新特性和修复问题的影响，同时考虑增加用户反馈渠道，以便于收集更多用户体验信息以指导后续更新。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/116.html</guid><pubDate>Mon, 28 Apr 2025 04:14:07 +0000</pubDate></item><item><title>115 minio mc安装配置</title><link>https://anaer.github.io/blog/post/115.html</link><description>本文介绍了使用Docker安装和配置MinIO的过程，包括创建数据目录、运行MinIO服务、配置MinIO客户端（mc）别名、同步数据，并提供了MinIO的各种命令及其功能说明。此外，还涵盖了MinIO防盗链、私有存储桶配置、同步脚本的编写及定时任务的设置。
 
 优化建议：
 1. 在Docker命令中，考虑使用环境变量文件来管理敏感信息，如MINIO_ROOT_USER和MINIO_ROOT_PASSWORD，以提高安全性。
 2. 在脚本中添加日志记录功能，以便于后续的故障排查和监控。
 3. 对于crontab的配置，建议使用绝对路径，以避免因环境变量问题导致脚本无法执行。
 4. 考虑使用更详细的注释，帮助用户理解每个命令的功能和用途，尤其是对初学者。
-5. 在命令示例中，提供更多的上下文信息，帮助用户快速理解命令的实际应用场景。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/115.html</guid><pubDate>Sun, 27 Apr 2025 08:41:05 +0000</pubDate></item><item><title>114 我关注的项目这周更新了什么-2025-04-25</title><link>https://anaer.github.io/blog/post/114.html</link><description>本文介绍了多个软件版本的更新日志，包括Cherry Studio、ublacklist、LangBot、BongoCat、RIME-LMDG、servers、xpipe、winmerge、alist、QuickLook、new-api、bili-hardcore、mihomo、subs-check、readest、TVBoxOSC、transbridge和The Art of Problem-Solving in Software Engineering等。每个软件的更新内容包含了功能修复、性能优化、新增功能和改进等多个方面。
+5. 在命令示例中，提供更多的上下文信息，帮助用户快速理解命令的实际应用场景。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/115.html</guid><pubDate>Sun, 27 Apr 2025 08:41:05 +0000</pubDate></item><item><title>114 我关注的项目这周更新了什么-2025-04-25</title><link>https://anaer.github.io/blog/post/114.html</link><description>本文介绍了多个软件的更新日志，包括 Cherry Studio v1.2.9、ublacklist v8.10.2、LangBot v3.4.14.2、BongoCat v0.2.1、RIME-LMDG dict-nightly、servers v2025.4.24、xpipe v16.0、winmerge v2.16.48、alist beta、QuickLook、new-api v0.6.7.1、bili-hardcore v0.5.0、mihomo Prerelease-Alpha、subs-check v2.1.9-beta.3、readest v0.9.37、TVBoxOSC 20250425-1745、transbridge v0.0.2 以及《The Art of Problem-Solving in Software Engineering: How to Make MySQL Better》一书的发布。更新内容涵盖了bug修复、新功能添加、性能优化及翻译更新等。
 
-优化建议：在总结时，可以将相似功能的更新合并，提高信息的整合性与可读性；同时，考虑突出每个软件的主要创新点，以便用户快速了解各个软件的核心变化。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/114.html</guid><pubDate>Mon, 21 Apr 2025 15:10:45 +0000</pubDate></item><item><title>113 检测并取消设置 Git 仓库用户信息</title><link>https://anaer.github.io/blog/post/113.html</link><description>本文介绍了一个用于清理 Git 仓库中用户信息的工具，该工具通过递归查找指定目录下的所有 Git 仓库，并检查和取消设置每个仓库的用户配置（user.name 和 user.email）。它使用 argparse 处理命令行参数，并通过 subprocess 调用 Git 命令来执行相关操作。
+优化建议：建议对每个软件的更新内容进行更详细的分类，例如将功能增强、bug修复和性能改进分开列出，以便于用户快速查找所需信息。同时，可以考虑添加每个软件的下载链接和使用指南，以提高用户体验。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/114.html</guid><pubDate>Mon, 21 Apr 2025 15:10:45 +0000</pubDate></item><item><title>113 检测并取消设置 Git 仓库用户信息</title><link>https://anaer.github.io/blog/post/113.html</link><description>本文介绍了一个用于清理 Git 仓库中用户信息的工具，该工具通过递归查找指定目录下的所有 Git 仓库，并检查和取消设置每个仓库的用户配置（user.name 和 user.email）。它使用 argparse 处理命令行参数，并通过 subprocess 调用 Git 命令来执行相关操作。
 
 优化建议：
 1. 增加错误处理机制，确保在执行 Git 命令时能够捕获并处理所有可能的异常情况。
@@ -77,9 +62,9 @@ fix: Update the state of the last message bl...</description><guid isPermaLink="
 1. 在search函数中，确保完整传递所有必要的参数，以便服务端能够处理排序请求。
 2. 考虑增加错误处理机制，以应对服务端返回的异常情况。
 3. 可以添加加载指示器，以改善用户体验，提示用户正在进行数据加载。
-4. 使用更具描述性的变量名，以提高代码可读性和维护性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/111.html</guid><pubDate>Tue, 15 Apr 2025 02:24:31 +0000</pubDate></item><item><title>110 我关注的项目这周更新了什么-2025-04-18</title><link>https://anaer.github.io/blog/post/110.html</link><description>本文介绍了多个软件的更新变更说明，包括DeepChat、Cherry Studio、RIME-LMDG、TVBoxOSC、Termora、LangBot、subs-check、readest、higress、new-api、alist、mihomo、bili-hardcore及QuickLook等。主要更新内容涉及功能增强、bug修复、用户界面优化及新特性的添加，如DeepChat增加了字体大小调节能力，Cherry Studio支持多种LLM提供者，Termora支持设置背景图片等。
+4. 使用更具描述性的变量名，以提高代码可读性和维护性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/111.html</guid><pubDate>Tue, 15 Apr 2025 02:24:31 +0000</pubDate></item><item><title>110 我关注的项目这周更新了什么-2025-04-18</title><link>https://anaer.github.io/blog/post/110.html</link><description>本文介绍了多个软件的更新和变更说明，包括DeepChat、Cherry Studio、RIME-LMDG、TVBoxOSC、Termora、LangBot、subs-check、readest、higress、new-api、alist、mihomo、bili-hardcore和QuickLook等。这些更新涵盖了功能增强、问题修复、用户界面优化、新增支持的模型和工具等方面，旨在提升用户体验和软件性能。
 
-优化建议：在更新说明中，可以进一步简化和归类各软件的功能改进和修复内容，以便用户快速查找感兴趣的功能。同时，提供更详细的使用场景或案例可以帮助用户更好地理解更新的实际应用价值。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/110.html</guid><pubDate>Mon, 14 Apr 2025 04:12:55 +0000</pubDate></item><item><title>109 爱阅记听书配置</title><link>https://anaer.github.io/blog/post/109.html</link><description>本文介绍了在APP导出所有书籍时出现闪退导致配置丢失的问题，并记录了相关的设置步骤。具体的配置包括在设置中的听书选项下进行在线语音库管理，创建合成步骤并配置请求方式、HTTP头、地址及参数。
+优化建议：建议在更新说明中使用更明确的标题和小节来区分不同类型的更新（如新功能、修复和改进），并提供更详细的使用示例或说明，以帮助用户更好地理解和利用新功能。同时，确保更新内容的格式一致性，以提高可读性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/110.html</guid><pubDate>Mon, 14 Apr 2025 04:12:55 +0000</pubDate></item><item><title>109 爱阅记听书配置</title><link>https://anaer.github.io/blog/post/109.html</link><description>本文介绍了在APP导出所有书籍时出现闪退导致配置丢失的问题，并记录了相关的设置步骤。具体的配置包括在设置中的听书选项下进行在线语音库管理，创建合成步骤并配置请求方式、HTTP头、地址及参数。
 
 优化建议：建议在APP中增加自动保存配置的功能，以防止闪退导致的丢失。同时，可以提供错误日志记录功能，帮助用户追踪问题来源。此外，考虑在用户界面中增加提示，提醒用户在进行重要操作前备份配置。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/109.html</guid><pubDate>Mon, 14 Apr 2025 01:52:44 +0000</pubDate></item><item><title>108 uv管理Python虚拟环境</title><link>https://anaer.github.io/blog/post/108.html</link><description>本文介绍了如何使用 uv 命令行工具快速生成和管理 Python 项目，包括新项目的创建、现有项目的环境设置、依赖同步、依赖检测与升级、版本切换以及无用依赖的检测。具体步骤包括使用 uv init 命令初始化项目，创建虚拟环境，添加依赖，生成 requirements.txt 文件，检查和升级过时依赖，查看依赖树，切换 Python 版本，以及使用 deptry 工具检测无用依赖。
 
@@ -91,14 +76,9 @@ fix: Update the state of the last message bl...</description><guid isPermaLink="
 3. 在取消代理部分，建议提供更安全和可维护的方法，而不是直接修改扩展的代码。
 4. 提供对常见错误和解决方案的列表，帮助用户更快地排查问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/107.html</guid><pubDate>Thu, 10 Apr 2025 09:59:27 +0000</pubDate></item><item><title>106 VSCode Continue插件配置自定义模型</title><link>https://anaer.github.io/blog/post/106.html</link><description>本文介绍了一个配置文件的部分内容，其中包含一个模型的相关信息，包括模型标题、名称、API基础地址、上下文长度和提供者。该模型被标识为“Pro/Qwen/Qwen2.5-Coder-7B-Instruct”，其上下文长度为32000。
 
-优化建议：确保API基础地址是有效的，并考虑将模型配置的其他参数（如版本、用途等）添加以增强文档的完整性和可理解性。同时，建议提供关于“siliconflow”提供者的更多背景信息，以便用户更好地了解模型来源。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/106.html</guid><pubDate>Wed, 09 Apr 2025 06:42:54 +0000</pubDate></item><item><title>104 我关注的项目这周更新了什么-2025-04-11</title><link>https://anaer.github.io/blog/post/104.html</link><description>本文介绍了多个软件的更新和变更说明，包括Cherry Studio、Readest、subs-check、RIME-LMDG、DeepChat、docs、koreader、Ghosten-Player、PowerToys、mihomo、clash-verge-rev、Sa-Token、new-api、alist、termora、bili-hardcore、servers、TVBoxOSC、ollama_load_balancer和DeepLX等。每个软件的更新内容涵盖了功能增强、bug修复及性能改进等方面。
+优化建议：确保API基础地址是有效的，并考虑将模型配置的其他参数（如版本、用途等）添加以增强文档的完整性和可理解性。同时，建议提供关于“siliconflow”提供者的更多背景信息，以便用户更好地了解模型来源。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/106.html</guid><pubDate>Wed, 09 Apr 2025 06:42:54 +0000</pubDate></item><item><title>104 我关注的项目这周更新了什么-2025-04-11</title><link>https://anaer.github.io/blog/post/104.html</link><description>本文介绍了多个软件的最新版本更新，包括Cherry Studio、Readest、subs-check等，涵盖了修复bug、新增功能和性能优化等方面的改进。每个软件的更新内容都详细列出，包括针对特定问题的修复和新特性的添加，旨在提升用户体验和软件的稳定性。
 
-优化建议：
-1. 对于每个软件的变更说明，建议提供更清晰的分类，例如功能新增、bug修复和性能改进，以便用户快速找到所需信息。
-2. 可以考虑在每个更新中添加具体的使用案例或示例，以帮助用户更好地理解新功能的实际应用。
-3. 为每个软件的更新提供更详细的文档链接，方便用户获取更深入的使用指导和背景信息。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/104.html</guid><pubDate>Mon, 07 Apr 2025 04:12:53 +0000</pubDate></item><item><title>103 我关注的项目这周更新了什么-2025-04-04</title><link>https://anaer.github.io/blog/post/103.html</link><description>本文介绍了多个软件的更新和变更说明，包括RIME-LMDG的中文词库更新、Cherry Studio的MCP工具增强、DeepChat的重构和新功能、WinMerge的版本更新、Mihomo的版本同步、Higress的功能增强、Readest的性能优化、Subs-check的订阅工具更新、新API的模型接口管理，以及Ghosten-Player的bug修复与功能改进。
-
-优化建议：为每个软件的更新增加更详细的使用案例或示例，以帮助用户更好地理解新特性和改进的实际应用。同时，考虑在变更说明中突出安全性和稳定性方面的改进，以增强用户信任。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/103.html</guid><pubDate>Mon, 31 Mar 2025 15:11:00 +0000</pubDate></item><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时，如何在个人目录下配置.minttyrc和.bashrc文件，以优化终端的显示和命令行操作。配置包括设置主题、字符集、字体、行列数、颜色、别名和提示符，以及启用补全时忽略大小写的功能。
+优化建议：在更新说明中，建议将每个软件的主要新功能和修复问题进行简洁的总结，突出最重要的变化，以便用户快速获取关键信息。同时，可以考虑增加版本间的对比，以便用户了解新版本的改进与旧版本的区别。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/104.html</guid><pubDate>Mon, 07 Apr 2025 04:12:53 +0000</pubDate></item><item><title>103 我关注的项目这周更新了什么-2025-04-04</title><link>https://anaer.github.io/blog/post/103.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/103.html</guid><pubDate>Mon, 31 Mar 2025 15:11:00 +0000</pubDate></item><item><title>102 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty时，如何在个人目录下配置.minttyrc和.bashrc文件，以优化终端的显示和命令行操作。配置包括设置主题、字符集、字体、行列数、颜色、别名和提示符，以及启用补全时忽略大小写的功能。
 
 优化建议：
 1. 确保所有配置项的有效性和兼容性，定期检查Mintty和bash的更新。
@@ -130,22 +110,21 @@ fix: Update the state of the last message bl...</description><guid isPermaLink="
 
 优化建议：可以将命令分类整理，增加每个命令的简要说明，便于用户理解其功能和用途。同时，考虑提供恢复默认设置的命令，以便用户在需要时可以快速恢复系统原状。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/96.html</guid><pubDate>Tue, 25 Mar 2025 02:15:38 +0000</pubDate></item><item><title>095 Linux常用命令记录</title><link>https://anaer.github.io/blog/post/95.html</link><description>本文介绍了如何清理日志目录中超过1G的日志文件，具体步骤为使用find命令查找并清空这些日志文件，而不删除文件本身。同时，介绍了使用fdupes工具检测并删除重复文件，只保留一个副本。
 
-优化建议：可以考虑在清空日志文件之前备份重要日志，以防数据丢失。此外，定期监控日志文件大小和使用情况，设置自动清理机制以提升效率。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/95.html</guid><pubDate>Mon, 24 Mar 2025 08:14:46 +0000</pubDate></item><item><title>094 我关注的项目这周更新了什么-2025-03-28</title><link>https://anaer.github.io/blog/post/94.html</link><description>本文介绍了多个软件的版本更新和主要功能改进。Readest v0.9.28提升了竖排阅读模式对中文标点的支持，修复了TXT文件导入问题，并改善了注释体验。Weasel最新版本修复了热键设置为空时的崩溃问题。Docs v3.0.0进行了一些重大变更，取消了nginx认证请求的使用，直接由yProvider服务器管理认证。Ghosten-Player v1.7.0新增了阿里云盘清晰度切换功能和emby服务器的接入支持。DeepChat v0.0.11推出了MCP服务支持和新的AI模型。Termora 1.0.11更新了SFTP和SSH功能，并修复了多个bug。Cherry Studio v1.1.17进行了多项修复和API优化。Clash-Verge-Rev v2.2.2感谢了对后端重构的贡献。Higress v2.1.0-rc.1增加了多个新特性和bug修复。Subs-Check v2.0.7-beta.2进行了订阅工具的多项改进。LightBulb 2.6.2修复了设备上下文无效的问题。FlowSilicon 1.3.8优化了图标并修复了显示问题。
+优化建议：可以考虑在清空日志文件之前备份重要日志，以防数据丢失。此外，定期监控日志文件大小和使用情况，设置自动清理机制以提升效率。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/95.html</guid><pubDate>Mon, 24 Mar 2025 08:14:46 +0000</pubDate></item><item><title>094 我关注的项目这周更新了什么-2025-03-28</title><link>https://anaer.github.io/blog/post/94.html</link><description>本文介绍了多个软件的最新版本更新，包括Readest、Weasel、docs、Ghosten-Player、DeepChat、Termora、Cherry Studio、clash-verge-rev、higress、subs-check、LightBulb和FlowSilicon。这些更新主要涉及功能增强、bug修复和用户体验优化，例如Readest改进了中文标点的竖排阅读模式，Ghosten-Player增加了阿里云盘视频清晰度切换功能，DeepChat支持新的AI模型等。
 
-优化建议：在版本更新说明中，建议提供更详细的用户指南或示例，以帮助用户更好地理解新功能的使用方法。同时，增加对用户反馈的收集机制，以便持续改进软件体验。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/94.html</guid><pubDate>Mon, 24 Mar 2025 04:12:53 +0000</pubDate></item><item><title>093 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
+优化建议：对于每个软件的变更说明，建议在描述功能和修复时使用更具体的示例，以便用户更好地理解更新的实际影响。同时，可以考虑将所有更新按重要性或影响力排序，突出关键变化。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/94.html</guid><pubDate>Mon, 24 Mar 2025 04:12:53 +0000</pubDate></item><item><title>093 VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
 
 优化建议：
 1. 在步骤中可以增加对每个命令的简要说明，帮助用户理解每一步的目的。
 2. 提供可能遇到的错误及其解决方案，例如vsce命令未找到时的具体操作步骤。
 3. 增加对Node版本检查的说明，确保用户在开始之前已满足环境要求。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/93.html</guid><pubDate>Tue, 18 Mar 2025 07:47:58 +0000</pubDate></item><item><title>092 MCP开发手册</title><link>https://anaer.github.io/blog/post/92.html</link><description>本文介绍了模型上下文协议（MCP），这是一个开放协议，旨在标准化应用程序与大型语言模型（LLMs）之间的上下文提供方式。MCP类似于USB-C接口，为AI模型与各种数据源和工具之间的连接提供标准化方法。文中还提到了一些快速入门资源，特别是针对服务器开发者的示例，包括支持Python、Node和Java的天气查询示例，以及相关的MCP服务和市场链接。
 
-优化建议：可以增加对MCP协议的具体应用场景的详细描述，以及如何在实际项目中实施MCP的步骤。此外，提供一些成功案例或用户反馈将有助于增强协议的可信度和吸引力。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/92.html</guid><pubDate>Mon, 17 Mar 2025 07:45:36 +0000</pubDate></item><item><title>091 我关注的项目这周更新了什么-2025-03-21</title><link>https://anaer.github.io/blog/post/91.html</link><description>本文介绍了多个软件的更新和变更说明，包括DeepChat、Cherry Studio、Xpipe、Docs、Readest、Subs-Check、Sa-Token、New-API和NeatChat等。主要更新内容涉及功能增强、bug修复、性能优化以及新特性的添加，旨在提升用户体验和软件的稳定性。
+优化建议：可以增加对MCP协议的具体应用场景的详细描述，以及如何在实际项目中实施MCP的步骤。此外，提供一些成功案例或用户反馈将有助于增强协议的可信度和吸引力。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/92.html</guid><pubDate>Mon, 17 Mar 2025 07:45:36 +0000</pubDate></item><item><title>091 我关注的项目这周更新了什么-2025-03-21</title><link>https://anaer.github.io/blog/post/91.html</link><description>本文介绍了多个软件版本的更新内容，包括DeepChat、Cherry Studio、xpipe、docs、Readest、subs-check、Sa-Token、new-api和NeatChat等。主要更新包括功能增强、bug修复和性能优化。例如，DeepChat推出了MCP服务支持，Cherry Studio修复了多个API和界面问题，xpipe增强了终端编辑器的使用体验，Readest改善了阅读界面等。
 
 优化建议：
-1. 对于每个软件的更新，建议使用统一的格式来呈现变更说明，以便用户快速查找和理解。
-2. 可以考虑增加版本更新的重要性标记，帮助用户识别关键更新。
-3. 提供简洁的使用案例或教程链接，帮助用户更好地利用新功能。
-4. 在变更说明中，突出用户反馈和修复的相关性，增强用户信任感。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/91.html</guid><pubDate>Mon, 17 Mar 2025 01:26:49 +0000</pubDate></item><item><title>090 将应用程序添加为系统服务进行管理</title><link>https://anaer.github.io/blog/post/90.html</link><description>Win服务管理可以通过winsw.exe进行全局管理，或将其重命名为特定应用的服务程序（如myapp-server.exe）。服务配置包括服务标识、名称、描述、环境变量、可执行文件及其参数、日志路径和日志设置。具体服务管理命令包括安装、卸载、启动、停止、重启、查询状态和刷新属性。
+1. 对每个软件的更新内容进行更详细的分类，例如功能新增、bug修复和性能提升，以便用户更快速地找到所需信息。
+2. 提供每个更新的影响评估，帮助用户理解更新的重要性和必要性。
+3. 考虑增加用户反馈渠道，收集使用后感受，以便后续版本改进。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/91.html</guid><pubDate>Mon, 17 Mar 2025 01:26:49 +0000</pubDate></item><item><title>090 将应用程序添加为系统服务进行管理</title><link>https://anaer.github.io/blog/post/90.html</link><description>Win服务管理可以通过winsw.exe进行全局管理，或将其重命名为特定应用的服务程序（如myapp-server.exe）。服务配置包括服务标识、名称、描述、环境变量、可执行文件及其参数、日志路径和日志设置。具体服务管理命令包括安装、卸载、启动、停止、重启、查询状态和刷新属性。
 
 对于Mac服务，用户需创建LaunchAgent配置文件，并在~/Library/LaunchAgents目录中编辑.plist文件，配置服务标识、程序参数和加载选项。完成配置后，通过launchctl命令加载服务并验证其是否成功加载。
 
@@ -178,23 +157,13 @@ fix: Update the state of the last message bl...</description><guid isPermaLink="
 "cronTasks.debug": false
 ```
 
-最后，确保将终端的默认Profile设置为Command Prompt，避免使用其他Profile可能导致的问题。这样配置完成后，定时任务将按预期运行。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/89.html</guid><pubDate>Thu, 13 Mar 2025 08:15:39 +0000</pubDate></item><item><title>088 我关注的项目这周更新了什么-2025-03-14</title><link>https://anaer.github.io/blog/post/88.html</link><description>1. Ghosten-Player v1.6.0引入了TV端和移动端分开打包，优化了移动端UI并简化操作逻辑，适配大屏设备。TV端也进行了操作逻辑简化，优化遥控器使用。资源库同步支持增量同步，新增刮削行为选择。
+最后，确保将终端的默认Profile设置为Command Prompt，避免使用其他Profile可能导致的问题。这样配置完成后，定时任务将按预期运行。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/89.html</guid><pubDate>Thu, 13 Mar 2025 08:15:39 +0000</pubDate></item><item><title>088 我关注的项目这周更新了什么-2025-03-14</title><link>https://anaer.github.io/blog/post/88.html</link><description>本文介绍了多个软件的更新和变更说明，包括Ghosten-Player、xpipe、cherry-studio、fit-framework、deepchat、readest、NeatChat、mcp-server-jina-java和ublacklist等。主要更新内容包括新特性、修复bug、UI优化、功能增强以及对不同平台的支持等。例如，Ghosten-Player在移动端和TV端进行了UI更新和操作逻辑简化，xpipe修复了macOS上的多个问题，cherry-studio增强了API密钥验证等。
 
-2. xpipe 15.5修复了多个macOS相关问题，包括连接层级背景更新、zsh启动失败的回退问题以及vscode远程打开功能的路径错误等。
-
-3. cherry-studio v1.1.4是测试版本，增加了API密钥验证和多密钥支持，修复了消息暂停的错误，并对模型搜索框和API URL显示进行了改进。
-
-4. fit-framework v3.5.0-M1是FIT Framework社区的首个里程碑版本，新增IoC插件化容器能力，支持Bean管理和生命周期管理。
-
-5. deepchat v0.0.7正式发布，更新了交互功能，支持Ollama模型管理和多模态模型，Windows用户可自定义安装目录，并修复了前版本的问题。
-
-6. readest v0.9.22新增主题颜色编辑器和垂直布局边框，修复了macOS滚动模式下的布局问题，并对翻译、脚注和滚动条进行了多项增强。
-
-7. NeatChat v1.1.19全面支持文件上传及复制文本转附件功能，合并了图片和文件上传，并计划支持OCR模型识别。
-
-8. mcp-server-jina-java v1.0.0发布。
-
-9. ublacklist v8.10.1修复了ecosia元素选择器和中文翻译更新等问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/88.html</guid><pubDate>Thu, 13 Mar 2025 05:19:17 +0000</pubDate></item><item><title>087 Firefox安装插件列表</title><link>https://anaer.github.io/blog/post/87.html</link><description>本文介绍了一个用于导出Firefox扩展插件列表的Python脚本，脚本功能包括查找Firefox配置目录、读取已安装扩展的相关信息，并将已启用和禁用的扩展分别导出到Markdown文件中。用户需要根据自己的实际情况修改配置目录路径。
+优化建议：
+1. 对于每个软件的更新内容，建议增加具体的使用案例或场景，以帮助用户更好地理解新功能的实际应用。
+2. 在变更说明中，可以使用小标题或分段的方式来清晰地展示每个功能的更新，提升可读性。
+3. 对于重大更新，建议提供更新前后的对比图或视频，以便用户直观了解改动。
+4. 增加用户反馈渠道，鼓励用户在使用新版本后提供意见，以便进行后续改进。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/88.html</guid><pubDate>Thu, 13 Mar 2025 05:19:17 +0000</pubDate></item><item><title>087 Firefox安装插件列表</title><link>https://anaer.github.io/blog/post/87.html</link><description>本文介绍了一个用于导出Firefox扩展插件列表的Python脚本，脚本功能包括查找Firefox配置目录、读取已安装扩展的相关信息，并将已启用和禁用的扩展分别导出到Markdown文件中。用户需要根据自己的实际情况修改配置目录路径。
 
 优化建议：
 1. 考虑添加异常处理以应对文件读取错误，并提供更详细的错误信息。
