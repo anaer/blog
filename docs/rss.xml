@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 30 Jun 2025 08:36:15 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 30 Jun 2025 08:36:15 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>128 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了多个软件的最新版本更新，包括Cherry Studio v1.4.7、dify v1.5.0、maple-font v7.4、CloudflareSpeedTest v2.3.0、mihomo v1.19.11和rclone v1.70.2。每个软件的更新内容涵盖了问题修复、功能改进、代码重构和新增特性等方面，旨在提升用户体验和软件性能。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 30 Jun 2025 08:38:01 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 30 Jun 2025 08:38:01 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>128 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了多个软件的最新版本更新，包括Cherry Studio v1.4.7、dify v1.5.0、maple-font v7.4、CloudflareSpeedTest v2.3.0、mihomo v1.19.11和rclone v1.70.2。每个软件的更新内容涵盖了问题修复、功能改进、代码重构和新增特性等方面，旨在提升用户体验和软件性能。
 
 优化建议：在更新说明中，可以考虑加入具体的用户反馈机制和更新后的使用效果评估，以便更好地指导用户进行版本升级。同时，提供更为详细的安装和使用指南，帮助用户快速上手新功能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/128.html</guid><pubDate>Wed, 25 Jun 2025 15:12:02 +0000</pubDate></item><item><title>127 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了多个软件版本更新的详细信息，包括Cherry Studio v1.4.5、clash-verge-rev v2.3.1、subs-check v2.3.2、dify v1.4.3、higress v2.1.5-rc.1、rclone v1.70.1和Toaster 13.0。每个版本的变更说明涵盖了新功能、修复的错误、优化改进及新贡献者的介绍，强调了对用户体验和系统稳定性的提升。
 
@@ -137,36 +137,13 @@
 
 对于Mac服务，用户需创建LaunchAgent配置文件，并在~/Library/LaunchAgents目录中编辑.plist文件，配置服务标识、程序参数和加载选项。完成配置后，通过launchctl命令加载服务并验证其是否成功加载。
 
-建议在服务配置文件和命令中明确指出需要替换的实际路径和参数，以提升清晰度。同时，可以增加对每个命令的简要说明，以帮助用户理解其功能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/90.html</guid><pubDate>Fri, 14 Mar 2025 02:05:18 +0000</pubDate></item><item><title>089 VSCode扩展配置说明</title><link>https://anaer.github.io/blog/post/89.html</link><description>在VS Code的工作区中，需要进行以下配置以设置定时任务。首先，在`.vscode`文件夹内创建或修改`tasks.json`文件，添加一个名为“Auto Sync”的任务，指定其类型为`shell`，并设置其运行的命令为`D:\\demo\\sync.bat`。示例配置如下：
+建议在服务配置文件和命令中明确指出需要替换的实际路径和参数，以提升清晰度。同时，可以增加对每个命令的简要说明，以帮助用户理解其功能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/90.html</guid><pubDate>Fri, 14 Mar 2025 02:05:18 +0000</pubDate></item><item><title>089 VSCode扩展配置说明</title><link>https://anaer.github.io/blog/post/89.html</link><description>本文介绍了如何在VSCode的工作区中配置定时任务，具体步骤包括在.vscode文件夹中创建tasks.json文件以定义任务，并在settings.json中设置cron任务的执行频率和运行方式。任务配置示例包括每5分钟执行一次的“Auto Sync”任务，并建议将终端的默认Profile设置为Command Prompt以避免潜在问题。
 
-```json
-{
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "Auto Sync",
-        "type": "shell",
-        "command": "D:\\demo\\sync.bat",
-        "problemMatcher": []
-      }
-    ]
-}
-```
-
-接着，在工作区的`settings.json`中添加定时任务的配置，设置任务每5分钟执行一次，调用之前定义的“Auto Sync”任务。示例配置如下：
-
-```json
-"cronTasks.tasks": [
-    {
-        "at": "*/5 * * * *",
-        "run": "workbench.action.tasks.runTask",
-        "args": ["Auto Sync"]
-    }
-],
-"cronTasks.debug": false
-```
-
-最后，确保将终端的默认Profile设置为Command Prompt，避免使用其他Profile可能导致的问题。这样配置完成后，定时任务将按预期运行。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/89.html</guid><pubDate>Thu, 13 Mar 2025 08:15:39 +0000</pubDate></item><item><title>088 我关注的项目这周更新了什么-2025-03-14</title><link>https://anaer.github.io/blog/post/88.html</link><description>本文介绍了多个软件的更新和变更说明，包括Ghosten-Player、xpipe、cherry-studio、fit-framework、deepchat、readest、NeatChat、mcp-server-jina-java和ublacklist等。主要更新内容包括新特性、修复bug、UI优化、功能增强以及对不同平台的支持等。例如，Ghosten-Player在移动端和TV端进行了UI更新和操作逻辑简化，xpipe修复了macOS上的多个问题，cherry-studio增强了API密钥验证等。
+优化建议：
+1. 确保在tasks.json中添加适当的problemMatcher以捕捉任务执行中的错误。
+2. 在settings.json中增加对cron表达式的注释，以便于其他开发者理解任务的执行频率。
+3. 考虑在tasks.json中增加任务的描述，帮助团队成员快速了解任务目的。
+4. 定期检查和更新cron任务配置，以适应项目需求的变化。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/89.html</guid><pubDate>Thu, 13 Mar 2025 08:15:39 +0000</pubDate></item><item><title>088 我关注的项目这周更新了什么-2025-03-14</title><link>https://anaer.github.io/blog/post/88.html</link><description>本文介绍了多个软件的更新和变更说明，包括Ghosten-Player、xpipe、cherry-studio、fit-framework、deepchat、readest、NeatChat、mcp-server-jina-java和ublacklist等。主要更新内容包括新特性、修复bug、UI优化、功能增强以及对不同平台的支持等。例如，Ghosten-Player在移动端和TV端进行了UI更新和操作逻辑简化，xpipe修复了macOS上的多个问题，cherry-studio增强了API密钥验证等。
 
 优化建议：
 1. 对于每个软件的更新内容，建议增加具体的使用案例或场景，以帮助用户更好地理解新功能的实际应用。
