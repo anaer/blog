@@ -133,16 +133,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23 11:26:12</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-30 17:00:46</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-30 17:02:21</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用Python库pypinyin进行中文拼音的转换，包括安装和使用示例。用户可以通过不同的样式选项获取拼音的不同表示，如普通风格、带声调的拼音、声母和韵母等。
+    <strong>AI总结:</strong> 本文介绍了如何使用pypinyin库来将中文字符转换为拼音，包括不同的拼音样式。用户可以通过安装pypinyin库并使用lazy_pinyin函数，结合不同的样式参数来获取拼音的多种表示形式。
 
-优化建议：
-1. 在示例代码中添加注释，以便用户更好地理解每个部分的功能。
-2. 提供更多的使用场景或应用示例，以帮助用户了解该库的实际应用价值。
-3. 增加对错误处理的说明，例如如何处理无效输入或异常情况。
-4. 考虑将样式说明以表格形式呈现，以提高可读性和易用性。
+优化建议：在使用示例中，可以增加对每种样式的具体应用场景说明，以帮助用户更好地理解何时使用特定的拼音格式。同时，建议提供更多的示例词汇，以展示不同拼音样式的效果。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -268,7 +264,9 @@ BOPOMOFO_FIRST  =  11
 <span class="pl-c"><span class="pl-c">#</span>: 汉语拼音与俄语字母对照风格，声调在各个拼音之后，用数字 [1-4] 进行表示。如： 中国 -&gt; ``чжун1 го2``</span>
 CYRILLIC  =  12
 <span class="pl-c"><span class="pl-c">#</span>: 汉语拼音与俄语字母对照风格，仅首字母。如： 中国 -&gt; ``ч г``</span>
-CYRILLIC_FIRST  =  13</pre></div>
+CYRILLIC_FIRST  =  13
+<span class="pl-c"><span class="pl-c">#</span>: 威妥玛拼音/韦氏拼音/威式拼音风格，无声调 如： 中国 -&gt; ``chung kuo``</span>
+WADEGILES = 14</pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/60.html" aria-label="Previous Page">060 pm2常用命令</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/62.html" aria-label="Next Page">062 CIDR表示法</a></div>
