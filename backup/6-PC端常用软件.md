@@ -13,10 +13,10 @@
 
 ### 终端
 1. SmartPutty [GitHub](https://github.com/anaer/SmartPutty) Windows
-2. ~~MobaXterm 中文版~~ [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) 有注册机
 3. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 可集成到VSCode中
-4. ~~KiTTY~~ [GitHub](https://github.com/cyd01/KiTTY/releases)       
 5. Putty [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
+2. ~~MobaXterm 中文版~~ [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) 有注册机
+4. ~~KiTTY~~ [GitHub](https://github.com/cyd01/KiTTY/releases)       
 6. ~~WindTerm~~ [GitHub](https://github.com/kingToolbox/WindTerm/releases/) 多端  
 7. ~~Tabby~~ [GitHub](https://github.com/Eugeny/tabby/releases)  
   多端, 插件支持webdav同步, 支持集成WinSCP
@@ -43,7 +43,7 @@
 
 ### 压缩
 1. 7zip [官网](https://www.7-zip.org/)  [GitHub](https://github.com/ip7z/7zip/releases)
-2. 
+
 ### 密码
 1. ~~MyKeyFinder~~ [下载](https://www.computerbild.de/download/MyKeyFinder-Plus-Kostenlose-Vollversion-31122673.html) ana已注册
 
@@ -63,7 +63,7 @@
 3. ~~privacy.sexy~~ [GitHub](https://github.com/undergroundwires/privacy.sexy) 隐私安全最佳实践 
 
 ### 输入法
-1. weasel小狼毫输入法 [官网](https://rime.im/)
+1. ~~weasel小狼毫输入法~~ [官网](https://rime.im/)
 
 ### 资源管理
 1. ~~MultiCommander~~  [官网](http://multicommander.com/downloads)              
@@ -83,17 +83,17 @@
 
 ## 办公
 1. OnlyOffice [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
-2. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
-3. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
+2. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
+3. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
+
 
 ## 开发
 
 ### Java
 1. JDK23 [官网](https://www.oracle.com/java/technologies/downloads/#jdk23-windows) 
-2. JDK17 [官网](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)           
+2. JDK17 [官网](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) 
 3. JDK8 [官网](https://www.oracle.com/java/technologies/downloads/#java8-windows)           
 4. Maven [阿里云镜像](https://mirrors.aliyun.com/apache/maven/maven-3/3.9.5/binaries/)                                                   
-
 ### Android
 1. dex-tools [GitHub](https://github.com/pxb1988/dex2jar/releases)   dex反编译   
 2. jadx   [GitHub](https://github.com/skylot/jadx/releases)     Java反编译   
@@ -110,7 +110,7 @@
 ### 数据库
 1. HeidiSQL [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差
 2. SQLiteStudio [官网](https://sqlitestudio.pl/) SQLite客户端 表设计支持较好
-3. DB Browser for SQLite [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)         
+3. DB Browser for SQLite [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)
 4. ~~Navicat Premium Lite~~ [官网](https://www.navicat.com.cn/download/navicat-premium-lite) 需要注册登录了                       |
 5. ~~SQLyog~~  网上有注册码 只支持mysql
 
@@ -118,16 +118,14 @@
 1. Git [官网](https://git-scm.com/download)
 
 ### 编辑器
+1. VSCode    [官网](https://code.visualstudio.com/)           
 1. ~~Neovim~~  [GitHub](https://github.com/neovim/neovim/releases)           
 2. ~~Obsidian.md~~   [GitHub](https://github.com/obsidianmd/obsidian-releases/releases/) 编辑工具 
-3. VSCode    [官网](https://code.visualstudio.com/)                   
 4. ~~Windsurf~~ [官网](https://codeium.com/windsurf)     集成Codeium AI补全 
 5. ~~notepad4~~   [GitHub](https://github.com/zufuliu/notepad4)   替换默认notepad    
 
 ### 证书
 1. ~~certimate~~ [GitHub](https://github.com/usual2970/certimate)  开源的SSL证书管理工具 
-
-## 网络
 
 ### 网盘
 1. ~~NetMount~~ [GitHub](https://github.com/VirtualHotBar/NetMount) 统一管理和挂载云存储设施
@@ -136,5 +134,5 @@
 1. ~~STranslate~~ [GitHub](https://github.com/ZGGSONG/STranslate/releases)
 
 ### 命令行
-1. lsx 命令帮助 [GitHub](https://github.com/CJSen/lsx)
-2. chsrc 换源 [GitHub](https://github.com/RubyMetric/chsrc/releases/)
+1. chsrc 换源 [GitHub](https://github.com/RubyMetric/chsrc/releases/)
+1. ~~lsx 命令帮助~~ [GitHub](https://github.com/CJSen/lsx)
