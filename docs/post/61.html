@@ -133,12 +133,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23 11:26:12</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-30 17:00:46</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 安装
-pip install pypinyin
-使用
-from pypinyin import lazy_pinyin,Style
-lazy_pinyin("中国",style=Style.TONE)...
+    <strong>AI总结:</strong> 本文介绍了如何使用Python库pypinyin进行中文拼音的转换，包括安装和使用示例。用户可以通过不同的样式选项获取拼音的不同表示，如普通风格、带声调的拼音、声母和韵母等。
+
+优化建议：
+1. 在示例代码中添加注释，以便用户更好地理解每个部分的功能。
+2. 提供更多的使用场景或应用示例，以帮助用户了解该库的实际应用价值。
+3. 增加对错误处理的说明，例如如何处理无效输入或异常情况。
+4. 考虑将样式说明以表格形式呈现，以提高可读性和易用性。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -146,7 +150,96 @@ lazy_pinyin("中国",style=Style.TONE)...
 <div class="highlight highlight-source-shell"><pre>pip install pypinyin</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">使用</h2><a id="user-content-使用" class="anchor" aria-label="Permalink: 使用" href="#使用"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> <span class="pl-s1">pypinyin</span> <span class="pl-k">import</span> <span class="pl-s1">lazy_pinyin</span>,<span class="pl-v">Style</span>
-<span class="pl-en">lazy_pinyin</span>(<span class="pl-s">"中国"</span>,<span class="pl-s1">style</span><span class="pl-c1">=</span><span class="pl-v">Style</span>.<span class="pl-c1">TONE</span>)</pre></div>
+<span class="pl-s1">word</span> <span class="pl-c1">=</span> <span class="pl-s">"中国"</span>
+<span class="pl-k">for</span> <span class="pl-s1">s</span> <span class="pl-c1">in</span> <span class="pl-v">Style</span>:
+    <span class="pl-s1">pinyin</span> <span class="pl-c1">=</span> <span class="pl-en">lazy_pinyin</span>(<span class="pl-s1">word</span>,<span class="pl-s1">style</span><span class="pl-c1">=</span><span class="pl-s1">s</span>)
+    <span class="pl-en">print</span>(<span class="pl-s">f"<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">s</span>.<span class="pl-c1">name</span>:&lt;15<span class="pl-kos">}</span></span> = <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">s</span>:&lt;2<span class="pl-kos">}</span></span> <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s">" "</span>.<span class="pl-c1">join</span>(<span class="pl-s1">pinyin</span>)<span class="pl-kos">}</span></span>"</span>)</pre></div>
+<table>
+<thead>
+<tr>
+<th>Style Name</th>
+<th>Style</th>
+<th>PinYin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NORMAL</td>
+<td>0</td>
+<td>zhong guo</td>
+</tr>
+<tr>
+<td>TONE</td>
+<td>1</td>
+<td>zhōng guó</td>
+</tr>
+<tr>
+<td>TONE2</td>
+<td>2</td>
+<td>zho1ng guo2</td>
+</tr>
+<tr>
+<td>TONE3</td>
+<td>8</td>
+<td>zhong1 guo2</td>
+</tr>
+<tr>
+<td>INITIALS</td>
+<td>3</td>
+<td>zh g</td>
+</tr>
+<tr>
+<td>FIRST_LETTER</td>
+<td>4</td>
+<td>z g</td>
+</tr>
+<tr>
+<td>FINALS</td>
+<td>5</td>
+<td>ong uo</td>
+</tr>
+<tr>
+<td>FINALS_TONE</td>
+<td>6</td>
+<td>ōng uó</td>
+</tr>
+<tr>
+<td>FINALS_TONE2</td>
+<td>7</td>
+<td>o1ng uo2</td>
+</tr>
+<tr>
+<td>FINALS_TONE3</td>
+<td>9</td>
+<td>ong1 uo2</td>
+</tr>
+<tr>
+<td>BOPOMOFO</td>
+<td>10</td>
+<td>ㄓㄨㄥ ㄍㄨㄛˊ</td>
+</tr>
+<tr>
+<td>BOPOMOFO_FIRST</td>
+<td>11</td>
+<td>ㄓ ㄍ</td>
+</tr>
+<tr>
+<td>CYRILLIC</td>
+<td>12</td>
+<td>чжун1 го2</td>
+</tr>
+<tr>
+<td>CYRILLIC_FIRST</td>
+<td>13</td>
+<td>ч г</td>
+</tr>
+<tr>
+<td>WADEGILES</td>
+<td>14</td>
+<td>chung kuo</td>
+</tr>
+</tbody>
+</table>
 <div class="markdown-heading"><h2 class="heading-element">样式</h2><a id="user-content-样式" class="anchor" aria-label="Permalink: 样式" href="#样式"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span>: 普通风格，不带声调。如： 中国 -&gt; ``zhong guo``</span>
 NORMAL  =  0
@@ -178,7 +271,7 @@ CYRILLIC  =  12
 CYRILLIC_FIRST  =  13</pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/62.html" aria-label="Previous Page">062 CIDR表示法</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/60.html" aria-label="Next Page">060 pm2常用命令</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/60.html" aria-label="Previous Page">060 pm2常用命令</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/62.html" aria-label="Next Page">062 CIDR表示法</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

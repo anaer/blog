@@ -9,8 +9,29 @@ pip install pypinyin
 
 ```py
 from pypinyin import lazy_pinyin,Style
-lazy_pinyin("中国",style=Style.TONE)
+word = "中国"
+for s in Style:
+    pinyin = lazy_pinyin(word,style=s)
+    print(f"{s.name:<15} = {s:<2} {" ".join(pinyin)}")
 ```
+
+| Style Name     | Style | PinYin         |
+| -------------- | ----- | -------------- |
+| NORMAL         | 0     | zhong guo      |
+| TONE           | 1     | zhōng guó      |
+| TONE2          | 2     | zho1ng guo2    |
+| TONE3          | 8     | zhong1 guo2    |
+| INITIALS       | 3     | zh g           |
+| FIRST_LETTER   | 4     | z g            |
+| FINALS         | 5     | ong uo         |
+| FINALS_TONE    | 6     | ōng uó         |
+| FINALS_TONE2   | 7     | o1ng uo2       |
+| FINALS_TONE3   | 9     | ong1 uo2       |
+| BOPOMOFO       | 10    | ㄓㄨㄥ ㄍㄨㄛˊ |
+| BOPOMOFO_FIRST | 11    | ㄓ ㄍ          |
+| CYRILLIC       | 12    | чжун1 го2      |
+| CYRILLIC_FIRST | 13    | ч г            |
+| WADEGILES      | 14    | chung kuo      |
 
 ## 样式
 
