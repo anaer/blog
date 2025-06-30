@@ -131,15 +131,20 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-05-23 11:02:48</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-23 11:05:25</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-30 15:48:36</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在GitHub上设置AI总结所需的变量信息，包括API_URL、API_KEY和API_MODEL，并强调了API_KEY的创建步骤和Models权限的设置。未设置正确权限会导致访问错误。
+    <strong>AI总结:</strong> 本文介绍了在网站上使用oneko.js库放置猫咪动画的步骤，说明了如何引入JavaScript文件并配置完整路径以解决相对路径的问题。同时，提供了关于API设置的详细信息，包括创建API密钥和权限设置，以确保正常访问模型服务。
 
-优化建议：提供详细的步骤说明，确保用户能够顺利创建API_KEY并设置Models权限。同时，可以增加对错误信息的解释，以帮助用户理解如何解决问题。
+优化建议：在引入JavaScript文件时，考虑使用更灵活的路径配置方法，以便在不同环境下都能顺利运行。此外，确保在API设置中详细记录每一步，以便其他用户能够轻松跟随。同时，建议在文中添加错误处理示例，以帮助用户更好地理解如何解决权限相关的问题。
 </div>
 
 <div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h3 class="heading-element">网站上放置猫</h3><a id="user-content-网站上放置猫" class="anchor" aria-label="Permalink: 网站上放置猫" href="#网站上放置猫"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://github.com/adryd325/oneko.js">https://github.com/adryd325/oneko.js</a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/0594324c-9dab-4981-b8d9-4369caf5d2c7"><img src="https://github.com/user-attachments/assets/0594324c-9dab-4981-b8d9-4369caf5d2c7" alt="Image" style="max-width: 100%;"></a></p>
+<p>引入js, 默认取脚本目录下oneko.gif, 因为相对路径配置有些页面有问题, 所以调整js直接配置完整路径</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">&lt;</span><span class="pl-s1">script</span> <span class="pl-c1">src</span><span class="pl-c1">=</span><span class="pl-s">"{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.js"</span> <span class="pl-c1">data-cat</span><span class="pl-c1">=</span><span class="pl-s">"{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.gif"</span><span class="pl-c1">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-s1">script</span><span class="pl-c1">&gt;</span></pre></div>
 <div class="markdown-heading"><h3 class="heading-element">AI总结</h3><a id="user-content-ai总结" class="anchor" aria-label="Permalink: AI总结" href="#ai总结"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <ol>
 <li>AI总结需要在以下地址设置变量信息
@@ -162,7 +167,7 @@ API_MODEL = "gpt-4o"
 <div class="highlight highlight-source-json"><pre>{<span class="pl-ent">"error"</span>:{<span class="pl-ent">"code"</span>:<span class="pl-s"><span class="pl-pds">"</span>unauthorized<span class="pl-pds">"</span></span>,<span class="pl-ent">"message"</span>:<span class="pl-s"><span class="pl-pds">"</span>The `models` permission is required to access this endpoint<span class="pl-pds">"</span></span>,<span class="pl-ent">"details"</span>:<span class="pl-s"><span class="pl-pds">"</span>The `models` permission is required to access this endpoint<span class="pl-pds">"</span></span>}}</pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/126.html" aria-label="Previous Page">126 glibc2.18安装</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/121.html" aria-label="Next Page">121 Android TV软件</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/121.html" aria-label="Previous Page">121 Android TV软件</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/123.html" aria-label="Next Page">123 我关注的项目这周更新了什么-2025-05-30</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

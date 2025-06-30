@@ -1,3 +1,13 @@
+### 网站上放置猫
+https://github.com/adryd325/oneko.js
+
+![Image](https://github.com/user-attachments/assets/0594324c-9dab-4981-b8d9-4369caf5d2c7)
+
+引入js, 默认取脚本目录下oneko.gif, 因为相对路径配置有些页面有问题, 所以调整js直接配置完整路径
+```js
+<script src="{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.js" data-cat="{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.gif"></script>
+```
+
 ### AI总结
 
 1. AI总结需要在以下地址设置变量信息
