@@ -430,6 +430,20 @@ class GMEEK():
             self.createFeedXml()
         print("====== create static html end ======")
 
+    def runLatest(self):
+        print("====== start create static html ======")
+        self.checkDir()
+
+        issues=self.repo.get_issues(state="open", sort="updated", direction="desc")
+        if len(issues) > 0:
+            issue = issues[0]
+            post = self.addOnePostJson(issue)
+            if post:
+                self.createPostHtml(post)
+                self.createPlistHtml()
+                self.createFeedXml()
+            print("====== create static html end ======")
+
 #########################################################################
 parser = argparse.ArgumentParser()
 parser.add_argument("github_token", help="github_token")
@@ -447,8 +461,8 @@ else:
     blog.cacheBlogBase=json.loads(f.read())
     f.close()
     if options.issue_number=="0" or options.issue_number=="":
-        print("issue_number=='0', runAll")
-        blog.runAll()
+        print("issue_number=='0', runLatest")
+        blog.runLatest()
     else:
         print("blogBase is exists and issue_number!=0, runOne")
         blog.blogBase=blog.cacheBlogBase

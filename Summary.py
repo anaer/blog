@@ -11,6 +11,10 @@ def generate_summary(text):
     api_key = os.environ.get("API_KEY")
     api_model = os.environ.get("API_MODEL")
 
+    # api_url = "https://models.inference.ai.azure.com/chat/completions"
+    # api_key = ""
+    # api_model = "gpt-4o"
+
     if not api_url or not api_model:
         return ""
 
@@ -27,7 +31,7 @@ def generate_summary(text):
     }
 
     # prompt = "请生成简洁完整的文本摘要，直接返回纯文本。确保涵盖所有主要要点，避免空泛表述或内容截断，不使用任何格式, 可以提出具体的修改建议，以提升内容的清晰度和逻辑性。"
-    prompt = "你是总结与优化建议生成器。你的任务是以简洁、完整的语句总结用户提供的文本，捕捉主要要点，并提供具体的优化建议，不使用Markdown格式，直接返回内容，避免空话或截断，以'本文介绍了'开头。另起一行展示优化建议。"
+    prompt = "你是总结与优化建议生成器。你的任务是以简洁、完整的语句总结用户提供的文本，捕捉主要要点，并提供具体的优化建议，不使用Markdown格式，直接返回内容，避免空话或截断，以'本文介绍了'开头。换行展示优化建议。"
 
     payload = {
         "model": f"{api_model}",  # 或具体模型ID
