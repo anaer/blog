@@ -138,13 +138,13 @@ pre {
 <span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-30 16:37:26</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何在VSCode的工作区中配置定时任务，具体步骤包括在.vscode文件夹中创建tasks.json文件以定义任务，并在settings.json中设置cron任务的执行频率和运行方式。任务配置示例包括每5分钟执行一次的“Auto Sync”任务，并建议将终端的默认Profile设置为Command Prompt以避免潜在问题。
+    <strong>AI总结:</strong> 本文介绍了如何在VSCode工作区中配置定时任务以实现自动同步功能，通过在.vscode文件夹中添加tasks.json和settings.json文件，设置相应的任务和定时执行规则。具体步骤包括定义一个名为“Auto Sync”的任务，并在settings.json中配置其每5分钟自动执行，同时建议将终端的默认Profile设置为Command Prompt以避免潜在问题。
 
 优化建议：
-1. 确保在tasks.json中添加适当的problemMatcher以捕捉任务执行中的错误。
-2. 在settings.json中增加对cron表达式的注释，以便于其他开发者理解任务的执行频率。
-3. 考虑在tasks.json中增加任务的描述，帮助团队成员快速了解任务目的。
-4. 定期检查和更新cron任务配置，以适应项目需求的变化。
+1. 确保tasks.json中的命令路径正确且可执行，避免因路径错误导致任务失败。
+2. 在settings.json中添加注释，说明每项配置的用途，以便后续维护时更易理解。
+3. 考虑将cron表达式的时间间隔参数化，以便于后期调整和复用。
+4. 在cronTasks.debug设置为true时，定期查看输出日志，以便及时发现和解决问题。
 </div>
 
 <div class="markdown-body" id="postBody">

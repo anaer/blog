@@ -138,9 +138,12 @@ pre {
 <span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-16 17:15:20</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何清理日志目录中超过1G的日志文件，具体步骤为使用find命令查找并清空这些日志文件，而不删除文件本身。同时，介绍了使用fdupes工具检测并删除重复文件，只保留一个副本。
+    <strong>AI总结:</strong> 本文介绍了如何清理日志目录中超过1G的日志文件，通过清空文件而不是删除文件来节省空间，并使用fdupes检测和删除重复文件。具体步骤包括使用find命令查找并清空大于1G的日志文件，以及安装fdupes工具并运行该工具来处理重复文件。
 
-优化建议：可以考虑在清空日志文件之前备份重要日志，以防数据丢失。此外，定期监控日志文件大小和使用情况，设置自动清理机制以提升效率。
+优化建议：
+1. 在执行truncate命令前，可以先备份重要日志文件，以防止意外数据丢失。
+2. 在使用fdupes时，建议先使用-f选项进行预览，确认删除的文件，避免误删。
+3. 定期执行日志清理任务，可以考虑将命令添加到定时任务中，保持日志目录的整洁。
 </div>
 
 <div class="markdown-body" id="postBody">

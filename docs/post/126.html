@@ -138,9 +138,14 @@ pre {
 <span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-16 16:33:14</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在安装Doris Manager时遇到glibc版本不足的错误，并提供了手动编译和安装glibc 2.18的步骤。然而，手动升级glibc可能会导致服务器崩溃，进而需要重新部署。 
+    <strong>AI总结:</strong> 本文介绍了在安装doris manager的studio时遇到的glibc版本缺失问题，以及手动编译安装glibc的过程。建议避免手动升级glibc，以防止服务器崩溃和需要重新部署。
 
-优化建议：建议使用系统包管理工具安装glibc的更新版本，避免手动编译和安装带来的风险。同时，可以考虑使用容器化技术隔离依赖，减少系统级别的干扰。
+优化建议：
+1. 考虑使用系统包管理器安装glibc的兼容版本，避免手动编译带来的风险。
+2. 在进行任何系统库的更改前，务必备份当前系统状态，以便在出现问题时快速恢复。
+3. 提供更详细的错误信息和解决方案，以帮助用户更好地理解问题根源。
+4. 添加对其他可能依赖于glibc的程序的影响分析，确保系统整体稳定性。
+5. 考虑使用容器化技术来隔离环境，减少对主机系统的影响。
 </div>
 
 <div class="markdown-body" id="postBody">

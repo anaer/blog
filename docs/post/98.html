@@ -138,9 +138,15 @@ pre {
 <span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-27 14:19:39</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了将 Nginx 替换为 OpenResty 的详细步骤，包括备份现有配置、卸载 Nginx、安装 OpenResty、迁移配置、启动 OpenResty、验证功能以及清理旧文件的过程。具体步骤包括备份 Nginx 配置文件，卸载 Nginx，添加 OpenResty 仓库并安装，调整配置文件路径，启动 OpenResty 服务，测试其功能，以及创建软链接以便使用 Nginx 命令。
+    <strong>AI总结:</strong> 本文介绍了将 Nginx 替换为 OpenResty 的详细步骤，包括备份现有配置、卸载 Nginx、安装 OpenResty、迁移配置、启动服务以及验证功能。整个过程确保了系统的顺利过渡，并利用 OpenResty 的增强功能。
 
-优化建议：在每个步骤中提供更多的错误处理和故障排除建议，例如在安装或启动服务失败时的常见解决方案。此外，可以考虑在配置迁移步骤中提供示例配置文件，以帮助用户更好地理解如何调整路径和设置。同时，在验证功能时，可以推荐更复杂的 Lua 脚本示例，以展示 OpenResty 的强大能力。
+优化建议：
+1. 在备份配置文件时，建议同时备份相关的 SSL 证书和其他依赖文件，以防止迁移后出现问题。
+2. 在卸载 Nginx 时，确认没有其他依赖于 Nginx 的服务，以避免影响系统的其他功能。
+3. 在安装 OpenResty 后，建议进行一次完整的系统更新，以确保所有软件包都是最新的。
+4. 在迁移配置时，可以考虑使用比较工具来帮助识别和调整配置文件中的差异。
+5. 在验证功能时，可以编写更复杂的 Lua 脚本进行全面测试，以充分利用 OpenResty 的能力。
+6. 清理旧文件时，建议保留一段时间的备份，以便于快速恢复。
 </div>
 
 <div class="markdown-body" id="postBody">

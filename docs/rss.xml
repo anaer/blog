@@ -1,8 +1,408 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 01 Jul 2025 09:54:32 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 01 Jul 2025 09:54:32 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X82 Nacos低版本权限认证绕过漏洞复现</title><link>https://anaer.github.io/blog/post/130.html</link><description>本文介绍了Alibaba Nacos的权限认证绕过漏洞，影响版本为Nacos &lt;= 2.0.0-ALPHA.1。官方已发布安全版本，建议用户下载或升级至最新版本以修复该漏洞。相关的API请求示例包括查询用户、创建用户和重置密码的操作。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 01 Jul 2025 10:03:59 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 01 Jul 2025 10:03:59 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X82 Nacos低版本权限认证绕过漏洞复现</title><link>https://anaer.github.io/blog/post/130.html</link><description>本文介绍了Alibaba Nacos的权限认证绕过漏洞，影响版本为Nacos &lt;= 2.0.0-ALPHA.1。官方已发布安全版本，建议用户下载或升级至最新版本以修复该漏洞。相关的API请求示例包括查询用户、创建用户和重置密码的操作。
 
 优化建议：
 1. 增加对漏洞影响的详细描述，包括可能导致的安全风险和后果。
 2. 提供更具体的升级步骤，帮助用户更顺利地进行版本更新。
 3. 在相关链接中添加更多参考资料，帮助用户更深入了解漏洞背景和修复方法。
-4. 可以考虑提供示例代码的安全性分析，帮助用户理解如何安全地使用API。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/130.html</guid><pubDate>Tue, 01 Jul 2025 08:14:21 +0000</pubDate></item></channel></rss>
+4. 可以考虑提供示例代码的安全性分析，帮助用户理解如何安全地使用API。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/130.html</guid><pubDate>Tue, 01 Jul 2025 08:14:21 +0000</pubDate></item><item><title>0X81 我关注的项目这周更新了什么-2025-07-04</title><link>https://anaer.github.io/blog/post/129.html</link><description>本文介绍了anx-reader v1.6.1版本的更新内容，包括新增功能、问题修复和优化改进。新增功能包括书籍缩进、自动同步自定义选项、首次启动引导页面、更新日志显示及实验性功能的历史版本恢复。问题修复方面，解决了安卓设备文本选择、WebView兼容性、WebDAV配置即时生效、数据库完整性、PDF阅读、封面同步及文件导入等多个问题。优化改进则集中在支持更多同步协议及构建版本号的优化。
+
+优化建议：
+1. 增加用户反馈渠道，以便收集用户在使用新功能后的体验和建议。
+2. 提供详细的使用指南或帮助文档，帮助用户更好地理解和使用新增功能。
+3. 考虑增加版本更新的自动提示功能，以提高用户的更新意识。
+4. 定期进行性能评测，确保每次更新都能有效提升用户体验。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/129.html</guid><pubDate>Mon, 30 Jun 2025 15:11:53 +0000</pubDate></item><item><title>0X80 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了多个软件的更新内容，包括Cherry Studio v1.4.7、dify v1.5.0、maple-font v7.4、CloudflareSpeedTest v2.3.0、mihomo v1.19.11和rclone v1.70.2。这些更新主要涉及问题修复、功能改进、代码重构及安全更新等方面，增强了软件的稳定性和用户体验。
+
+优化建议：
+1. 对于每个软件的更新，建议提供更详细的用户指南或变更日志，以帮助用户理解新功能和修复的问题。
+2. 考虑在更新说明中加入示例或使用场景，以便用户更好地应用新功能。
+3. 增强用户反馈机制，鼓励用户报告使用新版本时遇到的问题，以便进行更快速的迭代和优化。
+4. 在发布新版本时，提供详细的兼容性说明，确保用户了解新版本对系统和其他软件的影响。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/128.html</guid><pubDate>Wed, 25 Jun 2025 15:12:02 +0000</pubDate></item><item><title>0X7F 我关注的项目这周更新了什么-2025-06-20</title><link>https://anaer.github.io/blog/post/127.html</link><description>本文介绍了多个软件版本更新的变更说明，包括Cherry Studio、Clash Verge Rev、Subs Check、Dify、Higress、Rclone和Toaster等。每个软件的更新内容涉及新功能的增加、bug修复、性能优化以及对用户体验的改进。
+
+优化建议：
+1. 对于每个软件的变更说明，建议明确列出主要的新功能和修复的bug，以便用户快速了解重要更新。
+2. 可以增加版本更新的影响范围和用户反馈，以帮助用户判断是否需要更新。
+3. 提供更详细的安装和升级指导，尤其是对于新用户，确保他们能够顺利过渡到新版本。
+4. 考虑增加可视化的更新日志，帮助用户直观理解每个版本的变化。
+5. 定期收集用户对新功能的反馈，以便在未来的版本中进行针对性改进。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/127.html</guid><pubDate>Mon, 16 Jun 2025 04:23:32 +0000</pubDate></item><item><title>0X7E glibc2.18安装</title><link>https://anaer.github.io/blog/post/126.html</link><description>本文介绍了在安装doris manager的studio时遇到的glibc版本缺失问题，以及手动编译安装glibc的过程。建议避免手动升级glibc，以防止服务器崩溃和需要重新部署。
+
+优化建议：
+1. 考虑使用系统包管理器安装glibc的兼容版本，避免手动编译带来的风险。
+2. 在进行任何系统库的更改前，务必备份当前系统状态，以便在出现问题时快速恢复。
+3. 提供更详细的错误信息和解决方案，以帮助用户更好地理解问题根源。
+4. 添加对其他可能依赖于glibc的程序的影响分析，确保系统整体稳定性。
+5. 考虑使用容器化技术来隔离环境，减少对主机系统的影响。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/126.html</guid><pubDate>Thu, 12 Jun 2025 02:18:54 +0000</pubDate></item><item><title>0X7D 我关注的项目这周更新了什么-2025-06-13</title><link>https://anaer.github.io/blog/post/125.html</link><description>本文介绍了多个软件版本的更新内容，涵盖了不同应用程序的功能增强、修复和优化。具体包括Cherry Studio的多项新特性和修复，Higress的API网关更新，Dify平台的工作流开发改进，Subs-check的订阅转换工具优化，Fit Framework的企业级AI开发框架更新，以及Latest的macOS应用更新。
+
+优化建议：
+1. 对每个软件的更新内容进行更清晰的分类，例如功能增强、修复和新特性，以便用户快速浏览。
+2. 增加每个软件更新的使用场景或应用实例，帮助用户理解新功能的实际应用。
+3. 提供更新的影响评估，尤其是对于重大变更或破坏性变更，告知用户可能需要采取的措施。
+4. 在用户反馈和贡献方面，鼓励用户提交具体的使用案例或建议，增加互动性和社区参与感。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/125.html</guid><pubDate>Tue, 10 Jun 2025 15:11:32 +0000</pubDate></item><item><title>0X7C 我关注的项目这周更新了什么-2025-06-06</title><link>https://anaer.github.io/blog/post/124.html</link><description>本文介绍了多个软件的更新版本及其变更说明，包括Cherry Studio、Xpipe、Sa-Token、YuyanIme、anx-reader、Weasel和subs-check。每个软件的更新包含了新特性、修复的缺陷和文档更新，旨在提升性能和用户体验。
+
+优化建议：
+1. 对于每个软件的变更说明，建议使用更简洁的语言来突出主要功能和修复问题，以便用户快速理解。
+2. 将新特性和修复的缺陷分开列出，使用项目符号或编号的方式，便于阅读和查找。
+3. 增加用户反馈渠道的信息，以便用户可以报告问题或提出建议，增强用户互动。
+4. 在文档更新部分，提供更新内容的具体链接或位置，方便用户查看详细信息。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/124.html</guid><pubDate>Mon, 02 Jun 2025 15:11:48 +0000</pubDate></item><item><title>0X7B 我关注的项目这周更新了什么-2025-05-30</title><link>https://anaer.github.io/blog/post/123.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/123.html</guid><pubDate>Mon, 26 May 2025 15:10:48 +0000</pubDate></item><item><title>0X7A blog相关</title><link>https://anaer.github.io/blog/post/122.html</link><description>本文介绍了在网站上放置猫的实现方法，包括引入oneko.js脚本和配置完整路径以避免相对路径问题。此外，还提到在GitHub上设置API密钥和模型权限的步骤，以确保访问相关功能时不会出现权限错误。
+
+优化建议：
+1. 在引入oneko.js脚本时，确保路径正确且可访问，以避免加载失败。
+2. 在GitHub设置中，详细记录API_KEY和API_URL的创建步骤，方便后续操作。
+3. 确保GitHub Models权限设置为Read-only，以避免因权限不足导致的错误。
+4. 提供具体的错误处理方案，以便在出现权限错误时快速定位问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/122.html</guid><pubDate>Fri, 23 May 2025 03:02:48 +0000</pubDate></item><item><title>0X79 Android TV软件</title><link>https://anaer.github.io/blog/post/121.html</link><description>本文介绍了几款针对不同设备和需求的应用程序，包括HTV手机和电视直播软件、BV解除国区封锁的Bilibili应用、专为电视遥控优化的TV Bro浏览器、适用于Android电视的SmartTube播放器，以及LocalSend用于本地网络文件分享的工具。
+
+优化建议：
+1. 提供每款应用的具体功能和用户评价，以便用户更好地选择适合自己的应用。
+2. 增加对比分析，帮助用户理解这些应用的优缺点。
+3. 提供下载链接和安装指南，以便用户快速获取和使用这些应用。
+4. 考虑加入用户案例或使用场景，增强内容的实用性和吸引力。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/121.html</guid><pubDate>Thu, 22 May 2025 08:45:45 +0000</pubDate></item><item><title>0X78 我关注的项目这周更新了什么-2025-05-23</title><link>https://anaer.github.io/blog/post/120.html</link><description>本文介绍了多个软件的版本更新和主要变更，包括Cherry Studio、DeepChat、Mihomo、PowerToys、new-api、xpipe、anx-reader、subs-check、LangBot、alist、weasel、LightBulb、awesome-mac等。每个软件的更新内容涵盖了新功能、修复的bug和性能改进等方面，展示了开发团队对用户反馈的重视和持续改进的努力。
+
+优化建议：
+1. 对每个软件的更新内容进行分类，例如新功能、修复和改进，便于用户快速找到所需信息。
+2. 提供每个软件的下载链接或安装说明，以方便用户获取最新版本。
+3. 增加用户反馈渠道的说明，鼓励用户提出建议和问题，促进软件的进一步优化。
+4. 考虑将更新内容简化为要点，减少冗长的描述，以提高阅读效率。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/120.html</guid><pubDate>Mon, 19 May 2025 04:19:22 +0000</pubDate></item><item><title>0X77 我关注的项目这周更新了什么-2025-05-16</title><link>https://anaer.github.io/blog/post/119.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/119.html</guid><pubDate>Mon, 12 May 2025 04:15:19 +0000</pubDate></item><item><title>0X76 我关注的项目这周更新了什么-2025-05-09</title><link>https://anaer.github.io/blog/post/118.html</link><description>本文介绍了多个软件版本的更新内容，包括 Cherry Studio v1.3.0、DeepChat v0.1.1、anx-reader v1.5.1、subs-check v2.2.1、new-api v0.7.1、xpipe 16.3、alist beta、mihomo Prerelease-Alpha、ublacklist v8.11.0、Ghosten-Player v2.0.3、higress v2.1.3、termora 1.0.14、TVBoxOSC 20250508-1756 和 fit-framework v3.5.0-M2。每个版本更新都包含了新功能、修复和优化，旨在提升用户体验和软件性能。
+
+优化建议：
+1. 在每个版本的变更说明中，突出显示主要新特性和修复，以便用户快速了解重要更新。
+2. 提供更新的具体使用场景或示例，以帮助用户理解新功能的实际应用。
+3. 考虑添加用户反馈渠道，以便收集使用体验和建议，进一步优化软件。
+4. 定期整理和发布更新的汇总，以便用户查看历史变更和版本演进。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/118.html</guid><pubDate>Mon, 05 May 2025 04:14:47 +0000</pubDate></item><item><title>0X75 rclone</title><link>https://anaer.github.io/blog/post/117.html</link><description>本文介绍了rclone的基本配置和命令使用，包括如何配置、显示当前配置、列出文件、同步和复制文件夹、移动文件、检查远程内容、比较文件夹差异以及清除远程文件。 
+
+优化建议：
+1. 以示例命令为基础，提供更详细的解释和应用场景，以帮助用户更好地理解每个命令的用途。
+2. 在每个命令后添加常见的错误处理建议，以提高用户在使用时的成功率。
+3. 提供命令的简要说明，以便用户快速查找所需功能。
+4. 考虑添加对不同操作系统的兼容性说明，以便用户在不同环境中使用rclone时能够更顺利。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/117.html</guid><pubDate>Wed, 30 Apr 2025 05:18:11 +0000</pubDate></item><item><title>0X74 我关注的项目这周更新了什么-2025-05-02</title><link>https://anaer.github.io/blog/post/116.html</link><description>本文介绍了多个软件的更新和变更说明，包括DeepChat、Cherry Studio、RIME-LMDG、Readest、new-api、xpipe、Ghosten-Player、WinMerge、LangBot、hp、QuickLook、mihomo、alist、maple-font、BongoCat、higress和subs-check等。每个软件的更新内容涵盖了新功能、修复的bug、性能优化和用户反馈等方面，旨在提升用户体验和功能性。
+
+优化建议：
+1. 对于每个软件的变更说明，建议增加简洁的版本号和发布日期，以便用户快速了解更新的时间和内容。
+2. 在功能和修复描述中，使用更明确的术语和例子，以帮助用户理解每个更新的实际影响。
+3. 考虑将更新内容按重要性排序，用户可以优先关注关键功能和修复，而非次要更新。
+4. 提供用户反馈渠道的具体信息，例如链接或联系方式，便于用户表达意见和建议。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/116.html</guid><pubDate>Mon, 28 Apr 2025 04:14:07 +0000</pubDate></item><item><title>0X73 minio mc安装配置</title><link>https://anaer.github.io/blog/post/115.html</link><description>本文介绍了如何安装和配置MinIO，包括创建数据目录、运行Docker容器、设置别名和同步数据等步骤。还涉及了MinIO的权限管理、存储桶操作、对象操作以及运维监控等常用命令的详细说明。此外，提供了一个MinIO同步脚本的示例，以及如何使用crontab进行定时任务。
+
+优化建议：
+1. 在Docker运行命令中，建议使用强密码替代示例中的简单密码，以增强安全性。
+2. 在mc命令示例中，添加对每个命令的简要说明，以便用户更容易理解其用途。
+3. 考虑在同步脚本中添加日志记录功能，以便于后续排查问题。
+4. 提供更详细的错误处理机制，例如在脚本中添加对mc命令执行失败的处理逻辑。
+5. 在文档中加入MinIO的常见问题解答部分，以帮助用户快速解决常见问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/115.html</guid><pubDate>Sun, 27 Apr 2025 08:41:05 +0000</pubDate></item><item><title>0X72 我关注的项目这周更新了什么-2025-04-25</title><link>https://anaer.github.io/blog/post/114.html</link><description>本文介绍了多个软件版本的更新和变更说明，包括 Cherry Studio、ublacklist、LangBot、BongoCat、RIME-LMDG、servers、xpipe、winmerge、alist、QuickLook、new-api、bili-hardcore、mihomo、subs-check、readest、TVBoxOSC、transbridge 及 The-Art-of-Problem-Solving-in-Software-Engineering_How-to-Make-MySQL-Better。这些更新涉及 bug 修复、功能增强、性能优化和新特性的添加，涵盖了从桌面客户端到文件管理、即时通讯和翻译服务等多个领域。
+
+优化建议：
+1. 对每个软件的更新内容进行更详细的分类和总结，以便用户快速找到感兴趣的功能或修复。
+2. 考虑加入用户反馈或评价的部分，以增强社区互动和软件改进的透明度。
+3. 提供更清晰的版本对比，帮助用户理解新版本与旧版本之间的具体差异。
+4. 在更新说明中增加使用案例或最佳实践，帮助用户更好地利用新功能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/114.html</guid><pubDate>Mon, 21 Apr 2025 15:10:45 +0000</pubDate></item><item><title>0X71 检测并取消设置 Git 仓库用户信息</title><link>https://anaer.github.io/blog/post/113.html</link><description>本文介绍了一个用于检测并取消设置 Git 仓库用户信息的工具，该工具通过递归查找指定目录下的所有 Git 仓库，并检查每个仓库的用户配置（user.name 和 user.email），如果存在则将其清理。用户可以通过命令行指定要扫描的目录，工具会输出每个仓库的用户配置信息及清理结果。
+
+优化建议：
+1. 在`find_git_repos`函数中，可以增加对.git目录的文件类型检查，以避免误判其他文件夹。
+2. 在`check_and_unset_config`函数中，考虑使用`subprocess.run`的`check`参数，自动处理错误并抛出异常，简化错误处理逻辑。
+3. 添加日志功能，将输出信息记录到日志文件中，方便后续查看。
+4. 在命令行参数中添加一个选项，允许用户选择是否输出详细的清理过程，以提高灵活性。
+5. 增强异常处理，确保在出现错误时能够提供更详细的上下文信息，便于调试。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/113.html</guid><pubDate>Fri, 18 Apr 2025 03:08:30 +0000</pubDate></item><item><title>0X70 direnv目录环境变量</title><link>https://anaer.github.io/blog/post/112.html</link><description>本文介绍了如何使用direnv工具来自动管理Python环境，避免手动激活虚拟环境的步骤。首先，需要安装direnv并配置Shell环境，随后在目标目录创建.envrc文件以自动执行激活命令，并授权该文件以使其生效。最后，验证direnv是否正常工作。
+
+优化建议：
+1. 在安装direnv之前，确保系统更新，以避免潜在的依赖问题。
+2. 在修改~/.bashrc文件时，可以备份原文件，以便出现问题时恢复。
+3. 提供更详细的说明，解释每个配置项的作用，特别是PS1的配置。
+4. 在创建.envrc文件时，可以添加注释，说明每条命令的目的，增强可读性。
+5. 在授权.envrc后，建议用户检查direnv的状态，确保没有其他错误信息。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/112.html</guid><pubDate>Wed, 16 Apr 2025 03:25:49 +0000</pubDate></item><item><title>0X6F jqGrid服务端排序</title><link>https://anaer.github.io/blog/post/111.html</link><description>本文介绍了在jqGrid中实现服务端排序的配置，设置了是否一次性加载数据、默认排序字段及顺序，并定义了列名和模型。此外，通过onSortCol事件处理程序阻止客户端排序并调用search函数进行服务端数据请求。
+
+优化建议：
+1. 确保search函数中包含所有必要的参数，以便于服务端接收完整的排序信息。
+2. 考虑在search函数中加入错误处理机制，以提高代码的健壮性。
+3. 在jqGrid配置中增加loadtext和emptyrecords属性，以改善用户体验。
+4. 对于大数据量，考虑实现分页功能以提升性能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/111.html</guid><pubDate>Tue, 15 Apr 2025 02:24:31 +0000</pubDate></item><item><title>0X6E 我关注的项目这周更新了什么-2025-04-18</title><link>https://anaer.github.io/blog/post/110.html</link><description>本文介绍了多个软件的更新版本，包括DeepChat、Cherry Studio、RIME-LMDG、TVBoxOSC、Termora、LangBot、subs-check、readest、higress、new-api、alist、mihomo、bili-hardcore和QuickLook。这些更新主要涉及新功能的添加、现有功能的优化和Bug修复，旨在提升用户体验和软件的稳定性。
+
+优化建议：
+1. 对于每个软件的更新说明，建议简化语言，突出关键功能和修复项，以便用户快速理解。
+2. 可以考虑将更新内容按类别（新功能、优化、修复）进行分类，便于用户查阅。
+3. 增加版本号和发布日期的信息，以便用户跟踪软件的更新历史。
+4. 提供每个软件的使用案例或场景，帮助用户理解新功能的实际应用。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/110.html</guid><pubDate>Mon, 14 Apr 2025 04:12:55 +0000</pubDate></item><item><title>0X6D 爱阅记听书配置</title><link>https://anaer.github.io/blog/post/109.html</link><description>本文介绍了在导出所有书籍时，APP闪退导致配置丢失的问题，并记录了相关的设置步骤。具体设置包括在“设置-&gt;听书-&gt;在线语音库管理-&gt;创建”中进行的配置，如名称、合成步骤、请求方式、HTTP头、地址及参数等。
+
+优化建议：
+1. 定期备份配置，以防止数据丢失。
+2. 增加错误处理机制，避免APP在导出时闪退。
+3. 提供用户友好的提示，指导用户如何正确设置在线语音库。
+4. 考虑在应用中添加日志功能，以便追踪配置变更和错误。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/109.html</guid><pubDate>Mon, 14 Apr 2025 01:52:44 +0000</pubDate></item><item><title>0X6C uv管理Python虚拟环境</title><link>https://anaer.github.io/blog/post/108.html</link><description>本文介绍了如何使用 uv 工具快速生成和管理 Python 项目，包括项目结构初始化、虚拟环境创建、依赖管理和版本切换等功能。用户可以通过 uv init 命令创建新项目，使用 uv venv 创建虚拟环境，并通过 uv add 添加依赖。对于已有项目，用户可以同步环境、更新依赖、查看依赖树，并检测无用依赖。
+
+优化建议：
+1. 在创建虚拟环境时，建议明确选择 Python 版本，避免使用默认设置，确保与项目需求一致。
+2. 定期使用 uv sync 命令同步依赖，确保环境与配置文件一致，减少潜在问题。
+3. 在添加依赖时，考虑使用 requirements.txt 文件，确保团队成员能够一致地安装相同的库版本。
+4. 定期检测并清理无用依赖，保持项目整洁，避免不必要的包影响性能。
+5. 对于依赖升级，建议在升级前查看兼容性，确保新版本不会引入破坏性更改。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/108.html</guid><pubDate>Fri, 11 Apr 2025 02:28:03 +0000</pubDate></item><item><title>0X6B Rest Client使用记录</title><link>https://anaer.github.io/blog/post/107.html</link><description>本文介绍了在Visual Studio Code中使用自定义变量、环境变量、文件变量、请求变量、提示变量和内置变量的方法，以及如何管理代理设置。用户可以在设置文件中定义不同环境的变量，并在HTTP文件中使用这些变量来简化请求过程。同时，介绍了如何取消代理配置以避免在使用rest-client时遇到的问题。
+
+优化建议：
+1. 在文中增加示例说明，以便用户更好地理解各类变量的具体用法。
+2. 提供实际操作步骤，指导用户如何在VSCode中设置和使用这些变量。
+3. 讨论可能的错误及其解决方案，以帮助用户在遇到问题时快速定位和解决。
+4. 考虑添加对环境变量的安全性和管理的最佳实践建议，以提高用户的安全意识。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/107.html</guid><pubDate>Thu, 10 Apr 2025 09:59:27 +0000</pubDate></item><item><title>0X6A VSCode Continue插件配置自定义模型</title><link>https://anaer.github.io/blog/post/106.html</link><description>本文介绍了一个配置文件，包含了多个模型的信息、定制命令、上下文提供者和斜杠命令。主要内容包括：使用的模型（如Pro/Qwen和DeepSeek-R1），API基础地址，上下文长度，以及为代码编写单元测试的自定义命令。
+
+优化建议：
+1. 确保API基础地址是有效的，并考虑使用HTTPS以增强安全性。
+2. 考虑为每个模型添加更多的描述信息，以便用户更好地理解其功能和适用场景。
+3. 在自定义命令中，增加代码示例以帮助用户更快上手。
+4. 为上下文提供者和斜杠命令添加使用示例，以提高用户体验和实用性。
+5. 定期审查和更新模型列表，以反映最新的技术和需求。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/106.html</guid><pubDate>Wed, 09 Apr 2025 06:42:54 +0000</pubDate></item><item><title>0X68 我关注的项目这周更新了什么-2025-04-11</title><link>https://anaer.github.io/blog/post/104.html</link><description>本文介绍了多个软件的最新版本更新，包括Cherry Studio, Readest, subs-check, RIME-LMDG, DeepChat, docs, koreader, Ghosten-Player, PowerToys, mihomo, clash-verge-rev, Sa-Token, new-api, alist, termora, bili-hardcore, servers, TVBoxOSC, ollama_load_balancer和DeepLX等。每个软件的更新内容涵盖了新特性、修复的bug和性能优化等方面，旨在提升用户体验和功能性。
+
+优化建议：
+1. 对于每个软件的更新说明，建议使用统一的格式，便于用户快速对比和理解更新内容。
+2. 在描述新特性时，可以增加使用场景的说明，帮助用户更好地理解这些功能的实际应用。
+3. 对于修复的bug，建议提供更详细的描述，说明问题产生的原因及修复的效果，以增强用户信任感。
+4. 可以考虑在更新说明中添加用户反馈的链接或渠道，鼓励用户参与改进和反馈。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/104.html</guid><pubDate>Mon, 07 Apr 2025 04:12:53 +0000</pubDate></item><item><title>0X67 我关注的项目这周更新了什么-2025-04-04</title><link>https://anaer.github.io/blog/post/103.html</link><description>本文介绍了多个软件的更新和变更说明，包括RIME-LMDG dict-nightly的中文词库更新、cherry-studio的MCP工具增强、DeepChat的智能助手功能重构、WinMerge的版本更新、mihomo的Python模型更新、higress的AI网关功能增强、Readest电子书阅读器的性能优化、subs-check的订阅工具更新、new-api的AI模型接口管理系统更新，以及Ghosten-Player的视频播放器修复和功能改进。
+
+优化建议：
+1. 对于每个软件的描述，增加具体的使用场景或目标用户群体，以便读者更好地理解其适用性。
+2. 在变更说明中，突出关键的新功能或修复，使用更简洁的语言以提高可读性。
+3. 提供链接到每个软件的官方网站或下载页面，方便用户获取更多信息和下载软件。
+4. 考虑将更新内容按重要性排序，确保用户能快速找到最相关的信息。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/103.html</guid><pubDate>Mon, 31 Mar 2025 15:11:00 +0000</pubDate></item><item><title>0X66 Mintty默认配置</title><link>https://anaer.github.io/blog/post/102.html</link><description>本文介绍了在SmartPutty中使用Mintty的配置方法，包括在个人目录下创建.minttyrc和.bashrc文件，以设置终端的外观、字符集、别名和提示符等。具体配置包括主题、字体、行列数、颜色、鼠标跟踪等选项。
+
+优化建议：
+1. 确保所有配置项的注释清晰，便于后续维护和理解。
+2. 考虑将字体和颜色设置与个人喜好相结合，提供更好的可读性。
+3. 在.bashrc中增加更多常用命令的别名，以提高工作效率。
+4. 定期备份配置文件，以防止意外丢失。
+5. 在配置文件中加入更多功能的说明，帮助新用户快速上手。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/102.html</guid><pubDate>Fri, 28 Mar 2025 02:25:04 +0000</pubDate></item><item><title>0X65 openresty打印请求入参和出参</title><link>https://anaer.github.io/blog/post/101.html</link><description>本文介绍了一个使用Lua脚本在Nginx中捕获和记录请求与响应信息的实现，包含请求头、请求体、响应头和响应体的处理，且通过白名单机制限制日志记录的内容，以减少日志量。
+
+优化建议：
+1. 在配置中添加注释，详细说明每个部分的功能，以提高代码可读性。
+2. 考虑将白名单的URI配置外部化，方便后续管理和更新。
+3. 在捕获请求体时，增加对大文件的处理逻辑，以避免内存占用过高。
+4. 对于日志记录，建议使用异步日志处理方式，以减少对请求处理的影响。
+5. 定期清理或归档日志文件，防止日志文件过大影响性能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/101.html</guid><pubDate>Thu, 27 Mar 2025 06:11:21 +0000</pubDate></item><item><title>0X64 通用.vimrc配置</title><link>https://anaer.github.io/blog/post/100.html</link><description>本文介绍了通用.vimrc配置，旨在解决服务器上vim中文乱码及Tab转空格问题，包含基本设置、编码设置、Tab和缩进设置、显示设置、搜索设置、其他实用设置、键映射以及保存和退出的快捷方式。
+
+优化建议：
+1. 考虑添加注释以解释每个设置的具体作用，帮助后续维护。
+2. 检查是否需要所有编码设置，简化配置以提高可读性。
+3. 根据个人习惯，选择性启用相对行号和光标行高亮功能，增强可视化效果。
+4. 评估是否需要启用鼠标支持，确保配置适合所有使用场景。
+5. 在键映射部分，考虑添加更多常用命令的快捷键，提高使用效率。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/100.html</guid><pubDate>Thu, 27 Mar 2025 06:08:33 +0000</pubDate></item><item><title>0X63 Ubuntu服务器中文乱码问题</title><link>https://anaer.github.io/blog/post/99.html</link><description>本文介绍了如何检查和设置系统的区域设置（locale），确保使用UTF-8编码，以避免中文显示乱码的问题。首先，检查当前的locale设置，如果不是UTF-8，则通过设置环境变量并将其添加到~/.bashrc文件中实现永久生效。接着，生成并更新locale，并通过命令检查中文是否正常显示。最后，为了在Vim中正确处理中文编码，需要在~/.vimrc中添加相关设置。
+
+优化建议：
+1. 在检查locale后，增加对不同操作系统（如Ubuntu、CentOS等）的特定设置说明，以便用户根据自身环境进行调整。
+2. 提供具体的命令示例，以便用户快速复制和执行。
+3. 在说明中加入常见错误及其解决方案，比如乱码的具体表现及对应的修复步骤。
+4. 考虑增加对其他常用编辑器（如nano、emacs）的配置说明，以满足不同用户的需求。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/99.html</guid><pubDate>Thu, 27 Mar 2025 05:29:42 +0000</pubDate></item><item><title>0X62 将 Nginx 替换为 OpenResty</title><link>https://anaer.github.io/blog/post/98.html</link><description>本文介绍了将 Nginx 替换为 OpenResty 的详细步骤，包括备份现有配置、卸载 Nginx、安装 OpenResty、迁移配置、启动服务以及验证功能。整个过程确保了系统的顺利过渡，并利用 OpenResty 的增强功能。
+
+优化建议：
+1. 在备份配置文件时，建议同时备份相关的 SSL 证书和其他依赖文件，以防止迁移后出现问题。
+2. 在卸载 Nginx 时，确认没有其他依赖于 Nginx 的服务，以避免影响系统的其他功能。
+3. 在安装 OpenResty 后，建议进行一次完整的系统更新，以确保所有软件包都是最新的。
+4. 在迁移配置时，可以考虑使用比较工具来帮助识别和调整配置文件中的差异。
+5. 在验证功能时，可以编写更复杂的 Lua 脚本进行全面测试，以充分利用 OpenResty 的能力。
+6. 清理旧文件时，建议保留一段时间的备份，以便于快速恢复。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/98.html</guid><pubDate>Thu, 27 Mar 2025 03:09:59 +0000</pubDate></item><item><title>0X61 pip报错处理</title><link>https://anaer.github.io/blog/post/97.html</link><description>本文介绍了在使用pip安装时出现的错误，提示“module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'”。该错误源于OpenSSL库中的crypto.py文件，导致无法正确导入相关模块。临时解决方法为重命名crypto.py文件。
+
+优化建议：
+1. 尝试更新OpenSSL库和相关依赖，确保使用的是最新版本。
+2. 检查Python环境的兼容性，确保与所使用的库版本匹配。
+3. 如果重命名文件作为临时解决方案，建议在项目文档中记录此更改，以便后续维护。
+4. 考虑使用虚拟环境来隔离依赖，避免与系统库产生冲突。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/97.html</guid><pubDate>Thu, 27 Mar 2025 02:23:20 +0000</pubDate></item><item><title>0X60 Mac配置</title><link>https://anaer.github.io/blog/post/96.html</link><description>本文介绍了多个macOS系统的终端命令，用于优化用户体验，包括设置程序坞的显示与隐藏时间、禁止Finder在网络和USB设备上生成.DS_Store文件、窗口拖动方式的调整、文件扩展名和隐藏文件的显示设置、路径栏的显示、文件夹优先显示、解决dmg文件损坏提示以及更改截图保存位置。
+
+优化建议：
+1. 将所有命令分组，按功能分类，便于用户查找和执行。
+2. 提供每个命令的简要说明，帮助用户理解其作用。
+3. 考虑增加恢复默认设置的命令，方便用户在需要时撤销更改。
+4. 在命令执行后，提供检查效果的方法，例如如何验证设置是否成功。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/96.html</guid><pubDate>Tue, 25 Mar 2025 02:15:38 +0000</pubDate></item><item><title>0X5F Linux常用命令记录</title><link>https://anaer.github.io/blog/post/95.html</link><description>本文介绍了如何清理日志目录中超过1G的日志文件，通过清空文件而不是删除文件来节省空间，并使用fdupes检测和删除重复文件。具体步骤包括使用find命令查找并清空大于1G的日志文件，以及安装fdupes工具并运行该工具来处理重复文件。
+
+优化建议：
+1. 在执行truncate命令前，可以先备份重要日志文件，以防止意外数据丢失。
+2. 在使用fdupes时，建议先使用-f选项进行预览，确认删除的文件，避免误删。
+3. 定期执行日志清理任务，可以考虑将命令添加到定时任务中，保持日志目录的整洁。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/95.html</guid><pubDate>Mon, 24 Mar 2025 08:14:46 +0000</pubDate></item><item><title>0X5E 我关注的项目这周更新了什么-2025-03-28</title><link>https://anaer.github.io/blog/post/94.html</link><description>本文介绍了多个软件版本的更新与变更说明，包括Readest、Weasel、Docs、Ghosten-Player、DeepChat、Termora、Cherry Studio、Clash-Verge-Rev、Higress、Subs-Check、LightBulb以及FlowSilicon等。主要更新内容涉及功能改进、bug修复和新特性添加，旨在提升用户体验和软件性能。
+
+优化建议：
+1. 对于每个软件的更新说明，建议提供更详细的用户指南或示例，以帮助用户更好地理解新功能的使用。
+2. 在发布说明中增加版本号更新的具体日期，以便用户跟踪软件的更新历史。
+3. 考虑将更新内容按重要性进行排序，优先展示最关键的改进和修复。
+4. 增加用户反馈渠道，鼓励用户对新版本提出意见和建议，以进一步完善软件。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/94.html</guid><pubDate>Mon, 24 Mar 2025 04:12:53 +0000</pubDate></item><item><title>0X5D VSCode插件包生成</title><link>https://anaer.github.io/blog/post/93.html</link><description>本文介绍了生成扩展包工程的步骤，包括安装Yeoman工具、创建扩展包工程、安装和使用vsce打包工具，以及如何获取和使用个人访问令牌(PAT)进行发布。首先，用户需安装Yeoman和相关生成器，创建扩展包工程，并通过vsce打包和发布扩展。需要注意的是，vsce工具要求Node版本为18或更高，且在发布前需获取PAT。
+
+优化建议：
+1. 在安装Yeoman工具时，建议提供具体的命令行步骤，便于用户操作。
+2. 对于更改npm源的部分，可以提供常用的镜像源地址，以提高下载速度。
+3. 在生成扩展包工程的步骤中，可以加入对创建过程中的选项说明，帮助用户理解每一步。
+4. 在说明vsce的使用时，建议提供示例命令的完整格式，以减少用户的疑惑。
+5. 对于获取PAT的步骤，建议增加安全提示，提醒用户定期更新和管理其访问令牌。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/93.html</guid><pubDate>Tue, 18 Mar 2025 07:47:58 +0000</pubDate></item><item><title>0X5C MCP开发手册</title><link>https://anaer.github.io/blog/post/92.html</link><description>本文介绍了模型上下文协议（MCP），这是一个开放协议，旨在标准化应用程序如何为大型语言模型（LLMs）提供上下文。MCP可以被视为AI应用程序的USB-C接口，类似于USB-C为设备与外设之间的连接提供标准化方式，MCP则标准化了AI模型与不同数据源和工具之间的连接。同时，提供了针对服务器开发者的快速入门指南，并列出了支持Python、Node和Java的天气查询示例，以及相关的MCP服务和市场链接。
+
+优化建议：
+1. 增加MCP的具体应用案例，以便用户更好地理解其实际使用场景。
+2. 提供详细的MCP协议文档链接，方便开发者深入学习。
+3. 在快速入门部分增加代码示例，帮助开发者快速上手。
+4. 考虑添加用户反馈或成功案例，以增强协议的可信度和吸引力。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/92.html</guid><pubDate>Mon, 17 Mar 2025 07:45:36 +0000</pubDate></item><item><title>0X5B 我关注的项目这周更新了什么-2025-03-21</title><link>https://anaer.github.io/blog/post/91.html</link><description>本文介绍了多个软件的更新版本，包括DeepChat、Cherry Studio、Xpipe、Docs、Readest、Subs-check、Sa-Token、New-api和NeatChat。每个软件都进行了不同程度的功能增强、错误修复和性能优化，旨在提升用户体验和系统稳定性。
+
+优化建议：
+1. 对于每个软件的更新说明，可以增加用户反馈或使用案例，以便于用户理解新特性的实际应用。
+2. 考虑提供更新的详细文档链接，帮助用户快速查找具体的更改内容和使用指南。
+3. 在发布说明中加入更新前后的性能对比数据，帮助用户评估更新的必要性。
+4. 增加版本号变化的可视化图表，直观展示软件的迭代进程和主要改动。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/91.html</guid><pubDate>Mon, 17 Mar 2025 01:26:49 +0000</pubDate></item><item><title>0X5A 将应用程序添加为系统服务进行管理</title><link>https://anaer.github.io/blog/post/90.html</link><description>本文介绍了如何在Windows和Mac系统中创建和管理服务。对于Windows，可以使用winsw.exe进行服务的安装、卸载、启动、停止、重启和状态查询，并提供了相应的服务配置示例。对于Mac，步骤包括创建LaunchAgent配置文件、编辑.plist文件内容以及加载和验证服务的命令。
+
+优化建议：
+1. 增加对winsw.exe和LaunchAgent的详细介绍，帮助用户理解其功能和使用场景。
+2. 在Windows部分提供更详细的参数说明，帮助用户更好地配置服务。
+3. 在Mac部分增加对.plist文件中各个键的解释，帮助用户理解配置内容。
+4. 提供示例输出或结果，以便用户在执行命令后进行对照，确保服务正确加载和运行。
+5. 考虑增加常见错误及解决方案的部分，以便用户在遇到问题时能快速查找解决方法。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/90.html</guid><pubDate>Fri, 14 Mar 2025 02:05:18 +0000</pubDate></item><item><title>0X59 VSCode扩展配置说明</title><link>https://anaer.github.io/blog/post/89.html</link><description>本文介绍了如何在VSCode工作区中配置定时任务以实现自动同步功能，通过在.vscode文件夹中添加tasks.json和settings.json文件，设置相应的任务和定时执行规则。具体步骤包括定义一个名为“Auto Sync”的任务，并在settings.json中配置其每5分钟自动执行，同时建议将终端的默认Profile设置为Command Prompt以避免潜在问题。
+
+优化建议：
+1. 确保tasks.json中的命令路径正确且可执行，避免因路径错误导致任务失败。
+2. 在settings.json中添加注释，说明每项配置的用途，以便后续维护时更易理解。
+3. 考虑将cron表达式的时间间隔参数化，以便于后期调整和复用。
+4. 在cronTasks.debug设置为true时，定期查看输出日志，以便及时发现和解决问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/89.html</guid><pubDate>Thu, 13 Mar 2025 08:15:39 +0000</pubDate></item><item><title>0X58 我关注的项目这周更新了什么-2025-03-14</title><link>https://anaer.github.io/blog/post/88.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/88.html</guid><pubDate>Thu, 13 Mar 2025 05:19:17 +0000</pubDate></item><item><title>0X57 Firefox安装插件列表</title><link>https://anaer.github.io/blog/post/87.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/87.html</guid><pubDate>Thu, 13 Mar 2025 02:11:19 +0000</pubDate></item><item><title>0X56 Chrome安装插件列表</title><link>https://anaer.github.io/blog/post/86.html</link><description>本文介绍了用户的浏览器扩展程序，包括已启用和已禁用的扩展。已启用的扩展涵盖了密码管理、翻译、邮件通知、网页剪辑和前端开发等功能。已禁用的扩展则包括翻译器、设计工具和标签管理器等。
+
+优化建议：
+1. 定期审查已启用的扩展，以确保它们的功能仍然符合需求，避免不必要的资源占用。
+2. 考虑将已禁用的扩展进行分类，评估是否需要重新启用或完全卸载。
+3. 对于密码管理器，建议选择一款功能强大且安全性高的工具，以提高账户安全性。
+4. 如果使用翻译功能频繁，可以考虑合并或选择一个更全面的翻译扩展，以简化操作。
+5. 定期更新扩展程序，以获得最新的功能和安全补丁。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/86.html</guid><pubDate>Thu, 13 Mar 2025 02:00:39 +0000</pubDate></item><item><title>0X55 SmartDNS配置说明</title><link>https://anaer.github.io/blog/post/85.html</link><description>本文介绍了Smart-DNS，这是一个用Rust编写的跨平台本地DNS服务器，旨在提供最佳的互联网体验，通过获取最快的网站IP。它支持多种DNS协议，包括DoT、DoQ、DoH和DoH3，并提供了多种命令以管理服务、执行DNS解析和测试配置等。
+
+优化建议：
+1. 在命令行帮助信息中增加示例用法，以便用户更快上手。
+2. 增加对常见问题的FAQ，帮助用户解决使用中的疑惑。
+3. 在配置示例中，提供更多的注释和解释，帮助用户理解每个配置项的作用。
+4. 考虑提供图形用户界面（GUI），以吸引不熟悉命令行操作的用户。
+5. 定期更新文档和示例，以反映最新的功能和最佳实践。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/85.html</guid><pubDate>Mon, 10 Mar 2025 09:24:44 +0000</pubDate></item><item><title>0X54 hosts文件管理工具</title><link>https://anaer.github.io/blog/post/84.html</link><description>本文介绍了两款hosts文件管理工具，分别是HostsMan和SwitchHosts，前者占用内存约6MB，后者占用70MB。此外，还提供了一个hosts文件的下载链接。
+
+优化建议：
+1. 提供各工具的主要功能和优缺点，以便用户选择适合的工具。
+2. 添加使用指南或教程链接，帮助用户更好地理解如何管理hosts文件。
+3. 考虑包含用户评价或推荐，以增强工具的可信度和实用性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/84.html</guid><pubDate>Mon, 10 Mar 2025 08:15:59 +0000</pubDate></item><item><title>0X53 dnsmasq使用记录</title><link>https://anaer.github.io/blog/post/83.html</link><description>本文介绍了dnsmasq的安装、配置、常见功能及使用场景。dnsmasq是一个轻量级的DNS转发和DHCP服务器工具，适用于本地DNS解析和网络管理。用户可以在不同操作系统上安装dnsmasq，并通过配置文件进行灵活的设置，例如自定义域名解析、启用DHCP、缓存设置等。此外，提供了启动与测试服务的步骤以及常用参数的说明，最后还列出了典型的应用场景。
+
+优化建议：
+1. 在安装部分，可以添加对不同版本的Linux系统的兼容性说明。
+2. 配置示例可以提供更多的注释，以帮助用户理解每个配置项的作用。
+3. 在常见功能与场景中，增加一些实际应用的案例，以便用户更好地理解和应用。
+4. 提供更详细的日志与调试部分的说明，帮助用户在遇到问题时进行排查。
+5. 可以增添一些安全性建议，例如如何保护dnsmasq服务不被外部访问。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/83.html</guid><pubDate>Mon, 10 Mar 2025 05:42:26 +0000</pubDate></item><item><title>0X52 mysql-bin日志文件清理</title><link>https://anaer.github.io/blog/post/82.html</link><description>本文介绍了MySQL中的二进制日志（mysql-bin），其用于记录数据库的所有更改操作，并提供了清理这些日志文件的步骤和注意事项，包括确认是否需要保留日志、查看当前日志、具体清理方法和配置自动过期策略。
+
+优化建议：
+1. 在确认保留二进制日志时，建议详细记录每种场景的具体需求，以便于后续决策。
+2. 在查看当前二进制日志时，可以增加对日志文件大小和数量的监控，以便及时发现异常情况。
+3. 清理方法中，建议在执行PURGE命令前，先备份相关日志，以防误删造成数据丢失。
+4. 配置自动过期策略时，可以考虑结合业务需求，适当调整保留天数，以平衡磁盘空间和数据恢复能力。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/82.html</guid><pubDate>Mon, 10 Mar 2025 05:38:27 +0000</pubDate></item><item><title>0X51 oh my zsh</title><link>https://anaer.github.io/blog/post/81.html</link><description>本文介绍了在Ubuntu/Debian和macOS上安装zsh，设置为默认shell，安装Oh My Zsh，并配置.zshrc文件。用户通过命令安装zsh，使用chsh命令将其设置为默认shell，然后通过curl命令安装Oh My Zsh，最后配置.zshrc文件以自定义主题和插件。
+
+优化建议：
+1. 在安装zsh之前，建议检查系统是否已安装curl，确保安装过程顺利。
+2. 提供关于如何检查和更新Oh My Zsh的链接，以便用户能及时获取最新功能和修复。
+3. 说明如何恢复默认shell，以便用户在需要时进行更改。
+4. 添加对各个插件的简要介绍，帮助用户选择适合自己的插件。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/81.html</guid><pubDate>Tue, 04 Mar 2025 06:01:42 +0000</pubDate></item><item><title>0X50 IOS应用</title><link>https://anaer.github.io/blog/post/80.html</link><description>本文介绍了Foobar论坛，提供可下载的皮肤资源。 
+
+优化建议：
+1. 增加论坛的主题和讨论内容，吸引更多用户参与。
+2. 提供皮肤下载的分类和筛选功能，以便用户更方便地找到所需资源。
+3. 考虑加入用户评价和反馈系统，提高皮肤质量的透明度。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/80.html</guid><pubDate>Fri, 28 Feb 2025 05:44:44 +0000</pubDate></item><item><title>0X4F Java集成LLM开发</title><link>https://anaer.github.io/blog/post/79.html</link><description>本文介绍了与多个Java库相关的链接，包括langchain4j和deepseek4j的仓库和文档，以及一个不再维护的openai4j仓库。
+
+优化建议：
+1. 提供每个库的简要介绍，说明其功能和用途，以帮助用户快速理解。
+2. 更新openai4j的状态，建议用户寻找替代方案或其他维护中的库。
+3. 考虑增加使用示例或教程链接，以便用户更好地上手使用这些库。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/79.html</guid><pubDate>Wed, 26 Feb 2025 07:18:20 +0000</pubDate></item><item><title>0X4E VSCode扩展离线下载</title><link>https://anaer.github.io/blog/post/78.html</link><description>本文介绍了如何替换特定链接并在服务器上下载VS Code扩展包。用户需要替换原有链接为新的下载链接，并确保下载的文件名和大小正确。
+
+优化建议：
+1. 确保在替换链接时，发布者ID、插件ID和版本号的准确性，以避免下载错误的文件。
+2. 在下载之前，检查服务器的网络连接和存储空间，确保可以顺利下载和存储文件。
+3. 下载完成后，验证文件的完整性和正确性，确保其可以在VS Code中正常使用。
+4. 考虑使用脚本自动化下载过程，以提高效率并减少手动错误。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/78.html</guid><pubDate>Wed, 26 Feb 2025 05:27:58 +0000</pubDate></item><item><title>0X4D fastjson特性开关</title><link>https://anaer.github.io/blog/post/77.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/77.html</guid><pubDate>Wed, 26 Feb 2025 02:37:29 +0000</pubDate></item><item><title>0X4C Jinja2模版语法</title><link>https://anaer.github.io/blog/post/76.html</link><description>本文介绍了Jinja2模板语法的基础结构、模板继承、高级功能组件、安全控制机制、空白控制、注释语法以及文件包含与导入。主要内容包括变量输出、逻辑控制、循环结构、宏、过滤器、测试器、自动转义、沙箱模式、空白控制技巧和模块化组织方法。
+
+优化建议：
+1. 提供更多实际应用示例，帮助用户理解每个功能的实际用途。
+2. 增加常见错误及其解决方案的部分，提升用户的学习效率。
+3. 对于复杂的功能组件，提供更详细的解释和使用场景，帮助用户更好地掌握。
+4. 考虑添加对比其他模板引擎的优缺点，帮助用户做出选择。
+5. 在安全控制机制部分，增加具体的安全实践建议，提升用户的安全意识。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/76.html</guid><pubDate>Tue, 25 Feb 2025 09:19:08 +0000</pubDate></item><item><title>0X4B 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了常用项目的分类和相关资源，包括开发工具、在线文档、软件服务、娱乐资源、IP工具、临时邮箱、下载工具、AI工具、影视资源等多个方面，提供了丰富的链接和工具，便于开发者和用户获取所需的信息和服务。
+
+优化建议：
+1. 对各类资源进行更明确的分类，例如将开发工具、在线工具、娱乐资源等进行细分，增加用户查找的便捷性。
+2. 增加每个资源的简要说明，帮助用户更快了解其功能与用途。
+3. 考虑添加资源的更新日期或版本信息，以便用户获取最新的工具和文档。
+4. 提供用户反馈渠道，收集使用体验和建议，以持续改进资源列表。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>0X4A Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的步骤，包括使用安装脚本、解压缩包、启动服务、查询和拉取模型的命令，以及如何将Ollama与Nginx和客户端Cherry Studio集成。此外，还讨论了RAG技术和AnythingLLM的安装与配置，提供了相关的Docker和Nginx配置示例。
+
+优化建议：
+1. 在安装和配置Ollama时，建议详细记录每一步的输出信息，以便后续排查问题。
+2. 考虑将所有命令和配置文件的内容整理成一个脚本，以便于快速部署和重复使用。
+3. 在设置系统服务时，提供更多关于环境变量的解释，以帮助用户理解其作用。
+4. 对于RAG技术的介绍，增加实例说明如何使用向量数据库进行信息检索，以便用户更好地理解其应用场景。
+5. 提供更详细的错误处理和调试步骤，帮助用户在遇到问题时能够快速解决。
+6. 在客户端Cherry Studio的配置中，建议提供更多关于API密钥和地址的说明，以确保用户能够正确设置。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/74.html</guid><pubDate>Mon, 10 Feb 2025 06:16:14 +0000</pubDate></item><item><title>0X49 Follow配置</title><link>https://anaer.github.io/blog/post/73.html</link><description>本文介绍了自动化配置和Webhook的实现，主要通过POST请求发送feed条目信息，并提供了一个示例参数格式。文中还描述了如何在Web端实现Feed分享页的自动订阅功能，包括获取feed ID、判断是否已订阅以及调用订阅接口的步骤。此外，提供了一个Tampermonkey用户脚本的示例，用于从当前页面URL提取ID并进行订阅。
+
+优化建议：
+1. 在Webhook接口处理时，建议增加错误处理逻辑，以确保在接收到无效数据时能够给出明确的反馈。
+2. 考虑将订阅数量上线的设置提取为可配置参数，以便于后期调整。
+3. 在用户脚本中，添加对网络请求的重试机制，以提高稳定性。
+4. 增加对API响应的详细日志记录，便于后期调试和问题排查。
+5. 提供更详细的用户反馈，例如在订阅成功或失败时，弹出提示通知用户。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/73.html</guid><pubDate>Thu, 06 Feb 2025 06:58:36 +0000</pubDate></item><item><title>0X48 Java Stream用法记录</title><link>https://anaer.github.io/blog/post/72.html</link><description>本文介绍了使用Java Stream API进行各种数据操作的示例，包括过滤、映射、排序、分组和转换等功能。具体操作包括：通过过滤器筛选长度大于5的字符串，映射字符串为大写，提取对象字段，类型转换，按字符串长度和字段排序，按年龄分组，以及将数组转换为列表。
+
+优化建议：
+1. 使用方法引用简化代码，例如在映射字符串为大写时，可以直接使用 String::toUpperCase。
+2. 对于排序操作，可以使用Comparator.comparing方法提高可读性。
+3. 在转换为Map时，考虑使用更明确的合并策略，以便于维护和理解。
+4. 在数组转列表时，确保数组不为空以避免潜在的NullPointerException。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/72.html</guid><pubDate>Thu, 23 Jan 2025 06:35:23 +0000</pubDate></item><item><title>0X47 查询证书文件有效期</title><link>https://anaer.github.io/blog/post/71.html</link><description>本文介绍了如何使用OpenSSL查询pem和p12格式证书的有效期。对于pem证书，可以使用命令`openssl x509 -enddate -noout -in cacert.pem`来获取有效期；对于p12证书，使用`openssl pkcs12 -in dev.p12 -nokeys -clcerts | openssl x509 -noout -dates`命令可以显示有效期。在使用p12证书时，如果需要输入密码，可以通过`-passin`参数直接提供密码。
+
+优化建议：
+1. 在命令示例中，确保提供的文件路径清晰，以避免用户混淆。
+2. 对于密码输入，可以建议使用环境变量或配置文件来存储密码，以提高安全性。
+3. 提供常见错误及其解决方案，例如密码错误或文件路径不正确的提示，以帮助用户更顺利地执行命令。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/71.html</guid><pubDate>Thu, 23 Jan 2025 06:24:42 +0000</pubDate></item><item><title>0X46 @Scheduled定时任务不执行问题解决</title><link>https://anaer.github.io/blog/post/70.html</link><description>本文介绍了@RefreshScope在Spring中触发Bean刷新时，导致原有Bean实例被销毁并创建新实例的情况。由于ScheduledAnnotationBeanPostProcessor只在容器初始化时执行一次，新创建的Bean中的@Scheduled方法未被注册，导致定时任务失效。提供了一种解决方案，使用ApplicationListener监听RefreshScopeRefreshedEvent以解决定时任务失效的问题。
+
+优化建议：
+1. 在AlertSchedulerCron类的onApplicationEvent方法中，添加逻辑以重新注册@Scheduled任务。
+2. 考虑使用Spring的TaskScheduler来动态调度任务，避免@Scheduled注解的限制。
+3. 增加异常处理机制，确保在任务执行中出现错误时能够进行日志记录或告警。
+4. 提供详细的文档或注释，帮助其他开发者理解如何使用该解决方案及其背后的原理。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/70.html</guid><pubDate>Thu, 23 Jan 2025 06:12:04 +0000</pubDate></item><item><title>0X45 Nginx日志配置</title><link>https://anaer.github.io/blog/post/69.html</link><description>本文介绍了如何在Nginx中记录访问日志，以便在出现问题时进行检查和排查。提供了多种日志格式的配置示例，包括普通格式和JSON格式，详细列出了可用的日志变量及其含义。
+
+优化建议：
+1. 在配置示例中，建议添加注释以说明每个日志格式的适用场景，帮助用户更好地选择。
+2. 提供示例日志输出，帮助用户直观理解配置效果。
+3. 在参数列表中，建议对常用变量进行分类，例如按请求相关、客户端相关等，提升可读性。
+4. 考虑添加日志轮转和清理的配置示例，以防止日志文件过大影响性能。
+5. 提供关于如何分析日志的简单指导，帮助用户更有效地利用记录的数据。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/69.html</guid><pubDate>Thu, 23 Jan 2025 06:07:25 +0000</pubDate></item><item><title>0X44 Git批处理脚本</title><link>https://anaer.github.io/blog/post/68.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/68.html</guid><pubDate>Thu, 23 Jan 2025 05:58:23 +0000</pubDate></item><item><title>0X43 Git删除大文件</title><link>https://anaer.github.io/blog/post/67.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/67.html</guid><pubDate>Thu, 23 Jan 2025 05:54:38 +0000</pubDate></item><item><title>0X42 ECS磁盘挂载</title><link>https://anaer.github.io/blog/post/66.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/66.html</guid><pubDate>Thu, 23 Jan 2025 05:46:06 +0000</pubDate></item><item><title>0X41 微信小程序登录流程</title><link>https://anaer.github.io/blog/post/65.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/65.html</guid><pubDate>Thu, 23 Jan 2025 05:44:16 +0000</pubDate></item><item><title>0X40 微信公众号错误码</title><link>https://anaer.github.io/blog/post/64.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/64.html</guid><pubDate>Thu, 23 Jan 2025 05:43:10 +0000</pubDate></item><item><title>0X3F 推送厂商对比</title><link>https://anaer.github.io/blog/post/63.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/63.html</guid><pubDate>Thu, 23 Jan 2025 05:27:13 +0000</pubDate></item><item><title>0X3E CIDR表示法</title><link>https://anaer.github.io/blog/post/62.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/62.html</guid><pubDate>Thu, 23 Jan 2025 05:25:14 +0000</pubDate></item><item><title>0X3D pypinyin用法</title><link>https://anaer.github.io/blog/post/61.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/61.html</guid><pubDate>Thu, 23 Jan 2025 03:26:12 +0000</pubDate></item><item><title>0X3C pm2常用命令</title><link>https://anaer.github.io/blog/post/60.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/60.html</guid><pubDate>Wed, 22 Jan 2025 08:36:09 +0000</pubDate></item><item><title>0X3B Wireshark抓包https配置</title><link>https://anaer.github.io/blog/post/59.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/59.html</guid><pubDate>Wed, 22 Jan 2025 08:31:56 +0000</pubDate></item><item><title>0X3A Api Mocker 帮助</title><link>https://anaer.github.io/blog/post/58.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/58.html</guid><pubDate>Wed, 22 Jan 2025 08:28:43 +0000</pubDate></item><item><title>0X39 curl统计耗时</title><link>https://anaer.github.io/blog/post/57.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/57.html</guid><pubDate>Wed, 22 Jan 2025 08:17:49 +0000</pubDate></item><item><title>0X38 aira2命令参数</title><link>https://anaer.github.io/blog/post/56.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/56.html</guid><pubDate>Wed, 22 Jan 2025 08:16:09 +0000</pubDate></item><item><title>0X37 prompt相关</title><link>https://anaer.github.io/blog/post/55.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/55.html</guid><pubDate>Wed, 22 Jan 2025 07:39:53 +0000</pubDate></item><item><title>0X36 在Ubuntu 20.04安装CouchDB</title><link>https://anaer.github.io/blog/post/54.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/54.html</guid><pubDate>Wed, 22 Jan 2025 07:32:07 +0000</pubDate></item><item><title>0X35 Android  TextView中部分文字高亮显示</title><link>https://anaer.github.io/blog/post/53.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/53.html</guid><pubDate>Wed, 22 Jan 2025 07:23:10 +0000</pubDate></item><item><title>0X34 mklink软链接创建</title><link>https://anaer.github.io/blog/post/52.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/52.html</guid><pubDate>Wed, 22 Jan 2025 07:18:09 +0000</pubDate></item><item><title>0X33 gatsby创建博客</title><link>https://anaer.github.io/blog/post/51.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/51.html</guid><pubDate>Tue, 21 Jan 2025 06:15:31 +0000</pubDate></item><item><title>0X32 Windows常用注册表</title><link>https://anaer.github.io/blog/post/50.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/50.html</guid><pubDate>Tue, 21 Jan 2025 03:03:50 +0000</pubDate></item><item><title>0X31 Office字体大小转换关系</title><link>https://anaer.github.io/blog/post/49.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/49.html</guid><pubDate>Tue, 21 Jan 2025 02:57:28 +0000</pubDate></item><item><title>0X30 Linux中安装字体</title><link>https://anaer.github.io/blog/post/48.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/48.html</guid><pubDate>Tue, 21 Jan 2025 02:52:02 +0000</pubDate></item><item><title>0X2F Python查询m3u8视频信息</title><link>https://anaer.github.io/blog/post/47.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/47.html</guid><pubDate>Tue, 21 Jan 2025 02:30:12 +0000</pubDate></item><item><title>0X2E ffmpeg&amp;ffprobe使用介绍</title><link>https://anaer.github.io/blog/post/46.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/46.html</guid><pubDate>Mon, 20 Jan 2025 07:21:22 +0000</pubDate></item><item><title>0X2D Markdown转纯文本</title><link>https://anaer.github.io/blog/post/45.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/45.html</guid><pubDate>Fri, 17 Jan 2025 02:38:04 +0000</pubDate></item><item><title>0X2C cdnjs搜索</title><link>https://anaer.github.io/blog/post/44.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/44.html</guid><pubDate>Thu, 16 Jan 2025 05:11:53 +0000</pubDate></item><item><title>0X2B ip-api接口查询IP对应国家名称</title><link>https://anaer.github.io/blog/post/43.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/43.html</guid><pubDate>Wed, 15 Jan 2025 09:48:03 +0000</pubDate></item><item><title>0X2A SQLite客户端</title><link>https://anaer.github.io/blog/post/42.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/42.html</guid><pubDate>Wed, 15 Jan 2025 09:31:22 +0000</pubDate></item><item><title>0X29 获取网站favicon图标</title><link>https://anaer.github.io/blog/post/41.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/41.html</guid><pubDate>Tue, 14 Jan 2025 09:49:19 +0000</pubDate></item><item><title>0X28 在线二维码API</title><link>https://anaer.github.io/blog/post/40.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/40.html</guid><pubDate>Tue, 14 Jan 2025 09:27:18 +0000</pubDate></item><item><title>0X27 Deepseek API</title><link>https://anaer.github.io/blog/post/39.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/39.html</guid><pubDate>Tue, 14 Jan 2025 07:54:02 +0000</pubDate></item><item><title>0X26 Blog页面添加下雪特效</title><link>https://anaer.github.io/blog/post/38.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/38.html</guid><pubDate>Tue, 14 Jan 2025 06:19:28 +0000</pubDate></item><item><title>0X25 Git命令记录</title><link>https://anaer.github.io/blog/post/37.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/37.html</guid><pubDate>Tue, 14 Jan 2025 03:24:59 +0000</pubDate></item><item><title>0X24 中文分词API</title><link>https://anaer.github.io/blog/post/36.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/36.html</guid><pubDate>Mon, 13 Jan 2025 08:41:57 +0000</pubDate></item><item><title>0X23 IP可用性检测</title><link>https://anaer.github.io/blog/post/35.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/35.html</guid><pubDate>Mon, 13 Jan 2025 08:36:35 +0000</pubDate></item><item><title>0X22 Python分词</title><link>https://anaer.github.io/blog/post/34.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/34.html</guid><pubDate>Mon, 13 Jan 2025 08:06:52 +0000</pubDate></item><item><title>0X21 网盘</title><link>https://anaer.github.io/blog/post/33.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/33.html</guid><pubDate>Thu, 09 Jan 2025 09:21:34 +0000</pubDate></item><item><title>0X20 电子书下载站</title><link>https://anaer.github.io/blog/post/32.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/32.html</guid><pubDate>Thu, 09 Jan 2025 07:06:35 +0000</pubDate></item><item><title>0X1F GPT比较</title><link>https://anaer.github.io/blog/post/31.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/31.html</guid><pubDate>Thu, 09 Jan 2025 06:08:53 +0000</pubDate></item><item><title>0X1E Python读取Markdown文件的元数据</title><link>https://anaer.github.io/blog/post/30.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/30.html</guid><pubDate>Mon, 06 Jan 2025 05:59:07 +0000</pubDate></item><item><title>0X1D whistle抓包工具</title><link>https://anaer.github.io/blog/post/29.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/29.html</guid><pubDate>Fri, 03 Jan 2025 06:19:08 +0000</pubDate></item><item><title>0X1C Git配置文件说明</title><link>https://anaer.github.io/blog/post/28.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/28.html</guid><pubDate>Fri, 03 Jan 2025 03:05:36 +0000</pubDate></item><item><title>0X1B ip2region工具</title><link>https://anaer.github.io/blog/post/27.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/27.html</guid><pubDate>Fri, 03 Jan 2025 02:05:26 +0000</pubDate></item><item><title>0X1A API接口测试工具</title><link>https://anaer.github.io/blog/post/26.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/26.html</guid><pubDate>Thu, 02 Jan 2025 05:35:04 +0000</pubDate></item><item><title>0X19 iFrame嵌入页面跨站登录失败问题</title><link>https://anaer.github.io/blog/post/25.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/25.html</guid><pubDate>Tue, 31 Dec 2024 02:43:53 +0000</pubDate></item><item><title>0X18 m3u8广告过滤</title><link>https://anaer.github.io/blog/post/24.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/24.html</guid><pubDate>Thu, 26 Dec 2024 08:33:54 +0000</pubDate></item><item><title>0X17 Linux中生成文件的sha1码</title><link>https://anaer.github.io/blog/post/23.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/23.html</guid><pubDate>Wed, 25 Dec 2024 06:59:41 +0000</pubDate></item><item><title>0X16 Clash/Mihomo在线管理面板</title><link>https://anaer.github.io/blog/post/22.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/22.html</guid><pubDate>Wed, 25 Dec 2024 02:25:19 +0000</pubDate></item><item><title>0X15 Linux抓包tcp数据</title><link>https://anaer.github.io/blog/post/21.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/21.html</guid><pubDate>Tue, 24 Dec 2024 07:09:16 +0000</pubDate></item><item><title>0X14 Python telegram消息发送</title><link>https://anaer.github.io/blog/post/20.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/20.html</guid><pubDate>Fri, 13 Dec 2024 09:47:33 +0000</pubDate></item><item><title>0X13 Spotify导入opml</title><link>https://anaer.github.io/blog/post/19.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/19.html</guid><pubDate>Fri, 13 Dec 2024 07:47:26 +0000</pubDate></item><item><title>0X12 静态文件服务器</title><link>https://anaer.github.io/blog/post/18.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/18.html</guid><pubDate>Wed, 21 Aug 2024 07:05:12 +0000</pubDate></item><item><title>0X11 neovim gui客户端</title><link>https://anaer.github.io/blog/post/17.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/17.html</guid><pubDate>Tue, 06 Aug 2024 06:37:03 +0000</pubDate></item><item><title>0X10 Deeplx 负载均衡</title><link>https://anaer.github.io/blog/post/16.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/16.html</guid><pubDate>Thu, 01 Aug 2024 07:59:09 +0000</pubDate></item><item><title>0XF aidoku漫画源</title><link>https://anaer.github.io/blog/post/15.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/15.html</guid><pubDate>Sat, 20 Jul 2024 13:44:01 +0000</pubDate></item><item><title>0XE ijkPlayer配置参数</title><link>https://anaer.github.io/blog/post/14.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/14.html</guid><pubDate>Thu, 23 May 2024 01:19:22 +0000</pubDate></item><item><title>0XD Python生成requirements.txt</title><link>https://anaer.github.io/blog/post/13.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/13.html</guid><pubDate>Thu, 07 Dec 2023 05:36:55 +0000</pubDate></item><item><title>0XC bark消息推送</title><link>https://anaer.github.io/blog/post/12.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/12.html</guid><pubDate>Wed, 08 Nov 2023 09:38:20 +0000</pubDate></item><item><title>0XB 公共DNS解析</title><link>https://anaer.github.io/blog/post/11.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/11.html</guid><pubDate>Wed, 08 Nov 2023 09:28:30 +0000</pubDate></item><item><title>0XA fail2ban配置nginx</title><link>https://anaer.github.io/blog/post/10.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/10.html</guid><pubDate>Mon, 06 Nov 2023 07:35:40 +0000</pubDate></item><item><title>0X9 Ubuntu安装fail2ban</title><link>https://anaer.github.io/blog/post/9.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/9.html</guid><pubDate>Fri, 03 Nov 2023 05:59:18 +0000</pubDate></item><item><title>0X8 Ubuntu部署WebDAV服务</title><link>https://anaer.github.io/blog/post/8.html</link><description>本文介绍了在Ubuntu 20.04.6系统上安装和配置Nginx以支持WebDAV的步骤，包括创建WebDAV目录、配置Nginx、用户认证和启动服务的详细过程。
+
+优化建议：
+1. 在安装Nginx时，可以考虑使用"apt-get install nginx"命令而不是"nginx-full"，以避免不必要的组件安装。
+2. 在配置Nginx时，建议为每个配置项添加注释，以便于后续维护和理解。
+3. 在用户认证部分，建议在创建用户前检查是否已安装apache2-utils，以避免运行时错误。
+4. 在启动服务前，可添加"systemctl start nginx"命令以确保Nginx服务已启动。
+5. 在访问服务时，提供更详细的示例URL，以便用户更好地理解如何访问WebDAV服务。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/8.html</guid><pubDate>Wed, 01 Nov 2023 07:30:57 +0000</pubDate></item><item><title>0X7 ECS操作记录</title><link>https://anaer.github.io/blog/post/7.html</link><description>本文介绍了重置密码时未提示默认密码的问题，以及在使用apt-get命令时需要先更新以避免找不到包的错误。此外，内容还涉及到安装nginx、配置云服务的安全组以快速添加80端口、部署webdav、安装fail2ban以防止暴力破解系统密码，以及安装deepLX。
+
+优化建议：
+1. 明确重置密码的具体步骤和建议，以便用户能够顺利完成操作。
+2. 在提到apt-get update时，说明更新的必要性和常见错误提示，以帮助用户理解。
+3. 对于nginx安装，提供基本配置的建议，以便用户能够快速上手。
+4. 在安全组配置中，建议说明如何设置入方向的规则，确保用户安全。
+5. 对于webdav的部署，简要介绍其用途和基本配置步骤。
+6. 在安装fail2ban时，建议提供基本的配置示例，以增强安全性。
+7. 对于deepLX，说明其功能和适用场景，以帮助用户理解其价值。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>0X6 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>本文介绍了各种软件和工具的推荐，包括浏览器、终端、内存清理、传输工具、卸载工具、AI、压缩工具、搜索工具、文件管理、健康软件、办公软件、开发工具、数据库、版本控制、编辑器、证书管理、网盘和翻译工具等。每类工具提供了多个选择，涵盖了不同的功能和需求。
+
+优化建议：
+1. 组织软件推荐时，考虑按照功能进行分组，便于用户查找。
+2. 在每个软件推荐后添加简短的使用场景或优缺点，以帮助用户更好地做出选择。
+3. 提供每个软件的下载链接或官方网站，方便用户获取最新版本。
+4. 增加用户评价或使用体验的总结，以增强推荐的可信度。
+5. 定期更新推荐列表，以反映软件的最新版本和市场变化。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>0X5 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>本文介绍了几种等宽字体，包括JetBrains Maple Mono、Maple-Mono、LXGW WenKai GB、Cascadia Code和UbuntuMono。其中，Maple-Mono被推荐为较为舒适的选择，而LXGW WenKai GB则在Markdown表格格式化时表现良好。
+
+优化建议：
+1. 提供每种字体的具体应用场景或适用类型，以帮助用户选择最合适的字体。
+2. 可以加入用户对这些字体的反馈或评价，以增加实用性。
+3. 考虑提供字体下载链接或使用说明，以便用户快速获取和应用。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/5.html</guid><pubDate>Thu, 26 Oct 2023 02:37:30 +0000</pubDate></item><item><title>0X4 pyGitHub文档</title><link>https://anaer.github.io/blog/post/4.html</link><description>本文介绍了一个仓库的属性字段及其描述，包括唯一标识符、名称、所有者、描述、创建时间、更新时间、推送时间、主要编程语言、分支数量、星标数、关注者数、大小、链接、默认分支、主页链接、许可证信息、是否归档、是否私有以及是否为派生。 
+
+优化建议：
+1. 增加示例数据以便更好理解各属性字段的实际应用。
+2. 提供属性字段的使用场景或最佳实践，帮助用户更好地利用这些信息。
+3. 考虑添加字段的可选性说明，例如哪些字段是必填的，哪些是可选的。
+4. 提供与其他相关工具或库的比较，以帮助用户选择最适合的工具。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/4.html</guid><pubDate>Thu, 19 Oct 2023 08:19:17 +0000</pubDate></item><item><title>0X3 循环叹息</title><link>https://anaer.github.io/blog/post/3.html</link><description>本文介绍了循环叹息的步骤，包括缓慢吸气、短促小吸气和非常缓慢地呼出气体，旨在改善心情和减少焦虑。相关研究表明，每天进行5分钟的呼吸训练可能比冥想更有效。
+
+优化建议：
+1. 提供具体的呼吸训练时间和频率建议，以便用户更好地实践。
+2. 增加对循环叹息的科学原理解释，帮助用户理解其效果。
+3. 引入用户反馈或案例研究，以增强方法的可信度和吸引力。
+4. 提供与其他放松技巧的比较，帮助用户选择最适合自己的方法。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/3.html</guid><pubDate>Mon, 16 Oct 2023 02:09:32 +0000</pubDate></item><item><title>0X2 暴力猴Violentmonkey 脚本说明</title><link>https://anaer.github.io/blog/post/2.html</link><description>本文介绍了暴力猴（Violentmonkey）的用户脚本元数据块格式及其相关的GM_* API接口。元数据块包含了脚本的基本信息，如名称、描述、版本、匹配规则、授权设置等，同时提供了对第三方资源的引入和管理。GM_* API接口则提供了一系列用于与浏览器和用户脚本环境交互的函数。
+
+优化建议：
+1. 提供示例代码以帮助用户更好地理解如何使用元数据块和GM_* API。
+2. 增加对每个GM_* API函数的详细说明，包括参数和返回值，以便用户快速查找所需信息。
+3. 考虑添加常见问题解答部分，帮助用户解决在使用暴力猴时可能遇到的常见问题。
+4. 引入用户脚本的最佳实践，以提高脚本的兼容性和性能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/2.html</guid><pubDate>Thu, 28 Sep 2023 06:35:06 +0000</pubDate></item><item><title>0X1 苹果CMS接口说明以及采集源搜索</title><link>https://anaer.github.io/blog/post/1.html</link><description>本文介绍了苹果CMS的接口说明，主要包括提供的API接口及其查询逻辑。用户可以通过特定的URL格式请求视频列表或详情，支持多种参数如类别ID、页码、搜索关键字等，能够灵活筛选和排序数据。同时，文中还提到如何使用关键词进行搜索以获取相关信息。
+
+优化建议：
+1. 增加接口返回数据的示例，以便用户更好地理解返回格式。
+2. 提供错误处理和异常情况的说明，帮助用户处理常见问题。
+3. 在接口说明中加入调用频率限制的信息，以避免过度请求导致的封禁。
+4. 提供详细的参数说明，包括每个参数的类型和默认值，以提高可用性。
+5. 考虑增加接口的版本控制说明，以便于后续更新和维护。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/1.html</guid><pubDate>Fri, 08 Sep 2023 12:29:10 +0000</pubDate></item></channel></rss>

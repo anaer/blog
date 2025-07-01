@@ -136,14 +136,14 @@ pre {
 <span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-17 14:21:24</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用direnv工具管理Python项目中的虚拟环境，具体步骤包括安装direnv、配置Shell环境、创建和授权.envrc文件，以及验证direnv的自动加载功能。通过这些步骤，可以在进入不同项目时自动激活相应的Python虚拟环境，避免手动执行source命令。
+    <strong>AI总结:</strong> 本文介绍了如何使用direnv工具来自动管理Python环境，避免手动激活虚拟环境的步骤。首先，需要安装direnv并配置Shell环境，随后在目标目录创建.envrc文件以自动执行激活命令，并授权该文件以使其生效。最后，验证direnv是否正常工作。
 
 优化建议：
-1. 在安装direnv之前，建议检查系统是否已安装apt，并确保用户具有安装软件的权限。
-2. 提供针对其他Shell（如Zsh）的配置示例，以便于不同用户的使用。
-3. 在创建.envrc文件时，建议添加注释以说明每个命令的功能，增加可读性。
-4. 在授权.envrc之前，建议提醒用户检查文件内容，以确保安全性。
-5. 提供常见问题的解决方案，例如direnv未能自动加载.envrc文件时的排查步骤。
+1. 在安装direnv之前，确保系统更新，以避免潜在的依赖问题。
+2. 在修改~/.bashrc文件时，可以备份原文件，以便出现问题时恢复。
+3. 提供更详细的说明，解释每个配置项的作用，特别是PS1的配置。
+4. 在创建.envrc文件时，可以添加注释，说明每条命令的目的，增强可读性。
+5. 在授权.envrc后，建议用户检查direnv的状态，确保没有其他错误信息。
 </div>
 
 <div class="markdown-body" id="postBody">

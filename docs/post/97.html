@@ -134,9 +134,13 @@ pre {
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-27 10:23:20</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在使用pip安装时遇到的错误，提示"module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'"，该问题源于OpenSSL库中的crypto.py文件。临时解决方法是重命名crypto.py文件，以避开该错误。
+    <strong>AI总结:</strong> 本文介绍了在使用pip安装时出现的错误，提示“module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'”。该错误源于OpenSSL库中的crypto.py文件，导致无法正确导入相关模块。临时解决方法为重命名crypto.py文件。
 
-优化建议：建议在正式环境中解决该问题时，检查OpenSSL库的版本，确保其与其他依赖项兼容，并考虑更新或重新安装相关库，以避免手动修改文件带来的潜在风险。同时，查看相关文档或社区讨论，寻找更为稳定的解决方案。
+优化建议：
+1. 尝试更新OpenSSL库和相关依赖，确保使用的是最新版本。
+2. 检查Python环境的兼容性，确保与所使用的库版本匹配。
+3. 如果重命名文件作为临时解决方案，建议在项目文档中记录此更改，以便后续维护。
+4. 考虑使用虚拟环境来隔离依赖，避免与系统库产生冲突。
 </div>
 
 <div class="markdown-body" id="postBody">

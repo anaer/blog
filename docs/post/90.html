@@ -138,11 +138,14 @@ pre {
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-14 10:05:18</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> Win服务管理可以通过winsw.exe进行全局管理，或将其重命名为特定应用的服务程序（如myapp-server.exe）。服务配置包括服务标识、名称、描述、环境变量、可执行文件及其参数、日志路径和日志设置。具体服务管理命令包括安装、卸载、启动、停止、重启、查询状态和刷新属性。
+    <strong>AI总结:</strong> 本文介绍了如何在Windows和Mac系统中创建和管理服务。对于Windows，可以使用winsw.exe进行服务的安装、卸载、启动、停止、重启和状态查询，并提供了相应的服务配置示例。对于Mac，步骤包括创建LaunchAgent配置文件、编辑.plist文件内容以及加载和验证服务的命令。
 
-对于Mac服务，用户需创建LaunchAgent配置文件，并在~/Library/LaunchAgents目录中编辑.plist文件，配置服务标识、程序参数和加载选项。完成配置后，通过launchctl命令加载服务并验证其是否成功加载。
-
-建议在服务配置文件和命令中明确指出需要替换的实际路径和参数，以提升清晰度。同时，可以增加对每个命令的简要说明，以帮助用户理解其功能。
+优化建议：
+1. 增加对winsw.exe和LaunchAgent的详细介绍，帮助用户理解其功能和使用场景。
+2. 在Windows部分提供更详细的参数说明，帮助用户更好地配置服务。
+3. 在Mac部分增加对.plist文件中各个键的解释，帮助用户理解配置内容。
+4. 提供示例输出或结果，以便用户在执行命令后进行对照，确保服务正确加载和运行。
+5. 考虑增加常见错误及解决方案的部分，以便用户在遇到问题时能快速查找解决方法。
 </div>
 
 <div class="markdown-body" id="postBody">

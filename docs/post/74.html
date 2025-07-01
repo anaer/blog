@@ -138,14 +138,15 @@ pre {
 <span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-26 16:41:16</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在Linux系统上安装和配置Ollama的步骤，包括使用curl命令下载并解压缩Ollama，设置系统服务以便长期使用，手动启动服务，查询和拉取模型，以及如何与模型进行交互和测试接口。此外，还提供了关于RAG（Retrieval-Augmented Generation）技术的介绍及其在AnythingLLM中的应用，包括docker安装和nginx配置。最后，提到了监控GPU使用情况的方法和相关链接。
+    <strong>AI总结:</strong> 本文介绍了在Linux系统上安装和配置Ollama的步骤，包括使用安装脚本、解压缩包、启动服务、查询和拉取模型的命令，以及如何将Ollama与Nginx和客户端Cherry Studio集成。此外，还讨论了RAG技术和AnythingLLM的安装与配置，提供了相关的Docker和Nginx配置示例。
 
 优化建议：
-1. 在安装步骤中，可以增加对系统依赖的检查，确保用户在安装前满足所有要求。
-2. 提供更详细的错误处理和故障排除步骤，以帮助用户解决可能遇到的问题。
-3. 在配置nginx时，可以添加SSL证书的配置说明，以增强安全性。
-4. 对于RAG的介绍，可以提供更多实际应用案例，以便用户更好地理解其价值。
-5. 增加对模型性能和使用限制的说明，帮助用户合理选择和使用模型。
+1. 在安装和配置Ollama时，建议详细记录每一步的输出信息，以便后续排查问题。
+2. 考虑将所有命令和配置文件的内容整理成一个脚本，以便于快速部署和重复使用。
+3. 在设置系统服务时，提供更多关于环境变量的解释，以帮助用户理解其作用。
+4. 对于RAG技术的介绍，增加实例说明如何使用向量数据库进行信息检索，以便用户更好地理解其应用场景。
+5. 提供更详细的错误处理和调试步骤，帮助用户在遇到问题时能够快速解决。
+6. 在客户端Cherry Studio的配置中，建议提供更多关于API密钥和地址的说明，以确保用户能够正确设置。
 </div>
 
 <div class="markdown-body" id="postBody">

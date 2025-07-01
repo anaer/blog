@@ -137,21 +137,7 @@ pre {
 
 <span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-05-30 17:27:18</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> vim script/free.py
-import subprocess
-from bark import send_bark_notification
-
-# 执行 free -m 命令并获取结果
-result = subprocess.run(['free', '-m'], stdout=subprocess.PIPE)
-
-# 处理结果并提取 total 和 available 两项
-lines = result.stdout.decode().split('\n')
-headers = lines[0].split()
-values = lines[1].split()
-
-# 提取 tot...
-</div>
+<p>
 
 <div class="markdown-body" id="postBody">
 <p>vim script/free.py</p>
