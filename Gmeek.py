@@ -273,6 +273,18 @@ class GMEEK():
         except:
             return None
 
+    def decimal_to_hex(self, decimal_value):
+        if not isinstance(decimal_value, int) or decimal_value < 0:
+            return decimal_value
+
+        # 使用 Python 内置函数 hex 进行转换
+        hex_value = hex(decimal_value)
+
+        # 确保十六进制字母大写
+        hex_value = hex_value.upper()
+
+        return hex_value
+
     def addOnePostJson(self,issue):
         if self.repo.owner.name != issue.user.name:
             # 有需要可以设置白名单
@@ -299,7 +311,7 @@ class GMEEK():
         post["htmlDir"]=gen_Html
         post["markdown"]=mdPath
         post["labels"]=labels
-        post["postTitle"]="%03d %s" % (issue.number, issue.title)
+        post["postTitle"]="%s %s" % (self.decimal_to_hex(issue.number), issue.title)
         post["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(issue.number))
         post["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
         post["commentNum"]=issue.get_comments().totalCount
