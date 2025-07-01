@@ -34,8 +34,8 @@ $ vsce package
 $ vsce publish
 # <publisherID>.myExtension published to VS Code Marketplace
 
-$ vsce login
-# 输入用户名和PAT 进行更新
+$ vsce login anaer
+# 输入PAT 进行更新
 ```
 
 如果提示vsce命令未找到, 可以将vsce.cmd命令所在目录添加到环境变量PATH中: C:\Users\Administrator\AppData\Roaming\npm
