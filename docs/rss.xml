@@ -1,17 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 01 Jul 2025 10:03:59 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 01 Jul 2025 10:03:59 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X82 Nacos低版本权限认证绕过漏洞复现</title><link>https://anaer.github.io/blog/post/130.html</link><description>本文介绍了Alibaba Nacos的权限认证绕过漏洞，影响版本为Nacos &lt;= 2.0.0-ALPHA.1。官方已发布安全版本，建议用户下载或升级至最新版本以修复该漏洞。相关的API请求示例包括查询用户、创建用户和重置密码的操作。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 01 Jul 2025 15:12:29 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 01 Jul 2025 15:12:29 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X82 Nacos低版本权限认证绕过漏洞复现</title><link>https://anaer.github.io/blog/post/130.html</link><description>本文介绍了Alibaba Nacos的权限认证绕过漏洞，影响版本为Nacos &lt;= 2.0.0-ALPHA.1。官方已发布安全版本，建议用户下载或升级至最新版本以修复该漏洞。相关的API请求示例包括查询用户、创建用户和重置密码的操作。
 
 优化建议：
 1. 增加对漏洞影响的详细描述，包括可能导致的安全风险和后果。
 2. 提供更具体的升级步骤，帮助用户更顺利地进行版本更新。
 3. 在相关链接中添加更多参考资料，帮助用户更深入了解漏洞背景和修复方法。
-4. 可以考虑提供示例代码的安全性分析，帮助用户理解如何安全地使用API。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/130.html</guid><pubDate>Tue, 01 Jul 2025 08:14:21 +0000</pubDate></item><item><title>0X81 我关注的项目这周更新了什么-2025-07-04</title><link>https://anaer.github.io/blog/post/129.html</link><description>本文介绍了anx-reader v1.6.1版本的更新内容，包括新增功能、问题修复和优化改进。新增功能包括书籍缩进、自动同步自定义选项、首次启动引导页面、更新日志显示及实验性功能的历史版本恢复。问题修复方面，解决了安卓设备文本选择、WebView兼容性、WebDAV配置即时生效、数据库完整性、PDF阅读、封面同步及文件导入等多个问题。优化改进则集中在支持更多同步协议及构建版本号的优化。
+4. 可以考虑提供示例代码的安全性分析，帮助用户理解如何安全地使用API。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/130.html</guid><pubDate>Tue, 01 Jul 2025 08:14:21 +0000</pubDate></item><item><title>0X81 我关注的项目这周更新了什么-2025-07-04</title><link>https://anaer.github.io/blog/post/129.html</link><description>本文介绍了anx-reader v1.6.1的更新内容，包括新增功能、问题修复和其他改进。新增的功能包括书籍缩进跟随、自动同步开关、首次使用引导页面和更新日志显示，同时引入了实验性功能以恢复历史版本。修复方面，解决了安卓设备文本选择菜单问题、WebView兼容性、WebDAV配置等多个问题，并优化了同步逻辑和数据库完整性检查。此外，还为支持更多同步协议做了准备并优化了构建版本号。
 
 优化建议：
-1. 增加用户反馈渠道，以便收集用户在使用新功能后的体验和建议。
-2. 提供详细的使用指南或帮助文档，帮助用户更好地理解和使用新增功能。
-3. 考虑增加版本更新的自动提示功能，以提高用户的更新意识。
-4. 定期进行性能评测，确保每次更新都能有效提升用户体验。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/129.html</guid><pubDate>Mon, 30 Jun 2025 15:11:53 +0000</pubDate></item><item><title>0X80 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了多个软件的更新内容，包括Cherry Studio v1.4.7、dify v1.5.0、maple-font v7.4、CloudflareSpeedTest v2.3.0、mihomo v1.19.11和rclone v1.70.2。这些更新主要涉及问题修复、功能改进、代码重构及安全更新等方面，增强了软件的稳定性和用户体验。
+1. 增加用户反馈机制，以便收集使用体验和改进建议。
+2. 提供详细的更新日志，帮助用户了解每次更新的具体变化。
+3. 考虑增加用户自定义选项，提升个性化阅读体验。
+4. 加强对新功能的使用指导，确保用户能够充分利用新增功能。
+5. 定期发布使用技巧和最佳实践，帮助用户更高效地使用应用。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/129.html</guid><pubDate>Mon, 30 Jun 2025 15:11:53 +0000</pubDate></item><item><title>0X80 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了多个软件的更新内容，包括Cherry Studio v1.4.7、dify v1.5.0、maple-font v7.4、CloudflareSpeedTest v2.3.0、mihomo v1.19.11和rclone v1.70.2。这些更新主要涉及问题修复、功能改进、代码重构及安全更新等方面，增强了软件的稳定性和用户体验。
 
 优化建议：
 1. 对于每个软件的更新，建议提供更详细的用户指南或变更日志，以帮助用户理解新功能和修复的问题。
