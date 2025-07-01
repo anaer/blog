@@ -435,14 +435,14 @@ class GMEEK():
         self.checkDir()
 
         issues=self.repo.get_issues(state="open", sort="updated", direction="desc")
-        if issues.totalCount > 0:
-            issue = issues[0]
+        for issue in issues:
             post = self.addOnePostJson(issue)
             if post:
                 self.createPostHtml(post)
                 self.createPlistHtml()
                 self.createFeedXml()
-            print("====== create static html end ======")
+            break
+        print("====== create static html end ======")
 
 #########################################################################
 parser = argparse.ArgumentParser()

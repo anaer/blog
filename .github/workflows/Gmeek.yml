@@ -37,9 +37,17 @@ jobs:
         run: |
           git clone https://github.com/anaer/blog.git /opt/Gmeek
 
+      - name: Cache Python dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install -r /opt/Gmeek/requirements.txt
 
       - name: Generate new html
