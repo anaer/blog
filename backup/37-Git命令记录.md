@@ -1,3 +1,14 @@
+## Git命令中文乱码 测试有效
+
+```sh
+# 设置文件名编码为 UTF-8
+git config --global core.quotepath false
+
+# 设置提交日志等输出编码为 UTF-8
+git config --global i18n.commit.encoding utf-8
+git config --global i18n.logoutputencoding utf-8
+```
+
 ## 使用 Git 配置强制识别大小写变化
 Git 默认在 大小写不敏感的系统（如 Windows/macOS 默认设置）中不会提交 仅大小写不同的文件名更改。
 

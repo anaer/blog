@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 01 Jul 2025 04:39:09 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 01 Jul 2025 04:39:09 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>129 我关注的项目这周更新了什么-2025-07-04</title><link>https://anaer.github.io/blog/post/129.html</link><description>本文介绍了anx-reader v1.6.1版本的更新内容，包括新增功能、问题修复和优化改进。新增功能包括跟随书籍缩进、自定义自动同步、首次启动引导页面、更新日志显示以及实验性功能。问题修复方面，解决了安卓设备文本选择、WebView兼容性、WebDAV配置、数据库完整性、PDF阅读和导入等多个问题。优化改进则集中在支持更多同步协议和构建版本号的优化。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 01 Jul 2025 07:53:29 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 01 Jul 2025 07:53:29 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>129 我关注的项目这周更新了什么-2025-07-04</title><link>https://anaer.github.io/blog/post/129.html</link><description>本文介绍了anx-reader v1.6.1版本的更新内容，包括新增功能、问题修复和优化改进。新增功能包括跟随书籍缩进、自定义自动同步、首次启动引导页面、更新日志显示以及实验性功能。问题修复方面，解决了安卓设备文本选择、WebView兼容性、WebDAV配置、数据库完整性、PDF阅读和导入等多个问题。优化改进则集中在支持更多同步协议和构建版本号的优化。
 
 优化建议：可以在更新说明中增加用户反馈的引用，以增强更新内容的可信度。同时，考虑提供更详细的使用指南或视频教程，帮助用户更好地理解新功能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/129.html</guid><pubDate>Mon, 30 Jun 2025 15:11:53 +0000</pubDate></item><item><title>128 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了多个软件的最新版本更新，包括Cherry Studio v1.4.7、dify v1.5.0、maple-font v7.4、CloudflareSpeedTest v2.3.0、mihomo v1.19.11和rclone v1.70.2。每个软件的更新内容涵盖了问题修复、功能改进、代码重构和新增特性等方面，旨在提升用户体验和软件性能。
 
@@ -505,13 +505,13 @@ https://api.qrserver.com/v1/create-qr-code/?size=100×...</description><guid isP
 优化建议：可以增加对每个平台的具体功能和适用场景的描述，以帮助用户更好地选择合适的平台。同时，提供用户使用DeepSeek模型的成功案例或最佳实践，能够更有效地吸引用户关注和使用。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/39.html</guid><pubDate>Tue, 14 Jan 2025 07:54:02 +0000</pubDate></item><item><title>038 Blog页面添加下雪特效</title><link>https://anaer.github.io/blog/post/38.html</link><description>snowfall
 下载js文件到目录assets/snowfall@1.7下
 在base.html添加
-    &lt;script src="{{ blogBase['homeUrl'] }}/asset...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/38.html</guid><pubDate>Tue, 14 Jan 2025 06:19:28 +0000</pubDate></item><item><title>037 Git命令记录</title><link>https://anaer.github.io/blog/post/37.html</link><description>本文介绍了如何在 Git 中配置强制识别大小写变化、查询和修改历史提交用户信息、处理浅克隆、比较分支并导出变更文件，以及删除敏感文件的历史提交记录。具体步骤包括临时设置 Git 的大小写敏感性、使用 git log 查询用户记录、利用 git filter-repo 修改用户信息、执行浅克隆并获取其他分支、将浅克隆转换为完整克隆、导出变更文件为压缩包，以及删除敏感文件的提交历史。
+    &lt;script src="{{ blogBase['homeUrl'] }}/asset...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/38.html</guid><pubDate>Tue, 14 Jan 2025 06:19:28 +0000</pubDate></item><item><title>037 Git命令记录</title><link>https://anaer.github.io/blog/post/37.html</link><description>本文介绍了在使用Git时解决中文乱码、强制识别文件名大小写变化、查询和修改提交用户记录、处理浅克隆、比较分支并导出变更文件，以及删除敏感文件历史提交记录的相关命令和方法。具体包括设置编码、临时修改大小写敏感性、使用`git log`查询用户、`git filter-repo`修改历史信息、处理浅克隆的命令、导出变更文件为压缩包的命令，以及删除敏感文件历史记录的方法。
 
 优化建议：
-1. 在每个操作前提供简要说明，以帮助用户理解每个命令的目的。
-2. 可以增加示例输出，帮助用户确认操作是否成功。
-3. 在涉及多个命令的操作中，考虑将步骤分组并明确每组的目的，以提高可读性。
-4. 对于复杂的命令，可以提供更详细的解释或链接到官方文档，以便用户深入了解。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/37.html</guid><pubDate>Tue, 14 Jan 2025 03:24:59 +0000</pubDate></item><item><title>036 中文分词API</title><link>https://anaer.github.io/blog/post/36.html</link><description>中文分词API
+1. 在每个命令后添加简要说明，以帮助用户理解命令的具体作用。
+2. 可以将相似的命令归类整理，便于用户快速查找和使用。
+3. 提供常见错误及其解决方案，提升用户体验。
+4. 增加示例输出，帮助用户确认命令执行的效果。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/37.html</guid><pubDate>Tue, 14 Jan 2025 03:24:59 +0000</pubDate></item><item><title>036 中文分词API</title><link>https://anaer.github.io/blog/post/36.html</link><description>中文分词API
 http://api.pullword.com/
 // param1 出词概率阈值(0-1之间的小数)，1表示只有100%有把握的词才出
 // param2 模式 0: 正常模式 1:...</description><guid isPermaLink="true">https://anaer.github.io/blog/post/36.html</guid><pubDate>Mon, 13 Jan 2025 08:41:57 +0000</pubDate></item><item><title>035 IP可用性检测</title><link>https://anaer.github.io/blog/post/35.html</link><description>检测IP在中国大陆以及海外区域的可用性，端口可以指定为SSH端口，或者任意服务的监听端口。

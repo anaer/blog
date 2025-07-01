@@ -133,19 +133,26 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-14 11:24:59</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-20 16:42:32</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-01 15:52:58</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何在 Git 中配置强制识别大小写变化、查询和修改历史提交用户信息、处理浅克隆、比较分支并导出变更文件，以及删除敏感文件的历史提交记录。具体步骤包括临时设置 Git 的大小写敏感性、使用 git log 查询用户记录、利用 git filter-repo 修改用户信息、执行浅克隆并获取其他分支、将浅克隆转换为完整克隆、导出变更文件为压缩包，以及删除敏感文件的提交历史。
+    <strong>AI总结:</strong> 本文介绍了在使用Git时解决中文乱码、强制识别文件名大小写变化、查询和修改提交用户记录、处理浅克隆、比较分支并导出变更文件，以及删除敏感文件历史提交记录的相关命令和方法。具体包括设置编码、临时修改大小写敏感性、使用`git log`查询用户、`git filter-repo`修改历史信息、处理浅克隆的命令、导出变更文件为压缩包的命令，以及删除敏感文件历史记录的方法。
 
 优化建议：
-1. 在每个操作前提供简要说明，以帮助用户理解每个命令的目的。
-2. 可以增加示例输出，帮助用户确认操作是否成功。
-3. 在涉及多个命令的操作中，考虑将步骤分组并明确每组的目的，以提高可读性。
-4. 对于复杂的命令，可以提供更详细的解释或链接到官方文档，以便用户深入了解。
+1. 在每个命令后添加简要说明，以帮助用户理解命令的具体作用。
+2. 可以将相似的命令归类整理，便于用户快速查找和使用。
+3. 提供常见错误及其解决方案，提升用户体验。
+4. 增加示例输出，帮助用户确认命令执行的效果。
 </div>
 
 <div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h2 class="heading-element">Git命令中文乱码 测试有效</h2><a id="user-content-git命令中文乱码-测试有效" class="anchor" aria-label="Permalink: Git命令中文乱码 测试有效" href="#git命令中文乱码-测试有效"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 设置文件名编码为 UTF-8</span>
+git config --global core.quotepath <span class="pl-c1">false</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 设置提交日志等输出编码为 UTF-8</span>
+git config --global i18n.commit.encoding utf-8
+git config --global i18n.logoutputencoding utf-8</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">使用 Git 配置强制识别大小写变化</h2><a id="user-content-使用-git-配置强制识别大小写变化" class="anchor" aria-label="Permalink: 使用 Git 配置强制识别大小写变化" href="#使用-git-配置强制识别大小写变化"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Git 默认在 大小写不敏感的系统（如 Windows/macOS 默认设置）中不会提交 仅大小写不同的文件名更改。</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 临时设置</span>
@@ -186,7 +193,7 @@ git push origin --force --all</pre></div>
 <p><a href="https://anaer.github.io/blog/post/67.html" rel="nofollow">067 Git删除大文件</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/39.html" aria-label="Previous Page">039 Deepseek API</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/34.html" aria-label="Next Page">034 Python分词</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/36.html" aria-label="Previous Page">036 中文分词API</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/38.html" aria-label="Next Page">038 Blog页面添加下雪特效</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

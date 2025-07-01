@@ -1,3 +1,10 @@
+<div class="markdown-heading"><h2 class="heading-element">Git命令中文乱码 测试有效</h2><a id="user-content-git命令中文乱码-测试有效" class="anchor" aria-label="Permalink: Git命令中文乱码 测试有效" href="#git命令中文乱码-测试有效"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 设置文件名编码为 UTF-8</span>
+git config --global core.quotepath <span class="pl-c1">false</span>
+
+<span class="pl-c"><span class="pl-c">#</span> 设置提交日志等输出编码为 UTF-8</span>
+git config --global i18n.commit.encoding utf-8
+git config --global i18n.logoutputencoding utf-8</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">使用 Git 配置强制识别大小写变化</h2><a id="user-content-使用-git-配置强制识别大小写变化" class="anchor" aria-label="Permalink: 使用 Git 配置强制识别大小写变化" href="#使用-git-配置强制识别大小写变化"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Git 默认在 大小写不敏感的系统（如 Windows/macOS 默认设置）中不会提交 仅大小写不同的文件名更改。</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 临时设置</span>
