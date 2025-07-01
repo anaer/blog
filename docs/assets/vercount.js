@@ -91,11 +91,8 @@ let visitorCountModule, eventHandler;
         counterIds: ["site_pv", "page_pv", "site_uv"],
 
         // 更新计数器文本
-        updateText: function (data, skipPage = false) {
+        updateText: function (data) {
             this.counterIds.forEach(id => {
-                // 如果 skipPage 为 true，跳过 page_pv
-                if (skipPage && id === "page_pv") return;
-
                 const vercountElement = document.getElementById("vercount_value_" + id);
                 if (vercountElement) {
                     vercountElement.textContent = data[id] || "0";
@@ -114,7 +111,8 @@ let visitorCountModule, eventHandler;
             if (cachedData) {
                 try {
                     const data = JSON.parse(cachedData);
-                    this.updateText(data, true); // 跳过 page_pv
+                    data.page_pv = 0; // 缓存中获取的 不一定是当前页面的 所以置0
+                    this.updateText(data);
                 } catch (error) {
                     console.error("Error parsing cached data:", error);
                 }

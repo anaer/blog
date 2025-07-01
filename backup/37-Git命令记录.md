@@ -79,4 +79,4 @@ git commit -am "commit"
 git push origin --force --all
 ```
 
- [067 Git删除大文件](https://anaer.github.io/blog/post/67.html)  
+ [0X43 Git删除大文件](https://anaer.github.io/blog/post/67.html)  

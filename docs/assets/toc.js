@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
     tocElement.className = 'toc';
     contentContainer.prepend(tocElement);
 
-    tocElement.insertAdjacentHTML('afterbegin', '<div class="toc-title toc-link">'+document.title+'</div>');
+    tocElement.insertAdjacentHTML('afterbegin', '<div class="toc-title toc-link">目录</div>');
     headings.forEach(heading => {
         if (!heading.id) {
             heading.id = heading.textContent.trim().replace(/\s+/g, '-').toLowerCase();
