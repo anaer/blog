@@ -435,7 +435,7 @@ class GMEEK():
         self.checkDir()
 
         issues=self.repo.get_issues(state="open", sort="updated", direction="desc")
-        if len(issues) > 0:
+        if issues.totalCount > 0:
             issue = issues[0]
             post = self.addOnePostJson(issue)
             if post:
