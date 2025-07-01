@@ -461,10 +461,11 @@ else:
     blog.cacheBlogBase=json.loads(f.read())
     f.close()
     if options.issue_number=="0" or options.issue_number=="":
-        print("issue_number=='0', runLatest")
-        blog.blogBase=blog.cacheBlogBase
-        blog.blogBase["labelColorDict"]=blog.labelColorDict
-        blog.runLatest()
+        print("issue_number=='0'")
+        blog.runAll()
+        # blog.blogBase=blog.cacheBlogBase
+        # blog.blogBase["labelColorDict"]=blog.labelColorDict
+        # blog.runLatest()
     else:
         print("blogBase is exists and issue_number!=0, runOne")
         blog.blogBase=blog.cacheBlogBase
