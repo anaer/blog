@@ -135,13 +135,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-18 15:47:58</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何生成和打包VS Code扩展包的步骤，包括安装Yeoman和vsce工具，创建扩展包工程，以及如何打包和发布扩展到VS Code Marketplace。同时提到需要使用Node 18或更高版本来避免语法兼容问题，并提供了环境变量配置的建议。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-01 10:19:58</time></span>
 
-优化建议：
-1. 在步骤中可以增加对每个命令的简要说明，帮助用户理解每一步的目的。
-2. 提供可能遇到的错误及其解决方案，例如vsce命令未找到时的具体操作步骤。
-3. 增加对Node版本检查的说明，确保用户在开始之前已满足环境要求。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了生成扩展包工程的步骤，包括安装Yeoman工具、创建扩展包工程、安装vsce打包工具以及生成和发布扩展。具体步骤包括使用npm安装相关工具、创建扩展包、打包生成.vsix文件、发布到VS Code Marketplace以及获取个人访问令牌(PAT)的链接。
+
+优化建议：在安装与配置步骤中，提供更详细的命令行示例和说明，特别是关于如何更改npm源和设置环境变量的具体操作。同时，建议在获取PAT的部分，加入安全提示，提醒用户定期更新和管理其访问令牌。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -166,9 +165,12 @@ $ vsce publish
 $ vsce login
 <span class="pl-c"><span class="pl-c">#</span> 输入用户名和PAT 进行更新</span></pre></div>
 <p>如果提示vsce命令未找到, 可以将vsce.cmd命令所在目录添加到环境变量PATH中: C:\Users\Administrator\AppData\Roaming\npm</p>
+<div class="markdown-heading"><h2 class="heading-element">获取PAT</h2><a id="user-content-获取pat" class="anchor" aria-label="Permalink: 获取PAT" href="#获取pat"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>token最大有效期1年</p>
+<p><a href="https://dev.azure.com/anaer/_usersSettings/tokens" rel="nofollow">https://dev.azure.com/anaer/_usersSettings/tokens</a></p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/95.html" aria-label="Previous Page">095 Linux常用命令记录</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/92.html" aria-label="Next Page">092 MCP开发手册</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/92.html" aria-label="Previous Page">092 MCP开发手册</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/94.html" aria-label="Next Page">094 我关注的项目这周更新了什么-2025-03-28</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

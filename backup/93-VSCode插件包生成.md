@@ -39,3 +39,9 @@ $ vsce login
 ```
 
 如果提示vsce命令未找到, 可以将vsce.cmd命令所在目录添加到环境变量PATH中: C:\Users\Administrator\AppData\Roaming\npm
+
+## 获取PAT
+token最大有效期1年
+
+https://dev.azure.com/anaer/_usersSettings/tokens
+
