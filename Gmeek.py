@@ -378,7 +378,7 @@ class GMEEK():
         mdHtmlPath = mdPath + ".html"
         # 需要使用缓存的buildedAt与当前的updatedAt进行比较
         # print(mdHtmlPath, os.path.isfile(mdHtmlPath), self.cacheBlogBase[listJsonName][postNum]["buildedAt"], post["updatedAt"])
-        if (not os.path.isfile(mdHtmlPath) or "buildedAt" not in self.cacheBlogBase[listJsonName][postNum] or self.cacheBlogBase[listJsonName][postNum]["buildedAt"] != post["updatedAt"]):
+        if (not os.path.isfile(mdHtmlPath) or postNum not in self.cacheBlogBase[listJsonName] or "buildedAt" not in self.cacheBlogBase[listJsonName][postNum] or self.cacheBlogBase[listJsonName][postNum]["buildedAt"] != post["updatedAt"]):
             mdHtml = self.markdown2html(content)
             fp = open(mdHtmlPath, 'w', encoding='UTF-8')
             fp.write(mdHtml)
@@ -462,10 +462,10 @@ else:
     f.close()
     if options.issue_number=="0" or options.issue_number=="":
         print("issue_number=='0'")
-        blog.runAll()
-        # blog.blogBase=blog.cacheBlogBase
-        # blog.blogBase["labelColorDict"]=blog.labelColorDict
-        # blog.runLatest()
+        # blog.runAll()
+        blog.blogBase=blog.cacheBlogBase
+        blog.blogBase["labelColorDict"]=blog.labelColorDict
+        blog.runLatest()
     else:
         print("blogBase is exists and issue_number!=0, runOne")
         blog.blogBase=blog.cacheBlogBase
