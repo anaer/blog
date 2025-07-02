@@ -34,16 +34,17 @@ IconList={
 
 # starry-night支持的样式
 starryNightStyles = ["both", "colorblind-dark", "colorblind-light", "colorblind", "dark", "dimmed-dark", "dimmed", "high-contrast-dark", "high-contrast-light", "high-contrast", "light", "tritanopia-dark", "tritanopia-light", "tritanopia"]
+
 ######################################################################################
 class GMEEK():
     def __init__(self,options):
         self.options=options
 
-        self.post_folder='post/'
-
         self.root_dir='docs/'
-        self.backup_dir='backup/'
+        self.post_folder='post/'
         self.post_dir=self.root_dir+self.post_folder
+
+        self.backup_dir='backup/'
 
         # 获取Github仓库信息
         user = Github(self.options.github_token)
@@ -53,14 +54,36 @@ class GMEEK():
         self.labelColorDict=json.loads('{}')
         for label in self.repo.get_labels():
             self.labelColorDict[label.name]='#'+label.color
-        # print(self.labelColorDict)
 
         self.defaultConfig()
 
-    def cleanFile(self):
-        # if os.path.exists(self.backup_dir):
-            # shutil.rmtree(self.backup_dir)
+    def defaultConfig(self):
+        '''
+        初始化配置, 主要用于runAll
+        runOne 因为有重新赋值, 没用到
+        '''
+        if os.path.exists("blogBase.json"):
+            dconfig = json.loads(open('blogBase.json', 'r', encoding='utf-8').read())
+        else:
+            dconfig={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","i18n":"CN","dayTheme":"light","nightTheme":"dark"}
 
+        if os.path.exists("config.json"):
+            config=json.loads(open('config.json', 'r', encoding='utf-8').read())
+        else:
+            config=json.loads('{}')
+
+        self.blogBase={**dconfig,**config}.copy()
+
+        if "postListJson" not in self.blogBase:
+            self.blogBase["postListJson"]=json.loads('{}')
+        if "singeListJson" not in self.blogBase:
+            self.blogBase["singeListJson"]=json.loads('{}')
+
+        self.i18n=i18nCN if self.blogBase["i18n"]=="CN" else i18n
+        self.blogBase["labelColorDict"]=self.labelColorDict
+        self.blogBase["issuesUrl"]="https://github.com/"+self.repo.full_name+"/issues"
+
+    def cleanFile(self):
         if os.path.exists(self.root_dir):
             shutil.rmtree(self.root_dir)
 
@@ -79,26 +102,6 @@ class GMEEK():
 
         if not os.path.exists(self.post_dir):
             os.mkdir(self.post_dir)
-
-    def defaultConfig(self):
-        '''
-        初始化配置, 主要用于runAll
-        runOne 因为有重新赋值, 没用到
-        '''
-        dconfig={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","i18n":"CN","dayTheme":"light","nightTheme":"dark"}
-        config=json.loads(open('config.json', 'r', encoding='utf-8').read())
-        self.blogBase={**dconfig,**config}.copy()
-        self.blogBase["postListJson"]=json.loads('{}')
-        self.blogBase["singeListJson"]=json.loads('{}')
-        if self.blogBase["i18n"]=="CN":
-            self.i18n=i18nCN
-        else:
-            self.i18n=i18n
-
-        self.blogBase["labelColorDict"]=self.labelColorDict
-        self.blogBase["issuesUrl"]="https://github.com/"+self.repo.full_name+"/issues"
-
-        self.cacheBlogBase=self.blogBase
 
     def markdown2html(self, mdstr, retries=3):
         """
@@ -292,7 +295,7 @@ class GMEEK():
             return
 
         # 因为当前没用单页, 暂不处理这块逻辑
-        if len(issue.labels) >= 1 and issue.labels[0].name in self.blogBase["singlePage"]:
+        if len(issue.labels) == 1 and issue.labels[0].name in self.blogBase["singlePage"]:
             listJsonName='singeListJson'
             gen_Html = 'docs/{}.html'.format(issue.labels[0].name)
         else:
@@ -301,9 +304,7 @@ class GMEEK():
 
         mdPath = "backup/"+str(issue.number)+"-"+self.normalize_title(issue.title)+".md"
 
-        labels = []
-        for label in issue.labels:
-            labels.append(label.name)
+        labels = [label.name for label in issue.labels]
 
         postNum="P"+str(issue.number)
         post=json.loads('{}')
@@ -367,8 +368,8 @@ class GMEEK():
             # print(f"Found number: {issue.title} {match}")
             matchPostNum = "P"+str(match)
             # 因为postListJson每次执行会先清空, 所以使用缓存处理, 与最新数据可能有差异, 但不太影响
-            if matchPostNum in self.cacheBlogBase[listJsonName]:
-                content = content.replace("#"+match, " ["+self.cacheBlogBase[listJsonName][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.cacheBlogBase[listJsonName][matchPostNum]["postUrl"]+") ")
+            if matchPostNum in self.blogBase[listJsonName]:
+                content = content.replace("#"+match, " ["+self.blogBase[listJsonName][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.blogBase[listJsonName][matchPostNum]["postUrl"]+") ")
                 # print(content)
 
         f = open(mdPath, 'w', encoding='UTF-8')
@@ -377,8 +378,7 @@ class GMEEK():
 
         mdHtmlPath = mdPath + ".html"
         # 需要使用缓存的buildedAt与当前的updatedAt进行比较
-        # print(mdHtmlPath, os.path.isfile(mdHtmlPath), self.cacheBlogBase[listJsonName][postNum]["buildedAt"], post["updatedAt"])
-        if (not os.path.isfile(mdHtmlPath) or postNum not in self.cacheBlogBase[listJsonName] or "buildedAt" not in self.cacheBlogBase[listJsonName][postNum] or self.cacheBlogBase[listJsonName][postNum]["buildedAt"] != post["updatedAt"]):
+        if (not os.path.isfile(mdHtmlPath) or postNum not in self.blogBase[listJsonName] or "buildedAt" not in self.blogBase[listJsonName][postNum] or self.blogBase[listJsonName][postNum]["buildedAt"] != post["updatedAt"]):
             mdHtml = self.markdown2html(content)
             fp = open(mdHtmlPath, 'w', encoding='UTF-8')
             fp.write(mdHtml)
@@ -387,9 +387,6 @@ class GMEEK():
             soup = BeautifulSoup(mdHtml, "html.parser")
             plain_text = soup.get_text()
             post["description"] = self.build_desc(plain_text)
-        else:
-            print(f"mdHtml {mdHtmlPath} exists and updatedAt is not changed")
-            post["description"] = self.cacheBlogBase[listJsonName][postNum]["description"]
 
         post["buildedAt"]=post["updatedAt"]
 
@@ -453,24 +450,12 @@ options = parser.parse_args()
 
 blog=GMEEK(options)
 
-if not os.path.exists("blogBase.json"):
-    print("blogBase is not exists, runAll")
+if options.issue_number=="0" or options.issue_number=="":
+    print("runAll")
     blog.runAll()
 else:
-    f=open("blogBase.json","r")
-    blog.cacheBlogBase=json.loads(f.read())
-    f.close()
-    if options.issue_number=="0" or options.issue_number=="":
-        print("issue_number=='0'")
-        blog.runAll()
-        # blog.blogBase=blog.cacheBlogBase
-        # blog.blogBase["labelColorDict"]=blog.labelColorDict
-        # blog.runLatest()
-    else:
-        print("blogBase is exists and issue_number!=0, runOne")
-        blog.blogBase=blog.cacheBlogBase
-        blog.blogBase["labelColorDict"]=blog.labelColorDict
-        blog.runOne(options.issue_number)
+    print(f"runOne {options.issue_number}")
+    blog.runOne(options.issue_number)
 
 listFile=open("blogBase.json","w")
 listFile.write(json.dumps(blog.blogBase, indent=4))
