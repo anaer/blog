@@ -133,93 +133,183 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-30 23:11:53</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-02 12:22:11</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-02 23:12:37</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了PowerToys v0.92.0、servers 2025.7.1和anx-reader v1.6.1的主要更新内容和功能改进。PowerToys v0.92.0引入了系统托盘图标开关、命令面板的AOT编译支持及错误报告工具的优化等，提升了性能和用户体验。servers 2025.7.1更新了多个软件包至相同版本，增强了功能一致性。anx-reader v1.6.1则新增了书籍缩进跟随功能和手动同步选项，同时修复了多个兼容性和功能性问题，提升了整体用户体验。
+    <strong>AI总结:</strong> 本文介绍了多个软件版本的更新内容，包括dify 1.5.1、PowerToys v0.92.0、higress v2.1.5、servers 2025.7.1以及anx-reader v1.6.1。每个版本都包含了新功能的添加、用户体验的优化、错误修复和文档更新，旨在提升系统整体性能和稳定性。
 
 优化建议：
-1. 针对PowerToys，建议增加用户反馈机制，收集用户对新功能的使用体验，以指导未来的改进。
-2. 对于servers 2025.7.1，建议提供详细的更新日志，帮助用户了解每个软件包的具体改进。
-3. 在anx-reader中，考虑增加更多用户自定义选项，以增强个性化体验，并定期推出用户调查以获取改进建议。
+1. 针对每个软件的更新内容，可以增加用户反馈机制，以便更好地了解新功能的实际使用效果和用户需求。
+2. 在文档更新部分，可以考虑增加示例和使用指南，帮助用户更快上手新功能。
+3. 对于错误修复部分，建议提供详细的修复说明，以便用户了解问题的严重性和影响。
+4. 可以考虑定期发布用户使用案例，展示新功能的实际应用，增强用户对更新的信任感和使用意愿。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.92.0">PowerToys v0.92.0</a>
-</h1><a id="user-content-1-powertoys-v0920" class="anchor" aria-label="Permalink: 1. PowerToys v0.92.0" href="#1-powertoys-v0920"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.5.1">dify 1.5.1</a>
+</h1><a id="user-content-1-dify-151" class="anchor" aria-label="Permalink: 1. dify 1.5.1" href="#1-dify-151"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-ready platform for agentic workflow development.</p>
+<p>v1.5.1版本更新内容：</p>
+<p>新功能：</p>
+<ol>
+<li>新增知识库索引功能，优化数据访问和检索速度</li>
+<li>在API中添加模型提供者验证功能</li>
+<li>实现DYNAMIC_SELECT参数类型，支持动态选项</li>
+<li>新增结构化输出插件API端点</li>
+<li>面板组件重构，增加自适应宽度观察器</li>
+<li>插件设置中新增默认值自动填充功能</li>
+</ol>
+<p>优化改进：</p>
+<ol>
+<li>前端用户体验改进，包括工作流节点名称提示和输入限制</li>
+<li>界面样式调整，如降低导航栏z-index值</li>
+<li>提升Langfuse跟踪记录的可读性</li>
+</ol>
+<p>错误修复：</p>
+<ol>
+<li>修复工具选择器弹出逻辑、变量检查等UI问题</li>
+<li>修正提示编辑器中文档链接和上下文插入错误</li>
+<li>解决问答模型中令牌计数错误和自动增量问题</li>
+<li>改进代码解释器错误处理</li>
+<li>修复系统变量重置导致的服务器崩溃问题</li>
+<li>优化与Notion等服务的集成</li>
+<li>修复LaTeX中美元符号转义问题</li>
+</ol>
+<p>升级指南：</p>
+<ol>
+<li>Docker部署：备份数据后拉取最新代码并重启服务</li>
+<li>源码部署：更新代码后升级Python依赖并运行迁移脚本</li>
+</ol>
+<p>该版本包含来自多位贡献者的改进，修复了大量问题并新增多项实用功能，提升了系统整体稳定性和用户体验。</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.92.0">PowerToys v0.92.0</a>
+</h1><a id="user-content-2-powertoys-v0920" class="anchor" aria-label="Permalink: 2. PowerToys v0.92.0" href="#2-powertoys-v0920"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Windows system utilities to maximize productivity</p>
-<p>PowerToys 0.92 版本更新摘要：</p>
+<p>PowerToys 0.92版本更新摘要：</p>
 <p>主要更新内容：</p>
 <ol>
-<li>新增系统托盘图标显示开关功能</li>
+<li>新增系统托盘图标显示开关功能（@BLM16贡献）</li>
 <li>命令面板全面支持AOT编译，提升性能和稳定性</li>
-<li>颜色选择器新增鼠标按键自定义功能</li>
-<li>错误报告工具优化，改进日志收集和压缩效率</li>
-<li>文件资源管理器插件增强PDF预览和缩略图稳定性</li>
+<li>颜色选择器新增鼠标按键自定义功能（@PesBandi贡献）</li>
+<li>错误报告工具优化：进度显示、自动清理日志、包含MSIX安装日志</li>
+<li>文件管理器插件改进PDF预览和文本文件处理稳定性</li>
 </ol>
 <p>功能改进：</p>
 <ul>
-<li>裁剪锁定：优化窗口主题样式</li>
-<li>命令面板：改进热键处理、页面加载性能和扩展功能</li>
-<li>计算器扩展：优化输入处理</li>
-<li>FancyZones：修复DPI缩放问题</li>
-<li>鼠标无界限：修复防火墙规则</li>
-<li>Peek：改进QOI图像预览和视频编解码检测</li>
-<li>电源重命名：新增日期格式支持</li>
-<li>注册表预览：增强数据预览功能</li>
+<li>裁剪锁定：适配Windows主题风格（@sadirano贡献）</li>
+<li>命令面板：优化加载性能、统一快捷键处理、改进关闭逻辑</li>
+<li>主机文件编辑器：警告对话框添加帮助链接（@PesBandi贡献）</li>
+<li>鼠标无边界：修复防火墙规则，支持本地子网外IP连接</li>
+<li>快速查看：改进QOI图像预览，增加视频编解码器检测提示</li>
+<li>注册表预览：新增扩展数据查看功能（@htcfreek贡献）</li>
 </ul>
-<p>开发者相关：</p>
+<p>开发改进：</p>
 <ul>
 <li>升级至.NET 9.0.6和WinAppSDK 1.7.2</li>
-<li>新增一键本地构建脚本</li>
-<li>改进CI/CD流程和测试覆盖</li>
-<li>增加模糊测试和UI自动化测试</li>
+<li>新增一键生成签名安装包脚本</li>
+<li>CI测试从3000个增加到5000个单元测试</li>
+<li>新增370个UI自动化测试</li>
+<li>更新错误报告压缩库（cziplib 0.3.3）</li>
 </ul>
 <p>其他改进：</p>
 <ul>
-<li>文档更新和错误修正</li>
-<li>拼写检查优化</li>
-<li>性能优化和稳定性提升</li>
+<li>修复FancyZones在高DPI显示器显示问题</li>
+<li>工作区图标存储位置改为AppData确保可移植性</li>
+<li>文档更新：新增PowerToys Run第三方插件说明</li>
 </ul>
-<p>该版本包含多项功能增强、性能优化和开发者体验改进，特别是命令面板的AOT支持和错误报告工具的优化。</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.7.1">servers 2025.7.1</a>
-</h1><a id="user-content-2-servers-202571" class="anchor" aria-label="Permalink: 2. servers 2025.7.1" href="#2-servers-202571"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Model Context Protocol Servers</p>
-<p>版本v2025.7.1更新了以下软件包：@modelcontextprotocol/server-everything、@modelcontextprotocol/server-filesystem、@modelcontextprotocol/server-sequential-thinking、mcp-server-time和mcp-server-git，这些包均升级至2025.7.1版本。</p>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.6.1">anx-reader v1.6.1</a>
-</h1><a id="user-content-3-anx-reader-v161" class="anchor" aria-label="Permalink: 3. anx-reader v1.6.1" href="#3-anx-reader-v161"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.</p>
-<p>1.6.1版本更新内容：</p>
-<p>新功能：</p>
+<p>安装包哈希值：
+提供x64/ARM64架构的用户版和系统版的SHA256校验值</p>
+<p>特别致谢：
+感谢多位社区贡献者的代码提交和问题修复</p>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.5">higress v2.1.5</a>
+</h1><a id="user-content-3-higress-v215" class="anchor" aria-label="Permalink: 3. higress v2.1.5" href="#3-higress-v215"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🤖 AI Gateway AI Native API Gateway</p>
+<p>本次更新主要包含以下内容：</p>
+<p>功能增强：</p>
 <ul>
-<li>新增书籍缩进跟随功能</li>
-<li>支持手动开启/关闭自动同步</li>
-<li>首次启动时显示引导页</li>
-<li>版本更新后显示更新日志</li>
-<li>实验性功能：远程覆盖本地数据库后可恢复历史版本</li>
+<li>插件服务器支持K8s部署并配置默认插件下载URL</li>
+<li>AI代理支持万相图片/视频生成功能</li>
+<li>新增AI竞价信息工具MCP服务</li>
+<li>增加MCP路由插件</li>
+<li>AI代理支持OpenAI微调API</li>
+<li>MCP服务器新增错误模板响应功能</li>
+<li>实现AI图片读取插件</li>
+<li>AI代理支持配置subPath字段</li>
+<li>新增DB MCP服务器工具，支持执行SQL、列出表和描述表</li>
 </ul>
 <p>问题修复：</p>
 <ul>
-<li>解决部分安卓设备文本选择菜单异常问题</li>
-<li>提升兼容性，支持WebView 70+版本</li>
-<li>即时生效WebDAV配置修改</li>
-<li>优化同步逻辑，确保数据库完整性校验</li>
-<li>保留数据库替换时的历史版本</li>
-<li>修复PDF阅读功能</li>
-<li>解决封面同步失败问题</li>
-<li>支持大写扩展名文件导入</li>
-<li>修复Windows端书籍导入异常</li>
-<li>修正修改划线样式导致笔记丢失问题</li>
-<li>解决PDF导入失败问题</li>
+<li>修正自动生成se命名空间为mcp的问题</li>
+<li>修复Bedrock Sigv4签名不匹配问题</li>
+<li>修正McpStreamableProtocol拼写错误</li>
+<li>修复Gemini提供商缺少finishReason的问题</li>
+<li>解决SSE转发时控制器可能崩溃的问题</li>
+<li>修复路径中包含URL编码部分时的解码问题</li>
+<li>修正README中ai-proxy插件的配置属性名称错误</li>
+</ul>
+<p>文档更新：</p>
+<ul>
+<li>添加MCP服务器文档</li>
+<li>修正mcp-servers README中的链接</li>
 </ul>
 <p>其他改进：</p>
 <ul>
-<li>预置更多同步协议支持</li>
-<li>优化构建版本号</li>
+<li>统一MCP会话过滤器中的行尾标记</li>
+<li>更新Envoy和Istio版本</li>
+<li>优化AI统计日志字段配置</li>
+<li>新增高级负载均衡策略</li>
 </ul>
+<p>版本发布：</p>
+<ul>
+<li>发布2.1.4版本说明</li>
+<li>发布2.1.5-rc.1版本</li>
+<li>正式发布2.1.5版本</li>
+</ul>
+<p>新贡献者：</p>
+<ul>
+<li>欢迎6位新贡献者加入项目</li>
+</ul>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.7.1">servers 2025.7.1</a>
+</h1><a id="user-content-4-servers-202571" class="anchor" aria-label="Permalink: 4. servers 2025.7.1" href="#4-servers-202571"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Model Context Protocol Servers</p>
+<p>版本v2025.7.1更新了以下软件包：
+@modelcontextprotocol/server-everything@2025.7.1
+@modelcontextprotocol/server-filesystem@2025.7.1
+@modelcontextprotocol/server-sequential-thinking@2025.7.1
+mcp-server-time@2025.7.1
+mcp-server-git@2025.7.1</p>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.6.1">anx-reader v1.6.1</a>
+</h1><a id="user-content-5-anx-reader-v161" class="anchor" aria-label="Permalink: 5. anx-reader v1.6.1" href="#5-anx-reader-v161"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.</p>
+<p>本次更新主要包含以下内容：</p>
+<p>功能方面：</p>
+<ol>
+<li>新增支持跟随书籍缩进功能</li>
+<li>增加自动同步开关选项</li>
+<li>添加首次启动引导页面</li>
+<li>更新后可查看更新日志</li>
+<li>实验性功能：支持从历史版本中恢复旧版本</li>
+</ol>
+<p>问题修复：</p>
+<ol>
+<li>修复安卓设备文本选择菜单弹出问题</li>
+<li>提升对WebView 70+版本的兼容性</li>
+<li>立即生效WebDAV配置更改</li>
+<li>优化同步逻辑，确保数据库完整性后再替换</li>
+<li>保留数据库替换时的历史版本</li>
+<li>修复PDF阅读、导入问题</li>
+<li>解决封面同步问题</li>
+<li>修复大写扩展名文件导入问题</li>
+<li>解决Windows设备书籍导入问题</li>
+<li>修复修改划线样式导致笔记丢失的问题</li>
+</ol>
+<p>其他改进：</p>
+<ol>
+<li>为支持更多同步协议做准备</li>
+<li>优化构建版本号</li>
+</ol>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/130.html" aria-label="Previous Page">0X82 Nacos低版本权限认证绕过漏洞复现</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/126.html" aria-label="Next Page">0X7E glibc2.18安装</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/128.html" aria-label="Previous Page">0X80 我关注的项目这周更新了什么-2025-06-27</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/130.html" aria-label="Next Page">0X82 Nacos低版本权限认证绕过漏洞复现</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
