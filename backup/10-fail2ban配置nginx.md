@@ -48,4 +48,4 @@ ignoreregex = .*(robots.txt|favicon.ico)
 
 nginx-http-auth 为自带规则
 
-1. #9 
+1.  [0X9 Ubuntu安装fail2ban](https://anaer.github.io/blog/post/9.html)  
