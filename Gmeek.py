@@ -387,6 +387,8 @@ class GMEEK():
             soup = BeautifulSoup(mdHtml, "html.parser")
             plain_text = soup.get_text()
             post["description"] = self.build_desc(plain_text)
+        else:
+            post["description"] = self.blogBase[listJsonName][postNum]["description"] if "description" in self.blogBase[listJsonName][postNum] else ""
 
         post["buildedAt"]=post["updatedAt"]
 
