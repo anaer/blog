@@ -95,8 +95,7 @@
     nekoEl.style.left = `${nekoPosX - 16}px`;
     nekoEl.style.top = `${nekoPosY - 16}px`;
     nekoEl.style.zIndex = 2147483647;
-    nekoEl.style.backgroundImage = "https://anaer.github.io/blog/assets/oneko.js/oneko.gif"
-
+    nekoEl.style.backgroundImage = 'url("https://anaer.github.io/blog/assets/oneko.js/oneko.gif")';
     document.body.appendChild(nekoEl);
 
     document.addEventListener("mousemove", function (event) {
