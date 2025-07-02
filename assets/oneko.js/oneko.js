@@ -95,19 +95,7 @@
     nekoEl.style.left = `${nekoPosX - 16}px`;
     nekoEl.style.top = `${nekoPosY - 16}px`;
     nekoEl.style.zIndex = 2147483647;
-
-    let nekoFile = "./oneko.gif"
-    const curScript = document.currentScript
-    if (curScript && curScript.dataset.cat) {
-      nekoFile = curScript.dataset.cat
-    }
-
-    // 判断nekoFile是否http链接
-    if (!nekoFile.startsWith('http')) {
-      nekoEl.style.backgroundImage = `url(${nekoFile})`;
-    } else {
-      nekoEl.style.backgroundImage = `${nekoFile}`;
-    }
+    nekoEl.style.backgroundImage = "https://anaer.github.io/blog/assets/oneko.js/oneko.gif"
 
     document.body.appendChild(nekoEl);
 
