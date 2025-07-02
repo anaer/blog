@@ -144,7 +144,7 @@ class GMEEK():
         postBase["top"]=post["top"]
         postBase["postSourceUrl"]=post["postSourceUrl"]
         postBase["repoName"]=options.repo_name
-        postBase["description"]=post["description"]
+        postBase["description"]=post["description"] if "description" in post else ""
         postBase["postBody"]=post_body
         postBase["createdAt"] = (datetime.utcfromtimestamp(post["createdAt"]) + timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
         postBase["updatedAt"] = (datetime.utcfromtimestamp(post["updatedAt"]) + timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
