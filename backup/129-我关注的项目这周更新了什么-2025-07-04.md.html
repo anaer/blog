@@ -1,137 +1,159 @@
 <div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.92.0">PowerToys v0.92.0</a>
 </h1><a id="user-content-1-powertoys-v0920" class="anchor" aria-label="Permalink: 1. PowerToys v0.92.0" href="#1-powertoys-v0920"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Windows system utilities to maximize productivity</p>
-<p>PowerToys 0.92版本更新摘要：</p>
-<p>主要更新内容：</p>
+<p>PowerToys v0.92版本主要更新内容：</p>
 <ol>
-<li>新增系统托盘图标显示开关功能，用户可自定义显示偏好</li>
-<li>命令面板实现AOT兼容性优化，提升性能和稳定性</li>
-<li>颜色选择器新增鼠标按键自定义功能</li>
-<li>错误报告工具优化，新增进度显示和日志自动清理</li>
-<li>文件浏览器插件增强稳定性，修复PDF预览等问题</li>
+<li>新增功能与优化</li>
 </ol>
-<p>功能改进：</p>
 <ul>
-<li>裁剪锁定：窗口样式适配Windows主题</li>
-<li>计算器：优化输入处理，忽略前导等号和空格</li>
-<li>文件资源管理器：修复PDF预览和文本文件崩溃问题</li>
-<li>主机文件编辑器：警告对话框新增帮助链接</li>
-<li>无界鼠标：修复防火墙规则，允许本地子网外连接</li>
-<li>快速查看：改进QOI图像预览和视频编解码检测</li>
-<li>电源重命名：新增日期格式支持</li>
-<li>注册表预览：增强数据预览和文件保存体验</li>
-<li>工作区：改进PWA应用捕获和图标存储</li>
+<li>设置新增系统托盘图标显示开关</li>
+<li>命令面板全面支持AOT编译，提升性能和稳定性</li>
+<li>颜色选择器新增鼠标按键自定义功能</li>
+<li>文件资源管理器插件优化了PDF预览和缩略图生成稳定性</li>
+<li>注册表预览新增扩展数据查看功能</li>
 </ul>
-<p>开发改进：</p>
+<ol start="2">
+<li>各模块改进</li>
+</ol>
+<ul>
+<li>裁剪锁定：窗口样式与系统主题对齐</li>
+<li>计算器：优化输入处理，忽略前导等号和空格</li>
+<li>FancyZones：修复高DPI显示问题</li>
+<li>Peek：改进QOI图像预览，增加编解码器检测提示</li>
+<li>PowerRename：支持更多日期格式</li>
+<li>主机文件编辑器：警告对话框添加帮助链接</li>
+</ul>
+<ol start="3">
+<li>开发者相关</li>
+</ol>
 <ul>
 <li>升级.NET至9.0.6，WinAppSDK至1.7.2</li>
-<li>新增本地构建脚本和便携式PDB生成</li>
-<li>CI测试覆盖率提升至5000+单元测试</li>
-<li>新增370+自动化UI测试</li>
-<li>更新错误报告压缩库至cziplib 0.3.3</li>
+<li>新增一键构建签名安装程序脚本</li>
+<li>单元测试从3000增至5000个</li>
+<li>每日自动化UI测试覆盖370+用例</li>
+<li>改进拼写检查和本地化注释</li>
 </ul>
-<p>其他：</p>
+<ol start="4">
+<li>错误报告与诊断</li>
+</ol>
 <ul>
-<li>文档更新，新增第三方插件说明</li>
-<li>拼写检查和翻译资源优化</li>
-<li>每日自动化测试覆盖主分支</li>
+<li>优化错误报告生成速度和压缩效率</li>
+<li>自动清理旧日志，包含MSIX安装日志</li>
+<li>更新压缩库至cziplib 0.3.3</li>
 </ul>
-<p>此版本主要聚焦性能优化、稳定性提升和用户体验改进，为后续AOT发布奠定基础。</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.5.1">dify 1.5.1</a>
-</h1><a id="user-content-2-dify-151" class="anchor" aria-label="Permalink: 2. dify 1.5.1" href="#2-dify-151"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ol start="5">
+<li>其他改进</li>
+</ol>
+<ul>
+<li>鼠标无界限修复防火墙规则</li>
+<li>工作区图标存储位置优化</li>
+<li>文档更新和错误修正</li>
+</ul>
+<p>该版本重点提升了性能稳定性、用户体验和开发效率，为下个版本的AOT发布做好准备。</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.7.1">servers 2025.7.1</a>
+</h1><a id="user-content-2-servers-202571" class="anchor" aria-label="Permalink: 2. servers 2025.7.1" href="#2-servers-202571"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Model Context Protocol Servers</p>
+<p>本次发布的版本号为v2025.7.1，主要更新了以下软件包：@modelcontextprotocol/server-everything、@modelcontextprotocol/server-filesystem、@modelcontextprotocol/server-sequential-thinking、mcp-server-time和mcp-server-git，这些包的版本均已同步升级至2025.7.1。</p>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.5">higress v2.1.5</a>
+</h1><a id="user-content-3-higress-v215" class="anchor" aria-label="Permalink: 3. higress v2.1.5" href="#3-higress-v215"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🤖 AI Gateway AI Native API Gateway</p>
+<p>本次更新主要包含以下内容：</p>
+<p>功能新增：</p>
+<ol>
+<li>插件服务器支持K8s部署并配置默认插件下载URL</li>
+<li>AI代理新增支持万像图像/视频生成、OpenAI微调API和豆包响应</li>
+<li>新增MCP路由插件、投资日报MCP服务和数据库MCP工具</li>
+<li>支持SSE服务器透传查询参数到REST API服务器</li>
+<li>AI数据脱敏支持响应中的reasoning_content和请求中的n参数</li>
+<li>通过WASM插件为LLM服务提供高级负载均衡策略</li>
+</ol>
+<p>问题修复：</p>
+<ol>
+<li>修复Bedrock Sigv4签名不匹配问题</li>
+<li>修正Gemini provider缺失finishReason的问题</li>
+<li>修复MCP服务器SSE转发时控制器可能崩溃的问题</li>
+<li>修正OpenAI provider自定义路径兼容性问题</li>
+<li>修复Nacos不可用时日志过多问题</li>
+<li>修复URL编码路径的解码问题</li>
+</ol>
+<p>优化改进：</p>
+<ol>
+<li>统一MCP会话过滤器中的行结束标记</li>
+<li>调整流式响应结构保持与OpenAI一致</li>
+<li>支持错误模板响应</li>
+<li>更新Envoy和Istio版本</li>
+<li>添加AI统计的trace_span_key配置</li>
+</ol>
+<p>文档更新：</p>
+<ol>
+<li>新增MCP服务器文档</li>
+<li>修复MCP服务器README中的链接错误</li>
+<li>添加2.1.4版本发布说明</li>
+</ol>
+<p>新贡献者：
+欢迎6位新开发者加入项目并提交首次PR</p>
+<p>版本发布：
+从v2.1.4升级到v2.1.5版本，包含上述所有改进和修复</p>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/langgenius/dify/releases/tag/1.5.1">dify 1.5.1</a>
+</h1><a id="user-content-4-dify-151" class="anchor" aria-label="Permalink: 4. dify 1.5.1" href="#4-dify-151"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
-<p>v1.5.1版本更新内容主要包括新功能、优化和问题修复：</p>
+<p>版本v1.5.1主要更新内容：</p>
 <p>新功能：</p>
 <ol>
 <li>新增知识库索引功能，优化数据访问速度</li>
 <li>API增加模型供应商验证功能</li>
-<li>实现DYNAMIC_SELECT参数类型支持动态选项</li>
+<li>参数实体支持动态选择(DYNAMIC_SELECT)类型</li>
 <li>新增结构化输出插件API端点</li>
-<li>面板组件重构，增加自适应宽度观察器</li>
-<li>插件设置页面新增默认值自动填充功能</li>
+<li>面板组件重构，支持自适应宽度管理</li>
+<li>插件设置支持默认值自动填充</li>
 </ol>
 <p>优化改进：</p>
 <ol>
-<li>前端用户体验改进，包括工作流节点名称提示和数字输入限制</li>
-<li>UI样式调整，如导航栏z-index优化</li>
-<li>Langfuse跟踪日志可读性提升</li>
-<li>变量检查面板显示控制逻辑优化</li>
+<li>前端用户体验提升：工作流节点名称提示、数字输入限制等</li>
+<li>UI样式调整：导航栏z-index优化等</li>
+<li>Langfuse追踪可读性增强</li>
 </ol>
-<p>问题修复：</p>
+<p>错误修复：</p>
 <ol>
-<li>修复提示编辑器上下文插入、变量检查文档链接等问题</li>
-<li>解决问答模型token计数错误和自动增量问题</li>
-<li>修正节点验证、悬停效果和模态框展示问题</li>
-<li>改进代码解释器错误处理和系统变量重置</li>
-<li>修复Notion集成、文档处理等集成问题</li>
-<li>修复LaTeX中美元符号转义问题</li>
+<li>修复变量检查、提示编辑器等UI问题</li>
+<li>修正问答模型token计数错误</li>
+<li>改进代码解释器错误处理</li>
+<li>解决Notion集成相关问题</li>
+<li>修复LaTeX处理中的美元符号转义问题</li>
+<li>系统变量重置导致的服务器崩溃问题</li>
 </ol>
 <p>升级指南：</p>
 <ol>
-<li>Docker部署：备份数据→获取最新代码→停止服务→升级</li>
-<li>源码部署：停止服务→获取代码→更新依赖→运行迁移脚本→重启服务</li>
+<li>Docker部署：备份数据→拉取代码→停止服务→升级</li>
+<li>源码部署：停止服务→切换分支→更新依赖→数据库迁移→重启服务</li>
 </ol>
-<p>该版本汇集了功能增强和用户体验优化，涉及知识库、模型验证、插件系统等多个核心模块的改进。</p>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.5">higress v2.1.5</a>
-</h1><a id="user-content-3-higress-v215" class="anchor" aria-label="Permalink: 3. higress v2.1.5" href="#3-higress-v215"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🤖 AI Gateway AI Native API Gateway</p>
-<p>本次更新主要包含Higress v2.1.5版本的多项功能增强和问题修复：</p>
-<p>核心功能改进：</p>
-<ol>
-<li>插件服务器新增K8s部署支持，并配置插件默认下载URL</li>
-<li>AI代理服务新增对OpenAI微调API、万相图片/视频生成、豆包响应等功能的支持</li>
-<li>MCP服务新增路由插件、错误模板响应、查询参数透传等功能</li>
-<li>新增投资数据工具和数据库操作工具等MCP服务</li>
-</ol>
-<p>问题修复：</p>
-<ol>
-<li>修复Bedrock签名不匹配、Gemini缺失结束原因等问题</li>
-<li>修正MCP协议拼写错误和SSE转发导致的控制器崩溃</li>
-<li>解决AI代理路径编码、自定义路径兼容性等问题</li>
-<li>优化Nacos不可用时的日志输出量</li>
-</ol>
-<p>其他更新：</p>
-<ol>
-<li>文档完善（MCP服务器文档、中文README链接修正）</li>
-<li>新增AI图像阅读器插件</li>
-<li>实现LLM服务的高级负载均衡策略</li>
-<li>Envoy和Istio版本更新</li>
-</ol>
-<p>新贡献者：
-欢迎6位首次贡献者加入，包括@NorthernBob、@xuruidong等。</p>
-<p>该版本从v2.1.4升级而来，包含50余项变更，涉及AI能力增强、MCP服务扩展和稳定性提升等多个方面。</p>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.7.1">servers 2025.7.1</a>
-</h1><a id="user-content-4-servers-202571" class="anchor" aria-label="Permalink: 4. servers 2025.7.1" href="#4-servers-202571"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Model Context Protocol Servers</p>
-<p>版本v2025.7.1更新了以下软件包：
-@modelcontextprotocol/server-everything@2025.7.1
-@modelcontextprotocol/server-filesystem@2025.7.1
-@modelcontextprotocol/server-sequential-thinking@2025.7.1
-mcp-server-time@2025.7.1
-mcp-server-git@2025.7.1</p>
+<p>该版本包含208项变更，由多位贡献者完成，涉及功能增强、错误修复和性能优化等多个方面。</p>
 <div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.6.1">anx-reader v1.6.1</a>
 </h1><a id="user-content-5-anx-reader-v161" class="anchor" aria-label="Permalink: 5. anx-reader v1.6.1" href="#5-anx-reader-v161"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.</p>
-<p>本次更新主要包含功能新增、问题修复和优化改进三方面内容：</p>
-<p>功能方面：</p>
+<p>本次更新主要包含以下内容：</p>
+<p>功能新增：</p>
 <ol>
-<li>新增书籍缩进跟随功能</li>
-<li>支持设置自动同步开关</li>
-<li>新增首次使用引导页</li>
-<li>版本更新后显示更新日志</li>
-<li>实验性功能：支持从云端覆盖本地数据库后恢复历史版本</li>
+<li>新增跟随书籍缩进功能</li>
+<li>增加自动同步开关选项</li>
+<li>添加首次使用引导页</li>
+<li>更新后显示更新日志</li>
+<li>实验性功能：远程覆盖本地数据库后可恢复历史版本</li>
 </ol>
 <p>问题修复：</p>
 <ol>
-<li>解决安卓设备文本选择菜单弹出问题</li>
-<li>提升对WebView 70+版本的兼容性</li>
+<li>修复安卓设备文本选择菜单弹出问题</li>
+<li>提升兼容性，支持WebView 70+版本</li>
 <li>修复WebDAV配置保存后立即生效问题</li>
-<li>优化同步逻辑，确保数据库完整性</li>
-<li>保留数据库替换时的历史版本</li>
-<li>修复PDF阅读、封面同步、文件导入等问题</li>
-<li>解决划线样式修改导致笔记丢失问题</li>
+<li>优化同步逻辑，确保数据库完整性检查</li>
+<li>修复本地数据库替换时的历史版本保留</li>
+<li>解决PDF阅读、封面同步问题</li>
+<li>修复大写扩展名文件导入问题</li>
+<li>解决Windows设备书籍导入问题</li>
+<li>修复修改划线样式导致笔记丢失问题</li>
+<li>解决PDF导入问题</li>
 </ol>
-<p>优化改进：</p>
+<p>其他改进：</p>
 <ol>
 <li>为支持更多同步协议做准备</li>
 <li>优化构建版本号</li>
