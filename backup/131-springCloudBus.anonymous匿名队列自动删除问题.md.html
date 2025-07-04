@@ -1,0 +1,24 @@
+<p>网络波动时因匿名队列的排他性导致无法连接, 队列又因为auto-delete自动删除, 可能通过指定队列名的形式来处理</p>
+<pre lang="log"><code>#method&lt;channel.close&gt;(reply-code=405, reply-text=RESOURCE_LOCKED - cannot obtain exclusive access to locked queue 'springCloudBus.anonymous.xxxxx' in vhost '/', class-id=50, method-id=10)
+
+#method&lt;channel.close&gt;(reply-code=404, reply-text=NOT_FOUND - no queue 'springCloudBus.anonymous.xxxxx' in vhost '/', class-id=50, method-id=10)
+</code></pre>
+<p>springCloudBus.anonymous.xxxxx 队列特性:</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">x-queue-master-locator</span>:	<span class="pl-s">client-local</span>
+<span class="pl-ent">exclusive</span>:	<span class="pl-s">true  </span><span class="pl-c"><span class="pl-c">#</span> 排他性</span>
+<span class="pl-ent">auto-delete</span>:	<span class="pl-s">true </span><span class="pl-c"><span class="pl-c">#</span> 自动删除</span></pre></div>
+<p><a href="https://github.com/spring-cloud/spring-cloud-stream/blob/2916acfac7747cd842d7aa91ef2979adf345abc0/binders/rabbit-binder/spring-cloud-stream-binder-rabbit-core/src/main/java/org/springframework/cloud/stream/binder/rabbit/provisioning/RabbitExchangeQueueProvisioner.java#L233">RabbitExchangeQueueProvisioner.doProvisionConsumerDestination</a></p>
+<p>group 参数为空的时候，自动创建匿名的排他队列</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
+  <span class="pl-ent">cloud</span>:
+    <span class="pl-ent">stream</span>:
+      <span class="pl-ent">default</span>:
+        <span class="pl-ent">group</span>: <span class="pl-s">${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}</span>
+      <span class="pl-ent">rabbit</span>:
+        <span class="pl-ent">bindings</span>:
+          <span class="pl-ent">springCloudBusInput</span>:
+            <span class="pl-ent">consumer</span>:
+              <span class="pl-c"><span class="pl-c">#</span> 为true时，使用‘group’作为配置刷新队列的名称</span>
+              <span class="pl-ent">queue-name-group-only</span>: <span class="pl-c1">true</span></pre></div>
+<div class="markdown-heading"><h2 class="heading-element">相关连接</h2><a id="user-content-相关连接" class="anchor" aria-label="Permalink: 相关连接" href="#相关连接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://www.jianshu.com/p/84f0667fa277" rel="nofollow">【spring cloud 配置中心 + rabbit mq】网络断连恢复引起的配置无法动态刷新</a></p>

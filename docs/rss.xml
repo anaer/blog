@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 04 Jul 2025 04:22:53 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 04 Jul 2025 04:22:53 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X82 Nacos低版本权限认证绕过漏洞复现</title><link>https://anaer.github.io/blog/post/130.html</link><description>本文介绍了Alibaba Nacos的权限认证绕过漏洞，影响版本为Nacos &lt;= 2.0.0-ALPHA.1。官方已发布安全版本，建议用户下载或升级至最新版本以修复该漏洞。相关的API请求示例包括查询用户、创建用户和重置密码的操作。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 04 Jul 2025 09:46:53 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 04 Jul 2025 09:46:53 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
+
+优化建议：
+1. 在配置中明确指定队列名称，避免使用匿名队列以减少连接问题。
+2. 考虑将队列的排他性设置为false，以允许多个消费者连接。
+3. 通过增加重试机制来处理网络波动导致的连接失败。
+4. 定期检查和维护RabbitMQ的队列状态，确保队列在网络恢复后能够正常使用。
+5. 在应用程序中实现更好的错误处理逻辑，以应对可能出现的资源锁定或队列不存在的异常。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/131.html</guid><pubDate>Fri, 04 Jul 2025 09:46:24 +0000</pubDate></item><item><title>0X82 Nacos低版本权限认证绕过漏洞复现</title><link>https://anaer.github.io/blog/post/130.html</link><description>本文介绍了Alibaba Nacos的权限认证绕过漏洞，影响版本为Nacos &lt;= 2.0.0-ALPHA.1。官方已发布安全版本，建议用户下载或升级至最新版本以修复该漏洞。相关的API请求示例包括查询用户、创建用户和重置密码的操作。
 
 优化建议：
 1. 增加对漏洞影响的详细描述，包括可能导致的安全风险和后果。
