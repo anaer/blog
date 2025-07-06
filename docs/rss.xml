@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Sun, 06 Jul 2025 04:27:23 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Sun, 06 Jul 2025 04:27:23 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Sun, 06 Jul 2025 15:12:03 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Sun, 06 Jul 2025 15:12:03 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
 
 优化建议：
 1. 在配置中明确指定队列名称，避免使用匿名队列以减少连接问题。
@@ -12,13 +12,21 @@
 1. 增加对漏洞影响的详细描述，包括可能导致的安全风险和后果。
 2. 提供更具体的升级步骤，帮助用户更顺利地进行版本更新。
 3. 在相关链接中添加更多参考资料，帮助用户更深入了解漏洞背景和修复方法。
-4. 可以考虑提供示例代码的安全性分析，帮助用户理解如何安全地使用API。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/130.html</guid><pubDate>Tue, 01 Jul 2025 08:14:21 +0000</pubDate></item><item><title>0X81 我关注的项目这周更新了什么-2025-07-04</title><link>https://anaer.github.io/blog/post/129.html</link><description>本文介绍了多个软件的更新内容，包括PowerToys v0.92.0、Cherry Studio v1.4.8、Dify 1.5.1、Servers 2025.7.1、Higress v2.1.5和Anx-Reader v1.6.1。每个软件的更新都包含新功能、问题修复和优化改进，旨在提升用户体验和系统稳定性。
+4. 可以考虑提供示例代码的安全性分析，帮助用户理解如何安全地使用API。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/130.html</guid><pubDate>Tue, 01 Jul 2025 08:14:21 +0000</pubDate></item><item><title>0X81 我关注的项目这周更新了什么-2025-07-04</title><link>https://anaer.github.io/blog/post/129.html</link><description>本文介绍了多个软件的最新版本更新情况，涵盖了功能增强、优化改进和问题修复等方面的内容。具体包括：
+
+1. servers 2025.7.1版本更新了多个软件包至同一版本，确保同步。
+2. PowerToys v0.92.0引入了系统托盘图标控制、命令面板优化等功能，改进了用户体验和系统稳定性。
+3. Cherry Studio v1.4.8新增了S3备份、PPIO OAuth登录等功能，并进行了多项性能优化和问题修复。
+4. Dify 1.5.1版本带来了知识库索引、API验证等新功能，提升了用户体验和系统集成能力。
+5. Datafaker 2.4.4更新了多个依赖，重构了随机数据生成方法，并新增多种数据生成器。
+6. Higress v2.1.5增强了插件支持和AI服务功能，解决了多个问题并进行了文档改进。
+7. Anx-reader v1.6.1增加了书籍缩进跟随、自动同步等功能，修复了多个与文本选择和数据库相关的问题。
 
 优化建议：
-1. 对于每个软件的更新内容，可以考虑更明确地分类功能新增、问题修复和优化改进，以便用户快速查找所需信息。
-2. 提供每个软件的更新日期和版本号，以便用户了解更新的时效性。
-3. 在每个软件的描述中增加使用场景或用户反馈，以增强内容的实用性和吸引力。
-4. 考虑加入每个软件的下载链接或获取方式，方便用户直接访问。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/129.html</guid><pubDate>Mon, 30 Jun 2025 15:11:53 +0000</pubDate></item><item><title>0X80 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了多个软件的更新内容，包括Cherry Studio v1.4.7、dify v1.5.0、maple-font v7.4、CloudflareSpeedTest v2.3.0、mihomo v1.19.11和rclone v1.70.2。这些更新主要涉及问题修复、功能改进、代码重构及安全更新等方面，增强了软件的稳定性和用户体验。
+- 对于每个软件更新，建议提供更详细的功能使用示例，以帮助用户更好地理解新特性。
+- 增加更新版本的兼容性说明，确保用户在升级前了解可能的兼容性问题。
+- 考虑在更新日志中添加用户反馈渠道，便于收集使用中的问题和建议。
+- 针对每个软件的特定用户群体，提供定制化的使用指南或教程，以提高用户的使用效率和满意度。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/129.html</guid><pubDate>Mon, 30 Jun 2025 15:11:53 +0000</pubDate></item><item><title>0X80 我关注的项目这周更新了什么-2025-06-27</title><link>https://anaer.github.io/blog/post/128.html</link><description>本文介绍了多个软件的更新内容，包括Cherry Studio v1.4.7、dify v1.5.0、maple-font v7.4、CloudflareSpeedTest v2.3.0、mihomo v1.19.11和rclone v1.70.2。这些更新主要涉及问题修复、功能改进、代码重构及安全更新等方面，增强了软件的稳定性和用户体验。
 
 优化建议：
 1. 对于每个软件的更新，建议提供更详细的用户指南或变更日志，以帮助用户理解新功能和修复的问题。

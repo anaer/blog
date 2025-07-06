@@ -133,215 +133,261 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-06-30 23:11:53</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-06 12:26:54</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-06 23:11:32</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新内容，包括PowerToys v0.92.0、Cherry Studio v1.4.8、Dify 1.5.1、Servers 2025.7.1、Higress v2.1.5和Anx-Reader v1.6.1。每个软件的更新都包含新功能、问题修复和优化改进，旨在提升用户体验和系统稳定性。
+    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新情况，涵盖了功能增强、优化改进和问题修复等方面的内容。具体包括：
+
+1. servers 2025.7.1版本更新了多个软件包至同一版本，确保同步。
+2. PowerToys v0.92.0引入了系统托盘图标控制、命令面板优化等功能，改进了用户体验和系统稳定性。
+3. Cherry Studio v1.4.8新增了S3备份、PPIO OAuth登录等功能，并进行了多项性能优化和问题修复。
+4. Dify 1.5.1版本带来了知识库索引、API验证等新功能，提升了用户体验和系统集成能力。
+5. Datafaker 2.4.4更新了多个依赖，重构了随机数据生成方法，并新增多种数据生成器。
+6. Higress v2.1.5增强了插件支持和AI服务功能，解决了多个问题并进行了文档改进。
+7. Anx-reader v1.6.1增加了书籍缩进跟随、自动同步等功能，修复了多个与文本选择和数据库相关的问题。
 
 优化建议：
-1. 对于每个软件的更新内容，可以考虑更明确地分类功能新增、问题修复和优化改进，以便用户快速查找所需信息。
-2. 提供每个软件的更新日期和版本号，以便用户了解更新的时效性。
-3. 在每个软件的描述中增加使用场景或用户反馈，以增强内容的实用性和吸引力。
-4. 考虑加入每个软件的下载链接或获取方式，方便用户直接访问。
+- 对于每个软件更新，建议提供更详细的功能使用示例，以帮助用户更好地理解新特性。
+- 增加更新版本的兼容性说明，确保用户在升级前了解可能的兼容性问题。
+- 考虑在更新日志中添加用户反馈渠道，便于收集使用中的问题和建议。
+- 针对每个软件的特定用户群体，提供定制化的使用指南或教程，以提高用户的使用效率和满意度。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.92.0">PowerToys v0.92.0</a>
-</h1><a id="user-content-1-powertoys-v0920" class="anchor" aria-label="Permalink: 1. PowerToys v0.92.0" href="#1-powertoys-v0920"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Windows system utilities to maximize productivity</p>
-<p>PowerToys 0.92版本更新聚焦新功能、稳定性优化和自动化改进。主要亮点包括：</p>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.7.1">servers 2025.7.1</a>
+</h1><a id="user-content-1-servers-202571" class="anchor" aria-label="Permalink: 1. servers 2025.7.1" href="#1-servers-202571"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Model Context Protocol Servers</p>
+<p>版本v2025.7.1发布内容：</p>
+<p>本次更新主要包含以下软件包的版本升级：</p>
 <ol>
-<li>新增系统托盘图标显示开关，支持用户自定义可见性（感谢BLM16贡献）</li>
-<li>命令面板实现AOT原生编译兼容性，提升性能和稳定性</li>
-<li>颜色选择器新增鼠标按键自定义功能（感谢PesBandi贡献）</li>
-<li>错误报告工具优化流程，增加进度指示和自动日志清理</li>
-<li>文件资源管理器插件修复PDF预览和缩略图问题</li>
+<li>@modelcontextprotocol/server-everything@2025.7.1</li>
+<li>@modelcontextprotocol/server-filesystem@2025.7.1</li>
+<li>@modelcontextprotocol/server-sequential-thinking@2025.7.1</li>
+<li>mcp-server-time@2025.7.1</li>
+<li>mcp-server-git@2025.7.1</li>
 </ol>
-<p>各模块改进：</p>
+<p>所有相关软件包均已同步更新至2025.7.1版本。</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.92.0">PowerToys v0.92.0</a>
+</h1><a id="user-content-2-powertoys-v0920" class="anchor" aria-label="Permalink: 2. PowerToys v0.92.0" href="#2-powertoys-v0920"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Windows system utilities to maximize productivity</p>
+<p>PowerToys 0.92 版本更新摘要：</p>
+<p>主要更新内容包括系统托盘图标控制、命令面板优化、颜色选择器自定义等功能改进。安装包提供x64和ARM64架构的用户版与系统版，并附有SHA256校验值。</p>
+<p>核心功能改进：</p>
+<ol>
+<li>新增系统托盘图标显示开关</li>
+<li>命令面板实现AOT兼容性优化，提升扩展性和性能</li>
+<li>颜色选择器支持自定义鼠标按键功能</li>
+<li>错误报告工具优化日志收集和压缩流程</li>
+<li>文件资源管理器插件提升PDF预览和文本文件处理稳定性</li>
+</ol>
+<p>模块专项改进：</p>
 <ul>
-<li>裁剪锁定：适配Windows主题风格（感谢sadirano）</li>
-<li>命令面板：修复页面加载问题，统一快捷键处理，改进扩展开发支持</li>
-<li>计算器扩展：改用ExprTk库提升AOT兼容性</li>
-<li>FancyZones：修复高DPI显示问题（感谢HO-COOH）</li>
-<li>注册表预览：新增二进制数据查看功能（感谢htcfreek）</li>
-<li>设置：新增托盘图标开关（感谢BLM16）</li>
-<li>开发方面：升级至.NET 9.0.6和WinAppSDK 1.7.2，新增单元测试覆盖至5000+，每日自动运行370+UI测试</li>
+<li>剪裁锁定：适配Windows主题样式</li>
+<li>计算器：优化输入处理</li>
+<li>文件预览：修复QOI图像显示问题</li>
+<li>注册表预览：增强数据查看功能</li>
+<li>鼠标无边界：修复防火墙规则</li>
+<li>电源重命名：支持更多日期格式</li>
 </ul>
-<p>其他改进包括：</p>
-<ul>
-<li>鼠标无界修复防火墙规则</li>
-<li>Peek支持QOI图像格式</li>
-<li>电源重命名新增日期格式支持</li>
-<li>文档更新和拼写检查优化</li>
-</ul>
-<p>安装包提供x64/ARM64架构的用户版和系统版，均附带SHA256校验值。</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.8">cherry-studio v1.4.8</a>
-</h1><a id="user-content-2-cherry-studio-v148" class="anchor" aria-label="Permalink: 2. cherry-studio v1.4.8" href="#2-cherry-studio-v148"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>开发改进：</p>
+<ol>
+<li>升级至.NET 9.0.6和WinAppSDK 1.7.2</li>
+<li>新增本地构建脚本</li>
+<li>单元测试数量增至5000个</li>
+<li>每日自动化UI测试覆盖370+用例</li>
+<li>改进拼写检查和文档说明</li>
+</ol>
+<p>其他优化包含错误日志收集、工作区图标存储、安装程序日志包含等改进，提升了整体稳定性和用户体验。</p>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.8">cherry-studio v1.4.8</a>
+</h1><a id="user-content-3-cherry-studio-v148" class="anchor" aria-label="Permalink: 3. cherry-studio v1.4.8" href="#3-cherry-studio-v148"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
-<p>本次更新包含多项功能新增、问题修复和优化改进，主要变更如下：</p>
+<p>本次更新主要包含以下内容：</p>
 <p>功能新增：</p>
 <ul>
 <li>新增S3备份功能</li>
 <li>支持Linux deb安装包</li>
-<li>新增国家旗帜表情支持并优化UI组件</li>
+<li>添加国家旗帜表情支持并优化UI组件</li>
 <li>新增PPIO OAuth登录功能</li>
-<li>新增PH8供应商支持</li>
-<li>新增macOS版划词助手功能</li>
-<li>知识库新增支持doc2x、mistral等多种格式</li>
-</ul>
-<p>问题修复：</p>
-<ul>
-<li>修复文本域输入后无法自动调整大小的问题</li>
-<li>修复Doubao模型检查逻辑</li>
-<li>修复Gemini相关问题</li>
-<li>修复输入栏回车键冲突</li>
-<li>修复窗口服务配置问题</li>
-<li>修复翻译模型自定义提示设置</li>
-<li>修复Linux系统数据目录移动问题</li>
+<li>新增知识库OCR支持(doc2x/mistral/MacOS/MinerU等)</li>
+<li>新增PH8提供商支持</li>
+<li>新增macOS划词助手功能</li>
+<li>添加代码linting插件支持</li>
 </ul>
 <p>优化改进：</p>
 <ul>
-<li>优化中文和繁体中文i18n字符串格式</li>
-<li>增强消息内容搜索功能</li>
-<li>改进翻译页面语言选项</li>
-<li>优化API客户端处理逻辑</li>
-<li>重构知识库目录结构</li>
+<li>优化中英文i18n字符串格式</li>
+<li>优化翻译模型的语言选项</li>
+<li>重构知识库目录结构和UI布局</li>
+<li>增强Doubao模型检查条件</li>
+<li>优化antd组件性能</li>
+<li>改进链接处理和缓冲逻辑</li>
+<li>动态调整图片块网格列数</li>
+<li>添加话题历史排序功能</li>
 <li>更新Electron至35.6.0版本</li>
-<li>添加组件测试用例</li>
 </ul>
-<p>下载支持：</p>
+<p>问题修复：</p>
 <ul>
-<li>提供Windows(x64/arm64)安装版和便携版</li>
-<li>提供macOS(x64/arm64).dmg安装包</li>
-<li>提供Linux(x86_64/arm64)AppImage和.deb安装包</li>
+<li>修复文本域清除长输入后不恢复大小的问题</li>
+<li>修复Gemini相关问题</li>
+<li>修复输入栏回车键冲突</li>
+<li>修复Linux下无法移动数据目录问题</li>
+<li>修复翻译模型自定义提示设置</li>
+<li>修复消息菜单栏空用户消息块错误</li>
+<li>修复配额标签循环调用问题</li>
+<li>修复macOS划词助手在Chrome和Electron应用中的AXAPI问题</li>
 </ul>
-<p>新贡献者：</p>
+<p>其他变更：</p>
 <ul>
-<li>@suenyiyang</li>
-<li>@WAcry</li>
-<li>@farion1231</li>
-<li>@littleRiceZhou</li>
+<li>更新多个依赖包</li>
+<li>添加组件测试(CopyButton/DividerWithText/EmojiIcon)</li>
+<li>新增4位贡献者</li>
 </ul>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/langgenius/dify/releases/tag/1.5.1">dify 1.5.1</a>
-</h1><a id="user-content-3-dify-151" class="anchor" aria-label="Permalink: 3. dify 1.5.1" href="#3-dify-151"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>下载支持：
+提供Windows(x64/arm64安装版/便携版)、macOS(arm64/x64)、Linux(AppImage/amd64/arm64 deb包)多平台下载</p>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/langgenius/dify/releases/tag/1.5.1">dify 1.5.1</a>
+</h1><a id="user-content-4-dify-151" class="anchor" aria-label="Permalink: 4. dify 1.5.1" href="#4-dify-151"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
-<p>v1.5.1更新内容摘要：</p>
-<p>主要新功能：</p>
+<p>v1.5.1版本带来了一系列新功能、优化和错误修复：</p>
+<p>新功能：</p>
 <ol>
-<li>新增知识库索引功能，优化数据检索速度</li>
+<li>新增知识库索引功能，优化数据访问和检索速度</li>
 <li>API增加模型供应商验证功能</li>
-<li>实现DYNAMIC_SELECT参数类型支持动态选项</li>
+<li>实现DYNAMIC_SELECT参数类型，支持动态选项</li>
 <li>新增结构化输出插件API端点</li>
-<li>面板组件重构，支持自适应宽度管理</li>
-<li>插件设置新增默认值自动填充功能</li>
+<li>面板宽度自适应管理优化</li>
+<li>插件设置中增加默认值自动填充</li>
 </ol>
 <p>功能优化：</p>
 <ol>
-<li>前端用户体验改进：节点名称提示工具、数字输入限制</li>
-<li>UI样式调整：导航栏z-index优化等</li>
+<li>前端用户体验改进：优化工作流运行节点名称提示和输入限制</li>
+<li>界面样式调整：降低导航栏z-index值提升清晰度</li>
 <li>增强Langfuse跟踪可读性</li>
 </ol>
-<p>问题修复：</p>
+<p>错误修复：</p>
 <ol>
-<li>修复工具选择器弹出逻辑、变量检查等UI问题</li>
-<li>解决问答模型令牌计数错误等API问题</li>
-<li>改进代码解释器错误处理</li>
-<li>修复Notion集成等第三方服务问题</li>
-<li>修复LaTeX文档处理中的美元符号转义问题</li>
+<li>修复文档链接错误和提示编辑器上下文插入问题</li>
+<li>解决问答模型中的错误token计数问题</li>
+<li>修复节点验证、悬停效果和模态窗口展示问题</li>
+<li>增强代码解释器错误处理</li>
+<li>修复系统变量重置导致服务器崩溃的问题</li>
+<li>改进与Notion等服务的集成</li>
+<li>修复LaTeX中美元符号转义问题</li>
 </ol>
 <p>升级指南：</p>
-<ol>
-<li>Docker部署：备份数据→拉取代码→停止服务→升级</li>
-<li>源码部署：停止服务→切换分支→更新依赖→运行迁移脚本→重启服务</li>
-</ol>
-<p>变更详情：
-包含208项代码变更，涉及知识库索引、模型验证、动态参数等核心功能改进，修复了变量检查、插件配置等多个问题。</p>
-<p>新增4位贡献者，完整变更日志可查看GitHub对比链接。</p>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.7.1">servers 2025.7.1</a>
-</h1><a id="user-content-4-servers-202571" class="anchor" aria-label="Permalink: 4. servers 2025.7.1" href="#4-servers-202571"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Model Context Protocol Servers</p>
-<p>版本v2025.7.1发布，更新了以下包：
-@modelcontextprotocol/server-everything@2025.7.1
-@modelcontextprotocol/server-filesystem@2025.7.1
-@modelcontextprotocol/server-sequential-thinking@2025.7.1
-mcp-server-time@2025.7.1
-mcp-server-git@2025.7.1</p>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.5">higress v2.1.5</a>
-</h1><a id="user-content-5-higress-v215" class="anchor" aria-label="Permalink: 5. higress v2.1.5" href="#5-higress-v215"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🤖 AI Gateway AI Native API Gateway</p>
+<ul>
+<li>Docker部署：备份数据后拉取最新代码并重启服务</li>
+<li>源码部署：停止服务后更新代码和依赖，运行数据库迁移</li>
+</ul>
+<p>该版本还包含多项其他改进和bug修复，涉及API、UI和工作流等多个方面。共有4位新贡献者参与了本次版本开发。</p>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.4.4">datafaker 2.4.4</a>
+</h1><a id="user-content-5-datafaker-244" class="anchor" aria-label="Permalink: 5. datafaker 2.4.4" href="#5-datafaker-244"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!</p>
 <p>本次更新主要包含以下内容：</p>
 <ol>
-<li>新功能：</li>
+<li>流程与依赖更新</li>
 </ol>
 <ul>
-<li>插件服务器支持K8s部署并配置默认插件下载URL</li>
-<li>AI代理支持万相图像/视频生成、OpenAI微调API、豆包响应和子路径配置</li>
-<li>新增MCP路由插件、AI图像阅读器插件和数据库MCP服务工具</li>
-<li>支持AI数据脱敏消息窗口的响应内容和请求参数扩展</li>
-<li>增加高级负载均衡策略和错误模板响应支持</li>
+<li>清理发布流程</li>
+<li>更新文档（日期伪造相关内容）</li>
+<li>多个依赖库版本升级（spotless-maven-plugin、libphonenumber、commons-text、junit、mockito-core等）</li>
+<li>更新README.md版本号至2.4.3</li>
 </ul>
 <ol start="2">
-<li>问题修复：</li>
+<li>功能改进</li>
 </ol>
 <ul>
-<li>修正Bedrock签名不匹配、Gemini缺少finishReason等问题</li>
-<li>修复MCP协议拼写错误和控制器SA注解缺失</li>
-<li>优化SSE转发和查询参数透传</li>
-<li>解决路径URL编码解码错误和Nacos日志过多问题</li>
+<li>重构随机枚举值选择方法</li>
+<li>减少numerify方法对nextInt的调用</li>
+<li>新增武术流派(MartialArt)数据提供器</li>
+<li>添加Severance剧集角色</li>
+<li>实现匈牙利ID号生成器</li>
+<li>JSON转换器将所有数字转为数值类型</li>
+<li>支持自定义随机数生成器</li>
+<li>新增爱尔兰PPSN ID号生成</li>
+<li>实现TOML转换器</li>
+<li>新增爱尔兰车牌生成</li>
 </ul>
 <ol start="3">
-<li>文档更新：</li>
+<li>代码优化</li>
 </ol>
 <ul>
-<li>添加MCP服务器文档，修复中文README中的链接错误</li>
-<li>发布2.1.4版本说明</li>
+<li>移除过时的DateAndTime使用</li>
+<li>多处代码重构和改进</li>
+<li>移除已注释的旧测试代码</li>
 </ul>
 <ol start="4">
-<li>其他改进：</li>
+<li>新贡献者</li>
 </ol>
 <ul>
-<li>统一MCP会话过滤器行结束符</li>
-<li>更新Envoy和Istio依赖</li>
-<li>调整流式响应结构保持与OpenAI一致</li>
-<li>增加追踪span键配置和独立日志字段</li>
+<li>@n-0、@JammyJims、@paulofranklins2、@zyclonite首次贡献</li>
 </ul>
-<ol start="5">
-<li>新贡献者：</li>
-</ol>
-<ul>
-<li>6位开发者首次提交代码</li>
-</ul>
-<p>版本从v2.1.4升级到v2.1.5，包含大量功能增强和稳定性改进。</p>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.6.1">anx-reader v1.6.1</a>
-</h1><a id="user-content-6-anx-reader-v161" class="anchor" aria-label="Permalink: 6. anx-reader v1.6.1" href="#6-anx-reader-v161"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.</p>
-<p>本次更新主要包含以下内容：</p>
-<p>功能新增：</p>
+<p>版本从2.4.3更新至2.4.4，包含多项功能增强、依赖更新和代码优化。</p>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.5">higress v2.1.5</a>
+</h1><a id="user-content-6-higress-v215" class="anchor" aria-label="Permalink: 6. higress v2.1.5" href="#6-higress-v215"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🤖 AI Gateway AI Native API Gateway</p>
+<p>本次更新主要包含Higress 2.1.5版本的功能增强、问题修复和新特性引入：</p>
+<p>功能增强：</p>
 <ol>
-<li>新增跟随书籍缩进功能</li>
-<li>支持用户选择是否开启自动同步</li>
-<li>添加首次启动引导页</li>
-<li>更新后可查看更新日志</li>
-<li>实验性功能：从远端覆盖本地数据库后可选择恢复历史版本</li>
+<li>插件服务器新增K8s部署支持，并配置默认插件下载URL</li>
+<li>AI代理服务新增对万像图片/视频生成、OpenAI微调API、豆包响应、子路径配置等支持</li>
+<li>MCP服务新增错误模板响应、查询参数透传、数据库工具等功能</li>
+<li>新增mcp-router插件和AI图像读取插件</li>
+<li>实现LLM服务的高级负载均衡策略</li>
 </ol>
 <p>问题修复：</p>
 <ol>
-<li>解决部分安卓设备文本选择后无法弹出菜单问题</li>
-<li>提升兼容性，支持WebView 70+版本</li>
-<li>修复WebDAV配置保存后不立即生效问题</li>
-<li>优化同步逻辑，确保新数据库完整后再替换</li>
-<li>修复数据库替换时历史版本丢失问题</li>
-<li>解决PDF阅读、导入问题</li>
-<li>修复封面同步问题</li>
-<li>解决大写扩展名文件导入问题</li>
-<li>修复Windows设备书籍导入问题</li>
-<li>解决修改划线样式导致笔记丢失问题</li>
+<li>修复Bedrock签名不匹配、Gemini缺少finishReason等问题</li>
+<li>修正MCP协议拼写错误和SSE命名空间配置</li>
+<li>解决控制器崩溃、日志过多等稳定性问题</li>
+<li>统一OpenAI API命名规范，修复路径编码问题</li>
 </ol>
-<p>其他改进：</p>
+<p>文档改进：</p>
 <ol>
-<li>为支持更多同步协议做准备</li>
-<li>优化构建号</li>
+<li>新增MCP服务器文档</li>
+<li>修复中文文档中的链接错误</li>
+<li>更新README配置说明</li>
 </ol>
+<p>基础设施：</p>
+<ol>
+<li>升级Envoy和Istio版本</li>
+<li>优化WASM-go依赖</li>
+<li>注释SkyWalking追踪配置</li>
+</ol>
+<p>新贡献者：
+欢迎6位首次贡献者加入，分别提交了插件支持、文档修复、AI功能等改进。</p>
+<p>版本发布：
+包含从2.1.4到2.1.5的所有变更，最终发布2.1.5正式版。</p>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.6.1">anx-reader v1.6.1</a>
+</h1><a id="user-content-7-anx-reader-v161" class="anchor" aria-label="Permalink: 7. anx-reader v1.6.1" href="#7-anx-reader-v161"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.</p>
+<p>1.6.1版本更新内容：</p>
+<p>功能新增：</p>
+<ul>
+<li>新增书籍缩进跟随功能</li>
+<li>增加自动同步开关选项</li>
+<li>首次启动新增引导页面</li>
+<li>更新后显示更新日志</li>
+<li>实验性功能：远程覆盖本地数据库后可恢复历史版本</li>
+</ul>
+<p>问题修复：</p>
+<ul>
+<li>修复安卓设备文本选择菜单弹窗问题</li>
+<li>提升WebView兼容性（支持70+版本）</li>
+<li>即时生效WebDAV配置修改</li>
+<li>优化同步逻辑，确保数据库完整性校验</li>
+<li>数据库替换时保留历史版本</li>
+<li>修复PDF阅读功能</li>
+<li>解决封面同步问题</li>
+<li>支持大写扩展名文件导入</li>
+<li>修复Windows设备书籍导入问题</li>
+<li>修正高亮样式修改导致笔记丢失问题</li>
+<li>解决PDF导入失败问题</li>
+</ul>
+<p>其他优化：</p>
+<ul>
+<li>为新增同步协议做准备</li>
+<li>优化构建版本号</li>
+</ul>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/128.html" aria-label="Previous Page">0X80 我关注的项目这周更新了什么-2025-06-27</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/130.html" aria-label="Next Page">0X82 Nacos低版本权限认证绕过漏洞复现</a></div>
