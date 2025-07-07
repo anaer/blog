@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Sun, 06 Jul 2025 15:12:03 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Sun, 06 Jul 2025 15:12:03 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 07 Jul 2025 02:35:38 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 07 Jul 2025 02:35:38 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
 
 优化建议：
 1. 在配置中明确指定队列名称，避免使用匿名队列以减少连接问题。
@@ -322,13 +322,13 @@
 2. 增加常见错误及其解决方案的部分，提升用户的学习效率。
 3. 对于复杂的功能组件，提供更详细的解释和使用场景，帮助用户更好地掌握。
 4. 考虑添加对比其他模板引擎的优缺点，帮助用户做出选择。
-5. 在安全控制机制部分，增加具体的安全实践建议，提升用户的安全意识。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/76.html</guid><pubDate>Tue, 25 Feb 2025 09:19:08 +0000</pubDate></item><item><title>0X4B 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了常用项目的分类和相关资源，包括开发工具、在线文档、软件服务、娱乐资源、IP工具、临时邮箱、下载工具、AI工具、影视资源等多个方面，提供了丰富的链接和工具，便于开发者和用户获取所需的信息和服务。
+5. 在安全控制机制部分，增加具体的安全实践建议，提升用户的安全意识。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/76.html</guid><pubDate>Tue, 25 Feb 2025 09:19:08 +0000</pubDate></item><item><title>0X4B 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了常用项目的分类，包括开发资源、在线文档、娱乐资源、软件服务、在线工具、IP工具、临时邮箱、下载工具、加密解密工具、AI工具、影视资源等，涵盖了多种实用网站和工具，方便用户在不同领域的需求。
 
 优化建议：
-1. 对各类资源进行更明确的分类，例如将开发工具、在线工具、娱乐资源等进行细分，增加用户查找的便捷性。
-2. 增加每个资源的简要说明，帮助用户更快了解其功能与用途。
-3. 考虑添加资源的更新日期或版本信息，以便用户获取最新的工具和文档。
-4. 提供用户反馈渠道，收集使用体验和建议，以持续改进资源列表。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>0X4A Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的步骤，包括使用安装脚本、解压缩包、启动服务、查询和拉取模型的命令，以及如何将Ollama与Nginx和客户端Cherry Studio集成。此外，还讨论了RAG技术和AnythingLLM的安装与配置，提供了相关的Docker和Nginx配置示例。
+1. 将内容按功能模块进行更清晰的分类，便于用户快速查找所需资源。
+2. 为每个工具或资源提供简要描述，帮助用户理解其用途。
+3. 考虑增加用户评价或推荐，提升资源的可信度和使用价值。
+4. 定期更新资源列表，确保信息的时效性和有效性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>0X4A Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的步骤，包括使用安装脚本、解压缩包、启动服务、查询和拉取模型的命令，以及如何将Ollama与Nginx和客户端Cherry Studio集成。此外，还讨论了RAG技术和AnythingLLM的安装与配置，提供了相关的Docker和Nginx配置示例。
 
 优化建议：
 1. 在安装和配置Ollama时，建议详细记录每一步的输出信息，以便后续排查问题。
