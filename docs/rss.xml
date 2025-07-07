@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 07 Jul 2025 07:40:35 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 07 Jul 2025 07:40:35 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 07 Jul 2025 07:47:23 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 07 Jul 2025 07:47:23 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
 
 优化建议：
 1. 在配置中明确指定队列名称，避免使用匿名队列以减少连接问题。
@@ -383,7 +383,19 @@
 4. 在安全组配置中，建议说明如何设置入方向的规则，确保用户安全。
 5. 对于webdav的部署，简要介绍其用途和基本配置步骤。
 6. 在安装fail2ban时，建议提供基本的配置示例，以增强安全性。
-7. 对于deepLX，说明其功能和适用场景，以帮助用户理解其价值。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>0X6 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>0X5 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>本文介绍了几种等宽字体，包括JetBrains Maple Mono、Maple-Mono、LXGW WenKai GB、Cascadia Code和UbuntuMono。其中，Maple-Mono被推荐为较为舒适的选择，而LXGW WenKai GB则在Markdown表格格式化时表现良好。
+7. 对于deepLX，说明其功能和适用场景，以帮助用户理解其价值。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>0X6 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>本文介绍了多款软件和工具的总结，包括浏览器、终端、内存清理、文件传输、AI、压缩、密码管理、清理、输入法、资源管理、办公软件、开发工具、抓包、数据库、版本控制、编辑器、证书管理、网盘和翻译工具等。每类工具都有其特点和适用场景，提供了丰富的选择以满足不同用户的需求。
+
+优化建议：
+1. 对于浏览器部分，可以进一步比较各个浏览器的性能和安全性，以帮助用户选择最适合的工具。
+2. 在终端工具中，考虑提供使用场景和用户反馈，以便用户了解每个工具的优缺点。
+3. 内存清理工具可以增加使用方法和效果评测，帮助用户选择更有效的工具。
+4. 文件传输工具可以增加安全性和速度方面的比较，增强用户信心。
+5. 在办公软件部分，提供更多关于协作功能和云服务的对比，以满足团队需求。
+6. 在开发工具中，考虑增加对不同编程语言和框架的支持情况，以便开发者选择合适的工具。
+7. 抓包工具的使用场景和配置方法可以详细说明，帮助新手用户上手。
+8. 数据库工具可以增加对不同数据库的支持情况，以帮助用户选择合适的客户端。
+9. 在版本控制工具中，提供使用案例和最佳实践，以帮助用户更好地管理代码。
+10. 编辑器部分可以增加插件生态和社区支持的描述，以帮助用户选择适合的开发环境。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>0X5 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>本文介绍了几种等宽字体，包括JetBrains Maple Mono、Maple-Mono、LXGW WenKai GB、Cascadia Code和UbuntuMono。其中，Maple-Mono被推荐为较为舒适的选择，而LXGW WenKai GB则在Markdown表格格式化时表现良好。
 
 优化建议：
 1. 提供每种字体的具体应用场景或适用类型，以帮助用户选择最合适的字体。
