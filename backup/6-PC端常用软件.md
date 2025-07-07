@@ -32,8 +32,8 @@
 ### 传输
 1. LocalSend [GitHub](https://github.com/localsend/localsend/releases/tag/v1.17.0) 多端 支持Mac, iPhone, Android, TV等
 2. WinSCP [官网](https://winscp.net/eng/download.php)
-3. ~~fastcopy~~ [官网](https://fastcopy.jp/)   大文件复制用的不多
-
+3. aria2 [GitHub](https://github.com/aria2/aria2/releases/)
+4. ~~fastcopy~~ [官网](https://fastcopy.jp/)   大文件复制用的不多
 ### AI
 1. Cherry Studio [GitHub](https://github.com/CherryHQ/cherry-studio/releases)
 
