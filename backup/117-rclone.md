@@ -19,6 +19,9 @@ rclone copy /path/to/local/folder remote:path
 # 从远程复制到本地
 rclone copy remote:path /path/to/local/folder
 
+# 删除远程7天前的文件
+rclone delete remote:path --min-age 7d
+
 # 移动文件或文件夹
 rclone move /path/to/local/folder remote:path
 

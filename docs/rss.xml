@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 07 Jul 2025 02:35:38 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 07 Jul 2025 02:35:38 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 07 Jul 2025 05:34:14 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 07 Jul 2025 05:34:14 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
 
 优化建议：
 1. 在配置中明确指定队列名称，避免使用匿名队列以减少连接问题。
@@ -82,13 +82,13 @@
 1. 在每个版本的变更说明中，突出显示主要新特性和修复，以便用户快速了解重要更新。
 2. 提供更新的具体使用场景或示例，以帮助用户理解新功能的实际应用。
 3. 考虑添加用户反馈渠道，以便收集使用体验和建议，进一步优化软件。
-4. 定期整理和发布更新的汇总，以便用户查看历史变更和版本演进。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/118.html</guid><pubDate>Mon, 05 May 2025 04:14:47 +0000</pubDate></item><item><title>0X75 rclone</title><link>https://anaer.github.io/blog/post/117.html</link><description>本文介绍了rclone的基本配置和命令使用，包括如何配置、显示当前配置、列出文件、同步和复制文件夹、移动文件、检查远程内容、比较文件夹差异以及清除远程文件。 
+4. 定期整理和发布更新的汇总，以便用户查看历史变更和版本演进。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/118.html</guid><pubDate>Mon, 05 May 2025 04:14:47 +0000</pubDate></item><item><title>0X75 rclone</title><link>https://anaer.github.io/blog/post/117.html</link><description>本文介绍了rclone的基本配置和常用命令，包括如何进行交互式配置、显示当前配置、列出文件、同步和复制文件、删除和移动文件、检查远程路径内容以及清除远程文件等操作。
 
 优化建议：
-1. 以示例命令为基础，提供更详细的解释和应用场景，以帮助用户更好地理解每个命令的用途。
-2. 在每个命令后添加常见的错误处理建议，以提高用户在使用时的成功率。
-3. 提供命令的简要说明，以便用户快速查找所需功能。
-4. 考虑添加对不同操作系统的兼容性说明，以便用户在不同环境中使用rclone时能够更顺利。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/117.html</guid><pubDate>Wed, 30 Apr 2025 05:18:11 +0000</pubDate></item><item><title>0X74 我关注的项目这周更新了什么-2025-05-02</title><link>https://anaer.github.io/blog/post/116.html</link><description>本文介绍了多个软件的更新和变更说明，包括DeepChat、Cherry Studio、RIME-LMDG、Readest、new-api、xpipe、Ghosten-Player、WinMerge、LangBot、hp、QuickLook、mihomo、alist、maple-font、BongoCat、higress和subs-check等。每个软件的更新内容涵盖了新功能、修复的bug、性能优化和用户反馈等方面，旨在提升用户体验和功能性。
+1. 增加命令的具体示例，以便用户更好地理解如何使用这些命令。
+2. 提供常见错误及其解决方案，以帮助用户快速排查问题。
+3. 添加命令的参数说明，帮助用户了解每个命令的可选参数及其功能。
+4. 提供使用rclone的安全性和最佳实践建议，确保用户在操作时能保护数据安全。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/117.html</guid><pubDate>Wed, 30 Apr 2025 05:18:11 +0000</pubDate></item><item><title>0X74 我关注的项目这周更新了什么-2025-05-02</title><link>https://anaer.github.io/blog/post/116.html</link><description>本文介绍了多个软件的更新和变更说明，包括DeepChat、Cherry Studio、RIME-LMDG、Readest、new-api、xpipe、Ghosten-Player、WinMerge、LangBot、hp、QuickLook、mihomo、alist、maple-font、BongoCat、higress和subs-check等。每个软件的更新内容涵盖了新功能、修复的bug、性能优化和用户反馈等方面，旨在提升用户体验和功能性。
 
 优化建议：
 1. 对于每个软件的变更说明，建议增加简洁的版本号和发布日期，以便用户快速了解更新的时间和内容。
