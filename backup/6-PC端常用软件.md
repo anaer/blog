@@ -91,7 +91,8 @@
 1. JDK23 [官网](https://www.oracle.com/java/technologies/downloads/#jdk23-windows) 
 2. JDK17 [官网](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) 
 3. JDK8 [官网](https://www.oracle.com/java/technologies/downloads/#java8-windows)           
-4. Maven [阿里云镜像](https://mirrors.aliyun.com/apache/maven/maven-3/3.9.5/binaries/)                                                   
+4. Maven [华为云镜像](https://mirrors.huaweicloud.com/apache/maven/maven-3/3.9.8/binaries/)     
+                                              
 ### Android
 1. dex-tools [GitHub](https://github.com/pxb1988/dex2jar/releases)   dex反编译   
 2. jadx   [GitHub](https://github.com/skylot/jadx/releases)     Java反编译   
