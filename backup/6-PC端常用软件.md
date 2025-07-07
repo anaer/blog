@@ -34,10 +34,6 @@
 2. WinSCP [官网](https://winscp.net/eng/download.php)
 3. ~~fastcopy~~ [官网](https://fastcopy.jp/)   大文件复制用的不多
 
-### 卸载工具
-1. HiBit Uninstaller [官网](https://www.hibitsoft.ir/Uninstaller.html)
-2. ~~Bulk-Crap-Uninstaller~~ [GitHub](https://github.com/Klocman/Bulk-Crap-Uninstaller/releases) 
-
 ### AI
 1. Cherry Studio [GitHub](https://github.com/CherryHQ/cherry-studio/releases)
 
@@ -59,8 +55,10 @@
 2. 
 ### 清理
 1. PrivaZer [官网](https://www.PrivaZer.com/download-pro.php) 已购 
-2. ~~BleachBit~~ 清理工具 [官网](https://www.bleachbit.org/)  垃圾清理
-3. ~~privacy.sexy~~ [GitHub](https://github.com/undergroundwires/privacy.sexy) 隐私安全最佳实践 
+2. HiBit Uninstaller [官网](https://www.hibitsoft.ir/Uninstaller.html) 
+3. ~~BleachBit~~ 清理工具 [官网](https://www.bleachbit.org/)  垃圾清理
+4. ~~privacy.sexy~~ [GitHub](https://github.com/undergroundwires/privacy.sexy) 隐私安全最佳实践 
+5. ~~Bulk-Crap-Uninstaller~~ [GitHub](https://github.com/Klocman/Bulk-Crap-Uninstaller/releases) 
 
 ### 输入法
 1. ~~weasel小狼毫输入法~~ [官网](https://rime.im/)
