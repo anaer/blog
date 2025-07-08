@@ -133,26 +133,68 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-07 23:10:20</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-08 12:22:02</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-08 23:12:22</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了PowerToys v0.92.1和subs-check v2.3.3的更新内容。PowerToys是用于提升Windows系统生产力的实用工具，而subs-check则是一个用于订阅转换和流媒体检测的工具。subs-check v2.3.3版本修复了节点重命名问题，优化了配置文件示例，并新增了订阅重试间隔和超时时间配置，建议用户尽快升级以解决已知问题。
+    <strong>AI总结:</strong> 本文介绍了CloudflareSpeedTest v2.3.1、PowerToys v0.92.1和subs-check v2.3.3三个软件的更新内容。CloudflareSpeedTest新增了对多种CDN的地区码识别和详细日志输出功能，并提供各平台的下载链接。PowerToys v0.92.1主要修复了影响稳定性的关键问题，并提供用户级和系统级的安装包。subs-check v2.3.3则优化了节点重命名问题，新增配置功能，并清理了代码。
 
 优化建议：
-1. 增加对用户的具体升级步骤说明，以提高用户体验。
-2. 提供更新内容的详细对比，以帮助用户了解新版本的优势。
-3. 考虑增加用户反馈渠道，收集使用体验和建议，以便进一步优化工具功能。
+1. 在CloudflareSpeedTest中，增加用户反馈渠道，以便快速收集用户在使用新功能时遇到的问题。
+2. 对于PowerToys，建议在发布说明中详细列出每个修复的具体影响，以帮助用户了解更新的重要性。
+3. 在subs-check中，鼓励用户分享他们的API接口，以便建立更强大的社区支持和功能完善。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.92.1">PowerToys v0.92.1</a>
-</h1><a id="user-content-1-powertoys-v0921" class="anchor" aria-label="Permalink: 1. PowerToys v0.92.1" href="#1-powertoys-v0921"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.1">CloudflareSpeedTest v2.3.1</a>
+</h1><a id="user-content-1-cloudflarespeedtest-v231" class="anchor" aria-label="Permalink: 1. CloudflareSpeedTest v2.3.1" href="#1-cloudflarespeedtest-v231"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 网站 IP ~</p>
+<p>本次更新主要包含以下内容：</p>
+<ol>
+<li>新增功能：</li>
+</ol>
+<ul>
+<li>新增支持Fastly、Gcore、CDN77、Bunny等CDN的地区码识别（Fastly使用IATA三字机场码，CDN77/Bunny使用二字国家码，Gcore使用二字城市码）</li>
+<li>调试模式新增HTTPing测速过程中的详细日志输出功能</li>
+</ul>
+<ol start="2">
+<li>功能优化：</li>
+</ol>
+<ul>
+<li>完善调试模式，修复错误并调整调试文字内容</li>
+</ul>
+<ol start="3">
+<li>下载说明：</li>
+</ol>
+<ul>
+<li>提供各平台下载链接（MacOS、Linux、Windows）</li>
+<li>特别提醒Windows_arm64版本适用于ARM架构</li>
+<li>详细说明路由器、Android手机、IOS手机等设备的架构判断方法</li>
+<li>提供Linux系统解压命令和MacOS系统运行方法</li>
+</ul>
+<ol start="4">
+<li>国内用户建议通过蓝奏云下载</li>
+</ol>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.92.1">PowerToys v0.92.1</a>
+</h1><a id="user-content-2-powertoys-v0921" class="anchor" aria-label="Permalink: 2. PowerToys v0.92.1" href="#2-powertoys-v0921"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Windows system utilities to maximize productivity</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.3.3">subs-check v2.3.3</a>
-</h1><a id="user-content-2-subs-check-v233" class="anchor" aria-label="Permalink: 2. subs-check v2.3.3" href="#2-subs-check-v233"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>本次发布为v0.92的补丁版本，主要修复了影响稳定性的关键问题。完整版本说明请参考v0.92.0。</p>
+<p>安装包分为用户级和系统级两种，支持x64和ARM64架构：</p>
+<ul>
+<li>用户级x64安装包：PowerToysUserSetup-0.92.1-x64.exe</li>
+<li>用户级ARM64安装包：PowerToysUserSetup-0.92.1-arm64.exe</li>
+<li>系统级x64安装包：PowerToysSetup-0.92.1-x64.exe</li>
+<li>系统级ARM64安装包：PowerToysSetup-0.92.1-arm64.exe</li>
+</ul>
+<p>主要修复内容包括：</p>
+<ol>
+<li>文件资源管理器插件：修复了用户级安装下预览功能失效的问题</li>
+<li>命令面板：修复了应用扩展缺失所有Win32应用程序的回归问题</li>
+<li>命令面板：修复了每次加载时重置应用状态的回归问题</li>
+</ol>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.3.3">subs-check v2.3.3</a>
+</h1><a id="user-content-3-subs-check-v233" class="anchor" aria-label="Permalink: 3. subs-check v2.3.3" href="#3-subs-check-v233"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<p><strong>文本摘要：</strong></p>
-<p>该版本主要修复了节点重命名全是美国的问题，并公开征集稳定的落地检测API。更新内容包括：优化配置文件示例、代码清理、新增订阅重试间隔和超时时间配置、移除有限制的API接口，以及多次更新README文档。建议用户尽快升级以解决已知问题。</p>
+<p>该版本主要解决节点重命名全是美国的问题，建议尽快升级。更新内容包括：优化配置示例文件、清理代码、新增订阅重试间隔和超时时间配置功能、移除有限制的API接口，并多次更新README文档。同时公开征集稳定的落地检测API以完善功能。</p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/131.html" aria-label="Previous Page">0X83 springCloudBus.anonymous匿名队列自动删除问题</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
