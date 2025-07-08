@@ -1,11 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Mon, 07 Jul 2025 15:10:55 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Mon, 07 Jul 2025 15:10:55 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X84 我关注的项目这周更新了什么-2025-07-11</title><link>https://anaer.github.io/blog/post/132.html</link><description>本文介绍了subs-check v2.3.3，这是一个用于订阅转换、测速、测活、流媒体检测、重命名及导出为任意格式的工具。该项目在GitHub上公开征集稳定的落地检测API，并进行了多项更新，包括更新配置文件示例、代码清理、增加订阅重试间隔和超时时间配置功能、移除有限制的API接口，以及多次更新README文档，以持续优化功能和完善文档。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 08 Jul 2025 04:22:31 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 08 Jul 2025 04:22:31 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X84 我关注的项目这周更新了什么-2025-07-11</title><link>https://anaer.github.io/blog/post/132.html</link><description>本文介绍了PowerToys v0.92.1和subs-check v2.3.3的更新内容。PowerToys是用于提升Windows系统生产力的实用工具，而subs-check则是一个用于订阅转换和流媒体检测的工具。subs-check v2.3.3版本修复了节点重命名问题，优化了配置文件示例，并新增了订阅重试间隔和超时时间配置，建议用户尽快升级以解决已知问题。
 
 优化建议：
-1. 增加用户反馈渠道，以便收集使用体验和建议，进一步改进工具。
-2. 提供详细的使用手册或视频教程，帮助新用户快速上手。
-3. 考虑增加更多的导出格式选项，以满足不同用户的需求。
-4. 定期进行性能测试，确保工具在不同环境下的稳定性和效率。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/132.html</guid><pubDate>Mon, 07 Jul 2025 15:10:20 +0000</pubDate></item><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
+1. 增加对用户的具体升级步骤说明，以提高用户体验。
+2. 提供更新内容的详细对比，以帮助用户了解新版本的优势。
+3. 考虑增加用户反馈渠道，收集使用体验和建议，以便进一步优化工具功能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/132.html</guid><pubDate>Mon, 07 Jul 2025 15:10:20 +0000</pubDate></item><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
 
 优化建议：
 1. 在配置中明确指定队列名称，避免使用匿名队列以减少连接问题。
