@@ -101,6 +101,7 @@
 1. nvm-windows [GitHub](https://github.com/coreybutler/nvm-windows/releases)
 2. NodeJS  [官网](http://www.nodejs.com.cn/)          
 3. python 3.12.0 [华为云镜像](https://mirrors.huaweicloud.com/python/3.12.0/)
+4. Lua [官方](https://luabinaries.sourceforge.net/download.html) [GitHub](https://github.com/rjpcomputing/luaforwindows/releases)
 ### 抓包
 1. Charles [官网](https://www.charlesproxy.com/latest-release/download.do)  [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
 2. Proxifier [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN) 代理工具 指定软件走代理
