@@ -1,0 +1,11 @@
+<div class="markdown-heading"><h2 class="heading-element">生成SSH密钥对</h2><a id="user-content-生成ssh密钥对" class="anchor" aria-label="Permalink: 生成SSH密钥对" href="#生成ssh密钥对"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<pre><code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+</code></pre>
+<p>~/.ssh/id_rsa（私钥）
+~/.ssh/id_rsa.pub（公钥）</p>
+<div class="markdown-heading"><h2 class="heading-element">生成Putty私钥</h2><a id="user-content-生成putty私钥" class="anchor" aria-label="Permalink: 生成Putty私钥" href="#生成putty私钥"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/9dbd53ae-d56a-492e-98b3-dfb6062a5431"><img width="1204" height="901" alt="Image" src="https://github.com/user-attachments/assets/9dbd53ae-d56a-492e-98b3-dfb6062a5431" style="max-width: 100%; height: auto; max-height: 901px;"></a></p>
+<p>导入id_rsa, 生成id_rsa.ppk</p>
+<div class="markdown-heading"><h2 class="heading-element">服务器设置</h2><a id="user-content-服务器设置" class="anchor" aria-label="Permalink: 服务器设置" href="#服务器设置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>将id_rsa.pub内容添加到服务器以下文件:
+~/.ssh/authorized_keys</p>
