@@ -18,9 +18,7 @@
 2. ~~MobaXterm 中文版~~ [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) 有注册机
 4. ~~KiTTY~~ [GitHub](https://github.com/cyd01/KiTTY/releases)       
 6. ~~WindTerm~~ [GitHub](https://github.com/kingToolbox/WindTerm/releases/) 多端  
-7. ~~Tabby~~ [GitHub](https://github.com/Eugeny/tabby/releases)  
-  多端, 插件支持webdav同步, 支持集成WinSCP
-  使用较卡, 电脑差带不动
+7. ~~Tabby~~ [GitHub](https://github.com/Eugeny/tabby/releases)  多端, 插件支持webdav同步, 支持集成WinSCP
 
 ### 内存清理
 1. memory_cleaner [GitHub](https://github.com/H3d9/memory_cleaner/releases/)
@@ -34,6 +32,7 @@
 2. WinSCP [官网](https://winscp.net/eng/download.php)
 3. aria2 [GitHub](https://github.com/aria2/aria2/releases/)
 4. ~~fastcopy~~ [官网](https://fastcopy.jp/)   大文件复制用的不多
+
 ### AI
 1. Cherry Studio [GitHub](https://github.com/CherryHQ/cherry-studio/releases)
 
@@ -52,7 +51,7 @@
 
 ### 文件
 1. ~~FileConverter~~ 文件转换 [GitHub](https://github.com/Tichau/FileConverter/releases) 
-2. 
+
 ### 清理
 1. PrivaZer [官网](https://www.PrivaZer.com/download-pro.php) 已购 
 2. HiBit Uninstaller [官网](https://www.hibitsoft.ir/Uninstaller.html) 
@@ -80,10 +79,9 @@
 1. ~~LightBulb~~ 开源护眼软件 [GitHub](https://github.com/Tyrrrz/LightBulb/releases/) 效果一般
 
 ## 办公
-1. OnlyOffice [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
 2. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
-3. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
-
+1. ~~OnlyOffice~~ [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
+4. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
 
 ## 开发
 
@@ -102,6 +100,7 @@
 2. NodeJS  [官网](http://www.nodejs.com.cn/)          
 3. python 3.12.0 [华为云镜像](https://mirrors.huaweicloud.com/python/3.12.0/)
 4. Lua [官方](https://luabinaries.sourceforge.net/download.html) [GitHub](https://github.com/rjpcomputing/luaforwindows/releases)
+
 ### 抓包
 1. Charles [官网](https://www.charlesproxy.com/latest-release/download.do)  [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
 2. Proxifier [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN) 代理工具 指定软件走代理
@@ -111,7 +110,7 @@
 1. HeidiSQL [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差
 2. SQLiteStudio [官网](https://sqlitestudio.pl/) SQLite客户端 表设计支持较好
 3. DB Browser for SQLite [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)
-4. ~~Navicat Premium Lite~~ [官网](https://www.navicat.com.cn/download/navicat-premium-lite) 需要注册登录了                       |
+4. ~~Navicat Premium Lite~~ [官网](https://www.navicat.com.cn/download/navicat-premium-lite) 需要注册登录了
 5. ~~SQLyog~~  网上有注册码 只支持mysql
 
 ### 版本控制
