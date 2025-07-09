@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 09 Jul 2025 07:43:33 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 09 Jul 2025 07:43:33 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 09 Jul 2025 08:42:21 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 09 Jul 2025 08:42:21 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
 
 优化建议：
 1. 在ssh-keygen命令中，建议提供更详细的注释，例如使用用户的邮箱地址，以便于识别密钥。
@@ -338,13 +338,13 @@
 2. 增加常见错误及其解决方案的部分，提升用户的学习效率。
 3. 对于复杂的功能组件，提供更详细的解释和使用场景，帮助用户更好地掌握。
 4. 考虑添加对比其他模板引擎的优缺点，帮助用户做出选择。
-5. 在安全控制机制部分，增加具体的安全实践建议，提升用户的安全意识。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/76.html</guid><pubDate>Tue, 25 Feb 2025 09:19:08 +0000</pubDate></item><item><title>0X4B 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了常用项目的分类，包括开发资源、在线文档、娱乐资源、软件服务、在线工具、IP工具、临时邮箱、下载工具、加密解密工具、AI工具、影视资源等，涵盖了多种实用网站和工具，方便用户在不同领域的需求。
+5. 在安全控制机制部分，增加具体的安全实践建议，提升用户的安全意识。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/76.html</guid><pubDate>Tue, 25 Feb 2025 09:19:08 +0000</pubDate></item><item><title>0X4B 导航</title><link>https://anaer.github.io/blog/post/75.html</link><description>本文介绍了常用项目的资源列表，涵盖了开发工具、在线服务、娱乐资源、软件服务、在线工具、IP工具、临时邮箱、下载工具、加密解密工具、AI工具、影视资源、TTS文本转语音等多个类别，提供了多种实用的在线和离线工具，方便用户查找和使用。
 
 优化建议：
-1. 将内容按功能模块进行更清晰的分类，便于用户快速查找所需资源。
-2. 为每个工具或资源提供简要描述，帮助用户理解其用途。
-3. 考虑增加用户评价或推荐，提升资源的可信度和使用价值。
-4. 定期更新资源列表，确保信息的时效性和有效性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>0X4A Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的步骤，包括使用安装脚本、解压缩包、启动服务、查询和拉取模型的命令，以及如何将Ollama与Nginx和客户端Cherry Studio集成。此外，还讨论了RAG技术和AnythingLLM的安装与配置，提供了相关的Docker和Nginx配置示例。
+1. 对每个类别进行简要说明，以便用户快速了解各类工具的用途。
+2. 考虑将资源按使用频率或重要性进行排序，方便用户快速找到最需要的工具。
+3. 增加每个工具的使用链接或简介，帮助用户更好地理解如何使用这些工具。
+4. 定期更新资源列表，确保信息的时效性和准确性。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/75.html</guid><pubDate>Fri, 21 Feb 2025 01:44:19 +0000</pubDate></item><item><title>0X4A Ubuntu安装Ollama, AnythingLLM部署Deepseek</title><link>https://anaer.github.io/blog/post/74.html</link><description>本文介绍了在Linux系统上安装和配置Ollama的步骤，包括使用安装脚本、解压缩包、启动服务、查询和拉取模型的命令，以及如何将Ollama与Nginx和客户端Cherry Studio集成。此外，还讨论了RAG技术和AnythingLLM的安装与配置，提供了相关的Docker和Nginx配置示例。
 
 优化建议：
 1. 在安装和配置Ollama时，建议详细记录每一步的输出信息，以便后续排查问题。
