@@ -15,7 +15,7 @@
 1. SmartPutty [GitHub](https://github.com/anaer/SmartPutty) Windows
 3. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 可集成到VSCode中
 5. Putty [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
-2. ~~MobaXterm 中文版~~ [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) 有注册机
+2. ~~MobaXterm 中文版~~ [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) [keygen](https://github.com/ryanlycch/MobaXterm-keygen)
 4. ~~KiTTY~~ [GitHub](https://github.com/cyd01/KiTTY/releases)       
 6. ~~WindTerm~~ [GitHub](https://github.com/kingToolbox/WindTerm/releases/) 多端  
 7. ~~Tabby~~ [GitHub](https://github.com/Eugeny/tabby/releases)  多端, 插件支持webdav同步, 支持集成WinSCP
