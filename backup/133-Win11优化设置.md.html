@@ -1,0 +1,9 @@
+<div class="markdown-heading"><h2 class="heading-element">Win11去掉右键菜单中“显示更多选项”，直接显示所有菜单</h2><a id="user-content-win11去掉右键菜单中显示更多选项直接显示所有菜单" class="anchor" aria-label="Permalink: Win11去掉右键菜单中“显示更多选项”，直接显示所有菜单" href="#win11去掉右键菜单中显示更多选项直接显示所有菜单"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h3 class="heading-element">恢复Win10风格完整右键菜单</h3><a id="user-content-恢复win10风格完整右键菜单" class="anchor" aria-label="Permalink: 恢复Win10风格完整右键菜单" href="#恢复win10风格完整右键菜单"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>按 Win+S 搜索“cmd”，右键选择“以管理员身份运行”。</p>
+<div class="highlight highlight-source-batchfile"><pre><span class="pl-k">reg</span> add <span class="pl-s"><span class="pl-pds">"</span>HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32<span class="pl-pds">"</span></span> /f /ve</pre></div>
+<p>重启资源管理器：</p>
+<pre><code>taskkill /f /im explorer.exe &amp; start explorer.exe
+</code></pre>
+<div class="markdown-heading"><h3 class="heading-element">恢复Win11原生右键菜单</h3><a id="user-content-恢复win11原生右键菜单" class="anchor" aria-label="Permalink: 恢复Win11原生右键菜单" href="#恢复win11原生右键菜单"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-batchfile"><pre><span class="pl-k">reg</span> delete <span class="pl-s"><span class="pl-pds">"</span>HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}<span class="pl-pds">"</span></span> /f</pre></div>
