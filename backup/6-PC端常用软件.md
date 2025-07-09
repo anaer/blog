@@ -90,7 +90,7 @@
 ### Java
 1. JDK23 [官网](https://www.oracle.com/java/technologies/downloads/#jdk23-windows) 
 2. JDK17 [官网](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) 
-3. JDK8 [官网](https://www.oracle.com/java/technologies/downloads/#java8-windows)           
+3. JDK8 [华为云镜像](https://repo.huaweicloud.com/java/jdk/)           
 4. Maven [华为云镜像](https://mirrors.huaweicloud.com/apache/maven/maven-3/3.9.8/binaries/)     
                                               
 ### Android
