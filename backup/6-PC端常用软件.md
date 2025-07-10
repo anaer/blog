@@ -110,10 +110,10 @@
 1. HeidiSQL [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差
 2. SQLiteStudio [官网](https://sqlitestudio.pl/) SQLite客户端 表设计支持较好
 3. DB Browser for SQLite [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)
-4. ~~Navicat Premium Lite~~ [官网](https://www.navicat.com.cn/download/navicat-premium-lite) 需要注册登录了
-5. ~~SQLyog~~  网上有注册码 只支持mysql
-
-### 版本控制
+4. Compass [GitHub](https://github.com/mongodb-js/compass/releases) 要求4.x
+5. Robot 3T [GitHub](https://github.com/Studio3T/robomongo/releases) 
+6. ~~Navicat Premium Lite~~ [官网](https://www.navicat.com.cn/download/navicat-premium-lite) 需要注册登录了
+7. ~~SQLyog~~  网上有注册码 只支持mysql### 版本控制
 1. Git [官网](https://git-scm.com/downloads/win)
 2. TortoiseGit [官网](https://tortoisegit.org/download/)
 
