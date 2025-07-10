@@ -127,7 +127,13 @@ remote repository    远程仓库</p>
     <span class="pl-k">path</span> = .gitconfig-work  <span class="pl-c"><span class="pl-c">#</span> 工作账号配置</span>
 
 <span class="pl-en">[includeIf "gitdir:D:/personal/"]</span>
-    <span class="pl-k">path</span> = .gitconfig-personal  <span class="pl-c"><span class="pl-c">#</span> 私人账号配置</span></pre></div>
+    <span class="pl-k">path</span> = .gitconfig-personal  <span class="pl-c"><span class="pl-c">#</span> 私人账号配置</span>
+
+<span class="pl-en">[includeIf "onbranch:main"]</span>
+    <span class="pl-k">path</span> = .gitconfig-personal
+
+<span class="pl-en">[includeIf "hasconfig:remote.*.url:https://github.com/**"]</span>
+    <span class="pl-k">path</span> = .gitconfig-personal </pre></div>
 <div class="highlight highlight-source-ini"><pre><span class="pl-c"><span class="pl-c">#</span> ~/.gitconfig-work 工作专用配置</span>
 <span class="pl-en">[user]</span>
     <span class="pl-k">name</span> = 公司开发者

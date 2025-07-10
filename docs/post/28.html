@@ -126,6 +126,8 @@ pre {
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#7D584C">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Git">Git</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#5826d5">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#配置">配置</a></object>
         </span>
 </div>
 <br>
@@ -133,9 +135,18 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-03 11:05:36</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-17 17:21:26</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-10 12:33:39</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了Git的数据传输过程，包括工作区、索引、本地仓库和远程仓库之间的操作，以及.git/config和.gitattributes文件的配置细节，涵盖了用户信息、远程仓库设置、合并工具、文本文件处理规则和多仓库目录环境配置的使用。
+
+优化建议：
+1. 在描述数据传输过程时，可以增加对每个操作的具体示例，以便于用户理解。
+2. 对于.git/config文件中的每个配置项，提供实际应用场景或最佳实践，以帮助用户更好地配置。
+3. 增加对.gitattributes文件中配置的详细解释，特别是如何处理不同文件类型的差异。
+4. 提供有关多仓库配置的更多背景信息，例如何时使用不同的配置文件以及如何有效管理多个Git账户。
+5. 考虑添加常见问题解答部分，以解决用户在使用Git时可能遇到的常见问题。
+</div>
 
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h2 class="heading-element">git数据传输</h2><a id="user-content-git数据传输" class="anchor" aria-label="Permalink: git数据传输" href="#git数据传输"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -267,7 +278,13 @@ remote repository    远程仓库</p>
     <span class="pl-k">path</span> = .gitconfig-work  <span class="pl-c"><span class="pl-c">#</span> 工作账号配置</span>
 
 <span class="pl-en">[includeIf "gitdir:D:/personal/"]</span>
-    <span class="pl-k">path</span> = .gitconfig-personal  <span class="pl-c"><span class="pl-c">#</span> 私人账号配置</span></pre></div>
+    <span class="pl-k">path</span> = .gitconfig-personal  <span class="pl-c"><span class="pl-c">#</span> 私人账号配置</span>
+
+<span class="pl-en">[includeIf "onbranch:main"]</span>
+    <span class="pl-k">path</span> = .gitconfig-personal
+
+<span class="pl-en">[includeIf "hasconfig:remote.*.url:https://github.com/**"]</span>
+    <span class="pl-k">path</span> = .gitconfig-personal </pre></div>
 <div class="highlight highlight-source-ini"><pre><span class="pl-c"><span class="pl-c">#</span> ~/.gitconfig-work 工作专用配置</span>
 <span class="pl-en">[user]</span>
     <span class="pl-k">name</span> = 公司开发者
@@ -284,7 +301,7 @@ remote repository    远程仓库</p>
     <span class="pl-k">token</span> = xxxx-xxxx-xxxx-xxxx</pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/29.html" aria-label="Previous Page">0X1D whistle抓包工具</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/27.html" aria-label="Next Page">0X1B ip2region工具</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/27.html" aria-label="Previous Page">0X1B ip2region工具</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/29.html" aria-label="Next Page">0X1D whistle抓包工具</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

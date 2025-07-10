@@ -140,6 +140,12 @@ remote repository    远程仓库
 
 [includeIf "gitdir:D:/personal/"]
     path = .gitconfig-personal  # 私人账号配置
+
+[includeIf "onbranch:main"]
+    path = .gitconfig-personal
+
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+    path = .gitconfig-personal 
 ```
 
 ```ini
