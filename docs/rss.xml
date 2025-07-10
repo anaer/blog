@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 09 Jul 2025 15:13:00 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 09 Jul 2025 15:13:00 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 10 Jul 2025 04:25:07 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 10 Jul 2025 04:25:07 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
 
 优化建议：
 1. 在ssh-keygen命令中，建议提供更详细的注释，例如使用用户的邮箱地址，以便于识别密钥。
@@ -9,15 +9,15 @@
 优化建议：
 1. 在操作步骤前添加明确的背景说明，帮助用户理解为何要进行这些更改。
 2. 提供每个步骤的详细解释，尤其是命令的作用，以便用户更加清楚操作的目的。
-3. 在操作完成后，建议用户检查右键菜单的变化，并提供反馈或解决方案，以应对可能出现的问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/133.html</guid><pubDate>Wed, 09 Jul 2025 05:18:32 +0000</pubDate></item><item><title>0X84 我关注的项目这周更新了什么-2025-07-11</title><link>https://anaer.github.io/blog/post/132.html</link><description>本文介绍了多个软件的最新版本更新，包括Cherry Studio v1.4.9、PowerToys v0.92.1、CloudflareSpeedTest v2.3.2、rclone v1.70.3、somo v1.1.0和subs-check v2.3.3。Cherry Studio增加了新API支持和多项性能优化，PowerToys专注于修复稳定性问题，CloudflareSpeedTest解决了测速错误，rclone提供了云存储同步功能，somo为Linux用户提供了新的监控工具，subs-check则优化了节点重命名和API配置。
+3. 在操作完成后，建议用户检查右键菜单的变化，并提供反馈或解决方案，以应对可能出现的问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/133.html</guid><pubDate>Wed, 09 Jul 2025 05:18:32 +0000</pubDate></item><item><title>0X84 我关注的项目这周更新了什么-2025-07-11</title><link>https://anaer.github.io/blog/post/132.html</link><description>本文介绍了多个软件的更新内容，包括Cherry Studio v1.4.9、PowerToys v0.92.1、rclone v1.70.3、subs-check v2.3.3、CloudflareSpeedTest v2.3.2和somo v1.1.0。Cherry Studio新增API支持、性能优化、问题修复和界面改进；PowerToys修复了稳定性问题；rclone发布了新版本；subs-check解决了节点重命名问题并征集API；CloudflareSpeedTest修复了测速显示问题；somo新增macOS支持和功能改进。
 
 优化建议：
-1. 对于Cherry Studio，建议进一步优化用户界面以提升用户体验。
-2. PowerToys可以考虑增加更多用户反馈机制，以便及时捕捉稳定性问题。
-3. CloudflareSpeedTest应提供更详细的使用指南，帮助用户选择合适的版本。
-4. rclone可以增加更多云服务的支持，以扩展其功能。
-5. somo的文档应更加详细，便于新用户快速上手。
-6. subs-check应加强社区反馈渠道，以便收集用户在使用过程中的问题和建议。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/132.html</guid><pubDate>Mon, 07 Jul 2025 15:10:20 +0000</pubDate></item><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
+- 对于Cherry Studio，建议在更新说明中增加用户使用新功能的示例，以帮助用户更好地理解。
+- PowerToys可考虑提供用户反馈渠道，以便收集更多用户使用体验。
+- rclone应定期更新文档，确保用户获取最新的使用信息。
+- subs-check可以增加对新功能的详细介绍，吸引用户升级。
+- CloudflareSpeedTest可以考虑增加测速结果的历史记录功能，以便用户对比分析。
+- somo应在发布说明中强调新功能的实际应用场景，提高用户兴趣。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/132.html</guid><pubDate>Mon, 07 Jul 2025 15:10:20 +0000</pubDate></item><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
 
 优化建议：
 1. 在配置中明确指定队列名称，避免使用匿名队列以减少连接问题。
