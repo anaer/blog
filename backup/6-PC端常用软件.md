@@ -116,7 +116,7 @@
 7. ~~SQLyog~~  网上有注册码 只支持mysql
 
 ### 版本控制
-1. Git [官网](https://git-scm.com/downloads/win)
+1. Git [官网](https://git-scm.com/downloads/win) [GitHub](https://github.com/git-for-windows/git/releases/)
 2. ~~TortoiseGit~~ [官网](https://tortoisegit.org/download/)
 
 ### 编辑器
