@@ -7,3 +7,7 @@
 </code></pre>
 <div class="markdown-heading"><h3 class="heading-element">恢复Win11原生右键菜单</h3><a id="user-content-恢复win11原生右键菜单" class="anchor" aria-label="Permalink: 恢复Win11原生右键菜单" href="#恢复win11原生右键菜单"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-batchfile"><pre><span class="pl-k">reg</span> delete <span class="pl-s"><span class="pl-pds">"</span>HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}<span class="pl-pds">"</span></span> /f</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">安装Telnet客户端</h2><a id="user-content-安装telnet客户端" class="anchor" aria-label="Permalink: 安装Telnet客户端" href="#安装telnet客户端"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>PowerShell 管理员模式</p>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Enable-WindowsOptionalFeature</span> <span class="pl-k">-</span>Online <span class="pl-k">-</span>FeatureName TelnetClient</pre></div>
+<p>需要重启安装</p>

@@ -133,13 +133,15 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-09 13:18:32</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-10 16:03:26</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何在Windows 11中去掉右键菜单中的“显示更多选项”，直接显示所有菜单，并恢复Win10风格的完整右键菜单。用户需通过命令提示符以管理员身份运行特定的注册表命令来实现这一改变，之后重启资源管理器以应用更改。此外，提供了恢复Win11原生右键菜单的命令。
+    <strong>AI总结:</strong> 本文介绍了如何在Windows 11中去掉右键菜单中的“显示更多选项”，直接显示完整的右键菜单，并恢复Win10风格的右键菜单。用户需通过命令提示符以管理员身份运行特定注册表命令，重启资源管理器以应用更改。此外，文中还提到如何恢复Win11原生右键菜单以及安装Telnet客户端的步骤。
 
 优化建议：
-1. 在操作步骤前添加明确的背景说明，帮助用户理解为何要进行这些更改。
-2. 提供每个步骤的详细解释，尤其是命令的作用，以便用户更加清楚操作的目的。
-3. 在操作完成后，建议用户检查右键菜单的变化，并提供反馈或解决方案，以应对可能出现的问题。
+1. 在说明步骤时，可以添加每一步的目的和效果，以便用户更好地理解每个命令的作用。
+2. 考虑提供操作前的备份建议，以防用户在修改注册表时出现问题。
+3. 在安装Telnet客户端部分，建议说明重启的必要性和可能影响，以提高用户的意识。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -152,9 +154,13 @@ pre {
 </code></pre>
 <div class="markdown-heading"><h3 class="heading-element">恢复Win11原生右键菜单</h3><a id="user-content-恢复win11原生右键菜单" class="anchor" aria-label="Permalink: 恢复Win11原生右键菜单" href="#恢复win11原生右键菜单"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-batchfile"><pre><span class="pl-k">reg</span> delete <span class="pl-s"><span class="pl-pds">"</span>HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}<span class="pl-pds">"</span></span> /f</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">安装Telnet客户端</h2><a id="user-content-安装telnet客户端" class="anchor" aria-label="Permalink: 安装Telnet客户端" href="#安装telnet客户端"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>PowerShell 管理员模式</p>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Enable-WindowsOptionalFeature</span> <span class="pl-k">-</span>Online <span class="pl-k">-</span>FeatureName TelnetClient</pre></div>
+<p>需要重启安装</p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/132.html" aria-label="Previous Page">0X84 我关注的项目这周更新了什么-2025-07-11</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/132.html" aria-label="Previous Page">0X84 我关注的项目这周更新了什么-2025-07-11</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/134.html" aria-label="Next Page">0X86 ssh密钥登录</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
