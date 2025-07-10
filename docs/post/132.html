@@ -133,141 +133,167 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-07 23:10:20</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-10 12:24:32</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-10 23:13:30</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新内容，包括Cherry Studio v1.4.9、PowerToys v0.92.1、rclone v1.70.3、subs-check v2.3.3、CloudflareSpeedTest v2.3.2和somo v1.1.0。Cherry Studio新增API支持、性能优化、问题修复和界面改进；PowerToys修复了稳定性问题；rclone发布了新版本；subs-check解决了节点重命名问题并征集API；CloudflareSpeedTest修复了测速显示问题；somo新增macOS支持和功能改进。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新信息，包括PowerToys v0.92.1、Cherry Studio v1.4.9、XPipe 16.7、Dify 1.6.0、Subs-check v2.3.3、Rclone v1.70.3、CloudflareSpeedTest v2.3.2和Somo v1.1.0。每个版本的更新都涵盖了新功能、问题修复和性能优化等方面，旨在提升用户体验和软件稳定性。
 
 优化建议：
-- 对于Cherry Studio，建议在更新说明中增加用户使用新功能的示例，以帮助用户更好地理解。
-- PowerToys可考虑提供用户反馈渠道，以便收集更多用户使用体验。
-- rclone应定期更新文档，确保用户获取最新的使用信息。
-- subs-check可以增加对新功能的详细介绍，吸引用户升级。
-- CloudflareSpeedTest可以考虑增加测速结果的历史记录功能，以便用户对比分析。
-- somo应在发布说明中强调新功能的实际应用场景，提高用户兴趣。
+- 对于每个软件的更新，建议在发布说明中增加更新的具体影响和用户反馈，以便用户更好地理解更新的重要性。
+- 可以考虑将更新内容按类别（新功能、修复、优化）进行更清晰的分组，增强可读性。
+- 在提及支持的平台和架构时，建议增加使用场景的具体说明，以帮助用户选择合适的版本。
+- 进一步鼓励用户参与反馈和贡献，增强社区互动，提高软件质量和用户满意度。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.9">cherry-studio v1.4.9</a>
-</h1><a id="user-content-1-cherry-studio-v149" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.9" href="#1-cherry-studio-v149"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
-<p>本次Cherry Studio 1.4.9版本更新包含以下主要内容：</p>
-<p>功能新增：</p>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.92.1">PowerToys v0.92.1</a>
+</h1><a id="user-content-1-powertoys-v0921" class="anchor" aria-label="Permalink: 1. PowerToys v0.92.1" href="#1-powertoys-v0921"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Windows system utilities to maximize productivity</p>
+<p>本次发布是PowerToys v0.92.1补丁版本，主要修复了v0.92中影响稳定性的关键问题。完整版本说明请参考v0.92.0。</p>
+<p>主要更新内容包括：</p>
 <ol>
-<li>新增NewAPI提供程序支持</li>
-<li>设置中增加禁用硬件加速选项</li>
-<li>实现API密钥显示/隐藏切换功能</li>
-<li>添加本地云目录备份功能</li>
-<li>NewAPI提供程序新增绘画支持</li>
-<li>内置文件系统MCP服务器添加默认参数</li>
-<li>实现工具调用进度处理和状态更新</li>
+<li>文件资源管理器插件：修复了预览功能在每用户安装模式下失效的问题</li>
+<li>命令面板：修复了应用扩展中缺失所有Win32应用程序的回归问题</li>
+<li>命令面板：修复了每次加载时重置应用状态的回归问题</li>
 </ol>
-<p>性能优化：</p>
+<p>提供四种安装包：</p>
+<ul>
+<li>每用户安装（x64/ARM64架构）</li>
+<li>全局安装（x64/ARM64架构）</li>
+</ul>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.9">cherry-studio v1.4.9</a>
+</h1><a id="user-content-2-cherry-studio-v149" class="anchor" aria-label="Permalink: 2. cherry-studio v1.4.9" href="#2-cherry-studio-v149"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
+<p>本次更新(v1.4.8到v1.4.9)主要包含以下内容：</p>
+<p>新功能：</p>
+<ul>
+<li>新增NewAPI提供程序及绘画支持</li>
+<li>设置项增加禁用硬件加速选项</li>
+<li>实现本地云目录备份功能</li>
+<li>增加API密钥显示/隐藏切换功能</li>
+<li>消息组布局样式改进</li>
+<li>工具调用进度处理和状态更新</li>
+<li>虚拟列表性能优化</li>
+</ul>
+<p>优化改进：</p>
+<ul>
+<li>代码预览组件行高和流式高亮优化</li>
+<li>消息加载状态管理简化</li>
+<li>模型识别和过滤逻辑增强</li>
+<li>代码编辑器扩展重构</li>
+<li>存储迁移和版本处理优化</li>
+<li>自动更新版本号机制增强</li>
+</ul>
+<p>问题修复：</p>
+<ul>
+<li>修复Web搜索块和引用格式问题</li>
+<li>修正QuickPhrases数据库错误</li>
+<li>解决Linux启动问题和窗口显示异常</li>
+<li>修复知识文件无法打开问题</li>
+<li>修正MCP服务器配置导入问题</li>
+<li>修复内容搜索计数问题</li>
+</ul>
+<p>测试与文档：</p>
+<ul>
+<li>新增多个组件测试用例</li>
+<li>添加测试计划文档</li>
+<li>更新README徽章</li>
+<li>代码格式规范化</li>
+</ul>
+<p>下载支持：
+提供Windows(x64/arm64)安装版/便携版、macOS(dmg)和Linux(AppImage/deb)等多种平台安装包</p>
+<p>新贡献者：
+欢迎@Calcium-Ion首次提交代码</p>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/xpipe-io/xpipe/releases/tag/16.7">xpipe 16.7</a>
+</h1><a id="user-content-3-xpipe-167" class="anchor" aria-label="Permalink: 3. xpipe 16.7" href="#3-xpipe-167"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Access your entire server infrastructure from your local desktop</p>
+<p>本次更新主要包含以下改进和修复：</p>
 <ol>
-<li>使用虚拟列表优化代码预览性能</li>
-<li>改进拖拽式虚拟列表性能</li>
-<li>优化代码高亮在流式传输中的显示效果</li>
+<li>
+<p>兼容性优化：为XPipe 17版本的模式变更做准备，确保未来v17安装的保险库仍能被v16版本正常打开而不会崩溃。开发者可通过GitHub提前体验XPipe 17测试版。</p>
+</li>
+<li>
+<p>问题修复：</p>
+<ul>
+<li>修正文件浏览器中按大小排序时误用字母顺序的问题（感谢@RustyRaptor的贡献）</li>
+<li>解决Ubuntu系统安装LXD snap时连接搜索功能冻结的问题</li>
+<li>修复旧版PowerShell系统上文件浏览器列表不显示的问题</li>
+</ul>
+</li>
+</ol>
+<p>所有发布文件均由Christopher Schnick（密钥ID 2E21 05AB FDBA C0EB）签名，用户可参考官方安装指南获取安装说明。</p>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/langgenius/dify/releases/tag/1.6.0">dify 1.6.0</a>
+</h1><a id="user-content-4-dify-160" class="anchor" aria-label="Permalink: 4. dify 1.6.0" href="#4-dify-160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-ready platform for agentic workflow development.</p>
+<p>版本1.6.0主要更新内容：</p>
+<p>核心亮点：</p>
+<ul>
+<li>新增对Anthropic模型上下文协议(MCP)的支持，提供标准化模型输入输出格式</li>
+</ul>
+<p>主要新功能：</p>
+<ol>
+<li>MCP协议集成</li>
+<li>主题列表拖拽排序功能</li>
+<li>HTTP节点SSL验证开关</li>
+<li>批量嵌入优化和Qdrant写入一致性改进</li>
+<li>问题分类器增强（新增instanceId）</li>
+<li>Redis故障转移机制</li>
 </ol>
 <p>问题修复：</p>
 <ol>
-<li>修复Web搜索块和引用格式问题</li>
-<li>修正模型识别逻辑</li>
-<li>解决QuickPhrases数据库错误</li>
-<li>修复Linux系统启动问题</li>
-<li>修正窗口显示和状态栏隐藏问题</li>
-<li>修复知识文件无法打开问题</li>
-<li>提升abortController的健壮性</li>
+<li>解决JSON输出不一致问题</li>
+<li>确保变量名唯一性</li>
+<li>修复抽屉组件复制按钮点击问题</li>
+<li>解决插件守护进程启动失败问题</li>
 </ol>
-<p>界面改进：</p>
+<p>其他优化：</p>
 <ol>
-<li>优化消息组布局样式</li>
-<li>调整默认窗口尺寸提升用户体验</li>
-<li>代码编辑器新增模糊扩展功能</li>
+<li>文档暂停/恢复功能</li>
+<li>阿里云LLM可观测性集成</li>
+<li>腾讯向量数据库内存优化</li>
+<li>增加100MB文件上传支持</li>
+<li>暗色模式图标支持</li>
 </ol>
-<p>其他改进：</p>
-<ol>
-<li>新增多个组件测试用例</li>
-<li>更新GLM-4模型正则匹配规则</li>
-<li>改进模型过滤和分组处理</li>
-<li>优化存储迁移和版本管理</li>
-<li>添加测试计划文档</li>
-</ol>
-<p>新贡献者：
-@Calcium-Ion首次贡献</p>
-<p>系统支持：
-提供Windows(x64/arm64)安装版/便携版、macOS(arm64/x64).dmg安装包、Linux(AppImage/DEB)等多种平台和架构的下载版本。</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.92.1">PowerToys v0.92.1</a>
-</h1><a id="user-content-2-powertoys-v0921" class="anchor" aria-label="Permalink: 2. PowerToys v0.92.1" href="#2-powertoys-v0921"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Windows system utilities to maximize productivity</p>
-<p>这是PowerToys v0.92.1补丁版本，主要修复了v0.92中影响稳定性的关键问题。</p>
-<p>主要更新内容包括：</p>
-<ol>
-<li>文件资源管理器插件：修复了按用户安装时预览功能失效的问题</li>
-<li>命令面板：修复了应用扩展缺失所有Win32应用程序的回归问题</li>
-<li>命令面板：修复了每次加载时重置应用状态的回归问题</li>
-</ol>
-<p>提供了四种安装包：</p>
+<p>升级指南：</p>
 <ul>
-<li>按用户安装（x64/ARM64架构）</li>
-<li>全机安装（x64/ARM64架构）</li>
+<li>Docker部署：备份数据后拉取新代码重启服务</li>
+<li>源码部署：更新代码后升级依赖并执行数据库迁移</li>
 </ul>
-<p>该版本旨在提升软件稳定性，完整版本说明请参考v0.92.0。</p>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/rclone/rclone/releases/tag/v1.70.3">rclone v1.70.3</a>
-</h1><a id="user-content-3-rclone-v1703" class="anchor" aria-label="Permalink: 3. rclone v1.70.3" href="#3-rclone-v1703"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files</p>
-<p>这是 rclone 1.70.3 版本发布。完整变更详情请参阅更新日志。</p>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.3.3">subs-check v2.3.3</a>
-</h1><a id="user-content-4-subs-check-v233" class="anchor" aria-label="Permalink: 4. subs-check v2.3.3" href="#4-subs-check-v233"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>致谢：
+特别感谢所有贡献者，包括7位首次贡献者。完整变更日志包含218项具体改进。</p>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.3.3">subs-check v2.3.3</a>
+</h1><a id="user-content-5-subs-check-v233" class="anchor" aria-label="Permalink: 5. subs-check v2.3.3" href="#5-subs-check-v233"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<p>该版本主要解决节点重命名全显示美国的问题，建议尽快升级。更新内容包括：修复有限制的API、添加订阅重试间隔和超时时间配置、清理代码及更新文档。同时公开征集稳定的落地检测API。具体提交涉及配置文件示例更新、README文档调整等。</p>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.2">CloudflareSpeedTest v2.3.2</a>
-</h1><a id="user-content-5-cloudflarespeedtest-v232" class="anchor" aria-label="Permalink: 5. CloudflareSpeedTest v2.3.2" href="#5-cloudflarespeedtest-v232"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>文本摘要：</p>
+<p>该版本主要修复节点重命名显示为美国的问题，建议尽快升级。同时公开征集稳定的落地检测API。更新内容包括：优化配置文件示例、代码清理、新增订阅重试间隔和超时时间配置、移除有限制的API接口，以及多次更新README文档。提交记录涉及配置调整、功能新增和问题修复。</p>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/rclone/rclone/releases/tag/v1.70.3">rclone v1.70.3</a>
+</h1><a id="user-content-6-rclone-v1703" class="anchor" aria-label="Permalink: 6. rclone v1.70.3" href="#6-rclone-v1703"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files</p>
+<p>rclone v1.70.3版本发布。完整变更详情请查看更新日志。</p>
+<div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.2">CloudflareSpeedTest v2.3.2</a>
+</h1><a id="user-content-7-cloudflarespeedtest-v232" class="anchor" aria-label="Permalink: 7. CloudflareSpeedTest v2.3.2" href="#7-cloudflarespeedtest-v232"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 多个解析 IP 的网站 ~</p>
-<p>本次更新修复了调试模式下重定向地址出错导致下载测速失败时显示地址不准确的问题，现在能正确区分是原始地址还是重定向地址出错。</p>
-<p>提供了各系统版本下载链接：</p>
+<p>本次更新修复了调试模式下因重定向地址错误导致下载测速失败时显示地址不准确的问题，现在能正确区分是原始地址还是重定向地址出错。国内用户推荐从蓝奏云下载。特别提醒Windows ARM64版本仅适用于ARM架构设备。</p>
+<p>提供多平台下载版本：</p>
 <ul>
-<li>MacOS：amd64和arm64版本</li>
-<li>Linux：支持x86、x86_64、ARM各版本及Mips架构</li>
-<li>Windows：386、amd64和arm64版本</li>
+<li>MacOS：amd64/arm64</li>
+<li>Linux：支持x86(32/64位)、ARM(v5-v8)、Mips(32/64位)等多种架构</li>
+<li>Windows：386/amd64/arm64</li>
 </ul>
-<p>特别提醒：</p>
+<p>使用说明：</p>
 <ol>
-<li>windows_arm64版本仅适用于ARM架构设备</li>
-<li>路由器用户建议通过命令判断架构或尝试不同版本</li>
-<li>Android手机多为ARM架构，需自行测试32/64位</li>
-<li>MacOS用户需通过命令行运行程序</li>
-<li>国内用户推荐使用蓝奏云下载</li>
+<li>路由器用户可通过命令判断架构，OpenWrt固件可使用原生编译版本</li>
+<li>Android手机多为ARM架构，需自行测试32/64位版本</li>
+<li>IOS手机取决于虚拟机架构</li>
+<li>Linux解压命令：tar -zxf 文件名</li>
+<li>MacOS需通过命令行运行</li>
 </ol>
-<p>附各系统解压/运行说明：</p>
-<ul>
-<li>Linux解压命令：tar -zxf 文件名.tar.gz</li>
-<li>MacOS运行方式：通过命令行进入目录后执行./cfst</li>
-</ul>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/theopfr/somo/releases/tag/v1.1.0">somo v1.1.0</a>
-</h1><a id="user-content-6-somo-v110" class="anchor" aria-label="Permalink: 6. somo v1.1.0" href="#6-somo-v110"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>注意区分不同架构版本，选择错误版本可能无法运行。</p>
+<div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/theopfr/somo/releases/tag/v1.1.0">somo v1.1.0</a>
+</h1><a id="user-content-8-somo-v110" class="anchor" aria-label="Permalink: 8. somo v1.1.0" href="#8-somo-v110"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>A human-friendly alternative to netstat for socket and port monitoring on Linux.</p>
-<p>2025年7月9日发布的1.1.0版本主要更新内容：</p>
-<p>新增功能：</p>
-<ul>
-<li>添加macOS系统支持</li>
-<li>增加按列排序功能</li>
-<li>新增紧凑表格视图</li>
-<li>在CI中添加格式检查和clippy检查</li>
-<li>更新CLI参数，增加--tcp和--udp标志</li>
-<li>添加shell自动补全功能</li>
-<li>增加Nix打包支持</li>
-<li>添加JSON和自定义格式化输出</li>
-</ul>
-<p>修复改进：</p>
-<ul>
-<li>修复管道传输时崩溃问题</li>
-<li>将终止功能改为使用SIGTERM信号</li>
-<li>修复README中的拼写错误</li>
-</ul>
-<p>其他：</p>
-<ul>
-<li>新增MIT许可证</li>
-</ul>
+<p>2025年9月7日发布的1.1.0版本更新内容如下：
+新增macOS系统支持；添加按列排序功能；修复管道操作时的崩溃问题；增加紧凑表格视图；在CI中添加格式检查和clippy检查；更新CLI参数，增加--tcp和--udp标志；新增shell自动补全功能；支持Nix打包；更新kill功能使用SIGTERM信号；新增JSON和自定义格式化输出；修复README文档中的拼写错误；新增MIT许可证。主要贡献者包括belingud、gerelef、theopfr等多位开发者。</p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/131.html" aria-label="Previous Page">0X83 springCloudBus.anonymous匿名队列自动删除问题</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/133.html" aria-label="Next Page">0X85 Win11优化设置</a></div>
