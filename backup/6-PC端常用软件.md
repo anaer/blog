@@ -115,6 +115,7 @@
 
 ### 版本控制
 1. Git [官网](https://git-scm.com/downloads/win)
+2. TortoiseGit [官网](https://tortoisegit.org/download/)
 
 ### 编辑器
 1. VSCode    [官网](https://code.visualstudio.com/)           
