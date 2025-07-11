@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 11 Jul 2025 04:30:39 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 11 Jul 2025 04:30:39 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 11 Jul 2025 15:13:31 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 11 Jul 2025 15:13:31 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
 
 优化建议：
 1. 在ssh-keygen命令中，建议提供更详细的注释，例如使用用户的邮箱地址，以便于识别密钥。
@@ -9,14 +9,14 @@
 优化建议：
 1. 在说明步骤时，可以添加每一步的目的和效果，以便用户更好地理解每个命令的作用。
 2. 考虑提供操作前的备份建议，以防用户在修改注册表时出现问题。
-3. 在安装Telnet客户端部分，建议说明重启的必要性和可能影响，以提高用户的意识。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/133.html</guid><pubDate>Wed, 09 Jul 2025 05:18:32 +0000</pubDate></item><item><title>0X84 我关注的项目这周更新了什么-2025-07-11</title><link>https://anaer.github.io/blog/post/132.html</link><description>本文介绍了多个软件的最新版本更新，包括Cherry Studio、dify、PowerToys、YuyanIme、subs-check、rclone、CloudflareSpeedTest和somo。每个软件的更新内容涵盖了新功能、优化改进和问题修复，旨在提升用户体验和软件稳定性。
+3. 在安装Telnet客户端部分，建议说明重启的必要性和可能影响，以提高用户的意识。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/133.html</guid><pubDate>Wed, 09 Jul 2025 05:18:32 +0000</pubDate></item><item><title>0X84 我关注的项目这周更新了什么-2025-07-11</title><link>https://anaer.github.io/blog/post/132.html</link><description>本文介绍了多个软件版本的更新内容，包括dify 1.6.0、PowerToys v0.92.1、rclone v1.70.3、subs-check v2.3.4、cherry-studio v1.4.11、fit-framework elsa-v0.3.0、Seelen-UI v2.3.12、YuyanIme v20250711.00、CloudflareSpeedTest v2.3.2和somo v1.1.0。每个版本都包含了核心功能的新增、功能增强、问题修复和部署指南等，强调了用户体验的改进和系统的稳定性。
 
 优化建议：
-1. 对于每个软件的更新，提供更详细的版本号和发布日期，以便用户快速识别。
-2. 将新功能、优化和修复内容按优先级排序，突出重要更新。
-3. 增加用户反馈和使用案例，以展示更新的实际效果。
-4. 考虑提供每个软件的下载链接和安装指南，方便用户快速访问和更新。
-5. 对于技术性较强的内容，提供简明的解释或链接到相关文档，以帮助用户理解。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/132.html</guid><pubDate>Mon, 07 Jul 2025 15:10:20 +0000</pubDate></item><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
+1. 对于每个软件的更新内容，可以考虑提供更具体的使用场景或案例，以帮助用户更好地理解新功能的应用。
+2. 统一格式和结构，以便于用户快速查找相关信息，尤其是在多个软件更新内容并列展示时。
+3. 增加版本更新的时间戳，方便用户了解更新的时效性。
+4. 提供安装和升级的具体步骤或链接，帮助用户更顺利地进行版本迁移。
+5. 考虑添加用户反馈或常见问题解答的部分，以提高用户满意度和使用体验。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/132.html</guid><pubDate>Mon, 07 Jul 2025 15:10:20 +0000</pubDate></item><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
 
 优化建议：
 1. 在配置中明确指定队列名称，避免使用匿名队列以减少连接问题。
