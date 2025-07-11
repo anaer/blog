@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 10 Jul 2025 15:14:16 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 10 Jul 2025 15:14:16 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Fri, 11 Jul 2025 04:30:39 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Fri, 11 Jul 2025 04:30:39 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
 
 优化建议：
 1. 在ssh-keygen命令中，建议提供更详细的注释，例如使用用户的邮箱地址，以便于识别密钥。
@@ -9,13 +9,14 @@
 优化建议：
 1. 在说明步骤时，可以添加每一步的目的和效果，以便用户更好地理解每个命令的作用。
 2. 考虑提供操作前的备份建议，以防用户在修改注册表时出现问题。
-3. 在安装Telnet客户端部分，建议说明重启的必要性和可能影响，以提高用户的意识。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/133.html</guid><pubDate>Wed, 09 Jul 2025 05:18:32 +0000</pubDate></item><item><title>0X84 我关注的项目这周更新了什么-2025-07-11</title><link>https://anaer.github.io/blog/post/132.html</link><description>本文介绍了多个软件的更新信息，包括PowerToys v0.92.1、Cherry Studio v1.4.9、XPipe 16.7、Dify 1.6.0、Subs-check v2.3.3、Rclone v1.70.3、CloudflareSpeedTest v2.3.2和Somo v1.1.0。每个版本的更新都涵盖了新功能、问题修复和性能优化等方面，旨在提升用户体验和软件稳定性。
+3. 在安装Telnet客户端部分，建议说明重启的必要性和可能影响，以提高用户的意识。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/133.html</guid><pubDate>Wed, 09 Jul 2025 05:18:32 +0000</pubDate></item><item><title>0X84 我关注的项目这周更新了什么-2025-07-11</title><link>https://anaer.github.io/blog/post/132.html</link><description>本文介绍了多个软件的最新版本更新，包括Cherry Studio、dify、PowerToys、YuyanIme、subs-check、rclone、CloudflareSpeedTest和somo。每个软件的更新内容涵盖了新功能、优化改进和问题修复，旨在提升用户体验和软件稳定性。
 
 优化建议：
-- 对于每个软件的更新，建议在发布说明中增加更新的具体影响和用户反馈，以便用户更好地理解更新的重要性。
-- 可以考虑将更新内容按类别（新功能、修复、优化）进行更清晰的分组，增强可读性。
-- 在提及支持的平台和架构时，建议增加使用场景的具体说明，以帮助用户选择合适的版本。
-- 进一步鼓励用户参与反馈和贡献，增强社区互动，提高软件质量和用户满意度。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/132.html</guid><pubDate>Mon, 07 Jul 2025 15:10:20 +0000</pubDate></item><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
+1. 对于每个软件的更新，提供更详细的版本号和发布日期，以便用户快速识别。
+2. 将新功能、优化和修复内容按优先级排序，突出重要更新。
+3. 增加用户反馈和使用案例，以展示更新的实际效果。
+4. 考虑提供每个软件的下载链接和安装指南，方便用户快速访问和更新。
+5. 对于技术性较强的内容，提供简明的解释或链接到相关文档，以帮助用户理解。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/132.html</guid><pubDate>Mon, 07 Jul 2025 15:10:20 +0000</pubDate></item><item><title>0X83 springCloudBus.anonymous匿名队列自动删除问题</title><link>https://anaer.github.io/blog/post/131.html</link><description>本文介绍了在网络波动时，由于匿名队列的排他性导致无法连接，并且该队列因设置为自动删除而被移除的情况。具体错误信息显示无法获得对锁定队列的独占访问权限，以及找不到指定的匿名队列。为了解决这一问题，可以考虑通过指定队列名称的方式进行处理，避免匿名队列的自动创建和删除。
 
 优化建议：
 1. 在配置中明确指定队列名称，避免使用匿名队列以减少连接问题。
