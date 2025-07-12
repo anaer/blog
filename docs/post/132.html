@@ -133,156 +133,172 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-07 23:10:20</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-12 12:24:52</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-12 23:11:46</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新，主要包括Cherry Studio v1.4.11、PowerToys v0.92.1、Folo v0.6.2、dify 1.6.0、rclone v1.70.3、subs-check v2.3.4、fit-framework elsa-v0.3.0、Seelen-UI v2.3.12、YuyanIme v20250711.00、CloudflareSpeedTest v2.3.2和somo v1.1.0。这些更新涉及功能修复、新增功能、性能优化以及用户界面的改进，旨在提升用户体验和软件稳定性。
+    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新，包括Cherry Studio、dify、PowerToys、subs-check、Folo、rclone、fit-framework、Seelen-UI、YuyanIme、CloudflareSpeedTest和somo。每个软件的更新内容涵盖了新特性、功能优化、问题修复以及贡献者信息等。
 
 优化建议：
-1. 在更新日志中，可以增加每个更新的具体影响和用户反馈，以便用户更好地理解更新内容的重要性。
-2. 提供更新的使用案例或示例，可以帮助用户更快地适应新功能。
-3. 在每个软件的下载资源部分，增加对比不同版本的功能差异，以便用户选择最适合的版本。
-4. 考虑提供视频演示或图文教程，以便用户更直观地了解新功能的使用方法。
-5. 进一步细化问题修复部分，明确哪些用户反馈被解决，以增强用户信任。
+1. 对于每个软件的更新内容，可以增加版本号的变化说明，以便用户快速了解更新的版本。
+2. 在描述新特性时，使用更为简洁的语言，避免冗长的句子，以提高可读性。
+3. 对于修复的问题，建议提供具体的案例或场景，以便用户理解修复的必要性。
+4. 增加更新后用户反馈的链接或渠道，鼓励用户分享使用体验和建议。 
+5. 在发布说明中加入更新的影响和预期效果，以帮助用户更好地理解更新的重要性。
 </div>
 
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.4.11">cherry-studio v1.4.11</a>
 </h1><a id="user-content-1-cherry-studio-v1411" class="anchor" aria-label="Permalink: 1. cherry-studio v1.4.11" href="#1-cherry-studio-v1411"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
-<p>本次更新主要包含以下内容：</p>
+<p>本次Cherry Studio 1.4.11版本更新包含以下内容：</p>
+<p>主要变更：</p>
 <ol>
-<li>修复内容：</li>
+<li>修复Doc2xPreprocessProvider中文件路径分割问题，改用path.parse处理</li>
+<li>修复代码工具栏的粘滞定位问题</li>
+<li>CodePreview组件恢复使用绝对定位</li>
+<li>修复区块更新问题</li>
 </ol>
+<p>新贡献者：</p>
 <ul>
-<li>修复了Doc2xPreprocessProvider中的文件路径分割问题（由@ws-work提交）</li>
-<li>修复了粘性代码工具栏问题（由@alephpiece提交）</li>
-<li>修复了CodePreview的绝对定位问题（由@alephpiece提交）</li>
-<li>修复了区块更新问题（由@DeJeune提交）</li>
+<li>@ws-work首次提交PR#8042</li>
 </ul>
-<ol start="2">
-<li>新贡献者：</li>
-</ol>
+<p>系统平台下载：</p>
 <ul>
-<li>@ws-work首次贡献</li>
+<li>Windows：提供x64/arm64架构的安装程序(.exe)和便携版(.exe)</li>
+<li>macOS：提供arm64/x64架构的.dmg安装包</li>
+<li>Linux：提供x86_64/arm64架构的AppImage</li>
+<li>Debian/Ubuntu：提供amd64/arm64架构的.deb安装包</li>
 </ul>
-<ol start="3">
-<li>版本更新：</li>
-</ol>
+<p>完整版本变更日志可查看v1.4.10到v1.4.11的对比。</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.6.0">dify 1.6.0</a>
+</h1><a id="user-content-2-dify-160" class="anchor" aria-label="Permalink: 2. dify 1.6.0" href="#2-dify-160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-ready platform for agentic workflow development.</p>
+<p>版本1.6.0主要更新内容如下：</p>
+<p>亮点功能：</p>
 <ul>
-<li>从v1.4.10升级到v1.4.11</li>
+<li>新增对Anthropic模型上下文协议(MCP)的支持，提供统一的模型输入输出格式标准</li>
 </ul>
-<ol start="4">
-<li>下载资源：
-提供了Windows、macOS和Linux三大平台的安装包：</li>
-</ol>
+<p>新特性：</p>
 <ul>
-<li>Windows：提供x64和arm64架构的安装程序(.exe)和便携版</li>
-<li>macOS：提供arm64和x64架构的.dmg安装包</li>
-<li>Linux：提供x86_64和arm64架构的AppImage，以及适用于Debian/Ubuntu的amd64/arm64架构.deb安装包</li>
+<li>集成MCP支持，实现更流畅的模型交互</li>
+<li>支持文档暂停和恢复功能</li>
+<li>新增阿里云LLM可观测性集成</li>
+<li>增加Redis故障转移机制</li>
 </ul>
-<p>各平台具体下载链接详见原文表格。</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.92.1">PowerToys v0.92.1</a>
-</h1><a id="user-content-2-powertoys-v0921" class="anchor" aria-label="Permalink: 2. PowerToys v0.92.1" href="#2-powertoys-v0921"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>功能优化：</p>
+<ul>
+<li>主题列表支持拖拽排序</li>
+<li>HTTP节点新增SSL验证开关</li>
+<li>优化批量嵌入和Qdrant写入一致性</li>
+<li>问题分类器新增instanceId支持复杂分类</li>
+<li>提升Tencent向量数据库内存使用效率</li>
+</ul>
+<p>问题修复：</p>
+<ul>
+<li>解决JSON输出导致的数据一致性问题</li>
+<li>确保变量名唯一性避免冲突</li>
+<li>修复抽屉组件中复制按钮不可点击的问题</li>
+<li>解决插件守护进程启动失败问题</li>
+<li>修复大文件编码检测超时问题</li>
+</ul>
+<p>升级指南：</p>
+<ul>
+<li>Docker部署：备份数据后拉取新代码并重启服务</li>
+<li>源码部署：更新代码和依赖后运行迁移脚本</li>
+</ul>
+<p>其他改进：</p>
+<ul>
+<li>新增暗色模式图标支持</li>
+<li>增加环境变量描述字段</li>
+<li>提升工作流事件日志</li>
+<li>多项UI/UX改进和翻译优化</li>
+</ul>
+<p>该版本共合并103个PR，包含7位新贡献者的提交。完整变更日志可查看GitHub发布页面。</p>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.92.1">PowerToys v0.92.1</a>
+</h1><a id="user-content-3-powertoys-v0921" class="anchor" aria-label="Permalink: 3. PowerToys v0.92.1" href="#3-powertoys-v0921"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Windows system utilities to maximize productivity</p>
-<p>本次发布是v0.92的补丁版本，主要修复了影响稳定性的重要问题。主要更新内容包括：修复了文件浏览器插件在每用户安装模式下预览功能失效的问题；修复了命令面板扩展中缺失所有Win32应用程序的回归问题；解决了命令面板每次加载时重置应用状态的异常情况。安装包提供了x64和ARM64架构的每用户安装版与全局安装版。完整发布说明可参考v0.92.0版本。</p>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/RSSNext/Folo/releases/tag/v0.6.2">Folo v0.6.2</a>
-</h1><a id="user-content-3-folo-v062" class="anchor" aria-label="Permalink: 3. Folo v0.6.2" href="#3-folo-v062"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>本次发布是PowerToys v0.92.1补丁版本，主要修复了v0.92版本中影响稳定性的重要问题。完整发布说明请参考v0.92.0版本。</p>
+<p>提供了四种安装包下载选项：</p>
+<ol>
+<li>用户级安装：x64架构和ARM64架构版本</li>
+<li>系统级安装：x64架构和ARM64架构版本</li>
+</ol>
+<p>主要修复内容：</p>
+<ol>
+<li>文件资源管理器插件：修复了在用户级安装时预览功能失效的问题</li>
+<li>命令面板：修复了Win32应用程序全部缺失的回归问题</li>
+<li>命令面板：修复了每次加载时重置应用状态的回归问题</li>
+</ol>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.3.4">subs-check v2.3.4</a>
+</h1><a id="user-content-4-subs-check-v234" class="anchor" aria-label="Permalink: 4. subs-check v2.3.4" href="#4-subs-check-v234"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
+<p>更新日志：</p>
+<ol>
+<li>修改默认配置</li>
+<li>修复问题</li>
+<li>优化用户代理(ua)相关功能</li>
+<li>新增iplark功能</li>
+<li>改用cdn.staticfile.net服务</li>
+<li>更新mihomo组件</li>
+<li>将sub-store升级至2.19.74版本</li>
+</ol>
+<p>（注：每条变更记录均包含完整的commit hash值，为简洁起见摘要中未体现）</p>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/RSSNext/Folo/releases/tag/v0.6.2">Folo v0.6.2</a>
+</h1><a id="user-content-5-folo-v062" class="anchor" aria-label="Permalink: 5. Folo v0.6.2" href="#5-folo-v062"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🧡 Follow everything in one place</p>
-<p>v0.6.2版本更新内容如下：</p>
+<p>v0.6.2版本更新内容摘要：</p>
 <p>主要新增功能：</p>
 <ol>
-<li>新增"淡化已读条目"选项，可调暗时间线中已读条目</li>
-<li>YouTube视频现可直接在文章视图中播放</li>
-<li>支持自定义界面强调色</li>
+<li>新增"淡化已读条目"选项，可在时间线中调暗已读条目</li>
+<li>YouTube视频现在支持在文章视图中直接播放</li>
+<li>新增界面主题色自定义功能</li>
 </ol>
-<p>功能改进：</p>
+<p>功能优化：</p>
 <ol>
 <li>优化播客时长显示方式</li>
-<li>邮件页面添加登录/注册切换选项</li>
-<li>优化图片操作栏的显示逻辑</li>
+<li>登录/注册页面新增切换按钮</li>
+<li>图片操作栏显示逻辑更智能</li>
 <li>编辑订阅源时仅显示当前视图相关分类</li>
-<li>"标记以上为已读"按钮不再出现在星标列表</li>
-<li>RSSHub和趋势查询支持会话间持久化</li>
+<li>修复"标记上方为已读"按钮在星标列表中错误显示的问题</li>
+<li>RSSHub和热门查询结果支持会话间持久化</li>
 <li>优化个人资料页面布局</li>
 </ol>
 <p>问题修复：</p>
 <ol>
-<li>修复发现页面滚动指示器无法到达100%的问题</li>
+<li>修复发现页面滚动指示器无法达到100%的问题</li>
 <li>恢复"标记为已读"快捷键功能</li>
 <li>修复自定义工具栏设置中的无限滚动问题</li>
-<li>修复无法将条目标记为未读的bug</li>
-<li>修复社交媒体视图中点击"阅读更多"导致页面刷新的问题</li>
-<li>修复标题含特殊字符的条目无法保存到Obsidian的问题</li>
-<li>提高图片下载可靠性</li>
+<li>修复无法将条目标记为未读的问题</li>
+<li>修复社交媒体视图中"阅读更多"导致页面刷新的问题</li>
+<li>修复标题含特殊字符的条目无法保存至Obsidian的问题</li>
+<li>提升图片下载可靠性</li>
 <li>修正收件箱"标记为已读"逻辑</li>
-<li>防止订阅源点击事件冒泡</li>
+<li>阻止订阅源点击事件冒泡</li>
 <li>修复源内容无法自动触发的问题</li>
 </ol>
-<p>特别致谢多位社区贡献者的宝贵贡献。</p>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/langgenius/dify/releases/tag/1.6.0">dify 1.6.0</a>
-</h1><a id="user-content-4-dify-160" class="anchor" aria-label="Permalink: 4. dify 1.6.0" href="#4-dify-160"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Production-ready platform for agentic workflow development.</p>
-<p>版本1.6.0主要更新内容如下：</p>
-<p>核心特性：</p>
-<ul>
-<li>新增对Anthropic模型上下文协议(MCP)的支持，统一模型输入输出格式，提升兼容性</li>
-</ul>
-<p>功能增强：</p>
-<ul>
-<li>新增主题列表拖拽排序功能</li>
-<li>HTTP节点增加SSL验证开关</li>
-<li>优化批量嵌入处理和Qdrant写入一致性</li>
-<li>问题分类器增加instanceId支持</li>
-<li>新增Redis故障转移机制</li>
-</ul>
-<p>问题修复：</p>
-<ul>
-<li>解决JSON输出不一致问题</li>
-<li>确保变量名唯一性避免冲突</li>
-<li>修复抽屉组件中复制按钮点击问题</li>
-<li>解决插件守护进程启动失败问题</li>
-</ul>
-<p>升级指南：</p>
-<ol>
-<li>Docker部署：备份数据→获取最新代码→停止服务→升级容器</li>
-<li>源码部署：停止服务→获取1.6.0分支代码→更新依赖→执行数据库迁移→重启服务</li>
-</ol>
-<p>其他优化：</p>
-<ul>
-<li>改进工作流日志记录</li>
-<li>增加阿里云观测集成</li>
-<li>文档处理支持暂停/恢复</li>
-<li>提升腾讯向量数据库内存效率</li>
-</ul>
-<p>共包含80余项变更，由8位新贡献者参与开发。完整变更日志可查看项目GitHub页面。</p>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/rclone/rclone/releases/tag/v1.70.3">rclone v1.70.3</a>
-</h1><a id="user-content-5-rclone-v1703" class="anchor" aria-label="Permalink: 5. rclone v1.70.3" href="#5-rclone-v1703"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>特别致谢9位社区贡献者的宝贵贡献。</p>
+<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/rclone/rclone/releases/tag/v1.70.3">rclone v1.70.3</a>
+</h1><a id="user-content-6-rclone-v1703" class="anchor" aria-label="Permalink: 6. rclone v1.70.3" href="#6-rclone-v1703"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files</p>
-<p>rclone v1.70.3版本发布，完整变更详情请参阅更新日志。</p>
-<div class="markdown-heading"><h1 class="heading-element">6. <a href="https://github.com/beck-8/subs-check/releases/tag/v2.3.4">subs-check v2.3.4</a>
-</h1><a id="user-content-6-subs-check-v234" class="anchor" aria-label="Permalink: 6. subs-check v2.3.4" href="#6-subs-check-v234"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<p>更新日志：</p>
-<ol>
-<li>修改默认配置（提交哈希：332791e）</li>
-<li>优化UA设置（提交哈希：af59d84）</li>
-<li>新增iplark功能（提交哈希：d755d55）</li>
-<li>改用cdn.staticfile.net资源（提交哈希：2203118）</li>
-<li>更新mihomo组件（提交哈希：9cd8a47）</li>
-<li>升级sub-store至2.19.74版本（提交哈希：c980292）</li>
-</ol>
+<p>这是rclone v1.70.3版本发布。完整变更内容详见更新日志。</p>
+<p>主要更新包括：</p>
+<ul>
+<li>修复若干已知问题</li>
+<li>功能优化与改进</li>
+<li>版本号为2025年7月9日发布</li>
+</ul>
+<p>建议用户查看详细变更日志获取具体更新内容。</p>
 <div class="markdown-heading"><h1 class="heading-element">7. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/elsa-v0.3.0">fit-framework elsa-v0.3.0</a>
 </h1><a id="user-content-7-fit-framework-elsa-v030" class="anchor" aria-label="Permalink: 7. fit-framework elsa-v0.3.0" href="#7-fit-framework-elsa-v030"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。</p>
-<p>本次发布主要针对Elsa模块的表单处理、用户界面响应性和文本交互功能进行了改进。主要亮点包括：统一表单节点状态、修复响应式布局问题以及增强文本选择功能。</p>
+<p>本次发布主要针对Elsa模块的表单处理、用户界面响应和文本交互功能进行优化。主要改进包括：统一表单节点状态、修复响应式布局问题以及增强文本选择功能。</p>
 <p>主要变更：</p>
-<ul>
-<li>功能方面：重构了NodeState，统一了intelligentForm和manualCheck节点状态。</li>
-<li>增强功能：改进了TreeView的文本选择和复制功能。</li>
-<li>问题修复：使图表容器能够响应父容器尺寸变化。</li>
-</ul>
-<p>特别感谢所有贡献者：@RonnyChan96, @CodeCasterX, @wjn1584</p>
+<ol>
+<li>功能优化：重构NodeState，统一智能表单和手动检查的节点状态。</li>
+<li>体验提升：改进TreeView组件的文本选择和复制功能。</li>
+<li>问题修复：使图表容器能够自适应父容器尺寸，解决布局响应问题。</li>
+</ol>
+<p>感谢所有贡献者：@RonnyChan96、@CodeCasterX、@wjn1584。</p>
 <div class="markdown-heading"><h1 class="heading-element">8. <a href="https://github.com/eythaann/Seelen-UI/releases/tag/v2.3.12">Seelen-UI v2.3.12</a>
 </h1><a id="user-content-8-seelen-ui-v2312" class="anchor" aria-label="Permalink: 8. Seelen-UI v2.3.12" href="#8-seelen-ui-v2312"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>The Fully Customizable Desktop Environment for Windows 10/11.</p>
@@ -291,63 +307,67 @@ pre {
 <li>新增主题设置的自定义选项</li>
 <li>修复音量弹窗位置错误问题</li>
 </ol>
-<p>完整更新日志见版本v2.3.11至v2.3.12的变更记录</p>
 <div class="markdown-heading"><h1 class="heading-element">9. <a href="https://github.com/gurecn/YuyanIme/releases/tag/v20250711.00">YuyanIme v20250711.00</a>
 </h1><a id="user-content-9-yuyanime-v2025071100" class="anchor" aria-label="Permalink: 9. YuyanIme v20250711.00" href="#9-yuyanime-v2025071100"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>语燕拼音输入法-一款基于Rime定制开发的九键、全拼、双拼、手写、火星文等方案、支持悬浮、单手、数字行等键盘模式的中文输入法</p>
 <p>本次更新主要包含三方面内容：</p>
 <p>新特性：</p>
 <ol>
-<li>新增谷歌/三星键盘风格，可在主题设置中切换</li>
+<li>新增谷歌和三星键盘风格，可在设置中切换</li>
 <li>适配横屏键盘居中显示</li>
 <li>优化候选栏高度动态调整</li>
 </ol>
 <p>功能优化：</p>
 <ol>
 <li>修复键盘符号错误，改善显示效果</li>
-<li>解决手写笔迹断连问题</li>
-<li>改进九键单韵母分词</li>
-<li>优化键盘高度调整的流畅度</li>
-<li>九键拼音列按长度排序</li>
-<li>调整默认候选词数量</li>
+<li>改进手写笔迹断连问题</li>
+<li>解决九键单韵母分词问题</li>
+<li>优化键盘高度调整流畅度</li>
+<li>调整九键拼音排序规则</li>
+<li>优化候选词数量和体验</li>
 </ol>
 <p>缺陷修复：</p>
 <ol>
-<li>解决微信特效表情发送异常</li>
-<li>修复符号键盘返回后输入方案失效问题</li>
+<li>修复微信表情发送异常</li>
+<li>解决符号键盘返回后输入方案失效问题</li>
 <li>补充词库生僻字</li>
-<li>修正英文预填充时光标异常问题</li>
+<li>修复英文预填充时光标异常问题</li>
 </ol>
 <div class="markdown-heading"><h1 class="heading-element">10. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.2">CloudflareSpeedTest v2.3.2</a>
 </h1><a id="user-content-10-cloudflarespeedtest-v232" class="anchor" aria-label="Permalink: 10. CloudflareSpeedTest v2.3.2" href="#10-cloudflarespeedtest-v232"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 多个解析 IP 的网站 ~</p>
-<p>本次更新修复了调试模式下因重定向地址出错导致下载测速失败时显示地址不准确的问题，现在能正确区分是原始地址还是重定向地址出错。</p>
-<p>提供了多平台下载链接，包括MacOS（x86_64/ARM）、Linux（x86/ARM/Mips系列）、Windows（x86/ARM）等架构版本。特别提醒：</p>
+<p>本次更新修复了调试模式下因重定向地址错误导致下载测速失败时显示地址不准确的问题，现在能正确区分是原始地址还是重定向地址出错。</p>
+<p>提供了多平台多架构的下载链接：</p>
+<ul>
+<li>MacOS：支持x86_64和ARM v8架构</li>
+<li>Linux：支持x86/x86_64/ARM/Mips等多种架构</li>
+<li>Windows：支持x86/x86_64/ARM v8架构</li>
+</ul>
+<p>特别提醒：</p>
 <ol>
 <li>Windows ARM64版本仅适用于ARM架构设备</li>
-<li>路由器通常使用Mips/Mipsle/ARM架构，可通过命令<code>uname -m</code>确认</li>
-<li>Android手机多为ARM架构，需自行测试32/64位版本</li>
-<li>MacOS需通过命令行运行</li>
-<li>Linux系统解压命令为<code>tar -zxf</code>
-</li>
+<li>路由器用户可通过命令查询架构类型</li>
+<li>国内用户建议从蓝奏云下载</li>
+<li>提供了Android和IOS手机的运行教程链接</li>
+<li>附Linux系统解压tar.gz文件的命令</li>
+<li>MacOS用户需要通过命令行运行程序</li>
 </ol>
-<p>国内用户建议从蓝奏云下载。各平台具体下载链接详见更新内容表格。</p>
+<p>注意不同设备的架构差异，选择对应版本下载测试。</p>
 <div class="markdown-heading"><h1 class="heading-element">11. <a href="https://github.com/theopfr/somo/releases/tag/v1.1.0">somo v1.1.0</a>
 </h1><a id="user-content-11-somo-v110" class="anchor" aria-label="Permalink: 11. somo v1.1.0" href="#11-somo-v110"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>A human-friendly alternative to netstat for socket and port monitoring on Linux.</p>
-<p>2025年9月7日发布的1.1.0版本主要更新内容如下：</p>
+<p>A human-friendly alternative to netstat for socket and port monitoring on Linux and macOS.</p>
+<p>2025年9月7日发布的1.1.0版本更新内容如下：</p>
 <p>新增功能：</p>
 <ul>
-<li>添加macOS系统支持</li>
+<li>新增macOS系统支持</li>
 <li>增加按列排序功能</li>
 <li>新增紧凑表格视图</li>
-<li>CI流程增加格式检查和clippy检查</li>
-<li>新增shell自动补全功能</li>
-<li>增加Nix打包支持</li>
-<li>新增JSON和自定义格式化输出功能</li>
-<li>添加MIT许可证</li>
+<li>在CI中添加格式检查和clippy检查</li>
+<li>增加shell自动补全功能</li>
+<li>新增Nix打包支持</li>
+<li>增加JSON和自定义格式化输出</li>
 </ul>
-<p>功能优化：</p>
+<p>功能改进：</p>
 <ul>
 <li>更新CLI参数，增加<code>--tcp</code>和<code>--udp</code>标志</li>
 <li>将kill功能改为使用SIGTERM信号</li>
@@ -356,6 +376,10 @@ pre {
 <ul>
 <li>修复管道操作时程序崩溃问题</li>
 <li>修正README文档中的拼写错误</li>
+</ul>
+<p>其他：</p>
+<ul>
+<li>新增MIT许可证</li>
 </ul>
 <p>贡献者包括：belingud、gerelef、theopfr、jerry1098、celeo、polponline、kachick、rongyi、aptypp、cma5、robinhutty等。</p>
 
