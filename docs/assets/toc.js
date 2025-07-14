@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("\n %c TOC Plugins https://github.com/anaer/Gmeek \n","padding:5px 0;background:#C333D0;color:#fff");
+    console.log("\n %c TOC Plugins https://github.com/anaer/Gmeek \n", "padding:5px 0;background:#C333D0;color:#fff");
 
     let css = `
     @media (max-width: 1249px)
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
         border-bottom: none;
     }
     .toc a:hover {
-        background-color:var(--color-select-menu-tap-focus-bg);
+        background-color: var(--color-select-menu-tap-focus-bg);
     }
 
     .toc-link.active {
@@ -83,33 +83,54 @@ document.addEventListener("DOMContentLoaded", function() {
         link.style.paddingLeft = `${(parseInt(heading.tagName.charAt(1)) - 1) * 10}px`;
         tocElement.appendChild(link);
     });
-    tocElement.insertAdjacentHTML('beforeend', '<a class="toc-end" onclick="window.scrollTo({top:0,behavior: \'smooth\'});">↑ Top ↑</a>');
+    tocElement.insertAdjacentHTML('beforeend', '<a class="toc-end" onclick="window.scrollTo({top:0,behavior: \'smooth\'})">↑ Top ↑</a>');
 
     const style = document.createElement('style');
     style.textContent = css;
     document.head.appendChild(style);
 
-    // 高亮显示当前所在位置
-    window.addEventListener('scroll', function () {
-        let currentHeading = null;
-
-        headings.forEach(heading => {
-            const rect = heading.getBoundingClientRect();
-            if (rect.top <= 10) {
-                currentHeading = heading;
-            }
+    // 使用 IntersectionObserver 来高亮显示当前所在位置
+    let intersectionObserver;
+    const observeHeadings = () => {
+        intersectionObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                const tocLink = tocElement.querySelector(`a[href="#${entry.target.id}"]`);
+                if (tocLink) {
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.toc-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        tocLink.classList.add('active');
+                        tocLink.scrollIntoView({ block: "center" });
+                    }
+                }
+            });
+        }, {
+            rootMargin: '0px',
+            threshold: 0.1
         });
 
-        document.querySelectorAll('.toc-link').forEach(link => {
-            link.classList.remove('active');
+        headings.forEach(function (heading) {
+            intersectionObserver.observe(heading);
         });
+    };
 
-        if (currentHeading) {
-            const activeLink = tocElement.querySelector(`a[href="#${currentHeading.id}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-                tocElement.scrollTop = activeLink.offsetTop - tocElement.offsetTop;
+    observeHeadings();
+
+    // 处理点击事件
+    document.querySelectorAll('.toc a').forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            const targetId = link.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                document.querySelectorAll('.toc-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                link.classList.add('active');
+                history.pushState(null, null, '#' + targetId);
             }
-        }
+        });
     });
 });
