@@ -13,7 +13,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X1B ip2region工具</title>
+<title>0X1B ip归属地查询</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +96,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X1B ip2region工具</a>
+    <a style="font-size:18px">0X1B ip归属地查询</a>
 </h1>
 
 <div class="title-right">
@@ -133,16 +133,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-03 10:05:26</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-15 15:11:40</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-15 15:12:28</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了ip2region的使用方法，特别是如何利用MaxMind的GeoLite2数据库进行IP地址的地理位置查询。代码示例展示了如何通过geoip2库读取数据库并获取指定IP地址的国家信息。
+    <strong>AI总结:</strong> 本文介绍了ip2region的使用，包括其数据来源和如何通过geoip2库获取IP地址的地理信息。示例代码展示了如何查询IP地址的国家，并处理可能出现的异常。
 
 优化建议：
-1. 增加对不同异常的处理，以便于更精确地定位问题。
-2. 提供更多的使用示例，包括城市和ASN信息的查询。
-3. 考虑将数据库路径作为参数传递，以便于灵活使用不同的数据库文件。
-4. 在函数中添加文档字符串，说明参数和返回值的详细信息。
+1. 在代码中增加对输入IP地址格式的验证，以确保只有有效的IP地址被传递给函数。
+2. 提供更多的异常处理，以捕捉特定错误并给出更详细的反馈。
+3. 考虑将数据库路径作为参数传递，并提供默认值，以便于用户灵活使用不同的数据库。
+4. 在获取国家名称时，添加对其他语言的支持，提升国际化能力。
+5. 在示例代码中添加更多注释，帮助用户理解每一步的功能。
 </div>
 
 <div class="markdown-body" id="postBody">
