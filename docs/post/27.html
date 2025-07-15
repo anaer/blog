@@ -14,7 +14,7 @@
     </script>
     
 <title>0X1B ip2region工具</title>
-
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -133,18 +133,43 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-03 10:05:26</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-03 17:43:31</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-15 15:11:40</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了ip2region的使用方法，特别是如何利用MaxMind的GeoLite2数据库进行IP地址的地理位置查询。代码示例展示了如何通过geoip2库读取数据库并获取指定IP地址的国家信息。
+
+优化建议：
+1. 增加对不同异常的处理，以便于更精确地定位问题。
+2. 提供更多的使用示例，包括城市和ASN信息的查询。
+3. 考虑将数据库路径作为参数传递，以便于灵活使用不同的数据库文件。
+4. 在函数中添加文档字符串，说明参数和返回值的详细信息。
+</div>
 
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h2 class="heading-element"><a href="https://github.com/lionsoul2014/ip2region">ip2region</a></h2><a id="user-content-ip2region" class="anchor" aria-label="Permalink: ip2region" href="#ip2region"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="markdown-heading"><h2 class="heading-element">
 <a href="https://github.com/alading89/ip2region-xdb/releases">ip2region-xdb</a>  58M</h2><a id="user-content-ip2region-xdb--58m" class="anchor" aria-label="Permalink: ip2region-xdb  58M" href="#ip2region-xdb--58m"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>数据来自IP-API</p>
+<div class="markdown-heading"><h2 class="heading-element"><a href="https://github.com/mojolabs-id/GeoLite2-Database/releases/">GeoLite2-Database</a></h2><a id="user-content-geolite2-database" class="anchor" aria-label="Permalink: GeoLite2-Database" href="#geolite2-database"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>MaxMind's GeoLite2 Country, City, and ASN databases in csv and mmdb.</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">geoip2</span>.<span class="pl-s1">database</span>
+
+<span class="pl-k">def</span> <span class="pl-en">get_ip_info</span>(<span class="pl-s1">ip_address</span>, <span class="pl-s1">db_path</span><span class="pl-c1">=</span><span class="pl-s">"GeoLite2-Country.mmdb"</span>):
+    <span class="pl-k">try</span>:
+        <span class="pl-k">with</span> <span class="pl-s1">geoip2</span>.<span class="pl-c1">database</span>.<span class="pl-c1">Reader</span>(<span class="pl-s1">db_path</span>) <span class="pl-k">as</span> <span class="pl-s1">reader</span>:
+            <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-s1">reader</span>.<span class="pl-c1">country</span>(<span class="pl-s1">ip_address</span>)
+            <span class="pl-k">return</span> <span class="pl-s1">response</span>.<span class="pl-c1">country</span>.<span class="pl-c1">names</span>.<span class="pl-c1">get</span>(<span class="pl-s">'zh-CN'</span>, <span class="pl-s1">response</span>.<span class="pl-c1">country</span>.<span class="pl-c1">name</span>)
+    <span class="pl-k">except</span> <span class="pl-v">Exception</span> <span class="pl-k">as</span> <span class="pl-s1">e</span>:
+        <span class="pl-en">print</span>(<span class="pl-s">f"GeoIP lookup failed for <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">ip_address</span><span class="pl-kos">}</span></span>: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">e</span><span class="pl-kos">}</span></span>"</span>)
+        <span class="pl-k">return</span> <span class="pl-s">''</span>
+
+<span class="pl-c"># 使用示例</span>
+<span class="pl-s1">ip_address</span> <span class="pl-c1">=</span> <span class="pl-s">"8.8.8.8"</span>
+<span class="pl-s1">country</span> <span class="pl-c1">=</span> <span class="pl-en">get_ip_info</span>(<span class="pl-s1">ip_address</span>)
+<span class="pl-en">print</span>(<span class="pl-s">f"Country: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">country</span><span class="pl-kos">}</span></span>"</span>)</pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/28.html" aria-label="Previous Page">0X1C Git配置文件说明</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/26.html" aria-label="Next Page">0X1A API接口测试工具</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/26.html" aria-label="Previous Page">0X1A API接口测试工具</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/28.html" aria-label="Next Page">0X1C Git配置文件说明</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

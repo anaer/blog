@@ -2,3 +2,20 @@
 <div class="markdown-heading"><h2 class="heading-element">
 <a href="https://github.com/alading89/ip2region-xdb/releases">ip2region-xdb</a>  58M</h2><a id="user-content-ip2region-xdb--58m" class="anchor" aria-label="Permalink: ip2region-xdb  58M" href="#ip2region-xdb--58m"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>数据来自IP-API</p>
+<div class="markdown-heading"><h2 class="heading-element"><a href="https://github.com/mojolabs-id/GeoLite2-Database/releases/">GeoLite2-Database</a></h2><a id="user-content-geolite2-database" class="anchor" aria-label="Permalink: GeoLite2-Database" href="#geolite2-database"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>MaxMind's GeoLite2 Country, City, and ASN databases in csv and mmdb.</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">geoip2</span>.<span class="pl-s1">database</span>
+
+<span class="pl-k">def</span> <span class="pl-en">get_ip_info</span>(<span class="pl-s1">ip_address</span>, <span class="pl-s1">db_path</span><span class="pl-c1">=</span><span class="pl-s">"GeoLite2-Country.mmdb"</span>):
+    <span class="pl-k">try</span>:
+        <span class="pl-k">with</span> <span class="pl-s1">geoip2</span>.<span class="pl-c1">database</span>.<span class="pl-c1">Reader</span>(<span class="pl-s1">db_path</span>) <span class="pl-k">as</span> <span class="pl-s1">reader</span>:
+            <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-s1">reader</span>.<span class="pl-c1">country</span>(<span class="pl-s1">ip_address</span>)
+            <span class="pl-k">return</span> <span class="pl-s1">response</span>.<span class="pl-c1">country</span>.<span class="pl-c1">names</span>.<span class="pl-c1">get</span>(<span class="pl-s">'zh-CN'</span>, <span class="pl-s1">response</span>.<span class="pl-c1">country</span>.<span class="pl-c1">name</span>)
+    <span class="pl-k">except</span> <span class="pl-v">Exception</span> <span class="pl-k">as</span> <span class="pl-s1">e</span>:
+        <span class="pl-en">print</span>(<span class="pl-s">f"GeoIP lookup failed for <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">ip_address</span><span class="pl-kos">}</span></span>: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">e</span><span class="pl-kos">}</span></span>"</span>)
+        <span class="pl-k">return</span> <span class="pl-s">''</span>
+
+<span class="pl-c"># 使用示例</span>
+<span class="pl-s1">ip_address</span> <span class="pl-c1">=</span> <span class="pl-s">"8.8.8.8"</span>
+<span class="pl-s1">country</span> <span class="pl-c1">=</span> <span class="pl-en">get_ip_info</span>(<span class="pl-s1">ip_address</span>)
+<span class="pl-en">print</span>(<span class="pl-s">f"Country: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">country</span><span class="pl-kos">}</span></span>"</span>)</pre></div>

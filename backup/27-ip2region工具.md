@@ -3,3 +3,24 @@
 ## [ip2region-xdb](https://github.com/alading89/ip2region-xdb/releases)  58M
 
 数据来自IP-API
+
+## [GeoLite2-Database](https://github.com/mojolabs-id/GeoLite2-Database/releases/)
+MaxMind's GeoLite2 Country, City, and ASN databases in csv and mmdb.
+
+```python
+import geoip2.database
+
+def get_ip_info(ip_address, db_path="GeoLite2-Country.mmdb"):
+    try:
+        with geoip2.database.Reader(db_path) as reader:
+            response = reader.country(ip_address)
+            return response.country.names.get('zh-CN', response.country.name)
+    except Exception as e:
+        print(f"GeoIP lookup failed for {ip_address}: {e}")
+        return ''
+
+# 使用示例
+ip_address = "8.8.8.8"
+country = get_ip_info(ip_address)
+print(f"Country: {country}")
+```
