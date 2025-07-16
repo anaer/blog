@@ -69,3 +69,24 @@ winsw.exe refresh myapp-server.xml</pre></div>
 <p>保存文件后执行以下命令，确保服务生效：</p>
 <div class="highlight highlight-source-shell"><pre>launchctl load <span class="pl-k">~</span>/Library/LaunchAgents/myapp.plist     <span class="pl-c"><span class="pl-c">#</span> 加载服务</span>
 launchctl list <span class="pl-k">|</span> grep myapp                           <span class="pl-c"><span class="pl-c">#</span> 验证是否加载</span></pre></div>
+<div class="markdown-heading"><h2 class="heading-element">Linux服务</h2><a id="user-content-linux服务" class="anchor" aria-label="Permalink: Linux服务" href="#linux服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>/etc/systemd/system/myapp.service</p>
+<div class="highlight highlight-source-ini"><pre><span class="pl-en">[Unit]</span>
+<span class="pl-k">Description</span>=myapp service
+<span class="pl-k">After</span>=network.target NetworkManager.service systemd-networkd.service iwd.service
+
+<span class="pl-en">[Service]</span>
+<span class="pl-k">Type</span>=simple
+<span class="pl-k">LimitNPROC</span>=500
+<span class="pl-k">LimitNOFILE</span>=1000000
+<span class="pl-k">CapabilityBoundingSet</span>=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_TIME CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE
+<span class="pl-k">AmbientCapabilities</span>=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_TIME CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE
+<span class="pl-k">Restart</span>=always
+<span class="pl-k">ExecStartPre</span>=/usr/bin/sleep 1s
+<span class="pl-k">ExecStart</span>=/usr/local/bin/myapp -d /etc/myapp
+<span class="pl-k">ExecReload</span>=/bin/kill -HUP $MAINPID
+
+<span class="pl-en">[Install]</span>
+<span class="pl-k">WantedBy</span>=multi-user.target</pre></div>
+<div class="highlight highlight-source-shell"><pre>systemctl daemon-reload <span class="pl-c"><span class="pl-c">#</span> 重新加载systemd</span>
+systemctl <span class="pl-c1">enable</span> myapp <span class="pl-c"><span class="pl-c">#</span> 启用服务</span></pre></div>

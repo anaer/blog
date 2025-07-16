@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 15 Jul 2025 07:12:56 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 15 Jul 2025 07:12:56 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 16 Jul 2025 08:41:08 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 16 Jul 2025 08:41:08 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
 
 优化建议：
 1. 在ssh-keygen命令中，建议提供更详细的注释，例如使用用户的邮箱地址，以便于识别密钥。
@@ -265,14 +265,13 @@
 1. 对于每个软件的更新说明，可以增加用户反馈或使用案例，以便于用户理解新特性的实际应用。
 2. 考虑提供更新的详细文档链接，帮助用户快速查找具体的更改内容和使用指南。
 3. 在发布说明中加入更新前后的性能对比数据，帮助用户评估更新的必要性。
-4. 增加版本号变化的可视化图表，直观展示软件的迭代进程和主要改动。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/91.html</guid><pubDate>Mon, 17 Mar 2025 01:26:49 +0000</pubDate></item><item><title>0X5A 将应用程序添加为系统服务进行管理</title><link>https://anaer.github.io/blog/post/90.html</link><description>本文介绍了如何在Windows和Mac系统中创建和管理服务。对于Windows，可以使用winsw.exe进行服务的安装、卸载、启动、停止、重启和状态查询，并提供了相应的服务配置示例。对于Mac，步骤包括创建LaunchAgent配置文件、编辑.plist文件内容以及加载和验证服务的命令。
+4. 增加版本号变化的可视化图表，直观展示软件的迭代进程和主要改动。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/91.html</guid><pubDate>Mon, 17 Mar 2025 01:26:49 +0000</pubDate></item><item><title>0X5A 将应用程序添加为系统服务进行管理</title><link>https://anaer.github.io/blog/post/90.html</link><description>本文介绍了在Windows、Mac和Linux系统中管理服务的步骤和配置方法，包括使用WinSW工具在Windows上创建和管理服务，使用LaunchAgent在Mac上配置服务，以及在Linux中通过systemd管理服务的方式。每个系统的服务配置文件示例和相关命令均已提供，以便用户轻松实现服务的安装、启动、停止等操作。
 
 优化建议：
-1. 增加对winsw.exe和LaunchAgent的详细介绍，帮助用户理解其功能和使用场景。
-2. 在Windows部分提供更详细的参数说明，帮助用户更好地配置服务。
-3. 在Mac部分增加对.plist文件中各个键的解释，帮助用户理解配置内容。
-4. 提供示例输出或结果，以便用户在执行命令后进行对照，确保服务正确加载和运行。
-5. 考虑增加常见错误及解决方案的部分，以便用户在遇到问题时能快速查找解决方法。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/90.html</guid><pubDate>Fri, 14 Mar 2025 02:05:18 +0000</pubDate></item><item><title>0X59 VSCode扩展配置说明</title><link>https://anaer.github.io/blog/post/89.html</link><description>本文介绍了如何在VSCode工作区中配置定时任务以实现自动同步功能，通过在.vscode文件夹中添加tasks.json和settings.json文件，设置相应的任务和定时执行规则。具体步骤包括定义一个名为“Auto Sync”的任务，并在settings.json中配置其每5分钟自动执行，同时建议将终端的默认Profile设置为Command Prompt以避免潜在问题。
+1. 在Windows部分，建议提供更多关于服务状态查询和日志查看的命令，以帮助用户更全面地管理服务。
+2. 在Mac服务部分，建议添加如何卸载和修改已加载服务的步骤，以便用户能够更灵活地管理服务。
+3. 在Linux部分，建议详细说明如何查看服务的运行状态和日志，以便用户能够及时发现问题。
+4. 考虑在各个部分中加入常见问题解答，以帮助用户解决可能遇到的常见问题。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/90.html</guid><pubDate>Fri, 14 Mar 2025 02:05:18 +0000</pubDate></item><item><title>0X59 VSCode扩展配置说明</title><link>https://anaer.github.io/blog/post/89.html</link><description>本文介绍了如何在VSCode工作区中配置定时任务以实现自动同步功能，通过在.vscode文件夹中添加tasks.json和settings.json文件，设置相应的任务和定时执行规则。具体步骤包括定义一个名为“Auto Sync”的任务，并在settings.json中配置其每5分钟自动执行，同时建议将终端的默认Profile设置为Command Prompt以避免潜在问题。
 
 优化建议：
 1. 确保tasks.json中的命令路径正确且可执行，避免因路径错误导致任务失败。
