@@ -61,6 +61,7 @@
 
 ### 输入法
 1. ~~weasel小狼毫输入法~~ [官网](https://rime.im/)
+2. InputTip输入法状态管理工具 [GitHub](https://github.com/abgox/InputTip)
 
 ### 资源管理
 1. ~~MultiCommander~~  [官网](http://multicommander.com/downloads)              
