@@ -133,37 +133,53 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-17 12:30:30</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-18 12:31:37</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-18 23:12:41</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Cherry Studio v1.5.1和subs-check v1.3.5的主要更新内容。Cherry Studio是一款支持多种大型语言模型提供者的桌面客户端，本次更新包括多个功能改进，如修复重发消息时的提及处理问题、增强代理管理、优化多模型提及样式等。此外，新增了SECURITY.md安全文档和API客户端工厂测试用例。subs-check则是一个用于订阅转换和流媒体检测的工具，更新中确认版本号规则、修复了TikTok功能、优化流量计算等。
+    <strong>AI总结:</strong> 本文介绍了Cherry Studio v1.5.1和subs-check v1.3.5的主要功能和更新。Cherry Studio是一个支持多种LLM提供商的桌面客户端，而subs-check是一个用于订阅转换、测速、流媒体检测等的工具。文档确认subs-check的当前版本为V1，并提供了关键的更新信息，包括流量计算精确度提升、自定义命名顺序支持、解锁地区功能、流量消耗计算优化以及多个Bug修复。
 
 优化建议：
-1. 对于Cherry Studio，建议在用户界面中增加更新日志的可视化展示，以便用户快速了解新功能和修复内容。
-2. 对于subs-check，建议提供更详细的版本比较说明，以帮助用户理解版本号的命名规则和更新的重要性。
-3. 考虑增加用户反馈渠道，收集用户对新功能的使用体验和建议，进一步优化产品。
+1. 在版本说明中明确提及版本号的比较规则，以避免用户混淆。
+2. 增加对主要改进功能的具体示例，以便用户更好地理解改进的实用性。
+3. 提供更详细的变更记录，包括每个commit的具体影响，以便用户评估更新的重要性。
+4. 考虑在文档中加入用户反馈渠道，让用户能够就新版本提出意见或建议。
 </div>
 
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.1">cherry-studio v1.5.1</a>
 </h1><a id="user-content-1-cherry-studio-v151" class="anchor" aria-label="Permalink: 1. cherry-studio v1.5.1" href="#1-cherry-studio-v151"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
-<p>本次更新包含多项功能改进和问题修复：修复了重发消息时的提及处理问题；增强了代理管理和配置功能；优化了多模型提及样式；更新了包依赖并添加undici 6.21.2版本；新增SECURITY.md安全文档；禁用Markdown单波浪线删除线；实现了BlockManager及相关消息处理回调；知识库新增维度显示；修复了多屏幕环境下选择服务窗口居中问题；改进了助手话题验证逻辑；优化了思考效果组件；新增API客户端工厂测试用例。另有多个代码重构和细节优化，包括消息处理逻辑精简、响应客户端选择优化等。欢迎两位新贡献者@superboy-zjc和@dependabot[bot]加入。</p>
 <div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.5">subs-check v1.3.5</a>
 </h1><a id="user-content-2-subs-check-v135" class="anchor" aria-label="Permalink: 2. subs-check v1.3.5" href="#2-subs-check-v135"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<p>文本摘要：</p>
-<p>确认当前版本应为V1而非V2，因V2版本代码结构未变更不符合规范。说明版本号比较规则（如v1.3.5&gt;v2.3.4），并更新了命名规则。改进了流量计算精确度。</p>
-<p>更新日志包含6项：</p>
+<p>本文档说明版本仍为V1而非之前错误的V2，并提供了以下关键信息：</p>
 <ol>
-<li>修复TikTok功能</li>
-<li>修正iplark用户代理</li>
-<li>优化流量消耗计算</li>
-<li>新增解锁地区支持</li>
-<li>添加自定义命名顺序功能</li>
-<li>调整Web日志显示行数</li>
+<li>版本说明：</li>
 </ol>
-<p>注：原文包含图片链接但未提供具体内容，故未在摘要中体现。</p>
+<ul>
+<li>确认当前版本应为V1而非V2</li>
+<li>小版本号比较规则（v1.3.5 &gt; v2.3.4）</li>
+<li>更新了命名规则（附有命名规则图片）</li>
+</ul>
+<ol start="2">
+<li>主要改进：</li>
+</ol>
+<ul>
+<li>流量计算更精确</li>
+<li>支持自定义命名顺序</li>
+<li>增加解锁地区功能</li>
+<li>优化计算消耗流量</li>
+<li>调整web日志行数</li>
+<li>修复TikTok相关问题</li>
+<li>修复iplark的UA问题</li>
+</ul>
+<ol start="3">
+<li>变更记录：</li>
+</ol>
+<ul>
+<li>列出6个具体的commit及对应的功能修改</li>
+</ul>
+<p>（注：由于要求纯文本返回，实际图片内容未包含在摘要中）</p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/134.html" aria-label="Previous Page">0X86 ssh密钥登录</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
