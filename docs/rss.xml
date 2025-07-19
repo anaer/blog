@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Sat, 19 Jul 2025 04:23:31 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Sat, 19 Jul 2025 04:23:31 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X87 我关注的项目这周更新了什么-2025-07-18</title><link>https://anaer.github.io/blog/post/135.html</link><description>本文介绍了Cherry Studio v1.5.1和subs-check v1.3.5的主要更新内容。Cherry Studio更新了消息重发、代理管理、知识库显示维度等功能，并修复了多模型提及样式、助手话题验证等问题，同时进行了代码优化和依赖更新。subs-check则确认当前版本为V1，更新了命名规则，优化了流量计算，修复了TikTok和用户代理问题，并新增了解锁地区支持。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Sat, 19 Jul 2025 15:11:18 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Sat, 19 Jul 2025 15:11:18 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X87 我关注的项目这周更新了什么-2025-07-18</title><link>https://anaer.github.io/blog/post/135.html</link><description>本文介绍了Cherry Studio v1.5.1和subs-check v1.3.5的主要更新内容。Cherry Studio的更新包括功能增强、问题修复、代码优化和其他更新，重点在于代理管理、知识模块展示和多屏幕环境下的问题解决。subs-check则强调了版本管理的明确性，流量计算的精度优化以及TikTok功能的修复。
 
 优化建议：
-1. 对于Cherry Studio，建议增加用户反馈机制，以便更好地了解用户在使用新功能时的体验。
-2. 在subs-check的更新说明中，可以增加更详细的命名规则示例，以帮助用户更好地理解新规则。
-3. 考虑提供更新日志的可视化展示，方便用户快速获取关键信息。
-4. 在两个项目中，增加对新贡献者的介绍和感谢，以鼓励更多人参与开源贡献。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/135.html</guid><pubDate>Thu, 17 Jul 2025 04:30:30 +0000</pubDate></item><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
+1. 在更新日志中明确列出每项功能的具体使用场景，以帮助用户更好地理解改进的价值。
+2. 提供详细的版本对比表，帮助用户快速识别新旧版本间的差异。
+3. 增加使用指南或示例，特别是对于新增功能和优化的部分，以提升用户体验。
+4. 考虑在发布说明中加入用户反馈渠道，鼓励用户报告问题和建议。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/135.html</guid><pubDate>Thu, 17 Jul 2025 04:30:30 +0000</pubDate></item><item><title>0X86 ssh密钥登录</title><link>https://anaer.github.io/blog/post/134.html</link><description>本文介绍了生成SSH密钥对的过程，包括使用ssh-keygen命令生成RSA类型的密钥对，并指定密钥长度和注释。生成的私钥和公钥分别存储在~/.ssh/id_rsa和~/.ssh/id_rsa.pub中。此外，说明了如何将私钥导入Putty以生成.ppk格式的私钥，并且提供了将公钥添加到服务器的步骤。
 
 优化建议：
 1. 在ssh-keygen命令中，建议提供更详细的注释，例如使用用户的邮箱地址，以便于识别密钥。

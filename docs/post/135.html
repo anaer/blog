@@ -133,80 +133,90 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-17 12:30:30</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-19 12:23:04</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-19 23:10:43</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Cherry Studio v1.5.1和subs-check v1.3.5的主要更新内容。Cherry Studio更新了消息重发、代理管理、知识库显示维度等功能，并修复了多模型提及样式、助手话题验证等问题，同时进行了代码优化和依赖更新。subs-check则确认当前版本为V1，更新了命名规则，优化了流量计算，修复了TikTok和用户代理问题，并新增了解锁地区支持。
+    <strong>AI总结:</strong> 本文介绍了Cherry Studio v1.5.1和subs-check v1.3.5的主要更新内容。Cherry Studio的更新包括功能增强、问题修复、代码优化和其他更新，重点在于代理管理、知识模块展示和多屏幕环境下的问题解决。subs-check则强调了版本管理的明确性，流量计算的精度优化以及TikTok功能的修复。
 
 优化建议：
-1. 对于Cherry Studio，建议增加用户反馈机制，以便更好地了解用户在使用新功能时的体验。
-2. 在subs-check的更新说明中，可以增加更详细的命名规则示例，以帮助用户更好地理解新规则。
-3. 考虑提供更新日志的可视化展示，方便用户快速获取关键信息。
-4. 在两个项目中，增加对新贡献者的介绍和感谢，以鼓励更多人参与开源贡献。
+1. 在更新日志中明确列出每项功能的具体使用场景，以帮助用户更好地理解改进的价值。
+2. 提供详细的版本对比表，帮助用户快速识别新旧版本间的差异。
+3. 增加使用指南或示例，特别是对于新增功能和优化的部分，以提升用户体验。
+4. 考虑在发布说明中加入用户反馈渠道，鼓励用户报告问题和建议。
 </div>
 
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.1">cherry-studio v1.5.1</a>
 </h1><a id="user-content-1-cherry-studio-v151" class="anchor" aria-label="Permalink: 1. cherry-studio v1.5.1" href="#1-cherry-studio-v151"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
-<p>本次更新主要包含以下内容：</p>
-<p>功能改进：</p>
+<p>本次更新主要包含以下改进：</p>
+<p>功能增强：</p>
 <ol>
-<li>优化了消息重发时的提及处理</li>
-<li>增强了代理管理和配置功能</li>
-<li>实现了BlockManager及相关消息处理回调</li>
-<li>知识库新增显示维度功能</li>
+<li>优化代理管理和配置功能</li>
+<li>实现BlockManager及相关消息回调功能</li>
+<li>知识模块新增维度展示功能</li>
 <li>在handleProvidersProtocolUrl中添加数据解析功能</li>
 </ol>
 <p>问题修复：</p>
 <ol>
-<li>修复多模型提及样式问题</li>
-<li>改进助手话题验证逻辑</li>
-<li>修正多屏幕环境下SelectionService窗口显示位置</li>
-<li>正确设置body的os属性</li>
+<li>修复重发消息时提及处理的问题</li>
+<li>修复多模型风格提及问题</li>
+<li>修复多屏幕环境下SelectionService窗口居中问题</li>
+<li>修正body的os属性设置</li>
 <li>优化非聊天模型的客户端选择逻辑</li>
+<li>增强助手主题验证功能</li>
 </ol>
 <p>代码优化：</p>
 <ol>
 <li>禁用Markdown单波浪线删除线</li>
-<li>简化ActionUtils消息处理逻辑</li>
-<li>优化ThinkingEffect思考效果</li>
+<li>重构ActionUtils消息处理逻辑</li>
+<li>优化ThinkingEffect效果</li>
+<li>思考结束时自动收起思考效果</li>
 </ol>
 <p>其他更新：</p>
 <ol>
 <li>更新package依赖</li>
-<li>添加undici 6.21.2版本</li>
-<li>创建SECURITY.md安全文档</li>
-<li>为ApiClientFactory添加全面测试</li>
+<li>新增undici 6.21.2版本</li>
+<li>创建SECURITY.md文件</li>
+<li>添加ApiClientFactory的完整测试</li>
+<li>更新tar-fs从2.1.2到2.1.3</li>
 </ol>
-<p>新贡献者：
-@superboy-zjc 和 @dependabot[bot] 首次参与项目贡献</p>
-<p>版本变更：v1.5.0 到 v1.5.1</p>
+<p>新贡献者：</p>
+<ol>
+<li>@superboy-zjc首次贡献</li>
+<li>@dependabot[bot]首次贡献</li>
+</ol>
+<p>版本从v1.5.0升级到v1.5.1</p>
 <div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.5">subs-check v1.3.5</a>
 </h1><a id="user-content-2-subs-check-v135" class="anchor" aria-label="Permalink: 2. subs-check v1.3.5" href="#2-subs-check-v135"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<p>文本摘要：</p>
+<p>本文档说明当前版本应维持在V1而非V2，主要变更如下：</p>
 <ol>
-<li>
-<p>版本说明：确认当前应为V1版本，澄清之前误发V2版本的情况，强调代码结构未变更需保持V1版本。小版本号比较规则说明（如v1.3.5&gt;v2.3.4）。</p>
-</li>
-<li>
-<p>主要更新内容：</p>
-</li>
+<li>版本管理说明：</li>
 </ol>
 <ul>
-<li>更新了命名规则（附规则截图说明）</li>
-<li>流量计算功能已优化至精确</li>
-<li>修复TikTok相关问题</li>
-<li>修复iplark用户代理问题</li>
-<li>优化流量消耗计算</li>
+<li>确认当前版本为V1（之前误发V2版本）</li>
+<li>采用小版本号比较新旧（如v1.3.5 &gt; v2.3.4）</li>
+<li>更新了命名规则（附规则图示但未显示）</li>
+</ul>
+<ol start="2">
+<li>重要改进：</li>
+</ol>
+<ul>
+<li>流量计算精度优化</li>
+<li>TikTok功能修复</li>
+<li>IP归属地UA修复</li>
 <li>新增解锁地区支持</li>
 <li>支持自定义命名顺序</li>
-<li>调整web日志显示行数</li>
+<li>调整Web日志显示行数</li>
 </ul>
 <ol start="3">
-<li>变更记录：列出6项具体代码提交记录，包括功能优化和问题修复（fc7808a至c4093db等提交哈希）。</li>
+<li>提交记录：</li>
 </ol>
+<ul>
+<li>包含6项具体代码修改，涉及功能优化和问题修复</li>
+</ul>
+<p>注：原文包含的图片链接因格式要求已省略。</p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/134.html" aria-label="Previous Page">0X86 ssh密钥登录</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
