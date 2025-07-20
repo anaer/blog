@@ -133,21 +133,33 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-17 12:30:30</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-20 12:34:51</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-20 23:10:52</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Cherry Studio v1.5.1和subs-check v1.3.5的更新内容。Cherry Studio的更新包括增强代理管理、BlockManager的实现、新增知识模块展示功能、修复消息处理问题、优化代码逻辑等。subs-check则确认版本号为v1.3.5，修复了TikTok相关问题、优化流量计算、支持自定义命名等。
+    <strong>AI总结:</strong> 本文介绍了三个软件的最新版本更新，分别是InputTip v2025.07.20、Cherry Studio v1.5.1和Subs-check v1.3.5。InputTip是一款输入法状态管理工具，主要更新包括新增规则匹配功能、优化IO写入机制、修复BUG和更新弹窗显示内容。Cherry Studio是一个支持多种LLM提供者的桌面客户端，更新内容涵盖功能改进、问题修复和代码优化。Subs-check是一款流媒体检测和订阅转换工具，更新包括澄清版本号、改进流量计算精度和新增功能。
 
 优化建议：
-1. 对于Cherry Studio，建议在功能改进部分详细说明各项功能的具体应用场景，以便用户更好地理解和使用。
-2. 在问题修复部分，提供一些用户反馈的具体案例，以增强修复内容的实用性。
-3. 对于subs-check，建议在更新日志中增加每项修复和优化的具体影响，以帮助用户评估更新的重要性。
-4. 考虑提供更新后的使用指南或教程，帮助用户快速上手新功能。
+1. 对于InputTip，建议在规则匹配功能中加入对正则表达式的支持，以增强灵活性。
+2. Cherry Studio可以考虑增加用户反馈渠道，以便及时了解用户需求和问题。
+3. Subs-check应确保命名规则说明的图示能够正常访问，以便用户更好地理解使用方法。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.1">cherry-studio v1.5.1</a>
-</h1><a id="user-content-1-cherry-studio-v151" class="anchor" aria-label="Permalink: 1. cherry-studio v1.5.1" href="#1-cherry-studio-v151"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.07.20">InputTip v2025.07.20</a>
+</h1><a id="user-content-1-inputtip-v20250720" class="anchor" aria-label="Permalink: 1. InputTip v2025.07.20" href="#1-inputtip-v20250720"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>一个输入法状态管理工具：实时提示 鼠标样式、符号显示 + 窗口自动切换状态 + 快捷键切换状态。</p>
+<p>主要更新内容：</p>
+<ol>
+<li>新增规则匹配功能支持"设置特殊偏移量"，仅限"相等"匹配模式，不支持正则表达式</li>
+<li>优化配置更改的IO写入机制，解决快速修改配置可能导致数据丢失的问题</li>
+<li>修复系统重启后"不同屏幕基础偏移量"可能被重置的BUG</li>
+<li>更新弹窗现在会显示详细的更新日志内容</li>
+<li>优化配置菜单的文字描述</li>
+<li>包含其他多项修复和优化改进</li>
+</ol>
+<p>注：官方推荐使用zip版本而非exe版本（详情参见FAQ中的版本区别说明）</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.1">cherry-studio v1.5.1</a>
+</h1><a id="user-content-2-cherry-studio-v151" class="anchor" aria-label="Permalink: 2. cherry-studio v1.5.1" href="#2-cherry-studio-v151"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
 <p>本次更新主要包含以下内容：</p>
 <p>功能改进：</p>
@@ -159,48 +171,61 @@ pre {
 </ol>
 <p>问题修复：</p>
 <ol>
-<li>修复重发消息时的提及处理</li>
-<li>修复多模型提及时的样式问题</li>
-<li>增强助手话题验证</li>
-<li>修正多屏幕环境下SelectionService的窗口居中显示</li>
+<li>修复重发消息时提及处理的问题</li>
+<li>修复多模型提及样式问题</li>
+<li>修复多屏环境下SelectionService窗口居中问题</li>
 <li>正确设置body的os属性</li>
-<li>优化非聊天模型的客户端选择逻辑</li>
+<li>优化OpenAI响应客户端的选择逻辑</li>
+<li>增强助手话题验证功能</li>
 </ol>
 <p>代码优化：</p>
 <ol>
-<li>禁用Markdown中单波浪线的删除线语法</li>
-<li>重构ActionUtils的消息处理逻辑</li>
-<li>优化ThinkingEffect效果</li>
-<li>思考结束时自动收起思考效果</li>
+<li>禁用Markdown单波浪线删除线</li>
+<li>优化消息处理逻辑</li>
+<li>优化思考效果实现</li>
+<li>思考结束时自动收起效果</li>
 </ol>
 <p>其他更新：</p>
 <ol>
-<li>更新package依赖，添加undici 6.21.2版本</li>
-<li>新增SECURITY.md文件</li>
-<li>为ApiClientFactory添加完整测试</li>
+<li>更新package依赖，添加undici 6.21.2</li>
+<li>创建SECURITY.md安全文档</li>
 <li>更新tar-fs依赖版本</li>
+<li>新增ApiClientFactory的全面测试</li>
 </ol>
 <p>新贡献者：</p>
 <ol>
-<li>@superboy-zjc首次贡献</li>
-<li>@dependabot[bot]首次贡献</li>
+<li>@superboy-zjc 首次贡献</li>
+<li>@dependabot[bot] 首次贡献</li>
 </ol>
-<p>版本变更：从v1.5.0升级到v1.5.1</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.5">subs-check v1.3.5</a>
-</h1><a id="user-content-2-subs-check-v135" class="anchor" aria-label="Permalink: 2. subs-check v1.3.5" href="#2-subs-check-v135"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>版本变更：v1.5.0 到 v1.5.1</p>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.5">subs-check v1.3.5</a>
+</h1><a id="user-content-3-subs-check-v135" class="anchor" aria-label="Permalink: 3. subs-check v1.3.5" href="#3-subs-check-v135"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
 <p>文本摘要：</p>
-<p>本文档主要说明版本管理调整和更新内容。确认当前应为V1版本而非之前误发的V2版本，因代码结构未变更不符合规范。版本号比较规则说明：小版本号决定新旧（如v1.3.5 &gt; v2.3.4）。同时更新了命名规则（配图未显示具体内容）。流量计算精度已改进。</p>
-<p>更新日志包含6项：</p>
 <ol>
+<li>
+<p>版本说明：澄清当前应为V1版本而非V2，因V2版本代码结构未变更不符合规范。强调可用小版本号（如v1.3.5 &gt; v2.3.4）判断新旧。</p>
+</li>
+<li>
+<p>更新内容：</p>
+<ul>
+<li>新增命名规则说明（附图示但未显示具体规则）</li>
+<li>改进流量计算精确度</li>
+</ul>
+</li>
+<li>
+<p>变更日志：</p>
+<ul>
 <li>修复TikTok相关问题</li>
-<li>修正iplark用户代理</li>
+<li>修正iplark用户代理(UA)</li>
 <li>优化流量消耗计算</li>
 <li>新增解锁地区支持</li>
-<li>支持自定义命名顺序</li>
+<li>支持自定义命名顺序功能</li>
 <li>调整web日志显示行数</li>
+</ul>
+</li>
 </ol>
-<p>（注：图片内容因无法访问未纳入摘要）</p>
+<p>注：图片内容因无法访问未包含具体命名规则细节。</p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/134.html" aria-label="Previous Page">0X86 ssh密钥登录</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
