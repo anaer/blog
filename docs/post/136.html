@@ -133,47 +133,53 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-21 23:12:21</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-22 12:31:32</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了CloudflareSpeedTest v2.3.3和subs-check v1.3.6的功能与更新。CloudflareSpeedTest允许用户测试Cloudflare CDN的延迟和速度，修复了之前版本的一个BUG，并提供了多平台下载版本，包括MacOS、Linux和Windows。subs-check则是一个多功能工具，支持订阅转换、测速等功能，并新增了IPAPI功能。
+    <strong>AI总结:</strong> 本文介绍了CloudflareSpeedTest v2.3.3和subs-check v1.3.6的主要功能和更新内容。CloudflareSpeedTest v2.3.3允许用户测试Cloudflare CDN的延迟和速度，支持多平台下载，并修复了测速结果数量异常的BUG。subs-check v1.3.6是一个多功能工具，支持订阅转换、测速和流媒体检测等，新增了IPAPI功能并进行了版本升级。
 
 优化建议：
-1. 在CloudflareSpeedTest中，建议增加对用户界面的改进，以便于用户更直观地选择和理解不同的下载版本。
-2. 对于Windows和MacOS的特殊版本，建议提供更详细的使用指南，以帮助用户解决可能出现的问题。
-3. 在subs-check中，建议增加一个用户反馈机制，以便收集用户对新功能的使用体验和改进建议。 
-4. 考虑在更新日志中增加版本更新的具体日期，以便用户了解最新版本的发布时间。
+1. 在CloudflareSpeedTest部分，建议明确说明如何选择和测试不同的IP，以提高用户体验。
+2. 对于下载文件的说明，可以提供更详细的下载步骤，特别是针对旧系统用户的兼容性问题。
+3. 在subs-check部分，建议增加对新增IPAPI功能的具体应用示例，以帮助用户更好地理解其用途。
+4. 提供更清晰的教程链接，确保用户能够快速找到所需的操作指南。
 </div>
 
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.3">CloudflareSpeedTest v2.3.3</a>
 </h1><a id="user-content-1-cloudflarespeedtest-v233" class="anchor" aria-label="Permalink: 1. CloudflareSpeedTest v2.3.3" href="#1-cloudflarespeedtest-v233"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 多个解析 IP 的网站 ~</p>
-<p>本次更新修复了v2.3.0版本中未设置下载速度下限时输出测速结果数量异常的BUG，该问题导致本应输出全部结果时只输出了测速过的IP结果。国内用户建议从蓝奏云下载。</p>
-<p>提供了多平台多架构的下载版本：</p>
+<p>本次更新修复了v2.3.0版本中未设置下载速度下限条件时输出测速结果数量异常的BUG。国内用户建议从蓝奏云下载。</p>
+<p>提供了多平台多架构的下载文件：</p>
 <ul>
 <li>MacOS：支持x86_64和ARM v8架构，包含适用于10.13/10.14系统的特殊版本</li>
-<li>Linux：支持x86(32/64)、ARM(v5-v8)、Mips(32/64)等多种架构</li>
-<li>Windows：支持x86(32/64)、ARM v8架构，包含适用于Win7/8的特殊版本</li>
+<li>Linux：支持x86(32/64位)、ARM(v5-v8)、Mips(32/64位)等多种架构</li>
+<li>Windows：支持x86(32/64位)、ARM v8架构，包含适用于Win7/8的特殊版本</li>
 </ul>
 <p>注意事项：</p>
 <ol>
-<li>Windows7/8和MacOS10.13/10.14版本使用Go1.20编译，可能存在问题且不提供修复</li>
-<li>路由器用户需根据架构选择对应版本，可通过命令行查询</li>
-<li>Android手机多为ARM架构，需自行测试32/64位</li>
-<li>Linux解压命令：tar -zxf</li>
-<li>MacOS需通过命令行运行</li>
+<li>旧系统(Windows7/8、MacOS10.13/10.14)使用Go v1.20编译版本，可能存在兼容性问题</li>
+<li>路由器用户可通过uname命令确定架构，建议尝试Mips/Mipsle/ARM版本</li>
+<li>Android手机多为ARM架构，需自行测试32/64位版本</li>
+<li>Linux系统解压命令：tar -zxf</li>
+<li>MacOS系统需通过命令行./cfst运行</li>
 </ol>
-<p>特别提醒：ARM架构版本需特别注意选择正确的下载包。</p>
+<p>提供相关教程链接：</p>
+<ul>
+<li>OpenWrt原生编译支持</li>
+<li>Android手机运行教程</li>
+<li>IOS手机运行教程</li>
+</ul>
 <div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.6">subs-check v1.3.6</a>
 </h1><a id="user-content-2-subs-check-v136" class="anchor" aria-label="Permalink: 2. subs-check v1.3.6" href="#2-subs-check-v136"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<p>更新日志：</p>
-<ol>
+<ul>
 <li>新增IPAPI功能</li>
-<li>更新IPLark操作</li>
-<li>移除save/save_test.go文件</li>
-<li>两次更新Mihomo</li>
-<li>将Sub-Store更新至2.19.91版本</li>
-</ol>
+<li>更新IPLARK相关操作</li>
+<li>删除save/save_test.go文件</li>
+<li>两次更新MIHOMO版本</li>
+<li>升级SUB-STORE至2.19.91版本</li>
+</ul>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/135.html" aria-label="Previous Page">0X87 我关注的项目这周更新了什么-2025-07-18</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
