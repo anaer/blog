@@ -1,34 +1,46 @@
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.3">CloudflareSpeedTest v2.3.3</a>
-</h1><a id="user-content-1-cloudflarespeedtest-v233" class="anchor" aria-label="Permalink: 1. CloudflareSpeedTest v2.3.3" href="#1-cloudflarespeedtest-v233"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.4">CloudflareSpeedTest v2.3.4</a>
+</h1><a id="user-content-1-cloudflarespeedtest-v234" class="anchor" aria-label="Permalink: 1. CloudflareSpeedTest v2.3.4" href="#1-cloudflarespeedtest-v234"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 多个解析 IP 的网站 ~</p>
-<p>本次更新修复了v2.3.0版本中未设置下载速度下限条件时输出测速结果数量异常的BUG。国内用户建议从蓝奏云下载。</p>
-<p>提供了多平台多架构的下载文件：</p>
-<ul>
-<li>MacOS：支持x86_64和ARM v8架构，包含适用于10.13/10.14系统的特殊版本</li>
-<li>Linux：支持x86(32/64位)、ARM(v5-v8)、Mips(32/64位)等多种架构</li>
-<li>Windows：支持x86(32/64位)、ARM v8架构，包含适用于Win7/8的特殊版本</li>
-</ul>
-<p>注意事项：</p>
+<p>本次更新主要包含以下内容：</p>
 <ol>
-<li>旧系统(Windows7/8、MacOS10.13/10.14)使用Go v1.20编译版本，可能存在兼容性问题</li>
-<li>路由器用户可通过uname命令确定架构，建议尝试Mips/Mipsle/ARM版本</li>
-<li>Android手机多为ARM架构，需自行测试32/64位版本</li>
-<li>Linux系统解压命令：tar -zxf</li>
-<li>MacOS系统需通过命令行./cfst运行</li>
+<li>
+<p>更新了依赖版本和最低编译版本，将go.mod的最低编译版本号改为go 1.18。</p>
+</li>
+<li>
+<p>修复了部分情况下无法显示彩色文字的问题，包括Windows双击运行时彩色文字异常以及重定向到文件时彩色文字被输出的问题。</p>
+</li>
+<li>
+<p>调整了主界面的蓝色文字为青色，以改善在Windows PowerShell等蓝色背景终端中的可读性。</p>
+</li>
 </ol>
-<p>提供相关教程链接：</p>
+<p>已知问题：</p>
 <ul>
-<li>OpenWrt原生编译支持</li>
-<li>Android手机运行教程</li>
-<li>IOS手机运行教程</li>
+<li>在Windows系统中通过Git Bash运行Windows版CFST时，延迟测速进度条右侧的数字颜色会出现异常。这是由于pb库和color库在特定条件下的冲突导致的。</li>
+<li>在Windows系统中通过Git Bash、CMD+SSH或PowerShell+SSH运行CFST时，进度条可能会出现换行刷新而非原地刷新的问题，这是由于终端缓冲导致的刷新不及时。</li>
 </ul>
+<p>建议Windows用户使用Windows Terminal等现代终端工具以避免兼容性问题。</p>
+<p>提供了多个系统架构的下载链接，包括：</p>
+<ul>
+<li>MacOS（x86_64/ARM v8）</li>
+<li>Linux（x86/x86_64/ARM v5-v8/Mips）</li>
+<li>Windows（x86/x86_64/ARM v8）</li>
+</ul>
+<p>特别说明：</p>
+<ul>
+<li>针对Windows 7/8及MacOS 10.13/10.14等老系统提供了专门编译版本</li>
+<li>路由器用户可根据架构选择相应版本</li>
+<li>Android和IOS手机用户可参考相关教程</li>
+<li>提供了Linux系统解压命令提示</li>
+</ul>
+<p>最后提醒用户注意选择合适的版本下载，并提供了蓝奏云下载地址供国内用户使用。</p>
 <div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.6">subs-check v1.3.6</a>
 </h1><a id="user-content-2-subs-check-v136" class="anchor" aria-label="Permalink: 2. subs-check v1.3.6" href="#2-subs-check-v136"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<ul>
+<p>更新日志：</p>
+<ol>
 <li>新增IPAPI功能</li>
-<li>更新IPLARK相关操作</li>
+<li>更新IPLARK操作</li>
 <li>删除save/save_test.go文件</li>
-<li>两次更新MIHOMO版本</li>
+<li>两次更新MIHOMO</li>
 <li>升级SUB-STORE至2.19.91版本</li>
-</ul>
+</ol>
