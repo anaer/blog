@@ -1,38 +1,86 @@
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.4">CloudflareSpeedTest v2.3.4</a>
-</h1><a id="user-content-1-cloudflarespeedtest-v234" class="anchor" aria-label="Permalink: 1. CloudflareSpeedTest v2.3.4" href="#1-cloudflarespeedtest-v234"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.7.0">dify 1.7.0</a>
+</h1><a id="user-content-1-dify-170" class="anchor" aria-label="Permalink: 1. dify 1.7.0" href="#1-dify-170"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-ready platform for agentic workflow development.</p>
+<p>版本1.7.0主要更新内容：</p>
+<p>核心功能：</p>
+<ol>
+<li>工具插件新增OAuth 2.0认证支持，可安全连接第三方服务并支持刷新令牌</li>
+<li>实现插件自动升级策略，支持配置升级策略和回滚机制</li>
+</ol>
+<p>功能增强：</p>
+<ul>
+<li>代理节点新增引用来源标注功能</li>
+<li>新增插件废弃提醒功能</li>
+<li>支持查询参数形式的API密钥认证</li>
+<li>新增音频配置界面</li>
+<li>支持在建议问题中使用变量</li>
+<li>工作流节点支持拖拽变量</li>
+<li>可自定义应用的最大并发请求数</li>
+<li>新增OpenTelemetry端点配置选项</li>
+<li>支持RFC 5322标准邮箱验证</li>
+<li>新增动态导入提升性能</li>
+<li>支持外部追踪ID传递</li>
+</ul>
+<p>问题修复：</p>
+<ul>
+<li>修复可选参数处理问题</li>
+<li>解决Docker网络问题</li>
+<li>修复插件安装失败问题</li>
+<li>优化模型选择器和应用选择器</li>
+<li>改进会话管理</li>
+<li>修复文档处理和元数据过滤问题</li>
+</ul>
+<p>其他改进：</p>
+<ul>
+<li>优化用户体验（工作流跟踪命名、工具提示等）</li>
+<li>增强批量处理和向量索引功能</li>
+<li>改进仓库配置</li>
+<li>实现UUIDv7标识符</li>
+<li>多语言翻译优化</li>
+</ul>
+<p>升级指南：</p>
+<ol>
+<li>Docker部署：备份数据后拉取新代码并重启服务</li>
+<li>源码部署：停止服务后更新代码和依赖，执行数据库迁移</li>
+</ol>
+<p>共包含200多项变更，由80多位贡献者完成（含15位新贡献者）。完整变更日志可查看GitHub比较链接。</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.4">CloudflareSpeedTest v2.3.4</a>
+</h1><a id="user-content-2-cloudflarespeedtest-v234" class="anchor" aria-label="Permalink: 2. CloudflareSpeedTest v2.3.4" href="#2-cloudflarespeedtest-v234"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 多个解析 IP 的网站 ~</p>
 <p>本次更新主要内容包括：</p>
 <ol>
 <li>更新依赖版本及最低编译版本至Go 1.18</li>
 <li>修复Windows系统下彩色文字显示异常问题</li>
-<li>调整主界面蓝色文字为青色，增强可读性</li>
+<li>调整主界面蓝色文字为青色以提升可读性</li>
 </ol>
-<p>已知问题说明：</p>
+<p>已知问题：</p>
 <ul>
-<li>Windows系统下通过Git Bash运行时，延迟测速进度条数字颜色异常</li>
-<li>特定环境下进度条刷新异常，表现为换行刷屏</li>
+<li>Windows系统通过Git Bash运行时可能出现进度条数字颜色异常</li>
+<li>特定环境下进度条刷新异常导致换行问题
+建议Windows用户使用Windows Terminal等现代终端工具</li>
 </ul>
-<p>建议Windows用户使用Windows Terminal等现代终端工具以避免兼容性问题。</p>
-<p>提供多平台下载：</p>
+<p>下载地址：</p>
 <ul>
-<li>支持MacOS、Linux、Windows各系统版本</li>
-<li>包含32/64位及ARM架构版本</li>
-<li>特殊版本支持旧系统（Windows 7/8、MacOS 10.13/10.14）</li>
+<li>国内用户推荐蓝奏云下载</li>
+<li>提供macOS/Linux/Windows各平台版本</li>
+<li>包含新旧系统兼容版本</li>
+<li>详细说明不同架构设备的版本选择方法</li>
+<li>特别标注路由器/手机等设备的适用版本</li>
 </ul>
-<p>使用提示：</p>
+<p>注意事项：</p>
 <ul>
-<li>路由器用户需根据架构选择对应版本</li>
-<li>Android手机多为ARM架构</li>
-<li>Linux解压命令：tar -zxf</li>
+<li>旧系统版本可能存在兼容性问题</li>
+<li>提供解压命令示例</li>
+<li>强调ARM架构设备需特别注意版本选择</li>
 </ul>
-<p>国内用户推荐从蓝奏云下载。</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.6">subs-check v1.3.6</a>
-</h1><a id="user-content-2-subs-check-v136" class="anchor" aria-label="Permalink: 2. subs-check v1.3.6" href="#2-subs-check-v136"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.6">subs-check v1.3.6</a>
+</h1><a id="user-content-3-subs-check-v136" class="anchor" aria-label="Permalink: 3. subs-check v1.3.6" href="#3-subs-check-v136"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<ul>
+<p>更新日志：</p>
+<ol>
 <li>新增IPAPI功能</li>
-<li>更新IP查询工具iplark</li>
-<li>删除save/save_test.go文件</li>
-<li>两次更新mihomo版本</li>
-<li>升级sub-store至2.19.91版本</li>
-</ul>
+<li>更新IPLARK操作</li>
+<li>移除save/save_test.go文件</li>
+<li>两次更新MIHOMO</li>
+<li>更新SUB-STORE至2.19.91版本</li>
+</ol>
