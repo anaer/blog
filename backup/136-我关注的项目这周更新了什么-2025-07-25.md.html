@@ -1,46 +1,38 @@
 <div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.4">CloudflareSpeedTest v2.3.4</a>
 </h1><a id="user-content-1-cloudflarespeedtest-v234" class="anchor" aria-label="Permalink: 1. CloudflareSpeedTest v2.3.4" href="#1-cloudflarespeedtest-v234"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 多个解析 IP 的网站 ~</p>
-<p>本次更新主要包含以下内容：</p>
+<p>本次更新主要内容包括：</p>
 <ol>
-<li>
-<p>更新了依赖版本和最低编译版本，将go.mod的最低编译版本号改为go 1.18。</p>
-</li>
-<li>
-<p>修复了部分情况下无法显示彩色文字的问题，包括Windows双击运行时彩色文字异常以及重定向到文件时彩色文字被输出的问题。</p>
-</li>
-<li>
-<p>调整了主界面的蓝色文字为青色，以改善在Windows PowerShell等蓝色背景终端中的可读性。</p>
-</li>
+<li>更新依赖版本及最低编译版本至Go 1.18</li>
+<li>修复Windows系统下彩色文字显示异常问题</li>
+<li>调整主界面蓝色文字为青色，增强可读性</li>
 </ol>
-<p>已知问题：</p>
+<p>已知问题说明：</p>
 <ul>
-<li>在Windows系统中通过Git Bash运行Windows版CFST时，延迟测速进度条右侧的数字颜色会出现异常。这是由于pb库和color库在特定条件下的冲突导致的。</li>
-<li>在Windows系统中通过Git Bash、CMD+SSH或PowerShell+SSH运行CFST时，进度条可能会出现换行刷新而非原地刷新的问题，这是由于终端缓冲导致的刷新不及时。</li>
+<li>Windows系统下通过Git Bash运行时，延迟测速进度条数字颜色异常</li>
+<li>特定环境下进度条刷新异常，表现为换行刷屏</li>
 </ul>
 <p>建议Windows用户使用Windows Terminal等现代终端工具以避免兼容性问题。</p>
-<p>提供了多个系统架构的下载链接，包括：</p>
+<p>提供多平台下载：</p>
 <ul>
-<li>MacOS（x86_64/ARM v8）</li>
-<li>Linux（x86/x86_64/ARM v5-v8/Mips）</li>
-<li>Windows（x86/x86_64/ARM v8）</li>
+<li>支持MacOS、Linux、Windows各系统版本</li>
+<li>包含32/64位及ARM架构版本</li>
+<li>特殊版本支持旧系统（Windows 7/8、MacOS 10.13/10.14）</li>
 </ul>
-<p>特别说明：</p>
+<p>使用提示：</p>
 <ul>
-<li>针对Windows 7/8及MacOS 10.13/10.14等老系统提供了专门编译版本</li>
-<li>路由器用户可根据架构选择相应版本</li>
-<li>Android和IOS手机用户可参考相关教程</li>
-<li>提供了Linux系统解压命令提示</li>
+<li>路由器用户需根据架构选择对应版本</li>
+<li>Android手机多为ARM架构</li>
+<li>Linux解压命令：tar -zxf</li>
 </ul>
-<p>最后提醒用户注意选择合适的版本下载，并提供了蓝奏云下载地址供国内用户使用。</p>
+<p>国内用户推荐从蓝奏云下载。</p>
 <div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.6">subs-check v1.3.6</a>
 </h1><a id="user-content-2-subs-check-v136" class="anchor" aria-label="Permalink: 2. subs-check v1.3.6" href="#2-subs-check-v136"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<p>更新日志：</p>
-<ol>
+<ul>
 <li>新增IPAPI功能</li>
-<li>更新IPLARK操作</li>
+<li>更新IP查询工具iplark</li>
 <li>删除save/save_test.go文件</li>
-<li>两次更新MIHOMO</li>
-<li>升级SUB-STORE至2.19.91版本</li>
-</ol>
+<li>两次更新mihomo版本</li>
+<li>升级sub-store至2.19.91版本</li>
+</ul>
