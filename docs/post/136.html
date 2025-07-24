@@ -133,104 +133,119 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-21 23:12:21</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-23 23:13:16</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-24 12:32:15</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了dify 1.7.0、CloudflareSpeedTest v2.3.4和subs-check v1.3.6的主要更新内容和功能增强。dify 1.7.0引入了OAuth 2.0认证支持、插件自动升级策略以及多项功能增强和问题修复。CloudflareSpeedTest v2.3.4更新了依赖版本，修复了Windows系统下的显示问题，并调整了界面颜色。subs-check v1.3.6则新增了IPAPI功能，并更新了相关操作和版本。
+    <strong>AI总结:</strong> 本文介绍了Dify v1.7.0、CloudflareSpeedTest v2.3.4和subs-check v1.3.6的主要更新内容和功能增强。Dify v1.7.0引入了OAuth 2.0认证、插件自动升级、代理节点引用来源标注等多项功能，修复了多个错误并优化了用户体验。CloudflareSpeedTest v2.3.4则更新了依赖版本，优化了界面，修复了Windows系统下的显示问题，并提供了多平台支持。subs-check v1.3.6增加了IPAPI功能和组件更新，移除了不必要的文件。
 
 优化建议：
-1. 对于dify 1.7.0，建议在用户文档中详细说明OAuth 2.0认证的具体实现步骤，以便用户更好地理解和应用。
-2. CloudflareSpeedTest可以考虑增加对已知问题的详细解决方案，帮助用户更快地解决使用过程中遇到的问题。
-3. subs-check的更新日志中可以提供更多关于新增功能的使用案例，以便用户更直观地理解其应用场景。
-4. 三个更新的版本可以在发布说明中附上用户反馈渠道，鼓励用户提出建议和问题，以便进行后续改进。
+1. 在Dify的更新中，建议增加用户使用案例，以便更好地展示新功能的实际应用。
+2. 对于CloudflareSpeedTest，建议提供更详细的已知问题解决方案，以帮助用户更快地解决兼容性问题。
+3. 在subs-check的更新记录中，建议提供每个新功能的具体使用说明，以增强用户对新功能的理解和使用效率。
 </div>
 
 <div class="markdown-body" id="postBody">
 <div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.7.0">dify 1.7.0</a>
 </h1><a id="user-content-1-dify-170" class="anchor" aria-label="Permalink: 1. dify 1.7.0" href="#1-dify-170"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
-<p>版本1.7.0主要更新内容：</p>
-<p>核心功能：</p>
+<p>Dify v1.7.0 版本更新带来了多项重大功能和优化改进：</p>
+<p>主要新增功能：</p>
 <ol>
-<li>工具插件新增OAuth 2.0认证支持，可安全连接第三方服务并支持刷新令牌</li>
-<li>实现插件自动升级策略，支持配置升级策略和回滚机制</li>
+<li>工具插件支持OAuth 2.0认证，可安全连接第三方服务并支持刷新令牌机制</li>
+<li>插件自动升级策略，支持配置升级策略和回滚机制</li>
 </ol>
-<p>功能增强：</p>
+<p>重要增强：</p>
 <ul>
 <li>代理节点新增引用来源标注功能</li>
-<li>新增插件废弃提醒功能</li>
-<li>支持查询参数形式的API密钥认证</li>
-<li>新增音频配置界面</li>
-<li>支持在建议问题中使用变量</li>
-<li>工作流节点支持拖拽变量</li>
-<li>可自定义应用的最大并发请求数</li>
-<li>新增OpenTelemetry端点配置选项</li>
-<li>支持RFC 5322标准邮箱验证</li>
-<li>新增动态导入提升性能</li>
-<li>支持外部追踪ID传递</li>
+<li>插件弃用提醒机制</li>
+<li>支持查询参数API密钥认证</li>
+<li>音频配置UI界面</li>
+<li>问题建议支持变量功能</li>
+<li>工作流支持拖拽变量</li>
+<li>可自定义应用最大并发请求数</li>
+<li>可选OpenTelemetry端点配置</li>
+<li>符合RFC 5322标准的邮箱验证</li>
+<li>动态组件导入提升性能</li>
+<li>支持外部追踪ID传播</li>
 </ul>
-<p>问题修复：</p>
+<p>错误修复：</p>
 <ul>
 <li>修复可选参数处理问题</li>
 <li>解决Docker网络问题</li>
-<li>修复插件安装失败问题</li>
-<li>优化模型选择器和应用选择器</li>
-<li>改进会话管理</li>
-<li>修复文档处理和元数据过滤问题</li>
+<li>修复插件安装问题</li>
+<li>修正模型选择器问题</li>
+<li>优化会话管理</li>
+<li>改进文档处理和元数据过滤</li>
 </ul>
 <p>其他改进：</p>
 <ul>
-<li>优化用户体验（工作流跟踪命名、工具提示等）</li>
-<li>增强批量处理和向量索引功能</li>
-<li>改进仓库配置</li>
-<li>实现UUIDv7标识符</li>
+<li>优化用户体验（工作流追踪命名、工具提示等）</li>
+<li>增强批处理和向量索引</li>
+<li>支持UUIDv7标识符</li>
 <li>多语言翻译优化</li>
+<li>性能优化（动态导入组件等）</li>
 </ul>
 <p>升级指南：</p>
 <ol>
-<li>Docker部署：备份数据后拉取新代码并重启服务</li>
-<li>源码部署：停止服务后更新代码和依赖，执行数据库迁移</li>
+<li>Docker部署需备份数据后更新代码和镜像</li>
+<li>源码部署需停止服务后更新代码和依赖</li>
+<li>两种方式都需要运行数据库迁移脚本</li>
 </ol>
-<p>共包含200多项变更，由80多位贡献者完成（含15位新贡献者）。完整变更日志可查看GitHub比较链接。</p>
+<p>该版本共合并200多项变更，包含来自50多位贡献者的代码，其中15位是新贡献者。完整变更日志可查看GitHub比较页面。</p>
 <div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.4">CloudflareSpeedTest v2.3.4</a>
 </h1><a id="user-content-2-cloudflarespeedtest-v234" class="anchor" aria-label="Permalink: 2. CloudflareSpeedTest v2.3.4" href="#2-cloudflarespeedtest-v234"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 多个解析 IP 的网站 ~</p>
-<p>本次更新主要内容包括：</p>
+<p>本次更新主要包含以下内容：</p>
 <ol>
-<li>更新依赖版本及最低编译版本至Go 1.18</li>
-<li>修复Windows系统下彩色文字显示异常问题</li>
-<li>调整主界面蓝色文字为青色以提升可读性</li>
+<li>依赖版本更新</li>
 </ol>
-<p>已知问题：</p>
 <ul>
-<li>Windows系统通过Git Bash运行时可能出现进度条数字颜色异常</li>
-<li>特定环境下进度条刷新异常导致换行问题
-建议Windows用户使用Windows Terminal等现代终端工具</li>
+<li>更新了go.mod中的最低编译版本至1.18</li>
+<li>使用Go v1.20为老旧系统编译了兼容版本</li>
 </ul>
-<p>下载地址：</p>
+<ol start="2">
+<li>界面优化</li>
+</ol>
 <ul>
-<li>国内用户推荐蓝奏云下载</li>
-<li>提供macOS/Linux/Windows各平台版本</li>
-<li>包含新旧系统兼容版本</li>
-<li>详细说明不同架构设备的版本选择方法</li>
-<li>特别标注路由器/手机等设备的适用版本</li>
+<li>修复了Windows系统下彩色文字显示异常问题</li>
+<li>将主界面蓝色文字调整为青色，提高在蓝色背景终端的可见度</li>
 </ul>
-<p>注意事项：</p>
+<ol start="3">
+<li>已知问题说明</li>
+</ol>
 <ul>
-<li>旧系统版本可能存在兼容性问题</li>
-<li>提供解压命令示例</li>
-<li>强调ARM架构设备需特别注意版本选择</li>
+<li>Windows Git Bash环境下进度条数字颜色异常问题（第三方库冲突导致）</li>
+<li>特定SSH环境下进度条刷新异常问题（终端缓冲导致）</li>
+<li>建议使用Windows Terminal等现代终端工具避免兼容性问题</li>
 </ul>
+<ol start="4">
+<li>下载支持</li>
+</ol>
+<ul>
+<li>提供了全面的平台支持版本（macOS/Linux/Windows）</li>
+<li>包含32/64位、ARM/MIPS等多种架构版本</li>
+<li>针对老旧系统提供了特殊兼容版本</li>
+<li>详细说明了各平台架构识别方法和使用注意事项</li>
+</ul>
+<ol start="5">
+<li>其他说明</li>
+</ol>
+<ul>
+<li>国内用户推荐通过蓝奏云下载</li>
+<li>路由器/Android/IOS设备有专门的运行指南</li>
+<li>旧系统版本可能存在兼容性问题且不保证修复</li>
+</ul>
+<p>建议用户根据自身系统环境选择合适的版本，并使用现代终端工具以获得最佳体验。</p>
 <div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.6">subs-check v1.3.6</a>
 </h1><a id="user-content-3-subs-check-v136" class="anchor" aria-label="Permalink: 3. subs-check v1.3.6" href="#3-subs-check-v136"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<p>更新日志：</p>
+<p>更新记录包括：</p>
 <ol>
 <li>新增IPAPI功能</li>
-<li>更新IPLARK操作</li>
+<li>更新IPLARK组件</li>
 <li>移除save/save_test.go文件</li>
-<li>两次更新MIHOMO</li>
-<li>更新SUB-STORE至2.19.91版本</li>
+<li>两次更新MIHOMO组件</li>
+<li>将SUB-STORE更新至2.19.91版本</li>
 </ol>
 
 </div><nav class="paginate-container" aria-label="Pagination">
