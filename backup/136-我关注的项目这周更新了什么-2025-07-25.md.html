@@ -1,52 +1,7 @@
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.7.0">dify 1.7.0</a>
-</h1><a id="user-content-1-dify-170" class="anchor" aria-label="Permalink: 1. dify 1.7.0" href="#1-dify-170"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Production-ready platform for agentic workflow development.</p>
-<p>版本1.7.0主要更新内容：</p>
-<p>核心功能：</p>
-<ol>
-<li>工具插件新增OAuth 2.0认证支持，实现第三方服务安全连接和刷新令牌功能</li>
-<li>引入插件自动升级策略，支持配置升级策略和回滚机制</li>
-</ol>
-<p>功能增强：</p>
-<ul>
-<li>代理节点新增引用来源标注功能</li>
-<li>支持查询参数传递API密钥认证</li>
-<li>工作流变量支持拖拽操作</li>
-<li>新增应用级最大活跃请求数配置</li>
-<li>支持RFC 5322标准邮箱验证</li>
-<li>新增外部追踪ID传播功能</li>
-</ul>
-<p>性能优化：</p>
-<ul>
-<li>采用动态组件导入提升性能</li>
-<li>工作流执行引擎优化</li>
-<li>批处理和向量索引后端优化</li>
-</ul>
-<p>问题修复：</p>
-<ul>
-<li>修复Docker网络配置问题</li>
-<li>修正元数据过滤功能</li>
-<li>解决会话管理问题</li>
-<li>修复文档处理错误</li>
-</ul>
-<p>其他改进：</p>
-<ul>
-<li>新增UUIDv7实现</li>
-<li>增强工具提示用户体验</li>
-<li>完善国际化翻译</li>
-<li>代码架构优化</li>
-</ul>
-<p>升级指南：</p>
-<ol>
-<li>Docker部署需备份数据后更新镜像</li>
-<li>源码部署需更新依赖并执行数据库迁移</li>
-<li>两种方式均需停止服务后执行升级操作</li>
-</ol>
-<p>共包含200+项变更，由多位新贡献者共同完成。完整变更日志可查看项目GitHub页面。</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.3">cherry-studio v1.5.3</a>
-</h1><a id="user-content-2-cherry-studio-v153" class="anchor" aria-label="Permalink: 2. cherry-studio v1.5.3" href="#2-cherry-studio-v153"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.3">cherry-studio v1.5.3</a>
+</h1><a id="user-content-1-cherry-studio-v153" class="anchor" aria-label="Permalink: 1. cherry-studio v1.5.3" href="#1-cherry-studio-v153"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.</p>
-<p>v1.5.3版本主要更新内容：</p>
+<p>v1.5.3版本更新内容：</p>
 <ol>
 <li>界面优化</li>
 </ol>
@@ -62,17 +17,19 @@
 <li>新增Trace调用链路可视化功能（由阿里云EDAS团队提供）</li>
 <li>新增开发者模式，可查看Trace数据</li>
 <li>支持matplotlib代码执行</li>
-<li>新增Godot场景文件支持</li>
+<li>新增Hunyuan-A13B模型支持</li>
+<li>更新Moonshot(Kimi)配置</li>
 </ul>
 <ol start="3">
 <li>问题修复</li>
 </ol>
 <ul>
-<li>修复多模型对比时横向滑动问题</li>
+<li>修复多模型对比横向滑动问题</li>
+<li>修复Grok推理模型API调用错误</li>
 <li>修复macOS 26系统兼容性问题</li>
-<li>修复OpenRouter调用Grok推理模型的API错误</li>
-<li>修复知识库删除时异常删除本地SQL文件问题</li>
-<li>修复Windows可执行路径支持问题</li>
+<li>修复Windows便携版路径问题</li>
+<li>修复知识库删除导致SQL文件异常问题</li>
+<li>修复消息滚动位置问题</li>
 </ul>
 <ol start="4">
 <li>其他改进</li>
@@ -80,71 +37,122 @@
 <ul>
 <li>统一日志管理系统</li>
 <li>优化代理配置处理</li>
-<li>改进i18n翻译脚本</li>
+<li>增强i18n多语言支持</li>
+<li>改进模型健康检查机制</li>
 <li>更新Electron至v37版本</li>
-<li>新增Anthropic API测试用例</li>
-<li>新增Qwen3模型支持</li>
 </ul>
 <ol start="5">
-<li>贡献者</li>
+<li>代码优化</li>
+</ol>
+<ul>
+<li>重构模型列表管理</li>
+<li>改进系统提示处理</li>
+<li>优化JSON输入处理</li>
+<li>增强API测试覆盖率</li>
+</ul>
+<ol start="6">
+<li>新贡献者</li>
 </ol>
 <ul>
 <li>新增5位首次贡献者</li>
 </ul>
-<p>该版本包含大量功能优化、错误修复和性能改进，涉及界面交互、模型支持、开发工具等多方面提升。</p>
+<p>本次更新包含界面优化、功能增强、问题修复及代码重构等多个方面的改进，提升了系统稳定性和用户体验。</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.7.0">dify 1.7.0</a>
+</h1><a id="user-content-2-dify-170" class="anchor" aria-label="Permalink: 2. dify 1.7.0" href="#2-dify-170"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-ready platform for agentic workflow development.</p>
+<p>Dify 1.7.0版本更新内容如下：</p>
+<p>主要新功能：</p>
+<ol>
+<li>工具插件支持OAuth 2.0认证，包括刷新令牌功能，实现安全的第三方服务连接</li>
+<li>新增插件自动升级策略，支持配置升级策略和回滚机制</li>
+</ol>
+<p>功能增强：</p>
+<ul>
+<li>代理节点新增引用和来源标注功能</li>
+<li>支持查询参数传递API密钥认证</li>
+<li>新增音频配置界面</li>
+<li>支持在建议问题中使用变量</li>
+<li>工作流节点支持拖拽功能</li>
+<li>支持自定义应用的最大并发请求数</li>
+<li>新增OpenTelemetry端点配置</li>
+<li>支持RFC 5322标准邮箱验证</li>
+<li>引入动态导入提升性能</li>
+<li>支持外部跟踪ID传播</li>
+</ul>
+<p>Bug修复：</p>
+<ul>
+<li>修复可选参数处理问题</li>
+<li>修复Docker网络问题</li>
+<li>修复插件安装问题</li>
+<li>修复模型选择器和应用选择器问题</li>
+<li>优化会话管理</li>
+<li>改进文档处理和错误处理</li>
+</ul>
+<p>其他改进：</p>
+<ul>
+<li>优化用户体验和工作流跟踪</li>
+<li>增强批处理和向量索引性能</li>
+<li>改进仓库配置</li>
+<li>实现UUIDv7标识符</li>
+</ul>
+<p>升级指南：</p>
+<ol>
+<li>Docker Compose部署：</li>
+</ol>
+<ul>
+<li>备份配置和数据</li>
+<li>更新代码</li>
+<li>停止服务</li>
+<li>执行升级</li>
+</ul>
+<ol start="2">
+<li>源代码部署：</li>
+</ol>
+<ul>
+<li>停止服务</li>
+<li>更新代码分支</li>
+<li>更新Python依赖</li>
+<li>执行数据库迁移</li>
+<li>重启服务</li>
+</ul>
+<p>该版本包含大量功能增强和问题修复，涉及认证、工作流、性能优化等多个方面，由多位贡献者共同完成。</p>
 <div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/XIU2/CloudflareSpeedTest/releases/tag/v2.3.4">CloudflareSpeedTest v2.3.4</a>
 </h1><a id="user-content-3-cloudflarespeedtest-v234" class="anchor" aria-label="Permalink: 3. CloudflareSpeedTest v2.3.4" href="#3-cloudflarespeedtest-v234"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 多个解析 IP 的网站 ~</p>
 <p>本次更新主要包含以下内容：</p>
 <ol>
-<li>版本更新</li>
+<li>更新依赖版本及最低编译版本至Go 1.18</li>
+<li>修复部分情况下彩色文字显示异常问题</li>
+<li>调整主界面蓝色文字为青色以提升可读性</li>
 </ol>
+<p>已知问题：</p>
 <ul>
-<li>更新了所有依赖版本</li>
-<li>将最低编译版本号改为Go 1.18</li>
-<li>专门使用Go v1.20为老旧系统编译了兼容版本</li>
+<li>在Windows系统通过Git Bash运行时，延迟测速进度条右侧数字颜色可能异常</li>
+<li>特定环境下进度条刷新可能出现换行问题</li>
 </ul>
-<ol start="2">
-<li>功能修复与调整</li>
-</ol>
+<p>建议Windows用户使用Windows Terminal等现代终端工具以获得最佳体验。</p>
+<p>下载信息：
+提供macOS、Linux、Windows多平台多架构版本，包括：</p>
 <ul>
-<li>修复了Windows系统下彩色文字显示异常问题</li>
-<li>将主界面蓝色文字调整为青色，提升在蓝色背景终端中的可视性</li>
+<li>macOS（x86_64/ARM64，支持新旧系统）</li>
+<li>Linux（x86/ARM/MIPS等架构）</li>
+<li>Windows（32/64位，支持新旧系统）</li>
 </ul>
-<ol start="3">
-<li>已知问题说明</li>
-</ol>
+<p>注意事项：</p>
 <ul>
-<li>Git Bash运行Windows版时会出现数字颜色异常</li>
-<li>特定环境下进度条会出现换行刷屏问题</li>
-<li>问题原因均与第三方库兼容性有关，建议使用Windows Terminal等现代终端工具</li>
+<li>旧系统版本使用Go v1.20编译，可能存在问题</li>
+<li>路由器/Android设备需根据架构选择对应版本</li>
+<li>提供Linux解压命令示例</li>
 </ul>
-<ol start="4">
-<li>下载指南</li>
-</ol>
-<ul>
-<li>提供了macOS、Linux、Windows各平台不同架构的下载链接</li>
-<li>详细说明各版本适用的系统要求</li>
-<li>包含路由器、手机等特殊设备的运行指南</li>
-<li>建议国内用户从蓝奏云下载</li>
-</ul>
-<ol start="5">
-<li>使用提示</li>
-</ol>
-<ul>
-<li>解释了老旧系统版本可能存在兼容性问题</li>
-<li>提供了设备架构判断方法和运行建议</li>
-<li>包含解压和运行的基本命令说明</li>
-</ul>
-<p>建议用户根据自身系统环境选择合适的版本，使用现代终端工具以获得最佳体验。</p>
+<p>国内用户推荐从蓝奏云下载。</p>
 <div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.6">subs-check v1.3.6</a>
 </h1><a id="user-content-4-subs-check-v136" class="anchor" aria-label="Permalink: 4. subs-check v1.3.6" href="#4-subs-check-v136"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<p>更新日志摘要：</p>
+<p>更新记录：</p>
 <ol>
-<li>新增IPAPI功能</li>
-<li>更新IPLARK相关操作</li>
+<li>新增ipapi功能</li>
+<li>更新iplark</li>
 <li>删除save/save_test.go文件</li>
-<li>两次更新MIHOMO版本</li>
-<li>升级SUB-STORE至2.19.91版本</li>
+<li>两次更新mihomo</li>
+<li>将sub-store更新至2.19.91版本</li>
 </ol>
