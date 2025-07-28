@@ -1,0 +1,35 @@
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.7.1">dify 1.7.1</a>
+</h1><a id="user-content-1-dify-171" class="anchor" aria-label="Permalink: 1. dify 1.7.1" href="#1-dify-171"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-ready platform for agentic workflow development.</p>
+<p>Dify v1.7.1 版本发布，主要包含以下更新内容：</p>
+<p>新功能：</p>
+<ol>
+<li>为选择输入字段添加默认值选项，提升表单操作体验</li>
+<li>支持在列表操作的条件过滤中选择变量</li>
+<li>在OpenAPI schema中添加对allOf属性的支持</li>
+<li>为Kubernetes部署中的api组件添加纯迁移选项</li>
+</ol>
+<p>错误修复：</p>
+<ol>
+<li>修复Langfuse集成中的路径处理问题</li>
+<li>解决使用RabbitMQ时批量添加文档片段时的处理状态问题</li>
+<li>修复元数据批量编辑中跨页文档选择问题</li>
+<li>修正Windows系统上PEM密钥文件的路径错误</li>
+</ol>
+<p>改进优化：</p>
+<ol>
+<li>优化菜单中ToolTip组件的交互效果</li>
+<li>增强PostgreSQL健康检查命令避免日志错误</li>
+<li>重构时间格式化功能以更好地支持国际化</li>
+<li>改进了工具列表页面的用户体验</li>
+</ol>
+<p>其他变更：</p>
+<ol>
+<li>移除重复的TYPE_CHECKING导入</li>
+<li>更新定时任务的调度方式</li>
+<li>优化工作流操作提示弹窗</li>
+<li>修复使用OAuth登录时创建新账户的问题</li>
+</ol>
+<p>升级指南：
+提供了Docker Compose和源码部署两种方式的详细升级步骤，包括备份、获取最新代码、停止服务、更新依赖和运行迁移脚本等操作。</p>
+<p>该版本共合并了55个PR，有8位新贡献者加入，修复了多项问题并优化了系统功能，提升了整体稳定性和用户体验。</p>
