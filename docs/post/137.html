@@ -133,51 +133,61 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-28 23:13:28</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-29 12:39:40</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-29 23:14:36</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Dify v1.7.1版本的发布，该版本是一个为代理工作流开发提供的生产就绪平台，包含新功能、错误修复和多项改进。新功能包括为输入字段添加默认值选项、支持条件过滤中的变量选择、在OpenAPI属性schema中添加allOf支持以及为Kubernetes部署提供纯迁移选项。错误修复方面，解决了Langfuse集成路径处理、RabbitMQ批量添加文档段的CELERY_BROKER问题、元数据批量编辑中的跨页选择问题以及Windows系统中private.pem密钥路径错误。改进方面，优化了ToolTip组件的交互效果、增强了PostgreSQL健康检查命令、重构了国际化时间格式化功能、改进了工具列表页面，并移除了重复的TYPE_CHECKING导入。此外，提供了Docker Compose和源码部署的升级指南，强调了备份数据和更新代码的必要性。该版本通过多位贡献者的努力，提升了用户的日常使用体验，为未来的发展奠定了基础。
+    <strong>AI总结:</strong> 本文介绍了Folo v0.6.4版本的热修复，主要解决了桌面端读取条目时CPU占用率飙升的问题。同时，Dify v1.7.1版本发布，包含新功能、错误修复和优化改进，增强了用户体验和系统稳定性，并提供了详细的升级指南。
 
 优化建议：
-1. 在发布说明中增加版本更新的具体影响和用户反馈，以便用户更好地理解新功能的实际应用场景。
-2. 提供更详细的错误修复说明，帮助用户了解问题的根源及其解决方法。
-3. 增加对新功能的使用示例，帮助用户快速上手和应用新功能。
-4. 考虑增加一个常见问题解答（FAQ）部分，以便用户在升级过程中遇到问题时能迅速找到解决方案。
+1. 在发布说明中添加更具体的性能改进数据，以便用户更好地理解更新的影响。
+2. 考虑在新功能部分提供使用示例，帮助用户快速上手。
+3. 在错误修复部分，增加问题发生的场景描述，便于用户判断是否受影响。
+4. 提供用户反馈渠道，以收集对新功能和修复的使用体验。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.7.1">dify 1.7.1</a>
-</h1><a id="user-content-1-dify-171" class="anchor" aria-label="Permalink: 1. dify 1.7.1" href="#1-dify-171"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/RSSNext/Folo/releases/tag/v0.6.4">Folo v0.6.4</a>
+</h1><a id="user-content-1-folo-v064" class="anchor" aria-label="Permalink: 1. Folo v0.6.4" href="#1-folo-v064"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🧡 Follow everything in one place</p>
+<p>本次热修复版本主要解决以下问题：桌面端读取条目时出现的CPU占用率飙升问题。</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.7.1">dify 1.7.1</a>
+</h1><a id="user-content-2-dify-171" class="anchor" aria-label="Permalink: 2. dify 1.7.1" href="#2-dify-171"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
-<p>Dify v1.7.1 版本发布，主要包含新功能、错误修复和多项改进：</p>
+<p>Dify v1.7.1 版本发布，主要包含以下更新内容：</p>
 <p>新功能：</p>
-<ul>
-<li>为选择输入字段添加默认值选项</li>
-<li>支持在列表操作的条件过滤中选择变量</li>
-<li>在OpenAPI属性schema中添加allOf支持</li>
-<li>为Kubernetes部署中的api组件添加纯迁移选项</li>
-</ul>
+<ol>
+<li>支持为选择输入字段设置默认值</li>
+<li>在列表操作的条件过滤中新增变量选择功能</li>
+<li>OpenAPI schema 新增支持 allOf 属性</li>
+<li>Kubernetes 部署中为 api 组件新增纯迁移选项</li>
+</ol>
 <p>错误修复：</p>
-<ul>
-<li>修正Langfuse集成路径处理问题</li>
-<li>解决使用RabbitMQ时批量添加文档段时的CELERY_BROKER问题</li>
-<li>修复元数据批量编辑中的跨页文档选择问题</li>
-<li>修正Windows系统中private.pem密钥路径错误</li>
-</ul>
-<p>改进：</p>
-<ul>
-<li>优化菜单中ToolTip组件的交互效果</li>
-<li>增强PostgreSQL健康检查命令</li>
+<ol>
+<li>修复 Langfuse 集成路径处理问题</li>
+<li>解决 RabbitMQ 批量添加文档片段时的处理状态问题</li>
+<li>修正跨页文档选择时的元数据批量编辑问题</li>
+<li>修复 Windows 系统下 PEM 密钥路径错误</li>
+</ol>
+<p>改进优化：</p>
+<ol>
+<li>优化菜单中 ToolTip 组件的交互效果</li>
+<li>增强 PostgreSQL 健康检查命令</li>
 <li>重构国际化时间格式化功能</li>
-<li>改进了工具列表页面</li>
-<li>移除了重复的TYPE_CHECKING导入</li>
-</ul>
+<li>工具列表页面重新设计</li>
+</ol>
+<p>其他更新：</p>
+<ol>
+<li>移除重复的 TYPE_CHECKING 导入</li>
+<li>优化插件搜索框样式</li>
+<li>修复暗黑模式闪烁问题</li>
+<li>改进工作流操作提示弹窗</li>
+</ol>
 <p>升级指南：</p>
 <ul>
-<li>Docker Compose部署：备份数据后更新代码并重启服务</li>
-<li>源码部署：停止服务后更新代码，更新Python依赖并运行迁移脚本</li>
+<li>Docker Compose 部署：备份文件后拉取最新代码，停止服务并升级</li>
+<li>源代码部署：停止服务后更新代码和依赖，运行迁移脚本后重启服务</li>
 </ul>
-<p>该版本还包含多项其他修复和优化，由多位贡献者共同完成。新版本提升了日常使用体验，为未来发展奠定了基础。</p>
+<p>本次更新共合并 60 多个 PR，包含 8 位新贡献者的代码。完整变更日志可查看 GitHub 发布页面。</p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/136.html" aria-label="Previous Page">0X88 我关注的项目这周更新了什么-2025-07-25</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
