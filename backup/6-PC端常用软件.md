@@ -14,7 +14,7 @@
 ### 终端
 1. SmartPutty [GitHub](https://github.com/anaer/SmartPutty) Windows
 2. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 可集成到VSCode中
-3. cnKiTTY [GitHub](https://github.com/dZ8Lx9OwX/cnKiTTY/releases) KiTTY中文版 
+3. cnKiTTY [GitHub](https://github.com/dZ8Lx9OwX/cnKiTTY/releases) KiTTY中文版 可集成WinSCP, 将WinSCP便携版程序放到同目录下
 4. ~~Putty~~ [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
 5. ~~MobaXterm 中文版~~ [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) [keygen](https://github.com/ryanlycch/MobaXterm-keygen)
 6. ~~KiTTY~~ [GitHub](https://github.com/cyd01/KiTTY/releases)       
