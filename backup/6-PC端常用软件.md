@@ -13,12 +13,13 @@
 
 ### 终端
 1. SmartPutty [GitHub](https://github.com/anaer/SmartPutty) Windows
-3. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 可集成到VSCode中
-5. cnKiTTY [GitHub](https://github.com/dZ8Lx9OwX/cnKiTTY/releases) KiTTY中文版 
-6. ~~Putty~~ [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)2. ~~MobaXterm 中文版~~ [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) [keygen](https://github.com/ryanlycch/MobaXterm-keygen)
-4. ~~KiTTY~~ [GitHub](https://github.com/cyd01/KiTTY/releases)       
-6. ~~WindTerm~~ [GitHub](https://github.com/kingToolbox/WindTerm/releases/) 多端  
-7. ~~Tabby~~ [GitHub](https://github.com/Eugeny/tabby/releases)  多端, 插件支持webdav同步, 支持集成WinSCP
+2. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 可集成到VSCode中
+3. cnKiTTY [GitHub](https://github.com/dZ8Lx9OwX/cnKiTTY/releases) KiTTY中文版 
+4. ~~Putty~~ [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
+5. ~~MobaXterm 中文版~~ [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) [keygen](https://github.com/ryanlycch/MobaXterm-keygen)
+6. ~~KiTTY~~ [GitHub](https://github.com/cyd01/KiTTY/releases)       
+7. ~~WindTerm~~ [GitHub](https://github.com/kingToolbox/WindTerm/releases/) 多端  
+8. ~~Tabby~~ [GitHub](https://github.com/Eugeny/tabby/releases)  多端, 插件支持webdav同步, 支持集成WinSCP
 
 ### 内存清理
 1. memory_cleaner [GitHub](https://github.com/H3d9/memory_cleaner/releases/)
