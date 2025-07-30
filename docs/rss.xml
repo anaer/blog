@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Tue, 29 Jul 2025 15:15:08 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Tue, 29 Jul 2025 15:15:08 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X89 我关注的项目这周更新了什么-2025-08-01</title><link>https://anaer.github.io/blog/post/137.html</link><description>本文介绍了Folo v0.6.4版本的热修复，主要解决了桌面端读取条目时CPU占用率飙升的问题。同时，Dify v1.7.1版本发布，包含新功能、错误修复和优化改进，增强了用户体验和系统稳定性，并提供了详细的升级指南。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 30 Jul 2025 04:35:53 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 30 Jul 2025 04:35:53 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X89 我关注的项目这周更新了什么-2025-08-01</title><link>https://anaer.github.io/blog/post/137.html</link><description>本文介绍了Dify v1.7.1、Folo v0.6.4和awesome-mac v1.10.0的更新内容。Dify v1.7.1版本聚焦于用户体验和系统稳定性，新增默认值选项、条件过滤变量选择、OpenAPI schema的allOf属性支持等功能，同时修复了多个错误并进行了优化。Folo v0.6.4主要解决了桌面端CPU占用过高的问题。awesome-mac v1.10.0更新了多个应用程序，优化了功能，并提供了npm和Docker两种安装方式。
 
 优化建议：
-1. 在发布说明中添加更具体的性能改进数据，以便用户更好地理解更新的影响。
-2. 考虑在新功能部分提供使用示例，帮助用户快速上手。
-3. 在错误修复部分，增加问题发生的场景描述，便于用户判断是否受影响。
-4. 提供用户反馈渠道，以收集对新功能和修复的使用体验。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/137.html</guid><pubDate>Mon, 28 Jul 2025 15:13:28 +0000</pubDate></item><item><title>0X88 我关注的项目这周更新了什么-2025-07-25</title><link>https://anaer.github.io/blog/post/136.html</link><description>本文介绍了多个软件的更新日志，包括Cherry Studio v1.5.3、WinMerge v2.16.50、Mihomo v1.19.12、Dify 1.7.0、Chsrc v0.2.2、Folo v0.6.3、CloudflareSpeedTest v2.3.4和Subs-check v1.3.6。每个版本的更新内容涵盖了界面优化、功能增强、问题修复和技术改进等方面，旨在提升用户体验和软件性能。
+1. 在Dify的发布说明中，增加具体的用户反馈或使用案例，以更好地展示新功能的实际应用。
+2. 对于Folo，建议在更新日志中提供更多的背景信息，解释CPU占用过高的原因及其解决方案，以增强用户信任。
+3. 在awesome-mac的文档中，增加对新应用程序的简要介绍或使用指南，帮助用户快速上手。
+4. 考虑在所有项目的更新中增加用户评价或使用反馈部分，以便收集更多用户体验信息并持续改进。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/137.html</guid><pubDate>Mon, 28 Jul 2025 15:13:28 +0000</pubDate></item><item><title>0X88 我关注的项目这周更新了什么-2025-07-25</title><link>https://anaer.github.io/blog/post/136.html</link><description>本文介绍了多个软件的更新日志，包括Cherry Studio v1.5.3、WinMerge v2.16.50、Mihomo v1.19.12、Dify 1.7.0、Chsrc v0.2.2、Folo v0.6.3、CloudflareSpeedTest v2.3.4和Subs-check v1.3.6。每个版本的更新内容涵盖了界面优化、功能增强、问题修复和技术改进等方面，旨在提升用户体验和软件性能。
 
 优化建议：
 1. 在每个软件的更新日志中，突出显示关键功能和修复，以便用户快速获取重要信息。

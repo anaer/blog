@@ -133,61 +133,72 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-28 23:13:28</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-29 23:14:36</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-30 12:35:24</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Folo v0.6.4版本的热修复，主要解决了桌面端读取条目时CPU占用率飙升的问题。同时，Dify v1.7.1版本发布，包含新功能、错误修复和优化改进，增强了用户体验和系统稳定性，并提供了详细的升级指南。
+    <strong>AI总结:</strong> 本文介绍了Dify v1.7.1、Folo v0.6.4和awesome-mac v1.10.0的更新内容。Dify v1.7.1版本聚焦于用户体验和系统稳定性，新增默认值选项、条件过滤变量选择、OpenAPI schema的allOf属性支持等功能，同时修复了多个错误并进行了优化。Folo v0.6.4主要解决了桌面端CPU占用过高的问题。awesome-mac v1.10.0更新了多个应用程序，优化了功能，并提供了npm和Docker两种安装方式。
 
 优化建议：
-1. 在发布说明中添加更具体的性能改进数据，以便用户更好地理解更新的影响。
-2. 考虑在新功能部分提供使用示例，帮助用户快速上手。
-3. 在错误修复部分，增加问题发生的场景描述，便于用户判断是否受影响。
-4. 提供用户反馈渠道，以收集对新功能和修复的使用体验。
+1. 在Dify的发布说明中，增加具体的用户反馈或使用案例，以更好地展示新功能的实际应用。
+2. 对于Folo，建议在更新日志中提供更多的背景信息，解释CPU占用过高的原因及其解决方案，以增强用户信任。
+3. 在awesome-mac的文档中，增加对新应用程序的简要介绍或使用指南，帮助用户快速上手。
+4. 考虑在所有项目的更新中增加用户评价或使用反馈部分，以便收集更多用户体验信息并持续改进。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/RSSNext/Folo/releases/tag/v0.6.4">Folo v0.6.4</a>
-</h1><a id="user-content-1-folo-v064" class="anchor" aria-label="Permalink: 1. Folo v0.6.4" href="#1-folo-v064"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🧡 Follow everything in one place</p>
-<p>本次热修复版本主要解决以下问题：桌面端读取条目时出现的CPU占用率飙升问题。</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/langgenius/dify/releases/tag/1.7.1">dify 1.7.1</a>
-</h1><a id="user-content-2-dify-171" class="anchor" aria-label="Permalink: 2. dify 1.7.1" href="#2-dify-171"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.7.1">dify 1.7.1</a>
+</h1><a id="user-content-1-dify-171" class="anchor" aria-label="Permalink: 1. dify 1.7.1" href="#1-dify-171"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
-<p>Dify v1.7.1 版本发布，主要包含以下更新内容：</p>
+<p>Dify v1.7.1 版本发布，主要包含新功能、错误修复和改进优化：</p>
 <p>新功能：</p>
-<ol>
-<li>支持为选择输入字段设置默认值</li>
-<li>在列表操作的条件过滤中新增变量选择功能</li>
+<ul>
+<li>为选择输入字段添加默认值选项，提升表单操作体验</li>
+<li>支持在列表操作的条件过滤中选择变量</li>
 <li>OpenAPI schema 新增支持 allOf 属性</li>
-<li>Kubernetes 部署中为 api 组件新增纯迁移选项</li>
-</ol>
+<li>Kubernetes 部署中为 api 组件添加纯迁移选项</li>
+</ul>
 <p>错误修复：</p>
-<ol>
-<li>修复 Langfuse 集成路径处理问题</li>
-<li>解决 RabbitMQ 批量添加文档片段时的处理状态问题</li>
-<li>修正跨页文档选择时的元数据批量编辑问题</li>
-<li>修复 Windows 系统下 PEM 密钥路径错误</li>
-</ol>
+<ul>
+<li>修正 Langfuse 集成路径处理问题</li>
+<li>修复使用 RabbitMQ 时批量添加文档片段的状态卡住问题</li>
+<li>解决元数据批量编辑跨页选择问题</li>
+<li>修正 Windows 系统下 PEM 密钥路径错误</li>
+</ul>
 <p>改进优化：</p>
-<ol>
+<ul>
 <li>优化菜单中 ToolTip 组件的交互效果</li>
 <li>增强 PostgreSQL 健康检查命令</li>
-<li>重构国际化时间格式化功能</li>
-<li>工具列表页面重新设计</li>
-</ol>
-<p>其他更新：</p>
-<ol>
-<li>移除重复的 TYPE_CHECKING 导入</li>
-<li>优化插件搜索框样式</li>
-<li>修复暗黑模式闪烁问题</li>
-<li>改进工作流操作提示弹窗</li>
-</ol>
+<li>重构时间格式化功能以支持国际化</li>
+<li>重新设计工具列表页面</li>
+</ul>
 <p>升级指南：</p>
 <ul>
-<li>Docker Compose 部署：备份文件后拉取最新代码，停止服务并升级</li>
-<li>源代码部署：停止服务后更新代码和依赖，运行迁移脚本后重启服务</li>
+<li>Docker Compose 部署：备份数据后获取最新代码并重启服务</li>
+<li>源码部署：更新代码和依赖后执行数据库迁移</li>
 </ul>
-<p>本次更新共合并 60 多个 PR，包含 8 位新贡献者的代码。完整变更日志可查看 GitHub 发布页面。</p>
+<p>其他变更：</p>
+<ul>
+<li>新增多项测试用例</li>
+<li>修复多处类型错误和样式问题</li>
+<li>优化多语言配置和插件搜索框样式</li>
+<li>新增7位首次贡献者</li>
+</ul>
+<p>该版本主要聚焦于提升用户体验和系统稳定性，包含多项功能增强和错误修复。</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/RSSNext/Folo/releases/tag/v0.6.4">Folo v0.6.4</a>
+</h1><a id="user-content-2-folo-v064" class="anchor" aria-label="Permalink: 2. Folo v0.6.4" href="#2-folo-v064"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🧡 Follow everything in one place</p>
+<p>该热修复版本主要解决以下问题：桌面端读取条目时出现的CPU占用过高问题。</p>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/jaywcjlove/awesome-mac/releases/tag/v1.10.0">awesome-mac v1.10.0</a>
+</h1><a id="user-content-3-awesome-mac-v1100" class="anchor" aria-label="Permalink: 3. awesome-mac v1.10.0" href="#3-awesome-mac-v1100"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p> Now we have become very big, Different from the original idea. Collect premium software in various categories.</p>
+<p>本文档介绍了awesome-mac项目v1.10.0版本的更新内容和使用方式。主要更新包括：新增多个应用程序如Free Download Manager、Saga Reader、Quickgif、Mousio等；优化了部分功能如将Skype替换为Teams；修复了一些问题和链接错误。</p>
+<p>安装方式支持npm和Docker两种：</p>
+<ol>
+<li>npm安装命令为<code>npm i awesome-mac@1.10.0</code>，会生成JSON格式的文档</li>
+<li>Docker可通过<code>docker pull wcjiang/awesome-mac:1.10.0</code>获取镜像，运行后通过<a href="http://localhost:9881/%E8%AE%BF%E9%97%AE" rel="nofollow">http://localhost:9881/访问</a>
+</li>
+</ol>
+<p>文档还提供了版本变更对比链接和原始文档地址。项目支持赞助作者，并提供了相关徽章标识。</p>
 
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/136.html" aria-label="Previous Page">0X88 我关注的项目这周更新了什么-2025-07-25</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
