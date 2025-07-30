@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 30 Jul 2025 04:35:53 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 30 Jul 2025 04:35:53 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X89 我关注的项目这周更新了什么-2025-08-01</title><link>https://anaer.github.io/blog/post/137.html</link><description>本文介绍了Dify v1.7.1、Folo v0.6.4和awesome-mac v1.10.0的更新内容。Dify v1.7.1版本聚焦于用户体验和系统稳定性，新增默认值选项、条件过滤变量选择、OpenAPI schema的allOf属性支持等功能，同时修复了多个错误并进行了优化。Folo v0.6.4主要解决了桌面端CPU占用过高的问题。awesome-mac v1.10.0更新了多个应用程序，优化了功能，并提供了npm和Docker两种安装方式。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Wed, 30 Jul 2025 05:25:47 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Wed, 30 Jul 2025 05:25:47 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X89 我关注的项目这周更新了什么-2025-08-01</title><link>https://anaer.github.io/blog/post/137.html</link><description>本文介绍了Dify v1.7.1、Folo v0.6.4和awesome-mac v1.10.0的更新内容。Dify v1.7.1版本聚焦于用户体验和系统稳定性，新增默认值选项、条件过滤变量选择、OpenAPI schema的allOf属性支持等功能，同时修复了多个错误并进行了优化。Folo v0.6.4主要解决了桌面端CPU占用过高的问题。awesome-mac v1.10.0更新了多个应用程序，优化了功能，并提供了npm和Docker两种安装方式。
 
 优化建议：
 1. 在Dify的发布说明中，增加具体的用户反馈或使用案例，以更好地展示新功能的实际应用。
@@ -435,17 +435,14 @@
 4. 在安全组配置中，建议说明如何设置入方向的规则，确保用户安全。
 5. 对于webdav的部署，简要介绍其用途和基本配置步骤。
 6. 在安装fail2ban时，建议提供基本的配置示例，以增强安全性。
-7. 对于deepLX，说明其功能和适用场景，以帮助用户理解其价值。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>0X6 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>本文介绍了多款软件和工具的分类，包括浏览器、终端、内存清理、传输工具、AI、压缩、密码管理、搜索、文件管理、清理工具、输入法、资源管理、健康软件、办公软件、开发工具、抓包工具、数据库管理、版本控制、编辑器、证书管理、网盘和翻译工具。每类工具都有其特点和适用场景，适合不同用户需求。
+7. 对于deepLX，说明其功能和适用场景，以帮助用户理解其价值。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/7.html</guid><pubDate>Wed, 01 Nov 2023 02:37:56 +0000</pubDate></item><item><title>0X6 PC端常用软件</title><link>https://anaer.github.io/blog/post/6.html</link><description>本文介绍了多种软件工具的功能和特点，涵盖了浏览器、终端、内存清理、传输工具、AI、压缩、密码管理、搜索、文件清理、输入法、资源管理、健康、办公、开发、抓包、数据库、版本控制、编辑器、证书管理、网盘和翻译等领域。这些工具包括Chrome、Edge、Floorp、Zen Browser等浏览器，以及SmartPutty、Cmder、KiTTY等终端工具，和多种内存清理、文件传输、开发、数据库及版本控制工具。
 
 优化建议：
-1. 对于浏览器部分，建议详细描述每款浏览器的特性和适用场景，以便用户选择。
-2. 在终端工具中，建议提供使用场景的示例，帮助用户理解各工具的优势。
-3. 内存清理部分可以增加清理效果的对比数据，帮助用户做出更好的选择。
-4. 传输工具中，增加对比文件传输速度和安全性的评估。
-5. 在AI工具部分，建议明确各工具的功能，以便用户了解其应用领域。
-6. 对于数据库管理工具，建议提供各工具的优缺点对比，帮助用户根据需求选择。
-7. 在版本控制部分，增加对Git和TortoiseGit的使用场景和优势对比。
-8. 对于编辑器，建议提供插件推荐和配置示例，帮助用户更好地使用VSCode和Neovim。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>0X5 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>本文介绍了几种等宽字体，包括JetBrains Maple Mono、Maple-Mono、LXGW WenKai GB、Cascadia Code和UbuntuMono。其中，Maple-Mono被推荐为较为舒适的选择，而LXGW WenKai GB则在Markdown表格格式化时表现良好。
+1. 对于每个工具，提供更详细的使用场景和优缺点，以帮助用户更好地选择适合的工具。
+2. 增加工具的安装和配置指南，特别是对于开源软件，以便用户可以快速上手。
+3. 考虑将工具分为必备和可选，以便用户根据需求进行筛选。
+4. 提供工具之间的比较表，突出各自的独特功能和适用场景，帮助用户做出明智的选择。
+5. 更新部分工具的最新版本信息，确保用户获取到最新的功能和修复。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/6.html</guid><pubDate>Mon, 30 Oct 2023 09:01:28 +0000</pubDate></item><item><title>0X5 中文等宽字体</title><link>https://anaer.github.io/blog/post/5.html</link><description>本文介绍了几种等宽字体，包括JetBrains Maple Mono、Maple-Mono、LXGW WenKai GB、Cascadia Code和UbuntuMono。其中，Maple-Mono被推荐为较为舒适的选择，而LXGW WenKai GB则在Markdown表格格式化时表现良好。
 
 优化建议：
 1. 提供每种字体的具体应用场景或适用类型，以帮助用户选择最合适的字体。
