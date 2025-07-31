@@ -45,6 +45,7 @@
 
 ### 开关
 1. ~~OnlySwitch~~ [GitHub](https://github.com/jacklandrin/OnlySwitch)
+2. Windows11轻松设置 [小众软件](https://www.appinn.com/windows11-easy-setup-tools-download/)
 
 ### 搜索
 1. Everything [官网](https://www.voidtools.com/zh-cn/) 
