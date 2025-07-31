@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <script>
+        if(localStorage.getItem("meek_theme")==null){}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
+    </script>
+    
+<title>0X8A Spring Boot配置</title>
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia-light.css" rel="stylesheet" />
+
+</head>
+<style>
+body{
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 45px;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.25;
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 767px) {body {padding: 8px;}}
+
+pre {
+    white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
+    word-wrap: break-word; /* 允许长单词或 URL 换行 */
+    overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
+}
+
+.new-post {
+    bottom: 20px; /* 距离底部 20px */
+}
+
+.edit-post {
+    bottom: 60px; /* 距离底部60px */
+}
+
+/* 悬浮按钮样式 */
+.floating-button {
+    position: fixed; /* 固定位置 */
+    right: 5%; /* 距离右侧 5% */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 32px; /* 宽度 */
+    height: 32px; /* 高度 */
+    font-size: 16px; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    z-index: 1000; /* 确保按钮在最上层 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* 添加悬停效果 */
+}
+
+/* 按钮悬停效果 */
+.floating-button:hover {
+    background-color: #0056b3; /* 悬停时改变背景颜色 */
+}
+
+.previous_page {text-align: left;}
+.next_page {text-align: right;}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1>
+    <a style="font-size:18px">0X8A Spring Boot配置</a>
+</h1>
+
+<div class="title-right">
+
+    <a href="https://anaer.github.io/blog"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    <a href="https://github.com/anaer/blog/issues/138" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+</div>
+</div>
+    <div id="content">
+
+<div class="listLabels">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#0e8a16">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Java">Java</a></object>
+        </span>
+</div>
+<br>
+
+<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
+<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-31 15:18:46</time></span>
+
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了Spring Boot的各种配置，包括Tomcat连接池、数据库连接池、Jackson时区序列化、日志配置、缓存配置、监控端点、文件上传大小限制、异步线程池配置、静态资源缓存策略以及数据库事务超时等方面的内容。这些配置需要根据实际使用的版本和环境进行调整，以优化应用性能和资源管理。
+
+优化建议：
+1. 确保Tomcat连接池的配置与实际并发需求相匹配，避免不必要的资源浪费。
+2. HikariCP的连接池参数应根据数据库负载和应用需求进行调整，确保连接的有效性。
+3. Jackson的时区配置应统一，以避免在分布式环境中出现时间不一致的问题。
+4. 日志配置应定期清理，以防止磁盘空间被占满，建议使用滚动日志策略。
+5. 考虑使用Caffeine替代ConcurrentHashMap，以提高缓存性能和管理能力。
+6. 监控端点的暴露应谨慎配置，确保不泄露敏感信息。
+7. 文件上传大小限制应根据实际需求进行合理配置，避免影响用户体验。
+8. 异步线程池的配置应考虑系统负载，合理设置核心和最大线程数，以提高资源利用率。
+9. 静态资源缓存策略应设置适当的缓存头，以提升页面加载速度。
+10. 数据库事务应设置超时时间，避免长时间持有锁，影响系统性能。
+</div>
+
+<div class="markdown-body" id="postBody">
+<div class="markdown-heading"><h1 class="heading-element">Spring Boot 配置</h1><a id="user-content-springboot-配置" class="anchor" aria-label="Permalink: Spring Boot 配置" href="#springboot-配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>仅列举相关配置, 具体配置时, 还需要根据实际使用的版本环境进行调整.</p>
+<div class="markdown-heading"><h3 class="heading-element">Tomcat连接池</h3><a id="user-content-tomcat连接池" class="anchor" aria-label="Permalink: Tomcat连接池" href="#tomcat连接池"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>默认配置: org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-autoconfigure-2.3.12.RELEASE.jar\META-INF\spring-configuration-metadata.json</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">server</span>:
+  <span class="pl-ent">tomcat</span>:
+    <span class="pl-ent">max-connections</span>: <span class="pl-c1">10000</span>  <span class="pl-c"><span class="pl-c">#</span> 最大连接数 默认:8192</span>
+    <span class="pl-ent">threads</span>:
+      <span class="pl-ent">max</span>: <span class="pl-c1">800</span>              <span class="pl-c"><span class="pl-c">#</span> 最大工作线程数 默认:200</span>
+      <span class="pl-ent">min-spare</span>: <span class="pl-c1">100</span>        <span class="pl-c"><span class="pl-c">#</span> 最小空闲线程数 默认:10</span>
+    <span class="pl-ent">accept-count</span>: <span class="pl-c1">100</span>       <span class="pl-c"><span class="pl-c">#</span> 等待队列长度 默认:100</span>
+    <span class="pl-ent">connection-timeout</span>: <span class="pl-c1">20000</span> <span class="pl-c"><span class="pl-c">#</span> 默认未配置</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">数据库连接池</h3><a id="user-content-数据库连接池" class="anchor" aria-label="Permalink: 数据库连接池" href="#数据库连接池"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>SpringBoot默认使用HikariCP作为数据库连接池</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
+  <span class="pl-ent">datasource</span>:
+    <span class="pl-ent">hikari</span>:
+      <span class="pl-ent">maximum-pool-size</span>: <span class="pl-c1">50</span>      <span class="pl-c"><span class="pl-c">#</span> 最大连接数，默认:10</span>
+      <span class="pl-ent">minimum-idle</span>: <span class="pl-c1">10</span>           <span class="pl-c"><span class="pl-c">#</span> 最小空闲连接，默认:10</span>
+      <span class="pl-ent">connection-timeout</span>: <span class="pl-c1">30000</span>
+      <span class="pl-ent">idle-timeout</span>: <span class="pl-c1">600000</span>       <span class="pl-c"><span class="pl-c">#</span> 空闲连接超时时间，默认:600000（10分钟）</span>
+      <span class="pl-ent">max-lifetime</span>: <span class="pl-c1">1800000</span>      <span class="pl-c"><span class="pl-c">#</span> 连接最大存活时间 默认:1800000（30分钟）</span>
+      <span class="pl-ent">leak-detection-threshold</span>: <span class="pl-c1">60000</span> <span class="pl-c"><span class="pl-c">#</span> 连接泄露检查阈值，默认:0（关闭）</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">Jackson时区序列化</h3><a id="user-content-jackson时区序列化" class="anchor" aria-label="Permalink: Jackson时区序列化" href="#jackson时区序列化"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>SpringBoot默认使用Jackson处理JSON序列化，但时区处理经常出问题。</p>
+<p>默认情况下，Jackson会使用系统时区，这在分布式部署时会导致不一致的问题。</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
+  <span class="pl-ent">jackson</span>:
+    <span class="pl-ent">time-zone</span>: <span class="pl-s">GMT+8</span>
+    <span class="pl-ent">date-format</span>: <span class="pl-s">yyyy-MM-dd HH:mm:ss</span>
+    <span class="pl-ent">serialization</span>:
+      <span class="pl-ent">write-dates-as-timestamps</span>: <span class="pl-c1">false</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">日志配置</h3><a id="user-content-日志配置" class="anchor" aria-label="Permalink: 日志配置" href="#日志配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>SpringBoot默认使用Logback，但默认配置下没有对日志文件进行滚动和清理。</p>
+<p>长时间运行的应用会产生巨大的日志文件，最终占满磁盘空间。</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">logging</span>:
+  <span class="pl-ent">file</span>:
+    <span class="pl-ent">name</span>: <span class="pl-s">app.log</span>
+  <span class="pl-ent">logback</span>:
+    <span class="pl-ent">rollingpolicy</span>:
+      <span class="pl-ent">max-file-size</span>: <span class="pl-s">100MB</span>
+      <span class="pl-ent">max-history</span>: <span class="pl-c1">30</span>
+      <span class="pl-ent">total-size-cap</span>: <span class="pl-s">3GB</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">缓存配置</h3><a id="user-content-缓存配置" class="anchor" aria-label="Permalink: 缓存配置" href="#缓存配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>SpringBoot的@Cacheable注解默认使用ConcurrentHashMap作为缓存实现，但这个实现没有过期机制，也没有大小限制。在高并发场景下，缓存会无限增长，最终导致内存溢出。
+可以考虑使用Caffeine替代默认实现，可以提供更好的性能和内存管理能力。</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
+  <span class="pl-ent">cache</span>:
+    <span class="pl-ent">type</span>: <span class="pl-s">caffeine</span>
+    <span class="pl-ent">caffeine</span>:
+      <span class="pl-ent">spec</span>: <span class="pl-s">maximumSize=10000,expireAfterWrite=600s</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">监控端点</h3><a id="user-content-监控端点" class="anchor" aria-label="Permalink: 监控端点" href="#监控端点"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>SpringBoot Actuator默认暴露了很多监控端点，包括健康检查、配置信息、环境变量等。</p>
+<p>只暴露必要的端点，并且配置适当的安全策略，避免信息泄漏。</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">management</span>:
+  <span class="pl-ent">endpoints</span>:
+    <span class="pl-ent">web</span>:
+      <span class="pl-ent">exposure</span>:
+        <span class="pl-ent">include</span>: <span class="pl-s">health,info,metrics</span>
+  <span class="pl-ent">endpoint</span>:
+    <span class="pl-ent">health</span>:
+      <span class="pl-ent">show-details</span>: <span class="pl-s">when-authorized</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">文件上传大小限制</h3><a id="user-content-文件上传大小限制" class="anchor" aria-label="Permalink: 文件上传大小限制" href="#文件上传大小限制"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>SpringBoot默认的文件上传限制非常小，单个文件只能上传1MB，整个请求大小限制10MB。</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
+  <span class="pl-ent">servlet</span>:
+    <span class="pl-ent">multipart</span>:
+      <span class="pl-ent">max-file-size</span>: <span class="pl-s">100MB</span>
+      <span class="pl-ent">max-request-size</span>: <span class="pl-s">100MB</span>
+      <span class="pl-ent">file-size-threshold</span>: <span class="pl-s">2KB</span>
+      <span class="pl-ent">location</span>: <span class="pl-s">/tmp</span>
+      <span class="pl-ent">resolve-lazily</span>: <span class="pl-c1">false</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">异步线程池配置</h3><a id="user-content-异步线程池配置" class="anchor" aria-label="Permalink: 异步线程池配置" href="#异步线程池配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>使用<code>@Async</code>注解时，SpringBoot默认使用<code>SimpleAsyncTaskExecutor</code>，这个执行器每次都会创建新线程，没有线程池复用机制。高并发情况下会创建大量线程，最终导致系统资源耗尽。</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
+  <span class="pl-ent">task</span>:
+    <span class="pl-ent">execution</span>:
+      <span class="pl-ent">pool</span>:
+        <span class="pl-ent">core-size</span>: <span class="pl-c1">8</span>
+        <span class="pl-ent">max-size</span>: <span class="pl-c1">16</span>
+        <span class="pl-ent">queue-capacity</span>: <span class="pl-c1">100</span>
+        <span class="pl-ent">keep-alive</span>: <span class="pl-c1">60s</span>
+      <span class="pl-ent">thread-name-prefix</span>: <span class="pl-s">async-task-</span>
+    <span class="pl-ent">scheduling</span>:
+      <span class="pl-ent">pool</span>:
+        <span class="pl-ent">size</span>: <span class="pl-c1">4</span>
+      <span class="pl-ent">thread-name-prefix</span>: <span class="pl-s">scheduling-</span></pre></div>
+<div class="markdown-heading"><h3 class="heading-element">静态资源缓存策略</h3><a id="user-content-静态资源缓存策略" class="anchor" aria-label="Permalink: 静态资源缓存策略" href="#静态资源缓存策略"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>SpringBoot默认不为静态资源设置HTTP缓存头，浏览器每次都会重新请求CSS、JS、图片等静态文件，影响页面加载性能。</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
+  <span class="pl-ent">web</span>:
+    <span class="pl-ent">resources</span>:
+      <span class="pl-ent">cache</span>:
+        <span class="pl-ent">cachecontrol</span>:
+          <span class="pl-ent">max-age</span>: <span class="pl-c1">365d</span>
+          <span class="pl-ent">cache-public</span>: <span class="pl-c1">true</span>
+      <span class="pl-ent">chain</span>:
+        <span class="pl-ent">strategy</span>:
+          <span class="pl-ent">content</span>:
+            <span class="pl-ent">enabled</span>: <span class="pl-c1">true</span>
+            <span class="pl-ent">paths</span>: <span class="pl-s">/**</span>
+        <span class="pl-ent">cache</span>: <span class="pl-c1">true</span>
+      <span class="pl-ent">static-locations</span>: <span class="pl-s">classpath:/static/</span></pre></div>
+<p>开启内容版本化策略后，SpringBoot会根据文件内容生成MD5哈希值作为版本号，文件名变成<code>style-abc123.css</code>这样的格式。当文件内容发生变化时，哈希值也会变化，浏览器会认为这是新文件重新下载；如果文件没变化，浏览器就直接使用缓存，有效提升页面加载速度。</p>
+<div class="markdown-heading"><h3 class="heading-element">数据库事务超时</h3><a id="user-content-数据库事务超时" class="anchor" aria-label="Permalink: 数据库事务超时" href="#数据库事务超时"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><code>@Transactional</code>注解默认没有设置超时时间，长时间运行的事务会一直持有数据库锁，影响其他操作的执行。批量数据处理时，容易出现锁表问题。</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-c1">@</span><span class="pl-c1">Transactional</span>(<span class="pl-s1">timeout</span> = <span class="pl-c1">30</span>, <span class="pl-s1">rollbackFor</span> = <span class="pl-smi">Exception</span>.<span class="pl-k">class</span>)
+<span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-en">batchProcess</span>(<span class="pl-smi">List</span>&lt;<span class="pl-smi">Data</span>&gt; <span class="pl-s1">dataList</span>) {
+    <span class="pl-c">// 分批处理，避免长事务</span>
+    <span class="pl-smi">int</span> <span class="pl-s1">batchSize</span> = <span class="pl-c1">100</span>;
+    <span class="pl-k">for</span> (<span class="pl-smi">int</span> <span class="pl-s1">i</span> = <span class="pl-c1">0</span>; <span class="pl-s1">i</span> &lt; <span class="pl-s1">dataList</span>.<span class="pl-en">size</span>(); <span class="pl-s1">i</span> += <span class="pl-s1">batchSize</span>) {
+        <span class="pl-smi">List</span>&lt;<span class="pl-smi">Data</span>&gt; <span class="pl-s1">batch</span> = <span class="pl-s1">dataList</span>.<span class="pl-en">subList</span>(<span class="pl-s1">i</span>,
+            <span class="pl-smi">Math</span>.<span class="pl-en">min</span>(<span class="pl-s1">i</span> + <span class="pl-s1">batchSize</span>, <span class="pl-s1">dataList</span>.<span class="pl-en">size</span>()));
+        <span class="pl-en">processBatch</span>(<span class="pl-s1">batch</span>);
+    }
+}</pre></div>
+
+</div><nav class="paginate-container" aria-label="Pagination">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/137.html" aria-label="Previous Page">0X89 我关注的项目这周更新了什么-2025-08-01</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+</nav>
+
+<!-- 编辑按钮 -->
+<a href="https://github.com/anaer/blog/issues/138" target="_blank">
+    <button class="floating-button edit-post">🖋</button>
+</a>
+
+<!-- 新增按钮 -->
+<a href="https://github.com/anaer/blog/issues/new" target="_blank">
+    <button class="floating-button new-post">+</button>
+</a>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
+
+<script>
+if("2023-09-08"!=""){
+    var now=new Date();
+    var startSite=new Date("2023-09-08");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script></div>
+
+    <!-- oneko.js中用到document.body, 需要在body块中加载 否则提示为null -->
+    <script src="https://anaer.github.io/blog/assets/oneko.js/oneko.js"></script>
+</body>
+<script>
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
+var utterancesLoad=0;
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek v2.4 %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+
+<script>
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","anaer/blog");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+
+
+<script src="https://anaer.github.io/blog/assets/toc.js"></script>
+
+
+</html>
