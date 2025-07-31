@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             # 代码块第一行前插入按钮
             controls = ('<button class="fold-btn">收起</button>'
                         '<button class="copy-btn">复制</button>')
-            return controls + '\n' + pre_tag
+            return '<div>' + controls + '\n' + pre_tag + '</div>'
 
         return re.sub(r'<pre[^>]*><code[^>]*>.*?</code></pre>',
                       _repl, html, flags=re.DOTALL)
