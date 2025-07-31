@@ -133,10 +133,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-31 15:18:46</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-31 16:06:37</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-31 16:20:26</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Spring Boot的配置要点，涵盖了Tomcat连接池、数据库连接池、Jackson时区序列化、日志配置、缓存配置、监控端点、文件上传大小限制、异步线程池配置、静态资源缓存策略和数据库事务超时等方面。指出了默认配置的不足之处，例如Tomcat的最大连接数和工作线程数设置、HikariCP的连接数限制、Jackson处理JSON时的时区问题、Logback日志文件的管理、默认缓存实现的缺陷、监控端点的安全性、文件上传的限制、异步执行器的线程管理、静态资源的缓存策略以及数据库事务的超时设置。建议根据实际需求进行合理调整和优化，以避免性能问题和资源浪费。
+    <strong>AI总结:</strong> 本文介绍了Spring Boot的各种配置，包括Tomcat连接池、数据库连接池、Jackson时区序列化、日志配置、缓存配置、监控端点、文件上传大小限制、异步线程池配置、静态资源缓存策略和数据库事务超时等。主要要点包括：Tomcat连接池的最大连接数和工作线程数的配置；HikariCP作为默认数据库连接池的相关设置；Jackson的时区和日期格式配置；Logback日志的滚动和清理策略；Cacheable注解的默认实现及其缺陷；Actuator监控端点的安全配置；文件上传限制的调整；异步线程池的优化；静态资源的HTTP缓存策略；以及@Transactional注解的超时设置。错误观点包括对Spring Boot默认配置的误解，例如认为默认的文件上传限制足够或忽视了缓存实现的潜在问题。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -159,8 +159,9 @@ pre {
     <h1 id="spring-boot">Spring Boot 配置</h1>
 <p>仅列举相关配置, 具体配置时, 还需要根据实际使用的版本环境进行调整.</p>
 <h3 id="tomcat">Tomcat连接池</h3>
-<p>默认配置: org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-autoconfigure-2.3.12.RELEASE.jar\META-INF\spring-configuration-metadata.json</p>
-<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<p>默认配置:
+org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-autoconfigure-2.3.12.RELEASE.jar\META-INF\spring-configuration-metadata.json</p>
+<div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="codehilite"><code class="language-yaml">server:
   tomcat:
     max-connections: 10000  # 最大连接数 默认:8192
@@ -169,11 +170,11 @@ pre {
       min-spare: 100        # 最小空闲线程数 默认:10
     accept-count: 100       # 等待队列长度 默认:100
     connection-timeout: 20000 # 默认未配置
-</code></pre>
+</code></pre></div>
 
 <h3 id="_1">数据库连接池</h3>
 <p>SpringBoot默认使用HikariCP作为数据库连接池</p>
-<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="codehilite"><code class="language-yaml">spring:
   datasource:
     hikari:
@@ -183,23 +184,23 @@ pre {
       idle-timeout: 600000       # 空闲连接超时时间，默认:600000（10分钟）
       max-lifetime: 1800000      # 连接最大存活时间 默认:1800000（30分钟）
       leak-detection-threshold: 60000 # 连接泄露检查阈值，默认:0（关闭）
-</code></pre>
+</code></pre></div>
 
 <h3 id="jackson">Jackson时区序列化</h3>
 <p>SpringBoot默认使用Jackson处理JSON序列化，Jackson会使用系统时区，这在分布式部署时会导致不一致的问题。</p>
-<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="codehilite"><code class="language-yaml">spring:
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
     serialization:
       write-dates-as-timestamps: false
-</code></pre>
+</code></pre></div>
 
 <h3 id="_2">日志配置</h3>
 <p>SpringBoot默认使用Logback，但默认配置下没有对日志文件进行滚动和清理。</p>
 <p>长时间运行的应用会产生巨大的日志文件，最终占满磁盘空间。</p>
-<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="codehilite"><code class="language-yaml">logging:
   file:
     name: app.log
@@ -208,23 +209,23 @@ pre {
       max-file-size: 100MB
       max-history: 30
       total-size-cap: 3GB
-</code></pre>
+</code></pre></div>
 
 <h3 id="_3">缓存配置</h3>
 <p>SpringBoot的Cacheable注解默认使用ConcurrentHashMap作为缓存实现，但这个实现没有过期机制，也没有大小限制。在高并发场景下，缓存会无限增长，最终导致内存溢出。
 可以考虑使用Caffeine替代默认实现，可以提供更好的性能和内存管理能力。</p>
-<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="codehilite"><code class="language-yaml">spring:
   cache:
     type: caffeine
     caffeine:
       spec: maximumSize=10000,expireAfterWrite=600s
-</code></pre>
+</code></pre></div>
 
 <h3 id="_4">监控端点</h3>
 <p>SpringBoot Actuator默认暴露了很多监控端点，包括健康检查、配置信息、环境变量等。</p>
 <p>只暴露必要的端点，并且配置适当的安全策略，避免信息泄漏。</p>
-<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="codehilite"><code class="language-yaml">management:
   endpoints:
     web:
@@ -233,11 +234,11 @@ pre {
   endpoint:
     health:
       show-details: when-authorized
-</code></pre>
+</code></pre></div>
 
 <h3 id="_5">文件上传大小限制</h3>
 <p>SpringBoot默认的文件上传限制非常小，单个文件只能上传1MB，整个请求大小限制10MB。</p>
-<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="codehilite"><code class="language-yaml">spring:
   servlet:
     multipart:
@@ -246,11 +247,11 @@ pre {
       file-size-threshold: 2KB
       location: /tmp
       resolve-lazily: false
-</code></pre>
+</code></pre></div>
 
 <h3 id="_6">异步线程池配置</h3>
 <p>使用<code>@Async</code>注解时，SpringBoot默认使用<code>SimpleAsyncTaskExecutor</code>，这个执行器每次都会创建新线程，没有线程池复用机制。高并发情况下会创建大量线程，最终导致系统资源耗尽。</p>
-<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="codehilite"><code class="language-yaml">spring:
   task:
     execution:
@@ -264,11 +265,11 @@ pre {
       pool:
         size: 4
       thread-name-prefix: scheduling-
-</code></pre>
+</code></pre></div>
 
 <h3 id="_7">静态资源缓存策略</h3>
 <p>SpringBoot默认不为静态资源设置HTTP缓存头，浏览器每次都会重新请求CSS、JS、图片等静态文件，影响页面加载性能。</p>
-<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="codehilite"><code class="language-yaml">spring:
   web:
     resources:
@@ -283,12 +284,12 @@ pre {
             paths: /**
         cache: true
       static-locations: classpath:/static/
-</code></pre>
+</code></pre></div>
 
 <p>开启内容版本化策略后，SpringBoot会根据文件内容生成MD5哈希值作为版本号，文件名变成<code>style-abc123.css</code>这样的格式。当文件内容发生变化时，哈希值也会变化，浏览器会认为这是新文件重新下载；如果文件没变化，浏览器就直接使用缓存，有效提升页面加载速度。</p>
 <h3 id="_8">数据库事务超时</h3>
 <p><code>@Transactional</code>注解默认没有设置超时时间，长时间运行的事务会一直持有数据库锁，影响其他操作的执行。批量数据处理时，容易出现锁表问题。</p>
-<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="codehilite"><code class="language-java">@Transactional(timeout = 30, rollbackFor = Exception.class)
 public void batchProcess(List&lt;Data&gt; dataList) {
     // 分批处理，避免长事务
@@ -299,7 +300,7 @@ public void batchProcess(List&lt;Data&gt; dataList) {
         processBatch(batch);
     }
 }
-</code></pre>
+</code></pre></div>
   </article>
   
 <script>

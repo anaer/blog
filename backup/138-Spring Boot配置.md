@@ -4,7 +4,8 @@
 
 ### Tomcat连接池
 
-默认配置: org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-autoconfigure-2.3.12.RELEASE.jar\META-INF\spring-configuration-metadata.json
+默认配置:
+org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-autoconfigure-2.3.12.RELEASE.jar\META-INF\spring-configuration-metadata.json
 
 ```yaml
 server:
