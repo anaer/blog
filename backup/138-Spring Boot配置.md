@@ -35,9 +35,7 @@ spring:
 
 ### Jackson时区序列化
 
-SpringBoot默认使用Jackson处理JSON序列化，但时区处理经常出问题。
-
-默认情况下，Jackson会使用系统时区，这在分布式部署时会导致不一致的问题。
+SpringBoot默认使用Jackson处理JSON序列化，Jackson会使用系统时区，这在分布式部署时会导致不一致的问题。
 
 ```yaml
 spring:
@@ -67,7 +65,7 @@ logging:
 
 ### 缓存配置
 
-SpringBoot的@Cacheable注解默认使用ConcurrentHashMap作为缓存实现，但这个实现没有过期机制，也没有大小限制。在高并发场景下，缓存会无限增长，最终导致内存溢出。
+SpringBoot的Cacheable注解默认使用ConcurrentHashMap作为缓存实现，但这个实现没有过期机制，也没有大小限制。在高并发场景下，缓存会无限增长，最终导致内存溢出。
 可以考虑使用Caffeine替代默认实现，可以提供更好的性能和内存管理能力。
 
 ```yaml

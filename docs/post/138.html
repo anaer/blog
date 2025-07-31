@@ -14,7 +14,7 @@
     </script>
     
 <title>0X8A Spring Boot配置</title>
-<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia-light.css" rel="stylesheet" />
+
 
 </head>
 <style>
@@ -133,142 +133,204 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-31 15:18:46</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Spring Boot的各种配置，包括Tomcat连接池、数据库连接池、Jackson时区序列化、日志配置、缓存配置、监控端点、文件上传大小限制、异步线程池配置、静态资源缓存策略以及数据库事务超时等方面的内容。这些配置需要根据实际使用的版本和环境进行调整，以优化应用性能和资源管理。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-31 16:06:37</time></span>
 
-优化建议：
-1. 确保Tomcat连接池的配置与实际并发需求相匹配，避免不必要的资源浪费。
-2. HikariCP的连接池参数应根据数据库负载和应用需求进行调整，确保连接的有效性。
-3. Jackson的时区配置应统一，以避免在分布式环境中出现时间不一致的问题。
-4. 日志配置应定期清理，以防止磁盘空间被占满，建议使用滚动日志策略。
-5. 考虑使用Caffeine替代ConcurrentHashMap，以提高缓存性能和管理能力。
-6. 监控端点的暴露应谨慎配置，确保不泄露敏感信息。
-7. 文件上传大小限制应根据实际需求进行合理配置，避免影响用户体验。
-8. 异步线程池的配置应考虑系统负载，合理设置核心和最大线程数，以提高资源利用率。
-9. 静态资源缓存策略应设置适当的缓存头，以提升页面加载速度。
-10. 数据库事务应设置超时时间，避免长时间持有锁，影响系统性能。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了Spring Boot的配置要点，涵盖了Tomcat连接池、数据库连接池、Jackson时区序列化、日志配置、缓存配置、监控端点、文件上传大小限制、异步线程池配置、静态资源缓存策略和数据库事务超时等方面。指出了默认配置的不足之处，例如Tomcat的最大连接数和工作线程数设置、HikariCP的连接数限制、Jackson处理JSON时的时区问题、Logback日志文件的管理、默认缓存实现的缺陷、监控端点的安全性、文件上传的限制、异步执行器的线程管理、静态资源的缓存策略以及数据库事务的超时设置。建议根据实际需求进行合理调整和优化，以避免性能问题和资源浪费。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">Spring Boot 配置</h1><a id="user-content-springboot-配置" class="anchor" aria-label="Permalink: Spring Boot 配置" href="#springboot-配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown Preview</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+  <style>
+    body { box-sizing: border-box; padding: 2em; max-width: 1012px; margin: 0 auto; }
+    .fold-btn, .copy-btn {
+      background: #eee; border: 1px solid #bbb; border-radius: 3px;
+      padding: 4px 8px; margin-right: 6px; cursor: pointer; font-size: 0.75em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <h1 id="spring-boot">Spring Boot 配置</h1>
 <p>仅列举相关配置, 具体配置时, 还需要根据实际使用的版本环境进行调整.</p>
-<div class="markdown-heading"><h3 class="heading-element">Tomcat连接池</h3><a id="user-content-tomcat连接池" class="anchor" aria-label="Permalink: Tomcat连接池" href="#tomcat连接池"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h3 id="tomcat">Tomcat连接池</h3>
 <p>默认配置: org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-autoconfigure-2.3.12.RELEASE.jar\META-INF\spring-configuration-metadata.json</p>
-<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">server</span>:
-  <span class="pl-ent">tomcat</span>:
-    <span class="pl-ent">max-connections</span>: <span class="pl-c1">10000</span>  <span class="pl-c"><span class="pl-c">#</span> 最大连接数 默认:8192</span>
-    <span class="pl-ent">threads</span>:
-      <span class="pl-ent">max</span>: <span class="pl-c1">800</span>              <span class="pl-c"><span class="pl-c">#</span> 最大工作线程数 默认:200</span>
-      <span class="pl-ent">min-spare</span>: <span class="pl-c1">100</span>        <span class="pl-c"><span class="pl-c">#</span> 最小空闲线程数 默认:10</span>
-    <span class="pl-ent">accept-count</span>: <span class="pl-c1">100</span>       <span class="pl-c"><span class="pl-c">#</span> 等待队列长度 默认:100</span>
-    <span class="pl-ent">connection-timeout</span>: <span class="pl-c1">20000</span> <span class="pl-c"><span class="pl-c">#</span> 默认未配置</span></pre></div>
-<div class="markdown-heading"><h3 class="heading-element">数据库连接池</h3><a id="user-content-数据库连接池" class="anchor" aria-label="Permalink: 数据库连接池" href="#数据库连接池"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre class="codehilite"><code class="language-yaml">server:
+  tomcat:
+    max-connections: 10000  # 最大连接数 默认:8192
+    threads:
+      max: 800              # 最大工作线程数 默认:200
+      min-spare: 100        # 最小空闲线程数 默认:10
+    accept-count: 100       # 等待队列长度 默认:100
+    connection-timeout: 20000 # 默认未配置
+</code></pre>
+
+<h3 id="_1">数据库连接池</h3>
 <p>SpringBoot默认使用HikariCP作为数据库连接池</p>
-<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
-  <span class="pl-ent">datasource</span>:
-    <span class="pl-ent">hikari</span>:
-      <span class="pl-ent">maximum-pool-size</span>: <span class="pl-c1">50</span>      <span class="pl-c"><span class="pl-c">#</span> 最大连接数，默认:10</span>
-      <span class="pl-ent">minimum-idle</span>: <span class="pl-c1">10</span>           <span class="pl-c"><span class="pl-c">#</span> 最小空闲连接，默认:10</span>
-      <span class="pl-ent">connection-timeout</span>: <span class="pl-c1">30000</span>
-      <span class="pl-ent">idle-timeout</span>: <span class="pl-c1">600000</span>       <span class="pl-c"><span class="pl-c">#</span> 空闲连接超时时间，默认:600000（10分钟）</span>
-      <span class="pl-ent">max-lifetime</span>: <span class="pl-c1">1800000</span>      <span class="pl-c"><span class="pl-c">#</span> 连接最大存活时间 默认:1800000（30分钟）</span>
-      <span class="pl-ent">leak-detection-threshold</span>: <span class="pl-c1">60000</span> <span class="pl-c"><span class="pl-c">#</span> 连接泄露检查阈值，默认:0（关闭）</span></pre></div>
-<div class="markdown-heading"><h3 class="heading-element">Jackson时区序列化</h3><a id="user-content-jackson时区序列化" class="anchor" aria-label="Permalink: Jackson时区序列化" href="#jackson时区序列化"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>SpringBoot默认使用Jackson处理JSON序列化，但时区处理经常出问题。</p>
-<p>默认情况下，Jackson会使用系统时区，这在分布式部署时会导致不一致的问题。</p>
-<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
-  <span class="pl-ent">jackson</span>:
-    <span class="pl-ent">time-zone</span>: <span class="pl-s">GMT+8</span>
-    <span class="pl-ent">date-format</span>: <span class="pl-s">yyyy-MM-dd HH:mm:ss</span>
-    <span class="pl-ent">serialization</span>:
-      <span class="pl-ent">write-dates-as-timestamps</span>: <span class="pl-c1">false</span></pre></div>
-<div class="markdown-heading"><h3 class="heading-element">日志配置</h3><a id="user-content-日志配置" class="anchor" aria-label="Permalink: 日志配置" href="#日志配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre class="codehilite"><code class="language-yaml">spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 50      # 最大连接数，默认:10
+      minimum-idle: 10           # 最小空闲连接，默认:10
+      connection-timeout: 30000
+      idle-timeout: 600000       # 空闲连接超时时间，默认:600000（10分钟）
+      max-lifetime: 1800000      # 连接最大存活时间 默认:1800000（30分钟）
+      leak-detection-threshold: 60000 # 连接泄露检查阈值，默认:0（关闭）
+</code></pre>
+
+<h3 id="jackson">Jackson时区序列化</h3>
+<p>SpringBoot默认使用Jackson处理JSON序列化，Jackson会使用系统时区，这在分布式部署时会导致不一致的问题。</p>
+<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre class="codehilite"><code class="language-yaml">spring:
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+</code></pre>
+
+<h3 id="_2">日志配置</h3>
 <p>SpringBoot默认使用Logback，但默认配置下没有对日志文件进行滚动和清理。</p>
 <p>长时间运行的应用会产生巨大的日志文件，最终占满磁盘空间。</p>
-<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">logging</span>:
-  <span class="pl-ent">file</span>:
-    <span class="pl-ent">name</span>: <span class="pl-s">app.log</span>
-  <span class="pl-ent">logback</span>:
-    <span class="pl-ent">rollingpolicy</span>:
-      <span class="pl-ent">max-file-size</span>: <span class="pl-s">100MB</span>
-      <span class="pl-ent">max-history</span>: <span class="pl-c1">30</span>
-      <span class="pl-ent">total-size-cap</span>: <span class="pl-s">3GB</span></pre></div>
-<div class="markdown-heading"><h3 class="heading-element">缓存配置</h3><a id="user-content-缓存配置" class="anchor" aria-label="Permalink: 缓存配置" href="#缓存配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>SpringBoot的@Cacheable注解默认使用ConcurrentHashMap作为缓存实现，但这个实现没有过期机制，也没有大小限制。在高并发场景下，缓存会无限增长，最终导致内存溢出。
+<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre class="codehilite"><code class="language-yaml">logging:
+  file:
+    name: app.log
+  logback:
+    rollingpolicy:
+      max-file-size: 100MB
+      max-history: 30
+      total-size-cap: 3GB
+</code></pre>
+
+<h3 id="_3">缓存配置</h3>
+<p>SpringBoot的Cacheable注解默认使用ConcurrentHashMap作为缓存实现，但这个实现没有过期机制，也没有大小限制。在高并发场景下，缓存会无限增长，最终导致内存溢出。
 可以考虑使用Caffeine替代默认实现，可以提供更好的性能和内存管理能力。</p>
-<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
-  <span class="pl-ent">cache</span>:
-    <span class="pl-ent">type</span>: <span class="pl-s">caffeine</span>
-    <span class="pl-ent">caffeine</span>:
-      <span class="pl-ent">spec</span>: <span class="pl-s">maximumSize=10000,expireAfterWrite=600s</span></pre></div>
-<div class="markdown-heading"><h3 class="heading-element">监控端点</h3><a id="user-content-监控端点" class="anchor" aria-label="Permalink: 监控端点" href="#监控端点"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre class="codehilite"><code class="language-yaml">spring:
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=10000,expireAfterWrite=600s
+</code></pre>
+
+<h3 id="_4">监控端点</h3>
 <p>SpringBoot Actuator默认暴露了很多监控端点，包括健康检查、配置信息、环境变量等。</p>
 <p>只暴露必要的端点，并且配置适当的安全策略，避免信息泄漏。</p>
-<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">management</span>:
-  <span class="pl-ent">endpoints</span>:
-    <span class="pl-ent">web</span>:
-      <span class="pl-ent">exposure</span>:
-        <span class="pl-ent">include</span>: <span class="pl-s">health,info,metrics</span>
-  <span class="pl-ent">endpoint</span>:
-    <span class="pl-ent">health</span>:
-      <span class="pl-ent">show-details</span>: <span class="pl-s">when-authorized</span></pre></div>
-<div class="markdown-heading"><h3 class="heading-element">文件上传大小限制</h3><a id="user-content-文件上传大小限制" class="anchor" aria-label="Permalink: 文件上传大小限制" href="#文件上传大小限制"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>SpringBoot默认的文件上传限制非常小，单个文件只能上传1MB，整个请求大小限制10MB。</p>
-<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
-  <span class="pl-ent">servlet</span>:
-    <span class="pl-ent">multipart</span>:
-      <span class="pl-ent">max-file-size</span>: <span class="pl-s">100MB</span>
-      <span class="pl-ent">max-request-size</span>: <span class="pl-s">100MB</span>
-      <span class="pl-ent">file-size-threshold</span>: <span class="pl-s">2KB</span>
-      <span class="pl-ent">location</span>: <span class="pl-s">/tmp</span>
-      <span class="pl-ent">resolve-lazily</span>: <span class="pl-c1">false</span></pre></div>
-<div class="markdown-heading"><h3 class="heading-element">异步线程池配置</h3><a id="user-content-异步线程池配置" class="anchor" aria-label="Permalink: 异步线程池配置" href="#异步线程池配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>使用<code>@Async</code>注解时，SpringBoot默认使用<code>SimpleAsyncTaskExecutor</code>，这个执行器每次都会创建新线程，没有线程池复用机制。高并发情况下会创建大量线程，最终导致系统资源耗尽。</p>
-<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
-  <span class="pl-ent">task</span>:
-    <span class="pl-ent">execution</span>:
-      <span class="pl-ent">pool</span>:
-        <span class="pl-ent">core-size</span>: <span class="pl-c1">8</span>
-        <span class="pl-ent">max-size</span>: <span class="pl-c1">16</span>
-        <span class="pl-ent">queue-capacity</span>: <span class="pl-c1">100</span>
-        <span class="pl-ent">keep-alive</span>: <span class="pl-c1">60s</span>
-      <span class="pl-ent">thread-name-prefix</span>: <span class="pl-s">async-task-</span>
-    <span class="pl-ent">scheduling</span>:
-      <span class="pl-ent">pool</span>:
-        <span class="pl-ent">size</span>: <span class="pl-c1">4</span>
-      <span class="pl-ent">thread-name-prefix</span>: <span class="pl-s">scheduling-</span></pre></div>
-<div class="markdown-heading"><h3 class="heading-element">静态资源缓存策略</h3><a id="user-content-静态资源缓存策略" class="anchor" aria-label="Permalink: 静态资源缓存策略" href="#静态资源缓存策略"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>SpringBoot默认不为静态资源设置HTTP缓存头，浏览器每次都会重新请求CSS、JS、图片等静态文件，影响页面加载性能。</p>
-<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">spring</span>:
-  <span class="pl-ent">web</span>:
-    <span class="pl-ent">resources</span>:
-      <span class="pl-ent">cache</span>:
-        <span class="pl-ent">cachecontrol</span>:
-          <span class="pl-ent">max-age</span>: <span class="pl-c1">365d</span>
-          <span class="pl-ent">cache-public</span>: <span class="pl-c1">true</span>
-      <span class="pl-ent">chain</span>:
-        <span class="pl-ent">strategy</span>:
-          <span class="pl-ent">content</span>:
-            <span class="pl-ent">enabled</span>: <span class="pl-c1">true</span>
-            <span class="pl-ent">paths</span>: <span class="pl-s">/**</span>
-        <span class="pl-ent">cache</span>: <span class="pl-c1">true</span>
-      <span class="pl-ent">static-locations</span>: <span class="pl-s">classpath:/static/</span></pre></div>
-<p>开启内容版本化策略后，SpringBoot会根据文件内容生成MD5哈希值作为版本号，文件名变成<code>style-abc123.css</code>这样的格式。当文件内容发生变化时，哈希值也会变化，浏览器会认为这是新文件重新下载；如果文件没变化，浏览器就直接使用缓存，有效提升页面加载速度。</p>
-<div class="markdown-heading"><h3 class="heading-element">数据库事务超时</h3><a id="user-content-数据库事务超时" class="anchor" aria-label="Permalink: 数据库事务超时" href="#数据库事务超时"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><code>@Transactional</code>注解默认没有设置超时时间，长时间运行的事务会一直持有数据库锁，影响其他操作的执行。批量数据处理时，容易出现锁表问题。</p>
-<div class="highlight highlight-source-java"><pre><span class="pl-c1">@</span><span class="pl-c1">Transactional</span>(<span class="pl-s1">timeout</span> = <span class="pl-c1">30</span>, <span class="pl-s1">rollbackFor</span> = <span class="pl-smi">Exception</span>.<span class="pl-k">class</span>)
-<span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-en">batchProcess</span>(<span class="pl-smi">List</span>&lt;<span class="pl-smi">Data</span>&gt; <span class="pl-s1">dataList</span>) {
-    <span class="pl-c">// 分批处理，避免长事务</span>
-    <span class="pl-smi">int</span> <span class="pl-s1">batchSize</span> = <span class="pl-c1">100</span>;
-    <span class="pl-k">for</span> (<span class="pl-smi">int</span> <span class="pl-s1">i</span> = <span class="pl-c1">0</span>; <span class="pl-s1">i</span> &lt; <span class="pl-s1">dataList</span>.<span class="pl-en">size</span>(); <span class="pl-s1">i</span> += <span class="pl-s1">batchSize</span>) {
-        <span class="pl-smi">List</span>&lt;<span class="pl-smi">Data</span>&gt; <span class="pl-s1">batch</span> = <span class="pl-s1">dataList</span>.<span class="pl-en">subList</span>(<span class="pl-s1">i</span>,
-            <span class="pl-smi">Math</span>.<span class="pl-en">min</span>(<span class="pl-s1">i</span> + <span class="pl-s1">batchSize</span>, <span class="pl-s1">dataList</span>.<span class="pl-en">size</span>()));
-        <span class="pl-en">processBatch</span>(<span class="pl-s1">batch</span>);
-    }
-}</pre></div>
+<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre class="codehilite"><code class="language-yaml">management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+</code></pre>
 
+<h3 id="_5">文件上传大小限制</h3>
+<p>SpringBoot默认的文件上传限制非常小，单个文件只能上传1MB，整个请求大小限制10MB。</p>
+<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre class="codehilite"><code class="language-yaml">spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      file-size-threshold: 2KB
+      location: /tmp
+      resolve-lazily: false
+</code></pre>
+
+<h3 id="_6">异步线程池配置</h3>
+<p>使用<code>@Async</code>注解时，SpringBoot默认使用<code>SimpleAsyncTaskExecutor</code>，这个执行器每次都会创建新线程，没有线程池复用机制。高并发情况下会创建大量线程，最终导致系统资源耗尽。</p>
+<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre class="codehilite"><code class="language-yaml">spring:
+  task:
+    execution:
+      pool:
+        core-size: 8
+        max-size: 16
+        queue-capacity: 100
+        keep-alive: 60s
+      thread-name-prefix: async-task-
+    scheduling:
+      pool:
+        size: 4
+      thread-name-prefix: scheduling-
+</code></pre>
+
+<h3 id="_7">静态资源缓存策略</h3>
+<p>SpringBoot默认不为静态资源设置HTTP缓存头，浏览器每次都会重新请求CSS、JS、图片等静态文件，影响页面加载性能。</p>
+<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre class="codehilite"><code class="language-yaml">spring:
+  web:
+    resources:
+      cache:
+        cachecontrol:
+          max-age: 365d
+          cache-public: true
+      chain:
+        strategy:
+          content:
+            enabled: true
+            paths: /**
+        cache: true
+      static-locations: classpath:/static/
+</code></pre>
+
+<p>开启内容版本化策略后，SpringBoot会根据文件内容生成MD5哈希值作为版本号，文件名变成<code>style-abc123.css</code>这样的格式。当文件内容发生变化时，哈希值也会变化，浏览器会认为这是新文件重新下载；如果文件没变化，浏览器就直接使用缓存，有效提升页面加载速度。</p>
+<h3 id="_8">数据库事务超时</h3>
+<p><code>@Transactional</code>注解默认没有设置超时时间，长时间运行的事务会一直持有数据库锁，影响其他操作的执行。批量数据处理时，容易出现锁表问题。</p>
+<button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre class="codehilite"><code class="language-java">@Transactional(timeout = 30, rollbackFor = Exception.class)
+public void batchProcess(List&lt;Data&gt; dataList) {
+    // 分批处理，避免长事务
+    int batchSize = 100;
+    for (int i = 0; i &lt; dataList.size(); i += batchSize) {
+        List&lt;Data&gt; batch = dataList.subList(i,
+            Math.min(i + batchSize, dataList.size()));
+        processBatch(batch);
+    }
+}
+</code></pre>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/6.html" aria-label="Previous Page">0X6 PC端常用软件</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/137.html" aria-label="Next Page">0X89 我关注的项目这周更新了什么-2025-08-01</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/137.html" aria-label="Previous Page">0X89 我关注的项目这周更新了什么-2025-08-01</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

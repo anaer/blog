@@ -1,17 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 31 Jul 2025 07:33:55 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 31 Jul 2025 07:33:55 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X8A Spring Boot配置</title><link>https://anaer.github.io/blog/post/138.html</link><description>本文介绍了Spring Boot的各种配置，包括Tomcat连接池、数据库连接池、Jackson时区序列化、日志配置、缓存配置、监控端点、文件上传大小限制、异步线程池配置、静态资源缓存策略以及数据库事务超时等方面的内容。这些配置需要根据实际使用的版本和环境进行调整，以优化应用性能和资源管理。
-
-优化建议：
-1. 确保Tomcat连接池的配置与实际并发需求相匹配，避免不必要的资源浪费。
-2. HikariCP的连接池参数应根据数据库负载和应用需求进行调整，确保连接的有效性。
-3. Jackson的时区配置应统一，以避免在分布式环境中出现时间不一致的问题。
-4. 日志配置应定期清理，以防止磁盘空间被占满，建议使用滚动日志策略。
-5. 考虑使用Caffeine替代ConcurrentHashMap，以提高缓存性能和管理能力。
-6. 监控端点的暴露应谨慎配置，确保不泄露敏感信息。
-7. 文件上传大小限制应根据实际需求进行合理配置，避免影响用户体验。
-8. 异步线程池的配置应考虑系统负载，合理设置核心和最大线程数，以提高资源利用率。
-9. 静态资源缓存策略应设置适当的缓存头，以提升页面加载速度。
-10. 数据库事务应设置超时时间，避免长时间持有锁，影响系统性能。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/138.html</guid><pubDate>Thu, 31 Jul 2025 07:18:46 +0000</pubDate></item><item><title>0X89 我关注的项目这周更新了什么-2025-08-01</title><link>https://anaer.github.io/blog/post/137.html</link><description>本文介绍了多个软件版本的更新情况，包括Dify 1.7.1、Hurl 7.0.0、Higress 2.1.6、awesome-mac v1.10.0和Folo v0.6.4。Dify 1.7.1引入了默认值功能、条件过滤变量选择和OpenAPI schema增强等新特性，同时修复了多项错误并进行了用户体验优化。Hurl 7.0.0更新了多个过滤器和功能，修复了curl命令相关的问题，并解决了安全漏洞。Higress 2.1.6包含新功能和Bug修复，特别是增强了API资源管理能力。awesome-mac v1.10.0支持赞助和Docker部署，增加了多个应用程序，同时进行了更新和优化。Folo v0.6.4主要解决了CPU峰值问题。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Tip</title><link>https://anaer.github.io/blog</link><description>闲言碎语</description><copyright>Tip</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://cloud.githubusercontent.com/assets/5518/13031528/447804ce-d30b-11e5-8002-9424d5474ddb.png</url><title>avatar</title><link>https://anaer.github.io/blog</link></image><lastBuildDate>Thu, 31 Jul 2025 08:07:06 +0000</lastBuildDate><managingEditor>Tip</managingEditor><pubDate>Thu, 31 Jul 2025 08:07:06 +0000</pubDate><ttl>60</ttl><webMaster>Tip</webMaster><item><title>0X8A Spring Boot配置</title><link>https://anaer.github.io/blog/post/138.html</link><description>本文介绍了Spring Boot的配置要点，涵盖了Tomcat连接池、数据库连接池、Jackson时区序列化、日志配置、缓存配置、监控端点、文件上传大小限制、异步线程池配置、静态资源缓存策略和数据库事务超时等方面。指出了默认配置的不足之处，例如Tomcat的最大连接数和工作线程数设置、HikariCP的连接数限制、Jackson处理JSON时的时区问题、Logback日志文件的管理、默认缓存实现的缺陷、监控端点的安全性、文件上传的限制、异步执行器的线程管理、静态资源的缓存策略以及数据库事务的超时设置。建议根据实际需求进行合理调整和优化，以避免性能问题和资源浪费。</description><guid isPermaLink="true">https://anaer.github.io/blog/post/138.html</guid><pubDate>Thu, 31 Jul 2025 07:18:46 +0000</pubDate></item><item><title>0X89 我关注的项目这周更新了什么-2025-08-01</title><link>https://anaer.github.io/blog/post/137.html</link><description>本文介绍了多个软件版本的更新情况，包括Dify 1.7.1、Hurl 7.0.0、Higress 2.1.6、awesome-mac v1.10.0和Folo v0.6.4。Dify 1.7.1引入了默认值功能、条件过滤变量选择和OpenAPI schema增强等新特性，同时修复了多项错误并进行了用户体验优化。Hurl 7.0.0更新了多个过滤器和功能，修复了curl命令相关的问题，并解决了安全漏洞。Higress 2.1.6包含新功能和Bug修复，特别是增强了API资源管理能力。awesome-mac v1.10.0支持赞助和Docker部署，增加了多个应用程序，同时进行了更新和优化。Folo v0.6.4主要解决了CPU峰值问题。
 
 优化建议：
 1. 在每个版本更新中，建议增加更详细的使用场景或应用示例，以帮助用户理解新功能的实际应用。
