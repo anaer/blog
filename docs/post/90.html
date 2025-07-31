@@ -126,12 +126,12 @@ pre {
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#8740A6">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#服务">服务</a></object>
-        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#682650">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Win10">Win10</a></object>
         </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
         </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#5319e7">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Mac">Mac</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#1606df">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Wins">Wins</a></object>
         </span>
 </div>
 <br>
@@ -139,16 +139,12 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-14 10:05:18</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-16 16:40:53</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-16 16:41:48</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在Windows、Mac和Linux系统中管理服务的步骤和配置方法，包括使用WinSW工具在Windows上创建和管理服务，使用LaunchAgent在Mac上配置服务，以及在Linux中通过systemd管理服务的方式。每个系统的服务配置文件示例和相关命令均已提供，以便用户轻松实现服务的安装、启动、停止等操作。
+    <strong>AI总结:</strong> 本文介绍了在Windows、Mac和Linux系统中如何创建和管理服务。Windows服务使用winsw.exe进行全局管理，可以通过配置XML文件来定义服务的基本信息、环境变量、可执行文件和日志设置。提供了安装、卸载、启动、停止、重启和查询服务状态的命令。Mac服务则通过创建和编辑LaunchAgent配置文件（.plist）来实现，包含服务标识、程序参数及加载验证的步骤。Linux服务通过systemd配置文件定义，包含服务描述、依赖关系、资源限制和启动命令等，并提供了启用服务的命令。
 
-优化建议：
-1. 在Windows部分，建议提供更多关于服务状态查询和日志查看的命令，以帮助用户更全面地管理服务。
-2. 在Mac服务部分，建议添加如何卸载和修改已加载服务的步骤，以便用户能够更灵活地管理服务。
-3. 在Linux部分，建议详细说明如何查看服务的运行状态和日志，以便用户能够及时发现问题。
-4. 考虑在各个部分中加入常见问题解答，以帮助用户解决可能遇到的常见问题。
+存在的错误观点包括：在Mac服务部分，示例代码中“/MYAPP_HOME/myapp”应替换为实际的应用程序路径，而不是使用占位符。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -246,7 +242,7 @@ launchctl list <span class="pl-k">|</span> grep myapp                           
 systemctl <span class="pl-c1">enable</span> myapp <span class="pl-c"><span class="pl-c">#</span> 启用服务</span></pre></div>
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/89.html" aria-label="Previous Page">0X59 VSCode扩展配置说明</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/91.html" aria-label="Next Page">0X5B 我关注的项目这周更新了什么-2025-03-21</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/92.html" aria-label="Previous Page">0X5C MCP开发手册</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/89.html" aria-label="Next Page">0X59 VSCode扩展配置说明</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
