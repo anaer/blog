@@ -1,134 +1,140 @@
-<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/Orange-OpenSource/hurl/releases/tag/7.0.0">hurl 7.0.0</a>
-</h1><a id="user-content-1-hurl-700" class="anchor" aria-label="Permalink: 1. hurl 7.0.0" href="#1-hurl-700"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Hurl, run and test HTTP requests with plain text.</p>
-<p>Hurl 7.0.0 版本于2025年7月28日发布。该版本包含了多项重大变更、功能增强和错误修复。</p>
-<p>主要变更：</p>
-<ul>
-<li>新增replaceRegex过滤器，并修复replace过滤器不支持正则表达式的问题</li>
-</ul>
-<p>功能增强：</p>
-<ul>
-<li>新增HTTP重定向查询功能</li>
-<li>添加urlQueryParam过滤器</li>
-<li>在错误格式设为long时显示curl命令</li>
-<li>新增请求超时时间配置选项</li>
-<li>添加日期比较谓词</li>
-<li>新增pinnedpubkey命令行选项</li>
-<li>添加Base64 URL安全编码/解码过滤器</li>
-<li>支持解析curl的--cookie标志</li>
-<li>为hurl --help添加彩色显示</li>
-<li>新增toHex、first、last等过滤器</li>
-<li>移除hex crate依赖</li>
-<li>改进测试进度输出显示</li>
-<li>支持nth过滤器的负值和模板参数</li>
-<li>新增isUuid谓词</li>
-<li>改进捕获错误消息</li>
-<li>新增NTLM和协商认证选项</li>
-</ul>
-<p>错误修复：</p>
-<ul>
-<li>修复POST重定向时的curl命令错误</li>
-<li>修复hurlfmt中curl命令无效头参数问题</li>
-<li>修复curl命令中verbose标志解析</li>
-<li>修复秘密变量覆盖问题</li>
-<li>修复zsh补全功能</li>
-<li>修复cookie过期日期解析</li>
-<li>替换已弃用的libxml2函数</li>
-<li>修复HTML报告中的注释行显示</li>
-<li>修复请求体在重定向时的问题</li>
-<li>修复GraphQL HTML导出中的变量标记</li>
-<li>支持jsonpath中的负索引</li>
-</ul>
-<p>安全修复：</p>
-<ul>
-<li>修复HTML报告中通过正则表达式字面量导致的JavaScript注入漏洞</li>
-</ul>
-<p>感谢所有贡献者对本版本的支持与贡献。</p>
-<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.6">higress v2.1.6</a>
-</h1><a id="user-content-2-higress-v216" class="anchor" aria-label="Permalink: 2. higress v2.1.6" href="#2-higress-v216"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🤖 AI Gateway AI Native API Gateway</p>
-<p>Higress 2.1.6 版本发布摘要</p>
-<p>本次发布包含31项更新，涵盖功能增强、错误修复和性能优化等多个方面。</p>
-<p>主要亮点：</p>
-<ol>
-<li>新增Higress API MCP服务器功能，提供更灵活的资源管理方式</li>
-<li>将WASM Go插件迁移至新SDK并升级Go 1.24版本，提升稳定性</li>
-</ol>
-<p>重要功能：</p>
-<ol>
-<li>Higress API MCP服务器：</li>
-</ol>
-<ul>
-<li>支持集中管理路由、服务源和插件</li>
-<li>提供详细的配置参数说明</li>
-<li>需通过Higress Gateway配置文件启用</li>
-</ul>
-<ol start="2">
-<li>WASM插件升级：</li>
-</ol>
-<ul>
-<li>更新Dockerfile和构建参数</li>
-<li>修复日志类型不匹配问题</li>
-<li>优化构建脚本</li>
-</ul>
-<p>其他更新：</p>
-<ul>
-<li>新增14项功能，包括外部FQDN支持、全局速率限制等</li>
-<li>修复5个错误，包括内存泄漏、拼写错误等</li>
-<li>6项重构优化，如改进SSE消息处理</li>
-<li>5项文档更新</li>
-<li>1项测试改进</li>
-</ul>
-<p>Higress Console同步发布12项更新：</p>
-<ul>
-<li>新增6项功能，包括多路由配置、JSON Schema支持等</li>
-<li>修复5个错误，如行尾不一致问题</li>
-<li>1项数据库配置优化</li>
-</ul>
-<p>感谢所有贡献者的辛勤工作！</p>
-<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/RSSNext/Folo/releases/tag/v0.6.4">Folo v0.6.4</a>
-</h1><a id="user-content-3-folo-v064" class="anchor" aria-label="Permalink: 3. Folo v0.6.4" href="#3-folo-v064"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>🧡 Follow everything in one place</p>
-<p>此热修复版本解决了以下问题：桌面端读取条目时出现的CPU占用率飙升问题。</p>
-<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/langgenius/dify/releases/tag/1.7.1">dify 1.7.1</a>
-</h1><a id="user-content-4-dify-171" class="anchor" aria-label="Permalink: 4. dify 1.7.1" href="#4-dify-171"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h1 class="heading-element">1. <a href="https://github.com/langgenius/dify/releases/tag/1.7.1">dify 1.7.1</a>
+</h1><a id="user-content-1-dify-171" class="anchor" aria-label="Permalink: 1. dify 1.7.1" href="#1-dify-171"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Production-ready platform for agentic workflow development.</p>
 <p>Dify v1.7.1 发布说明</p>
 <p>新特性：</p>
 <ol>
 <li>为选择输入字段添加默认值功能</li>
-<li>支持在列表操作的条件过滤中选择变量</li>
-<li>增强OpenAPI Schema，支持allOf属性</li>
-<li>为Kubernetes部署中的api组件添加纯迁移选项</li>
+<li>支持在条件过滤中选择变量</li>
+<li>增强OpenAPI schema，支持allOf属性</li>
+<li>新增K8s纯迁移选项</li>
 </ol>
 <p>错误修复：</p>
 <ol>
-<li>修正Langfuse集成路径处理问题</li>
-<li>修复使用RabbitMQ时CELERY_BROKER批量添加文档片段的问题</li>
-<li>解决元数据批量编辑跨页选择问题</li>
-<li>修复Windows系统PEM密钥路径错误</li>
+<li>修正Langfuse集成路径问题</li>
+<li>解决CELERY_BROKER处理RabbitMQ时的问题</li>
+<li>修复元数据批量编辑跨页问题</li>
+<li>修正Windows系统PEM密钥路径错误</li>
 </ol>
-<p>改进：</p>
+<p>优化改进：</p>
 <ol>
-<li>优化ToolTip组件在菜单中的交互效果</li>
-<li>增强PostgreSQL健康检查命令</li>
-<li>重构时间格式化功能以支持国际化</li>
-<li>改进工具列表页面设计</li>
-</ol>
-<p>其他变更：</p>
-<ol>
-<li>移除重复的TYPE_CHECKING导入</li>
-<li>优化错误消息处理</li>
-<li>修复暗模式闪烁问题</li>
-<li>改进工作流操作提示弹窗</li>
+<li>优化ToolTip组件交互效果</li>
+<li>增强PostgreSQL健康检查</li>
+<li>重构时间格式化功能支持国际化</li>
+<li>重新设计工具列表页面</li>
 </ol>
 <p>升级指南：</p>
+<ul>
+<li>Docker Compose部署：备份配置→获取最新代码→停止服务→备份数据→升级服务</li>
+<li>源码部署：停止服务→获取1.7.1分支代码→更新依赖→运行迁移脚本→重启服务</li>
+</ul>
+<p>该版本包含多项功能增强、错误修复和用户体验优化，特别感谢所有贡献者的工作。</p>
+<div class="markdown-heading"><h1 class="heading-element">2. <a href="https://github.com/Orange-OpenSource/hurl/releases/tag/7.0.0">hurl 7.0.0</a>
+</h1><a id="user-content-2-hurl-700" class="anchor" aria-label="Permalink: 2. hurl 7.0.0" href="#2-hurl-700"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Hurl, run and test HTTP requests with plain text.</p>
+<p>Hurl 7.0.0版本于2025年7月28日发布，主要更新内容包括：</p>
 <ol>
-<li>Docker Compose部署：备份、拉取代码、停止服务、升级</li>
-<li>源码部署：停止服务、获取代码、更新依赖、运行迁移脚本</li>
+<li>
+<p>致谢名单：感谢18位贡献者的代码提交。</p>
+</li>
+<li>
+<p>重大变更：</p>
+</li>
 </ol>
-<p>本次更新包含来自多位贡献者的代码改进和问题修复，提升了平台稳定性和用户体验。</p>
-<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/jaywcjlove/awesome-mac/releases/tag/v1.10.0">awesome-mac v1.10.0</a>
-</h1><a id="user-content-5-awesome-mac-v1100" class="anchor" aria-label="Permalink: 5. awesome-mac v1.10.0" href="#5-awesome-mac-v1100"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>新增replaceRegex过滤器，并修复replace过滤器不再支持正则表达式的问题。</li>
+</ul>
+<ol start="3">
+<li>功能增强：</li>
+</ol>
+<ul>
+<li>新增HTTP重定向查询功能</li>
+<li>新增urlQueryParam过滤器</li>
+<li>长错误格式下显示curl命令</li>
+<li>支持配置每个请求的超时时间</li>
+<li>新增日期比较谓词</li>
+<li>新增pinnedpubkey命令行选项</li>
+<li>新增base64 URL安全编码/解码过滤器</li>
+<li>解析curl的--cookie标志</li>
+<li>为--help添加彩色显示</li>
+<li>新增toHex、first、last等过滤器</li>
+<li>支持负值nth过滤器</li>
+<li>新增请求级pinnedpubkey配置</li>
+<li>新增状态标签时间轴链接</li>
+<li>支持模板化nth过滤器参数</li>
+<li>新增isUuid谓词</li>
+<li>改进捕获错误消息</li>
+<li>新增NTLM和协商认证选项</li>
+</ul>
+<ol start="4">
+<li>问题修复：</li>
+</ol>
+<ul>
+<li>修复POST重定向的curl命令错误</li>
+<li>修复curl命令中无效头参数问题</li>
+<li>修复curl命令verbose标志解析</li>
+<li>修复秘密变量覆盖问题</li>
+<li>修复zsh补全功能</li>
+<li>修复cookie过期日期解析</li>
+<li>替换废弃的libxml2函数</li>
+<li>修复HTML报告中的注释行显示</li>
+<li>修复重定向时的请求体问题</li>
+<li>修复GraphQL HTML导出问题</li>
+<li>支持jsonpath负索引</li>
+</ul>
+<ol start="5">
+<li>安全修复：</li>
+</ol>
+<ul>
+<li>修复HTML报告中通过正则表达式字面量导致的JavaScript注入漏洞</li>
+</ul>
+<div class="markdown-heading"><h1 class="heading-element">3. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.6">higress v2.1.6</a>
+</h1><a id="user-content-3-higress-v216" class="anchor" aria-label="Permalink: 3. higress v2.1.6" href="#3-higress-v216"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🤖 AI Gateway AI Native API Gateway</p>
+<p>Higress 2.1.6版本发布，包含31项更新，主要分为新功能（13项）、Bug修复（5项）、重构优化（7项）、文档更新（5项）和测试改进（1项）。关键更新包括新增Higress API MCP服务器功能和将WASM Go插件迁移至新SDK及Go 1.24版本。</p>
+<p>Higress API MCP服务器增强了资源管理能力，支持通过API进行路由和服务的CRUD操作，提高了系统灵活性和可维护性。迁移至新SDK和Go 1.24版本则提升了插件兼容性和性能。</p>
+<p>其他重要更新包括支持外部服务FQDN注解、AI Token限流插件全局路由限速阈值设置、LLM流式请求首字节超时支持等。Bug修复涉及SQL错误、内存泄漏、拼写错误等问题。</p>
+<p>Higress Console版本包含12项更新，新增6项功能（如多路由配置、JSON Schema支持等），修复5个Bug（如行尾统一、UI问题等），并进行了1项重构优化。</p>
+<p>本次发布共有6位新贡献者加入。感谢所有贡献者的努力！</p>
+<div class="markdown-heading"><h1 class="heading-element">4. <a href="https://github.com/jaywcjlove/awesome-mac/releases/tag/v1.10.0">awesome-mac v1.10.0</a>
+</h1><a id="user-content-4-awesome-mac-v1100" class="anchor" aria-label="Permalink: 4. awesome-mac v1.10.0" href="#4-awesome-mac-v1100"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p> Now we have become very big, Different from the original idea. Collect premium software in various categories.</p>
-<p>本文档介绍了awesome-mac项目v1.10.0版本的更新内容及使用方法。主要更新包括：新增了Free Download Manager、Saga Reader、Quickgif、Mousio、AI Client等应用；修复了Skype替换为Teams的问题；移除了bitbar；修正了部分拼写错误。文档提供了通过npm安装1.10.0版本的方法，会生成两个JSON文件。同时支持Docker部署，可通过指定端口9881访问服务。项目还提供了赞助链接和版本变更对比地址。</p>
+<p>这是一个关于awesome-mac项目v1.10.0版本的更新说明。主要内容包括：</p>
+<ol>
+<li>
+<p>项目支持赞助和Docker部署，提供npm安装方式</p>
+</li>
+<li>
+<p>新增多个应用程序和工具：</p>
+<ul>
+<li>Free Download Manager、Saga Reader、Quickgif、Mousio、AI Client、Chatbox等</li>
+<li>Witsy、ProcessSpy、Vidwall、uPaste、Oka Unarchiver等</li>
+<li>Windsurf、SimTool、KubeSwitch、DockDoor等开发工具</li>
+<li>Testpiler、Monotype、Web、FlyEnv、FlowVision等</li>
+</ul>
+</li>
+<li>
+<p>更新和优化：</p>
+<ul>
+<li>将Skype替换为Teams</li>
+<li>更新Mac Mouse Fix和Readest链接</li>
+<li>修复拼写错误和名称问题</li>
+<li>移除bitbar</li>
+</ul>
+</li>
+<li>
+<p>提供多种使用方式：</p>
+<ul>
+<li>通过npm安装</li>
+<li>使用Docker镜像部署</li>
+<li>直接访问文档链接</li>
+</ul>
+</li>
+<li>
+<p>版本变更可通过GitHub比较查看，当前文档版本为v1.10.0</p>
+</li>
+</ol>
+<div class="markdown-heading"><h1 class="heading-element">5. <a href="https://github.com/RSSNext/Folo/releases/tag/v0.6.4">Folo v0.6.4</a>
+</h1><a id="user-content-5-folo-v064" class="anchor" aria-label="Permalink: 5. Folo v0.6.4" href="#5-folo-v064"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>🧡 Follow everything in one place</p>
+<p>该热修复版本主要解决以下问题：桌面端读取条目时的CPU峰值问题。</p>
