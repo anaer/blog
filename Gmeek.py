@@ -8,13 +8,13 @@ import shutil
 import urllib
 import requests
 import argparse
-import md2html
 from datetime import datetime, timedelta
 from github import Github
 from feedgen.feed import FeedGenerator
 from jinja2 import Environment, FileSystemLoader
 from bs4 import BeautifulSoup
 from Summary import generate_summary
+from md2html import Markdown2GithubHtml
 
 ######################################################################################
 i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home","comments":"comments","run":"run ","days":" days","Previous":"Previous","Next":"Next", "First": "First", "Last": "Last"}
