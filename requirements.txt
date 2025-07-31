@@ -3,3 +3,4 @@ requests
 feedgen
 Jinja2
 beautifulsoup4
+markdown

@@ -8,6 +8,7 @@ import shutil
 import urllib
 import requests
 import argparse
+import md2html
 from datetime import datetime, timedelta
 from github import Github
 from feedgen.feed import FeedGenerator
@@ -379,7 +380,11 @@ class GMEEK():
         mdHtmlPath = mdPath + ".html"
         # 需要使用缓存的buildedAt与当前的updatedAt进行比较
         if (not os.path.isfile(mdHtmlPath) or postNum not in self.blogBase[listJsonName] or "buildedAt" not in self.blogBase[listJsonName][postNum] or self.blogBase[listJsonName][postNum]["buildedAt"] != post["updatedAt"]):
-            mdHtml = self.markdown2html(content)
+            # 1. Github api转换
+            # mdHtml = self.markdown2html(content)
+            # 2. python markdown转换
+            tool = Markdown2GithubHtml()
+            mdHtml = tool.convert(content)
             fp = open(mdHtmlPath, 'w', encoding='UTF-8')
             fp.write(mdHtml)
             fp.close()
