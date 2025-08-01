@@ -32,8 +32,9 @@
 1. LocalSend [GitHub](https://github.com/localsend/localsend/releases/tag/v1.17.0) 多端 支持Mac, iPhone, Android, TV等
 2. WinSCP [官网](https://winscp.net/eng/download.php)
 3. aria2 [GitHub](https://github.com/aria2/aria2/releases/)
-4. KDE Connect [官网](https://kdeconnect.kde.org/)
+4. ~~KDE Connect~~ [官网](https://kdeconnect.kde.org/)
 5. ~~fastcopy~~ [官网](https://fastcopy.jp/)   大文件复制用的不多
+
 ### AI
 1. Cherry Studio [GitHub](https://github.com/CherryHQ/cherry-studio/releases)
 
@@ -50,9 +51,6 @@
 ### 搜索
 1. Everything [官网](https://www.voidtools.com/zh-cn/) 
 2. ~~Anytxt Searcher~~ [官网](https://anytxt.net/download/) 
-
-### 文件
-1. ~~FileConverter~~ 文件转换 [GitHub](https://github.com/Tichau/FileConverter/releases) 
 
 ### 清理
 1. PrivaZer [官网](https://www.PrivaZer.com/download-pro.php) 已购 
@@ -77,21 +75,22 @@
 9. ~~uTools~~      [官网](https://www.u.tools/)                                  
 10. ~~mucommander~~ [GitHub](https://github.com/mucommander/mucommander/releases/)多端 支持Mac
 11. ~~doublecmd~~  [GitHub](https://github.com/doublecmd/doublecmd/releases/) 多端 支持Mac
+12. ~~FileConverter~~ 文件转换 [GitHub](https://github.com/Tichau/FileConverter/releases) 
 
 ## 健康
 1. ~~LightBulb~~ 开源护眼软件 [GitHub](https://github.com/Tyrrrz/LightBulb/releases/) 效果一般
 
 ## 办公
-2. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
-1. ~~OnlyOffice~~ [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
-4. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
+1. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
+2. ~~OnlyOffice~~ [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
+3. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
 
 ## 开发
 
 ### Java
 1. JDK23 [官网](https://www.oracle.com/java/technologies/downloads/#jdk23-windows) 
 2. JDK17 [官网](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) 
-3. JDK8 [华为云镜像](https://repo.huaweicloud.com/java/jdk/)  [三方镜像](https://mirrors.yangxingzhen.com/jdk/)
+3. JDK8-17 [华为云镜像](https://repo.huaweicloud.com/java/jdk/)  [三方镜像](https://mirrors.yangxingzhen.com/jdk/)
 4. Maven [华为云镜像](https://mirrors.huaweicloud.com/apache/maven/maven-3/3.9.8/binaries/)     
                                               
 ### Android
