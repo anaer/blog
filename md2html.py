@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "pygments_style": "monokai", # 使用 github 样式
             "linenums": False, # 显示行号
             }
-            }
+        }
         # 使用 pygments 的 'prettylights' 样式高亮
         self.md = markdown.Markdown(extensions=extensions, extension_configs=extension_configs)
 
@@ -79,8 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         '<button class="copy-btn">复制</button>')
             return '<div>' + controls + '\n' + pre_tag + '</div>'
 
-        return re.sub(r'<pre[^>]*><code[^>]*>.*?</code></pre>',
-                      _repl, html, flags=re.DOTALL)
+        # 匹配 <pre> 标签，允许 <pre> 内 <code> 前存在 <span> 等标签
+        # 例如 <pre><span ...></span><code>...</code></pre>
+        return re.sub(
+            r'<pre[^>]*>(?:<span[^>]*>.*?</span>\s*)*<code[^>]*>.*?</code></pre>',
+            _repl, html, flags=re.DOTALL
+        )
 
     def convert(self, md_text: str) -> str:
         """把 markdown 文本渲染成完整 HTML"""
