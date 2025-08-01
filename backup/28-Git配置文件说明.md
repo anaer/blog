@@ -13,10 +13,10 @@ workspace       index          local repository      remo
 <------diff-------|
 ```
 
-workspace            用户的工作空间
-index                数据缓存区
-local repository     本地仓库
-remote repository    远程仓库
+	workspace            用户的工作空间 
+	index                数据缓存区 
+	local repository     本地仓库 
+	remote repository    远程仓库 
 
 ## .git/config
 

@@ -1,8 +1,8 @@
 /* 折叠, 复制按钮样式 */
-.fold-btn, .copy-btn {{
+.fold-btn, .copy-btn {
   background: #eee; border: 1px solid #bbb; border-radius: 3px;
   padding: 4px 8px; margin-right: 6px; cursor: pointer; font-size: 0.75em;
-}}
+}
 
 
 /* GitHub syntax highlighting style */
