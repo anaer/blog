@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -133,140 +135,182 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-28 23:13:28</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 12:46:31</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 23:13:46</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新，包括subs-check v1.3.7、dify 1.7.1、hurl 7.0.0、Folo v0.6.4、higress v2.1.6和awesome-mac v1.10.0。主要更新内容包括功能增强、新增特性和错误修复。subs-check增加了定时任务配置和节点备注功能，dify增强了OpenAPI模式和Kubernetes部署选项，hurl引入了多个新过滤器和安全修复，Folo修复了CPU峰值问题，higress更新了API管理和性能优化，awesome-mac增加了多款新应用并修复了已知问题。需要注意的是，hurl 7.0.0的发布日期被错误地标注为2025年7月28日，可能是一个笔误。
+    <strong>AI总结:</strong> 本文介绍了多个软件版本的更新，包括Dify 1.7.1、Folo v0.6.4、Hurl 7.0.0、subs-check v1.3.7、Higress v2.1.6和awesome-mac v1.10.0。Dify 1.7.1增强了表单体验和条件过滤功能，并修复了多个问题。Folo v0.6.4主要解决了CPU峰值问题。Hurl 7.0.0引入了多个新过滤器和功能，修复了多项错误并增强了安全性。subs-check v1.3.7增加了定时任务配置和节点备注功能。Higress v2.1.6引入了MCP服务器和WASM插件升级，改善了性能和安全性。awesome-mac v1.10.0更新了多个应用和功能，并提供了新的安装方式和文档。整体上，各版本更新着重于功能增强和问题修复。没有明显错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <title>Markdown Preview</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
-  <style>
-    body { box-sizing: border-box; padding: 2em; max-width: 1012px; margin: 0 auto; }
-    .fold-btn, .copy-btn {
-      background: #eee; border: 1px solid #bbb; border-radius: 3px;
-      padding: 4px 8px; margin-right: 6px; cursor: pointer; font-size: 0.75em;
-    }
-  </style>
-</head>
-<body>
+
   <article class="markdown-body">
-    <h1 id="1-subs-check-v137">1. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.7">subs-check v1.3.7</a></h1>
-<p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具</p>
-<p>本次更新主要包含以下内容：<br />
-1. 新增sub-store拉取订阅和上传文件定时任务配置功能<br />
-2. 添加节点来源备注功能<br />
-3. 优化openAI检测机制，新增角标显示<br />
-4. 更新配置文件示例（config.example.yaml）<br />
-5. 包含若干常规优化和更新操作  </p>
-<p>（注：提交记录中的"op"和"update"为常规维护操作，未说明具体变更细节）</p>
-<h1 id="2-dify-171">2. <a href="https://github.com/langgenius/dify/releases/tag/1.7.1">dify 1.7.1</a></h1>
-<p>Production-ready platform for agentic workflow development.</p>
-<p>Dify v1.7.1 版本发布，主要包含以下内容：</p>
-<p>新功能：
-1. 为选择输入字段添加默认值选项 (#21192)
-2. 支持在列表操作的条件过滤中选择变量 (#23029)
-3. OpenAPI 模式增强，支持在模式属性中使用 allOf (#22975)
-4. 为 Kubernetes 部署中的 api 组件添加纯迁移选项 (#22750)</p>
-<p>错误修复：
-1. 修复 Langfuse 集成中的路径处理问题 (#22766)
-2. 解决使用 RabbitMQ 时批量添加文档片段时的处理状态问题 (#23038)
-3. 修复元数据批量编辑中的跨页文档选择问题 (#23000)
-4. 修正 Windows 系统上 private.pem 密钥文件的路径错误 (#22814)</p>
-<p>改进：
-1. 优化菜单中 ToolTip 组件的交互效果 (#23023)
-2. 增强 PostgreSQL 健康检查命令以避免致命日志错误 (#22749)
-3. 重构时间格式化功能以更好地支持国际化 (#22870)</p>
-<p>其他：
-1. 重新设计了工具列表页面 (#22879)
-2. 移除了重复的 TYPE_CHECKING 导入 (#23013)</p>
-<p>升级指南：
-1. Docker Compose 部署：备份自定义配置，拉取最新代码，停止服务，备份数据，升级服务
-2. 源代码部署：停止服务，拉取 1.7.1 版本代码，更新 Python 依赖，运行迁移脚本，重启服务</p>
-<p>本次更新共有 8 位新贡献者加入，完整变更日志可查看 GitHub 比较链接。</p>
+    <h1 id="1-dify-171">1. <a href="https://github.com/langgenius/dify/releases/tag/1.7.1">dify 1.7.1</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<p>Dify v1.7.1 版本发布，主要包含以下更新：  </p>
+<p>新功能：<br />
+1. 支持为选择输入字段设置默认值，提升表单使用体验<br />
+2. 列表操作的条件过滤中新增变量选择功能<br />
+3. OpenAPI schema中支持allOf属性<br />
+4. Kubernetes部署新增纯迁移选项  </p>
+<p>问题修复：<br />
+1. 修正Langfuse集成路径处理问题<br />
+2. 修复RabbitMQ批量添加文档段时的CELERY_BROKER处理问题<br />
+3. 解决元数据批量编辑跨页选择问题<br />
+4. 修正Windows系统PEM密钥路径错误  </p>
+<p>改进优化：<br />
+1. 优化菜单中ToolTip组件的交互效果<br />
+2. 增强PostgreSQL健康检查命令<br />
+3. 重构时间格式化功能以更好支持国际化<br />
+4. 工具列表页面重新设计  </p>
+<p>其他变更：<br />
+1. 移除重复的TYPE_CHECKING导入<br />
+2. 新增多种测试用例<br />
+3. 修复多个UI显示问题<br />
+4. 优化错误提示信息  </p>
+<p>升级指南：<br />
+- Docker Compose部署需备份数据后更新服务<br />
+- 源码部署需更新依赖并运行迁移脚本  </p>
+<p>该版本由多位新贡献者参与开发，共合并70+项变更，主要聚焦于功能完善、问题修复和体验优化。  </p>
+<h1 id="2-folo-v064">2. <a href="https://github.com/RSSNext/Folo/releases/tag/v0.6.4">Folo v0.6.4</a></h1>
+<p>🧡 Follow everything in one place  </p>
+<p>本次热修复版本主要解决以下问题：桌面端读取条目时出现的CPU峰值问题。  </p>
 <h1 id="3-hurl-700">3. <a href="https://github.com/Orange-OpenSource/hurl/releases/tag/7.0.0">hurl 7.0.0</a></h1>
-<p>Hurl, run and test HTTP requests with plain text.</p>
-<p>Hurl 7.0.0 版本于2025年7月28日发布，感谢多位贡献者的参与。新版本包含以下重要更新：</p>
-<p>破坏性变更：
-- 新增replaceRegex过滤器，并修复replace过滤器不再支持正则表达式的问题</p>
-<p>功能增强：
-- 新增HTTP重定向查询功能
-- 新增urlQueryParam过滤器
-- 长错误格式下显示curl命令
-- 新增请求超时配置选项
-- 新增日期比较断言
-- 新增pinnedpubkey命令行选项
-- 新增Base64 URL安全编解码过滤器
-- 支持解析curl的--cookie标志
-- 彩色显示hurl --help输出
-- 新增toHex过滤器
-- 新增first和last过滤器
-- 移除hex crate依赖
-- 优化--test进度输出
-- 支持nth过滤器的负值参数
-- 新增请求级pinnedpubkey配置
-- 在源码和运行页面添加时间线链接
-- 支持nth过滤器参数模板
-- 实现isUuid断言
-- 改进捕获错误信息
-- 新增--ntlm和--negotiate选项</p>
-<p>错误修复：
-- 修复POST重定向的curl命令错误
-- 修复hurlfmt中curl命令的无效头参数问题
-- 修复curl命令的verbose标志解析
-- 修复秘密变量覆盖问题
-- 修复zsh补全
-- 修复cookie Expires日期解析
-- 替换过时的libxml2函数
-- 修复HTML报告中的注释行范围
-- 修复带尾注的HTML闭合标签
-- 修复重定向时的请求体问题
-- 修复GraphQL HTML导出中的变量标记
-- 支持jsonpath负索引</p>
-<p>安全修复：
-- 修复HTML报告中通过正则表达式字面量的JavaScript注入漏洞</p>
-<p>用户可通过官方博客了解该版本的更多详情。</p>
-<h1 id="4-folo-v064">4. <a href="https://github.com/RSSNext/Folo/releases/tag/v0.6.4">Folo v0.6.4</a></h1>
-<p>🧡 Follow everything in one place</p>
-<p>此版本修复了桌面端读取条目时出现的CPU峰值问题。</p>
+<p>Hurl, run and test HTTP requests with plain text.  </p>
+<p>Hurl 7.0.0 版本于2025年7月28日发布，主要更新内容如下：  </p>
+<p>感谢所有贡献者，包括ecolinet、theofger等18位开发者。  </p>
+<p>重大变更：<br />
+- 新增replaceRegex过滤器，并修复replace过滤器不再支持正则表达式的问题  </p>
+<p>功能增强：<br />
+- 新增HTTP重定向查询功能<br />
+- 新增urlQueryParam过滤器<br />
+- 长格式错误输出时显示curl命令<br />
+- 支持配置每个请求的最大超时时间<br />
+- 新增日期比较谓词<br />
+- 新增pinnedpubkey命令行选项<br />
+- 新增Base64 URL安全编解码过滤器<br />
+- 解析curl的--cookie标志<br />
+- 为hurl --help添加彩色显示<br />
+- 新增toHex、first/last等过滤器<br />
+- 移除hex依赖项<br />
+- 改进测试进度输出<br />
+- 支持nth过滤器的负值和模板参数<br />
+- 新增isUuid谓词<br />
+- 改进捕获错误信息<br />
+- 新增NTLM和协商认证选项  </p>
+<p>错误修复：<br />
+- 修复POST重定向的curl命令错误<br />
+- 修复hurlfmt对无效curl头参数的校验<br />
+- 修复curl命令的verbose标志解析<br />
+- 修复秘密变量覆盖问题<br />
+- 修复zsh补全功能<br />
+- 修复cookie过期日期解析<br />
+- 替换已弃用的libxml2函数<br />
+- 修复HTML报告中的注释行显示<br />
+- 修复重定向时的请求体问题<br />
+- 修复GraphQL HTML导出中的变量标记<br />
+- 支持jsonpath负索引  </p>
+<p>安全修复：<br />
+- 修复HTML报告中通过正则表达式字面量导致的JavaScript注入漏洞  </p>
+<p>用户可通过官方博客了解新版本详情。  </p>
+<h1 id="4-subs-check-v137">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.7">subs-check v1.3.7</a></h1>
+<p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
+<p>本次更新主要包含以下改进：  </p>
+<ol>
+<li>新增功能：  </li>
+<li>添加sub-store订阅拉取和文件上传的定时任务配置  </li>
+<li>
+<p>新增节点来源备注功能  </p>
+</li>
+<li>
+<p>优化改进：  </p>
+</li>
+<li>优化openAI检测功能，添加了角标显示  </li>
+<li>
+<p>更新了配置文件示例(config.example.yaml)  </p>
+</li>
+<li>
+<p>其他维护：  </p>
+</li>
+<li>包含若干代码优化(op)和常规更新(update)  </li>
+</ol>
 <h1 id="5-higress-v216">5. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.6">higress v2.1.6</a></h1>
-<p>🤖 AI Gateway AI Native API Gateway</p>
-<p>Higress及Higress Console最新版本发布摘要：</p>
-<p>Higress主要更新：
-1. 包含31项更新，其中13项新功能、5项bug修复、7项重构优化、5项文档更新和1项测试改进
-2. 两大核心功能：
-   - 新增Higress API MCP服务器，支持通过MCP管理路由和服务，提升AI Agent对Higress资源的管理能力
-   - 将WASM Go插件迁移至Go 1.24 SDK，改用原生Go编译器替代TinyGo，提升插件性能和兼容性
-3. 其他重要功能：
-   - 支持外部服务FQDN注解
-   - 新增AI Token限流插件的全局路由限速阈值
-   - 支持LLM流式请求的首字节超时设置
-   - 新增Anthropic和Gemini API支持
-4. 修复了包括内存泄漏、SQL错误、特殊字符处理等关键问题</p>
-<p>Higress Console主要更新：
-1. 包含12项更新，其中6项新功能、5项bug修复和1项重构
-2. 核心改进：
-   - 支持单条路由配置多个子路由
-   - 新增插件JSON Schema定义
-   - 实现系统配置的撤销/重做功能
-   - 升级插件版本至2.0.0
-3. 修复了包括行尾格式、LLM提供商标识、配置加载等关键问题</p>
-<p>本次更新显著提升了系统功能完备性、稳定性和用户体验，特别强化了AI相关功能支持。</p>
+<p>🤖 AI Gateway AI Native API Gateway  </p>
+<p>Higress 2.1.5版本发布摘要  </p>
+<p>核心更新：<br />
+1. 新增31项更新，包含13项新功能、5项缺陷修复、7项重构优化、5项文档更新和1项测试改进<br />
+2. 两项重点功能：<br />
+   - Higress API MCP服务器：支持通过MCP协议管理路由、服务源和插件，提升AI Agent对Higress资源的管理能力<br />
+   - WASM Go插件迁移：改用原生Go 1.24编译，替代TinyGo，提升插件性能和兼容性  </p>
+<p>关键特性：<br />
+1. Higress API MCP服务器：<br />
+   - 通过Higress控制台API实现配置管理<br />
+   - 支持路由/服务源/插件的增删改查操作<br />
+   - 需在ConfigMap中配置控制台URL及认证信息  </p>
+<ol>
+<li>WASM插件升级：  </li>
+<li>升级Go版本至1.24.4  </li>
+<li>移除TinyGo依赖，简化构建流程  </li>
+<li>提升运行时效率和安全性  </li>
+</ol>
+<p>其他重要更新：<br />
+1. 新增AI代理插件功能：<br />
+   - 支持Azure OpenAI三种URL格式<br />
+   - 增加Anthropic/Gemini API支持<br />
+   - 实现Qwen模型文本重排序功能  </p>
+<ol>
+<li>系统优化：  </li>
+<li>修复Envoy内存泄漏问题  </li>
+<li>优化路由重定向逻辑  </li>
+<li>放宽DNS域名验证规则  </li>
+</ol>
+<p>Higress Console更新：<br />
+1. 12项更新（6新功能/5修复/1重构）<br />
+2. 核心改进：<br />
+   - 支持单路由配置多个子路由<br />
+   - 新增插件JSON Schema定义<br />
+   - 实现系统配置撤销/重做功能<br />
+   - 修复LLM提供商管理UI问题  </p>
+<p>版本统计：<br />
+- Higress：31项变更（2项重大更新）<br />
+- Console：12项变更  </p>
+<p>致谢所有贡献者的工作！  </p>
 <h1 id="6-awesome-mac-v1100">6. <a href="https://github.com/jaywcjlove/awesome-mac/releases/tag/v1.10.0">awesome-mac v1.10.0</a></h1>
-<p> Now we have become very big, Different from the original idea. Collect premium software in various categories.</p>
-<p>本文档记录了awesome-mac项目v1.10.0版本的更新内容。主要更新包括：新增Free Download Manager、Saga Reader、Quickgif、Mousio、AI Client、Chatbox等20余款应用；修复Skype替换为Teams等已知问题；优化部分链接和拼写错误。</p>
-<p>项目提供多种安装方式：
-1. 通过npm安装：<code>npm i awesome-mac@1.10.0</code>，包含中英文JSON文件
-2. Docker部署：支持通过<code>docker pull wcjiang/awesome-mac:1.10.0</code>获取镜像，运行后可通过http://localhost:9881/访问</p>
-<p>文档地址和版本比较链接：
-- 完整文档：https://raw.githack.com/jaywcjlove/awesome-mac/35bd5ba/index.html<br />
-- 版本变更对比：https://github.com/jaywcjlove/awesome-mac/compare/v1.9.0...v1.10.0  </p>
-<p>项目支持通过Buy Me a Coffee赞助，并提供了unpkg在线查看功能。</p>
+<p> Now we have become very big, Different from the original idea. Collect premium software in various categories.  </p>
+<p>本文档是awesome-mac项目的1.10.0版本更新内容摘要：  </p>
+<ol>
+<li>项目支持  </li>
+<li>提供Buy Me a Coffee赞助渠道  </li>
+<li>可通过npm安装该版本(npm i awesome-mac@1.10.0)  </li>
+<li>
+<p>提供Docker镜像(wcjiang/awesome-mac:1.10.0)，运行后可通过本地9881端口访问  </p>
+</li>
+<li>
+<p>主要更新内容  </p>
+</li>
+<li>新增多个应用：Free Download Manager、Saga Reader、Quickgif、Mousio、AI Client、Chatbox等  </li>
+<li>更新部分应用链接和功能：替换Skype为Teams、更新Mac Mouse Fix等  </li>
+<li>
+<p>修复问题：移除bitbar、修正拼写错误等  </p>
+</li>
+<li>
+<p>文档信息  </p>
+</li>
+<li>当前版本文档地址已提供  </li>
+<li>
+<p>包含与上一版本(v1.9.0)的变更对比链接  </p>
+</li>
+<li>
+<p>数据文件  </p>
+</li>
+<li>
+<p>提供JSON格式数据文件(awesome-mac.json和中文版awesome-mac.zh.json)  </p>
+</li>
+<li>
+<p>Docker使用说明  </p>
+</li>
+<li>提供两种运行方式的命令示例  </li>
+<li>访问方式为http://localhost:9881/  </li>
+</ol>
   </article>
   
 <script>
@@ -294,8 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-</body>
-</html>
+
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/136.html" aria-label="Previous Page">0X88 我关注的项目这周更新了什么-2025-07-25</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/138.html" aria-label="Next Page">0X8A Spring Boot配置</a></div>
 </nav>
