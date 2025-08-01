@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X10 Deeplx 负载均衡</title>
+<title>0X10 Deeplx 翻译</title>
 
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X10 Deeplx 负载均衡</a>
+    <a style="font-size:18px">0X10 Deeplx 翻译</a>
 </h1>
 
 <div class="title-right">
@@ -133,22 +135,50 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2024-08-01 15:59:09</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2024-12-26 17:13:30</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 16:44:41</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了支持deeplx的软件和扩展插件，包括沉浸式翻译、语言学家网页翻译器、简约翻译等，适用于Edge和Chrome浏览器。此外，还提到了pot的官方网站。没有明显的错误观点。
+</div>
 
 <div class="markdown-body" id="postBody">
-<p><a href="http://47.236.84.103:3000/translate" rel="nofollow">http://47.236.84.103:3000/translate</a></p>
-<p><del><a href="https://deeplx-lb-wheat.vercel.app/translate" rel="nofollow">https://deeplx-lb-wheat.vercel.app/translate</a></del></p>
-<p><a href="https://deeplx.smnet.io/translate" rel="nofollow">https://deeplx.smnet.io/translate</a></p>
-<div class="markdown-heading"><h2 class="heading-element">支持deeplx的软件和扩展插件</h2><a id="user-content-支持deeplx的软件和扩展插件" class="anchor" aria-label="Permalink: 支持deeplx的软件和扩展插件" href="#支持deeplx的软件和扩展插件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>沉浸式翻译 <a href="https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg" rel="nofollow">Edge</a></p>
-<p>语言学家 - 网页翻译器 <a href="https://chrome.google.com/webstore/detail/gbefmodhlophhakmoecijeppjblibmie" rel="nofollow">Chrome</a></p>
-<p>简约翻译 <a href="https://microsoftedge.microsoft.com/addons/detail/jemckldkclkinpjighnoilpbldbdmmlh" rel="nofollow">Edge</a></p>
-<p>pot <a href="https://pot-app.com/" rel="nofollow">官网</a></p>
+
+  <article class="markdown-body">
+    <h2 id="deeplx">支持deeplx的软件和扩展插件</h2>
+<p>沉浸式翻译 <a href="https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg">Edge</a>  </p>
+<p>语言学家 - 网页翻译器 <a href="https://chrome.google.com/webstore/detail/gbefmodhlophhakmoecijeppjblibmie">Chrome</a>  </p>
+<p>简约翻译 <a href="https://microsoftedge.microsoft.com/addons/detail/jemckldkclkinpjighnoilpbldbdmmlh">Edge</a>  </p>
+<p>pot <a href="https://pot-app.com/">官网</a>  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/20.html" aria-label="Previous Page">0X14 Python telegram消息发送</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/13.html" aria-label="Next Page">0XD Python生成requirements.txt</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/15.html" aria-label="Previous Page">0XF aidoku漫画源</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/17.html" aria-label="Next Page">0X11 neovim gui客户端</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

@@ -1,0 +1,34 @@
+
+  <article class="markdown-body">
+    <h2 id="deeplx">支持deeplx的软件和扩展插件</h2>
+<p>沉浸式翻译 <a href="https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg">Edge</a>  </p>
+<p>语言学家 - 网页翻译器 <a href="https://chrome.google.com/webstore/detail/gbefmodhlophhakmoecijeppjblibmie">Chrome</a>  </p>
+<p>简约翻译 <a href="https://microsoftedge.microsoft.com/addons/detail/jemckldkclkinpjighnoilpbldbdmmlh">Edge</a>  </p>
+<p>pot <a href="https://pot-app.com/">官网</a>  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
