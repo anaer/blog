@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     WRAPPER_CSS = "markdown-body"
 
     def __init__(self):
-        """初始化 markdown 解析器，启用常用扩展"""
+        """初始化 markdown 解析器，启用常用扩展，并设置多行文本自动换行"""
         extensions = [
             'fenced_code',       # 代码块
             'codehilite',        # 高亮
@@ -55,15 +55,15 @@ document.addEventListener('DOMContentLoaded', () => {
             'toc',
         ]
 
-        extension_configs={
-          "codehilite": {
-            "css_class": "highlight", # 生成
-            "use_pygments": True,
-            "pygments_style": "monokai", # 使用 github 样式
-            "linenums": False, # 显示行号
+        extension_configs = {
+            "codehilite": {
+                "css_class": "highlight",
+                "use_pygments": True,
+                "pygments_style": "monokai",
+                "linenums": False,
+                "wrapcode": True,  # 让代码块内容自动换行
             }
         }
-        # 使用 pygments 的 'prettylights' 样式高亮
         self.md = markdown.Markdown(extensions=extensions, extension_configs=extension_configs)
 
     def _add_controls(self, html: str) -> str:
@@ -88,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     def convert(self, md_text: str) -> str:
         """把 markdown 文本渲染成完整 HTML"""
+        # 每一行末 增加两个空格 以自动换行
+        md_text = '\n'.join(line + '  ' for line in md_text.splitlines())
         body_html = self.md.convert(md_text)
         body_html = self._add_controls(body_html)
 
