@@ -51,8 +51,6 @@ spring:
 
 SpringBoot默认使用Logback，但默认配置下没有对日志文件进行滚动和清理。
 
-长时间运行的应用会产生巨大的日志文件，最终占满磁盘空间。
-
 ```yaml
 logging:
   file:

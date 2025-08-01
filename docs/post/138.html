@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -14,7 +15,7 @@
     </script>
     
 <title>0X8A Spring Boot配置</title>
-
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia-light.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -133,28 +134,14 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-31 15:18:46</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-31 16:20:26</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 13:09:14</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Spring Boot的各种配置，包括Tomcat连接池、数据库连接池、Jackson时区序列化、日志配置、缓存配置、监控端点、文件上传大小限制、异步线程池配置、静态资源缓存策略和数据库事务超时等。主要要点包括：Tomcat连接池的最大连接数和工作线程数的配置；HikariCP作为默认数据库连接池的相关设置；Jackson的时区和日期格式配置；Logback日志的滚动和清理策略；Cacheable注解的默认实现及其缺陷；Actuator监控端点的安全配置；文件上传限制的调整；异步线程池的优化；静态资源的HTTP缓存策略；以及@Transactional注解的超时设置。错误观点包括对Spring Boot默认配置的误解，例如认为默认的文件上传限制足够或忽视了缓存实现的潜在问题。
+    <strong>AI总结:</strong> 本文介绍了Spring Boot的配置要点，包括Tomcat连接池、数据库连接池、Jackson时区序列化、日志配置、缓存配置、监控端点、文件上传大小限制、异步线程池配置、静态资源缓存策略和数据库事务超时。Tomcat连接池的默认配置需要根据实际环境调整，数据库连接池默认使用HikariCP。Jackson处理JSON时应设置时区以避免分布式部署下的不一致。日志配置需添加滚动和清理策略，以防止日志文件过大。缓存配置建议使用Caffeine以避免内存溢出。监控端点应限制暴露以增强安全性。文件上传限制需根据需求调整，异步线程池应配置以避免资源耗尽。静态资源缓存策略可通过内容版本化提高加载效率。数据库事务应设置超时时间以避免长时间持锁。文本中并未提及数据库连接池的具体版本和配置细节，可能导致理解上的偏差。
 </div>
 
 <div class="markdown-body" id="postBody">
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <title>Markdown Preview</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
-  <style>
-    body { box-sizing: border-box; padding: 2em; max-width: 1012px; margin: 0 auto; }
-    .fold-btn, .copy-btn {
-      background: #eee; border: 1px solid #bbb; border-radius: 3px;
-      padding: 4px 8px; margin-right: 6px; cursor: pointer; font-size: 0.75em;
-    }
-  </style>
-</head>
-<body>
+
   <article class="markdown-body">
     <h1 id="spring-boot">Spring Boot 配置</h1>
 <p>仅列举相关配置, 具体配置时, 还需要根据实际使用的版本环境进行调整.</p>
@@ -162,7 +149,7 @@ pre {
 <p>默认配置:
 org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-autoconfigure-2.3.12.RELEASE.jar\META-INF\spring-configuration-metadata.json</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre class="codehilite"><code class="language-yaml">server:
+<pre class="highlight"><code class="language-yaml">server:
   tomcat:
     max-connections: 10000  # 最大连接数 默认:8192
     threads:
@@ -175,7 +162,7 @@ org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-au
 <h3 id="_1">数据库连接池</h3>
 <p>SpringBoot默认使用HikariCP作为数据库连接池</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre class="codehilite"><code class="language-yaml">spring:
+<pre class="highlight"><code class="language-yaml">spring:
   datasource:
     hikari:
       maximum-pool-size: 50      # 最大连接数，默认:10
@@ -189,7 +176,7 @@ org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-au
 <h3 id="jackson">Jackson时区序列化</h3>
 <p>SpringBoot默认使用Jackson处理JSON序列化，Jackson会使用系统时区，这在分布式部署时会导致不一致的问题。</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre class="codehilite"><code class="language-yaml">spring:
+<pre class="highlight"><code class="language-yaml">spring:
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
@@ -199,9 +186,8 @@ org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-au
 
 <h3 id="_2">日志配置</h3>
 <p>SpringBoot默认使用Logback，但默认配置下没有对日志文件进行滚动和清理。</p>
-<p>长时间运行的应用会产生巨大的日志文件，最终占满磁盘空间。</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre class="codehilite"><code class="language-yaml">logging:
+<pre class="highlight"><code class="language-yaml">logging:
   file:
     name: app.log
   logback:
@@ -215,7 +201,7 @@ org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-au
 <p>SpringBoot的Cacheable注解默认使用ConcurrentHashMap作为缓存实现，但这个实现没有过期机制，也没有大小限制。在高并发场景下，缓存会无限增长，最终导致内存溢出。
 可以考虑使用Caffeine替代默认实现，可以提供更好的性能和内存管理能力。</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre class="codehilite"><code class="language-yaml">spring:
+<pre class="highlight"><code class="language-yaml">spring:
   cache:
     type: caffeine
     caffeine:
@@ -226,7 +212,7 @@ org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-au
 <p>SpringBoot Actuator默认暴露了很多监控端点，包括健康检查、配置信息、环境变量等。</p>
 <p>只暴露必要的端点，并且配置适当的安全策略，避免信息泄漏。</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre class="codehilite"><code class="language-yaml">management:
+<pre class="highlight"><code class="language-yaml">management:
   endpoints:
     web:
       exposure:
@@ -239,7 +225,7 @@ org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-au
 <h3 id="_5">文件上传大小限制</h3>
 <p>SpringBoot默认的文件上传限制非常小，单个文件只能上传1MB，整个请求大小限制10MB。</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre class="codehilite"><code class="language-yaml">spring:
+<pre class="highlight"><code class="language-yaml">spring:
   servlet:
     multipart:
       max-file-size: 100MB
@@ -252,7 +238,7 @@ org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-au
 <h3 id="_6">异步线程池配置</h3>
 <p>使用<code>@Async</code>注解时，SpringBoot默认使用<code>SimpleAsyncTaskExecutor</code>，这个执行器每次都会创建新线程，没有线程池复用机制。高并发情况下会创建大量线程，最终导致系统资源耗尽。</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre class="codehilite"><code class="language-yaml">spring:
+<pre class="highlight"><code class="language-yaml">spring:
   task:
     execution:
       pool:
@@ -270,7 +256,7 @@ org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-au
 <h3 id="_7">静态资源缓存策略</h3>
 <p>SpringBoot默认不为静态资源设置HTTP缓存头，浏览器每次都会重新请求CSS、JS、图片等静态文件，影响页面加载性能。</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre class="codehilite"><code class="language-yaml">spring:
+<pre class="highlight"><code class="language-yaml">spring:
   web:
     resources:
       cache:
@@ -290,7 +276,7 @@ org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-au
 <h3 id="_8">数据库事务超时</h3>
 <p><code>@Transactional</code>注解默认没有设置超时时间，长时间运行的事务会一直持有数据库锁，影响其他操作的执行。批量数据处理时，容易出现锁表问题。</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre class="codehilite"><code class="language-java">@Transactional(timeout = 30, rollbackFor = Exception.class)
+<pre class="highlight"><code class="language-java">@Transactional(timeout = 30, rollbackFor = Exception.class)
 public void batchProcess(List&lt;Data&gt; dataList) {
     // 分批处理，避免长事务
     int batchSize = 100;
@@ -328,8 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-</body>
-</html>
+
 </div><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/137.html" aria-label="Previous Page">0X89 我关注的项目这周更新了什么-2025-08-01</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
 </nav>
