@@ -26,11 +26,11 @@ SpringBoot默认使用HikariCP作为数据库连接池
 spring:
   datasource:
     hikari:
-      maximum-pool-size: 50      # 最大连接数，默认:10
-      minimum-idle: 10           # 最小空闲连接，默认:10
+      maximum-pool-size: 50               # 最大连接数，默认:10
+      minimum-idle: 10                         # 最小空闲连接，默认:10
       connection-timeout: 30000
-      idle-timeout: 600000       # 空闲连接超时时间，默认:600000（10分钟）
-      max-lifetime: 1800000      # 连接最大存活时间 默认:1800000（30分钟）
+      idle-timeout: 600000                   # 空闲连接超时时间，默认:600000（10分钟）
+      max-lifetime: 1800000                 # 连接最大存活时间 默认:1800000（30分钟）
       leak-detection-threshold: 60000 # 连接泄露检查阈值，默认:0（关闭）
 ```
 
