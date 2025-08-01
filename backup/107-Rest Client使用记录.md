@@ -27,9 +27,11 @@
 表示整个http文件的值, 在http文件中定义, 只有文件范围
 
 `@hostname = api.example.com`
+
 ### 请求变量
 在http文件中定义, 定义请求变量的响应值, 作为下个请求的参数, 比如先获取token, 再请求
-```http
+
+```rest
 @baseUrl = https://example.com/api
 
 # @name login
@@ -73,7 +75,8 @@ GET {{baseUrl}}/comments/{{commentId}}/replies/{{getReplies.response.body.//repl
 
 ### 提示变量
 发送请求时 要求用户输入使用的变量
-```
+
+```rest
 # @prompt text 请求时弹框提示输入文本
 GET https://127.0.0.1/test
 
@@ -83,7 +86,8 @@ GET https://127.0.0.1/test
 ```
 
 ## 内置变量
-```
+
+```log
 {{$guid}}
 {{$randomInt min max}}
 {{$timestamp [offset option]}}
@@ -124,7 +128,7 @@ VAR1=ABC
 
 ## 取消代理
 因为VSCode配置了代理, 而用rest-client时 基本上不要代理, 又没有关代理的配置
-虽然rest-client提供了excludeHostsForProxy配置, 但是经常性要加新域名, 已配置近30个了
+虽然rest-client提供了excludeHostsForProxy配置, 域名较多时 不够方便
 
 可以修改以下文件:
 c:\Users\Administrator\.vscode\extensions\humao.rest-client-0.25.1\dist\extension.js

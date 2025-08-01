@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -135,144 +137,173 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-10 17:59:27</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-16 14:39:46</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 13:49:06</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在Visual Studio Code中使用自定义变量、环境变量、文件变量、请求变量、提示变量和内置变量的方法，以及如何管理代理设置。用户可以在设置文件中定义不同环境的变量，并在HTTP文件中使用这些变量来简化请求过程。同时，介绍了如何取消代理配置以避免在使用rest-client时遇到的问题。
-
-优化建议：
-1. 在文中增加示例说明，以便用户更好地理解各类变量的具体用法。
-2. 提供实际操作步骤，指导用户如何在VSCode中设置和使用这些变量。
-3. 讨论可能的错误及其解决方案，以帮助用户在遇到问题时快速定位和解决。
-4. 考虑添加对环境变量的安全性和管理的最佳实践建议，以提高用户的安全意识。
+    <strong>AI总结:</strong> 本文介绍了在Visual Studio代码中使用自定义变量、环境变量和文件变量的配置方法，包括如何定义请求变量和提示变量。环境变量通过"rest-client.environmentVariables"设置，允许在不同环境下使用不同的变量。文件变量和请求变量用于在HTTP文件中定义和使用特定的值。此外，内置变量提供了多种动态值生成方式，如时间戳和GUID。文中还提到如何取消代理配置，但建议更改配置文件的做法可能会导致意想不到的问题，因此需谨慎处理。需要注意的是，提到的修改代理配置的方式并未经过测试，可能存在不稳定性。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">自定义变量</h2><a id="user-content-自定义变量" class="anchor" aria-label="Permalink: 自定义变量" href="#自定义变量"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h3 class="heading-element">环境变量</h3><a id="user-content-环境变量" class="anchor" aria-label="Permalink: 环境变量" href="#环境变量"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  <article class="markdown-body">
+    <h2 id="_1">自定义变量</h2>
+<h3 id="_2">环境变量</h3>
 <p>存储不同环境的变量, 在Visual Studio代码设置文件中直接定义.</p>
-<div class="highlight highlight-source-json"><pre><span class="pl-ent">"rest-client.environmentVariables"</span>: {
-    <span class="pl-ent">"$shared"</span>: {
-        <span class="pl-ent">"version"</span>: <span class="pl-s"><span class="pl-pds">"</span>v1<span class="pl-pds">"</span></span>,
-        <span class="pl-ent">"prodToken"</span>: <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>,
-        <span class="pl-ent">"nonProdToken"</span>: <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>
-    },
-    <span class="pl-ent">"local"</span>: {
-        <span class="pl-ent">"version"</span>: <span class="pl-s"><span class="pl-pds">"</span>v2<span class="pl-pds">"</span></span>,
-        <span class="pl-ent">"host"</span>: <span class="pl-s"><span class="pl-pds">"</span>localhost<span class="pl-pds">"</span></span>,
-        <span class="pl-ent">"token"</span>: <span class="pl-s"><span class="pl-pds">"</span>{{$shared nonProdToken}}<span class="pl-pds">"</span></span>,
-        <span class="pl-ent">"secretKey"</span>: <span class="pl-s"><span class="pl-pds">"</span>devSecret<span class="pl-pds">"</span></span>
-    },
-    <span class="pl-ent">"production"</span>: {
-        <span class="pl-ent">"host"</span>: <span class="pl-s"><span class="pl-pds">"</span>example.com<span class="pl-pds">"</span></span>,
-        <span class="pl-ent">"token"</span>: <span class="pl-s"><span class="pl-pds">"</span>{{$shared prodToken}}<span class="pl-pds">"</span></span>,
-        <span class="pl-ent">"secretKey"</span> : <span class="pl-s"><span class="pl-pds">"</span>prodSecret<span class="pl-pds">"</span></span>
-    }
-}</pre></div>
-<div class="markdown-heading"><h3 class="heading-element">文件变量</h3><a id="user-content-文件变量" class="anchor" aria-label="Permalink: 文件变量" href="#文件变量"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;rest-client.environmentVariables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;$shared&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;prodToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;nonProdToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;local&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v2&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{$shared nonProdToken}}&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;secretKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;devSecret&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;production&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example.com&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{$shared prodToken}}&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;secretKey&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prodSecret&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="_3">文件变量</h3>
 <p>表示整个http文件的值, 在http文件中定义, 只有文件范围</p>
 <p><code>@hostname = api.example.com</code></p>
-<div class="markdown-heading"><h3 class="heading-element">请求变量</h3><a id="user-content-请求变量" class="anchor" aria-label="Permalink: 请求变量" href="#请求变量"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h3 id="_4">请求变量</h3>
 <p>在http文件中定义, 定义请求变量的响应值, 作为下个请求的参数, 比如先获取token, 再请求</p>
-<div class="highlight highlight-source-httpspec"><pre><span class="pl-ii">@baseUrl = https://example.com/api</span>
+<div class="highlight"><pre><span></span><code>@baseUrl = https://example.com/api
 
-<span class="pl-ii"># @name login</span>
-<span class="pl-k">POST</span> {{<span class="pl-ii">baseUrl</span>}}<span class="pl-ii">/api/login HTTP/1.1</span>
-<span class="pl-s"><span class="pl-v">Content-Type:</span> application/x-www-form-urlencoded</span>
+# @name login
+POST {{baseUrl}}/api/login HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
 
-<span class="pl-ii">name=foo&amp;password=bar</span>
+name=foo&amp;password=bar
 
-<span class="pl-ii">###</span>
+###
 
-<span class="pl-ii">@authToken = {{login.response.headers.X-AuthToken}}</span>
+@authToken = {{login.response.headers.X-AuthToken}}
 
-<span class="pl-ii"># @name createComment</span>
-<span class="pl-k">POST</span> {{<span class="pl-ii">baseUrl</span>}}<span class="pl-ii">/comments HTTP/1.1</span>
-<span class="pl-s"><span class="pl-v">Authorization:</span> {{authToken}}</span>
-<span class="pl-s"><span class="pl-v">Content-Type:</span> application/json</span>
+# @name createComment
+POST {{baseUrl}}/comments HTTP/1.1
+Authorization: {{authToken}}
+Content-Type: application/json
 
 {
-    <span class="pl-ent">"content"</span>: <span class="pl-s"><span class="pl-pds">"</span>fake content<span class="pl-pds">"</span></span>
+    &quot;content&quot;: &quot;fake content&quot;
 }
 
-<span class="pl-ii">###</span>
+###
 
-<span class="pl-ii">@commentId = {{createComment.response.body.$.id}}</span>
+@commentId = {{createComment.response.body.$.id}}
 
-<span class="pl-ii"># @name getCreatedComment</span>
-<span class="pl-k">GET</span> {{<span class="pl-ii">baseUrl</span>}}<span class="pl-ii">/comments/{{commentId}} HTTP/1.1</span>
-<span class="pl-s"><span class="pl-v">Authorization:</span> {{authToken}}</span>
+# @name getCreatedComment
+GET {{baseUrl}}/comments/{{commentId}} HTTP/1.1
+Authorization: {{authToken}}
 
-<span class="pl-ii">###</span>
+###
 
-<span class="pl-ii"># @name getReplies</span>
-<span class="pl-k">GET</span> {{<span class="pl-ii">baseUrl</span>}}<span class="pl-ii">/comments/{{commentId}}/replies HTTP/1.1</span>
-<span class="pl-s"><span class="pl-v">Accept:</span> application/xml</span>
+# @name getReplies
+GET {{baseUrl}}/comments/{{commentId}}/replies HTTP/1.1
+Accept: application/xml
 
-<span class="pl-ii">###</span>
+###
 
-<span class="pl-ii"># @name getFirstReply</span>
-<span class="pl-k">GET</span> {{<span class="pl-ii">baseUrl</span>}}<span class="pl-ii">/comments/{{commentId}}/replies/{{getReplies.response.body.//reply[1]/@id}}</span></pre></div>
-<div class="markdown-heading"><h3 class="heading-element">提示变量</h3><a id="user-content-提示变量" class="anchor" aria-label="Permalink: 提示变量" href="#提示变量"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+# @name getFirstReply
+GET {{baseUrl}}/comments/{{commentId}}/replies/{{getReplies.response.body.//reply[1]/@id}}
+</code></pre></div>
+
+<h3 id="_5">提示变量</h3>
 <p>发送请求时 要求用户输入使用的变量</p>
-<pre><code># @prompt text 请求时弹框提示输入文本
+<div class="highlight"><pre><span></span><code># @prompt text 请求时弹框提示输入文本
 GET https://127.0.0.1/test
 
 {
-    "text": "{{text}}",
+    &quot;text&quot;: &quot;{{text}}&quot;,
 }
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">内置变量</h2><a id="user-content-内置变量" class="anchor" aria-label="Permalink: 内置变量" href="#内置变量"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>{{$guid}}
-{{$randomInt min max}}
-{{$timestamp [offset option]}}
+</code></pre></div>
 
-{{$datetime}} 时间戳
-{{$datetime -3 h}} 3小时前
-{{$datetime 2 d}} 2天后
+<h2 id="_6">内置变量</h2>
+<div class="highlight"><pre><span></span><code><span class="p">{{</span><span class="n">$guid</span><span class="p">}}</span>
+<span class="p">{{</span><span class="n">$randomInt</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="n">max</span><span class="p">}}</span>
+<span class="p">{{</span><span class="n">$timestamp</span><span class="w"> </span><span class="p">[</span><span class="n">offset</span><span class="w"> </span><span class="n">option</span><span class="p">]}}</span>
 
-{{$datetime rfc1123|iso8601 [offset option]}}
+<span class="p">{{</span><span class="n">$datetime</span><span class="p">}}</span><span class="w"> </span><span class="n">时间戳</span>
+<span class="p">{{</span><span class="n">$datetime</span><span class="w"> </span><span class="mi">-3</span><span class="w"> </span><span class="n">h</span><span class="p">}}</span><span class="w"> </span><span class="mi">3</span><span class="n">小时前</span>
+<span class="p">{{</span><span class="n">$datetime</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">d</span><span class="p">}}</span><span class="w"> </span><span class="mi">2</span><span class="n">天后</span>
 
-{{$datetime rfc1123}}       Wed, 16 Apr 2025 06:23:49 GMT
-{{$datetime iso8601}}       2025-04-16T06:24:53.379Z
-{{$datetime 'YYYY-MM-DD'}}  2025-04-16
+<span class="p">{{</span><span class="n">$datetime</span><span class="w"> </span><span class="n">rfc1123</span><span class="o">|</span><span class="n">iso8601</span><span class="w"> </span><span class="p">[</span><span class="n">offset</span><span class="w"> </span><span class="n">option</span><span class="p">]}}</span>
 
-{{$localDatetime rfc1123|iso8601 [offset option]}}
-使用本地时区
-{{$localDatetime rfc1123}}       Wed, 16 Apr 2025 06:23:49 GMT
-{{$localDatetime iso8601}}       2025-04-16T14:25:57+08:00
-{{$localDatetime 'YYYY-MM-DD'}}  2025-04-16
+<span class="p">{{</span><span class="n">$datetime</span><span class="w"> </span><span class="n">rfc1123</span><span class="p">}}</span><span class="w">       </span><span class="n">Wed</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="n">Apr</span><span class="w"> </span><span class="mi">2025</span><span class="w"> </span><span class="mo">06</span><span class="o">:</span><span class="mi">23</span><span class="o">:</span><span class="mi">49</span><span class="w"> </span><span class="n">GMT</span>
+<span class="p">{{</span><span class="n">$datetime</span><span class="w"> </span><span class="n">iso8601</span><span class="p">}}</span><span class="w">       </span><span class="mi">2025</span><span class="mo">-04</span><span class="mi">-16</span><span class="n">T06</span><span class="o">:</span><span class="mi">24</span><span class="o">:</span><span class="mf">53.379</span><span class="n">Z</span>
+<span class="p">{{</span><span class="n">$datetime</span><span class="w"> </span><span class="err">&#39;</span><span class="n">YYYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">DD</span><span class="err">&#39;</span><span class="p">}}</span><span class="w">  </span><span class="mi">2025</span><span class="mo">-04</span><span class="mi">-16</span>
 
-{{$processEnv [%]envVarName}}
-envVarName: 指定本地机器环境变量
-%: 可选, 制定时, 将envVarName视为扩展设置环境变量, 并将其值用于查找.
+<span class="p">{{</span><span class="n">$localDatetime</span><span class="w"> </span><span class="n">rfc1123</span><span class="o">|</span><span class="n">iso8601</span><span class="w"> </span><span class="p">[</span><span class="n">offset</span><span class="w"> </span><span class="n">option</span><span class="p">]}}</span>
+<span class="n">使用本地时区</span>
+<span class="p">{{</span><span class="n">$localDatetime</span><span class="w"> </span><span class="n">rfc1123</span><span class="p">}}</span><span class="w">       </span><span class="n">Wed</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="n">Apr</span><span class="w"> </span><span class="mi">2025</span><span class="w"> </span><span class="mo">06</span><span class="o">:</span><span class="mi">23</span><span class="o">:</span><span class="mi">49</span><span class="w"> </span><span class="n">GMT</span>
+<span class="p">{{</span><span class="n">$localDatetime</span><span class="w"> </span><span class="n">iso8601</span><span class="p">}}</span><span class="w">       </span><span class="mi">2025</span><span class="mo">-04</span><span class="mi">-16</span><span class="n">T14</span><span class="o">:</span><span class="mi">25</span><span class="o">:</span><span class="mi">57</span><span class="o">+</span><span class="mi">08</span><span class="o">:</span><span class="mo">00</span>
+<span class="p">{{</span><span class="n">$localDatetime</span><span class="w"> </span><span class="err">&#39;</span><span class="n">YYYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">DD</span><span class="err">&#39;</span><span class="p">}}</span><span class="w">  </span><span class="mi">2025</span><span class="mo">-04</span><span class="mi">-16</span>
 
-{{$processEnv PATH}} PATH环境变量
+<span class="p">{{</span><span class="n">$processEnv</span><span class="w"> </span><span class="p">[</span><span class="o">%</span><span class="p">]</span><span class="n">envVarName</span><span class="p">}}</span>
+<span class="nl">envVarName</span><span class="p">:</span><span class="w"> </span><span class="n">指定本地机器环境变量</span>
+<span class="o">%:</span><span class="w"> </span><span class="n">可选</span><span class="p">,</span><span class="w"> </span><span class="n">制定时</span><span class="p">,</span><span class="w"> </span><span class="n">将envVarName视为扩展设置环境变量</span><span class="p">,</span><span class="w"> </span><span class="n">并将其值用于查找</span><span class="p">.</span>
+
+<span class="p">{{</span><span class="n">$processEnv</span><span class="w"> </span><span class="n">PATH</span><span class="p">}}</span><span class="w"> </span><span class="n">PATH环境变量</span>
 
 
-{{$dotenv [%]variableName}}
-返回.env文件中设置的环境变量, .env文件与.http文件在统一目录中
+<span class="p">{{</span><span class="n">$dotenv</span><span class="w"> </span><span class="p">[</span><span class="o">%</span><span class="p">]</span><span class="n">variableName</span><span class="p">}}</span>
+<span class="n">返回</span><span class="p">.</span><span class="n">env文件中设置的环境变量</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">env文件与</span><span class="p">.</span><span class="n">http文件在统一目录中</span>
 
-.env变量定义格式
-VAR1=ABC
+<span class="p">.</span><span class="n">env变量定义格式</span>
+<span class="n">VAR1</span><span class="o">=</span><span class="n">ABC</span>
 
-{{$aadToken [new] [public|cn|de|us|ppe] [&lt;domain|tenantId&gt;] [aud:&lt;domain|tenantId&gt;]}}
+<span class="p">{{</span><span class="n">$aadToken</span><span class="w"> </span><span class="p">[</span><span class="n">new</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">public</span><span class="o">|</span><span class="n">cn</span><span class="o">|</span><span class="n">de</span><span class="o">|</span><span class="n">us</span><span class="o">|</span><span class="n">ppe</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">&lt;</span><span class="n">domain</span><span class="o">|</span><span class="n">tenantId</span><span class="o">&gt;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">aud</span><span class="o">:&lt;</span><span class="n">domain</span><span class="o">|</span><span class="n">tenantId</span><span class="o">&gt;</span><span class="p">]}}</span>
 
-{{$oidcAccessToken  [new]  [&lt;clientId:&lt;clientId&gt;] [&lt;callbackPort:&lt;callbackPort&gt;] [authorizeEndpoint:&lt;authorizeEndpoint}] [tokenEndpoint:&lt;tokenEndpoint}] [scopes:&lt;scopes}] [audience:&lt;audience}]}
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">取消代理</h2><a id="user-content-取消代理" class="anchor" aria-label="Permalink: 取消代理" href="#取消代理"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<span class="p">{{</span><span class="n">$oidcAccessToken</span><span class="w">  </span><span class="p">[</span><span class="n">new</span><span class="p">]</span><span class="w">  </span><span class="p">[</span><span class="o">&lt;</span><span class="n">clientId</span><span class="o">:&lt;</span><span class="n">clientId</span><span class="o">&gt;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="o">&lt;</span><span class="n">callbackPort</span><span class="o">:&lt;</span><span class="n">callbackPort</span><span class="o">&gt;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">authorizeEndpoint</span><span class="o">:&lt;</span><span class="n">authorizeEndpoint</span><span class="p">}]</span><span class="w"> </span><span class="p">[</span><span class="n">tokenEndpoint</span><span class="o">:&lt;</span><span class="n">tokenEndpoint</span><span class="p">}]</span><span class="w"> </span><span class="p">[</span><span class="n">scopes</span><span class="o">:&lt;</span><span class="n">scopes</span><span class="p">}]</span><span class="w"> </span><span class="p">[</span><span class="n">audience</span><span class="o">:&lt;</span><span class="n">audience</span><span class="p">}]}</span>
+</code></pre></div>
+
+<h2 id="_7">取消代理</h2>
 <p>因为VSCode配置了代理, 而用rest-client时 基本上不要代理, 又没有关代理的配置
-虽然rest-client提供了excludeHostsForProxy配置, 但是经常性要加新域名, 已配置近30个了</p>
+虽然rest-client提供了excludeHostsForProxy配置, 域名较多时 不够方便</p>
 <p>可以修改以下文件:
 c:\Users\Administrator.vscode\extensions\humao.rest-client-0.25.1\dist\extension.js</p>
 <p>修改获取代理配置, 改名, 让找不到代理配置即可
 workspace.getConfiguration("http") -&gt; workspace.getConfiguration("http1")</p>
 <p>不过环境变量如果配置了http.proxy, 应该还能用, 未测试.</p>
-<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h2 id="_8">相关链接</h2>
 <p><a href="https://github.com/Huachao/vscode-restclient">vscode-restclient</a></p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/108.html" aria-label="Previous Page">0X6C uv管理Python虚拟环境</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/106.html" aria-label="Next Page">0X6A VSCode Continue插件配置自定义模型</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/106.html" aria-label="Previous Page">0X6A VSCode Continue插件配置自定义模型</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/108.html" aria-label="Next Page">0X6C uv管理Python虚拟环境</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
