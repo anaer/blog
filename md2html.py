@@ -54,7 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
             'tables',
             'toc',
         ]
-        self.md = markdown.Markdown(extensions=extensions)
+
+        extension_configs={
+          "codehilite": {
+            "css_class": "highlight", # 生成
+            "use_pygments": True,
+            "pygments_style": "monokai", # 使用 github 样式
+            "linenums": False, # 显示行号
+            }
+            }
+        # 使用 pygments 的 'prettylights' 样式高亮
+        self.md = markdown.Markdown(extensions=extensions, extension_configs=extension_configs)
 
     def _add_controls(self, html: str) -> str:
         """
@@ -77,27 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
         body_html = self.md.convert(md_text)
         body_html = self._add_controls(body_html)
 
-        full_html = f"""<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <title>Markdown Preview</title>
-  <link rel="stylesheet" href="{self.CSS_URL}">
-  <style>
-    body {{ box-sizing: border-box; padding: 2em; max-width: 1012px; margin: 0 auto; }}
-    .fold-btn, .copy-btn {{
-      background: #eee; border: 1px solid #bbb; border-radius: 3px;
-      padding: 4px 8px; margin-right: 6px; cursor: pointer; font-size: 0.75em;
-    }}
-  </style>
-</head>
-<body>
+        full_html = f"""
   <article class="{self.WRAPPER_CSS}">
     {body_html}
   </article>
   {self.EXTRA_JS}
-</body>
-</html>"""
+"""
         return full_html
 
 # =====================
