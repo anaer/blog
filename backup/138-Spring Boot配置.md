@@ -153,7 +153,7 @@ spring:
 
 ### 数据库事务超时
 
-`@Transactional`注解默认没有设置超时时间，长时间运行的事务会一直持有数据库锁，影响其他操作的执行。批量数据处理时，容易出现锁表问题。
+`@Transactional`注解默认没有设置超时时间，长时间运行的事务会一直持有数据库锁，影响其他操作的执行。
 
 ```java
 @Transactional(timeout = 30, rollbackFor = Exception.class)

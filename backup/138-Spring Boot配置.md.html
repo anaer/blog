@@ -131,7 +131,7 @@ org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-au
 
 <p>开启内容版本化策略后，SpringBoot会根据文件内容生成MD5哈希值作为版本号，文件名变成<code>style-abc123.css</code>这样的格式。当文件内容发生变化时，哈希值也会变化，浏览器会认为这是新文件重新下载；如果文件没变化，浏览器就直接使用缓存，有效提升页面加载速度。</p>
 <h3 id="_8">数据库事务超时</h3>
-<p><code>@Transactional</code>注解默认没有设置超时时间，长时间运行的事务会一直持有数据库锁，影响其他操作的执行。批量数据处理时，容易出现锁表问题。</p>
+<p><code>@Transactional</code>注解默认没有设置超时时间，长时间运行的事务会一直持有数据库锁，影响其他操作的执行。</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="highlight"><code class="language-java">@Transactional(timeout = 30, rollbackFor = Exception.class)
 public void batchProcess(List&lt;Data&gt; dataList) {

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
     <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -134,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-07-31 15:18:46</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 13:09:14</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 13:17:26</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Spring Boot的配置要点，包括Tomcat连接池、数据库连接池、Jackson时区序列化、日志配置、缓存配置、监控端点、文件上传大小限制、异步线程池配置、静态资源缓存策略和数据库事务超时。Tomcat连接池的默认配置需要根据实际环境调整，数据库连接池默认使用HikariCP。Jackson处理JSON时应设置时区以避免分布式部署下的不一致。日志配置需添加滚动和清理策略，以防止日志文件过大。缓存配置建议使用Caffeine以避免内存溢出。监控端点应限制暴露以增强安全性。文件上传限制需根据需求调整，异步线程池应配置以避免资源耗尽。静态资源缓存策略可通过内容版本化提高加载效率。数据库事务应设置超时时间以避免长时间持锁。文本中并未提及数据库连接池的具体版本和配置细节，可能导致理解上的偏差。
+    <strong>AI总结:</strong> 本文介绍了Spring Boot的多项配置，包括Tomcat连接池、数据库连接池、Jackson时区序列化、日志配置、缓存配置、监控端点、文件上传大小限制、异步线程池配置、静态资源缓存策略以及数据库事务超时设置。默认情况下，Tomcat连接池和HikariCP数据库连接池的配置较低，需根据实际需求调整。Jackson默认使用系统时区，可能导致分布式环境下的不一致。日志配置未启用文件滚动和清理，可能导致日志文件过大。默认的缓存实现不具备过期机制，可能引发内存溢出，建议使用Caffeine替代。监控端点需谨慎暴露以防信息泄漏。文件上传限制较小，需根据需求调整。异步线程池默认创建新线程，需配置线程池以避免资源耗尽。静态资源未设置HTTP缓存头，影响性能，建议开启内容版本化策略。数据库事务默认无超时设置，长时间事务可能导致锁竞争，建议设置超时。文中未提及的错误观点包括未考虑到Spring Boot版本更新可能影响配置的有效性。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -274,7 +275,7 @@ org\springframework\boot\spring-boot-autoconfigure\2.3.12.RELEASE\spring-boot-au
 
 <p>开启内容版本化策略后，SpringBoot会根据文件内容生成MD5哈希值作为版本号，文件名变成<code>style-abc123.css</code>这样的格式。当文件内容发生变化时，哈希值也会变化，浏览器会认为这是新文件重新下载；如果文件没变化，浏览器就直接使用缓存，有效提升页面加载速度。</p>
 <h3 id="_8">数据库事务超时</h3>
-<p><code>@Transactional</code>注解默认没有设置超时时间，长时间运行的事务会一直持有数据库锁，影响其他操作的执行。批量数据处理时，容易出现锁表问题。</p>
+<p><code>@Transactional</code>注解默认没有设置超时时间，长时间运行的事务会一直持有数据库锁，影响其他操作的执行。</p>
 <div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre class="highlight"><code class="language-java">@Transactional(timeout = 30, rollbackFor = Exception.class)
 public void batchProcess(List&lt;Data&gt; dataList) {
