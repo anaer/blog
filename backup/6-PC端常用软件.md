@@ -60,19 +60,19 @@
 5. ~~Bulk-Crap-Uninstaller~~ [GitHub](https://github.com/Klocman/Bulk-Crap-Uninstaller/releases) 
 
 ### 输入法
-1. ~~weasel小狼毫输入法~~ [官网](https://rime.im/)
-2. InputTip输入法状态管理工具 [GitHub](https://github.com/abgox/InputTip)
+1. InputTip输入法状态管理工具 [GitHub](https://github.com/abgox/InputTip)
+2. ~~weasel小狼毫输入法~~ [官网](https://rime.im/)
 
 ### 资源管理
-1. ~~MultiCommander~~  [官网](http://multicommander.com/downloads)              
+1. ~~MultiCommander~~  [官网](http://multicommander.com/downloads) 
 2. ~~PowerToys~~   [GitHub](https://github.com/microsoft/PowerToys/releases) WingetUI安装 配合Everything插件         
-3. ~~QTTabBar~~     [GitHub](https://github.com/indiff/qttabbar/releases)  资源管理器 多标签 重启后报错了 另一个Clover报毒 
-4. ~~QTTabBar~~  [官网](http://qttabbar.wikidot.com/)         资源管理器多标签，这个暂时能用          
-5. ~~Shell~~   [GitHub](https://github.com/moudey/Shell)            
-6. ~~Stats~~   [GitHub](https://github.com/exelban/stats)  
-7. ~~SwitchHosts~~ [GitHub](https://github.com/oldj/SwitchHosts/releases)       
-8. ~~Unlocker~~   [下载](https://www.52pojie.cn/thread-1317159-1-1.html)           
-9. ~~uTools~~      [官网](https://www.u.tools/)                                  
+3. ~~QTTabBar~~ [GitHub](https://github.com/indiff/qttabbar/releases)  资源管理器 多标签 重启后报错了 另一个Clover报毒 
+4. ~~QTTabBar~~ [官网](http://qttabbar.wikidot.com/) 资源管理器多标签，这个暂时能用          
+5. ~~Shell~~ [GitHub](https://github.com/moudey/Shell)            
+6. ~~Stats~~ [GitHub](https://github.com/exelban/stats)  
+7. ~~SwitchHosts~~ [GitHub](https://github.com/oldj/SwitchHosts/releases) 
+8. ~~Unlocker~~   [下载](https://www.52pojie.cn/thread-1317159-1-1.html)   
+9. ~~uTools~~      [官网](https://www.u.tools/)                       
 10. ~~mucommander~~ [GitHub](https://github.com/mucommander/mucommander/releases/)多端 支持Mac
 11. ~~doublecmd~~  [GitHub](https://github.com/doublecmd/doublecmd/releases/) 多端 支持Mac
 12. ~~FileConverter~~ 文件转换 [GitHub](https://github.com/Tichau/FileConverter/releases) 
@@ -95,7 +95,7 @@
                                               
 ### Android
 1. dex-tools [GitHub](https://github.com/pxb1988/dex2jar/releases)   dex反编译   
-2. jadx   [GitHub](https://github.com/skylot/jadx/releases)     Java反编译   
+2. jadx   [GitHub](https://github.com/skylot/jadx/releases)     Java反编译 
 
 ### NodeJS
 1. nvm-windows [GitHub](https://github.com/coreybutler/nvm-windows/releases)
@@ -104,9 +104,10 @@
 4. Lua [官方](https://luabinaries.sourceforge.net/download.html) [GitHub](https://github.com/rjpcomputing/luaforwindows/releases)
 
 ### 抓包
-1. Charles [官网](https://www.charlesproxy.com/latest-release/download.do)  [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
-2. Proxifier [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN) 代理工具 指定软件走代理
-3. Wireshark [官网](https://www.wireshark.org)
+1. ProxyPin [GitHub](https://github.com/wanghongenpin/proxypin)
+2. Charles [官网](https://www.charlesproxy.com/latest-release/download.do)  [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
+3. Proxifier [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN) 代理工具 指定软件走代理
+4. Wireshark [官网](https://www.wireshark.org)
 
 ### 数据库
 1. HeidiSQL [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差
@@ -123,7 +124,7 @@
 
 ### 编辑器
 1. VSCode    [官网](https://code.visualstudio.com/)           
-1. ~~Neovim~~  [GitHub](https://github.com/neovim/neovim/releases)           
+1. ~~Neovim~~  [GitHub](https://github.com/neovim/neovim/releases)      
 2. ~~Obsidian.md~~   [GitHub](https://github.com/obsidianmd/obsidian-releases/releases/) 编辑工具 
 4. ~~Windsurf~~ [官网](https://codeium.com/windsurf)     集成Codeium AI补全 
 5. ~~notepad4~~   [GitHub](https://github.com/zufuliu/notepad4)   替换默认notepad    
