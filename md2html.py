@@ -53,6 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
             'codehilite',        # 高亮
             'tables',
             'toc',
+            'pymdownx.extra',
+            'pymdownx.b64',
+            'pymdownx.highlight',
+            'pymdownx.emoji',
+            'pymdownx.tilde',    # 删除线 ~~
         ]
 
         extension_configs = {
