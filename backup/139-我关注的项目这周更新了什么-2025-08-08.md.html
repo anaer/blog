@@ -1,39 +1,73 @@
 
   <article class="markdown-body">
-    <h1 id="1-bili-hardcore-v051">1. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.5.1">bili-hardcore v0.5.1</a></h1>
+    <h1 id="1-copyparty-v11810">1. <a href="https://github.com/9001/copyparty/releases/tag/v1.18.10">copyparty v1.18.10</a></h1>
+<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
+<p>copyparty是一个自托管文件共享工具，主要更新内容如下：  </p>
+<p>安全更新：<br />
+- v1.18.9修复了CVE-2025-54796拒绝服务漏洞<br />
+- v1.14.3修复了可能导致数据丢失的严重bug  </p>
+<p>新功能：<br />
+- 新增荷兰语和意大利语翻译<br />
+- 支持音频转码为flac/wav格式<br />
+- 可通过环境变量PRTY_CONFIG提供配置文件<br />
+- 视频文件可作为文件夹缩略图<br />
+- 新增IdP认证的会话票据功能提升性能  </p>
+<p>问题修复：<br />
+- 修复PUT上传到nosub卷的问题<br />
+- 忽略浏览器扩展导致的异常<br />
+- 修复IPv6二维码缺少端口的问题<br />
+- 修复空白VFS强制d2d的问题  </p>
+<p>其他改进：<br />
+- 优化芬兰语翻译<br />
+- 播放按钮现在会显示"作为音频播放"的提示<br />
+- 文档改进包括密码哈希说明、证书帮助文本等  </p>
+<p>下载选项推荐：<br />
+- copyparty-sfx.py：最佳选择，只需Python环境<br />
+- Docker镜像：适合喜欢Docker的用户<br />
+- copyparty.exe：适用于Win8+，内置缩略图生成<br />
+- 其他选项如32位版本仅限特定场景使用，不建议暴露在公网  </p>
+<p>注意：zip和tar.gz文件仅为源代码，Python包可通过PyPI获取。  </p>
+<h1 id="2-bili-hardcore-v051">2. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.5.1">bili-hardcore v0.5.1</a></h1>
 <p>bilibili 硬核会员 AI 自动答题脚本，直接调用 B 站 API，非 OCR 实现  </p>
-<p>API请求报错后自动重试的实现方案：  </p>
+<p>API请求报错后自动重试的实现方案主要包括以下要点：  </p>
 <ol>
-<li>核心机制  </li>
-<li>通过捕获异常触发重试逻辑  </li>
-<li>设置最大重试次数（通常3-5次）  </li>
 <li>
-<p>采用指数退避策略（每次重试间隔时间递增）  </p>
+<p>重试触发条件：当API请求返回错误状态码（如5xx服务器错误、4xx限流错误等）或网络异常时触发重试机制  </p>
 </li>
 <li>
-<p>关键实现步骤<br />
-1) 定义重试条件：  </p>
+<p>重试策略配置：  </p>
 </li>
-<li>网络异常（连接超时、响应超时）  </li>
-<li>服务端5xx错误  </li>
-<li>特定业务错误码  </li>
+<li>最大重试次数（通常3-5次）  </li>
+<li>重试间隔时间（可采用固定间隔、指数退避或随机延迟）  </li>
+<li>
+<p>可重试的错误类型白名单  </p>
+</li>
+<li>
+<p>关键技术实现：  </p>
+</li>
+<li>使用拦截器/中间件捕获请求异常  </li>
+<li>维护重试计数器  </li>
+<li>实现延时重试逻辑  </li>
+<li>
+<p>记录重试日志用于监控  </p>
+</li>
+<li>
+<p>注意事项：  </p>
+</li>
+<li>对非幂等操作（如POST）需谨慎重试  </li>
+<li>设置合理的超时时间  </li>
+<li>避免因重试导致系统雪崩  </li>
+<li>
+<p>考虑实现熔断机制配合使用  </p>
+</li>
+<li>
+<p>典型应用场景：  </p>
+</li>
+<li>临时性网络抖动  </li>
+<li>服务端短暂过载  </li>
+<li>分布式系统间的偶发性故障  </li>
 </ol>
-<p>2) 实现重试策略：<br />
-   - 固定间隔（简单但可能加剧服务压力）<br />
-   - 随机间隔（避免惊群效应）<br />
-   - 指数退避（推荐方案）  </p>
-<p>3) 终止条件：<br />
-   - 达到最大重试次数<br />
-   - 遇到不可重试错误（如4xx错误）<br />
-   - 收到成功响应  </p>
-<ol>
-<li>注意事项  </li>
-<li>幂等性处理：确保重试不会产生副作用  </li>
-<li>重试日志记录：便于问题排查  </li>
-<li>熔断机制：避免持续重试导致系统雪崩  </li>
-<li>上下文传递：保持请求上下文的一致性  </li>
-</ol>
-<p>典型实现方式包括使用现成库（如Retry4j、Spring Retry）或自行封装重试逻辑。  </p>
+<p>该机制能有效提高系统容错能力，但需根据业务特点调整参数，平衡成功率和响应延迟。  </p>
   </article>
   
 <script>
