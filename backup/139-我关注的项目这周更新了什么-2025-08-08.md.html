@@ -1,80 +1,42 @@
 
   <article class="markdown-body">
-    <h1 id="1-copyparty-v11810">1. <a href="https://github.com/9001/copyparty/releases/tag/v1.18.10">copyparty v1.18.10</a></h1>
-<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>copyparty是一款文件共享工具，最新版本为v1.18.9（2025-08-01），修复了CVE-2025-54796漏洞。主要功能包括：  </p>
-<ol>
-<li>新增荷兰语和意大利语翻译；  </li>
-<li>支持音频转码为FLAC/WAV格式；  </li>
-<li>可通过环境变量PRTY_CONFIG提供配置文件；  </li>
-<li>视频文件可作为文件夹缩略图；  </li>
-<li>新增IdP认证的会话票证功能，提升性能。  </li>
-</ol>
-<p>近期重要更新：<br />
-- v1.15.0默认禁用上传去重功能；<br />
-- v1.14.3修复了可能导致数据丢失的bug。  </p>
-<p>推荐下载copyparty-sfx.py，只需Python环境即可运行。其他选项包括Docker镜像、Windows可执行文件等，但部分存在安全隐患，如32位Windows版本不建议暴露在互联网。  </p>
-<p>文档改进：<br />
-- 优化密码哈希说明；<br />
-- 更新证书帮助文本；<br />
-- 新增无IdP时使用群组的指南；<br />
-- 说明WebDAV与OpenGraph默认不兼容及解决方法。  </p>
-<p>提供Discord服务器用于重要更新通知，包括漏洞公告。演示服务器地址为https://a.ocv.me/pub/demo/。  </p>
+    <h1 id="1-fit-framework-elsa-v040">1. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/elsa-v0.4.0">fit-framework elsa-v0.4.0</a></h1>
+<p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。  </p>
+<p>本次Elsa模块更新主要聚焦配置功能增强和界面优化。关键内容包括：新增大规模模型节点的MCP服务器配置功能，锁定Rollup版本至4.39.0，以及为知识节点添加重新排序的界面支持。具体变更：功能方面新增知识节点重排UI；增强部分增加了大规模模型节点的MCPServerConfig配置；维护方面强制锁定Rollup版本。感谢所有贡献者的参与。  </p>
 <h1 id="2-servers-202584">2. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.8.4">servers 2025.8.4</a></h1>
 <p>Model Context Protocol Servers  </p>
-<p>版本v2025.8.4发布，主要更新了以下三个软件包：<br />
-1. @modelcontextprotocol/server-everything@2025.8.4<br />
-2. @modelcontextprotocol/server-memory@2025.8.4<br />
-3. mcp-server-time@2025.8.4  </p>
-<h1 id="3-bili-hardcore-v051">3. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.5.1">bili-hardcore v0.5.1</a></h1>
+<p>版本v2025.8.4发布，更新了三个软件包：@modelcontextprotocol/server-everything、@modelcontextprotocol/server-memory和mcp-server-time，版本号均为2025.8.4。  </p>
+<h1 id="3-copyparty-v11810">3. <a href="https://github.com/9001/copyparty/releases/tag/v1.18.10">copyparty v1.18.10</a></h1>
+<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
+<p>Copyparty是一款文件共享软件，提供多种下载选项。最新版本v1.18.9修复了CVE-2025-54796漏洞（拒绝服务攻击），建议用户升级。  </p>
+<p>主要新功能包括：新增荷兰语和意大利语翻译、支持音频转码为FLAC/WAV格式、可通过环境变量提供配置文件、视频可作为文件夹缩略图，以及新增IdP认证的会话票据功能以提升性能。  </p>
+<p>重要修复包括：修复PUT上传到nosub卷的问题、忽略浏览器扩展的异常、修正IPv6二维码端口显示问题等。  </p>
+<p>推荐下载copyparty-sfx.py（仅需Python环境），其他选项包括Docker镜像、Windows可执行文件（win8+推荐copyparty.exe，win7仅限内网使用copyparty32.exe）等。注意旧版本v1.13.8存在可能导致数据丢失的漏洞，建议升级至v1.14.3或更高版本。  </p>
+<p>文档方面改进了密码哈希说明、证书帮助文本，新增Wii浏览器兼容性说明等。用户可通过Discord服务器获取重要更新通知。  </p>
+<h1 id="4-bili-hardcore-v051">4. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.5.1">bili-hardcore v0.5.1</a></h1>
 <p>bilibili 硬核会员 AI 自动答题脚本，直接调用 B 站 API，非 OCR 实现  </p>
-<p>API请求报错后自动重试的实现方案：  </p>
+<p>API请求报错后自动重试的机制主要包括以下要点：  </p>
 <ol>
-<li>重试机制核心要素：  </li>
-<li>重试次数：设置最大重试次数（通常3-5次）  </li>
-<li>重试间隔：采用指数退避策略（首次1s，之后2s/4s/8s递增）  </li>
 <li>
-<p>错误类型判断：仅对可重试错误（如网络超时、5xx错误）进行重试  </p>
+<p>重试策略：根据错误类型（如网络超时、5xx服务端错误等）设置重试条件，通常4xx客户端错误不重试。  </p>
 </li>
 <li>
-<p>技术实现方式：  </p>
-</li>
-<li>代码层面：通过try-catch包裹请求逻辑，在catch中实现重试计数  </li>
-<li>框架层面：利用Spring Retry等现成组件  </li>
-<li>
-<p>配置层面：通过拦截器/AOP统一处理  </p>
+<p>重试次数：设置最大重试次数（如3-5次），避免无限重试造成资源浪费。  </p>
 </li>
 <li>
-<p>注意事项：  </p>
-</li>
-<li>幂等性保证：确保重试不会导致重复业务操作  </li>
-<li>熔断机制：避免持续重试导致系统雪崩  </li>
-<li>日志记录：详细记录每次重试的上下文信息  </li>
-<li>
-<p>超时控制：设置总尝试时长上限  </p>
+<p>退避算法：采用指数退避（逐步延长重试间隔）或固定间隔，减轻服务端压力。  </p>
 </li>
 <li>
-<p>高级优化：  </p>
+<p>错误处理：记录失败日志，最终仍失败时抛出异常或执行降级方案。  </p>
 </li>
-<li>动态调整策略：根据错误类型智能选择重试间隔  </li>
-<li>跨服务协调：通过唯一ID实现分布式请求追踪  </li>
-<li>降级方案：重试失败后执行备用逻辑  </li>
+<li>
+<p>实现方式：可通过编程语言内置重试库（如Python的retrying）、框架中间件或自定义循环逻辑实现。  </p>
+</li>
+<li>
+<p>注意事项：需考虑接口幂等性，避免重复操作导致数据不一致。  </p>
+</li>
 </ol>
-<p>典型实现伪代码：<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>function requestWithRetry(url, maxRetries) {  
-  let retryCount = 0;  
-  while(retryCount &lt;= maxRetries) {  
-    try {  
-      return apiCall(url);  
-    } catch(error) {  
-      if(!shouldRetry(error)) throw error;  
-      retryCount++;  
-      wait(2^retryCount * 1000);  
-    }  
-  }  
-}  
-</code></pre></div></div></p>
+<p>该机制能有效提高系统容错能力，特别适合网络抖动等临时性故障场景。  </p>
   </article>
   
 <script>
