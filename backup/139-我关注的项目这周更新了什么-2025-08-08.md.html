@@ -4,83 +4,109 @@
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
 <p>v1.5.4版本主要更新内容：  </p>
 <ol>
-<li>新增功能：  </li>
-<li>集成AWS Bedrock服务提供商  </li>
-<li>支持富文本编辑器，提升提示词编辑体验  </li>
-<li>新增拖拽文本输入功能，可直接从其他软件拖入内容  </li>
-<li>增加Top-P和Temperature参数调节选项  </li>
+<li>新增AWS Bedrock服务提供商支持  </li>
+<li>优化富文本编辑器，增强提示词编辑体验  </li>
+<li>改进拖拽输入功能，支持从其他软件直接拖入文本  </li>
+<li>新增Top-P和Temperature参数调节开关  </li>
 <li>翻译任务支持后台执行  </li>
-<li>新增Qwen-MT等3个推理模型  </li>
-<li>支持备份目录相对路径输入  </li>
-<li>数据导出增加引用内容导出开关  </li>
-<li>新增Zhipu和Grok 4模型支持  </li>
-<li>
-<p>新增Poe服务提供商  </p>
-</li>
-<li>
-<p>功能优化：  </p>
-</li>
-<li>改进MCP工具长时任务稳定性  </li>
-<li>优化设置页面布局  </li>
-<li>简化嵌入模型配置  </li>
-<li>提升模型列表加载性能  </li>
-<li>增强多语言支持（新增乌克兰语）  </li>
-<li>优化内存搜索处理  </li>
-<li>改进虚拟列表组件性能  </li>
-<li>
-<p>增强API服务器管理  </p>
-</li>
-<li>
-<p>问题修复：  </p>
-</li>
+<li>新增Qwen-MT等三款模型支持  </li>
 <li>修复部分模型无法输出推理内容的问题  </li>
-<li>修复Mistral模型无法使用的问题  </li>
-<li>解决文本流结尾丢失问题  </li>
-<li>修复内存泄漏问题  </li>
-<li>修正Qwen模型禁用思考功能问题  </li>
-<li>修复PDF文件解析问题  </li>
-<li>
-<p>解决代理管理问题  </p>
-</li>
-<li>
-<p>其他改进：  </p>
-</li>
-<li>新增CSaaS（Cherry Studio as a Service）支持  </li>
-<li>增强错误日志记录  </li>
-<li>完善开发者文档  </li>
-<li>改进UI动画效果  </li>
-<li>优化代码结构  </li>
+<li>解决Mistral模型无法使用的问题  </li>
+<li>备份目录支持相对路径输入  </li>
+<li>数据导出增加引用内容开关选项  </li>
+<li>修复文本流末尾丢失问题  </li>
+<li>优化代码逻辑解决内存泄漏  </li>
+<li>简化嵌入模型配置  </li>
+<li>增强MCP工具长时间任务稳定性  </li>
+<li>优化设置页面布局  </li>
 </ol>
-<p>新贡献者：@lihqi、@tomsun28、@brucewang5638、@lukegalea首次参与贡献。  </p>
-<h1 id="2-fit-framework-elsa-v040">2. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/elsa-v0.4.0">fit-framework elsa-v0.4.0</a></h1>
-<p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。  </p>
-<p>本次Elsa模块更新主要聚焦配置能力增强和界面优化。核心内容包括：新增大型模型节点的MCP服务器配置功能，强制锁定Rollup版本至4.39.0，以及知识节点新增重排序界面。具体变更：功能方面新增知识节点重排UI；增强功能中为大型模型节点添加MCPServerConfig配置；维护项强制锁定Rollup版本。特别感谢RonnyChan96等开发者的贡献。  </p>
-<h1 id="3-servers-202584">3. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.8.4">servers 2025.8.4</a></h1>
+<p>其他重要改进：<br />
+- 新增乌克兰语支持<br />
+- 优化模型列表加载性能<br />
+- 修复代理管理问题<br />
+- 改进虚拟列表组件<br />
+- 增强API服务稳定性<br />
+- 新增OpenAI o3模型支持<br />
+- 改进健康检查机制  </p>
+<p>首次贡献者：@lihqi、@tomsun28等4位开发者。完整变更请查看版本对比链接。  </p>
+<h1 id="2-servers-202584">2. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.8.4">servers 2025.8.4</a></h1>
 <p>Model Context Protocol Servers  </p>
-<p>版本v2025.8.4发布更新，包含三个软件包的升级：@modelcontextprotocol/server-everything、@modelcontextprotocol/server-memory和mcp-server-time，均更新至2025.8.4版本。  </p>
-<h1 id="4-copyparty-v11810">4. <a href="https://github.com/9001/copyparty/releases/tag/v1.18.10">copyparty v1.18.10</a></h1>
+<p>版本v2025.8.4发布，包含以下更新包：@modelcontextprotocol/server-everything@2025.8.4、@modelcontextprotocol/server-memory@2025.8.4和mcp-server-time@2025.8.4。  </p>
+<h1 id="3-copyparty-v11810">3. <a href="https://github.com/9001/copyparty/releases/tag/v1.18.10">copyparty v1.18.10</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>copyparty 是一个自托管的文件共享服务，主要功能包括文件浏览、上传下载、音视频播放等。最新版本 v1.18.9 修复了拒绝服务漏洞 CVE-2025-54796。近期重要更新包括：默认禁用上传去重功能、修复可能导致数据丢失的 bug。  </p>
-<p>新特性：<br />
+<p>Copyparty是一款文件共享工具，主要更新内容如下：  </p>
+<p>安全与重要公告：<br />
+- 最新版本v1.18.9修复了CVE-2025-54796拒绝服务漏洞<br />
+- v1.15.0默认禁用上传去重功能<br />
+- v1.14.3修复了可能导致数据丢失的严重bug  </p>
+<p>新功能：<br />
 - 新增荷兰语和意大利语翻译<br />
-- 支持音频转码为 FLAC/WAV 格式<br />
-- 可通过环境变量 PRTY_CONFIG 提供配置文件<br />
+- 支持音频转码为FLAC/WAV格式<br />
+- 配置文件可通过环境变量PRTY_CONFIG提供<br />
 - 视频文件可作为文件夹缩略图<br />
-- 新增 IdP 认证的会话票证功能提升性能  </p>
+- 新增IdP认证的会话票证功能提升性能  </p>
 <p>问题修复：<br />
-- 修复 nosub 卷标下的 PUT 上传问题<br />
+- 修复PUT上传到nosub卷的问题<br />
 - 忽略浏览器扩展导致的异常<br />
-- 修复 IPv6 QR 码未包含端口的问题  </p>
-<p>其他改进包括芬兰语翻译优化、播放按钮显示优化、文档完善等。  </p>
-<p>推荐下载选项：<br />
-- copyparty-sfx.py：最佳选择，只需 Python 环境<br />
-- Docker 镜像：适合偏好 Docker 的用户<br />
-- copyparty.exe：Windows 8+ 版本，内置缩略图生成<br />
-- 其他选项如 32 位版本仅限本地使用，不建议暴露到互联网  </p>
-<p>项目提供 Discord 社区讨论和漏洞通知，最新版本建议从 GitHub 发布页获取。  </p>
+- 修复IPv6二维码缺少端口的问题<br />
+- 修复空白VFS强制d2d的问题  </p>
+<p>其他改进：<br />
+- 优化芬兰语翻译<br />
+- 播放按钮现可区分视频/音频播放<br />
+- 文档改进包括密码哈希说明、证书帮助文本等<br />
+- PyPI包新增all额外组  </p>
+<p>下载建议：<br />
+- 推荐使用copyparty-sfx.py，只需Python环境<br />
+- 提供Docker镜像、Windows可执行文件等选项<br />
+- 警告32位exe版本存在安全隐患<br />
+- 另提供CLI上传工具u2c.exe  </p>
+<p>该项目还提供在线演示服务器和Discord社区支持。  </p>
+<h1 id="4-fit-framework-elsa-v040">4. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/elsa-v0.4.0">fit-framework elsa-v0.4.0</a></h1>
+<p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。  </p>
+<p>本次Elsa模块更新主要聚焦配置能力增强和界面优化。关键更新包括：为大型模型节点新增MCP服务器配置功能、锁定Rollup版本至4.39.0、知识节点新增重新排序界面。具体变更包含特性新增（知识节点重排UI）、功能增强（大型模型节点MCPServerConfig配置）和维护更新（强制指定Rollup版本）。特别鸣谢贡献者@RonnyChan96等开发者的工作。  </p>
 <h1 id="5-bili-hardcore-v051">5. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.5.1">bili-hardcore v0.5.1</a></h1>
 <p>bilibili 硬核会员 AI 自动答题脚本，直接调用 B 站 API，非 OCR 实现  </p>
-<p>API请求报错后自动重试是一种常见的容错机制。主要实现方式包括设置重试次数上限、采用指数退避策略逐步延长重试间隔、针对特定错误码进行重试（如5xx服务端错误或网络超时）。需要注意避免对非幂等操作（如POST请求）进行重试，同时应记录重试日志用于问题排查。典型实现方案有通过编程语言自身的重试库（如Python的retrying）或HTTP客户端（如axios的interceptors）进行配置。  </p>
+<p>API请求报错后自动重试的主要实现方案：  </p>
+<ol>
+<li>重试策略：  </li>
+<li>固定间隔重试：每次重试间隔相同时间  </li>
+<li>指数退避重试：重试间隔按指数增长（如1s、2s、4s...）  </li>
+<li>
+<p>随机间隔重试：在设定范围内随机间隔  </p>
+</li>
+<li>
+<p>重试条件：  </p>
+</li>
+<li>仅对特定HTTP状态码重试（如5xx错误）  </li>
+<li>网络连接异常时重试  </li>
+<li>
+<p>超时请求重试  </p>
+</li>
+<li>
+<p>关键参数配置：  </p>
+</li>
+<li>最大重试次数（通常3-5次）  </li>
+<li>重试间隔时间  </li>
+<li>
+<p>可重试的错误类型白名单  </p>
+</li>
+<li>
+<p>实现方式：  </p>
+</li>
+<li>使用现成库（如Retry库）  </li>
+<li>自行实现重试循环逻辑  </li>
+<li>
+<p>结合断路器模式避免雪崩  </p>
+</li>
+<li>
+<p>注意事项：  </p>
+</li>
+<li>幂等性保证（只对读操作或保证幂等的写操作重试）  </li>
+<li>重试日志记录  </li>
+<li>重试次数和间隔需要合理设置  </li>
+<li>对非临时性错误不应重试  </li>
+</ol>
+<p>典型应用场景：支付接口调用、第三方服务对接、网络不稳定的移动端请求等。  </p>
   </article>
   
 <script>
