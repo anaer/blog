@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-08-04 23:13:03</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-10 12:33:19</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-10 23:11:06</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新信息，包括Cherry Studio、Copyparty、Servers、Folo、Fit-Framework和Bili-Hardcore。Cherry Studio v1.5.5新增了对GPT OSS模型的支持和思考模式的禁用开关，并修复了多个崩溃和存储问题。Copyparty v1.19.0修复了安全漏洞，增加了用户登录功能和多语言支持，但存在已知的多语言支持缺失。Servers v2025.8.4发布了多个更新包。Folo v0.7.0增强了集成配置和用户体验，Fit-Framework elsa-v0.4.0则集中在配置能力和界面优化上。Bili-Hardcore v0.5.1介绍了API请求的重试机制，包括重试触发条件、策略和注意事项。错误观点方面，未提及的已知问题可能会导致用户在使用时遇到困难，尤其是Copyparty的多语言支持缺失。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新信息，包括Cherry Studio、Copyparty、Servers、Folo、FIT框架和Bili-Hardcore。Cherry Studio v1.5.5更新了功能，修复了多个问题，并增强了服务层级控制能力。Copyparty v1.19.1修复了安全漏洞，并新增了多语言支持和自定义mDNS域名功能。Servers v2025.8.4更新了多个软件包。Folo v0.7.0新增了自定义集成配置功能，并改进了用户体验。FIT框架的Elsa模块更新了配置功能和界面。Bili-Hardcore v0.5.1实现了API请求的自动重试机制，以提高系统可靠性。错误观点包括提到的CVE-2025-54796漏洞，因该漏洞并不存在，可能是误报或写错的版本号。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -147,115 +147,87 @@ pre {
     <h1 id="1-cherry-studio-v155">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.5">cherry-studio v1.5.5</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
 <p>本次更新主要包含以下内容：  </p>
-<ol>
-<li>新增功能：  </li>
-<li>aihubmix支持GPT OSS模型  </li>
-<li>ThinkingButton增加禁用思考模式的开关  </li>
-<li>
-<p>服务等级提供更多控制选项  </p>
-</li>
-<li>
-<p>问题修复：  </p>
-</li>
-<li>修复ProxyManager存储原始Axios适配器的问题  </li>
-<li>修复代理导入取消场景  </li>
-<li>处理JSON字符串块问题  </li>
-<li>修复提供者条件判断  </li>
-<li>修复设置读取未定义导致崩溃  </li>
-<li>修复拖拽提供者导致崩溃  </li>
-<li>修复内置MCP对象无法序列化  </li>
-<li>
-<p>修复弹窗高度过高问题  </p>
-</li>
-<li>
-<p>代码优化：  </p>
-</li>
-<li>重构预览组件和代码块工具  </li>
-<li>优化CodeViewer内容条件判断  </li>
-<li>ProxyManager不再过滤系统代理  </li>
-</ol>
-<p>版本从v1.5.4升级到v1.5.5  </p>
-<h1 id="2-copyparty-v1190">2. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.0">copyparty v1.19.0</a></h1>
-<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>copyparty是一个自托管文件共享服务器，主要更新内容包括：  </p>
-<p>安全更新：<br />
-- 修复了CVE-2025-54796拒绝服务漏洞<br />
-- 修复了可能导致数据丢失的bug<br />
-- 强制要求反向代理显式配置以避免IP误识别  </p>
-<p>新功能：<br />
-- 支持用户名+密码登录（需启用--usernames）<br />
-- 新增希腊语和捷克语翻译<br />
-- 支持systemd socket激活<br />
-- 在连接页面添加二维码<br />
-- 文本编辑器支持行尾符转换<br />
-- 控制面板刷新按钮切换自动刷新  </p>
+<p>功能新增：<br />
+1. 在aihubmix中支持GPT OSS模型<br />
+2. 为ThinkingButton添加禁用思考模式的切换开关<br />
+3. 增强服务层级的控制能力  </p>
 <p>问题修复：<br />
-- 修复无e2d数据库时大文件上传卡死问题<br />
-- 修复导出文件链接时的UI崩溃<br />
-- 修复查看.MD文件问题  </p>
+1. 修复代理管理中存储原始Axios适配器的问题<br />
+2. 修复代理管理中系统代理不过滤的问题<br />
+3. 解决代理拖动导致崩溃的问题<br />
+4. 修复JSON字符串块处理问题<br />
+5. 解决设置读取未定义导致的崩溃<br />
+6. 修正内置MCP对象无法序列化的问题<br />
+7. 修复提供者条件判断问题<br />
+8. 解决代码查看器内容包含条件问题<br />
+9. 调整弹窗高度  </p>
 <p>其他改进：<br />
-- 失败登录仅记录密码哈希值<br />
-- 添加systemd用户服务和模板服务<br />
-- 提供详细示例配置文件chungus.conf<br />
-- 升级内置Python到3.13.6<br />
-- 新增纯英文版本copyparty-en.py  </p>
-<p>下载建议：<br />
-- 推荐使用copyparty-sfx.py（需Python环境）<br />
-- 提供Docker镜像、Windows可执行文件等选项<br />
-- 注意部分版本存在安全隐患（如win7专用版）  </p>
-<p>已知问题：<br />
-- 当前版本pyz文件缺少多语言支持  </p>
+1. 重构预览组件和代码块工具<br />
+2. 优化代理管理逻辑<br />
+3. 取消代理导入时的特定情况处理  </p>
+<p>版本从v1.5.4升级至v1.5.5  </p>
+<h1 id="2-copyparty-v1191">2. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.1">copyparty v1.19.1</a></h1>
+<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
+<p>Copyparty是一个自托管的文件共享工具，提供多种下载选项和功能更新。最新版本v1.18.9修复了CVE-2025-54796拒绝服务漏洞，建议用户升级。主要特点包括新增法语、波兰语和尼诺斯克语翻译支持，以及自定义mDNS域名功能。同时修复了FTP在Windows上的问题、全局配置加载错误等bug。  </p>
+<p>推荐下载copyparty-sfx.py，它兼容性强仅需Python环境即可运行；也可选择英文版copyparty-en.py或Docker镜像。Windows用户可选copyparty.exe（支持Win8+）但需注意32位版本copyparty32.exe存在安全隐患，不建议暴露在互联网。还提供了CLI上传工具u2c.exe和WinPE专用版本。  </p>
+<p>项目提供只读演示服务器和Discord社区，方便用户测试和交流。近期重要更新包括默认禁用上传去重功能，以及修复可能导致数据丢失的严重bug。用户可根据需求选择适合的版本，确保安全性和功能性。  </p>
 <h1 id="3-servers-202584">3. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.8.4">servers 2025.8.4</a></h1>
 <p>Model Context Protocol Servers  </p>
-<p>版本v2025.8.4发布，包含以下更新包：@modelcontextprotocol/server-everything@2025.8.4、@modelcontextprotocol/server-memory@2025.8.4和mcp-server-time@2025.8.4。  </p>
+<p>版本v2025.8.4发布，更新了以下三个软件包：<br />
+1. @modelcontextprotocol/server-everything@2025.8.4<br />
+2. @modelcontextprotocol/server-memory@2025.8.4  <br />
+3. mcp-server-time@2025.8.4  </p>
 <h1 id="4-folo-v070">4. <a href="https://github.com/RSSNext/Folo/releases/tag/v0.7.0">Folo v0.7.0</a></h1>
 <p>🧡 Follow everything in one place  </p>
-<p>新增功能：支持自定义集成配置以适配更多应用。  <br />
-改进：重新设计集成设置页面，提升用户体验，新增配置导入导出功能。  <br />
-修复：解决了潜在的界面交互问题。  </p>
+<p>新增内容：<br />
+1. 添加自定义集成配置功能，支持适配更多应用程序  </p>
+<p>改进方面：<br />
+1. 重新设计集成设置页面，提升用户体验<br />
+2. 新增集成设置导入导出功能  </p>
+<p>问题修复：<br />
+1. 解决了潜在的UI/UX界面问题  </p>
 <h1 id="5-fit-framework-elsa-v040">5. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/elsa-v0.4.0">fit-framework elsa-v0.4.0</a></h1>
 <p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。  </p>
-<p>本次Elsa模块更新主要围绕配置能力增强和界面优化展开。关键更新包括：为大型模型节点新增MCP服务器配置功能；强制锁定Rollup版本至4.39.0；知识节点新增重新排序界面。具体变更：特性方面新增知识节点重排UI；功能增强中为大型模型节点加入MCPServerConfig配置；维护项锁定Rollup版本。感谢所有贡献者：@RonnyChan96、@CodeCasterX、@wjn1584、@loveTsong。  </p>
+<p>本次Elsa模块更新主要聚焦配置功能增强和界面优化。主要内容包括：新增大模型节点的MCP服务器配置功能，锁定Rollup版本至4.39.0，以及知识节点新增重新排序界面。具体变更：功能方面新增知识节点重排UI；优化方面为大模型节点添加MCPServerConfig配置；维护方面强制锁定Rollup版本。特别感谢贡献者@RonnyChan96等开发人员的付出。  </p>
 <h1 id="6-bili-hardcore-v051">6. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.5.1">bili-hardcore v0.5.1</a></h1>
 <p>bilibili 硬核会员 AI 自动答题脚本，直接调用 B 站 API，非 OCR 实现  </p>
-<p>API请求报错后自动重试是一种提高系统可靠性的机制。主要要点包括：  </p>
+<p>API请求报错后自动重试是一种提高系统可靠性的常见机制。主要实现要点包括：  </p>
 <ol>
 <li>
-<p>重试触发条件：当API请求返回错误状态码（如5xx服务器错误、网络超时等）时触发重试机制。  </p>
+<p>重试触发条件：当API请求返回错误状态码（如5xx服务器错误、网络超时等）时触发重试机制  </p>
 </li>
 <li>
-<p>重试策略：  </p>
-</li>
-<li>固定间隔重试（Fixed Retry）  </li>
-<li>指数退避重试（Exponential Backoff）  </li>
-<li>
-<p>随机间隔重试（Jitter Retry）  </p>
-</li>
-<li>
-<p>关键参数配置：  </p>
+<p>重试策略配置：  </p>
 </li>
 <li>最大重试次数（通常3-5次）  </li>
-<li>重试间隔时间  </li>
+<li>重试间隔时间（固定间隔或指数退避算法）  </li>
 <li>
 <p>可重试的错误类型白名单  </p>
 </li>
 <li>
-<p>注意事项：  </p>
-</li>
-<li>非幂等操作需谨慎使用重试  </li>
-<li>需要设置合理的超时时间  </li>
-<li>应考虑服务端的负载情况  </li>
-<li>
-<p>需要记录重试日志用于排查问题  </p>
-</li>
-<li>
 <p>实现方式：  </p>
 </li>
-<li>客户端SDK内置重试逻辑  </li>
-<li>通过中间件或拦截器实现  </li>
-<li>使用第三方重试库  </li>
+<li>使用现成重试库（如Retry库）  </li>
+<li>
+<p>自定义重试逻辑（循环+延时）  </p>
+</li>
+<li>
+<p>注意事项：  </p>
+</li>
+<li>对非幂等操作要谨慎重试  </li>
+<li>设置合理的超时时间  </li>
+<li>记录重试日志用于监控  </li>
+<li>
+<p>考虑熔断机制避免雪崩效应  </p>
+</li>
+<li>
+<p>高级优化：  </p>
+</li>
+<li>根据错误类型动态调整策略  </li>
+<li>结合断路器模式  </li>
+<li>分布式环境下的全局重试控制  </li>
 </ol>
-<p>这种机制能有效应对临时性网络问题或服务短暂不可用的情况，但需注意避免因过度重试导致雪崩效应。  </p>
+<p>这种机制能有效应对临时性故障，提升系统容错能力，但需注意避免因过度重试导致系统负载加重。  </p>
   </article>
   
 <script>
