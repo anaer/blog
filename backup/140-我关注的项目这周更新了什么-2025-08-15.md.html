@@ -1,0 +1,56 @@
+
+  <article class="markdown-body">
+    <h1 id="1-dify-172">1. <a href="https://github.com/langgenius/dify/releases/tag/1.7.2">dify 1.7.2</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<p>Dify v1.7.2 版本更新带来多项功能增强和优化，主要包括：  </p>
+<p>核心新功能：<br />
+1. 工作流可视化 - 新增关系面板显示节点依赖关系，选中节点后按Shift键可查看连接线<br />
+2. 节点搜索功能 - 支持在工作流编辑器中快速查找节点  </p>
+<p>重要改进：<br />
+- Notion数据库集成优化，保持原始行顺序并添加行页面URL<br />
+- 支持在API中指定工作流版本<br />
+- 工具JSON响应新增对日期时间和UUID的支持<br />
+- API文档全面改版，提升用户体验<br />
+- 新增服务API文件预览端点<br />
+- 工作流节点对齐功能增强<br />
+- 全面增加Testcontainers测试，提升服务稳定性  </p>
+<p>安全修复：<br />
+- 修复认证检查页面的XSS漏洞  </p>
+<p>其他改进：<br />
+- 腾讯云VectorDB全文搜索元数据过滤修复<br />
+- 工作流知识检索缓存问题修复<br />
+- HTTP请求组件multipart/form-data边界问题解决<br />
+- 会话变量同步问题修复<br />
+- 多项国际化(i18n)改进  </p>
+<p>升级指南：<br />
+提供Docker Compose和源码两种部署方式的详细升级步骤，包括备份、代码更新、依赖安装和数据迁移等操作。  </p>
+<p>社区贡献：<br />
+特别感谢所有贡献者，包括多位首次参与项目的新开发者。本次更新共合并237个PR，解决大量问题和改进用户体验。  </p>
+<p>完整变更日志可查看GitHub版本对比。  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
