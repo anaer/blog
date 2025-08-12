@@ -1,0 +1,44 @@
+
+  <article class="markdown-body">
+    <h2 id="windows">Windows</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>nvm<span class="w"> </span>node_mirror<span class="w"> </span>https://npmmirror.com/mirrors/node<span class="w">  </span>
+nvm<span class="w"> </span>npm_mirror<span class="w">  </span>https://npmmirror.com/mirrors/npm<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="linuxmac">Linux/Mac</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="c1"># 临时  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NVM_NODEJS_ORG_MIRROR</span><span class="o">=</span>https://npmmirror.com/mirrors/node<span class="w">  </span>
+nvm<span class="w"> </span>install<span class="w"> </span><span class="m">20</span>.14.0<span class="w">  </span>
+
+<span class="c1"># 永久生效  </span>
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w">  </span>
+<span class="nb">source</span><span class="w"> </span>~/.bashrc<span class="w">  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
