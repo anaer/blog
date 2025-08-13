@@ -135,60 +135,141 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-08-11 23:12:59</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-13 12:22:32</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-13 23:10:28</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Cherry Studio v1.5.6的更新内容，包括模型选择体验优化、新增功能和系统优化等，支持多种LLM提供者，并新增GPT-5模型支持。Dify v1.7.2版本则强调了工作流可视化功能和节点搜索功能的新增，同时进行了多项安全更新和问题修复。Sensitive-lexicon 1.2是一个更新的中文敏感词库，旨在帮助开发者识别不当文本。文本中没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了PowerToys v0.93.0、dify 1.7.2、cherry-studio v1.5.6和Sensitive-lexicon 1.2四个软件的主要更新内容。PowerToys 0.93.0的更新包括全新设置界面、命令面板优化、鼠标工具新增聚光灯模式等，专注于用户体验和性能提升。dify 1.7.2增加了工作流可视化关系面板和节点搜索功能，并修复了XSS漏洞，提升了API文档体验。cherry-studio v1.5.6则优化了模型选择体验，修复了多个问题，并新增了坚果云备份和本地网络搜索语言过滤器等功能。Sensitive-lexicon 1.2更新了中文敏感词库，帮助开发者和内容审核者识别不当文本。整体来看，四个软件均注重功能优化和问题修复，但没有明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-cherry-studio-v156">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.6">cherry-studio v1.5.6</a></h1>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新主要包含以下改进：<br />
-1. 模型选择体验优化、推理错误回退处理、Gemma3模型正则匹配修复<br />
-2. 新增功能：筛选拖拽操作、坚果云备份文本、知识库保存主题、开发者模式帮助<br />
-3. 问题修复：输入栏遮挡按钮、模型ID统一小写、翻译选择修复、GitHub模型API更新<br />
-4. 系统优化：Windows代理改进、Linux RPM打包支持、文件路径处理增强<br />
-5. 新增GPT-5模型支持、翻译功能升级（支持语言自动检测交换）、代码工具添加<br />
-6. 界面改进：提供商标色输入栏工具、可调整大小的供应商设置<br />
-7. 其他修复：AWS Bedrock模型自动获取、使用追踪优化、代理逻辑更新等  </p>
-<p>版本从v1.5.5升级至v1.5.6，包含多项用户体验优化和功能增强。  </p>
+    <h1 id="1-powertoys-v0930">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.93.0">PowerToys v0.93.0</a></h1>
+<p>Windows system utilities to maximize productivity  </p>
+<p>PowerToys 0.93版本主要更新内容如下：  </p>
+<ol>
+<li>安装包信息  </li>
+<li>
+<p>提供了x64和ARM64架构的用户版/系统版安装包及对应的SHA256校验值  </p>
+</li>
+<li>
+<p>核心改进  </p>
+</li>
+<li>设置界面全新改版：采用现代化卡片式仪表盘，优化导航体验  </li>
+<li>命令面板重大升级：修复99+问题，内存占用降低15%，加载速度提升40%，安装体积减少55%  </li>
+<li>新增功能：支持.bgcode 3D打印文件预览（感谢@pedrolamas贡献）  </li>
+<li>鼠标工具新增聚光灯模式，适合演示场景  </li>
+<li>
+<p>测试覆盖率显著提升：新增600+单元测试，UI自动化测试翻倍  </p>
+</li>
+<li>
+<p>命令面板专项优化  </p>
+</li>
+<li>增强无障碍功能：改进屏幕阅读器支持  </li>
+<li>交互优化：右键菜单、快捷键支持、返回按钮等功能完善  </li>
+<li>稳定性提升：修复多线程问题和崩溃隐患  </li>
+<li>
+<p>扩展功能增强：计算器、应用搜索、网页搜索等插件改进  </p>
+</li>
+<li>
+<p>其他功能更新  </p>
+</li>
+<li>快速输入工具新增越南语支持（感谢@octastylos-pseudodipteros贡献）  </li>
+<li>
+<p>设置页面优化：描述文案改进、深链接支持  </p>
+</li>
+<li>
+<p>开发相关  </p>
+</li>
+<li>文档完善：新增开发者指南和插件文档  </li>
+<li>基础设施升级：.NET 9.0.8更新、拼写检查系统优化  </li>
+<li>测试改进：采用pHash图像比对技术，CI超时时间从4小时缩短至90分钟  </li>
+</ol>
+<p>该版本聚焦用户体验优化、性能提升和稳定性改进，同时加强了开发测试流程的自动化程度。  </p>
 <h1 id="2-dify-172">2. <a href="https://github.com/langgenius/dify/releases/tag/1.7.2">dify 1.7.2</a></h1>
 <p>Production-ready platform for agentic workflow development.  </p>
-<p>Dify v1.7.2版本发布，主要包含以下更新：  </p>
+<p>Dify v1.7.2 主要更新内容：  </p>
 <p>核心功能：<br />
-1. 新增工作流可视化功能，通过关系面板显示节点依赖关系<br />
-2. 新增节点搜索功能，方便在工作流编辑器中快速定位节点  </p>
-<p>功能增强：<br />
-- Notion数据库集成支持按原始顺序提取行内容并附加行页面URL<br />
-- 工作流和聊天API支持指定版本<br />
+1. 新增工作流可视化关系面板，可查看节点依赖关系<br />
+2. 工作流编辑器新增节点搜索功能  </p>
+<p>重要增强：<br />
+- Notion数据库集成现在按原始顺序提取行数据并附加行页面URL<br />
+- 工作流和聊天API支持版本指定<br />
 - 工具JSON响应新增支持datetime和UUID类型<br />
-- API文档界面重新设计，提升用户体验<br />
-- 工作流节点对齐功能优化<br />
+- 全面改进API文档设计和用户体验<br />
 - 新增服务API文件预览端点<br />
-- 新增Clickzetta湖仓向量数据库集成  </p>
-<p>安全更新：<br />
-- 修复了认证校验页面的XSS漏洞  </p>
-<p>问题修复：<br />
+- 完善工作流节点对齐功能  </p>
+<p>安全修复：<br />
+- 修复了认证验证码页面的XSS漏洞  </p>
+<p>其他改进：<br />
 - 修复腾讯云VectorDB全文搜索的元数据过滤问题<br />
-- 修复工作流知识检索缓存问题<br />
+- 修复工作流知识检索缓存错误<br />
 - 解决HTTP请求组件的multipart/form-data边界问题<br />
-- 修复现有会话变量同步问题<br />
+- 修复已有会话变量同步问题<br />
 - 多项国际化(i18n)修复  </p>
-<p>测试改进：<br />
-- 新增account、app、message、workflow等服务的Testcontainers测试  </p>
 <p>升级指南：<br />
-- 提供了Docker Compose和源码部署的详细升级步骤<br />
-- 包含数据备份、依赖更新和数据库迁移等关键操作说明  </p>
-<p>社区贡献：<br />
-- 本次版本包含来自36位新贡献者的代码提交<br />
-- 共合并了超过150个PR，修复了大量问题和改进功能  </p>
-<p>完整变更日志可查看GitHub发布页面。  </p>
-<h1 id="3-sensitive-lexicon-12">3. <a href="https://github.com/konsheng/Sensitive-lexicon/releases/tag/1.2">Sensitive-lexicon 1.2</a></h1>
+1. Docker Compose部署：<br />
+- 备份数据<br />
+- 拉取最新代码<br />
+- 停止服务后重新启动  </p>
+<ol>
+<li>源码部署：  </li>
+<li>停止所有服务  </li>
+<li>切换到1.7.2分支  </li>
+<li>更新Python依赖  </li>
+<li>运行数据库迁移  </li>
+<li>重启服务  </li>
+</ol>
+<p>致谢：<br />
+特别感谢所有贡献者，包括多位首次贡献者。完整变更日志包含230多项改进和修复。  </p>
+<h1 id="3-cherry-studio-v156">3. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.6">cherry-studio v1.5.6</a></h1>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
+<p>本次更新主要包含功能优化、问题修复和新功能添加：  </p>
+<ol>
+<li>功能优化：  </li>
+<li>改进模型类型选择体验  </li>
+<li>开发者模式帮助功能  </li>
+<li>翻译功能全面升级  </li>
+<li>提供程序设置可调整大小  </li>
+<li>文件路径处理优化  </li>
+<li>
+<p>代理处理逻辑更新  </p>
+</li>
+<li>
+<p>问题修复：  </p>
+</li>
+<li>修复无效推理回退  </li>
+<li>修复输入栏遮挡聊天导航按钮  </li>
+<li>修复代码块初始视图模式  </li>
+<li>修复AWS Bedrock模型列表自动获取  </li>
+<li>修复GPT-5支持问题  </li>
+<li>
+<p>修复翻译历史保存问题  </p>
+</li>
+<li>
+<p>新功能：  </p>
+</li>
+<li>添加坚果云备份文本及最大备份限制  </li>
+<li>支持将主题保存到知识库  </li>
+<li>本地网络搜索增加语言过滤器  </li>
+<li>添加Linux RPM构建支持  </li>
+<li>新增代码工具  </li>
+<li>消息组中添加上下文消息  </li>
+<li>
+<p>翻译页面支持交换自动检测语言  </p>
+</li>
+<li>
+<p>其他改进：  </p>
+</li>
+<li>始终使用小写模型ID  </li>
+<li>用户自定义参数优先覆盖其他参数  </li>
+<li>更新GitHub模型API地址  </li>
+<li>调整GPT-5模型logo匹配顺序  </li>
+<li>输入栏工具使用主色调  </li>
+</ol>
+<h1 id="4-sensitive-lexicon-12">4. <a href="https://github.com/konsheng/Sensitive-lexicon/releases/tag/1.2">Sensitive-lexicon 1.2</a></h1>
 <p>一个持续更新的中文敏感词库，帮助开发者和内容审核者快速识别并过滤不当文本。  </p>
-<p>敏感词库更新日志：版本1.1到1.2的变更记录。  </p>
+<p>敏感词库更新日志：1.1版本至1.2版本  </p>
   </article>
   
 <script>
