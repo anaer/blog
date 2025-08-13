@@ -135,94 +135,60 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-08-11 23:12:59</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-13 09:50:42</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-13 12:22:32</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Dify 1.7.2、Cherry Studio 1.5.6和Sensitive-lexicon 1.2的更新内容。Dify 1.7.2引入了工作流可视化和节点搜索功能，改进了Notion数据库集成和API文档界面，修复了多个安全漏洞和bug，并增加了35位贡献者。Cherry Studio 1.5.6优化了模型选择体验，新增了备份和知识库功能，解决了多个技术问题，并改进了GPT-5模型支持。Sensitive-lexicon 1.2更新了中文敏感词库以帮助内容审核。需要注意的是，文中未提及具体的错误观点。
+    <strong>AI总结:</strong> 本文介绍了Cherry Studio v1.5.6的更新内容，包括模型选择体验优化、新增功能和系统优化等，支持多种LLM提供者，并新增GPT-5模型支持。Dify v1.7.2版本则强调了工作流可视化功能和节点搜索功能的新增，同时进行了多项安全更新和问题修复。Sensitive-lexicon 1.2是一个更新的中文敏感词库，旨在帮助开发者识别不当文本。文本中没有明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-dify-172">1. <a href="https://github.com/langgenius/dify/releases/tag/1.7.2">dify 1.7.2</a></h1>
-<p>Production-ready platform for agentic workflow development.  </p>
-<p>Dify v1.7.2 版本更新摘要  </p>
-<p>主要新功能：<br />
-1. 工作流可视化 - 新增关系面板显示节点依赖关系（Shift+节点查看）<br />
-2. 节点搜索功能 - 支持在工作流编辑器中快速查找节点  </p>
-<p>核心改进：<br />
-- Notion数据库集成：保持原始行顺序并添加行页面URL<br />
-- 工作流API支持版本控制<br />
-- 工具JSON响应新增支持datetime和UUID类型<br />
-- API文档界面全面改版<br />
-- 工作流节点对齐功能增强<br />
-- 新增服务API文件预览端点<br />
-- 增加多种服务的Testcontainers测试  </p>
-<p>安全修复：<br />
-- 修复认证检查页面的XSS漏洞  </p>
-<p>Bug修复：<br />
-- 腾讯云VectorDB全文搜索的元数据过滤问题<br />
-- 工作流知识检索缓存问题<br />
-- HTTP请求组件的multipart/form-data边界问题<br />
-- 现有会话变量同步问题<br />
-- 多项国际化(i18n)修正  </p>
-<p>升级指南：<br />
-- Docker Compose部署：备份→拉取代码→停止服务→备份数据→升级<br />
-- 源码部署：停止服务→拉取代码→更新依赖→运行迁移→重启服务  </p>
-<p>其他：<br />
-- 新增35位贡献者<br />
-- 包含200多项改进和修复<br />
-- 完整变更日志见GitHub对比链接  </p>
-<h1 id="2-cherry-studio-v156">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.6">cherry-studio v1.5.6</a></h1>
+    <h1 id="1-cherry-studio-v156">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.6">cherry-studio v1.5.6</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新主要包含以下改进和修复：  </p>
-<ol>
-<li>功能优化：  </li>
-<li>改进了模型类型选择体验  </li>
-<li>新增坚果云备份文本功能  </li>
-<li>添加了知识库保存主题功能  </li>
-<li>支持Linux系统的RPM打包目标  </li>
-<li>增加了开发者模式帮助功能  </li>
-<li>实现了消息组中的上下文消息功能  </li>
-<li>新增全新的翻译功能  </li>
-<li>
-<p>添加了代码工具支持  </p>
-</li>
-<li>
-<p>问题修复：  </p>
-</li>
-<li>修复无效推理努力的回退处理  </li>
-<li>修正了Gemma3模型与Ollama格式的正则匹配  </li>
-<li>修复了Qwen思维控制问题  </li>
-<li>解决了输入栏遮挡聊天导航按钮的问题  </li>
-<li>修正了翻译历史保存时的状态问题  </li>
-<li>修复了AWS Bedrock模型列表自动获取  </li>
-<li>
-<p>改进了GPT-5模型支持  </p>
-</li>
-<li>
-<p>其他改进：  </p>
-</li>
-<li>实现了可拖拽筛选功能  </li>
-<li>优化了Windows系统HTTP代理  </li>
-<li>添加了语言过滤器到本地网页搜索  </li>
-<li>改进了文件路径处理  </li>
-<li>更新了代理处理逻辑  </li>
-<li>
-<p>调整了GPT-5模型的logo匹配顺序  </p>
-</li>
-<li>
-<p>技术优化：  </p>
-</li>
-<li>移除了跟踪警告  </li>
-<li>统一使用小写模型ID  </li>
-<li>确保用户自定义参数优先覆盖其他参数  </li>
-<li>改进了提供者设置的可调整大小功能  </li>
-</ol>
-<p>本次更新涉及前端交互、后端服务、系统兼容性等多个方面的改进，提升了整体用户体验和系统稳定性。  </p>
+<p>本次更新主要包含以下改进：<br />
+1. 模型选择体验优化、推理错误回退处理、Gemma3模型正则匹配修复<br />
+2. 新增功能：筛选拖拽操作、坚果云备份文本、知识库保存主题、开发者模式帮助<br />
+3. 问题修复：输入栏遮挡按钮、模型ID统一小写、翻译选择修复、GitHub模型API更新<br />
+4. 系统优化：Windows代理改进、Linux RPM打包支持、文件路径处理增强<br />
+5. 新增GPT-5模型支持、翻译功能升级（支持语言自动检测交换）、代码工具添加<br />
+6. 界面改进：提供商标色输入栏工具、可调整大小的供应商设置<br />
+7. 其他修复：AWS Bedrock模型自动获取、使用追踪优化、代理逻辑更新等  </p>
+<p>版本从v1.5.5升级至v1.5.6，包含多项用户体验优化和功能增强。  </p>
+<h1 id="2-dify-172">2. <a href="https://github.com/langgenius/dify/releases/tag/1.7.2">dify 1.7.2</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<p>Dify v1.7.2版本发布，主要包含以下更新：  </p>
+<p>核心功能：<br />
+1. 新增工作流可视化功能，通过关系面板显示节点依赖关系<br />
+2. 新增节点搜索功能，方便在工作流编辑器中快速定位节点  </p>
+<p>功能增强：<br />
+- Notion数据库集成支持按原始顺序提取行内容并附加行页面URL<br />
+- 工作流和聊天API支持指定版本<br />
+- 工具JSON响应新增支持datetime和UUID类型<br />
+- API文档界面重新设计，提升用户体验<br />
+- 工作流节点对齐功能优化<br />
+- 新增服务API文件预览端点<br />
+- 新增Clickzetta湖仓向量数据库集成  </p>
+<p>安全更新：<br />
+- 修复了认证校验页面的XSS漏洞  </p>
+<p>问题修复：<br />
+- 修复腾讯云VectorDB全文搜索的元数据过滤问题<br />
+- 修复工作流知识检索缓存问题<br />
+- 解决HTTP请求组件的multipart/form-data边界问题<br />
+- 修复现有会话变量同步问题<br />
+- 多项国际化(i18n)修复  </p>
+<p>测试改进：<br />
+- 新增account、app、message、workflow等服务的Testcontainers测试  </p>
+<p>升级指南：<br />
+- 提供了Docker Compose和源码部署的详细升级步骤<br />
+- 包含数据备份、依赖更新和数据库迁移等关键操作说明  </p>
+<p>社区贡献：<br />
+- 本次版本包含来自36位新贡献者的代码提交<br />
+- 共合并了超过150个PR，修复了大量问题和改进功能  </p>
+<p>完整变更日志可查看GitHub发布页面。  </p>
 <h1 id="3-sensitive-lexicon-12">3. <a href="https://github.com/konsheng/Sensitive-lexicon/releases/tag/1.2">Sensitive-lexicon 1.2</a></h1>
 <p>一个持续更新的中文敏感词库，帮助开发者和内容审核者快速识别并过滤不当文本。  </p>
-<p>敏感词库版本从1.1更新至1.2，完整变更记录请参见项目链接。  </p>
+<p>敏感词库更新日志：版本1.1到1.2的变更记录。  </p>
   </article>
   
 <script>
