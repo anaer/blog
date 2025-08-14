@@ -1,0 +1,76 @@
+
+  <article class="markdown-body">
+    <h2 id="run_jobsh">run_job.sh</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="ch">#!/usr/bin/env bash  </span>
+<span class="c1"># run_job.sh  &lt;jar路径&gt;  [可选参数...]  </span>
+<span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail<span class="w">  </span>
+
+<span class="nv">JAR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w">  </span>
+<span class="nb">shift</span><span class="w">          </span><span class="c1"># 其余参数作为作业参数  </span>
+
+<span class="c1"># 1) 发送作业到集群，并把 JOB_ID 提出来  </span>
+<span class="nv">JOB_JSON</span><span class="o">=</span><span class="k">$(</span>./bin/flink<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JAR</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>/tmp/run_job.log<span class="k">)</span><span class="w">  </span>
+
+<span class="c1"># 2) 抓取 JobID（正则匹配）  </span>
+<span class="nv">JOB_ID</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JOB_JSON</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-oP<span class="w"> </span><span class="s1">&#39;(?&lt;=Job has been submitted with JobID )\K[A-Fa-f0-9]+&#39;</span><span class="k">)</span><span class="w">  </span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;JobID = </span><span class="nv">$JOB_ID</span><span class="s2">&quot;</span><span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JOB_ID</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>job_id.tmp<span class="w">          </span><span class="c1"># 保存到文件  </span>
+</code></pre></div></div>
+<h2 id="cancel_jobsh">cancel_job.sh</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="ch">#!/usr/bin/env bash  </span>
+<span class="c1"># cancel_job.sh  </span>
+<span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail<span class="w">  </span>
+
+<span class="nv">JOB_ID_FILE</span><span class="o">=</span><span class="s2">&quot;job_id.tmp&quot;</span><span class="w">  </span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JOB_ID_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ 文件 </span><span class="nv">$JOB_ID_FILE</span><span class="s2"> 不存在，请先运行 run_job.sh&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="w">  </span>
+<span class="k">fi</span><span class="w">  </span>
+
+<span class="nv">JOB_ID</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JOB_ID_FILE</span><span class="s2">&quot;</span><span class="k">)</span><span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;取消任务: </span><span class="nv">$JOB_ID</span><span class="s2">&quot;</span><span class="w">  </span>
+
+<span class="k">if</span><span class="w"> </span>bin/flink<span class="w"> </span>cancel<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JOB_ID</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w">  </span>
+<span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JOB_ID_FILE</span><span class="s2">&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;已删除 </span><span class="nv">$JOB_ID_FILE</span><span class="s2">&quot;</span><span class="w">  </span>
+<span class="k">else</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;取消失败，文件保留以便人工处理&quot;</span><span class="w">  </span>
+<span class="k">fi</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_1">执行</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>sh<span class="w"> </span>-v<span class="w"> </span>run_job.sh<span class="w"> </span>examples/flink-demo.jar<span class="w"> </span>-c<span class="w"> </span>com.flink.job.ToDoris<span class="w">  </span>
+
+sh<span class="w"> </span>cancel_job.sh<span class="w">  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
