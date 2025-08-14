@@ -135,149 +135,122 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-08-11 23:12:59</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-14 12:22:55</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-14 23:12:39</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件版本更新的主要内容。Dify v1.7.2推出了工作流可视化和编辑器节点搜索等新功能，并修复了多个问题，包括XSS安全漏洞。Cherry Studio v1.5.6优化了模型选择体验并支持GPT-5模型，同时修复了多项问题，如输入栏遮挡和翻译历史保存。PowerToys v0.93.0显著提升了安装性能，并对核心功能进行了改进，如命令面板和设置界面的优化。Sensitive-lexicon 1.2更新了中文敏感词库。总结中未提及的错误观点包括对各软件版本的具体功能和修复细节的误解，可能导致对更新内容的误读。
+    <strong>AI总结:</strong> 本文介绍了多个软件的版本更新，包括PowerToys v0.93.0、Cherry Studio v1.5.6、Dify v1.7.2和Sensitive-lexicon 1.2。PowerToys的更新主要集中在命令面板的优化和用户体验提升，增加了剪贴板历史记录和鼠标工具的新模式。Cherry Studio则增强了模型选择体验，新增了多项功能和问题修复。Dify的更新引入了工作流可视化和节点搜索功能，并修复了多项bug和安全漏洞。Sensitive-lexicon更新了中文敏感词库。整体来看，各软件在功能、性能和用户体验上都有显著提升。需要注意的是，Cherry Studio的描述中提到的“支持Linux RPM构建目标”可能会误导用户以为该软件完全兼容Linux，而实际兼容性可能依赖于具体的Linux发行版。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-dify-172">1. <a href="https://github.com/langgenius/dify/releases/tag/1.7.2">dify 1.7.2</a></h1>
-<p>Production-ready platform for agentic workflow development.  </p>
-<p>Dify v1.7.2版本发布，带来多项重大功能更新、优化改进和错误修复。主要内容包括：  </p>
+    <h1 id="1-powertoys-v0930">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.93.0">PowerToys v0.93.0</a></h1>
+<p>Windows system utilities to maximize productivity  </p>
+<p>PowerToys v0.93 版本更新主要包含以下内容：  </p>
 <ol>
-<li>核心新功能  </li>
-<li>新增工作流可视化功能，可查看节点间依赖关系（Shift+选择节点）  </li>
-<li>新增工作流编辑器节点搜索功能  </li>
-<li>支持在API中指定工作流版本  </li>
+<li>主要更新  </li>
+<li>设置界面采用现代化卡片式仪表盘设计，提升导航效率和用户体验  </li>
+<li>命令面板解决了99个问题，新增剪贴板历史记录、右键菜单快捷方式、应用置顶和运行历史功能  </li>
+<li>性能优化：命令面板启动内存减少15%，加载时间缩短40%，安装包体积减小55%  </li>
+<li>Peek新增对3D打印文件(.bgcode)的即时预览和缩略图支持  </li>
+<li>鼠标工具新增聚光灯模式，适合演示场景  </li>
 <li>
-<p>工具JSON响应新增支持datetime和UUID类型  </p>
+<p>测试覆盖率大幅提升，新增600多个单元测试  </p>
 </li>
 <li>
-<p>主要优化  </p>
+<p>命令面板改进  </p>
 </li>
-<li>Notion数据库集成优化：按原始顺序提取行数据并附加行页面URL  </li>
-<li>全面改进API文档设计和用户体验  </li>
-<li>增强工作流节点对齐功能  </li>
-<li>新增服务API文件预览端点  </li>
+<li>增强无障碍功能：优化屏幕阅读器支持  </li>
+<li>界面优化：改进文本大小和布局  </li>
+<li>快捷键和右键菜单功能增强  </li>
+<li>修复窗口显示、焦点管理等多项问题  </li>
 <li>
-<p>增加Testcontainers测试覆盖多个服务  </p>
-</li>
-<li>
-<p>问题修复  </p>
-</li>
-<li>修复腾讯云VectorDB全文搜索的元数据过滤问题  </li>
-<li>修复工作流知识检索缓存错误  </li>
-<li>解决HTTP请求组件的multipart/form-data边界问题  </li>
-<li>修正已有会话的变量同步问题  </li>
-<li>
-<p>修复XSS安全漏洞  </p>
+<p>提升线程安全性和稳定性  </p>
 </li>
 <li>
-<p>升级指南  </p>
+<p>扩展功能更新  </p>
 </li>
-<li>Docker部署：备份数据后拉取最新代码并重启服务  </li>
+<li>计算器支持空格分隔数字，新增"复制为主按钮"选项  </li>
+<li>应用搜索支持Ctrl+P快捷键置顶  </li>
+<li>运行页面新增命令历史记录  </li>
+<li>网页搜索优化无效查询处理  </li>
+<li>剪贴板历史功能重新启用  </li>
 <li>
-<p>源码部署：停止服务后更新代码、依赖并运行迁移脚本  </p>
+<p>书签扩展自动检测文件类型  </p>
 </li>
 <li>
-<p>其他改进  </p>
+<p>其他工具改进  </p>
 </li>
-<li>多项国际化(i18n)修复和翻译优化  </li>
-<li>新增Clickzetta Lakehouse向量数据库集成  </li>
-<li>改进暗黑模式UI一致性  </li>
-<li>增强错误处理和日志记录  </li>
+<li>鼠标工具新增聚光灯高亮模式  </li>
+<li>Peek支持3D打印文件预览  </li>
+<li>
+<p>快速重音新增越南语支持  </p>
+</li>
+<li>
+<p>设置和文档  </p>
+</li>
+<li>全新设计的卡片式设置仪表盘  </li>
+<li>优化设置描述和"最新动态"显示  </li>
+<li>修复深链接和界面布局问题  </li>
+<li>
+<p>更新开发者文档和修复错误链接  </p>
+</li>
+<li>
+<p>开发优化  </p>
+</li>
+<li>升级.NET库至9.0.8  </li>
+<li>改进拼写检查和测试流程  </li>
+<li>采用pHash技术优化图像测试  </li>
+<li>缩短CI测试超时时间  </li>
+<li>新增多个模块的UI自动化测试  </li>
 </ol>
-<p>该版本包含超过150项变更，由社区多位新老贡献者共同完成。完整变更日志可查看GitHub版本对比。  </p>
+<p>该版本在功能、性能和稳定性方面均有显著提升，特别针对命令面板进行了大规模优化，同时改进了开发流程和测试体系。  </p>
 <h1 id="2-cherry-studio-v156">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.6">cherry-studio v1.5.6</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新主要包含以下改进和修复：  </p>
-<ol>
-<li>功能优化：  </li>
-<li>模型选择体验改进  </li>
-<li>新增坚果云备份文本功能  </li>
-<li>添加知识库保存主题功能  </li>
-<li>开发者模式帮助功能  </li>
-<li>新增Linux RPM打包支持  </li>
-<li>翻译功能全面升级  </li>
-<li>新增代码工具支持  </li>
-<li>
-<p>支持GPT-5模型  </p>
-</li>
-<li>
-<p>问题修复：  </p>
-</li>
-<li>无效推理回退处理  </li>
-<li>修复Gemma3模型正则匹配  </li>
-<li>修复输入栏遮挡聊天按钮问题  </li>
-<li>修复AWS Bedrock模型列表自动获取  </li>
-<li>修复翻译历史保存问题  </li>
-<li>
-<p>修复GitHub模型API地址更新  </p>
-</li>
-<li>
-<p>其他改进：  </p>
-</li>
-<li>代理处理逻辑优化  </li>
-<li>文件路径改进  </li>
-<li>模型ID统一使用小写  </li>
-<li>提供程序设置可调整大小  </li>
-<li>添加本地网络搜索语言过滤器  </li>
-<li>更新发布工作流包含beta版YAML文件  </li>
-</ol>
-<p>涉及多个组件的性能优化和用户体验提升，包括模型管理、翻译功能、代理设置等方面。  </p>
-<h1 id="3-powertoys-v0930">3. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.93.0">PowerToys v0.93.0</a></h1>
-<p>Windows system utilities to maximize productivity  </p>
-<p>PowerToys 0.93版本主要更新内容包括：  </p>
-<ol>
-<li>安装程序与性能优化  </li>
-<li>提供x64/ARM64架构的用户版和系统版安装包  </li>
-<li>
-<p>命令面板启动内存减少15%，加载时间缩短40%，内置扩展加载时间减少70%，安装体积缩小55%  </p>
-</li>
-<li>
-<p>核心功能改进  </p>
-</li>
-<li>设置界面全新改版：采用卡片式仪表盘设计，优化导航体验  </li>
-<li>命令面板：修复99+问题，恢复剪贴板历史功能，新增右键菜单快捷键和应用收藏功能  </li>
-<li>鼠标工具：新增聚光灯模式，适合演示场景  </li>
-<li>Peek工具：新增.bgcode 3D打印文件预览支持  </li>
-<li>
-<p>快速重音：新增越南语支持  </p>
-</li>
-<li>
-<p>开发与测试改进  </p>
-</li>
-<li>新增600+单元测试（主要针对命令面板）  </li>
-<li>UI自动化测试覆盖率翻倍  </li>
-<li>改用感知哈希技术进行图像对比测试  </li>
-<li>CI测试超时从4小时缩短至90分钟  </li>
-<li>
-<p>标准化测试项目命名规范  </p>
-</li>
-<li>
-<p>文档更新  </p>
-</li>
-<li>新增命令面板模块开发指南  </li>
-<li>修复SDK文档链接错误  </li>
-<li>
-<p>新增多个社区插件文档  </p>
-</li>
-<li>
-<p>其他改进  </p>
-</li>
-<li>更新.NET库至9.0.8版本  </li>
-<li>优化拼写检查系统  </li>
-<li>改进UI线程处理和错误处理机制  </li>
-<li>新增越南语键盘支持  </li>
-<li>修复多语言环境下设置页面显示问题  </li>
-</ol>
-<p>该版本重点提升了稳定性、性能和使用体验，特别是命令面板和设置界面的改进显著优化了用户操作流程。  </p>
+<p>本次更新主要包含以下改进：<br />
+1. 功能优化：改进了模型类型选择体验、新增坚果云备份文本功能、添加知识库保存主题功能、支持Linux RPM构建目标、新增代码工具<br />
+2. 问题修复：修复无效推理回退、Gemma3正则匹配问题、输入栏遮挡聊天按钮、翻译历史状态保存等<br />
+3. 新增特性：实现拖拽过滤功能、开发者模式帮助、本地网络搜索语言过滤、上下文消息组、全新翻译功能<br />
+4. 技术改进：统一使用小写模型ID、优化代理处理逻辑、更新GitHub模型API地址、增强HTTP代理支持<br />
+5. 模型支持：新增GPT-5支持、改进Qwen思维控制、优化AWS Bedrock模型列表获取<br />
+6. UI调整：可调整大小的供应商设置、输入栏工具使用主色调、修复代码块初始视图模式<br />
+7. 工作流更新：发布流程包含beta版YAML文件  </p>
+<h1 id="3-dify-172">3. <a href="https://github.com/langgenius/dify/releases/tag/1.7.2">dify 1.7.2</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<p>Dify v1.7.2 版本更新摘要：  </p>
+<p>主要新功能：<br />
+1. 工作流可视化 - 新增关系面板展示节点依赖关系，选中节点按Shift键可显示连接线<br />
+2. 节点搜索功能 - 在工作流编辑器中新增节点搜索功能  </p>
+<p>重要增强：<br />
+- Notion数据库集成现在按原始顺序提取行数据并附加行页面URL<br />
+- 支持在工作流和聊天API中指定工作流版本<br />
+- 工具JSON响应新增支持datetime和UUID类型<br />
+- API文档全面改版，优化设计和使用体验<br />
+- 新增服务API文件预览端点<br />
+- 工作流节点对齐功能增强  </p>
+<p>问题修复：<br />
+- 修复腾讯云向量数据库全文搜索中元数据过滤器问题<br />
+- 修复工作流知识检索缓存bug<br />
+- 修复HTTP请求组件multipart/form-data边界问题<br />
+- 修复现有会话变量同步问题<br />
+- 修复多项国际化(i18n)问题<br />
+- 修复多项边缘情况bug  </p>
+<p>安全更新：<br />
+- 修复认证校验码页面的XSS漏洞  </p>
+<p>升级指南：<br />
+1. Docker Compose部署：<br />
+   - 备份配置和数据<br />
+   - 拉取最新代码<br />
+   - 停止服务后执行升级<br />
+2. 源码部署：<br />
+   - 停止服务后更新代码<br />
+   - 更新Python依赖<br />
+   - 执行数据库迁移<br />
+   - 重启服务  </p>
+<p>该版本共包含200多项变更，由社区多位贡献者共同完成，特别欢迎16位新贡献者的加入。完整变更日志可查看GitHub版本对比。  </p>
 <h1 id="4-sensitive-lexicon-12">4. <a href="https://github.com/konsheng/Sensitive-lexicon/releases/tag/1.2">Sensitive-lexicon 1.2</a></h1>
 <p>一个持续更新的中文敏感词库，帮助开发者和内容审核者快速识别并过滤不当文本。  </p>
-<p>敏感词库版本更新：从1.1升级至1.2  </p>
+<p>敏感词库版本从1.1更新至1.2  </p>
   </article>
   
 <script>
