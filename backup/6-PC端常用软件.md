@@ -103,6 +103,9 @@
 3. python 3.12.0 [华为云镜像](https://mirrors.huaweicloud.com/python/3.12.0/)
 4. Lua [官方](https://luabinaries.sourceforge.net/download.html) [GitHub](https://github.com/rjpcomputing/luaforwindows/releases)
 
+### 大数据
+1. flink [阿里云镜像](https://mirrors.aliyun.com/apache/flink/)
+
 ### 抓包
 1. ProxyPin [GitHub](https://github.com/wanghongenpin/proxypin)
 2. Charles [官网](https://www.charlesproxy.com/latest-release/download.do)  [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
