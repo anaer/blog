@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-08-11 23:12:59</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-16 23:10:42</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-17 12:26:02</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新，包括Cherry Studio v1.5.6、Dify v1.7.2、PowerToys v0.93.0和Sensitive-lexicon v1.2。Cherry Studio的更新主要集中在功能优化、问题修复和新功能添加方面，涉及模型选择体验、文件路径处理等。Dify的更新则引入了工作流可视化和节点搜索功能，同时修复了多个重要问题。PowerToys则进行了核心改进，特别是在命令面板和设置界面方面，提升了用户体验和性能。Sensitive-lexicon更新了敏感词库，帮助开发者识别不当文本。整体而言，这些更新均旨在提升软件的功能和用户体验。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了多个软件的版本更新，包括Cherry Studio v1.5.6、Dify v1.7.2、KOReader v2025.08、PowerToys v0.93.0和Sensitive-lexicon 1.2。Cherry Studio的更新主要集中在模型选择和翻译功能的优化，同时支持GPT-5模型。Dify则增强了工作流可视化和节点搜索功能，并修复了安全漏洞。KOReader增加了多种格式支持及设备兼容性，优化了用户体验。PowerToys进行了界面和命令面板的重大升级，提升了性能和功能。Sensitive-lexicon更新了中文敏感词库。整体上，这些更新旨在提升软件的功能性和用户体验。不存在明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -146,142 +146,181 @@ pre {
   <article class="markdown-body">
     <h1 id="1-cherry-studio-v156">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.6">cherry-studio v1.5.6</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新主要包含功能优化、问题修复和新功能添加：  </p>
+<p>本次更新主要包含以下改进和修复：  </p>
 <ol>
-<li><strong>体验优化</strong>  </li>
-<li>改进模型类型选择体验  </li>
+<li>功能优化  </li>
+<li>模型选择体验优化  </li>
+<li>新增坚果云备份文本功能  </li>
+<li>知识库支持保存主题  </li>
 <li>开发者模式帮助功能  </li>
-<li>提供可调整大小的供应商设置面板  </li>
-<li>输入栏工具使用主色调  </li>
+<li>新增本地网页搜索语言过滤器  </li>
+<li>翻译功能全面升级  </li>
+<li>新增Linux RPM构建支持  </li>
+<li>代码工具新增  </li>
 <li>
-<p>文件路径处理优化  </p>
+<p>支持GPT-5模型  </p>
 </li>
 <li>
-<p><strong>问题修复</strong>  </p>
+<p>问题修复  </p>
 </li>
-<li>修复无效推理回退处理  </li>
+<li>无效推理回退处理  </li>
 <li>修复Gemma3模型正则匹配问题  </li>
 <li>修复Qwen思维控制问题  </li>
-<li>修复输入栏遮挡聊天导航按钮问题  </li>
-<li>修复AWS Bedrock自动获取模型列表问题  </li>
-<li>修复GPT-5支持相关问题  </li>
+<li>输入栏遮挡聊天按钮问题  </li>
+<li>用户自定义参数优先级问题  </li>
+<li>边缘检测防止工具栏遮挡  </li>
+<li>代理逻辑更新  </li>
 <li>
-<p>修复翻译历史保存问题  </p>
+<p>翻译历史保存状态问题  </p>
 </li>
 <li>
-<p><strong>新功能</strong>  </p>
+<p>其他改进  </p>
 </li>
-<li>添加坚果云备份文本功能  </li>
-<li>支持知识库保存主题  </li>
-<li>新增Windows系统HTTP代理补丁  </li>
-<li>为Linux构建添加RPM目标支持  </li>
-<li>新增代码工具功能  </li>
-<li>实现全新翻译功能  </li>
-<li>支持翻译页面自动检测语言切换  </li>
-<li>
-<p>本地网络搜索添加语言过滤器  </p>
-</li>
-<li>
-<p><strong>技术改进</strong>  </p>
-</li>
-<li>始终使用小写模型ID  </li>
-<li>移除废弃代码  </li>
-<li>更新GitHub模型API地址  </li>
-<li>优化代理处理逻辑  </li>
-<li>
-<p>添加AnthropicVertex客户端兼容方法  </p>
-</li>
-<li>
-<p><strong>其他</strong>  </p>
-</li>
-<li>更新发布工作流包含beta版YAML文件  </li>
-<li>添加坚果云备份数量限制  </li>
+<li>模型ID统一使用小写  </li>
+<li>可拖拽过滤功能  </li>
+<li>窗口系统代理优化  </li>
+<li>提供商设置支持调整大小  </li>
+<li>文件路径优化  </li>
+<li>自动检测语言交换支持  </li>
 </ol>
-<p>版本从v1.5.5升级到v1.5.6，包含多项用户体验改进和功能增强。  </p>
+<p>版本从v1.5.5升级到v1.5.6。  </p>
 <h1 id="2-dify-172">2. <a href="https://github.com/langgenius/dify/releases/tag/1.7.2">dify 1.7.2</a></h1>
 <p>Production-ready platform for agentic workflow development.  </p>
-<p>Dify v1.7.2 版本带来多项重要更新和改进：  </p>
+<p>Dify v1.7.2 版本更新摘要：  </p>
 <p>主要新功能：<br />
-1. 工作流可视化 - 新增关系面板可查看节点依赖关系（Shift+节点触发）<br />
-2. 节点搜索功能 - 支持在工作流编辑器中快速查找节点  </p>
-<p>核心优化：<br />
-- Notion数据库集成：保持原始行顺序并添加行页面URL<br />
-- 工作流API支持版本指定<br />
-- 工具JSON响应新增datetime和UUID支持<br />
-- API文档全面改版<br />
-- 工作流节点对齐功能增强<br />
-- 新增服务API文件预览端点  </p>
-<p>重要修复：<br />
-- 腾讯云VectorDB全文搜索元数据过滤问题<br />
-- 工作流知识检索缓存错误<br />
-- HTTP请求组件的multipart/form-data边界问题<br />
-- 现有会话变量同步问题<br />
-- XSS安全漏洞（认证检查页面）  </p>
-<p>测试与稳定性：<br />
-- 新增Testcontainers测试覆盖账户、应用、消息等工作流服务  </p>
+1. 工作流可视化：新增依赖关系面板，选中节点后按Shift键可显示连接线<br />
+2. 节点搜索功能：在工作流编辑器中快速查找节点  </p>
+<p>功能增强：<br />
+- Notion数据库集成改进：按原始顺序提取行数据并附加行页面URL<br />
+- 支持在工作流和聊天API中指定版本<br />
+- 工具JSON响应新增支持datetime和UUID类型<br />
+- API文档全新设计，提升用户体验<br />
+- 工作流节点对齐功能优化<br />
+- 新增服务API文件预览端点<br />
+- 新增Clickzetta湖仓向量数据库集成  </p>
+<p>安全修复：<br />
+- 修复认证校验页面的XSS漏洞  </p>
+<p>Bug修复：<br />
+- 修复腾讯云VectorDB全文搜索的元数据过滤器问题<br />
+- 修复工作流知识检索缓存问题<br />
+- 解决HTTP请求组件的multipart/form-data边界问题<br />
+- 修复现有会话的变量同步问题<br />
+- 修复多语言翻译问题  </p>
 <p>升级指南：<br />
-- Docker部署：备份数据后拉取最新代码执行升级<br />
-- 源码部署：更新依赖并运行数据库迁移  </p>
-<p>特别致谢所有贡献者，特别是首次参与的开发者。完整更新包含100+项改进和修复，详细变更请查看完整日志。  </p>
-<h1 id="3-powertoys-v0930">3. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.93.0">PowerToys v0.93.0</a></h1>
+1. Docker部署：<br />
+   - 备份数据和配置文件<br />
+   - 拉取最新代码<br />
+   - 停止服务后执行升级<br />
+2. 源码部署：<br />
+   - 停止所有服务<br />
+   - 切换到1.7.2分支<br />
+   - 更新Python依赖并运行迁移脚本<br />
+   - 重启服务  </p>
+<p>测试改进：<br />
+- 新增大量Testcontainers测试用例（账户、应用、消息、工作流等服务）  </p>
+<p>社区贡献：<br />
+- 包含超过150项改进和修复<br />
+- 欢迎25位新贡献者加入  </p>
+<p>该版本聚焦工作流可视化、节点搜索等核心功能增强，同时解决多项关键问题和安全漏洞，提升了系统稳定性和用户体验。  </p>
+<h1 id="3-koreader-v202508">3. <a href="https://github.com/koreader/koreader/releases/tag/v2025.08">koreader v2025.08</a></h1>
+<p>An ebook reader application supporting PDF, DjVu, EPUB, FB2 and many more formats, running on Cervantes, Kindle, Kobo, PocketBook and Android devices  </p>
+<p>KOReader 2025.08版本更新摘要：  </p>
+<p>主要新功能：<br />
+1. 全文搜索新增起始页功能<br />
+2. OPDS浏览器新增同步和"分面"功能，支持排序等操作<br />
+3. 字典功能优化，新增预设选项<br />
+4. 云存储下载新增进度条显示<br />
+5. 新增CBR漫画格式支持<br />
+6. 目录(TOC)搜索功能<br />
+7. 脚注样式调整改进  </p>
+<p>设备支持更新：<br />
+- 新增reMarkable Paper Pro支持<br />
+- 新增Kindle Basic 5和PW6支持<br />
+- 新增PocketBook Verse Lite(PB619)支持<br />
+- 新增Onyx Boox Go 7支持<br />
+- 改进Kobo Clara BW等设备兼容性  </p>
+<p>其他重要改进：<br />
+- 新增SSH服务器启动选项<br />
+- 优化状态栏显示和预设功能<br />
+- 改进手势操作和长按间隔设置<br />
+- 增强高亮功能，修复误触问题<br />
+- 优化触摸菜单性能<br />
+- 新增字典优先级设置菜单<br />
+- 改进Calibre连接设置<br />
+- 新增锁定屏幕方向选项<br />
+- 优化OTA更新流程  </p>
+<p>问题修复：<br />
+- 修复HttpInspector插件崩溃问题<br />
+- 修复RTL语言光标键问题<br />
+- 修复文件管理器路径问题<br />
+- 修复OPDS下载认证问题<br />
+- 修复Wallabag插件目录问题  </p>
+<p>新增26位贡献者，完成了多项功能改进和问题修复。  </p>
+<p>安装支持设备包括：Android、Kindle、Kobo、PocketBook、reMarkable等电子阅读器平台，以及Linux和MacOS桌面系统。  </p>
+<p>[注：此为技术更新摘要，详细变更请查看完整更新日志]  </p>
+<h1 id="4-powertoys-v0930">4. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.93.0">PowerToys v0.93.0</a></h1>
 <p>Windows system utilities to maximize productivity  </p>
-<p>PowerToys 0.93版本主要更新内容包括：  </p>
+<p>PowerToys 0.93版本主要更新内容如下：  </p>
+<p>安装包与哈希校验：<br />
+- 提供x64和ARM64架构的用户版/系统版安装包及对应SHA256校验值  </p>
+<p>核心改进：<br />
+1. 设置界面全新改版：<br />
+   - 采用现代化卡片式仪表盘设计<br />
+   - 优化导航速度和描述清晰度  </p>
 <ol>
+<li>命令面板重大升级：  </li>
+<li>修复99+问题，恢复剪贴板历史功能  </li>
+<li>新增应用固定、右键菜单快捷键等功能  </li>
+<li>性能提升：内存占用降低15%，加载时间缩短40%  </li>
 <li>
-<p>安装包与哈希校验<br />
-提供x64和ARM64架构的用户版/系统版安装包，并附sha256校验值。  </p>
+<p>安装包体积减少55%（采用AOT编译模式）  </p>
 </li>
 <li>
-<p>核心改进  </p>
+<p>新功能：  </p>
 </li>
-<li>设置界面全新改版：采用卡片式仪表盘布局，优化导航和描述文案  </li>
-<li>命令面板重大升级：解决99+问题，恢复剪贴板历史功能，新增应用置顶、运行历史记录，内存占用降低15%，加载速度提升40%  </li>
-<li>新增3D打印文件(.bgcode)预览支持  </li>
-<li>鼠标工具新增聚光灯模式，适合演示场景  </li>
+<li>Peek支持.bgcode 3D打印文件预览  </li>
+<li>鼠标工具新增聚光灯模式（适合演示场景）  </li>
 <li>
-<p>测试覆盖率显著提升：新增600+单元测试，UI自动化测试覆盖翻倍  </p>
+<p>快速字符添加越南语支持  </p>
 </li>
 <li>
-<p>各模块优化<br />
-【命令面板】  </p>
+<p>测试覆盖：  </p>
 </li>
-<li>增强无障碍支持（屏幕阅读器适配）  </li>
-<li>改进UI设计和快捷键兼容性  </li>
-<li>新增右键上下文菜单  </li>
-<li>修复窗口焦点/隐藏/线程安全等问题  </li>
-<li>优化亚克力材质显示效果  </li>
+<li>新增600+单元测试（主要针对命令面板）  </li>
+<li>多个模块的UI自动化测试覆盖率翻倍  </li>
 </ol>
-<p>【扩展功能】<br />
-- 计算器支持数字空格分隔<br />
-- 应用索引新增置顶功能(Ctrl+P)<br />
-- 网页搜索优化空状态提示<br />
-- 书签扩展自动识别文件类型<br />
-- 恢复剪贴板历史功能  </p>
-<p>【其他工具】<br />
-- 鼠标工具新增聚光灯高亮模式<br />
-- Peek支持3D打印文件预览<br />
-- 快速输入新增越南语支持  </p>
-<ol>
-<li>设置与文档  </li>
-<li>设置仪表盘全面重构  </li>
-<li>新增深层链接跳转支持  </li>
-<li>修复缩放配置兼容性问题  </li>
+<p>详细优化：<br />
+- 命令面板：<br />
+  - 改进无障碍访问（屏幕阅读器支持）<br />
+  - 修复窗口焦点/显示问题<br />
+  - 增强线程安全防止崩溃<br />
+  - 新增鼠标后退键支持  </p>
+<ul>
+<li>扩展功能：  </li>
+<li>计算器支持空格分隔数字  </li>
+<li>应用扩展新增Ctrl+P固定快捷键  </li>
 <li>
-<p>完善开发者文档和插件说明  </p>
+<p>网页搜索优化空状态提示  </p>
 </li>
 <li>
-<p>开发优化  </p>
+<p>开发改进：  </p>
 </li>
-<li>升级至.NET 9.0.8  </li>
-<li>改进拼写检查系统  </li>
-<li>优化CI测试流程（耗时从4小时降至90分钟）  </li>
-<li>新增多模块UI自动化测试  </li>
+<li>更新.NET至9.0.8版本  </li>
+<li>拼写检查系统升级  </li>
+<li>测试管道优化（缩短90%超时时间）  </li>
 <li>采用pHash技术提升图像测试稳定性  </li>
-</ol>
-<p>该版本聚焦用户体验优化、性能提升和系统稳定性，共合并200+项改进。  </p>
-<h1 id="4-sensitive-lexicon-12">4. <a href="https://github.com/konsheng/Sensitive-lexicon/releases/tag/1.2">Sensitive-lexicon 1.2</a></h1>
+</ul>
+<p>文档更新：<br />
+- 新增命令面板开发指南<br />
+- 修复SDK文档链接错误<br />
+- 新增多个社区插件说明  </p>
+<p>其他：<br />
+- 设置页面支持深层链接跳转<br />
+- 解决ZoomIt配置导致的崩溃问题<br />
+- 统一测试项目命名规范  </p>
+<h1 id="5-sensitive-lexicon-12">5. <a href="https://github.com/konsheng/Sensitive-lexicon/releases/tag/1.2">Sensitive-lexicon 1.2</a></h1>
 <p>一个持续更新的中文敏感词库，帮助开发者和内容审核者快速识别并过滤不当文本。  </p>
-<p>Sensitive-lexicon 版本从 1.1 更新至 1.2，具体变更内容详见完整更新日志。  </p>
+<p>Sensitive-lexicon 从 1.1 版本更新至 1.2 版本，具体变更内容可通过完整更新日志链接查看。  </p>
   </article>
   
 <script>
