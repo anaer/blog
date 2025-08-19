@@ -3022,14 +3022,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/142",
             "commentNum": 0,
             "createdAt": 1755011542,
-            "updatedAt": 1755049821,
+            "updatedAt": 1755576839,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-08-12",
-            "dateLabelColor": "hsl(140, 56%, 38%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u4e00\u4e2a\u5173\u4e8e\u91cd\u590d\u521b\u5efa\u548c\u5360\u4f4d\u7684\u60c5\u51b5\uff0c\u63d0\u5230\u9700\u8981\u4e3a\u4e0b\u5468\u7684\u5b89\u6392\u7559\u51fa\u7a7a\u95f4\u3002\u7136\u800c\uff0c\u5177\u4f53\u7684\u5185\u5bb9\u548c\u80cc\u666f\u4fe1\u606f\u4e0d\u591f\u660e\u786e\uff0c\u65e0\u6cd5\u63d0\u4f9b\u66f4\u8be6\u7ec6\u7684\u603b\u7ed3\u6216\u6307\u51fa\u9519\u8bef\u89c2\u70b9\u3002",
-            "buildedAt": 1755049821
+            "dateLabelColor": "hsl(146, 33%, 39%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86Chatwoot v4.5.0\u7248\u672c\u7684\u4e3b\u8981\u66f4\u65b0\u5185\u5bb9\uff0c\u5305\u62ec\u65b0\u589eWhatsApp\u5a92\u4f53\u6a21\u677f\u652f\u6301\u3001\u624b\u52a8\u540c\u6b65WhatsApp\u6a21\u677f\u529f\u80fd\u3001\u901a\u8fc7WhatsApp\u5d4c\u5165\u5f0f\u6ce8\u518c\u63a5\u5165\u73b0\u6709\u5546\u4e1a\u53f7\u7801\u7684\u652f\u6301\u3001\u81ea\u52a8\u5316\u89c4\u5219\u5bf9\"conversation_resolved\"\u4e8b\u4ef6\u7684\u652f\u6301\u3001Slack\u96c6\u6210\u7684\u591a\u9644\u4ef6\u529f\u80fd\u3001Captain\u7684\u81ea\u5b9a\u4e49OpenAI\u7aef\u70b9\u914d\u7f6e\u3001bug\u4fee\u590d\u548c\u6027\u80fd\u4f18\u5316\uff0c\u4ee5\u53ca\u65b0\u589e\u652f\u6301\u7684\u4fdd\u52a0\u5229\u4e9a\u8bed\u3002\u6ca1\u6709\u660e\u663e\u7684\u9519\u8bef\u89c2\u70b9\u3002",
+            "buildedAt": 1755576839
         },
         "P143": {
             "number": "143",
