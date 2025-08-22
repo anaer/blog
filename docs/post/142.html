@@ -135,33 +135,57 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-08-12 23:12:22</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-21 23:11:57</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-22 12:13:06</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了三个软件的更新信息。首先，Chatwoot v4.5.2是一个开源的多渠道支持工具，修复了一个影响组件安装的无效URL协议错误。其次，Subs-check v1.3.9更新了多个功能，包括支持远程订阅列表和YouTube检测，同时修复了相关问题并进行了文档和代码优化。最后，InputTip v2025.08.20是一个输入法状态管理工具，建议用户优先选择zip版本，并优化了界面和用户体验。总体上，更新内容关注于功能增强和用户体验改善。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新和功能，包括copyparty、chatwoot、googlesans-code、subs-check和InputTip。copyparty v1.19.5是一款自托管的文件共享工具，新增iOS支持和二维码保存功能，并修复了多个安全漏洞和服务问题。chatwoot v4.5.2是一个开源的多渠道客服工具，修复了sdk.js中的无效URL错误。googlesans-code v6.001提供了可用于生产环境的字体。subs-check v1.3.9则是一个多功能的订阅管理工具，新增了远程订阅列表和YouTube检测功能，并进行了多项问题修复和文档更新。InputTip v2025.08.20是一个输入法状态管理工具，建议使用zip版本并进行了多项优化。总体来看，文中未明确指出的错误观点包括对copyparty和InputTip的安全警告未涵盖其潜在的使用风险。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-chatwoot-v452">1. <a href="https://github.com/chatwoot/chatwoot/releases/tag/v4.5.2">chatwoot v4.5.2</a></h1>
+    <h1 id="1-copyparty-v1195">1. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.5">copyparty v1.19.5</a></h1>
+<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
+<p>copyparty是一款自托管的文件共享工具，提供多种安装方式：  </p>
+<p>主要功能更新：<br />
+- 新增iOS支持（#328），可在iPhone上运行（但功能受限）<br />
+- 新增二维码保存功能（支持txt/svg/png格式）  </p>
+<p>安全修复：<br />
+- v1.18.9修复了CVE-2025-54796拒绝服务漏洞<br />
+- v1.14.3修复了可能导致数据丢失的严重bug  </p>
+<p>其他改进：<br />
+- 修复FTP服务IPv6客户端封禁问题<br />
+- 改进配置错误提示<br />
+- 更新文档说明  </p>
+<p>推荐下载选项：<br />
+1. copyparty-sfx.py - 最佳选择，只需Python环境<br />
+2. copyparty-en.py - 纯英文版<br />
+3. Docker镜像 - 适合偏好Docker的用户<br />
+4. copyparty.exe - Win8+专用（含缩略图功能）  </p>
+<p>安全警告：<br />
+- copyparty32.exe仅限Win7本地使用，严禁暴露在公网<br />
+- WinPE版本仅限特定环境使用  </p>
+<p>项目资源：<br />
+- 演示服务器：https://a.ocv.me/pub/demo/<br />
+- Discord社区：提供重要更新通知<br />
+- 客户端测试平台：https://cd.ocv.me/b/  </p>
+<p>文档更新包含Syncthing兼容性说明、Authelia集成示例等。  </p>
+<h1 id="2-chatwoot-v452">2. <a href="https://github.com/chatwoot/chatwoot/releases/tag/v4.5.2">chatwoot v4.5.2</a></h1>
 <p>Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬  </p>
-<p>该热修复解决了一个影响部分组件安装的问题，该问题会导致出现错误提示<code>sdk.js:300 Invalid URL Error: Invalid Protocol</code>，主要修复了无效URL协议导致的组件安装失败问题。  </p>
-<h1 id="2-subs-check-v139">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.9">subs-check v1.3.9</a></h1>
+<p>本次热修复解决了部分小工具安装时出现的错误问题，具体修复了<code>sdk.js</code>文件中第300行引发的"无效URL错误：协议无效"问题。  </p>
+<h1 id="3-googlesans-code-v6001">3. <a href="https://github.com/googlefonts/googlesans-code/releases/tag/v6.001">googlesans-code v6.001</a></h1>
+<p>The Google Sans Code font family  </p>
+<p>提供生产环境可用的字体。变更详情请查看项目更新日志文件。  </p>
+<h1 id="4-subs-check-v139">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.9">subs-check v1.3.9</a></h1>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
-<p>本次更新包含以下主要内容：<br />
-1. 新增功能：支持远程订阅列表、添加YouTube送中检测功能、增加代理配置项<br />
-2. 问题修复：完善YouTube检测逻辑、修复ISSUE模板问题<br />
-3. 文档更新：修改安卓文档、更新配置示例文件<br />
-4. 其他改进：重命名二进制文件、将sub-store更新至2.20.9版本<br />
-5. 代码优化：更新ISSUE模板格式  </p>
-<h1 id="3-inputtip-v20250820">3. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.08.20">InputTip v2025.08.20</a></h1>
+<p>更新日志包含以下主要变更：<br />
+1. 新增功能：支持远程订阅列表、添加YouTube送中检测功能、新增代理配置项<br />
+2. 问题修复：完善YouTube检测逻辑、修复ISSUE_TEMPLATE问题<br />
+3. 其他更新：重命名二进制文件、更新ISSUE_TEMPLATE文档、更新安卓文档、更新配置示例文件<br />
+4. 版本升级：将sub-store更新至2.20.9版本  </p>
+<h1 id="5-inputtip-v20250820">5. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.08.20">InputTip v2025.08.20</a></h1>
 <p>一个输入法状态管理工具：实时提示 鼠标样式、符号显示 + 窗口自动切换状态 + 快捷键切换状态。  </p>
-<p>摘要：  <br />
-1. 提示用户优先选择zip版本而非exe版本，并提供了相关说明链接。  <br />
-2. 本次更新主要优化了"关于"界面的显示内容，使其更简洁。  <br />
-3. 改进了配置菜单中的文字描述，提升用户体验。  <br />
-4. 包含其他未详细说明的修复和优化项。  </p>
+<p>关于zip与exe版本区别的说明，建议优先使用zip版本。更新内容包括：精简优化"关于"界面、改进配置菜单文本描述，以及其他修复和优化工作。  </p>
   </article>
   
 <script>
