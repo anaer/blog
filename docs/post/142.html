@@ -135,75 +135,137 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-08-12 23:12:22</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-22 23:11:41</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-23 12:13:20</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新，包括Chatwoot、Cherry Studio、InputTip、Copyparty、Google Sans Code和Subs-Check。Chatwoot v4.5.2进行热修复以解决组件安装时的错误。Cherry Studio v1.5.7进行了功能优化、问题修复和代码重构，新增多项功能并修复了多个bug。InputTip v2025.08.22优化了托盘菜单布局，改进了菜单内容描述并修复了一些配置问题。Copyparty v1.19.5修复了拒绝服务漏洞，并提供多种安装方式。Google Sans Code v6.001是谷歌提供的生产字体。Subs-Check v1.3.9新增远程订阅列表支持和YouTube检测功能，并进行了多项更新和修复。存在的错误观点包括对Copyparty版本号的混淆，最新版本应为v1.19.5而非v1.18.9。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新情况。Copyparty v1.19.5是一款便携式文件服务器，提供了安全修复、新功能和多项问题修复，特别指出不建议使用存在安全隐患的copyparty32.exe。Chatwoot v4.5.2为开源的多渠道客服工具，修复了组件安装时的错误。Cherry Studio v1.5.7进行了代码重构和多项功能优化，提升了稳定性和用户体验。Rclone v1.71.0是一个云存储同步工具，更新详细信息在日志中。InputTip v2025.08.22优化了输入法状态管理工具的菜单布局和功能描述，并修复了配置生效问题。Google Sans Code v6.001字体家族已发布，详细更新记录在GitHub上。Subs-check v1.3.9则新增了远程订阅列表和YouTube检测功能，并进行了多项问题修复和版本升级。整体上，更新聚焦于功能增强、性能优化和问题修复。没有明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-chatwoot-v452">1. <a href="https://github.com/chatwoot/chatwoot/releases/tag/v4.5.2">chatwoot v4.5.2</a></h1>
+    <h1 id="1-copyparty-v1195">1. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.5">copyparty v1.19.5</a></h1>
+<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
+<p>Copyparty是一个文件共享工具，提供多种下载选项和最新动态。主要更新包括：<br />
+1. 安全修复：v1.18.9修复了CVE-2025-54796拒绝服务漏洞；v1.14.3修复可能导致数据丢失的严重bug。<br />
+2. 新功能：支持在iOS设备上运行（功能有限）；新增二维码保存为文件的功能（txt/svg/png）。<br />
+3. 问题修复：修正日志中的反向代理提示错误、修复JS点击崩溃问题、解决FTP服务对IPv6客户端的封禁问题。<br />
+4. 其他改进：支持非Flake的NixOS配置、优化文档（包括与Syncthing的兼容性说明）、更新Docker示例等。  </p>
+<p>下载推荐：<br />
+- 最佳选择是copyparty-sfx.py，仅需Python环境即可运行<br />
+- copyparty-en.py是纯英文版本<br />
+- Docker镜像适合偏好容器化的用户<br />
+- Windows用户可选copyparty.exe（Win8+）或u2c.exe（CLI上传工具）<br />
+- 强烈不建议使用copyparty32.exe（仅限Win7，存在安全隐患）  </p>
+<p>项目提供在线演示服务器和Discord社区，建议关注安全公告。所有下载选项功能基本等效，除u2c.exe是专用上传工具外。  </p>
+<h1 id="2-chatwoot-v452">2. <a href="https://github.com/chatwoot/chatwoot/releases/tag/v4.5.2">chatwoot v4.5.2</a></h1>
 <p>Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬  </p>
 <p>本次热修复解决了部分组件安装时出现的<code>sdk.js:300 Invalid URL Error: Invalid Protocol</code>错误问题。  </p>
-<h1 id="2-cherry-studio-v157">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.7">cherry-studio v1.5.7</a></h1>
+<h1 id="3-cherry-studio-v157">3. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.7">cherry-studio v1.5.7</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新主要包含功能优化、问题修复和代码重构三方面内容：  </p>
-<p>功能优化：<br />
-1. 新增消息轮廓、网页搜索图标、快速模型等功能<br />
-2. Markdown支持禁用单美元符号数学公式<br />
-3. 翻译功能新增基于LLM的自动语言检测<br />
-4. 支持OpenAI Codex和语言别名<br />
-5. 日期工具新增星期显示  </p>
-<p>问题修复：<br />
-1. 修复网页搜索按钮内存泄漏、代码查看器选择工具栏等问题<br />
-2. 解决列背景颜色不一致、AWS Bedrock模型接收文档内容异常等问题<br />
-3. 修正GPT-5聊天模型移除、SVG渲染异常等缺陷<br />
-4. 修复侧边栏代码图标重置、全屏模式意外退出等bug  </p>
-<p>代码重构：<br />
-1. 使用窗口服务替代主窗口依赖<br />
-2. 单例化S3/WebDAV备份<br />
-3. 用electron的net模块替换axios和node-fetch<br />
-4. 改进Mermaid在shadow DOM中的渲染<br />
-5. 优化拖拽列表和工具提示样式  </p>
-<p>新贡献者：<br />
-@miroklarin、@gophlet、@caozhiyuan首次参与项目贡献。  </p>
-<p>版本从v1.5.6升级至v1.5.7。  </p>
-<h1 id="3-inputtip-v20250822">3. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.08.22">InputTip v2025.08.22</a></h1>
-<p>一个输入法状态管理工具：实时提示 鼠标样式、符号显示 + 窗口自动切换状态 + 快捷键切换状态。  </p>
-<p>本次更新主要优化了托盘菜单布局和功能调整，并修复了一些问题。  </p>
-<p>主要变更：<br />
-1. 菜单布局优化<br />
-- 将"更改配置"拆分为"状态提示-鼠标方案"、"状态提示-符号方案"和"其他设置"三个子菜单<br />
-- 简化多个菜单项名称，如"设置更新检查"改为"更新检查"<br />
-- 将不常用功能移至"其他设置"中，包括更新检查、IDE支持、打开软件目录等  </p>
+<p>本次更新主要包含以下内容：  </p>
 <ol>
-<li>功能优化  </li>
-<li>改进了菜单内容描述  </li>
-<li>修复了部分配置修改后未及时生效的问题  </li>
-<li>进行了其他修复和优化  </li>
+<li>代码重构与优化：  </li>
+<li>移除AppUpdater对mainWindow的依赖，改用windowService  </li>
+<li>使用useTemporaryValue钩子优化多个组件  </li>
+<li>用electron的net模块替换axios和node fetch  </li>
+<li>实现S3/WebDAV备份单例化  </li>
+<li>
+<p>优化版本更新逻辑和版本获取流程  </p>
+</li>
+<li>
+<p>功能新增与改进：  </p>
+</li>
+<li>新增消息轮廓功能  </li>
+<li>Markdown支持禁用单美元数学符号  </li>
+<li>为Web搜索添加图标  </li>
+<li>新增绘画种子编辑功能  </li>
+<li>支持语言别名用于代码编辑器  </li>
+<li>增加日期时间变量显示星期几  </li>
+<li>支持OpenAI Codex  </li>
+<li>新增快速模型功能用于翻译语言检测  </li>
+<li>
+<p>同步百炼服务器功能  </p>
+</li>
+<li>
+<p>Bug修复：  </p>
+</li>
+<li>修复Web搜索按钮内存泄漏  </li>
+<li>修复CodeViewer选择工具栏问题  </li>
+<li>修复列背景颜色不一致问题  </li>
+<li>修复AWS Bedrock模型无法接收上传文档内容  </li>
+<li>修复GPT-5聊天模型问题  </li>
+<li>修复侧边栏代码图标重置问题  </li>
+<li>修复全屏模式意外退出问题  </li>
+<li>
+<p>修复超时内存泄漏  </p>
+</li>
+<li>
+<p>样式与交互改进：  </p>
+</li>
+<li>优化Mermaid在shadow DOM中的渲染  </li>
+<li>改进SVG预览自适应尺寸  </li>
+<li>输入栏按钮使用主色调  </li>
+<li>
+<p>优化定位高亮动画  </p>
+</li>
+<li>
+<p>依赖更新：  </p>
+</li>
+<li>更新windows-system-proxy依赖  </li>
+<li>升级antd至5.27.0版本  </li>
+<li>
+<p>使用destroyOnHidden替代废弃的destroyOnClose  </p>
+</li>
+<li>
+<p>其他：  </p>
+</li>
+<li>新增3位贡献者  </li>
+<li>改进CI流程权限设置  </li>
+<li>添加rehypeScalableSvg测试  </li>
 </ol>
-<p>注意事项：<br />
-- 建议优先使用zip版本而非exe版本  </p>
-<h1 id="4-copyparty-v1195">4. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.5">copyparty v1.19.5</a></h1>
-<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>Copyparty是一个自托管的文件共享工具，提供多种安装方式。最新版本v1.18.9修复了拒绝服务漏洞(CVE-2025-54796)。主要功能包括iOS运行支持(有限制)、二维码保存为文件等。推荐下载copyparty-sfx.py，仅需Python即可运行。其他选项包括Docker镜像、Windows可执行文件(注意win7版本有安全隐患)等。项目提供只读演示服务器、漏洞公告和Discord社区。近期重要更新包括v1.15.0默认禁用上传去重功能，v1.14.3修复了可能导致数据丢失的bug。文档新增了与Syncthing兼容性说明和改进的Docker示例。  </p>
-<h1 id="5-googlesans-code-v6001">5. <a href="https://github.com/googlefonts/googlesans-code/releases/tag/v6.001">googlesans-code v6.001</a></h1>
+<p>本次更新涉及功能增强、性能优化、问题修复等多方面改进，提升了整体稳定性和用户体验。  </p>
+<h1 id="4-rclone-v1710">4. <a href="https://github.com/rclone/rclone/releases/tag/v1.71.0">rclone v1.71.0</a></h1>
+<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files  </p>
+<p>rclone发布v1.71.0版本，完整变更内容详见更新日志。  </p>
+<h1 id="5-inputtip-v20250822">5. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.08.22">InputTip v2025.08.22</a></h1>
+<p>一个输入法状态管理工具：实时提示 鼠标样式、符号显示 + 窗口自动切换状态 + 快捷键切换状态。  </p>
+<p>本次更新主要优化了托盘菜单布局和功能描述：  </p>
+<ol>
+<li>菜单结构调整  </li>
+<li>将"更改配置"拆分为3个独立菜单项：状态提示-鼠标方案、状态提示-符号方案、其他设置  </li>
+<li>
+<p>将多个不常用功能移至"其他设置"中，包括更新检查、IDE支持、软件目录、用户信息设置等  </p>
+</li>
+<li>
+<p>菜单项简化命名  </p>
+</li>
+<li>缩短多个菜单项名称，如"设置更新检查"简化为"更新检查"  </li>
+<li>
+<p>更直观的表述方式，如"设置符号显示在鼠标附近"改为"在鼠标附近显示符号"  </p>
+</li>
+<li>
+<p>问题修复  </p>
+</li>
+<li>解决了部分配置修改后未及时生效的问题  </li>
+<li>
+<p>进行了其他方面的优化和修复  </p>
+</li>
+<li>
+<p>版本建议  </p>
+</li>
+<li>推荐使用zip版本而非exe版本  </li>
+</ol>
+<h1 id="6-googlesans-code-v6001">6. <a href="https://github.com/googlefonts/googlesans-code/releases/tag/v6.001">googlesans-code v6.001</a></h1>
 <p>The Google Sans Code font family  </p>
-<p>谷歌提供可用于生产环境的字体。变更内容详见项目CHANGELOG.md文件。  </p>
-<h1 id="6-subs-check-v139">6. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.9">subs-check v1.3.9</a></h1>
+<p>谷歌已发布生产就绪字体Google Sans Code。该字体更新记录详见项目GitHub仓库中的CHANGELOG.md文件。  </p>
+<h1 id="7-subs-check-v139">7. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.9">subs-check v1.3.9</a></h1>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
 <p>更新日志包含以下主要变更：<br />
-1. 新增支持远程订阅列表功能<br />
-2. 添加YouTube送中检测功能<br />
-3. 新增代理配置选项<br />
-4. 修复和完善YouTube检测逻辑<br />
-5. 重命名二进制文件<br />
-6. 更新问题模板(ISSUE_TEMPLATE)<br />
-7. 更新安卓文档(android.md)<br />
-8. 更新配置文件示例(config.example.yaml)<br />
-9. 升级sub-store到2.20.9版本  </p>
+1. 新增功能：支持远程订阅列表、添加YouTube送中检测功能、新增代理配置项<br />
+2. 问题修复：完善YouTube检测逻辑、修复ISSUE_TEMPLATE<br />
+3. 其他更新：重命名bin文件、更新ISSUE_TEMPLATE、更新android.md文档、更新配置示例文件config.example.yaml<br />
+4. 版本升级：将sub-store更新至2.20.9版本  </p>
   </article>
   
 <script>
