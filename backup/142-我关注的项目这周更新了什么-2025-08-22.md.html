@@ -1,119 +1,89 @@
 
   <article class="markdown-body">
-    <h1 id="1-chatwoot-v452">1. <a href="https://github.com/chatwoot/chatwoot/releases/tag/v4.5.2">chatwoot v4.5.2</a></h1>
-<p>Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬  </p>
-<p>本次热修复解决了部分组件安装时出现的错误问题，具体修复了<code>sdk.js</code>文件中300行报出的"无效URL错误：协议无效"问题。  </p>
-<h1 id="2-copyparty-v1195">2. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.5">copyparty v1.19.5</a></h1>
-<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>Copyparty 是一款文件共享工具，最新版本为 v1.18.9（2025-08-01），修复了 CVE-2025-54796 拒绝服务漏洞。重要更新包括 v1.15.0 默认禁用上传去重功能，v1.14.3 修复了可能导致数据丢失的 bug。  </p>
-<p>新特性：<br />
-- 支持在 iPhone 上运行（功能有限，推荐 Android 体验更佳）<br />
-- 新增二维码保存为文件功能（支持 txt/svg/png 格式）  </p>
-<p>Bug 修复：<br />
-- 修正日志中错误的 rproxy 提示<br />
-- 修复点击特定位置时的 JS 崩溃问题<br />
-- 修复 FTP 服务中 IPv6 客户端封禁问题  </p>
-<p>其他改进：<br />
-- 支持非 Flake 的 NixOS 配置<br />
-- 配置解析器增加了常见错误检测<br />
-- 文档更新包括确认与 Syncthing 的安全兼容性、改进的 Authelia Docker 示例等  </p>
-<p>下载推荐：<br />
-- 最佳选择：copyparty-sfx.py（仅需 Python）<br />
-- 备选：copyparty-en.py（仅英文版）、Docker 镜像<br />
-- 警告：Windows 版本（exe）存在限制，32位版和 WinPE 版有安全风险  </p>
-<p>提供 Discord 社区支持，包含重要更新通知。另有只读演示服务器可供测试。  </p>
-<h1 id="3-rclone-v1710">3. <a href="https://github.com/rclone/rclone/releases/tag/v1.71.0">rclone v1.71.0</a></h1>
-<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files  </p>
-<p>rclone v1.71.0版本已发布。完整变更详情请参阅更新日志。  </p>
-<h1 id="4-cherry-studio-v157">4. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.7">cherry-studio v1.5.7</a></h1>
+    <h1 id="1-cherry-studio-v157">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.7">cherry-studio v1.5.7</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新主要包含以下改进：  </p>
-<ol>
-<li>代码重构与优化  </li>
-<li>移除了AppUpdater对mainWindow的依赖，改用windowService  </li>
-<li>使用destroyOnHidden替代已弃用的destroyOnClose  </li>
-<li>在Table、CitationList等组件中使用useTemporaryValue钩子  </li>
-<li>使用electron的net模块替代axios和node-fetch  </li>
-<li>单例化S3/WebDAV备份服务  </li>
-<li>
-<p>优化了更新逻辑和版本获取流程  </p>
-</li>
-<li>
-<p>功能新增与增强  </p>
-</li>
-<li>新增消息轮廓功能  </li>
-<li>Markdown支持禁用单美元符号数学公式  </li>
-<li>添加网页搜索图标  </li>
-<li>支持OpenAI Codex  </li>
-<li>新增绘画种子编辑功能  </li>
-<li>实现基于LLM的自动语言检测  </li>
-<li>支持语言别名用于代码编辑器  </li>
-<li>
-<p>在日期提示变量中显示星期几  </p>
-</li>
-<li>
-<p>问题修复  </p>
-</li>
-<li>修复网页搜索按钮内存泄漏  </li>
-<li>解决列背景颜色不一致问题  </li>
-<li>修复CodeViewer中的选择工具栏问题  </li>
-<li>移除不支持的GPT-5聊天模型  </li>
-<li>修复AWS Bedrock模型无法接收上传文档内容的问题  </li>
-<li>解决侧边栏代码图标重置问题  </li>
-<li>修复超时内存泄漏问题  </li>
-<li>
-<p>解决macOS上SelectionHook的类型安全问题  </p>
-</li>
-<li>
-<p>样式与用户体验改进  </p>
-</li>
-<li>输入栏按钮使用主色调  </li>
-<li>使SVG尺寸自适应  </li>
-<li>改进ManageModelList和Tooltips的样式  </li>
-<li>
-<p>优化定位高亮动画效果  </p>
-</li>
-<li>
-<p>依赖更新与维护  </p>
-</li>
-<li>更新windows-system-proxy依赖并移除过时补丁  </li>
-<li>将antd升级至5.27.0版本  </li>
-<li>为CI工作流设置只读权限  </li>
-</ol>
-<p>本次更新有3位新贡献者加入，共包含60多项变更，完整变更日志可查看项目发布页面。  </p>
-<h1 id="5-inputtip-v20250822">5. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.08.22">InputTip v2025.08.22</a></h1>
-<p>一个输入法状态管理工具：实时提示 鼠标样式、符号显示 + 窗口自动切换状态 + 快捷键切换状态。  </p>
-<p>本次更新主要优化了托盘菜单布局和功能调整，并修复了一些问题。具体包括：  </p>
-<ol>
-<li>菜单布局优化：  </li>
-<li>将"更改配置"拆分为"状态提示-鼠标方案"、"状态提示-符号方案"和"其他设置"三个独立选项  </li>
-<li>简化了多个菜单项名称  </li>
-<li>
-<p>将部分不常用功能移至"其他设置"中，包括更新检查、JAB/JetBrains IDE支持等  </p>
-</li>
-<li>
-<p>问题修复：  </p>
-</li>
-<li>解决了部分配置修改后未及时生效的问题  </li>
-<li>
-<p>进行了其他方面的修复和优化  </p>
-</li>
-<li>
-<p>使用建议：  </p>
-</li>
-<li>推荐使用zip版本而非exe版本（除非必要）  </li>
-</ol>
-<p>更新还优化了菜单内容描述，使各项功能更清晰易懂。  </p>
-<h1 id="6-googlesans-code-v6001">6. <a href="https://github.com/googlefonts/googlesans-code/releases/tag/v6.001">googlesans-code v6.001</a></h1>
-<p>The Google Sans Code font family  </p>
-<p>提供生产就绪的字体。变更详情请查看项目更新日志。  </p>
-<h1 id="7-subs-check-v139">7. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.9">subs-check v1.3.9</a></h1>
+<p>本次更新主要包含以下内容：  </p>
+<p>功能改进：<br />
+1. 新增消息轮廓功能<br />
+2. Markdown支持禁用单美元数学符号<br />
+3. 添加网页搜索图标<br />
+4. 新增绘画种子编辑功能<br />
+5. 支持Flux模型绘画<br />
+6. 实现基于LLM的自动语言检测<br />
+7. 新增快速模型功能<br />
+8. 支持OpenAI Codex<br />
+9. 代码编辑器支持语言别名<br />
+10. 日期提示变量中显示星期几  </p>
+<p>问题修复：<br />
+1. 修复网页搜索按钮内存泄漏<br />
+2. 解决代码查看器中选中工具栏问题<br />
+3. 修复列背景颜色不一致问题<br />
+4. 修复代码块特殊视图问题<br />
+5. 解决七牛云不支持开发者角色问题<br />
+6. 移除OpenAI推理模型中的GPT-5聊天<br />
+7. 修复AWS Bedrock模型无法接收上传文档内容问题<br />
+8. 解决侧边栏代码图标重置问题<br />
+9. 修复超时内存泄漏问题<br />
+10. 解决macOS选择钩子类型安全问题  </p>
+<p>代码优化：<br />
+1. 重构应用更新器，移除主窗口依赖<br />
+2. 使用windowService替代destroyOnClose<br />
+3. 更新windows-system-proxy依赖<br />
+4. 在表格等组件中使用useTemporaryValue钩子<br />
+5. 单例化S3/WebDAV备份<br />
+6. 使用electron的net模块替代axios和node fetch<br />
+7. 改进SVG预览和Markdown的自适应大小<br />
+8. 优化可拖动列表性能<br />
+9. 升级antd至5.27.0<br />
+10. 改进Mermaid在shadow DOM中的渲染  </p>
+<p>其他：<br />
+1. 新增3位贡献者<br />
+2. 更新CI权限设置<br />
+3. 改进HTML工件样式<br />
+4. 优化MCP服务器列表  </p>
+<p>完整变更日志请查看链接。版本从v1.5.6升级至v1.5.7。  </p>
+<h1 id="2-subs-check-v139">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.3.9">subs-check v1.3.9</a></h1>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
-<p>更新日志内容概要：<br />
+<p>更新内容包括：<br />
 1. 新增功能：支持远程订阅列表、添加YouTube送中检测功能、新增代理配置项<br />
-2. 问题修复：完善YouTube检测逻辑、修复ISSUE_TEMPLATE<br />
-3. 其他更新：重命名bin文件、更新ISSUE_TEMPLATE和android.md文档、配置示例文件更新<br />
-4. 依赖升级：sub-store升级至2.20.9版本  </p>
+2. 问题修复：完善YouTube检测逻辑<br />
+3. 文档更新：修改ISSUE模板、更新android.md文档、更新配置示例文件<br />
+4. 版本升级：将sub-store升级至2.20.9版本<br />
+5. 其他调整：重命名bin文件  </p>
+<h1 id="3-chatwoot-v452">3. <a href="https://github.com/chatwoot/chatwoot/releases/tag/v4.5.2">chatwoot v4.5.2</a></h1>
+<p>Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬  </p>
+<p>本次热修复解决了部分小工具安装时出现的<code>sdk.js:300无效URL错误：协议无效</code>问题。  </p>
+<h1 id="4-copyparty-v1195">4. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.5">copyparty v1.19.5</a></h1>
+<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
+<p>Copyparty是一个自托管文件共享工具，主要更新内容如下：  </p>
+<p>安全更新：<br />
+- v1.18.9修复了拒绝服务漏洞CVE-2025-54796<br />
+- v1.14.3修复了可能导致数据丢失的严重bug  </p>
+<p>新功能：<br />
+- 支持在iOS设备上运行（功能有限）<br />
+- 新增二维码保存功能（支持txt/svg/png格式）  </p>
+<p>错误修复：<br />
+- 修复日志中错误的rproxy提示<br />
+- 修复特定点击位置导致的JS崩溃<br />
+- 修复FTP服务对IPv6客户端的错误封禁问题  </p>
+<p>其他改进：<br />
+- 增强了对NixOS非Flake配置的支持<br />
+- 配置文件解析器增加了对常见错误的检测<br />
+- 文档更新包括Syncthing兼容性确认、Docker示例改进等  </p>
+<p>下载选项推荐：<br />
+- 最佳选择是copyparty-sfx.py，仅需Python环境<br />
+- 提供Docker镜像、Windows可执行文件等多种版本<br />
+- 注意部分版本（如copyparty32.exe）存在安全风险，不建议暴露在公网  </p>
+<p>该项目提供Discord社区支持，包含重要更新通知。还提供了演示服务器和客户端测试环境。  </p>
+<h1 id="5-rclone-v1710">5. <a href="https://github.com/rclone/rclone/releases/tag/v1.71.0">rclone v1.71.0</a></h1>
+<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files  </p>
+<p>rclone v1.71.0版本发布，完整更新内容详见官方变更日志。  </p>
+<h1 id="6-inputtip-v20250822">6. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.08.22">InputTip v2025.08.22</a></h1>
+<p>一个输入法状态管理工具：实时提示 鼠标样式、符号显示 + 窗口自动切换状态 + 快捷键切换状态。  </p>
+<p>本次更新主要优化了托盘菜单布局和功能描述：1. 将"更改配置"拆分为"状态提示 - 鼠标方案"、"状态提示 - 符号方案"和"其他设置"三个子菜单；2. 简化了多个菜单项名称；3. 将使用频率较低的功能移至"其他设置"中；4. 优化了菜单描述文字；5. 修复了部分配置修改后未及时生效的问题；6. 进行了其他细节修复和优化。建议用户优先使用zip版本而非exe版本。  </p>
+<h1 id="7-googlesans-code-v6001">7. <a href="https://github.com/googlefonts/googlesans-code/releases/tag/v6.001">googlesans-code v6.001</a></h1>
+<p>The Google Sans Code font family  </p>
+<p>提供生产就绪的谷歌字体。具体变更内容请查看项目变更日志文件。  </p>
   </article>
   
 <script>
