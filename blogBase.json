@@ -3051,6 +3051,27 @@
             "dateLabelColor": "hsl(140, 30%, 38%)",
             "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u4e24\u4e2a Bash \u811a\u672c\uff0crun_job.sh \u548c cancel_job.sh\uff0c\u5206\u522b\u7528\u4e8e\u63d0\u4ea4\u548c\u53d6\u6d88 Flink \u4f5c\u4e1a\u3002run_job.sh \u811a\u672c\u63a5\u6536\u4e00\u4e2a JAR \u6587\u4ef6\u8def\u5f84\u548c\u53ef\u9009\u53c2\u6570\uff0c\u63d0\u4ea4\u4f5c\u4e1a\u5230\u96c6\u7fa4\u5e76\u63d0\u53d6 JobID\uff0c\u4fdd\u5b58\u5230 job_id.tmp \u6587\u4ef6\u4e2d\u3002cancel_job.sh \u811a\u672c\u68c0\u67e5 job_id.tmp \u6587\u4ef6\u662f\u5426\u5b58\u5728\uff0c\u5982\u679c\u5b58\u5728\u5219\u53d6\u6d88\u5bf9\u5e94\u7684\u4f5c\u4e1a\u5e76\u5220\u9664\u8be5\u6587\u4ef6\uff0c\u5426\u5219\u63d0\u793a\u7528\u6237\u5148\u8fd0\u884c run_job.sh\u3002\u6267\u884c\u90e8\u5206\u5c55\u793a\u4e86\u5982\u4f55\u8fd0\u884c\u8fd9\u4e24\u4e2a\u811a\u672c\u3002\u6587\u672c\u4e2d\u6ca1\u6709\u660e\u663e\u7684\u9519\u8bef\u89c2\u70b9\u3002",
             "buildedAt": 1755165352
+        },
+        "P144": {
+            "number": "144",
+            "htmlDir": "docs/post/144.html",
+            "markdown": "backup/144-\u6211\u5173\u6ce8\u7684\u9879\u76ee\u8fd9\u5468\u66f4\u65b0\u4e86\u4ec0\u4e48-2025-08-29.md",
+            "labels": [
+                "\u5173\u6ce8"
+            ],
+            "postTitle": "0X90 \u6211\u5173\u6ce8\u7684\u9879\u76ee\u8fd9\u5468\u66f4\u65b0\u4e86\u4ec0\u4e48-2025-08-29",
+            "postUrl": "post/144.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/144",
+            "commentNum": 0,
+            "createdAt": 1756095480,
+            "updatedAt": 1756095480,
+            "top": 0,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-08-25",
+            "dateLabelColor": "hsl(140, 66%, 20%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86InputTip v2025.08.25\u7684\u66f4\u65b0\u5185\u5bb9\uff0c\u4e3b\u8981\u5305\u62ec\uff1a\u5efa\u8bae\u7528\u6237\u4f18\u5148\u4f7f\u7528zip\u7248\u672c\u800c\u975eexe\u7248\u672c\uff0c\u5e76\u9644\u6709\u76f8\u5173\u8bf4\u660e\u94fe\u63a5\uff1b\u8c03\u6574\u4e86\u6258\u76d8\u83dc\u5355\u9879\u7684\u987a\u5e8f\uff1b\u4f18\u5316\u4e86\u521d\u59cb\u5316\u5f15\u5bfc\u6d41\u7a0b\uff1b\u6539\u8fdb\u4e86\u83dc\u5355\u5185\u5bb9\u7684\u63cf\u8ff0\u6587\u5b57\uff1b\u4ee5\u53ca\u5305\u542b\u5176\u4ed6\u4e00\u4e9b\u4fee\u590d\u548c\u4f18\u5316\u3002\u6ca1\u6709\u660e\u663e\u7684\u9519\u8bef\u89c2\u70b9\u3002",
+            "buildedAt": 1756095480
         }
     },
     "singeListJson": {},
