@@ -135,24 +135,46 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-08-25 12:18:00</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-26 12:14:00</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-26 23:11:30</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了输入法状态管理工具InputTip v2025.08.25的更新内容，包括实时提示、鼠标样式、符号显示、窗口自动切换状态和快捷键切换状态。更新说明建议用户使用zip版本而非exe版本，功能优化方面包括调整托盘菜单项顺序、改进初始化引导流程和优化菜单内容描述。此外，还进行了多项修复和优化。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了两个软件的更新信息。首先是InputTip v2025.08.26，一个输入法状态管理工具，新增了内存读写错误提示和修复了列宽计算问题，并建议优先使用zip版本。其次是fd v10.3.0，一个替代'find'的工具，新增了隐藏别名和对日期相关选项的重大变更，改用jiff库并更新多个依赖库，同时增加了对aarch64 Windows的支持。最后说明这是最后一个在x86_64 Mac OS上测试的版本，可能也是最后一个支持x86_64 Mac和Windows7的Rust版本。没有明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-inputtip-v20250825">1. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.08.25">InputTip v2025.08.25</a></h1>
+    <h1 id="1-inputtip-v20250826">1. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.08.26">InputTip v2025.08.26</a></h1>
 <p>一个输入法状态管理工具：实时提示 鼠标样式、符号显示 + 窗口自动切换状态 + 快捷键切换状态。  </p>
-<p>输入法工具更新说明：<br />
-1. 版本选择建议：推荐使用zip版本，非必要不使用exe版本（具体区别可查看官方FAQ）<br />
-2. 功能优化：<br />
-   - 调整托盘菜单项顺序<br />
-   - 改进初始化引导流程<br />
-   - 优化菜单内容描述<br />
-3. 其他改进：包含多项修复和优化  </p>
+<p>zip 与 exe 版本区别说明：建议优先使用 zip 版本，除非必要情况才使用 exe 版本。  </p>
+<p>更新内容：<br />
+1. 新增了内存读写错误时的友好提示功能<br />
+2. 修复了列表中列宽计算不准确的问题  </p>
+<h1 id="2-fd-v1030">2. <a href="https://github.com/sharkdp/fd/releases/tag/v10.3.0">fd v10.3.0</a></h1>
+<p>A simple, fast and user-friendly alternative to 'find'  </p>
+<p>主要更新内容：  </p>
+<ol>
+<li>新增功能：  </li>
+<li>
+<p>为<code>--min-depth</code>添加隐藏别名<code>--mindepth</code>  </p>
+</li>
+<li>
+<p>重要变更：  </p>
+</li>
+<li>用<code>jiff</code>库替换<code>humantime</code>和<code>chrono</code>库，影响日期相关选项：  </li>
+<li>'M'不再表示"月"(month)，需改用"mo"/"mos"/"month"/"months"  </li>
+<li>月份和年份计算现在考虑日历实际天数而非固定秒数  </li>
+<li>新增对aarch64 Windows的CI支持和发布包  </li>
+<li>更新多个依赖库  </li>
+<li>
+<p>改进对Illumos系统的构建支持  </p>
+</li>
+<li>
+<p>其他说明：  </p>
+</li>
+<li>这将是最后一个在x86_64 Mac OS上测试的版本  </li>
+<li>可能是最后一个支持x86_64 Mac和Windows7的Rust版本  </li>
+</ol>
   </article>
   
 <script>
