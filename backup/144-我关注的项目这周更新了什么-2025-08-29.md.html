@@ -1,128 +1,147 @@
 
   <article class="markdown-body">
-    <h1 id="1-dify-180">1. <a href="https://github.com/langgenius/dify/releases/tag/1.8.0">dify 1.8.0</a></h1>
-<p>Production-ready platform for agentic workflow development.  </p>
-<p>Dify v1.8.0 发布，带来多项重大改进：  </p>
-<p>核心功能更新：<br />
-- 新增多模型凭证系统，支持更灵活的模型管理<br />
-- 工作流支持变量默认值，增强稳定性<br />
-- 代理节点新增令牌使用量统计功能<br />
-- 知识库文档新增排序功能<br />
-- 用户头像支持删除操作<br />
-- 新增Redis SSL/TLS认证支持<br />
-- 完成Flask-RESTful到Flask-RESTX的迁移  </p>
-<p>安全增强：<br />
-- 标准化认证错误信息防止用户枚举攻击<br />
-- 修复Oracle VDB的SQL注入漏洞<br />
-- 修复OAuth Redis兼容性问题  </p>
-<p>性能优化：<br />
-- 实现异步工作流仓库，显著提升执行效率<br />
-- 优化数据库连接池管理<br />
-- 改进数据集清理任务性能  </p>
-<p>UI/UX改进：<br />
-- 暗色模式多项修复<br />
-- 文档列表增加名称提示工具<br />
-- 优化滚动体验和组件样式<br />
-- 统一界面圆角设计  </p>
-<p>文档与测试：<br />
-- 新增CLAUDE.md开发指南<br />
-- 完善API文档<br />
-- 新增基于testcontainers的集成测试<br />
-- 增加速率限制测试套件  </p>
-<p>升级指南：<br />
-- Docker部署：备份数据后更新镜像<br />
-- 源码部署：更新依赖并执行数据库迁移  </p>
-<p>该版本包含大量错误修复、代码质量改进和国际化更新，特别感谢48位新贡献者的加入。完整变更日志可查看GitHub发布页面。  </p>
-<h1 id="2-winmerge-v216502">2. <a href="https://github.com/WinMerge/winmerge/releases/tag/v2.16.50.2">winmerge v2.16.50.2</a></h1>
+    <h1 id="1-winmerge-v216502">1. <a href="https://github.com/WinMerge/winmerge/releases/tag/v2.16.50.2">winmerge v2.16.50.2</a></h1>
 <p>WinMerge is an Open Source differencing and merging tool for Windows. WinMerge can compare both folders and files, presenting differences in a visual text format that is easy to understand and handle.  </p>
-<p>WinMerge 2.16.50.2 稳定版发布，主要修复了之前版本中的多个问题并进行了翻译更新。关键内容包括：  </p>
+<p>WinMerge 2.16.50.2 是一个稳定版本，推荐用户升级。主要更新内容包括：  </p>
+<p>文件比较方面修复了显示大二进制文件比较结果时的崩溃问题；文件夹比较修复了过滤器仅应用于第一个路径的bug；过滤器对话框修复了安装或创建新过滤器后的崩溃问题；更新了巴西葡萄牙语、简体中文、法语、意大利语等8种语言翻译。  </p>
+<p>2.16.50版本新增功能包括：最大化窗口时点击标题栏顶部边缘将视为点击标签按钮；修复了未翻译字符串问题；更新了巴西葡萄牙语、简体中文、匈牙利语等7种语言翻译。  </p>
+<p>2.16.49 Beta版本主要改进包括：支持鼠标滚轮切换标签页；文件比较修复复制多个差异块时的崩溃问题；文件夹比较改进过滤系统支持表达式；更新7-Zip到25.00版本；安装程序优化；更新了巴西葡萄牙语、简体中文、法语等14种语言翻译。  </p>
+<p>已知问题包括：选项窗口可能导致INI文件损坏、大文件比较时可能崩溃、目录差异大时比较速度慢等。  </p>
+<h1 id="2-dify-180">2. <a href="https://github.com/langgenius/dify/releases/tag/1.8.0">dify 1.8.0</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<p>Dify v1.8.0 版本发布，带来多项重大改进，涵盖安全增强、性能优化、UI升级和工作流功能强化。  </p>
+<p>主要新特性：<br />
+1. 工作流与代理能力：<br />
+- 新增多模型凭证系统，实现灵活模型管理<br />
+- 支持OAuth认证的模型上下文协议(MCP)<br />
+- 工作流变量支持默认值<br />
+- 暴露代理节点使用指标  </p>
 <ol>
-<li>文件比较修复：解决大二进制文件执行"仅显示比较结果"时崩溃的问题  </li>
-<li>文件夹比较修复：修正过滤器仅应用于第一个文件夹路径的问题  </li>
-<li>过滤器对话框修复：安装或创建新过滤器后崩溃问题  </li>
-<li>多个语言翻译更新：包括巴西葡萄牙语、简体中文、法语等11种语言  </li>
+<li>UI/UX改进：  </li>
+<li>知识库文档状态排序功能  </li>
+<li>用户头像删除功能  </li>
+<li>文档名称添加工具提示  </li>
+<li>
+<p>设置后自动登录功能  </p>
+</li>
+<li>
+<p>API与后端：  </p>
+</li>
+<li>支持Redis SSL/TLS证书认证  </li>
+<li>迁移至Flask-RESTX框架  </li>
+<li>Swagger文档添加授权配置  </li>
 </ol>
-<p>新特性包含：<br />
-- 2.16.50版本新增最大化时点击标题栏顶部边缘视为标签按钮点击的功能<br />
-- 2.16.49测试版改进包括：<br />
-  * 支持鼠标滚轮切换标签页<br />
-  * 增强文件夹比较功能，支持批量比较文件<br />
-  * 更新7-Zip至25.00版本<br />
-  * 多语言界面更新  </p>
-<p>已知问题：<br />
-- 比较大文件时可能崩溃<br />
-- 差异较大的目录比较速度较慢<br />
-- 垂直滚动条粘贴文本后可能失效  </p>
-<p>该版本推荐所有用户升级，取代之前的所有稳定版本。  </p>
+<p>重要修复：<br />
+- 数据库性能优化<br />
+- 认证错误处理改进<br />
+- OAuth Redis兼容性问题<br />
+- 工作流循环退出条件修复  </p>
+<p>安全增强：<br />
+- 防止用户枚举攻击<br />
+- 修复自定义头信息问题<br />
+- 修复Oracle VDB的SQL注入漏洞  </p>
+<p>性能突破：<br />
+- 异步工作流仓库实现，执行时间显著缩短<br />
+- 数据库优化<br />
+- 测试基础设施完善  </p>
+<p>其他改进：<br />
+- 文档更新与本地化<br />
+- 代码质量提升<br />
+- 国际化改进  </p>
+<p>升级指南：<br />
+- Docker部署：备份数据后拉取最新代码升级<br />
+- 源码部署：更新依赖并运行迁移脚本  </p>
+<p>此次版本共有35位新贡献者加入，完整变更日志可在项目仓库查看。  </p>
 <h1 id="3-inputtip-v20250829">3. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.08.29">InputTip v2025.08.29</a></h1>
 <p>一个输入法状态管理工具：实时提示 鼠标样式、符号显示 + 窗口自动切换状态 + 快捷键切换状态。  </p>
-<p>本次更新主要涉及以下改进：  <br />
-1. 新增符号显示模式功能  <br />
-2. 优化文件丢失处理机制  <br />
-3. 改进鼠标样式恢复逻辑：关闭鼠标方案时，若原工形样式加载失败会自动切换为标准样式  <br />
-4. 优化菜单描述信息  <br />
-5. 包含其他错误修复和性能优化    </p>
-<p>注：建议优先使用zip版本而非exe版本（具体区别参见官方说明）。  </p>
+<p>本次更新主要包含以下改进：新增符号显示模式功能，优化了文件丢失处理和鼠标样式恢复逻辑（确保关闭鼠标方案时能加载标准样式），改进了菜单描述，并进行了其他修复与优化。建议优先使用zip版本而非exe版本。  </p>
 <h1 id="4-mihomo-v11913">4. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.13">mihomo v1.19.13</a></h1>
 <p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.  </p>
-<p>项目警告用户不要使用名称含"mihomo"的恶意GUI客户端。本次更新主要包含：  <br />
-1. 新增功能：支持VLESS加密（含客户端/服务端文档）、支持AmneziaWG v1.5协议，修复DOMAIN-WILDCARD中"?"的精确匹配问题  <br />
-2. 架构调整：amd64平台弃用旧版本标记，改用v1/v2/v3区分CPU微架构级别  <br />
-3. 重要修复：涉及VLESS加密视觉模式、数据丢失、缓冲区处理、ALPN禁用等15项问题  <br />
-4. 维护优化：更新WireGuard/QUIC等依赖库，重构代码结构，改进自动更新机制，新增RESTful API升级参数支持    </p>
-<p>完整变更日志详见发布链接。需注意下游项目需及时适配自动更新脚本。  </p>
+<p>警告：名称包含"mihomo"的GUI客户端均非本项目官方产品且违反许可协议，请勿使用此类恶意软件。  </p>
+<p>主要更新内容：<br />
+1. 新增功能：<br />
+- 支持VLESS协议的加密功能（提供客户端和服务端配置文档）<br />
+- 支持AmneziaWG v1.5协议（提供配置文档）<br />
+- 修复DOMAIN-WILDCARD中"?"匹配符的精确匹配问题  </p>
+<ol>
+<li>平台变更说明：  </li>
+<li>
+<p>停止提供amd64通用版本，改为按CPU微架构级别(v1/v2/v3)分发，需及时更新自动升级脚本  </p>
+</li>
+<li>
+<p>重要修复：  </p>
+</li>
+<li>修复VLESS加密、Vision协议相关的13项问题  </li>
+<li>解决更新程序文件覆盖、macOS代码签名等系统问题  </li>
+<li>
+<p>修正ALPN禁用、自动重定向崩溃等功能异常  </p>
+</li>
+<li>
+<p>维护优化：  </p>
+</li>
+<li>RESTful API升级接口新增channel/force参数  </li>
+<li>同步VLESS加密相关代码35次  </li>
+<li>更新wireguard-go/quic-go等依赖  </li>
+<li>重构Vision协议实现  </li>
+<li>提升通配符测试覆盖率  </li>
+<li>Golang升级至1.25版本  </li>
+</ol>
+<p>完整变更日志请查看版本比对链接。  </p>
 <h1 id="5-copyparty-v1197">5. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.7">copyparty v1.19.7</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>Copyparty是一个自托管文件共享工具，提供多种下载选项和最新动态：  </p>
-<p>重要更新：<br />
-- 修复了CVE-2025-54796拒绝服务漏洞(v1.18.9)<br />
-- 默认禁用上传去重功能(v1.15.0)<br />
-- 修复可能导致数据丢失的bug(v1.14.3)  </p>
+<p>copyparty项目是一个文件共享服务，主要提供以下内容：  </p>
+<p>重要动态：<br />
+- 修复了CVE-2025-54796漏洞（拒绝服务攻击）<br />
+- v1.15.0版本起默认禁用上传去重功能<br />
+- v1.14.3修复了可能导致数据丢失的bug  </p>
 <p>新功能：<br />
-- 新增chdir选项用于更改工作目录  </p>
-<p>修复改进：<br />
+- 新增chdir选项，可在映射卷前更改工作目录  </p>
+<p>错误修复：<br />
 - 修复空文件夹作为状态文件存储的问题<br />
-- 优化文件夹快速滚动功能<br />
-- Docker镜像改进：修正元数据、更改$HOME路径  </p>
+- 优化了I/K键快速浏览文件夹功能  </p>
+<p>其他变更：<br />
+- 修复Docker镜像仓库元数据<br />
+- 将Docker的$HOME改为/state目录<br />
+- 使用chdir选项保持旧版配置文件语义  </p>
 <p>下载推荐：<br />
-✅ 最佳选择：copyparty-sfx.py(跨平台Python版本)<br />
-✅ 次选：copyparty-en.py(英文精简版)<br />
-🐋 Docker镜像：适合偏好Docker的用户<br />
-⚠️ Windows版本：copyparty.exe(仅Win8+)、u2c.exe(CLI上传工具)<br />
-⛔️ 危险版本：copyparty32.exe(Win7专用，禁止联网)  </p>
-<p>其他说明：<br />
-- 提供Discord服务器用于重要更新通知<br />
-- 包含zip/tar.gz源代码和PyPI包<br />
-- bootable USB版本作为趣味彩蛋提供  </p>
+- 最佳选择是copyparty-sfx.py，只需Python环境<br />
+- copyparty-en.py是纯英文版本<br />
+- Docker镜像适合偏好Docker的用户<br />
+- 其他版本如copyparty.exe（Win8+）、u2c.exe（CLI上传工具）等各有适用场景  </p>
+<p>注意事项：<br />
+- copyparty32.exe仅适用于Win7，不建议暴露在互联网<br />
+- cpp-winpe64.exe仅适用于64位WinPE环境<br />
+- 还提供了可启动USB等特殊版本  </p>
+<p>项目提供Discord服务器用于重要更新通知，包括安全漏洞通告。  </p>
 <h1 id="6-fd-v1030">6. <a href="https://github.com/sharkdp/fd/releases/tag/v10.3.0">fd v10.3.0</a></h1>
 <p>A simple, fast and user-friendly alternative to 'find'  </p>
-<p>主要更新内容：  </p>
+<p>本次更新主要包含以下内容：  </p>
 <ol>
+<li>新增功能：  </li>
 <li>
-<p>新增隐藏参数<code>--mindepth</code>作为<code>--min-depth</code>的别名  </p>
+<p>为<code>--min-depth</code>添加了隐藏别名<code>--mindepth</code>  </p>
 </li>
 <li>
-<p>依赖项变更：  </p>
+<p>重要变更：  </p>
 </li>
-<li>用<code>jiff</code>crate替换<code>humantime</code>和<code>chrono</code>crate  </li>
-<li>日期格式调整：'M'不再表示"月"，需使用"mo"/"mos"/"month"/"months"  </li>
-<li>月份和年份计算改为基于实际日历天数而非固定秒数  </li>
+<li>用<code>jiff</code>crate替换了<code>humantime</code>和<code>chrono</code>，影响日期相关选项如<code>--changed-within</code>和<code>--changed-before</code>：  </li>
+<li>'M'不再表示"月"(month)，需改用"mo"/"mos"/"month"/"months"  </li>
 <li>
-<p>更新了多个依赖项  </p>
-</li>
-<li>
-<p>平台支持：  </p>
-</li>
-<li>新增aarch64 Windows的CI支持和发布包  </li>
-<li>改进对Illumos系统的构建支持（修复已知问题）  </li>
-<li>这将是最后一个支持x86_64 Mac OS的测试版本（因GitHub将停止该硬件支持）  </li>
-<li>
-<p>可能是最后一个支持x86_64 Mac和Windows7的Rust版本  </p>
+<p>月份和年份计算现在考虑日历差异而非固定秒数  </p>
 </li>
 <li>
-<p>其他：  </p>
+<p>其他改进：  </p>
 </li>
-<li>修复了若干bug  </li>
+<li>新增aarch64 Windows的CI和发布工件  </li>
+<li>更新多个依赖项  </li>
+<li>
+<p>改进对Illumos系统的构建支持  </p>
+</li>
+<li>
+<p>兼容性说明：  </p>
+</li>
+<li>这将是最后一个支持x86_64 Mac OS的测试版本  </li>
+<li>可能是最后一个支持x86_64 Mac和Windows7的Rust版本  </li>
 </ol>
   </article>
   
