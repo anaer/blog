@@ -2,52 +2,75 @@
   <article class="markdown-body">
     <h1 id="1-cherry-studio-v159">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.9">cherry-studio v1.5.9</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新主要包含以下内容：  </p>
-<p>功能改进：<br />
-1. 新增翻译历史搜索、收藏功能<br />
-2. 增加推理结果缓存机制<br />
-3. 优化文件扩展名处理<br />
-4. 支持双击编辑主题名称<br />
-5. 新增系统OCR功能（支持MacOS和Windows）<br />
-6. 添加图片OCR翻译功能<br />
-7. 支持iframe截图功能<br />
-8. 新增批量删除文件功能<br />
-9. 增强代码编辑器功能<br />
-10. 优化富文本编辑器组件<br />
-11. 新增Cherryin提供商支持  </p>
-<p>问题修复：<br />
-1. 修复Markdown链接空href问题<br />
-2. 修复自动翻译语言检测问题<br />
-3. 修复附件按钮重复触发问题<br />
-4. 修正默认头像大小写问题<br />
-5. 修复GPT-OSS模型参数支持问题<br />
-6. 解决知识加密相关问题<br />
-7. 修复Windows标题栏颜色问题<br />
-8. 修正流式输出选项处理逻辑<br />
-9. 修复mermaid主题切换问题<br />
-10. 解决快捷助手网址打开方式问题  </p>
-<p>性能优化：<br />
-1. 升级Node和Electron版本<br />
-2. 优化历史页面搜索性能<br />
-3. 简化通知服务初始化流程<br />
-4. 改进代理管理器规则匹配<br />
-5. 优化代码工具页面管理  </p>
-<p>其他改进：<br />
-1. 新增12位贡献者<br />
-2. 更新多个依赖项版本<br />
-3. 优化CI流程步骤<br />
-4. 增强错误边界处理<br />
-5. 改进下拉菜单最大高度<br />
-6. 优化模型选择弹窗  </p>
-<p>完整变更日志可查看：https://github.com/CherryHQ/cherry-studio/compare/v1.5.7...v1.5.9  </p>
+<p>本次更新主要包含功能优化、问题修复和依赖升级，主要变更包括：  </p>
+<p>功能方面：<br />
+1. 新增翻译历史搜索、星标功能及OCR图片翻译<br />
+2. 增加主题双击编辑、拖拽列表和批量删除文件功能<br />
+3. 优化代码编辑器、Markdown渲染和文件扩展名处理<br />
+4. 支持新模型（qwen-flash/deepseek v3.1等）和系统OCR<br />
+5. 增强提供商设置和模型选择弹窗  </p>
+<p>修复方面：<br />
+1. 修复翻译状态管理、语言检测和附件选择问题<br />
+2. 解决知识加密、引用块重置和头像大小写问题<br />
+3. 修正Web搜索条件检查、流输出选项和终端启动问题<br />
+4. 改进错误边界处理和主题标签溢出  </p>
+<p>技术改进：<br />
+1. 升级Electron至37.4.0及Node类型定义<br />
+2. 优化代理管理、CLI工具管理和通知服务<br />
+3. 增强图像处理库管理和ASAR集成<br />
+4. 完善CI流程和调试配置  </p>
+<p>新贡献者：<br />
+共有12位新开发者加入，涉及翻译、OCR、UI等多个功能的改进。  </p>
+<p>完整变更请查看版本对比链接。  </p>
 <h1 id="2-inputtip-v20250902">2. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.09.02">InputTip v2025.09.02</a></h1>
 <p>一个输入法状态管理工具：实时提示 鼠标样式、符号显示 + 窗口自动切换状态 + 快捷键切换状态。  </p>
-<p>关于zip与exe版本的区别及说明，建议优先使用zip版本。本次更新允许偏移量设置为小数，并修复了符号悬停时隐藏功能的闪烁问题。  </p>
+<ul>
+<li>zip与exe版本区别说明，建议优先使用zip版本    </li>
+<li>新增支持小数偏移量设置（对应issue #219）    </li>
+<li>修复符号悬停时隐藏功能导致的闪烁问题（对应issue #217）  </li>
+</ul>
 <h1 id="3-higress-v217">3. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.7">higress v2.1.7</a></h1>
 <p>🤖 AI Gateway AI Native API Gateway  </p>
-<p>Higress 2.1.7版本发布，包含42项更新，主要分为新功能、Bug修复、重构优化等类别。关键特性包括：新增MCP SSE有状态会话负载均衡支持、支持在上游请求转发中添加代理服务器、AI代理插件新增OpenAI和Claude API的自动协议兼容功能。其他重要更新涉及Nacos MCP安全模式支持、hmac-auth-apisix插件、OpenRouter AI服务提供商集成等。Bug修复主要集中在拼写错误修正、构建命令优化、IP限制功能改进等方面。文档和测试也得到相应完善。  </p>
-<p>Higress Console同步发布12项更新，新增AI服务提供商支持、AI负载均衡插件可视化配置、PostgreSQL和ClickHouse数据库支持等功能。修复了认证状态显示错误、NPE异常等问题，并优化了认证模块和编辑器加载性能。  </p>
-<p>本次发布共有3位新贡献者加入。完整变更日志可查看GitHub发布页面。感谢所有贡献者的辛勤工作。  </p>
+<p>Higress 2.1.7版本发布摘要：  </p>
+<p>核心更新：<br />
+1. 新增42项更新，包括21项新功能、14项bug修复、4项重构优化、2项文档更新和1项测试改进<br />
+2. 重点特性：<br />
+   - 新增MCP SSE有状态会话负载均衡支持，提升长连接场景性能<br />
+   - 支持上游请求转发时添加代理服务器，增强网络灵活性<br />
+   - AI代理插件新增OpenAI和Claude API自动协议兼容功能  </p>
+<p>重要功能详情：<br />
+1. MCP SSE负载均衡：<br />
+   - 通过注解即可启用，自动编码后端地址保持会话一致性<br />
+   - 适用于实时通知、股票行情等SSE应用场景  </p>
+<ol>
+<li>代理服务器支持：  </li>
+<li>可在McpBridge资源配置多个代理服务器  </li>
+<li>
+<p>支持为每个注册中心指定代理，增强网络安全性  </p>
+</li>
+<li>
+<p>AI协议自动兼容：  </p>
+</li>
+<li>自动识别/v1/chat/completions和/v1/messages路径  </li>
+<li>支持OpenAI与Claude协议互转，简化多AI服务集成  </li>
+</ol>
+<p>其他重要更新：<br />
+- 新增Nacos MCP安全模式支持<br />
+- 实现Grok AI服务提供商集成<br />
+- 支持Gemini多模态数据处理<br />
+- 优化AI统计插件性能<br />
+- 修复IP限制、WASM编译等多个问题  </p>
+<p>Higress Console更新：<br />
+- 新增12项更新，包括5项新功能<br />
+- 主要改进：<br />
+  - 新增AI负载均衡插件可视化配置<br />
+  - 支持PostgreSQL和ClickHouse数据库<br />
+  - 修复认证、域名校验等问题<br />
+  - 优化MCP服务器管理功能  </p>
+<p>统计数据：<br />
+- Higress核心：42项变更（含3个重点更新）<br />
+- Console：12项变更（5新功能+5修复+2优化）  </p>
+<p>感谢所有贡献者的工作！新加入3位贡献者。  </p>
   </article>
   
 <script>
