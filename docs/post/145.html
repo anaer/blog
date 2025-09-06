@@ -135,112 +135,141 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-01 23:11:01</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-06 12:13:58</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-06 23:10:01</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新，包括Cherry Studio v1.5.9、bili-hardcore v0.5.2、InputTip v2025.09.06、dify 1.8.1和higress v2.1.7。Cherry Studio更新了翻译历史搜索、OCR功能和代码编辑器，并修复了多个问题。bili-hardcore优化了用户体验，提升了模型性能。InputTip进行了功能和界面优化，建议使用zip版本。dify引入了新特性和功能优化，解决了安全漏洞和数据库问题。higress则增加了会话负载均衡支持和API兼容性，同时进行了多项功能和Bug修复。所有更新均包含新贡献者的参与，增强了软件的稳定性和用户体验。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新内容，包括dify 1.8.1、cherry-studio v1.5.9、InputTip v2025.09.06、higress v2.1.7和bili-hardcore v0.5.2。dify 1.8.1专注于稳定性和性能优化，新增历史记录导出功能和增强反馈系统，同时修复了多个问题。cherry-studio v1.5.9引入了多项新功能，如翻译历史搜索和OCR图像识别，进行了性能优化和问题修复。InputTip v2025.09.06改进了输入法状态管理，推荐使用zip版本。higress v2.1.7增加了会话负载均衡支持和API兼容功能，修复了多个Bug并进行了系统优化。bili-hardcore v0.5.2则提升了模型性能和用户体验。整体来看，各版本更新均致力于提升用户体验和系统稳定性。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-cherry-studio-v159">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.9">cherry-studio v1.5.9</a></h1>
+    <h1 id="1-dify-181">1. <a href="https://github.com/langgenius/dify/releases/tag/1.8.1">dify 1.8.1</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<p>版本1.8.1主要聚焦稳定性、性能优化和开发者体验提升，包含以下核心内容：  </p>
+<p>【核心功能】<br />
+1. 新增历史记录导出DSL功能，支持直接从版本历史面板导出工作流DSL<br />
+2. 增强反馈系统，允许用户对差评提供具体原因<br />
+3. 多模态提示支持文件名显示<br />
+4. 优化高级聊天模式下的文件处理和内容管理  </p>
+<p>【性能优化】<br />
+1. 优化存在部分全表扫描的SQL查询<br />
+2. 类型检查工具从MyPy迁移至Basedpyright<br />
+3. 新增印尼语(id-ID)支持<br />
+4. Jinja2模板支持更多变量  </p>
+<p>【问题修复】<br />
+1. 修复block-input组件的XSS漏洞<br />
+2. 解决数据库会话绑定问题导致的"not bound to a Session"错误<br />
+3. 修复工作流发布问题、UUID v7冲突及多项UI组件问题  </p>
+<p>【升级指南】<br />
+- Docker部署：备份数据后拉取新代码重启服务<br />
+- 源码部署：更新依赖后执行数据库迁移  </p>
+<p>该版本通过现代类型检查系统和数据库优化，为后续功能奠定更稳定基础。包含来自多位新贡献者的代码改进，完整变更日志可查看项目发布页。  </p>
+<h1 id="2-cherry-studio-v159">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.9">cherry-studio v1.5.9</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
 <p>本次更新主要包含以下内容：  </p>
-<ol>
-<li><strong>功能新增与优化</strong>  </li>
-<li>新增翻译历史搜索、翻译收藏功能  </li>
-<li>实现OCR图片转文字及翻译功能（支持MacOS/Windows系统）  </li>
-<li>新增批量删除文件功能  </li>
-<li>支持更多AI模型（qwen-flash、deepseek v3.1等）  </li>
-<li>增强代码编辑器功能，支持显式文件扩展名  </li>
-<li>新增模型筛选和终止控制功能  </li>
-<li>
-<p>优化下拉菜单高度和拖拽列表组件  </p>
-</li>
-<li>
-<p><strong>问题修复</strong>  </p>
-</li>
-<li>修复Markdown链接空href问题  </li>
-<li>修复翻译语言检测和状态管理问题  </li>
-<li>修正附件按钮重复触发问题  </li>
-<li>修复Windows标题栏颜色问题  </li>
-<li>解决知识库加密和引用块问题  </li>
-<li>修复GPT-OSS参数支持问题  </li>
-<li>
-<p>修正Web搜索条件检查错误  </p>
-</li>
-<li>
-<p><strong>技术改进</strong>  </p>
-</li>
-<li>升级electron至37.4.0版本  </li>
-<li>优化代理规则匹配和日志记录  </li>
-<li>重构通知服务初始化流程  </li>
-<li>增强图片处理库的包管理  </li>
-<li>
-<p>改进代码工具页面CLI管理  </p>
-</li>
-<li>
-<p><strong>UI/UX优化</strong>  </p>
-</li>
-<li>双击主题名称可编辑  </li>
-<li>新增超链接提示工具  </li>
-<li>优化选择工具栏主色调  </li>
-<li>修正默认头像大小写问题  </li>
-<li>
-<p>改进图片查看器图标  </p>
-</li>
-<li>
-<p><strong>新贡献者</strong><br />
-共有11位新开发者加入并提交首次PR  </p>
-</li>
-</ol>
-<p>完整变更日志可查看：https://github.com/CherryHQ/cherry-studio/compare/v1.5.7...v1.5.9  </p>
-<h1 id="2-bili-hardcore-v052">2. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.5.2">bili-hardcore v0.5.2</a></h1>
-<p>bilibili 硬核会员 AI 自动答题脚本，直接调用 B 站 API，非 OCR 实现  </p>
-<p>主要更新内容包括：<br />
-1. 模型版本升级，提升性能和功能<br />
-2. 优化用户体验，改进交互设计  </p>
-<p>更新重点：<br />
-- 采用新版模型算法，提高响应速度和处理能力<br />
-- 界面交互更加流畅自然<br />
-- 修复已知问题，增强稳定性  </p>
+<p>功能新增：<br />
+1. 新增翻译历史搜索、收藏功能<br />
+2. 新增推理缓存机制<br />
+3. 新增文件扩展名增强处理<br />
+4. 新增双击编辑主题名称功能<br />
+5. 新增OCR图像识别和翻译功能<br />
+6. 新增系统(MacOS/Windows)OCR支持<br />
+7. 新增批量删除文件功能<br />
+8. 新增iframe截图功能<br />
+9. 支持更多AI模型(Qwen-flash/DeepSeek v3.1等)<br />
+10. 增加链接悬停提示功能  </p>
+<p>问题修复：<br />
+1. 修复Markdown链接空href问题<br />
+2. 修复翻译状态管理问题<br />
+3. 修复附件重复选择问题<br />
+4. 修复GPT-OSS温度参数支持<br />
+5. 修复Windows标题栏颜色问题<br />
+6. 修复代码工具路径空格处理<br />
+7. 修复知识库加密问题<br />
+8. 修复主题标签溢出问题<br />
+9. 修复mermaid主题切换问题<br />
+10. 修复快捷助手网址打开方式  </p>
+<p>性能优化：<br />
+1. 优化历史页面搜索性能<br />
+2. 简化通知服务初始化<br />
+3. 优化代码编辑器性能<br />
+4. 增强代理规则匹配逻辑<br />
+5. 优化翻译服务token使用  </p>
+<p>代码重构：<br />
+1. 重构CLI工具管理<br />
+2. 简化模型选择弹窗<br />
+3. 重构拖拽列表组件<br />
+4. 优化代码编辑器属性<br />
+5. 增强SVG预览功能  </p>
+<p>其他改进：<br />
+1. 升级electron到37.4.0<br />
+2. 更新多语言备份/恢复进度<br />
+3. 增加新的内置提供商头像选项<br />
+4. 改进富文本编辑器功能<br />
+5. 增强笔记保存功能  </p>
+<p>新贡献者：<br />
+欢迎@YuhangHere等12位新贡献者加入  </p>
 <h1 id="3-inputtip-v20250906">3. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.09.06">InputTip v2025.09.06</a></h1>
 <p>一个输入法状态管理工具：实时提示 鼠标样式、符号显示 + 窗口自动切换状态 + 快捷键切换状态。  </p>
-<p>输入法工具更新说明：  <br />
-1. 建议优先使用zip版本而非exe版本  <br />
-2. 功能优化：暂停时恢复鼠标样式，改进输入法状态识别模式切换  <br />
-3. 界面调整：将配置菜单"输入法模式"更名为"输入法相关"并优化菜单项  <br />
-4. 交互改进：禁用ComboBox控件的滚轮操作防止误触  <br />
-5. 细节调整：优化按键统计默认文本显示  <br />
-6. 包含其他错误修复和性能优化  </p>
-<h1 id="4-dify-181">4. <a href="https://github.com/langgenius/dify/releases/tag/1.8.1">dify 1.8.1</a></h1>
-<p>Production-ready platform for agentic workflow development.  </p>
-<p>版本1.8.1主要更新内容包括：  </p>
-<p>新特性：<br />
-- 支持从历史版本直接导出工作流DSL<br />
-- 增强反馈系统，支持对回答给出具体反对理由<br />
-- 多模态提示消息新增文件名支持<br />
-- 优化高级聊天模式中的文件处理能力  </p>
-<p>功能优化：<br />
-- 优化SQL查询性能，避免全表扫描<br />
-- 从MyPy迁移到Basedpyright进行类型检查<br />
-- 新增印尼语(id-ID)支持<br />
-- 扩展LLM提示Jinja2模板支持的变量  </p>
-<p>问题修复：<br />
-- 修复block-input组件的XSS安全漏洞<br />
-- 解决数据库会话绑定错误导致"not bound to a Session"的问题<br />
-- 修复工作流发布、UUID v7冲突等问题<br />
-- 改进多个UI组件，包括模态框处理和输入字段优化  </p>
-<p>升级指南：<br />
-1. Docker部署：备份数据→获取最新代码→停止服务→执行升级<br />
-2. 源码部署：停止服务→获取1.8.1分支代码→更新依赖→运行数据库迁移→重启服务  </p>
-<p>该版本包含大量社区贡献，共合并100+个PR，涉及性能优化、安全修复、功能增强等方面，显著提升了平台稳定性和开发体验。特别感谢所有贡献者的参与。  </p>
-<h1 id="5-higress-v217">5. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.7">higress v2.1.7</a></h1>
+<p>本文档主要介绍了软件更新内容及相关注意事项：  </p>
+<ol>
+<li>版本选择建议：推荐使用zip版本而非exe版本  </li>
+<li>功能改进：  </li>
+<li>暂停时恢复鼠标样式  </li>
+<li>新增手动切换输入法状态识别模式  </li>
+<li>界面优化：  </li>
+<li>将"输入法模式"菜单更名为"输入法相关"  </li>
+<li>优化了"输入法相关"配置菜单  </li>
+<li>交互优化：  </li>
+<li>禁用ComboBox控件的鼠标滚轮功能防止误操作  </li>
+<li>其他优化：  </li>
+<li>改进按键输入统计的默认文本  </li>
+<li>包含多项修复和优化改进  </li>
+</ol>
+<h1 id="4-higress-v217">4. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.7">higress v2.1.7</a></h1>
 <p>🤖 AI Gateway AI Native API Gateway  </p>
-<p>Higress v2.1.7 版本发布，包含42项更新，主要涵盖功能增强、Bug修复和性能优化。关键特性包括：新增MCP SSE有状态会话负载均衡支持、支持通过代理服务器转发上游请求、AI代理插件新增OpenAI和Claude API自动协议兼容功能。版本还包含21项新功能、14项Bug修复、4项重构优化、2项文档更新和1项测试改进。  </p>
-<p>Higress Console同步更新12项内容，包括5项新功能（如新增AI服务提供商支持、AI负载均衡插件可视化配置等）、5项Bug修复和2项优化重构。  </p>
-<p>3位新贡献者首次参与项目开发。完整更新内容详见项目Changelog。  </p>
+<p>Higress v2.1.7 版本发布，包含42项更新，主要分为新功能、Bug修复、重构优化、文档更新和测试改进五大类。重点包括：  </p>
+<ol>
+<li><strong>关键特性</strong>：  </li>
+<li>新增MCP SSE有状态会话负载均衡支持，提升长连接场景下的用户体验  </li>
+<li>支持在上游请求转发中添加代理服务器，增强系统灵活性  </li>
+<li>
+<p>AI代理插件新增OpenAI和Claude API的自动协议兼容功能  </p>
+</li>
+<li>
+<p><strong>详细功能</strong>：  </p>
+</li>
+<li>新增Nacos MCP安全模式支持  </li>
+<li>添加hmac-auth-apisix插件  </li>
+<li>支持OpenRouter作为AI服务提供商  </li>
+<li>新增JSON-RPC协议转换插件  </li>
+<li>
+<p>支持Gemini模型多模态数据处理  </p>
+</li>
+<li>
+<p><strong>Bug修复</strong>：  </p>
+</li>
+<li>修正拼写错误和配置问题  </li>
+<li>修复WASM插件编译问题  </li>
+<li>解决IP限制和路由匹配相关问题  </li>
+<li>
+<p>修复AI代理插件的协议转换问题  </p>
+</li>
+<li>
+<p><strong>优化改进</strong>：  </p>
+</li>
+<li>重构认证模块  </li>
+<li>调整日志级别  </li>
+<li>优化Monaco编辑器加载方式  </li>
+<li>改进MCP服务器管理功能  </li>
+</ol>
+<p>控制台方面发布12项更新，主要新增AI负载均衡插件支持、PostgreSQL/ClickHouse数据库支持等功能，并修复了认证和域名验证等问题。  </p>
+<p>本次发布共有42项变更（包括3项重要更新）和12项控制台更新，感谢所有贡献者的工作。新版本增强了系统功能、稳定性和用户体验。  </p>
+<h1 id="5-bili-hardcore-v052">5. <a href="https://github.com/Karben233/bili-hardcore/releases/tag/v0.5.2">bili-hardcore v0.5.2</a></h1>
+<p>bilibili 硬核会员 AI 自动答题脚本，直接调用 B 站 API，非 OCR 实现  </p>
+<p>文本摘要：<br />
+本次更新主要包含两方面内容：1）模型版本升级，提升性能和功能；2）进行用户体验优化，改进交互流程和操作便捷性。两项改进旨在为用户提供更优质的服务体验。  </p>
   </article>
   
 <script>
