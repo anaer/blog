@@ -1,0 +1,138 @@
+
+  <article class="markdown-body">
+    <h2 id="continue">Continue</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>C:\Users\Administrator\.continue\config.json  
+</code></pre></div></div>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&quot;tabAutocompleteModel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pro/Qwen/Qwen2.5-Coder-7B-Instruct | ME&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pro/Qwen/Qwen2.5-Coder-7B-Instruct&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;apiBase&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://myecs/v1/&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;contextLength&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32000</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siliconflow&quot;</span><span class="w">  </span>
+<span class="w">  </span><span class="p">},</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&quot;models&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Qwen/Qwen2.5-Coder-32B-Instruct | ME&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Qwen/Qwen2.5-Coder-32B-Instruct&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;apiBase&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://myecs/v1/&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;contextLength&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32000</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siliconflow&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deepseek-ai/DeepSeek-R1 | ME&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deepseek-ai/DeepSeek-R1&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;apiBase&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://myecs/v1/&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;contextLength&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32000</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siliconflow&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span><span class="p">],</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&quot;customCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{{ input }}}\n\nWrite a comprehensive set of unit tests for the selected code. It should setup, run tests that check for correctness including important edge cases, and teardown. Ensure that the tests are complete and sophisticated. Give the tests just as chat output, don&#39;t edit any file.&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Write unit tests for highlighted code&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span><span class="p">],</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&quot;contextProviders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;code&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;docs&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;diff&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;terminal&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;problems&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;folder&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;codebase&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span><span class="p">],</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&quot;slashCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;share&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Export the current chat session to markdown&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Generate a shell command&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;commit&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Generate a git commit message&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span><span class="p">]</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="codegeex">Codegeex</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="w">  </span><span class="nt">&quot;Codegeex.Local&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;apiURL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://myecs/v1/chat/completions&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;useChatGLM&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;chatGLM&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;apiKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Qwen/Qwen2.5-Coder-32B-Instruct&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;chat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;useDefaultSystemPrompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;systemPrompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;top_p&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;max_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;presence_penalty&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;completions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;useDefaultSystemPrompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;systemPrompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;top_p&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;max_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&quot;presence_penalty&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span><span class="p">},</span><span class="w">  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
