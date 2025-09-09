@@ -1,16 +1,85 @@
 
   <article class="markdown-body">
-    <h1 id="1-telegram_media_downloader-v300">1. <a href="https://github.com/Dineshkarthik/telegram_media_downloader/releases/tag/v3.0.0">telegram_media_downloader v3.0.0</a></h1>
+    <h1 id="1-telegram_media_downloader-v310">1. <a href="https://github.com/Dineshkarthik/telegram_media_downloader/releases/tag/v3.1.0">telegram_media_downloader v3.1.0</a></h1>
 <p>Download media files from a telegram conversation/chat/channel up to 2GiB per file  </p>
-<p>Telegram Media Downloader v3.0.0 发布了重大更新，主要包含框架迁移和兼容性增强。该版本从pyrogram完全迁移到telethon框架，带来稳定性提升和长期维护优势。主要变化包括：需要Python 3.8+、配置需更新、API变更等，提供了详细的迁移指南。  </p>
-<p>新特性包括：支持Python 3.8-3.13、自动检测Python版本选择依赖、优化版本特定需求、解决依赖冲突。技术改进方面更新了pytest、black等工具版本，修复了富文本冲突等问题。安装方式简化，新用户可直接使用make install自动适配，老用户需备份配置后迁移。  </p>
-<p>该版本风险等级中等但迁移路径清晰，测试覆盖率达86%，性能提升且维护负担减轻。文档全面更新了迁移指南和版本兼容说明，贡献者体验也得到优化。用户可通过GitHub问题、讨论区或Telegram社区获取支持。完整更新日志可在项目仓库查看。  </p>
+<p>主要更新内容包括：  </p>
+<ol>
+<li>核心功能新增  </li>
+<li>
+<p>自定义下载目录功能：支持绝对路径和相对路径，自动创建不存在的目录，保留原有媒体类型子目录结构  </p>
+</li>
+<li>
+<p>功能优化  </p>
+</li>
+<li>新增日期范围筛选下载功能  </li>
+<li>使用tqdm改进下载进度条显示  </li>
+<li>
+<p>优化配置文件结构和验证机制  </p>
+</li>
+<li>
+<p>质量提升  </p>
+</li>
+<li>增强新功能测试覆盖率  </li>
+<li>改进错误处理和日志记录  </li>
+<li>更新CI/CD工作流  </li>
+<li>
+<p>完善文档说明  </p>
+</li>
+<li>
+<p>依赖项更新  </p>
+</li>
+<li>升级多个开发依赖项  </li>
+<li>
+<p>提升Python 3.8-3.13版本兼容性  </p>
+</li>
+<li>
+<p>使用说明  </p>
+</li>
+<li>提供配置文件示例（支持绝对路径、相对路径和默认项目目录三种配置方式）  </li>
+<li>保持原有媒体文件分类存储结构  </li>
+<li>确认无破坏性变更，完全向后兼容  </li>
+</ol>
 <h1 id="2-copyparty-v1198">2. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.8">copyparty v1.19.8</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>Copyparty 是一个文件共享服务器软件，最新版本修复了共享文件的安全问题（GHSA-pxvw-4w88-6x95），防止通过猜测文件名访问未授权文件。近期重要更新包括：v1.19.8 修复单文件共享权限检查漏洞，v1.15.0 默认禁用上传去重功能，v1.14.3 修复可能导致数据丢失的 bug。  </p>
-<p>新功能包括：支持 IdP 登录/登出重定向、按权限隐藏磁盘使用情况和服务器版本、新增共享权限控制选项（--shr-who）、NixOS 配置支持等。同时修复了多个问题，如非 QWERTY 键盘布局热键支持、FTP 客户端兼容性、会话 cookie 安全处理等。  </p>
-<p>提供多种下载方式，推荐使用 copyparty-sfx.py（仅需 Python 环境），另有 Docker 镜像、Windows 可执行文件（Win8+ 推荐 copyparty.exe，Win7 使用 copyparty32.exe 需谨慎）等选项。注意部分版本存在安全风险，不建议暴露在公网。  </p>
-<p>其他改进包括 partyfuse 性能优化、连接页面示例增强、Docker 镜像注解修复等。项目提供 Discord 社区支持，并包含一个可启动 USB 的趣味选项。  </p>
+<p>Copyparty发布更新v1.19.8，修复了CVE-2025-58753漏洞，该漏洞涉及共享文件夹时可能访问未授权文件的问题。主要更新内容包括：  </p>
+<ol>
+<li>安全修复：  </li>
+<li>修复共享文件夹权限问题，确保只能访问指定共享文件  </li>
+<li>
+<p>加强密码提示保护  </p>
+</li>
+<li>
+<p>新功能：  </p>
+</li>
+<li>支持IdP登录/登出重定向  </li>
+<li>可按权限隐藏磁盘使用情况和服务器版本信息  </li>
+<li>新增共享创建权限控制选项  </li>
+<li>
+<p>文件夹删除文件后实时更新总大小显示  </p>
+</li>
+<li>
+<p>问题修复：  </p>
+</li>
+<li>修复非QWERTY键盘布局热键问题  </li>
+<li>修复FTP服务器兼容性问题  </li>
+<li>修复macOS配置文件运行问题  </li>
+<li>
+<p>修复视频播放暂停问题  </p>
+</li>
+<li>
+<p>其他改进：  </p>
+</li>
+<li>提升partyfuse性能  </li>
+<li>优化连接页面示例  </li>
+<li>修复Docker镜像注释  </li>
+</ol>
+<p>下载推荐：<br />
+- 最佳选择：copyparty-sfx.py（跨平台Python脚本）<br />
+- 也可选择：copyparty-en.py（仅英文版）或Docker镜像<br />
+- Windows用户可选用copyparty.exe（需Win8+）  </p>
+<p>注意事项：<br />
+- copyparty32.exe仅限Win7使用，不建议联网<br />
+- 详细更新内容可查看GitHub发布页和漏洞公告  </p>
   </article>
   
 <script>
