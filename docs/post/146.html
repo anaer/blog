@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-08 12:13:40</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-09 23:12:29</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-10 12:12:24</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了三个软件的最新版本及其主要更新内容。首先，subs-check v1.4.0增加了协议筛选功能并修复了订阅计数问题。其次，telegram_media_downloader v3.1.0新增了自定义下载目录和日期范围筛选功能，并优化了配置文件结构和下载进度显示，同时提升了Python兼容性。最后，copyparty v1.19.8修复了CVE-2025-58753漏洞，增强了安全性，并新增了IdP登录功能和权限管理选项。该版本还提供了多种下载选项和Docker镜像支持。需要注意的是，copyparty的32位版本存在安全隐患，用户在使用时需谨慎。
+    <strong>AI总结:</strong> 本文介绍了三个软件的最新版本及其主要更新内容。首先，subs-check v1.4.0增加了协议筛选功能，修复了订阅计数问题，并更新了相关组件。其次，telegram_media_downloader v3.1.0新增了自定义下载目录和按日期范围筛选媒体下载功能，改进了下载进度条显示和错误处理，同时提升了Python版本的兼容性。最后，copyparty v1.19.8修复了安全漏洞，新增了身份提供商登录功能和共享权限控制选项，优化了性能并修复了多项bug。需要注意的是，copyparty v1.15.0默认禁用上传去重功能，而v1.14.3修复了可能导致数据丢失的bug。总体上，这些更新增强了软件的功能和安全性。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -147,80 +147,51 @@ pre {
     <h1 id="1-subs-check-v140">1. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.0">subs-check v1.4.0</a></h1>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
 <p>更新日志：<br />
-1. 添加协议筛选功能（提交ID：197d08b6）<br />
-2. 修复订阅计数问题（提交ID：d52dd8fa）<br />
-3. 更新mihomo组件（提交ID：072a8984）  </p>
+1. 添加协议筛选功能（提交ID：197d08b）<br />
+2. 修复订阅计数问题（提交ID：d52dd8f）<br />
+3. 更新mihomo组件（提交ID：072a898）  </p>
 <h1 id="2-telegram_media_downloader-v310">2. <a href="https://github.com/Dineshkarthik/telegram_media_downloader/releases/tag/v3.1.0">telegram_media_downloader v3.1.0</a></h1>
 <p>Download media files from a telegram conversation/chat/channel up to 2GiB per file  </p>
 <p>主要更新内容包括：  </p>
-<ol>
-<li>新增功能：  </li>
-<li>
-<p>自定义下载目录：支持设置绝对或相对路径的下载位置，自动创建不存在的目录，并保留原有的媒体类型子目录结构  </p>
-</li>
-<li>
-<p>功能优化：  </p>
-</li>
-<li>新增日期范围筛选媒体下载功能  </li>
-<li>使用tqdm改进下载进度显示  </li>
-<li>
-<p>优化配置文件结构和验证机制  </p>
-</li>
-<li>
-<p>质量改进：  </p>
-</li>
-<li>增加新功能测试覆盖率  </li>
-<li>改进错误处理和日志记录  </li>
-<li>更新CI/CD工作流  </li>
-<li>
-<p>完善文档  </p>
-</li>
-<li>
-<p>依赖项更新：  </p>
-</li>
-<li>升级多个开发依赖项（pylint/mypy/black/pytest等）  </li>
-<li>
-<p>提升Python 3.8-3.13版本的兼容性  </p>
-</li>
-<li>
+<p>核心功能：<br />
+- 新增自定义下载目录功能，支持绝对路径和相对路径，自动创建不存在的目录，并保持原有的媒体类型子目录结构  </p>
+<p>功能增强：<br />
+- 新增按日期范围筛选媒体下载功能<br />
+- 使用tqdm改进下载进度条显示<br />
+- 优化配置文件结构和验证机制  </p>
+<p>质量改进：<br />
+- 新增功能测试覆盖率提升<br />
+- 改进错误处理和日志记录<br />
+- 更新CI/CD工作流<br />
+- 完善文档  </p>
+<p>依赖项：<br />
+- 更新多个开发依赖项（pylint、mypy等）<br />
+- 提升Python 3.8-3.13版本的兼容性  </p>
 <p>配置示例：<br />
-提供绝对路径、相对路径和默认项目目录三种配置方式  </p>
-</li>
-<li>
-<p>使用方法：<br />
-保持原有命令不变，下载文件将按音频/文档/照片/视频等分类存储在新指定目录  </p>
-</li>
-<li>
-<p>兼容性：<br />
-所有改动均保持向后兼容，无破坏性变更  </p>
-</li>
-</ol>
+支持绝对路径（如"/home/user/downloads/telegram"）、相对路径（如"downloads/telegram"）或默认项目目录（设为null）  </p>
+<p>使用说明：<br />
+运行python3 media_downloader.py后，媒体文件将按类型自动分类存储到指定目录下的audio/、document/等子目录中  </p>
+<p>无破坏性变更，所有改动均向后兼容  </p>
 <h1 id="3-copyparty-v1198">3. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.8">copyparty v1.19.8</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>copyparty是一个文件共享服务器软件，最新版本修复了CVE-2025-58753漏洞，该漏洞允许通过猜测文件名访问共享文件夹中的其他文件。主要更新内容包括：  </p>
-<p>安全修复：<br />
-- 修复共享文件权限检查漏洞，限制仅能访问被分享的文件<br />
-- 修复密码提示可能泄露有效密码的问题  </p>
-<p>新功能：<br />
-- 新增IdP登录/登出重定向功能<br />
-- 可根据用户权限隐藏磁盘使用情况和服务器版本信息<br />
-- 新增shr_who选项控制谁可以创建共享<br />
-- 文件夹删除文件后实时更新总大小显示  </p>
-<p>优化改进：<br />
-- 提升性能（特别是u2c和旧版Python）<br />
-- 修复非QWERTY键盘布局热键问题<br />
-- 修复FTP服务器兼容性问题<br />
-- 改进macOS配置文件支持<br />
-- 优化partyfuse的readdir缓存  </p>
-<p>其他：<br />
-- 提供多种下载选项，推荐使用copyparty-sfx.py（仅需Python）<br />
-- 包含Docker镜像支持<br />
-- 提供Windows可执行文件版本（注意32位版本存在安全隐患）  </p>
-<p>近期重要更新：<br />
-- v1.19.8修复CVE-2025-58753<br />
+<p>copyparty 是一个文件分享工具，最新版本修复了 CVE-2025-58753 安全漏洞，该漏洞可能导致共享文件夹中的其他文件被访问。主要特点包括：  </p>
+<ul>
+<li>新增身份提供商（IdP）登录/登出重定向功能  </li>
+<li>可按用户权限隐藏磁盘使用情况和服务器版本信息  </li>
+<li>新增共享权限控制选项  </li>
+<li>修复了多项bug，包括非QWERTY键盘布局支持、FTP服务器兼容性问题等  </li>
+<li>优化了性能，特别是partyfuse的读取速度  </li>
+</ul>
+<p>提供多种下载选项：<br />
+- 推荐使用copyparty-sfx.py，只需Python即可运行<br />
+- copyparty.exe适用于Windows 8+系统<br />
+- Docker镜像适合偏好Docker的用户<br />
+- 其他选项包括32位Windows 7版（不安全）和WinPE专用版  </p>
+<p>注意事项：<br />
+- 最新版本v1.19.8修复了共享文件权限检查问题<br />
 - v1.15.0默认禁用上传去重功能<br />
-- v1.14.3修复可能导致数据丢失的bug  </p>
-<p>该项目提供演示服务器、Discord社区支持，并与其他类似软件进行了功能对比。  </p>
+- v1.14.3修复了可能导致数据丢失的bug  </p>
+<p>项目提供Discord服务器用于重要更新通知，包括安全漏洞信息。  </p>
   </article>
   
 <script>
