@@ -135,130 +135,56 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-08 12:13:40</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-12 12:12:27</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-12 23:11:00</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新内容。Cherry Studio v1.5.10的更新包括功能改进、问题修复和代码优化，新增了动画效果、重试按钮和文件上传功能，同时修复了多个问题并更新了依赖项。Telegram Media Downloader v3.1.0增加了自定义下载目录功能和按日期范围筛选媒体的能力，并提升了错误处理和文档质量。Copyparty v1.19.8进行了安全更新，修复了文件共享权限问题，并新增了IdP登录功能和共享权限控制选项，同时优化了性能和文档。Subs-check v1.4.0则新增了协议筛选功能，修复了订阅计数问题，并更新了相关组件。整体来看，所有更新都旨在提升用户体验和软件性能。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新内容。Cherry Studio v1.5.11更新了顶部导航栏的展示方式，修复了Google小程序登录问题，并新增了笔记功能的拖拽排序支持。Telegram Media Downloader v3.1.0新增了自定义下载目录和按日期范围筛选媒体文件的功能，同时优化了下载进度显示和配置文件结构，提升了Python版本的兼容性。Copyparty v1.19.8是一个便携式文件服务器，支持多种上传和文件管理功能。Subs-check v1.4.0则增加了协议筛选功能并修复了订阅计数问题。没有明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-cherry-studio-v1510">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.10">cherry-studio v1.5.10</a></h1>
+    <h1 id="1-cherry-studio-v1511">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.11">cherry-studio v1.5.11</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新主要包含以下内容：  </p>
-<p>功能改进：<br />
-1. 为侧边栏添加动画效果<br />
-2. 新增"重试失败消息"按钮<br />
-3. 实现链接OG数据解析并添加到预览内容<br />
-4. 为Gemini 2.5 Flash图像模型自动启用图像生成按钮<br />
-5. 在KnowledgeFiles组件中集成文件选择和上传功能<br />
-6. 增强RichEditor日志记录功能并改进NotesPage编辑器同步<br />
-7. 支持标签页拖拽重新排序  </p>
-<p>问题修复：<br />
-1. 修复缺少引号的问题<br />
-2. 移除加载状态阻止输入的问题<br />
-3. 修正typo错误<br />
-4. 修复标签高度不足导致边框样式问题<br />
-5. 改进Linux系统OCR构建<br />
-6. 修复可拖动列表ID类型问题<br />
-7. 增强Obsidian保险库多安装方式的检测<br />
-8. 修正同步模型服务器URL格式化问题<br />
-9. 修复翻译复制按钮状态错误<br />
-10. 修复手动黑名单更新时的正则表达式错误  </p>
-<p>代码优化：<br />
-1. 更新Vite到7.1.5版本<br />
-2. 更新TypeScript配置和脚本<br />
-3. 重构CodeViewer组件以匹配CodeEditor<br />
-4. 简化electron构建配置<br />
-5. 将工作区设置从全局迁移到笔记模块<br />
-6. 重构工具提示图标<br />
-7. 改进MCP服务器流式检测  </p>
-<p>新贡献者：<br />
-@MengXiangxi和@thericardoli首次参与贡献  </p>
-<p>版本更新从v1.5.9升级到v1.5.10。  </p>
+<p><strong>更新摘要（v1.5.10 → v1.5.11）</strong>：  <br />
+1. 顶部导航栏模式现支持以标签页形式展示小程序  <br />
+2. 修复Google小程序登录异常问题  <br />
+3. 笔记功能新增拖拽排序支持  </p>
 <h1 id="2-telegram_media_downloader-v310">2. <a href="https://github.com/Dineshkarthik/telegram_media_downloader/releases/tag/v3.1.0">telegram_media_downloader v3.1.0</a></h1>
 <p>Download media files from a telegram conversation/chat/channel up to 2GiB per file  </p>
-<p>主要更新内容包括：  </p>
-<ol>
-<li>新增自定义下载目录功能  </li>
-<li>支持绝对路径和相对路径  </li>
-<li>自动创建不存在的目录  </li>
-<li>
-<p>保持原有媒体类型子目录结构  </p>
-</li>
-<li>
-<p>功能增强  </p>
-</li>
-<li>新增按日期范围筛选媒体下载  </li>
-<li>改进下载进度条显示效果  </li>
-<li>
-<p>优化配置文件结构和验证机制  </p>
-</li>
-<li>
-<p>质量改进  </p>
-</li>
-<li>提升新功能测试覆盖率  </li>
-<li>改进错误处理和日志记录  </li>
-<li>更新CI/CD工作流  </li>
-<li>
-<p>完善文档  </p>
-</li>
-<li>
-<p>依赖项更新  </p>
-</li>
-<li>升级多个开发依赖项  </li>
-<li>
-<p>提升Python 3.8-3.13版本兼容性  </p>
-</li>
-<li>
-<p>使用示例  </p>
-</li>
-<li>支持在配置文件中设置绝对路径或相对路径  </li>
-<li>不设置则默认使用项目目录  </li>
-<li>
-<p>下载后按媒体类型自动分类存储  </p>
-</li>
-<li>
-<p>兼容性  </p>
-</li>
-<li>无破坏性变更，完全向后兼容  </li>
-</ol>
+<p>主要更新内容：  </p>
+<p>新增功能：<br />
+1. 自定义下载目录功能<br />
+   - 支持绝对路径和相对路径<br />
+   - 自动创建不存在的目录<br />
+   - 保留原有的媒体类型子目录结构  </p>
+<p>功能优化：<br />
+1. 新增按日期范围筛选媒体文件功能<br />
+2. 使用tqdm改进下载进度显示<br />
+3. 优化配置文件结构和验证机制  </p>
+<p>质量改进：<br />
+1. 新增功能测试覆盖率提升<br />
+2. 改进错误处理和日志记录<br />
+3. 更新CI/CD工作流<br />
+4. 完善文档  </p>
+<p>依赖更新：<br />
+1. 更新多个开发依赖项<br />
+2. 提升Python 3.8-3.13版本兼容性  </p>
+<p>配置示例：<br />
+支持绝对路径、相对路径或默认项目目录三种配置方式  </p>
+<p>使用说明：<br />
+媒体文件将按类型自动分类存储到指定目录  </p>
+<p>兼容性：<br />
+本次更新完全向后兼容，无破坏性变更  </p>
 <h1 id="3-copyparty-v1198">3. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.8">copyparty v1.19.8</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>copyparty项目更新摘要：  </p>
-<p>安全更新：<br />
-- 修复CVE-2025-58753漏洞，解决文件共享中的权限检查问题<br />
-- 2025-09-07发布的v1.19.8版本包含此修复<br />
-- 2024年版本修复可能导致数据丢失的bug  </p>
-<p>新功能：<br />
-- 支持IdP登录/登出重定向<br />
-- 可按用户权限隐藏磁盘使用情况和服务器版本信息<br />
-- 新增shr_who选项控制共享权限<br />
-- 文件夹大小删除文件后实时更新  </p>
-<p>Bug修复：<br />
-- 修复非QWERTY键盘布局热键问题<br />
-- 修复FTP服务器兼容性问题<br />
-- 修复HTTPS会话cookie处理<br />
-- 多项UI和功能改进  </p>
-<p>下载选项：<br />
-- 推荐copyparty-sfx.py（跨平台Python版本）<br />
-- 提供Docker镜像、Windows可执行文件等<br />
-- 32位Windows版本存在安全风险  </p>
-<p>其他：<br />
-- 性能优化<br />
-- 文档改进<br />
-- 新增Konami彩蛋  </p>
-<p>项目资源：<br />
-- 演示服务器：https://a.ocv.me/pub/demo/<br />
-- Discord社区<br />
-- 详细版本历史记录  </p>
 <h1 id="4-subs-check-v140">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.0">subs-check v1.4.0</a></h1>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
-<p>197d08b 添加协议筛选功能  <br />
-d52dd8f 修复订阅计数问题  <br />
-072a898 更新mihomo组件    </p>
-<p>主要更新包含：新增协议筛选功能、修复订阅计数错误、升级mihomo组件版本。  </p>
+<ol>
+<li>添加协议筛选功能    </li>
+<li>修复订阅计数问题    </li>
+<li>更新mihomo组件  </li>
+</ol>
   </article>
   
 <script>
