@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-08 12:13:40</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-13 12:12:15</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-13 23:08:51</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新日志和主要功能改进。Cherry Studio v1.5.11更新了导航栏模式、修复了Google小程序的登录问题，并新增了笔记功能的拖拽排序支持。Telegram Media Downloader v3.1.0允许自定义下载目录，增加了日期范围筛选和下载进度条的改进，同时优化了配置文件结构和错误处理。Copyparty v1.19.8修复了安全漏洞CVE-2025-58753，并新增了身份提供商集成选项和权限控制功能，优化了性能和兼容性。Subs-check v1.4.0则新增了协议筛选功能并修复了订阅计数问题。总体来看，这些软件的更新均旨在提升用户体验和安全性。没有明显错误观点。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新和功能，包括Cherry Studio、telegram_media_downloader、copyparty和subs-check。Cherry Studio v1.5.11是一款支持多种LLM提供商的桌面客户端，新增了标签页模式和笔记功能的拖拽排序支持。telegram_media_downloader v3.1.0允许用户从Telegram下载媒体文件，支持自定义下载目录和日期范围筛选，优化了下载进度条和配置文件结构。copyparty v1.19.8是一个便携式文件服务器，进行了多项安全更新和功能优化，包括修复CVE-2025-58753漏洞和增强共享权限控制。subs-check v1.4.0则是一款用于订阅管理的工具，新增了协议筛选功能并修复了计数问题。需要注意的是，copyparty的Windows版本7存在安全风险，用户在使用前应仔细阅读安全说明。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -146,79 +146,104 @@ pre {
   <article class="markdown-body">
     <h1 id="1-cherry-studio-v1511">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.11">cherry-studio v1.5.11</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p><strong>更新日志摘要（v1.5.10至v1.5.11）</strong>：  <br />
-1. 顶部导航栏模式现支持以标签页形式展示小程序  <br />
-2. 修复Google小程序登录异常问题  <br />
-3. 新增笔记功能的拖拽排序支持  </p>
+<ol>
+<li>顶部导航栏模式将使用标签页展示小程序    </li>
+<li>修复了谷歌小程序登录问题    </li>
+<li>笔记功能新增拖拽排序支持  </li>
+</ol>
 <h1 id="2-telegram_media_downloader-v310">2. <a href="https://github.com/Dineshkarthik/telegram_media_downloader/releases/tag/v3.1.0">telegram_media_downloader v3.1.0</a></h1>
 <p>Download media files from a telegram conversation/chat/channel up to 2GiB per file  </p>
 <p>主要更新内容：  </p>
-<p>新增功能：<br />
-- 支持自定义下载目录，可设置绝对或相对路径，自动创建不存在的目录并保留原有媒体类型子目录结构  </p>
-<p>功能优化：<br />
-- 增加按日期范围筛选媒体下载功能<br />
-- 使用tqdm改进下载进度条显示<br />
-- 优化配置文件结构和验证机制  </p>
-<p>质量改进：<br />
-- 新增功能测试覆盖增强<br />
-- 改进错误处理和日志记录<br />
-- 更新CI/CD工作流<br />
-- 完善文档  </p>
-<p>依赖项更新：<br />
-- 升级多个开发依赖项（pylint、mypy等）<br />
-- 提升Python 3.8-3.13版本兼容性  </p>
-<p>配置示例：<br />
-支持设置绝对路径（如"/home/user/downloads/telegram"）、相对路径（如"downloads/telegram"）或使用默认项目目录（设为null）  </p>
-<p>使用方式：<br />
-运行python3 media_downloader.py后，媒体文件将按类型分类存储到指定目录的子文件夹中（audio/、document/等）  </p>
-<p>无破坏性变更，所有改动均保持向后兼容  </p>
+<ol>
+<li>新增功能：  </li>
+<li>支持自定义下载目录，可指定绝对或相对路径  </li>
+<li>自动创建不存在的目录  </li>
+<li>
+<p>保留原有按媒体类型分类的子目录结构  </p>
+</li>
+<li>
+<p>功能优化：  </p>
+</li>
+<li>新增日期范围筛选下载功能  </li>
+<li>使用tqdm改进下载进度条显示  </li>
+<li>
+<p>优化配置文件结构与验证机制  </p>
+</li>
+<li>
+<p>质量改进：  </p>
+</li>
+<li>新增功能测试覆盖  </li>
+<li>改进错误处理与日志记录  </li>
+<li>更新CI/CD工作流  </li>
+<li>
+<p>完善文档  </p>
+</li>
+<li>
+<p>依赖更新：  </p>
+</li>
+<li>升级多个开发依赖包  </li>
+<li>
+<p>提升Python 3.8-3.13版本兼容性  </p>
+</li>
+<li>
+<p>配置示例：  </p>
+</li>
+<li>支持绝对路径和相对路径配置  </li>
+<li>
+<p>默认使用项目目录  </p>
+</li>
+<li>
+<p>使用方法：  </p>
+</li>
+<li>
+<p>下载文件会自动按媒体类型分类存储  </p>
+</li>
+<li>
+<p>兼容性：  </p>
+</li>
+<li>无破坏性变更，完全向后兼容  </li>
+</ol>
 <h1 id="3-copyparty-v1198">3. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.8">copyparty v1.19.8</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>copyparty是一个自托管的文件共享服务器，主要更新内容包括：  </p>
-<ol>
-<li>
-<p>安全修复：修复了CVE-2025-58753漏洞，解决了文件共享权限问题，防止通过猜测文件名访问未授权文件。  </p>
-</li>
-<li>
-<p>新功能：  </p>
-</li>
-<li>新增IdP（身份提供商）集成选项  </li>
-<li>支持按用户权限隐藏磁盘使用情况和服务器版本信息  </li>
-<li>新增shr-who选项控制谁可以创建共享  </li>
-<li>
-<p>改进了文件夹大小计算逻辑  </p>
-</li>
-<li>
-<p>其他改进和修复：  </p>
-</li>
-<li>修复了非QWERTY键盘布局的热键问题  </li>
-<li>改进了FTP服务器兼容性  </li>
-<li>增强了macOS支持  </li>
-<li>
-<p>优化了性能  </p>
-</li>
-<li>
-<p>下载选项：  </p>
-</li>
-<li>推荐copyparty-sfx.py（跨平台Python版本）  </li>
-<li>提供Docker镜像、Windows可执行文件等选择  </li>
-<li>
-<p>警告部分旧版本Windows可执行文件存在安全隐患  </p>
-</li>
-<li>
-<p>其他信息：  </p>
-</li>
-<li>提供演示服务器和Discord社区  </li>
-<li>包含客户端测试平台  </li>
-<li>详细说明了各下载选项的适用场景和限制  </li>
-</ol>
-<p>该项目持续更新，建议用户升级到最新版本以获取安全修复和功能改进。  </p>
+<p>copyparty项目最新动态摘要：  </p>
+<p>安全更新：<br />
+- 修复了CVE-2025-58753漏洞，解决了文件共享时可能访问未授权同级文件的问题（不影响filekeys）<br />
+- 近期重要安全更新包括v1.19.8（修复共享权限检查）、v1.15.0（默认禁用上传去重）、v1.14.3（修复可能导致数据丢失的bug）  </p>
+<p>新功能：<br />
+- 新增IdP登录/登出重定向功能<br />
+- 支持按权限隐藏磁盘使用情况和服务器版本信息<br />
+- 新增--shr-who选项控制共享创建权限<br />
+- 优化性能（特别是u2c和旧版Python）<br />
+- 文件夹大小删除文件后实时更新  </p>
+<p>问题修复：<br />
+- 修复非QWERTY键盘布局热键问题<br />
+- 加强密码提示安全<br />
+- 修复FTP服务器、session-cookie、权限设置等多项问题<br />
+- 改进macOS配置文件支持  </p>
+<p>其他改进：<br />
+- partyfuse性能优化<br />
+- 改进连接页面示例<br />
+- 修复Docker镜像注解  </p>
+<p>下载建议：<br />
+- 推荐copyparty-sfx.py（跨平台Python版）<br />
+- copyparty-en.py（纯英文版）<br />
+- Docker镜像可选<br />
+- Windows版分win8+/win7版本（win7版存在安全风险）<br />
+- 提供CLI上传工具u2c.exe<br />
+- 其他格式（pyz/exe）存在兼容性或安全限制  </p>
+<p>项目资源：<br />
+- 提供演示服务器<br />
+- 维护Discord社区<br />
+- 包含客户端测试平台<br />
+- 提供类似软件对比文档  </p>
+<p>注意：使用前请务必阅读各版本的安全说明和适用场景。  </p>
 <h1 id="4-subs-check-v140">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.0">subs-check v1.4.0</a></h1>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
 <p>更新日志：<br />
-1. 添加协议筛选功能（提交ID：197d08b）<br />
-2. 修复订阅计数问题（提交ID：d52dd8f）  <br />
-3. 更新mihomo组件（提交ID：072a898）  </p>
+1. 添加协议筛选功能<br />
+2. 修复订阅计数问题<br />
+3. 更新mihomo组件  </p>
+<p>主要变更包括新增功能、问题修复和组件更新。  </p>
   </article>
   
 <script>
