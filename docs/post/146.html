@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-08 12:13:40</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-13 23:08:51</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-14 12:12:28</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的更新和功能，包括Cherry Studio、telegram_media_downloader、copyparty和subs-check。Cherry Studio v1.5.11是一款支持多种LLM提供商的桌面客户端，新增了标签页模式和笔记功能的拖拽排序支持。telegram_media_downloader v3.1.0允许用户从Telegram下载媒体文件，支持自定义下载目录和日期范围筛选，优化了下载进度条和配置文件结构。copyparty v1.19.8是一个便携式文件服务器，进行了多项安全更新和功能优化，包括修复CVE-2025-58753漏洞和增强共享权限控制。subs-check v1.4.0则是一款用于订阅管理的工具，新增了协议筛选功能并修复了计数问题。需要注意的是，copyparty的Windows版本7存在安全风险，用户在使用前应仔细阅读安全说明。
+    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新，包括Cherry Studio v1.5.11、Copyparty v1.19.8、Telegram Media Downloader v3.1.0和Subs-check v1.4.0。Cherry Studio更新了导航栏模式、修复了Google登录问题，并新增了笔记拖拽排序功能。Copyparty修复了CVE-2025-58753安全漏洞，增强了安全性和功能，包括身份提供商登录和权限控制选项。Telegram Media Downloader新增了自定义下载目录功能和按日期范围筛选下载的能力，同时优化了错误处理和日志记录。Subs-check则新增了协议筛选功能并修复了计数问题。需要注意的是，Copyparty的32位版本存在安全隐患。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -146,104 +146,91 @@ pre {
   <article class="markdown-body">
     <h1 id="1-cherry-studio-v1511">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.5.11">cherry-studio v1.5.11</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<ol>
-<li>顶部导航栏模式将使用标签页展示小程序    </li>
-<li>修复了谷歌小程序登录问题    </li>
-<li>笔记功能新增拖拽排序支持  </li>
-</ol>
-<h1 id="2-telegram_media_downloader-v310">2. <a href="https://github.com/Dineshkarthik/telegram_media_downloader/releases/tag/v3.1.0">telegram_media_downloader v3.1.0</a></h1>
+<p><strong>版本v1.5.11更新摘要</strong>  <br />
+1. 顶部导航栏模式现支持以标签页形式展示小程序  <br />
+2. 修复Google小程序登录问题  <br />
+3. 新增笔记拖拽排序功能  </p>
+<h1 id="2-copyparty-v1198">2. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.8">copyparty v1.19.8</a></h1>
+<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
+<p>copyparty 是一个文件共享服务器软件，最新版本修复了 CVE-2025-58753 安全漏洞（共享文件夹中的文件访问权限问题）。主要更新内容包括：  </p>
+<p>安全修复：<br />
+- 修复共享文件夹中未授权访问同级文件的问题（CVE-2025-58753）<br />
+- 修复可能泄露有效密码提示的问题<br />
+- 改进临时文件目录的安全性（权限设为 700）  </p>
+<p>新功能：<br />
+- 支持身份提供商（IdP）登录/登出重定向<br />
+- 按用户权限隐藏磁盘使用情况和服务器版本信息<br />
+- 新增共享创建权限控制选项（--shr-who）<br />
+- 文件夹删除文件后实时更新总大小显示<br />
+- 非 QWERTY 键盘布局热键支持  </p>
+<p>其他改进：<br />
+- FTP 服务器增强兼容性<br />
+- macOS 配置文件支持<br />
+- 视频播放空格暂停功能优化<br />
+- Docker 镜像标注修复  </p>
+<p>下载推荐：<br />
+- 首选 copyparty-sfx.py（仅需 Python）<br />
+- 也可选择英文版 copyparty-en.py 或 Docker 镜像<br />
+- Windows 用户可使用 copyparty.exe（Win8+）<br />
+- 注意 32 位版本（copyparty32.exe）存在安全隐患  </p>
+<p>历史重要更新：<br />
+- v1.19.8（2025-09-07）修复 CVE-2025-58753<br />
+- v1.15.0（2024-09-08）默认禁用上传去重<br />
+- v1.14.3（2024-08-30）修复可能导致数据丢失的 bug  </p>
+<p>该项目提供 Discord 社区支持，并设有漏洞通报机制。  </p>
+<h1 id="3-telegram_media_downloader-v310">3. <a href="https://github.com/Dineshkarthik/telegram_media_downloader/releases/tag/v3.1.0">telegram_media_downloader v3.1.0</a></h1>
 <p>Download media files from a telegram conversation/chat/channel up to 2GiB per file  </p>
-<p>主要更新内容：  </p>
+<p>本次更新主要包含以下内容：  </p>
 <ol>
-<li>新增功能：  </li>
-<li>支持自定义下载目录，可指定绝对或相对路径  </li>
+<li>新增自定义下载目录功能：  </li>
+<li>支持绝对路径和相对路径设置  </li>
 <li>自动创建不存在的目录  </li>
 <li>
-<p>保留原有按媒体类型分类的子目录结构  </p>
+<p>保留原有的媒体类型子目录结构  </p>
 </li>
 <li>
-<p>功能优化：  </p>
+<p>功能增强：  </p>
 </li>
-<li>新增日期范围筛选下载功能  </li>
-<li>使用tqdm改进下载进度条显示  </li>
+<li>新增按日期范围筛选媒体下载  </li>
+<li>使用tqdm改进下载进度显示  </li>
 <li>
-<p>优化配置文件结构与验证机制  </p>
+<p>优化配置文件结构和验证机制  </p>
 </li>
 <li>
-<p>质量改进：  </p>
+<p>质量提升：  </p>
 </li>
-<li>新增功能测试覆盖  </li>
-<li>改进错误处理与日志记录  </li>
+<li>新增功能测试覆盖率提高  </li>
+<li>改进错误处理和日志记录  </li>
 <li>更新CI/CD工作流  </li>
 <li>
 <p>完善文档  </p>
 </li>
 <li>
-<p>依赖更新：  </p>
+<p>依赖项更新：  </p>
 </li>
-<li>升级多个开发依赖包  </li>
+<li>更新多个开发依赖项  </li>
 <li>
 <p>提升Python 3.8-3.13版本兼容性  </p>
 </li>
 <li>
-<p>配置示例：  </p>
+<p>使用示例：  </p>
 </li>
-<li>支持绝对路径和相对路径配置  </li>
+<li>提供配置文件的绝对路径、相对路径和默认设置示例  </li>
 <li>
-<p>默认使用项目目录  </p>
-</li>
-<li>
-<p>使用方法：  </p>
-</li>
-<li>
-<p>下载文件会自动按媒体类型分类存储  </p>
+<p>说明下载后的文件组织结构  </p>
 </li>
 <li>
 <p>兼容性：  </p>
 </li>
-<li>无破坏性变更，完全向后兼容  </li>
+<li>所有变更均保持向后兼容，无破坏性改动  </li>
 </ol>
-<h1 id="3-copyparty-v1198">3. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.8">copyparty v1.19.8</a></h1>
-<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>copyparty项目最新动态摘要：  </p>
-<p>安全更新：<br />
-- 修复了CVE-2025-58753漏洞，解决了文件共享时可能访问未授权同级文件的问题（不影响filekeys）<br />
-- 近期重要安全更新包括v1.19.8（修复共享权限检查）、v1.15.0（默认禁用上传去重）、v1.14.3（修复可能导致数据丢失的bug）  </p>
-<p>新功能：<br />
-- 新增IdP登录/登出重定向功能<br />
-- 支持按权限隐藏磁盘使用情况和服务器版本信息<br />
-- 新增--shr-who选项控制共享创建权限<br />
-- 优化性能（特别是u2c和旧版Python）<br />
-- 文件夹大小删除文件后实时更新  </p>
-<p>问题修复：<br />
-- 修复非QWERTY键盘布局热键问题<br />
-- 加强密码提示安全<br />
-- 修复FTP服务器、session-cookie、权限设置等多项问题<br />
-- 改进macOS配置文件支持  </p>
-<p>其他改进：<br />
-- partyfuse性能优化<br />
-- 改进连接页面示例<br />
-- 修复Docker镜像注解  </p>
-<p>下载建议：<br />
-- 推荐copyparty-sfx.py（跨平台Python版）<br />
-- copyparty-en.py（纯英文版）<br />
-- Docker镜像可选<br />
-- Windows版分win8+/win7版本（win7版存在安全风险）<br />
-- 提供CLI上传工具u2c.exe<br />
-- 其他格式（pyz/exe）存在兼容性或安全限制  </p>
-<p>项目资源：<br />
-- 提供演示服务器<br />
-- 维护Discord社区<br />
-- 包含客户端测试平台<br />
-- 提供类似软件对比文档  </p>
-<p>注意：使用前请务必阅读各版本的安全说明和适用场景。  </p>
+<p>完整更新日志可查看项目GitHub页面。  </p>
 <h1 id="4-subs-check-v140">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.0">subs-check v1.4.0</a></h1>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
 <p>更新日志：<br />
-1. 添加协议筛选功能<br />
-2. 修复订阅计数问题<br />
-3. 更新mihomo组件  </p>
-<p>主要变更包括新增功能、问题修复和组件更新。  </p>
+1. 新增协议筛选功能（提交ID：197d08b）<br />
+2. 修复订阅计数问题（提交ID：d52dd8f）<br />
+3. 更新mihomo组件（提交ID：072a898）  </p>
   </article>
   
 <script>
