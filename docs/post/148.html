@@ -135,8 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-15 12:13:07</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-15 23:12:12</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了copyparty v1.19.9的主要更新，包括安全修复、功能新增、bug修复和其他改进。安全修复方面，修复了CVE-2025-58753漏洞和可能导致数据丢失的bug。新功能包括在不同操作系统上模拟大小写行为、支持Unicode文件名的模糊搜索以及显示二维码的参数。bug修复涉及上传器、去重问题和编辑器的若干问题。此外，优化了波兰语翻译和下载zip包的文件名生成，并增加了对IdP卷错误配置的检测和警告。下载推荐包括多种版本和工具，注意事项指出32位版本存在安全隐患并不建议联网使用。同时，该项目提供Discord社区用于重要更新通知。错误观点未见。
+    <strong>AI总结:</strong> 本文介绍了 copyparty v1.19.9 的主要更新和新特性，包括对安全漏洞 CVE-2025-58753 的修复、默认禁用上传去重功能、以及对数据丢失问题的修复。新特性包括模拟区分大小写的行为、支持 Unicode 文件名的模糊搜索和二维码显示选项。修复的问题涉及基础上传器、WebDAV 错误和文件去重失败。其他改进包括翻译优化和 ZIP 下载改进。下载建议包括使用不同平台的适配工具，并警告 Windows 7 版本存在风险，不应在公网使用。错误观点是提到的版本号 v1.19.8，实际上应为 v1.19.9。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -144,32 +146,26 @@ pre {
   <article class="markdown-body">
     <h1 id="1-copyparty-v1199">1. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.9">copyparty v1.19.9</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>copyparty是一个自托管文件共享工具，主要更新包括：  </p>
-<p>安全修复：<br />
-- v1.19.8修复了CVE-2025-58753漏洞（单文件共享中的权限检查缺失）<br />
-- v1.14.3修复了可能导致数据丢失的bug  </p>
-<p>新功能：<br />
-- 在Windows/MacOS等系统模拟区分大小写行为（可通过casechk:n禁用）<br />
-- 支持Unicode文件名/路径的模糊搜索（需启用srch-icase）<br />
-- 新增--qr-stdout和--qr-stderr参数显示二维码  </p>
-<p>bug修复：<br />
-- 修复基础上传器不接受空文件问题<br />
-- 修复Windows系统中特定时间戳文件的去重问题<br />
-- 修正webdav和markdown编辑器的若干问题  </p>
+<p>copyparty 是一个文件共享工具，最新版本 v1.19.8 修复了安全漏洞 CVE-2025-58753（单文件共享的权限检查问题）。重要更新包括：v1.15.0 默认禁用上传去重功能，v1.14.3 修复了可能导致数据丢失的 bug。  </p>
+<p>新特性：<br />
+- 在 Windows/MacOS/FAT32/NTFS 上模拟区分大小写的行为（可通过 <code>casechk: n</code> 禁用）<br />
+- 支持 Unicode 文件名/路径的模糊搜索（需启用 <code>srch-icase</code>）<br />
+- 新增 <code>--qr-stdout</code> 和 <code>--qr-stderr</code> 选项显示二维码  </p>
+<p>修复的问题：<br />
+- 基础上传器不接受空文件<br />
+- WebDAV 对未映射根目录返回错误<br />
+- 文件去重时可能因时间戳问题失败  </p>
 <p>其他改进：<br />
 - 优化波兰语翻译<br />
-- 改进下载zip包的文件名生成<br />
-- 检测并警告IdP卷的错误配置  </p>
-<p>下载推荐：<br />
-- copyparty-sfx.py（最佳选择，只需Python环境）<br />
-- copyparty-en.py（纯英文版）<br />
-- Docker镜像（适合Docker用户）<br />
-- copyparty.exe（Win8+专用，含缩略图功能）<br />
-- u2c.exe（命令行上传工具）  </p>
-<p>注意事项：<br />
-- 32位版本(copyparty32.exe)存在安全隐患，不建议联网使用<br />
-- 提供可启动USB镜像作为趣味选项  </p>
-<p>该项目提供Discord社区用于重要更新通知，包括安全漏洞通告。  </p>
+- 修复 Debian systemd 脚本问题<br />
+- 改进 ZIP 下载的文件名生成<br />
+- 媒体标签 <code>conductor</code> 不再映射到 <code>circle</code>  </p>
+<p>下载建议：<br />
+- 推荐使用 <code>copyparty-sfx.py</code>（跨平台，仅需 Python）<br />
+- Docker 镜像适合偏好容器化的用户<br />
+- Windows 用户可使用 <code>copyparty.exe</code>（Win8+）或 <code>copyparty32.exe</code>（Win7，仅限内网）<br />
+- 另有 CLI 上传工具 <code>u2c.exe</code>  </p>
+<p>安全提示：Win7 版本存在风险，切勿暴露在公网。可通过 Discord 获取重要更新通知。  </p>
   </article>
   
 <script>
