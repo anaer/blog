@@ -2,26 +2,31 @@
   <article class="markdown-body">
     <h1 id="1-copyparty-v1199">1. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.9">copyparty v1.19.9</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>copyparty 是一个文件共享工具，最新版本 v1.19.8 修复了安全漏洞 CVE-2025-58753（单文件共享的权限检查问题）。重要更新包括：v1.15.0 默认禁用上传去重功能，v1.14.3 修复了可能导致数据丢失的 bug。  </p>
+<p>Copyparty是一个文件共享服务，最近发布了v1.19.8版本，修复了CVE-2025-58753安全漏洞（单文件共享中的权限检查缺失）。其他重要更新包括：v1.15.0默认禁用上传去重功能，v1.14.3修复了可能导致数据丢失的bug。  </p>
 <p>新特性：<br />
-- 在 Windows/MacOS/FAT32/NTFS 上模拟区分大小写的行为（可通过 <code>casechk: n</code> 禁用）<br />
-- 支持 Unicode 文件名/路径的模糊搜索（需启用 <code>srch-icase</code>）<br />
-- 新增 <code>--qr-stdout</code> 和 <code>--qr-stderr</code> 选项显示二维码  </p>
-<p>修复的问题：<br />
+- 在Windows/MacOS/Fat32/NTFS上模拟区分大小写的行为（可通过<code>casechk: n</code>禁用）<br />
+- 支持Unicode文件名/路径的模糊搜索（需启用<code>srch-icase</code>选项）<br />
+- 新增<code>--qr-stdout</code>和<code>--qr-stderr</code>参数显示二维码  </p>
+<p>修复的bug：<br />
 - 基础上传器不接受空文件<br />
-- WebDAV 对未映射根目录返回错误<br />
-- 文件去重时可能因时间戳问题失败  </p>
+- Windows去重功能对远古时间戳文件失效<br />
+- WebDAV对未映射根目录的错误响应<br />
+- Markdown编辑器额外HTTP请求问题  </p>
 <p>其他改进：<br />
+- 修复图片查看器快捷键错误<br />
 - 优化波兰语翻译<br />
-- 修复 Debian systemd 脚本问题<br />
-- 改进 ZIP 下载的文件名生成<br />
-- 媒体标签 <code>conductor</code> 不再映射到 <code>circle</code>  </p>
-<p>下载建议：<br />
-- 推荐使用 <code>copyparty-sfx.py</code>（跨平台，仅需 Python）<br />
-- Docker 镜像适合偏好容器化的用户<br />
-- Windows 用户可使用 <code>copyparty.exe</code>（Win8+）或 <code>copyparty32.exe</code>（Win7，仅限内网）<br />
-- 另有 CLI 上传工具 <code>u2c.exe</code>  </p>
-<p>安全提示：Win7 版本存在风险，切勿暴露在公网。可通过 Discord 获取重要更新通知。  </p>
+- 改进系统脚本<br />
+- 优化ZIP下载文件名生成  </p>
+<p>推荐下载：<br />
+- <code>copyparty-sfx.py</code>（最佳选择，仅需Python）<br />
+- <code>copyparty-en.py</code>（仅英语版本）<br />
+- Docker镜像（适合Docker用户）<br />
+- <code>copyparty.exe</code>（适用于Win8+）<br />
+- <code>u2c.exe</code>（命令行上传工具）  </p>
+<p>警告：<br />
+- <code>copyparty32.exe</code>（仅限Win7，不安全）<br />
+- <code>cpp-winpe64.exe</code>（仅限64位WinPE）  </p>
+<p>还提供了一个可启动USB镜像（x86_64架构）。所有选项功能基本等效，除u2c.exe外。  </p>
   </article>
   
 <script>
