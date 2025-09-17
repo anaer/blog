@@ -1,76 +1,85 @@
 
   <article class="markdown-body">
-    <h1 id="1-copyparty-v1199">1. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.9">copyparty v1.19.9</a></h1>
-<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>Copyparty是一个文件共享服务，提供以下主要功能和更新：  </p>
-<p>安全更新：<br />
-- v1.19.8修复了CVE-2025-58753漏洞（单文件分享权限检查问题）<br />
-- v1.14.3修复了可能导致数据丢失的bug  </p>
-<p>新功能：<br />
-- 在Windows/MacOS/FAT32/NTFS上模拟区分大小写行为<br />
-- 支持Unicode文件名/路径的模糊搜索（默认关闭，需手动启用）<br />
-- 新增--qr-stdout和--qr-stderr选项  </p>
-<p>错误修复：<br />
-- 修复基础上传器不接受空文件的问题<br />
-- 修正Windows系统中文件去重可能失败的问题<br />
-- 解决WebDAV和markdown编辑器相关问题  </p>
-<p>其他改进：<br />
-- 优化波兰语翻译<br />
-- 改进系统脚本<br />
-- 优化zip下载文件名生成<br />
-- 新增错误配置检测  </p>
-<p>下载选项：<br />
-推荐使用copyparty-sfx.py（跨平台Python版本）或copyparty-en.py（仅英文版）<br />
-提供Docker镜像、Windows可执行文件（分32/64位版本）等选择<br />
-警告：32位版本和WinPE版本存在安全风险  </p>
-<p>其他信息：<br />
-- 提供只读演示服务器<br />
-- 有Discord社区用于重要更新通知<br />
-- 附带有趣的小彩蛋（如启动U盘）  </p>
-<h1 id="2-datafaker-250">2. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.0">datafaker 2.5.0</a></h1>
+    <h1 id="1-datafaker-250">1. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.0">datafaker 2.5.0</a></h1>
 <p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
 <p>本次更新主要包含以下内容：  </p>
 <ol>
-<li>功能改进与修复：  </li>
+<li>文档与发布流程改进：  </li>
 <li>更新发布文档并设置自动发布功能  </li>
-<li>为塞尔达游戏列表新增标题  </li>
-<li>修复新加坡身份证号生成问题  </li>
-<li>修复CSV生成限制问题  </li>
-<li>改进巴西身份证号访问方式  </li>
-<li>新增随机端口号生成方法  </li>
-<li>金融数据更新：信用卡格式更新、Swift IBAN标准从v87升级到v99  </li>
-<li>新增星际迷航飞船数据  </li>
+<li>移除可能不再需要的父级配置  </li>
 <li>
-<p>创建新的Credentials凭证提供者并弃用Internet相关方法  </p>
+<p>在CI中使用jdk25-ea版本  </p>
+</li>
+<li>
+<p>功能新增与优化：  </p>
+</li>
+<li>塞尔达游戏列表新增标题  </li>
+<li>修复新加坡身份证号生成  </li>
+<li>新增端口号范围生成方法  </li>
+<li>创建新的Credentials凭证提供程序(原Internet方法已弃用)  </li>
+<li>巴西身份证号可通过idNumber()访问  </li>
+<li>金融提供程序更新：信用卡格式、Swift IBAN标准(v87→v99)  </li>
+<li>
+<p>星际迷航提供程序新增星际飞船内容  </p>
+</li>
+<li>
+<p>问题修复：  </p>
+</li>
+<li>修复CSV生成限制问题  </li>
+<li>修复韩国kpop.boy_bands键名拼写错误  </li>
+<li>修复不稳定的WeightedRandomSelector测试  </li>
+<li>修复巴西本地部分问题及测试格式  </li>
+<li>
+<p>避免日志中出现无用的NoSuchMethodRuntimeException  </p>
 </li>
 <li>
 <p>代码优化：  </p>
 </li>
-<li>重构BaseFakerTest相关测试  </li>
-<li>删除重复的yml文件内容  </li>
+<li>重构BaseFakerTest及其扩展测试  </li>
+<li>移除YAML文件中的重复项  </li>
 <li>减少测试日志输出  </li>
-<li>消除递归提供者调用  </li>
+<li>消除递归提供程序调用  </li>
 <li>
-<p>移除无用代码和System.out.println  </p>
+<p>移除无用的System.out.println  </p>
 </li>
 <li>
-<p>本地化改进：  </p>
+<p>数据改进：  </p>
 </li>
-<li>修复韩语yml文件中的拼写错误  </li>
-<li>改进韩语姓名数据  </li>
+<li>优化韩国姓名数据  </li>
 <li>
-<p>修正韩语kpop.boy_bands键名错误  </p>
+<p>修正韩语文件中的拼写错误  </p>
 </li>
 <li>
-<p>其他：  </p>
+<p>新贡献者：  </p>
 </li>
-<li>移除不必要的parent配置  </li>
-<li>CI中使用jdk25-ea  </li>
-<li>使UnionPay测试更易读  </li>
-<li>改进测试失败时的提示信息  </li>
+<li>欢迎5位新贡献者加入项目  </li>
 </ol>
-<p>新贡献者：<br />
-@abudevich、@rcriosbr、@Chanwon-Seo、@Fishbowler、@momoysm首次贡献  </p>
+<p>版本从2.4.4更新至2.5.0。  </p>
+<h1 id="2-copyparty-v1199">2. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.9">copyparty v1.19.9</a></h1>
+<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
+<p>Copyparty是一个文件共享工具，最新版本v1.19.8修复了CVE-2025-58753漏洞（单文件分享权限检查问题）。重要更新包括：<br />
+- v1.15.0默认禁用上传去重功能<br />
+- v1.14.3修复了可能导致数据丢失的bug  </p>
+<p>新特性：<br />
+- Windows/MacOS/FAT32/NTFS支持模拟大小写敏感行为（可通过casechk:n禁用）<br />
+- 支持Unicode文件名/路径的模糊搜索（需手动启用srch-icase）<br />
+- 新增--qr-stdout和--qr-stderr参数  </p>
+<p>修复的bug：<br />
+- 基础上传器不接受空文件<br />
+- Windows去重功能对远古时间戳文件失效<br />
+- WebDAV对未映射根目录的错误响应<br />
+- Markdown编辑器多余HTTP请求问题  </p>
+<p>其他改进：<br />
+- 修复图片查看器快捷键错误<br />
+- 优化波兰语翻译<br />
+- 改进systemd脚本<br />
+- 下载选中文件时生成更合理的zip文件名  </p>
+<p>下载推荐：<br />
+- 最佳选择：copyparty-sfx.py（跨平台Python脚本）<br />
+- 备选：copyparty-en.py（仅英语版）、Docker镜像<br />
+- Windows专用：copyparty.exe（Win8+）、u2c.exe（CLI上传工具）<br />
+- 不推荐：copyparty32.exe（仅限Win7本地使用）  </p>
+<p>该项目提供Discord社区用于重要更新通知，并设有只读演示服务器。  </p>
   </article>
   
 <script>
