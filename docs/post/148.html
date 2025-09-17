@@ -135,47 +135,65 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-15 12:13:07</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-16 23:11:52</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-17 12:12:26</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了datafaker 2.5.0和copyparty v1.19.9的主要更新内容。datafaker 2.5.0的改进包括文档与发布流程优化、数据提供器的多项新增和修复、测试与代码优化、本地化改进以及构建与CI的更新，版本升级带来了功能改进和问题修复。copyparty v1.19.9则专注于安全修复、新功能的增加、错误修复以及其他改进，特别强调了对文件共享安全漏洞的修复和多平台支持。错误观点包括对copyparty的推荐下载选项中不推荐使用的copyparty32.exe，尽管其存在安全隐患，但仍被提及，可能导致用户误用。
-</div>
+<p>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-datafaker-250">1. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.0">datafaker 2.5.0</a></h1>
+    <h1 id="1-copyparty-v1199">1. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.9">copyparty v1.19.9</a></h1>
+<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
+<p>Copyparty是一个文件共享服务，提供以下主要功能和更新：  </p>
+<p>安全更新：<br />
+- v1.19.8修复了CVE-2025-58753漏洞（单文件分享权限检查问题）<br />
+- v1.14.3修复了可能导致数据丢失的bug  </p>
+<p>新功能：<br />
+- 在Windows/MacOS/FAT32/NTFS上模拟区分大小写行为<br />
+- 支持Unicode文件名/路径的模糊搜索（默认关闭，需手动启用）<br />
+- 新增--qr-stdout和--qr-stderr选项  </p>
+<p>错误修复：<br />
+- 修复基础上传器不接受空文件的问题<br />
+- 修正Windows系统中文件去重可能失败的问题<br />
+- 解决WebDAV和markdown编辑器相关问题  </p>
+<p>其他改进：<br />
+- 优化波兰语翻译<br />
+- 改进系统脚本<br />
+- 优化zip下载文件名生成<br />
+- 新增错误配置检测  </p>
+<p>下载选项：<br />
+推荐使用copyparty-sfx.py（跨平台Python版本）或copyparty-en.py（仅英文版）<br />
+提供Docker镜像、Windows可执行文件（分32/64位版本）等选择<br />
+警告：32位版本和WinPE版本存在安全风险  </p>
+<p>其他信息：<br />
+- 提供只读演示服务器<br />
+- 有Discord社区用于重要更新通知<br />
+- 附带有趣的小彩蛋（如启动U盘）  </p>
+<h1 id="2-datafaker-250">2. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.0">datafaker 2.5.0</a></h1>
 <p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
-<p>本次更新主要包含以下改进和修复：  </p>
+<p>本次更新主要包含以下内容：  </p>
 <ol>
-<li>文档与发布流程优化：  </li>
+<li>功能改进与修复：  </li>
 <li>更新发布文档并设置自动发布功能  </li>
-<li>
-<p>移除不再需要的父级依赖  </p>
-</li>
-<li>
-<p>数据提供器改进：  </p>
-</li>
-<li>新增塞尔达游戏标题  </li>
+<li>为塞尔达游戏列表新增标题  </li>
 <li>修复新加坡身份证号生成问题  </li>
-<li>创建新的Credentials凭证提供器，弃用Internet相关方法  </li>
-<li>使巴西身份证号可通过idNumber()访问  </li>
-<li>更新金融提供器的信用卡格式和Swift IBAN标准(v87→v99)  </li>
-<li>为金融提供器添加缺失的Java文档  </li>
+<li>修复CSV生成限制问题  </li>
+<li>改进巴西身份证号访问方式  </li>
+<li>新增随机端口号生成方法  </li>
+<li>金融数据更新：信用卡格式更新、Swift IBAN标准从v87升级到v99  </li>
+<li>新增星际迷航飞船数据  </li>
 <li>
-<p>为星际迷航提供器添加星舰数据  </p>
+<p>创建新的Credentials凭证提供者并弃用Internet相关方法  </p>
 </li>
 <li>
-<p>测试与代码优化：  </p>
+<p>代码优化：  </p>
 </li>
 <li>重构BaseFakerTest相关测试  </li>
-<li>修复CSV生成限制问题  </li>
-<li>减少日志中的无用异常信息  </li>
-<li>移除YAML文件中的重复项  </li>
-<li>修复不稳定的权重随机选择测试  </li>
-<li>添加生成指定范围内随机端口的方法  </li>
+<li>删除重复的yml文件内容  </li>
+<li>减少测试日志输出  </li>
+<li>消除递归提供者调用  </li>
 <li>
-<p>消除递归提供器调用  </p>
+<p>移除无用代码和System.out.println  </p>
 </li>
 <li>
 <p>本地化改进：  </p>
@@ -183,42 +201,18 @@ pre {
 <li>修复韩语yml文件中的拼写错误  </li>
 <li>改进韩语姓名数据  </li>
 <li>
-<p>修正韩语kpop.boy_bands键名拼写  </p>
+<p>修正韩语kpop.boy_bands键名错误  </p>
 </li>
 <li>
-<p>构建与CI：  </p>
+<p>其他：  </p>
 </li>
-<li>在CI中使用jdk25-ea  </li>
-<li>移除无用的System.out.println输出  </li>
+<li>移除不必要的parent配置  </li>
+<li>CI中使用jdk25-ea  </li>
+<li>使UnionPay测试更易读  </li>
+<li>改进测试失败时的提示信息  </li>
 </ol>
-<p>新贡献者：@abudevich、@rcriosbr、@Chanwon-Seo、@Fishbowler和@momoysm首次参与项目贡献。  </p>
-<p>版本从2.4.4升级到2.5.0，包含多项功能改进、问题修复和代码优化。  </p>
-<h1 id="2-copyparty-v1199">2. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.9">copyparty v1.19.9</a></h1>
-<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>copyparty 是一个自托管文件共享工具，主要更新内容包括：  </p>
-<p>安全修复：<br />
-- v1.19.8 修复了 CVE-2025-58753（单文件共享中的权限检查漏洞）<br />
-- v1.14.3 修复了可能导致数据丢失的严重错误  </p>
-<p>新功能：<br />
-- 在 Windows/MacOS/FAT32/NTFS 上模拟区分大小写行为（可通过 casechk:n 禁用）<br />
-- 支持 Unicode 文件名/路径的模糊搜索（需启用 srch-icase）<br />
-- 新增 --qr-stdout 和 --qr-stderr 选项  </p>
-<p>错误修复：<br />
-- 基础上传器不接受空文件问题<br />
-- Windows 上文件去重可能失败问题<br />
-- WebDAV 和 markdown 编辑器相关问题  </p>
-<p>其他改进：<br />
-- 优化波兰语翻译<br />
-- 修复 systemd 脚本问题<br />
-- 改进 zip 下载文件名生成<br />
-- 新增对 IdP 卷错误配置的检测  </p>
-<p>下载选项推荐：<br />
-- 最佳选择：copyparty-sfx.py（跨平台，仅需 Python）<br />
-- 次选：copyparty-en.py（仅英文版）<br />
-- Docker 镜像可用<br />
-- Windows 用户可选择 copyparty.exe（Win8+）或 u2c.exe（CLI 上传工具）<br />
-- 不推荐使用 copyparty32.exe（仅限 Win7，存在安全隐患）  </p>
-<p>该项目提供 Discord 社区支持，并有一个演示服务器可供测试。最新版本修复了多个重要问题，建议用户及时更新。  </p>
+<p>新贡献者：<br />
+@abudevich、@rcriosbr、@Chanwon-Seo、@Fishbowler、@momoysm首次贡献  </p>
   </article>
   
 <script>
