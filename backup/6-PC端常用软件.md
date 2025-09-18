@@ -119,7 +119,7 @@
 5. Robo 3T [GitHub](https://github.com/Studio3T/robomongo/releases) 
 5. ~~Compass~~ [GitHub](https://github.com/mongodb-js/compass/releases) 要求4.x
 6. ~~Navicat Premium Lite~~ [官网](https://www.navicat.com.cn/download/navicat-premium-lite) 需要注册登录了
-7. ~~SQLyog~~  网上有注册码 只支持mysql
+7. ~~SQLyog~~  [GitHub](https://github.com/webyog/sqlyog-community/wiki/Downloads) 网上有注册码 只支持mysql
 
 ### 版本控制
 1. Git [官网](https://git-scm.com/downloads/win) [GitHub](https://github.com/git-for-windows/git/releases/)
