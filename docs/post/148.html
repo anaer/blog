@@ -135,91 +135,120 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-15 12:13:07</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-18 12:12:28</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-18 23:11:10</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了datafaker 2.5.0和copyparty v1.19.9的主要更新内容。datafaker 2.5.0版本包含文档和发布流程优化、数据内容更新（如新增游戏标题和修复身份证号生成问题）、功能改进与修复（如随机端口生成方法和新Credentials提供商）、代码优化与重构，以及其他改进。该版本还新增了5位首次贡献者。copyparty v1.19.9则主要针对安全更新，修复了CVE-2025-58753漏洞和可能导致数据丢失的严重错误，同时新增了模拟区分大小写行为和Unicode文件名模糊搜索等功能。该版本还修复了多个错误并优化了翻译，建议用户及时更新以确保安全。需要注意的是，copyparty的32位版本存在安全风险，用户应谨慎使用。
+    <strong>AI总结:</strong> 本文介绍了三个软件的最新版本更新。首先，PowerToys v0.94.1主要进行了稳定性修复，解决了安装程序的引导错误，并提供了四种不同的安装包。其次，datafaker 2.5.0更新了文档、移除了不必要的依赖，新增了多个功能和数据，并修复了多个生成问题和拼写错误，版本从2.4.4更新至2.5.0。最后，copyparty v1.19.9是一款自托管文件共享工具，修复了安全漏洞和多个功能问题，新增了对Unicode文件名的模糊搜索和二维码显示功能，推荐使用跨平台的下载方式。整体来看，三个软件的更新均注重安全性和功能优化。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-datafaker-250">1. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.0">datafaker 2.5.0</a></h1>
+    <h1 id="1-powertoys-v0941">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.94.1">PowerToys v0.94.1</a></h1>
+<p>Windows system utilities to maximize productivity  </p>
+<p>本次发布是v0.94.1版本的补丁更新，主要修复了影响稳定性的重要问题。完整版本说明请参考v0.94.0版本。  </p>
+<p>提供了四种安装包的哈希校验值：<br />
+1. 用户级x64安装包：PowerToysUserSetup-0.94.1-x64.exe<br />
+2. 用户级ARM64安装包：PowerToysUserSetup-0.94.1-arm64.exe  <br />
+3. 系统级x64安装包：PowerToysSetup-0.94.1-x64.exe<br />
+4. 系统级ARM64安装包：PowerToysSetup-0.94.1-arm64.exe  </p>
+<p>主要修复内容包括：<br />
+- 解决了安装程序问题，修复了"Failed to load SilentFilesInUseBAFunction.dll (0x8007007e)"引导错误，现在可以通过GitHub、winget和微软商店成功安装。  </p>
+<h1 id="2-datafaker-250">2. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.0">datafaker 2.5.0</a></h1>
 <p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
 <p>本次更新主要包含以下内容：  </p>
 <ol>
-<li>文档与发布流程优化  </li>
+<li>文档与发布流程改进：  </li>
+<li>更新发布文档并设置自动发布功能  </li>
 <li>
-<p>更新发布文档并设置自动发布功能  </p>
+<p>移除可能不再需要的父级依赖  </p>
 </li>
 <li>
-<p>数据内容更新  </p>
+<p>新增功能与数据：  </p>
 </li>
-<li>塞尔达游戏列表新增多个游戏标题  </li>
-<li>修复新加坡身份证号生成问题  </li>
-<li>修正韩语yml文件中的KPOP男团拼写错误  </li>
-<li>改进韩语姓名数据  </li>
-<li>金融提供商更新信用卡格式和Swift IBAN数据标准(v87→v99)  </li>
+<li>为塞尔达游戏列表添加新标题  </li>
+<li>新增Credentials凭证提供者（原Internet方法已弃用）  </li>
+<li>为Star Trek提供者添加星舰数据  </li>
+<li>添加生成指定范围内随机端口的方法  </li>
 <li>
-<p>星际迷航提供商新增星舰数据  </p>
+<p>巴西ID号可通过faker.idNumber()访问  </p>
 </li>
 <li>
-<p>功能改进与修复  </p>
+<p>问题修复：  </p>
 </li>
+<li>修复新加坡ID号生成问题  </li>
 <li>修复CSV生成限制问题  </li>
-<li>避免无用的NoSuchMethodRuntimeException日志  </li>
-<li>新增随机端口生成方法  </li>
-<li>创建新的Credentials提供商并弃用Internet提供商相关方法  </li>
+<li>修复韩国yml文件中kpop.boy_bands的拼写错误  </li>
+<li>修正巴西本地部分和测试格式  </li>
 <li>
-<p>使巴西身份证号可通过faker.idNumber()访问  </p>
+<p>修复WeightedRandomSelectorTest测试稳定性问题  </p>
 </li>
 <li>
-<p>代码优化与重构  </p>
+<p>代码优化：  </p>
 </li>
-<li>移除重复的yml文件内容  </li>
-<li>重构BaseFakerTest相关测试  </li>
+<li>重构继承BaseFakerTest的测试  </li>
+<li>移除yml文件中的重复项  </li>
+<li>减少日志中的无用NoSuchMethodRuntimeException  </li>
+<li>移除测试中的System.out.println  </li>
+<li>消除递归提供者调用  </li>
 <li>减少测试日志输出  </li>
-<li>消除递归提供程序调用  </li>
 <li>
-<p>移除不必要的测试和调试输出  </p>
+<p>移除不需要的testNoDuplications测试  </p>
 </li>
 <li>
-<p>其他改进  </p>
+<p>数据更新：  </p>
 </li>
-<li>CI中使用jdk25-ea  </li>
-<li>改进测试失败时的信息提示  </li>
+<li>改进韩国姓名数据  </li>
+<li>更新金融提供者中的信用卡格式  </li>
 <li>
-<p>补充金融提供商的Java文档  </p>
+<p>将Swift IBAN数据标准从v87更新到v99  </p>
 </li>
 <li>
-<p>新贡献者  </p>
+<p>测试改进：  </p>
 </li>
-<li>新增5位首次贡献者，分别参与了CSV修复、韩语修正、金融数据更新等工作  </li>
+<li>使UnionPay测试更易读  </li>
+<li>使部分测试的错误信息更具参考性  </li>
+<li>
+<p>在CI中使用jdk25-ea  </p>
+</li>
+<li>
+<p>文档补充：  </p>
+</li>
+<li>为金融提供者添加缺失的javadoc  </li>
 </ol>
-<p>版本从2.4.4升级到2.5.0，包含多项功能改进、数据更新和错误修复。  </p>
-<h1 id="2-copyparty-v1199">2. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.9">copyparty v1.19.9</a></h1>
+<p>新贡献者：<br />
+- @abudevich<br />
+- @rcriosbr<br />
+- @Chanwon-Seo<br />
+- @Fishbowler<br />
+- @momoysm  </p>
+<p>版本从2.4.4更新至2.5.0。  </p>
+<h1 id="3-copyparty-v1199">3. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.9">copyparty v1.19.9</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>Copyparty项目是一个文件共享工具，主要更新内容如下：  </p>
+<p>Copyparty是一款自托管文件共享工具，主要更新内容如下：  </p>
 <p>安全更新：<br />
 - v1.19.8修复了CVE-2025-58753漏洞（单文件共享中的权限检查缺失问题）<br />
-- v1.14.3修复了可能导致数据丢失的严重错误  </p>
+- v1.14.3修复了可能导致数据丢失的严重bug  </p>
 <p>新功能：<br />
-- 在Windows/MacOS/Fat32/NTFS上模拟区分大小写行为（可通过casechk:n禁用）<br />
-- 支持Unicode文件名/路径的模糊搜索（需手动启用srch-icase）<br />
-- 新增--qr-stdout和--qr-stderr参数  </p>
-<p>错误修复：<br />
-- 修复基础上传器不接受空文件的问题<br />
-- 修复Windows系统中文件去重可能失败的问题<br />
-- 修复WebDAV和markdown编辑器的问题  </p>
+- 在Windows/MacOS/FAT32/NTFS系统上模拟区分大小写行为（可禁用）<br />
+- 支持Unicode文件名的模糊搜索（需手动启用）<br />
+- 新增--qr-stdout和--qr-stderr参数显示二维码  </p>
+<p>修复问题：<br />
+- 基础上传器不接受空文件<br />
+- WebDAV对未映射根目录的错误响应<br />
+- 标记编辑器额外HTTP请求问题<br />
+- Windows系统中文件去重的时间戳问题  </p>
 <p>其他改进：<br />
 - 优化波兰语翻译<br />
-- 修复Debian系统服务脚本问题<br />
-- 改进下载选择文件为ZIP时的命名方式  </p>
-<p>下载推荐：<br />
+- 修复Debian系统脚本问题<br />
+- 改进ZIP下载包命名<br />
+- 检测IdP卷配置错误  </p>
+<p>下载建议：<br />
 - 推荐使用copyparty-sfx.py（跨平台，仅需Python）<br />
 - copyparty-en.py为纯英文版本<br />
-- 提供Docker镜像和Windows可执行文件（注意32位版本存在安全风险）  </p>
-<p>项目还提供Discord社区供用户交流，并包含一个只读演示服务器。最新版本修复了重要安全问题，建议用户及时更新。  </p>
+- 提供Docker镜像和Windows可执行文件版本<br />
+- 警告：32位Windows版本(copyparty32.exe)存在安全隐患  </p>
+<p>该项目提供Discord社区支持，包含演示服务器和客户端测试平台。最新版本解决了关键安全问题并改进了多项功能。  </p>
   </article>
   
 <script>
