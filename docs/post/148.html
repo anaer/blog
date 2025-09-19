@@ -135,105 +135,117 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-15 12:13:07</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-19 12:13:15</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-19 23:11:41</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了三个软件的更新情况。PowerToys v0.94.1主要修复了安装程序的问题，提高了稳定性，并提供了多种架构的安装包。datafaker 2.5.0更新了文档和发布流程，新增了多个数据生成器，修复了特定数据生成问题，并进行了代码质量改进。copyparty v1.19.9进行了安全更新，修复了多个漏洞和bug，新增了模拟区分大小写的功能和Unicode文件名搜索。需要注意的是，copyparty的某些功能默认禁用，且32位Windows版存在安全风险。整体上，文本中没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新内容。首先，PowerToys v0.94.1主要修复了安装程序问题，解决了引导程序错误，并提供了不同版本的安装包哈希值。其次，datafaker 2.5.0引入了多个功能改进，包括新的凭证提供程序和金融提供程序更新，同时修复了新加坡ID号生成及其他多个问题。第三，chatwoot v4.6.0增加了双重认证和SAML认证支持，以及WhatsApp渠道模板支持，包含多项错误修复和性能提升。最后，copyparty v1.19.9修复了安全漏洞和多个功能问题，新增了文件名模糊搜索和二维码显示参数。总体来看，各软件更新均注重稳定性和功能增强。没有明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
     <h1 id="1-powertoys-v0941">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.94.1">PowerToys v0.94.1</a></h1>
-<p>Windows system utilities to maximize productivity  </p>
-<p>PowerToys v0.94.1是一个补丁版本，主要修复了v0.94.1中影响稳定性的重要问题。该版本提供了x64和ARM64架构的安装包，包括用户级和系统级两种安装方式，并给出了各安装文件的SHA256校验值。主要修复内容为解决了安装程序的问题，修复了从GitHub、winget和微软商店安装时出现的"Failed to load SilentFilesInUseBAFunction.dll (0x8007007e)"引导错误，确保安装能够成功完成。  </p>
+<p>Microsoft PowerToys is a collection of utilities that help you customize Windows and streamline everyday tasks  </p>
+<p>这是v0.94.1补丁版本，主要修复了v0.94.1中影响稳定性的重要问题。完整版本说明请参考v0.94.0。  </p>
+<p>主要更新内容：<br />
+- 修复了安装程序问题，解决了从GitHub、winget和微软商店安装时出现的"Failed to load SilentFilesInUseBAFunction.dll (0x8007007e)"引导程序错误  </p>
+<p>安装包哈希值：<br />
+1. 用户版x64：E69C4E506FB1081F52A45E46FDBAC1EC198F4D83875DE025B1A6856F0A9436EF<br />
+2. 用户版ARM64：9E884E7248EABDC4F23E7843D0416DDB3A958C3C222779F43A2B294FD65D3FD7<br />
+3. 全局版x64：E83FF71F951C32218F4F271CD3C01F8B354FDDCA16CAE74D36025D2D41296C8A<br />
+4. 全局版ARM64：0251DA6A4B334DB33D6AB1765642132AB41B64F8D43598F623DEF38BBCA2653F  </p>
 <h1 id="2-datafaker-250">2. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.0">datafaker 2.5.0</a></h1>
 <p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
-<p>本次更新主要包含以下改进和修复：  </p>
+<p>本次更新主要包含以下内容：  </p>
 <ol>
-<li>文档与发布流程优化：  </li>
+<li>文档与构建优化  </li>
 <li>更新发布文档并设置自动发布功能  </li>
+<li>在CI中使用jdk25-ea版本  </li>
+<li>移除无用的parent配置  </li>
 <li>
-<p>移除不必要的parent配置  </p>
+<p>清理无用代码和日志输出  </p>
 </li>
 <li>
-<p>数据提供器更新与修复：  </p>
+<p>功能新增与改进  </p>
 </li>
 <li>新增塞尔达游戏标题  </li>
-<li>修复新加坡身份证号生成问题  </li>
-<li>新增Credentials凭证提供器（原Internet相关方法已弃用）  </li>
-<li>使巴西身份证号可通过idNumber()访问  </li>
-<li>更新金融数据：信用卡格式、Swift IBAN标准(v87→v99)  </li>
-<li>星际迷航提供器新增星舰数据  </li>
+<li>创建新的Credentials凭证提供程序  </li>
+<li>巴西ID号可通过faker.idNumber()访问  </li>
+<li>金融提供程序更新：信用卡格式、Swift IBAN标准升级至v99  </li>
+<li>星际迷航提供程序新增星舰数据  </li>
 <li>
-<p>优化韩语数据：修正KPOP男团拼写、改进韩文姓名数据  </p>
+<p>新增生成指定范围内随机端口的方法  </p>
 </li>
 <li>
-<p>代码质量改进：  </p>
+<p>Bug修复  </p>
 </li>
-<li>重构BaseFakerTest及其相关测试  </li>
-<li>删除重复的YAML条目  </li>
-<li>移除无用代码和System.out.println  </li>
-<li>减少测试日志输出  </li>
-<li>
-<p>消除递归提供器调用  </p>
-</li>
-<li>
-<p>功能增强：  </p>
-</li>
-<li>新增随机端口号生成方法  </li>
+<li>修复新加坡ID号生成问题  </li>
 <li>修复CSV生成限制问题  </li>
+<li>修复韩国kpop.boy_bands键名拼写错误  </li>
+<li>修复WeightedRandomSelectorTest测试不稳定性  </li>
 <li>
-<p>优化测试失败信息提示  </p>
+<p>修复巴西toLocalPart方法及测试  </p>
 </li>
 <li>
-<p>测试修复：  </p>
+<p>代码优化  </p>
 </li>
-<li>修复不稳定的WeightedRandomSelectorTest  </li>
+<li>重构BaseFakerTest测试类  </li>
+<li>消除YAML文件中的重复项  </li>
+<li>减少测试日志输出  </li>
+<li>消除递归提供程序调用  </li>
 <li>
-<p>移除不必要的testNoDuplications测试  </p>
+<p>改进测试失败信息提示  </p>
 </li>
 <li>
-<p>其他改进：  </p>
+<p>本地化改进  </p>
 </li>
-<li>CI环境改用JDK25-ea  </li>
-<li>避免无用的NoSuchMethodRuntimeException日志  </li>
-<li>修正多处拼写错误  </li>
+<li>更新韩语名称数据  </li>
+<li>
+<p>修正韩语文件中的拼写错误  </p>
+</li>
+<li>
+<p>新贡献者  </p>
+</li>
+<li>欢迎5位新贡献者加入并提交首个PR  </li>
 </ol>
-<p>新贡献者：@abudevich、@rcriosbr、@Chanwon-Seo、@Fishbowler、@momoysm  </p>
-<h1 id="3-copyparty-v1199">3. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.9">copyparty v1.19.9</a></h1>
+<p>版本从2.4.4升级至2.5.0，包含多项功能改进、问题修复和代码优化。  </p>
+<h1 id="3-chatwoot-v460">3. <a href="https://github.com/chatwoot/chatwoot/releases/tag/v4.6.0">chatwoot v4.6.0</a></h1>
+<p>Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬  </p>
+<p>本次更新主要包含以下内容：<br />
+1. 新增双重认证（2FA）和SAML认证（Beta版，企业版）支持<br />
+2. 新增Twilio WhatsApp渠道模板支持<br />
+3. 企业版新增基于Elastic Search的高级消息搜索功能<br />
+4. WhatsApp营销活动新增Liquid模板支持<br />
+5. 自动化流程新增标签操作事件<br />
+6. 仪表盘新增客服语言设置<br />
+7. 企业版Captain功能改进：支持FAQ生成PDF和FAQ搜索<br />
+8. 包含多项错误修复、界面优化和性能提升<br />
+特别感谢@micahmills等开发者的贡献。  </p>
+<h1 id="4-copyparty-v1199">4. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.9">copyparty v1.19.9</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>Copyparty 是一个文件共享工具，主要更新内容如下：  </p>
+<p>copyparty 是一个文件共享工具，主要更新内容包括：  </p>
 <p>安全更新：<br />
-- v1.19.8 修复了 CVE-2025-58753 漏洞（单文件分享权限检查缺失）<br />
+- v1.19.8 修复了 CVE-2025-58753 漏洞（单文件共享权限检查缺失）<br />
 - v1.14.3 修复了可能导致数据丢失的 bug  </p>
 <p>新功能：<br />
-- 在 Windows/MacOS/FAT32/NTFS 上模拟区分大小写的行为（可禁用）<br />
-- 支持 Unicode 文件名/路径的模糊搜索（默认禁用）<br />
-- 新增 --qr-stdout 和 --qr-stderr 选项  </p>
-<p>Bug修复：<br />
-- 基础上传器不接受空文件的问题<br />
-- 索引页退出功能异常<br />
-- Windows 上时间戳过旧的文件去重失败<br />
-- WebDAV 根目录 Depth:0 请求错误<br />
-- Markdown 编辑器额外 HTTP 请求问题<br />
-- 非 UTF-8 终端下帮助信息显示问题  </p>
+- 在 Windows/MacOS 等系统上模拟区分大小写的行为（默认开启，大文件夹可能变慢）<br />
+- 支持 Unicode 文件名/路径的模糊搜索（默认关闭）<br />
+- 新增 --qr-stdout 和 --qr-stderr 参数用于显示二维码  </p>
+<p>错误修复：<br />
+- 修复基础上传器不接受空文件的问题<br />
+- 修复 Windows 上文件去重可能失败的问题<br />
+- 修正 WebDAV 和 markdown 编辑器的问题  </p>
 <p>其他改进：<br />
-- 修复图片查看器快捷键错误<br />
+- 修复图像查看器快捷键错误<br />
 - 改进波兰语翻译<br />
-- 修复 Debian systemd 脚本问题<br />
-- 修改媒体标签映射关系<br />
-- 优化 ZIP 下载文件名<br />
-- 增加 IdP 卷配置错误检测  </p>
-<p>下载选项推荐：<br />
-- 最佳选择：copyparty-sfx.py（跨平台，仅需 Python）<br />
-- 备选：copyparty-en.py（仅英文版）<br />
-- Docker 镜像（适合 Docker 用户）<br />
-- 32位 Windows 版（win7）有安全风险，不建议暴露在互联网  </p>
-<p>注意事项：<br />
-- 默认禁用上传去重功能<br />
-- 大文件夹下区分大小写检查可能导致性能下降<br />
-- 提供 Discord 服务器用于重要更新通知  </p>
+- 优化下载 ZIP 时的文件名生成<br />
+- 检测并警告 IdP 卷的错误配置  </p>
+<p>下载推荐：<br />
+- copyparty-sfx.py 是最佳选择，只需 Python 即可运行<br />
+- copyparty-en.py 是纯英文版本<br />
+- 提供 Docker 镜像和 Windows 可执行文件（注意 32 位版本不安全）<br />
+- 还有 CLI 上传工具 u2c.exe 和可启动 USB 镜像等选项  </p>
+<p>该项目提供公开演示服务器和 Discord 社区，用于重要更新通知。  </p>
   </article>
   
 <script>
