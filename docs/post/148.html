@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-15 12:13:07</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-18 23:11:10</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-19 12:13:15</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了三个软件的最新版本更新。首先，PowerToys v0.94.1主要进行了稳定性修复，解决了安装程序的引导错误，并提供了四种不同的安装包。其次，datafaker 2.5.0更新了文档、移除了不必要的依赖，新增了多个功能和数据，并修复了多个生成问题和拼写错误，版本从2.4.4更新至2.5.0。最后，copyparty v1.19.9是一款自托管文件共享工具，修复了安全漏洞和多个功能问题，新增了对Unicode文件名的模糊搜索和二维码显示功能，推荐使用跨平台的下载方式。整体来看，三个软件的更新均注重安全性和功能优化。
+    <strong>AI总结:</strong> 本文介绍了三个软件的更新情况。PowerToys v0.94.1主要修复了安装程序的问题，提高了稳定性，并提供了多种架构的安装包。datafaker 2.5.0更新了文档和发布流程，新增了多个数据生成器，修复了特定数据生成问题，并进行了代码质量改进。copyparty v1.19.9进行了安全更新，修复了多个漏洞和bug，新增了模拟区分大小写的功能和Unicode文件名搜索。需要注意的是，copyparty的某些功能默认禁用，且32位Windows版存在安全风险。整体上，文本中没有明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -146,109 +146,94 @@ pre {
   <article class="markdown-body">
     <h1 id="1-powertoys-v0941">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.94.1">PowerToys v0.94.1</a></h1>
 <p>Windows system utilities to maximize productivity  </p>
-<p>本次发布是v0.94.1版本的补丁更新，主要修复了影响稳定性的重要问题。完整版本说明请参考v0.94.0版本。  </p>
-<p>提供了四种安装包的哈希校验值：<br />
-1. 用户级x64安装包：PowerToysUserSetup-0.94.1-x64.exe<br />
-2. 用户级ARM64安装包：PowerToysUserSetup-0.94.1-arm64.exe  <br />
-3. 系统级x64安装包：PowerToysSetup-0.94.1-x64.exe<br />
-4. 系统级ARM64安装包：PowerToysSetup-0.94.1-arm64.exe  </p>
-<p>主要修复内容包括：<br />
-- 解决了安装程序问题，修复了"Failed to load SilentFilesInUseBAFunction.dll (0x8007007e)"引导错误，现在可以通过GitHub、winget和微软商店成功安装。  </p>
+<p>PowerToys v0.94.1是一个补丁版本，主要修复了v0.94.1中影响稳定性的重要问题。该版本提供了x64和ARM64架构的安装包，包括用户级和系统级两种安装方式，并给出了各安装文件的SHA256校验值。主要修复内容为解决了安装程序的问题，修复了从GitHub、winget和微软商店安装时出现的"Failed to load SilentFilesInUseBAFunction.dll (0x8007007e)"引导错误，确保安装能够成功完成。  </p>
 <h1 id="2-datafaker-250">2. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.0">datafaker 2.5.0</a></h1>
 <p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
-<p>本次更新主要包含以下内容：  </p>
+<p>本次更新主要包含以下改进和修复：  </p>
 <ol>
-<li>文档与发布流程改进：  </li>
+<li>文档与发布流程优化：  </li>
 <li>更新发布文档并设置自动发布功能  </li>
 <li>
-<p>移除可能不再需要的父级依赖  </p>
+<p>移除不必要的parent配置  </p>
 </li>
 <li>
-<p>新增功能与数据：  </p>
+<p>数据提供器更新与修复：  </p>
 </li>
-<li>为塞尔达游戏列表添加新标题  </li>
-<li>新增Credentials凭证提供者（原Internet方法已弃用）  </li>
-<li>为Star Trek提供者添加星舰数据  </li>
-<li>添加生成指定范围内随机端口的方法  </li>
+<li>新增塞尔达游戏标题  </li>
+<li>修复新加坡身份证号生成问题  </li>
+<li>新增Credentials凭证提供器（原Internet相关方法已弃用）  </li>
+<li>使巴西身份证号可通过idNumber()访问  </li>
+<li>更新金融数据：信用卡格式、Swift IBAN标准(v87→v99)  </li>
+<li>星际迷航提供器新增星舰数据  </li>
 <li>
-<p>巴西ID号可通过faker.idNumber()访问  </p>
-</li>
-<li>
-<p>问题修复：  </p>
-</li>
-<li>修复新加坡ID号生成问题  </li>
-<li>修复CSV生成限制问题  </li>
-<li>修复韩国yml文件中kpop.boy_bands的拼写错误  </li>
-<li>修正巴西本地部分和测试格式  </li>
-<li>
-<p>修复WeightedRandomSelectorTest测试稳定性问题  </p>
+<p>优化韩语数据：修正KPOP男团拼写、改进韩文姓名数据  </p>
 </li>
 <li>
-<p>代码优化：  </p>
+<p>代码质量改进：  </p>
 </li>
-<li>重构继承BaseFakerTest的测试  </li>
-<li>移除yml文件中的重复项  </li>
-<li>减少日志中的无用NoSuchMethodRuntimeException  </li>
-<li>移除测试中的System.out.println  </li>
-<li>消除递归提供者调用  </li>
+<li>重构BaseFakerTest及其相关测试  </li>
+<li>删除重复的YAML条目  </li>
+<li>移除无用代码和System.out.println  </li>
 <li>减少测试日志输出  </li>
 <li>
-<p>移除不需要的testNoDuplications测试  </p>
+<p>消除递归提供器调用  </p>
 </li>
 <li>
-<p>数据更新：  </p>
+<p>功能增强：  </p>
 </li>
-<li>改进韩国姓名数据  </li>
-<li>更新金融提供者中的信用卡格式  </li>
+<li>新增随机端口号生成方法  </li>
+<li>修复CSV生成限制问题  </li>
 <li>
-<p>将Swift IBAN数据标准从v87更新到v99  </p>
-</li>
-<li>
-<p>测试改进：  </p>
-</li>
-<li>使UnionPay测试更易读  </li>
-<li>使部分测试的错误信息更具参考性  </li>
-<li>
-<p>在CI中使用jdk25-ea  </p>
+<p>优化测试失败信息提示  </p>
 </li>
 <li>
-<p>文档补充：  </p>
+<p>测试修复：  </p>
 </li>
-<li>为金融提供者添加缺失的javadoc  </li>
+<li>修复不稳定的WeightedRandomSelectorTest  </li>
+<li>
+<p>移除不必要的testNoDuplications测试  </p>
+</li>
+<li>
+<p>其他改进：  </p>
+</li>
+<li>CI环境改用JDK25-ea  </li>
+<li>避免无用的NoSuchMethodRuntimeException日志  </li>
+<li>修正多处拼写错误  </li>
 </ol>
-<p>新贡献者：<br />
-- @abudevich<br />
-- @rcriosbr<br />
-- @Chanwon-Seo<br />
-- @Fishbowler<br />
-- @momoysm  </p>
-<p>版本从2.4.4更新至2.5.0。  </p>
+<p>新贡献者：@abudevich、@rcriosbr、@Chanwon-Seo、@Fishbowler、@momoysm  </p>
 <h1 id="3-copyparty-v1199">3. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.9">copyparty v1.19.9</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>Copyparty是一款自托管文件共享工具，主要更新内容如下：  </p>
+<p>Copyparty 是一个文件共享工具，主要更新内容如下：  </p>
 <p>安全更新：<br />
-- v1.19.8修复了CVE-2025-58753漏洞（单文件共享中的权限检查缺失问题）<br />
-- v1.14.3修复了可能导致数据丢失的严重bug  </p>
+- v1.19.8 修复了 CVE-2025-58753 漏洞（单文件分享权限检查缺失）<br />
+- v1.14.3 修复了可能导致数据丢失的 bug  </p>
 <p>新功能：<br />
-- 在Windows/MacOS/FAT32/NTFS系统上模拟区分大小写行为（可禁用）<br />
-- 支持Unicode文件名的模糊搜索（需手动启用）<br />
-- 新增--qr-stdout和--qr-stderr参数显示二维码  </p>
-<p>修复问题：<br />
-- 基础上传器不接受空文件<br />
-- WebDAV对未映射根目录的错误响应<br />
-- 标记编辑器额外HTTP请求问题<br />
-- Windows系统中文件去重的时间戳问题  </p>
+- 在 Windows/MacOS/FAT32/NTFS 上模拟区分大小写的行为（可禁用）<br />
+- 支持 Unicode 文件名/路径的模糊搜索（默认禁用）<br />
+- 新增 --qr-stdout 和 --qr-stderr 选项  </p>
+<p>Bug修复：<br />
+- 基础上传器不接受空文件的问题<br />
+- 索引页退出功能异常<br />
+- Windows 上时间戳过旧的文件去重失败<br />
+- WebDAV 根目录 Depth:0 请求错误<br />
+- Markdown 编辑器额外 HTTP 请求问题<br />
+- 非 UTF-8 终端下帮助信息显示问题  </p>
 <p>其他改进：<br />
-- 优化波兰语翻译<br />
-- 修复Debian系统脚本问题<br />
-- 改进ZIP下载包命名<br />
-- 检测IdP卷配置错误  </p>
-<p>下载建议：<br />
-- 推荐使用copyparty-sfx.py（跨平台，仅需Python）<br />
-- copyparty-en.py为纯英文版本<br />
-- 提供Docker镜像和Windows可执行文件版本<br />
-- 警告：32位Windows版本(copyparty32.exe)存在安全隐患  </p>
-<p>该项目提供Discord社区支持，包含演示服务器和客户端测试平台。最新版本解决了关键安全问题并改进了多项功能。  </p>
+- 修复图片查看器快捷键错误<br />
+- 改进波兰语翻译<br />
+- 修复 Debian systemd 脚本问题<br />
+- 修改媒体标签映射关系<br />
+- 优化 ZIP 下载文件名<br />
+- 增加 IdP 卷配置错误检测  </p>
+<p>下载选项推荐：<br />
+- 最佳选择：copyparty-sfx.py（跨平台，仅需 Python）<br />
+- 备选：copyparty-en.py（仅英文版）<br />
+- Docker 镜像（适合 Docker 用户）<br />
+- 32位 Windows 版（win7）有安全风险，不建议暴露在互联网  </p>
+<p>注意事项：<br />
+- 默认禁用上传去重功能<br />
+- 大文件夹下区分大小写检查可能导致性能下降<br />
+- 提供 Discord 服务器用于重要更新通知  </p>
   </article>
   
 <script>
