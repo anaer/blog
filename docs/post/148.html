@@ -135,77 +135,64 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-15 12:13:07</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-20 23:09:50</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-21 12:12:51</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新。首先，Chatwoot v4.6.0增加了对2FA和SAML认证的支持，改进了WhatsApp营销活动和自动化功能，并优化了UI和性能。其次，Copyparty v1.19.11修复了安全漏洞，并提供了多种下载选项和功能。第三，PowerToys v0.94.1修复了稳定性问题，并提供了安装包的哈希校验值。最后，Datafaker 2.5.0更新了功能和问题修复，包括新的随机端口号生成方法和信用卡格式更新，文档也得到了完善。总体来看，各软件版本都进行了重要的功能改进和错误修复，没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新内容。首先，InputTip v2025.09.21是一个输入法状态管理工具，主要更新包括图标优化、功能调整、问题修复和版本建议。其次，Copyparty v1.19.11是一个文件共享工具，修复了CVE-2025-58753漏洞，并提供多种下载选项，强调了部分版本的安全风险。Chatwoot v4.6.0是一个开源客服工具，新增双重认证、SAML认证和多项功能改进。PowerToys v0.94.1修复了影响稳定性的问题，并提供了安装包的哈希校验信息。最后，Datafaker 2.5.0更新了文档、数据内容和功能，新增了多项功能和改进。整体来看，各软件更新都注重了安全性和用户体验，但Copyparty的安全风险提示需要特别关注。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-chatwoot-v460">1. <a href="https://github.com/chatwoot/chatwoot/releases/tag/v4.6.0">chatwoot v4.6.0</a></h1>
-<p>Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬  </p>
-<p>本次更新主要包含以下内容：新增支持2FA认证和SAML认证（企业版Beta）；为Twilio WhatsApp渠道添加模板支持；推出基于ElasticSearch的高级消息搜索功能（企业版）；WhatsApp营销活动新增Liquid模板支持。自动化功能增加标签操作事件；仪表盘新增客服语言设置选项。Captain功能改进：企业版新增FAQ生成PDF支持及FAQ搜索功能。此外还修复了大量错误，优化了UI界面和性能表现。感谢所有贡献者的参与。  </p>
+    <h1 id="1-inputtip-v20250921">1. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.09.21">InputTip v2025.09.21</a></h1>
+<p>一个输入法状态管理工具：实时提示 鼠标样式、符号显示 + 窗口自动切换状态 + 快捷键切换状态  </p>
+<p>主要更新内容：<br />
+1. 图标优化 - 更新了软件图标文件名，可通过托盘菜单自定义新图标<br />
+2. 功能调整 - 托盘菜单新增"使用指南"入口，将"设置用户信息"更名为"设置用户名"<br />
+3. 问题修复 - 解决了状态切换快捷键有时需要二次设置才能生效的问题<br />
+4. 其他优化 - 改进了文本内容，进行了其他修复和优化<br />
+5. 版本建议 - 推荐使用zip版本而非exe版本（附说明链接）  </p>
 <h1 id="2-copyparty-v11911">2. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.11">copyparty v1.19.11</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
-<p>copyparty是一款文件共享软件，提供多种下载选项：  </p>
-<p>主要特性：<br />
-- 提供只读演示服务器https://a.ocv.me/pub/demo/<br />
-- 有Discord社区用于重要更新通知<br />
-- 近期修复了CVE-2025-58753安全漏洞  </p>
-<p>推荐下载：<br />
-1. copyparty-sfx.py - 最佳选择，只需Python环境<br />
-2. copyparty-en.py - 英文版，功能相同<br />
-3. Docker镜像 - 适合Docker用户  </p>
-<p>其他选项：<br />
-- copyparty.exe - 支持Win8+，内置缩略图生成<br />
-- u2c.exe - CLI上传工具<br />
-- copyparty.pyz - 类似SFX但功能较弱  </p>
-<p>安全警告：<br />
-- copyparty32.exe仅限Win7本地使用，禁止联网<br />
-- cpp-winpe64.exe仅适用于64位WinPE系统  </p>
-<p>最新版本修复了FTP服务器映射问题等bug。所有下载选项功能基本相同，除u2c.exe外。还提供可启动USB等趣味选项。  </p>
-<h1 id="3-powertoys-v0941">3. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.94.1">PowerToys v0.94.1</a></h1>
+<p>Copyparty是一个文件共享工具，提供多种下载选项。最新版本v1.19.8修复了CVE-2025-58753漏洞，涉及单文件共享的权限检查问题。此前版本v1.15.0默认禁用上传去重功能，v1.14.3修复了可能导致数据丢失的bug。  </p>
+<p>推荐下载copyparty-sfx.py，兼容性强仅需Python环境。其他选项包括：英文版copyparty-en.py、Docker镜像、Windows可执行文件（win8+推荐copyparty.exe，win7仅限内网使用copyparty32.exe）、CLI上传工具u2c.exe等。注意部分版本存在安全风险，尤其是32位Windows7版本不应暴露在公网。  </p>
+<p>项目提供在线演示服务器、Discord社区和安全公告渠道。近期修复了FTP服务器根目录未映射时的bug。Python包也可通过PyPI获取。  </p>
+<h1 id="3-chatwoot-v460">3. <a href="https://github.com/chatwoot/chatwoot/releases/tag/v4.6.0">chatwoot v4.6.0</a></h1>
+<p>Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬  </p>
+<p>更新日志主要内容包括：<br />
+1. 新增双重认证(2FA)支持<br />
+2. 新增SAML认证功能（Beta版，企业版）<br />
+3. 在Twilio WhatsApp渠道中新增模板支持<br />
+4. 推出基于Elastic Search的高级消息搜索功能（企业版）<br />
+5. WhatsApp营销活动支持Liquid模板<br />
+6. 自动化功能新增标签作为操作事件<br />
+7. 仪表盘新增代理级语言设置<br />
+8. 船长功能改进：新增FAQ生成的PDF支持（企业版）<br />
+9. 船长功能改进：新增FAQ搜索功能（企业版）<br />
+10. 多项错误修复、界面优化和性能提升  </p>
+<p>特别感谢@micahmills等11位贡献者的工作。  </p>
+<h1 id="4-powertoys-v0941">4. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.94.1">PowerToys v0.94.1</a></h1>
 <p>Microsoft PowerToys is a collection of utilities that help you customize Windows and streamline everyday tasks  </p>
-<p>本次发布是v0.94.1补丁版本，主要修复了v0.94.1中影响稳定性的重要问题。完整版本说明请参考v0.94.0。  </p>
-<p>提供了四种安装包的哈希校验值：<br />
+<p>这是PowerToys v0.94.1补丁版本，主要修复了v0.94.1中影响稳定性的重要问题。完整发布说明可参考v0.94.0版本。  </p>
+<p>提供了四种安装包的哈希校验信息：<br />
 1. 用户级x64安装包：PowerToysUserSetup-0.94.1-x64.exe，SHA256为E69C4E506FB1081F52A45E46FDBAC1EC198F4D83875DE025B1A6856F0A9436EF<br />
 2. 用户级ARM64安装包：PowerToysUserSetup-0.94.1-arm64.exe，SHA256为9E884E7248EABDC4F23E7843D0416DDB3A958C3C222779F43A2B294FD65D3FD7<br />
 3. 系统级x64安装包：PowerToysSetup-0.94.1-x64.exe，SHA256为E83FF71F951C32218F4F271CD3C01F8B354FDDCA16CAE74D36025D2D41296C8A<br />
 4. 系统级ARM64安装包：PowerToysSetup-0.94.1-arm64.exe，SHA256为0251DA6A4B334DB33D6AB1765642132AB41B64F8D43598F623DEF38BBCA2653F  </p>
-<p>主要更新内容：<br />
-修复了安装程序问题，解决了"Failed to load SilentFilesInUseBAFunction.dll (0x8007007e)"引导错误，现在可以通过GitHub、winget和微软商店成功安装。  </p>
-<h1 id="4-datafaker-250">4. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.0">datafaker 2.5.0</a></h1>
+<p>主要修复内容：<br />
+- 解决了安装程序问题，修复了"Failed to load SilentFilesInUseBAFunction.dll (0x8007007e)"引导错误，现在可以从GitHub、winget和微软商店成功安装。  </p>
+<h1 id="5-datafaker-250">5. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.0">datafaker 2.5.0</a></h1>
 <p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
-<p>本次更新主要包含以下内容：  </p>
-<p>功能改进：<br />
-1. 更新发布文档并设置自动发布功能<br />
-2. 塞尔达游戏列表新增多个标题<br />
-3. 新增随机端口号生成方法<br />
-4. 创建Credentials凭证提供程序（原Internet方法已弃用）<br />
-5. 金融提供商更新信用卡格式和Swift IBAN数据标准（v87→v99）<br />
-6. 星际迷航提供商新增星舰数据  </p>
-<p>问题修复：<br />
-1. 修复新加坡身份证号生成问题<br />
-2. 修复CSV生成限制问题<br />
-3. 修复巴西ID号访问性问题<br />
-4. 修复韩语yml文件中的拼写错误<br />
-5. 修复加权随机选择器测试不稳定问题<br />
-6. 移除不必要的递归提供程序调用  </p>
-<p>代码优化：<br />
-1. 重构BaseFakerTest测试类<br />
-2. 移除yml文件中的重复内容<br />
-3. 减少测试日志输出<br />
-4. 移除无用的System.out.println<br />
-5. 使测试失败信息更具参考性<br />
-6. CI中使用jdk25-ea版本  </p>
-<p>文档完善：<br />
-1. 为金融提供商添加缺失的JavaDoc<br />
-2. 改进韩语姓名数据  </p>
-<p>新增贡献者：<br />
-@abudevich @rcriosbr @Chanwon-Seo @Fishbowler @momoysm 五位开发者首次参与贡献  </p>
-<p>版本更新：从2.4.4升级至2.5.0  </p>
+<p>本次更新主要包含以下改进：<br />
+1. 文档与发布流程：更新发布文档，设置自动发布功能<br />
+2. 数据内容更新：新增塞尔达游戏标题，改进韩国姓名数据，修正韩文yml文件拼写错误<br />
+3. 功能修复：修正新加坡ID生成、CSV生成限制、巴西ID访问方式等问题<br />
+4. 代码优化：重构测试类、减少日志输出、消除重复yml条目、移除递归调用<br />
+5. 新功能：添加随机端口生成方法，新增Credentials凭证提供者<br />
+6. 金融模块改进：更新信用卡格式、Swift IBAN标准至v99，完善文档<br />
+7. 新增星际迷航星舰数据  </p>
+<p>首次贡献者：@abudevich、@rcriosbr、@Chanwon-Seo、@Fishbowler和@momoysm  </p>
+<p>版本变更范围：2.4.4至2.5.0  </p>
   </article>
   
 <script>
