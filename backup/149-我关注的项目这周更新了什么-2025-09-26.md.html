@@ -1,0 +1,56 @@
+
+  <article class="markdown-body">
+    <h1 id="1-copyparty-v11912">1. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.12">copyparty v1.19.12</a></h1>
+<p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
+<p>copyparty是一款文件共享软件，提供以下主要功能和更新：  </p>
+<p>重要安全更新：<br />
+- v1.19.8修复了CVE-2025-58753漏洞（单文件共享的权限检查缺失）<br />
+- v1.15.0默认禁用上传去重功能<br />
+- v1.14.3修复了可能导致数据丢失的bug  </p>
+<p>新功能：<br />
+- 新增世界语翻译<br />
+- 可为rotf上传规则指定时区  </p>
+<p>bug修复：<br />
+- 修复Windows系统共享整个硬盘的问题<br />
+- 改进未映射根目录的/?ls响应  </p>
+<p>其他改进：<br />
+- 在无写入权限的文件夹隐藏上传标签<br />
+- 修复webdep构建脚本的兼容性问题  </p>
+<p>下载选项推荐：<br />
+1. copyparty-sfx.py（最佳选择，仅需Python环境）<br />
+2. copyparty-en.py（英文精简版）<br />
+3. Docker镜像（适合Docker用户）<br />
+4. copyparty.exe（Win8+专用，内置缩略图功能）<br />
+5. u2c.exe（CLI上传工具）  </p>
+<p>注意事项：<br />
+- copyparty32.exe仅限Win7使用，存在安全隐患<br />
+- 其他exe版本有特定限制<br />
+- Python包可通过PyPI获取  </p>
+<p>该项目提供Discord社区用于重要更新通知，并设有演示服务器可供测试。最新版本解决了多个关键问题，建议用户及时升级。  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
