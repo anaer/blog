@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-22 12:13:26</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-22 23:12:55</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-23 12:12:37</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了两个软件工具：dify 1.9.0是一个适用于代理工作流开发的生产就绪平台，而copyparty v1.19.12是一个便携式文件服务器，支持加速可恢复上传、去重、WebDAV、FTP、TFTP、零配置、媒体索引和缩略图等功能，且所有功能集成在一个文件中，无需依赖。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了Dify 1.9.0和Copyparty v1.19.12的主要更新和功能。Dify 1.9.0引入了知识管道和基于队列的图引擎，增强了文档处理和任务管理能力，支持多种数据源和插件，并提供了调试和迁移功能。该版本还强调了架构改进和稳定性提升，涉及50多位贡献者的参与。Copyparty v1.19.12则专注于文件共享，修复了安全漏洞和可能导致数据丢失的bug，新增了世界语翻译和时区指定功能，同时改进了Windows下的共享问题和未映射根目录的响应处理。用户被提醒使用安全的下载选项，并注意32位版本的安全隐患。整体上，这些更新提升了软件的安全性和功能性。没有明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -146,8 +146,69 @@ pre {
   <article class="markdown-body">
     <h1 id="1-dify-190">1. <a href="https://github.com/langgenius/dify/releases/tag/1.9.0">dify 1.9.0</a></h1>
 <p>Production-ready platform for agentic workflow development.  </p>
+<p>Dify 1.9.0 版本引入了两大核心功能：知识管道（Knowledge Pipeline）和基于队列的图引擎（Queue-based Graph Engine）。  </p>
+<p>知识管道是一个模块化、可扩展的文档处理工作流系统，通过可视化节点编排方式实现文档的精细处理。主要特性包括：<br />
+1. 提供模板和管道DSL，支持快速启动和自定义分享<br />
+2. 支持多种数据源和工具插件（本地文件、在线文档、云存储等）<br />
+3. 新增问答处理器插件和图像提取检索功能<br />
+4. 支持测试运行和调试，可查看中间变量<br />
+5. 一键迁移现有知识库  </p>
+<p>基于队列的图引擎解决了并行分支管理的痛点，核心改进包括：<br />
+1. 采用统一队列调度模型管理任务依赖关系<br />
+2. 支持从任意节点开始执行<br />
+3. 新增流处理组件ResponseCoordinator<br />
+4. 提供命令机制控制工作流执行<br />
+5. 通过GraphEngineLayer支持功能扩展  </p>
+<p>升级注意事项：<br />
+1. 必须运行迁移脚本转换数据源凭证<br />
+2. 提供Docker和源码两种升级方式<br />
+3. 如从v2.0.0-beta版本升级需注意数据丢失风险  </p>
+<p>未来计划将增强调试工具、智能调度、多模态嵌入等功能。该版本主要聚焦架构改进和稳定性提升，包含大量错误修复和功能优化，共有50多位贡献者参与。  </p>
 <h1 id="2-copyparty-v11912">2. <a href="https://github.com/9001/copyparty/releases/tag/v1.19.12">copyparty v1.19.12</a></h1>
 <p>Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps  </p>
+<p>Copyparty是一个文件共享工具，主要更新包括：  </p>
+<ol>
+<li>安全修复：  </li>
+<li>v1.19.8修复了CVE-2025-58753漏洞（单文件共享中的权限检查缺失）  </li>
+<li>
+<p>v1.14.3修复了可能导致数据丢失的bug  </p>
+</li>
+<li>
+<p>新功能：  </p>
+</li>
+<li>新增世界语翻译  </li>
+<li>
+<p>可为rotf上传规则指定时区  </p>
+</li>
+<li>
+<p>问题修复：  </p>
+</li>
+<li>修复Windows下共享整个硬盘的问题  </li>
+<li>
+<p>改进未映射根目录的响应处理  </p>
+</li>
+<li>
+<p>其他改进：  </p>
+</li>
+<li>在无写入权限的文件夹隐藏上传标签  </li>
+<li>
+<p>修复webdep构建脚本的边缘情况  </p>
+</li>
+<li>
+<p>下载选项：  </p>
+</li>
+<li>推荐使用copyparty-sfx.py（跨平台，仅需Python）  </li>
+<li>提供英文版、Docker镜像和Windows可执行文件  </li>
+<li>
+<p>警告：32位版本和WinPE版本存在安全隐患  </p>
+</li>
+<li>
+<p>其他信息：  </p>
+</li>
+<li>提供Discord服务器用于重要更新通知  </li>
+<li>演示服务器地址：https://a.ocv.me/pub/demo/  </li>
+<li>自v1.15.0起默认禁用上传去重功能  </li>
+</ol>
   </article>
   
 <script>
