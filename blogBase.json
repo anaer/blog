@@ -3190,14 +3190,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/150",
             "commentNum": 0,
             "createdAt": 1758692511,
-            "updatedAt": 1758692511,
+            "updatedAt": 1758693195,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-09-24",
-            "dateLabelColor": "hsl(140, 52%, 19%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86Elasticsearch\u4e2d\u5e38\u7528\u7684QueryBuilder\u7c7b\u53ca\u5176\u67e5\u8be2\u8bed\u6cd5\uff0c\u5305\u62ecmatch\u3001term\u3001bool\u3001nested\u3001range\u3001match_phrase\u3001exists\u3001terms\u3001fuzzy\u3001prefix\u548cwildcard\u67e5\u8be2\u3002\u6bcf\u79cd\u67e5\u8be2\u90fd\u6709\u5176\u7279\u5b9a\u7684\u7528\u9014\u548c\u793a\u4f8b\u4ee3\u7801\u3002\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0c\u5b58\u5728\u7684\u9519\u8bef\u89c2\u70b9\u662f\u201cexists\u67e5\u8be2\u7684\u5d4c\u5957\u6587\u6863\u201d\u90e8\u5206\uff0c\u867d\u7136\u63cf\u8ff0\u4e86\u68c0\u67e5\u5d4c\u5957\u5b57\u6bb5\u662f\u5426\u5b58\u5728\uff0c\u4f46\u6ca1\u6709\u660e\u786e\u6307\u51fa\u8be5\u67e5\u8be2\u7684\u5177\u4f53\u4f7f\u7528\u573a\u666f\u548c\u9650\u5236\u3002",
-            "buildedAt": 1758692511
+            "dateLabelColor": "hsl(140, 54%, 20%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86Elasticsearch\u4e2d\u5e38\u7528\u7684QueryBuilder\u7c7b\u53ca\u5176\u67e5\u8be2\u8bed\u6cd5\uff0c\u5305\u62ecmatch\u3001multiMatch\u3001term\u3001terms\u3001bool\u3001nested\u3001range\u3001matchPhrase\u3001exists\u3001fuzzy\u3001prefix\u548cwildcard\u67e5\u8be2\u3002\u6bcf\u79cd\u67e5\u8be2\u7684\u8bf4\u660e\u548c\u793a\u4f8b\u5747\u5df2\u63d0\u4f9b\uff0c\u6db5\u76d6\u4e86\u4e0d\u540c\u573a\u666f\u4e0b\u7684\u4f7f\u7528\u65b9\u6cd5\u3002\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0cterms\u67e5\u8be2\u5728\u6587\u4e2d\u51fa\u73b0\u4e86\u4e24\u6b21\uff0c\u53ef\u80fd\u5bfc\u81f4\u6df7\u6dc6\uff0c\u4e14\u672a\u660e\u786e\u6307\u51fa\u5176\u533a\u522b\u3002",
+            "buildedAt": 1758693195
         }
     },
     "singeListJson": {},
