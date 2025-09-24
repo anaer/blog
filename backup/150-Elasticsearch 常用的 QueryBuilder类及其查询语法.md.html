@@ -1,0 +1,158 @@
+
+  <article class="markdown-body">
+    <p>Elasticsearch 常用的 <code>QueryBuilder</code> 类及其查询语法  </p>
+<h3 id="querybuilder">常用的 <code>QueryBuilder</code> 类及其使用方法</h3>
+<ol>
+<li><strong><code>match</code> 查询</strong>  </li>
+<li><strong>说明</strong>：用于全文本搜索，支持分词和模糊匹配。  </li>
+<li>
+<p><strong>示例</strong>：<br />
+     <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">MatchQueryBuilder</span><span class="w"> </span><span class="n">matchQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">matchQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;查询词&quot;</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong><code>term</code> 查询</strong>  </p>
+</li>
+<li><strong>说明</strong>：用于精确匹配某个字段的值, 单一关键词搜索，不进行分词  </li>
+<li>
+<p><strong>示例</strong>：<br />
+     <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">TermQueryBuilder</span><span class="w"> </span><span class="n">termQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">termQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;精确值&quot;</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong><code>bool</code> 查询</strong>  </p>
+</li>
+<li><strong>说明</strong>：用于组合多个查询条件，支持 AND/OR/NOT 等逻辑。  </li>
+<li>
+<p><strong>示例</strong>：<br />
+     <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">BoolQueryBuilder</span><span class="w"> </span><span class="n">boolQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">boolQuery</span><span class="p">()</span><span class="w">  </span>
+<span class="w">    </span><span class="p">.</span><span class="na">must</span><span class="p">(</span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">matchQuery</span><span class="p">(</span><span class="s">&quot;字段名1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;查询词1&quot;</span><span class="p">))</span><span class="w">  </span>
+<span class="w">    </span><span class="p">.</span><span class="na">should</span><span class="p">(</span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">matchQuery</span><span class="p">(</span><span class="s">&quot;字段名2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;查询词2&quot;</span><span class="p">))</span><span class="w">  </span>
+<span class="w">    </span><span class="p">.</span><span class="na">mustNot</span><span class="p">(</span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">matchQuery</span><span class="p">(</span><span class="s">&quot;字段名3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;查询词3&quot;</span><span class="p">));</span><span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong><code>nested</code> 查询</strong>  </p>
+</li>
+<li><strong>说明</strong>：用于搜索嵌套文档。  </li>
+<li>
+<p><strong>示例</strong>：<br />
+     <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">NestedQueryBuilder</span><span class="w"> </span><span class="n">nestedQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">nestedQuery</span><span class="p">(</span><span class="s">&quot;nested_field&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">matchQuery</span><span class="p">(</span><span class="s">&quot;nested_field.nested_doc.sub_field&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;nested_value&quot;</span><span class="p">));</span><span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong><code>range</code> 查询</strong>  </p>
+</li>
+<li><strong>说明</strong>：用于范围查询。查找在指定范围内的文档，例如时间范围查询  </li>
+<li>
+<p><strong>示例</strong>：<br />
+     <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">RangeQueryBuilder</span><span class="w"> </span><span class="n">rangeQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">rangeQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="p">.</span><span class="na">gte</span><span class="p">(</span><span class="s">&quot;开始值&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="p">.</span><span class="na">lte</span><span class="p">(</span><span class="s">&quot;结束值&quot;</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong><code>match_phrase</code> 查询</strong>  </p>
+</li>
+<li><strong>说明</strong>：用于短语查询，匹配整个短语。  </li>
+<li>
+<p><strong>示例</strong>：<br />
+     <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">MatchPhraseQueryBuilder</span><span class="w"> </span><span class="n">matchPhraseQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">matchPhraseQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;短语查询词&quot;</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong><code>exists</code> 查询</strong>  </p>
+</li>
+<li><strong>说明</strong>：用于检查字段是否存在。  </li>
+<li>
+<p><strong>示例</strong>：<br />
+     <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">ExistsQueryBuilder</span><span class="w"> </span><span class="n">existsQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">existsQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong><code>exists</code> 查询的嵌套文档</strong>  </p>
+</li>
+<li><strong>说明</strong>：用于检查嵌套字段是否存在。  </li>
+<li>
+<p><strong>示例</strong>：<br />
+     <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">NestedQueryBuilder</span><span class="w"> </span><span class="n">nestedExistsQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">nestedQuery</span><span class="p">(</span><span class="s">&quot;nested_field&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">existsQuery</span><span class="p">(</span><span class="s">&quot;nested_field.nested_doc.sub_field&quot;</span><span class="p">));</span><span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong><code>terms</code> 查询</strong>  </p>
+</li>
+<li><strong>说明</strong>：用于多值查询。  </li>
+<li>
+<p><strong>示例</strong>：<br />
+     <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">TermsQueryBuilder</span><span class="w"> </span><span class="n">termsQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">termsQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;值1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;值2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;值3&quot;</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong><code>fuzzy</code> 查询</strong>  </p>
+<ul>
+<li><strong>说明</strong>：用于模糊查询，允许一定程度的错误。  </li>
+<li><strong>示例</strong>：<br />
+  <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">FuzzyQueryBuilder</span><span class="w"> </span><span class="n">fuzzyQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">fuzzyQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;模糊查询词&quot;</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div></div></li>
+</ul>
+</li>
+<li>
+<p><strong><code>prefix</code> 查询</strong>  </p>
+<ul>
+<li><strong>说明</strong>：用于前缀匹配。查询字段值以指定前缀开头的文档  </li>
+<li><strong>示例</strong>：<br />
+  <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">PrefixQueryBuilder</span><span class="w"> </span><span class="n">prefixQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">prefixQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;前缀&quot;</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div></div></li>
+</ul>
+</li>
+<li>
+<p><strong><code>wildcard</code> 查询</strong>  </p>
+<ul>
+<li><strong>说明</strong>：用于通配符匹配，支持 <code>*</code> 和 <code>?</code> 通配符。  </li>
+<li><strong>示例</strong>：<br />
+  <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="n">WildcardQueryBuilder</span><span class="w"> </span><span class="n">wildcardQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">wildcardQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;查询词*&quot;</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div></div></li>
+</ul>
+</li>
+</ol>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
