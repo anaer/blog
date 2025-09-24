@@ -22,7 +22,7 @@
 8. ~~Tabby~~ [GitHub](https://github.com/Eugeny/tabby/releases)  多端, 插件支持webdav同步, 支持集成WinSCP
 
 ### 内存清理
-1. memory_cleaner [GitHub](https://github.com/H3d9/memory_cleaner/releases/)
+1. ~~memory_cleaner~~ [GitHub](https://github.com/H3d9/memory_cleaner/releases/)
 2. ~~Reduce Memory~~ [官网](https://www.sordum.org/9197/reduce-memory-v1-7/) 
 3. ~~Mem Reduct~~ [GitHub](https://github.com/henrypp/memreduct) 内存释放, Q:偶尔选项置灰
 4. ~~Windows Memory Cleaner 2.8~~ [GitHub](https://github.com/IgorMundstein/WinMemoryCleaner/) 
@@ -95,7 +95,7 @@
                                               
 ### Android
 1. dex-tools [GitHub](https://github.com/pxb1988/dex2jar/releases)   dex反编译   
-2. jadx   [GitHub](https://github.com/skylot/jadx/releases)     Java反编译 
+2. jadx [GitHub](https://github.com/skylot/jadx/releases)     Java反编译 
 
 ### NodeJS
 1. nvm-windows [GitHub](https://github.com/coreybutler/nvm-windows/releases)
@@ -126,7 +126,7 @@
 2. ~~TortoiseGit~~ [官网](https://tortoisegit.org/download/)
 
 ### 编辑器
-1. VSCode    [官网](https://code.visualstudio.com/)           
+1. VSCode [官网](https://code.visualstudio.com/)           
 1. ~~Neovim~~  [GitHub](https://github.com/neovim/neovim/releases)      
 2. ~~Obsidian.md~~   [GitHub](https://github.com/obsidianmd/obsidian-releases/releases/) 编辑工具 
 4. ~~Windsurf~~ [官网](https://codeium.com/windsurf)     集成Codeium AI补全 
