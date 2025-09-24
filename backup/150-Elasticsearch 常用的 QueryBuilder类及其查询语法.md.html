@@ -3,49 +3,41 @@
     <p>Elasticsearch 常用的 <code>QueryBuilder</code> 类及其查询语法  </p>
 <h3 id="querybuilder">常用的 <code>QueryBuilder</code> 类及其使用方法</h3>
 <ol>
-<li><strong><code>match</code> 查询</strong>  </li>
-<li><strong>说明</strong>：用于全文本搜索，支持分词和模糊匹配。默认会对文本进行分词处理, 然后进行搜索.  </li>
 <li>
-<p><strong>示例</strong>：<br />
+<p><strong><code>match</code> 查询</strong><br />
+<strong>说明</strong>：用于全文本搜索，支持分词和模糊匹配。默认会对文本进行分词处理, 然后进行搜索.<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">MatchQueryBuilder</span><span class="w"> </span><span class="n">matchQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">matchQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;查询词&quot;</span><span class="p">);</span><span class="w">  </span>
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>multiMatch</code> 查询</strong>  </p>
-</li>
-<li><strong>说明</strong>: 允许你在多个字段上执行匹配查询, 适用于需要在不同字段上搜索相同文本的情况。  </li>
-<li>
-<p><strong>示例</strong>：<br />
+<p><strong><code>multiMatch</code> 查询</strong><br />
+<strong>说明</strong>: 允许你在多个字段上执行匹配查询, 适用于需要在不同字段上搜索相同文本的情况。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">MultiMatchQueryBuilder</span><span class="w"> </span><span class="n">multiMatchQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">multiMatchQuery</span><span class="p">(</span><span class="s">&quot;text to search&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fieldName1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fieldName2&quot;</span><span class="p">);</span><span class="w">  </span>
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>term</code> 查询</strong>  </p>
-</li>
-<li><strong>说明</strong>：用于精确匹配某个字段的值, 单一关键词搜索，不进行分词  </li>
-<li>
-<p><strong>示例</strong>：<br />
+<p><strong><code>term</code> 查询</strong><br />
+<strong>说明</strong>：用于精确匹配某个字段的值, 单一关键词搜索，不进行分词<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">TermQueryBuilder</span><span class="w"> </span><span class="n">termQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">termQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;精确值&quot;</span><span class="p">);</span><span class="w">  </span>
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>terms</code> 查询</strong>  </p>
-</li>
-<li>
-<p><strong>说明</strong>：允许指定多个精确值进行匹配查询。不会对字段值进行分词，适用于字段值完全匹配其中一个查询值的情况。<br />
+<p><strong><code>terms</code> 查询</strong><br />
+<strong>说明</strong>：允许指定多个精确值进行匹配查询。不会对字段值进行分词，适用于字段值完全匹配其中一个查询值的情况。<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">TermsQueryBuilder</span><span class="w"> </span><span class="n">termsQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">termsQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;值1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;值2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;值3&quot;</span><span class="p">);</span><span class="w">  </span>
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>bool</code> 查询</strong>  </p>
-</li>
-<li><strong>说明</strong>：用于组合多个查询条件，支持must（必须匹配）、should（至少匹配一个）、must_not（不能匹配）和filter（过滤）。  </li>
-<li>
-<p><strong>示例</strong>：<br />
+<p><strong><code>bool</code> 查询</strong><br />
+<strong>说明</strong>：用于组合多个查询条件，支持must（必须匹配）、should（至少匹配一个）、must_not（不能匹配）和filter（过滤）。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">BoolQueryBuilder</span><span class="w"> </span><span class="n">boolQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">boolQuery</span><span class="p">()</span><span class="w">  </span>
 <span class="p">.</span><span class="na">must</span><span class="p">(</span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">matchQuery</span><span class="p">(</span><span class="s">&quot;字段名1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;查询词1&quot;</span><span class="p">))</span><span class="w">  </span>
@@ -54,22 +46,18 @@
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>nested</code> 查询</strong>  </p>
-</li>
-<li><strong>说明</strong>：用于搜索嵌套文档。nested_field是嵌套对象的路径，必须使用nested类型定义嵌套对象字段。  </li>
-<li>
-<p><strong>示例</strong>：<br />
+<p><strong><code>nested</code> 查询</strong><br />
+<strong>说明</strong>：用于搜索嵌套文档。nested_field是嵌套对象的路径，必须使用nested类型定义嵌套对象字段。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">NestedQueryBuilder</span><span class="w"> </span><span class="n">nestedQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">nestedQuery</span><span class="p">(</span><span class="s">&quot;nested_field&quot;</span><span class="p">,</span><span class="w">  </span>
 <span class="n">QueryBuilders</span><span class="p">.</span><span class="na">matchQuery</span><span class="p">(</span><span class="s">&quot;nested_field.nested_doc.sub_field&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;nested_value&quot;</span><span class="p">));</span><span class="w">  </span>
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>range</code> 查询</strong>  </p>
-</li>
-<li><strong>说明</strong>：用于范围查询。可以设置范围的起始和结束值，适用于数值、日期等类型的字段。  </li>
-<li>
-<p><strong>示例</strong>：<br />
+<p><strong><code>range</code> 查询</strong><br />
+<strong>说明</strong>：用于范围查询。可以设置范围的起始和结束值，适用于数值、日期等类型的字段。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">RangeQueryBuilder</span><span class="w"> </span><span class="n">rangeQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">rangeQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">)</span><span class="w">  </span>
 <span class="p">.</span><span class="na">gte</span><span class="p">(</span><span class="s">&quot;开始值&quot;</span><span class="p">)</span><span class="w">  </span>
@@ -77,64 +65,54 @@
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>matchPhrase</code> 查询</strong>  </p>
-</li>
-<li><strong>说明</strong>：用于短语查询，匹配整个短语。搜索与指定短语匹配的文档，考虑短语的完整性和顺序。对于精确的短语搜索非常有用。  </li>
-<li>
-<p><strong>示例</strong>：<br />
+<p><strong><code>matchPhrase</code> 查询</strong><br />
+<strong>说明</strong>：用于短语查询，匹配整个短语。搜索与指定短语匹配的文档，考虑短语的完整性和顺序。对于精确的短语搜索非常有用。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">MatchPhraseQueryBuilder</span><span class="w"> </span><span class="n">matchPhraseQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">matchPhraseQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;短语查询词&quot;</span><span class="p">);</span><span class="w">  </span>
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>exists</code> 查询</strong>  </p>
-</li>
-<li><strong>说明</strong>：用于检查字段是否存在。  </li>
-<li>
-<p><strong>示例</strong>：<br />
+<p><strong><code>exists</code> 查询</strong><br />
+<strong>说明</strong>：用于检查字段是否存在。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">ExistsQueryBuilder</span><span class="w"> </span><span class="n">existsQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">existsQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">);</span><span class="w">  </span>
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>exists</code> 查询的嵌套文档</strong>  </p>
-</li>
-<li><strong>说明</strong>：用于检查嵌套字段是否存在。  </li>
-<li>
-<p><strong>示例</strong>：<br />
+<p><strong><code>exists</code> 查询的嵌套文档</strong><br />
+<strong>说明</strong>：用于检查嵌套字段是否存在。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">NestedQueryBuilder</span><span class="w"> </span><span class="n">nestedExistsQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">nestedQuery</span><span class="p">(</span><span class="s">&quot;nested_field&quot;</span><span class="p">,</span><span class="w">  </span>
 <span class="n">QueryBuilders</span><span class="p">.</span><span class="na">existsQuery</span><span class="p">(</span><span class="s">&quot;nested_field.nested_doc.sub_field&quot;</span><span class="p">));</span><span class="w">  </span>
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>fuzzy</code> 查询</strong>  </p>
-</li>
-<li><strong>说明</strong>：用于模糊查询，允许一定程度的错误。基于Levenshtein编辑距离进行匹配，可以设置模糊程度。  </li>
-<li>
-<p><strong>示例</strong>：<br />
+<p><strong><code>fuzzy</code> 查询</strong><br />
+<strong>说明</strong>：用于模糊查询，允许一定程度的错误。基于Levenshtein编辑距离进行匹配，可以设置模糊程度。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">FuzzyQueryBuilder</span><span class="w"> </span><span class="n">fuzzyQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">fuzzyQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;模糊查询词&quot;</span><span class="p">);</span><span class="w">  </span>
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>prefix</code> 查询</strong>  </p>
-</li>
-<li><strong>说明</strong>：用于前缀匹配。查询字段值以指定前缀开头的文档, 对性能影响较大，特别是前缀较短时。  </li>
-<li>
-<p><strong>示例</strong>：<br />
+<p><strong><code>prefix</code> 查询</strong><br />
+<strong>说明</strong>：用于前缀匹配。查询字段值以指定前缀开头的文档, 对性能影响较大，特别是前缀较短时。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">PrefixQueryBuilder</span><span class="w"> </span><span class="n">prefixQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">prefixQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;前缀&quot;</span><span class="p">);</span><span class="w">  </span>
 </code></pre></div></div></p>
 </li>
 <li>
-<p><strong><code>wildcard</code> 查询</strong>  </p>
-</li>
-<li><strong>说明</strong>：用于通配符匹配，支持 <code>*</code> 和 <code>?</code> 通配符。可能会影响性能，尤其是通配符在前面时。  </li>
-<li><strong>示例</strong>：<br />
+<p><strong><code>wildcard</code> 查询</strong><br />
+<strong>说明</strong>：用于通配符匹配，支持 <code>*</code> 和 <code>?</code> 通配符。可能会影响性能，尤其是通配符在前面时。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="n">WildcardQueryBuilder</span><span class="w"> </span><span class="n">wildcardQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QueryBuilders</span><span class="p">.</span><span class="na">wildcardQuery</span><span class="p">(</span><span class="s">&quot;字段名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;查询词*&quot;</span><span class="p">);</span><span class="w">  </span>
-</code></pre></div></div></li>
+</code></pre></div></div></p>
+</li>
 </ol>
   </article>
   
