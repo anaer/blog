@@ -68,3 +68,8 @@ time_starttransfer: 0.235369
         ------------------------
         time_total: 0.235515
 ```
+
+## 详情中展示时间
+```sh
+curl -v --trace-time -L 'https://www.baidu.com/'
+```

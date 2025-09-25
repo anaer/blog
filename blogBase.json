@@ -1236,14 +1236,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/57",
             "commentNum": 0,
             "createdAt": 1737533869,
-            "updatedAt": 1737597330,
+            "updatedAt": 1758789987,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "hsl(140, 31%, 17%)",
-            "description": "",
-            "buildedAt": 1737597330
+            "dateLabelColor": "hsl(26, 34%, 26%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u901a\u8fc7curl\u547d\u4ee4\u67e5\u8be2HTTPS\u8bf7\u6c42\u5404\u9636\u6bb5\u7684\u8017\u65f6\uff0c\u5177\u4f53\u5305\u62ecDNS\u89e3\u6790\u3001TCP\u8fde\u63a5\u3001TLS\u63e1\u624b\u7b49\u591a\u4e2a\u9636\u6bb5\u7684\u8017\u65f6\u7edf\u8ba1\u3002\u6bcf\u4e2a\u9636\u6bb5\u7684\u8017\u65f6\u90fd\u6709\u660e\u786e\u7684\u5b9a\u4e49\uff0c\u4f8b\u5982time_namelookup\u8868\u793aDNS\u89e3\u6790\u7684\u8017\u65f6\uff0ctime_connect\u8868\u793aTCP\u8fde\u63a5\u7684\u8017\u65f6\uff0ctime_appconnect\u8868\u793aTLS\u63e1\u624b\u7684\u8017\u65f6\u7b49\u3002\u6587\u7ae0\u8fd8\u5217\u51fa\u4e86HTTP\u6027\u80fd\u6307\u6807\uff0c\u5305\u62ecDNS\u8bf7\u6c42\u8017\u65f6\u3001TCP\u5efa\u7acb\u8017\u65f6\u3001SSL\u63e1\u624b\u8017\u65f6\u7b49\uff0c\u5e76\u63d0\u4f9b\u4e86\u76f8\u5e94\u7684\u8ba1\u7b97\u516c\u5f0f\u3002\u6700\u540e\uff0c\u7ed9\u51fa\u4e86\u4f7f\u7528curl\u547d\u4ee4\u83b7\u53d6\u8fd9\u4e9b\u7edf\u8ba1\u4fe1\u606f\u7684\u793a\u4f8b\u3002\u6ca1\u6709\u660e\u663e\u7684\u9519\u8bef\u89c2\u70b9\u3002",
+            "buildedAt": 1758789987
         },
         "P58": {
             "number": "58",

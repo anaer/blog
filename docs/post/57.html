@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -133,14 +135,18 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-22 16:17:49</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-23 09:55:30</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-25 16:46:27</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了通过curl命令查询HTTPS请求各阶段的耗时，具体包括DNS解析、TCP连接、TLS握手等多个阶段的耗时统计。每个阶段的耗时都有明确的定义，例如time_namelookup表示DNS解析的耗时，time_connect表示TCP连接的耗时，time_appconnect表示TLS握手的耗时等。文章还列出了HTTP性能指标，包括DNS请求耗时、TCP建立耗时、SSL握手耗时等，并提供了相应的计算公式。最后，给出了使用curl命令获取这些统计信息的示例。没有明显的错误观点。
+</div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">统计耗时</h2><a id="user-content-统计耗时" class="anchor" aria-label="Permalink: 统计耗时" href="#统计耗时"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>通过curl命令来查询https请求各阶段的耗时</p>
-<div class="markdown-heading"><h3 class="heading-element">时间统计</h3><a id="user-content-时间统计" class="anchor" aria-label="Permalink: 时间统计" href="#时间统计"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  <article class="markdown-body">
+    <h2 id="_1">统计耗时</h2>
+<p>通过curl命令来查询https请求各阶段的耗时  </p>
+<h3 id="_2">时间统计</h3>
 <table>
 <thead>
 <tr>
@@ -179,7 +185,7 @@ pre {
 </tr>
 </tbody>
 </table>
-<div class="markdown-heading"><h3 class="heading-element">HTTP性能指标</h3><a id="user-content-http性能指标" class="anchor" aria-label="Permalink: HTTP性能指标" href="#http性能指标"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h3 id="http">HTTP性能指标</h3>
 <table>
 <thead>
 <tr>
@@ -218,37 +224,71 @@ pre {
 </tr>
 </tbody>
 </table>
-<p>DNS请求耗时 = time_namelookup</p>
-<p>TCP三次握手耗时 = time_connect - time_namelookup</p>
-<p>SSL握手耗时 = time_appconnect - time_connect</p>
-<p>服务器处理请求耗时 = time_starttransfer - time_pretransfer</p>
-<p>TTFB耗时 = time_starttransfer - time_appconnect</p>
-<p>服务器传输耗时 = time_total - time_starttransfer</p>
-<p>总耗时 = time_total</p>
-<p>curl命令：</p>
-<div class="highlight highlight-source-shell"><pre>curl -w <span class="pl-s"><span class="pl-pds">'</span></span>
-<span class="pl-s">   time_namelookup: %{time_namelookup}</span>
-<span class="pl-s">      time_connect: %{time_connect}</span>
-<span class="pl-s">   time_appconnect: %{time_appconnect}</span>
-<span class="pl-s">     time_redirect: %{time_redirect}</span>
-<span class="pl-s">  time_pretransfer: %{time_pretransfer}</span>
-<span class="pl-s">time_starttransfer: %{time_starttransfer}</span>
-<span class="pl-s">        ------------------------</span>
-<span class="pl-s">        time_total: %{time_total}</span>
-<span class="pl-s"><span class="pl-pds">'</span></span> -o /dev/null -s -L <span class="pl-s"><span class="pl-pds">'</span>https://www.baidu.com/<span class="pl-pds">'</span></span></pre></div>
-<p>output:</p>
-<pre><code>   time_namelookup: 0.001091
-      time_connect: 0.011882
-   time_appconnect: 0.223441
-     time_redirect: 0.000000
-  time_pretransfer: 0.223486
-time_starttransfer: 0.235369
-        ------------------------
-        time_total: 0.235515
-</code></pre>
+<p>DNS请求耗时 = time_namelookup  </p>
+<p>TCP三次握手耗时 = time_connect - time_namelookup  </p>
+<p>SSL握手耗时 = time_appconnect - time_connect  </p>
+<p>服务器处理请求耗时 = time_starttransfer - time_pretransfer  </p>
+<p>TTFB耗时 = time_starttransfer - time_appconnect  </p>
+<p>服务器传输耗时 = time_total - time_starttransfer  </p>
+<p>总耗时 = time_total  </p>
+<p>curl命令：  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>curl<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;  </span>
+<span class="s1">   time_namelookup: %{time_namelookup}  </span>
+<span class="s1">      time_connect: %{time_connect}  </span>
+<span class="s1">   time_appconnect: %{time_appconnect}  </span>
+<span class="s1">     time_redirect: %{time_redirect}  </span>
+<span class="s1">  time_pretransfer: %{time_pretransfer}  </span>
+<span class="s1">time_starttransfer: %{time_starttransfer}  </span>
+<span class="s1">        ------------------------  </span>
+<span class="s1">        time_total: %{time_total}  </span>
+<span class="s1">&#39;</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span><span class="s1">&#39;https://www.baidu.com/&#39;</span><span class="w">  </span>
+</code></pre></div></div>
+<p>output:  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>   time_namelookup: 0.001091  
+      time_connect: 0.011882  
+   time_appconnect: 0.223441  
+     time_redirect: 0.000000  
+  time_pretransfer: 0.223486  
+time_starttransfer: 0.235369  
+        ------------------------  
+        time_total: 0.235515  
+</code></pre></div></div>
+<h2 id="_3">详情中展示时间</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>curl<span class="w"> </span>-v<span class="w"> </span>--trace-time<span class="w"> </span>-L<span class="w"> </span><span class="s1">&#39;https://www.baidu.com/&#39;</span><span class="w">  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/59.html" aria-label="Previous Page">0X3B Wireshark抓包https配置</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/56.html" aria-label="Next Page">0X38 aira2命令参数</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/56.html" aria-label="Previous Page">0X38 aira2命令参数</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/58.html" aria-label="Next Page">0X3A Api Mocker 帮助</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
