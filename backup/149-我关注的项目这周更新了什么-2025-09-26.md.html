@@ -1,112 +1,67 @@
 
   <article class="markdown-body">
-    <h1 id="1-cherry-studio-v161">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.1">cherry-studio v1.6.1</a></h1>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新主要包含以下内容：  </p>
-<p>功能新增与优化：<br />
-1. 新增PaddleOCR作为OCR服务提供商<br />
-2. 新增Claude Code工作流和Anthropic OAuth设置界面<br />
-3. 新增知识库重构、大文件上传支持、笔记文件夹上传功能<br />
-4. 新增自定义窗口控制、快捷键重命名主题和编辑消息功能<br />
-5. 新增终端命令处理增强、多语言发布说明支持<br />
-6. 新增Perplexity SDK集成、Qwen系列模型支持<br />
-7. 新增字体大小和目录设置到富文本编辑器  </p>
-<p>问题修复：<br />
-1. 修复MCP服务日志和错误处理<br />
-2. 修复翻译输入粘贴处理、YouTube渲染问题<br />
-3. 修复窗口控制工具提示、导航栏样式问题<br />
-4. 修复代码工具工作目录、Web搜索RAG并发问题<br />
-5. 修复Anthropic API URL和终端配额显示问题  </p>
-<p>代码重构：<br />
-1. 重构MCPService错误处理和头部管理<br />
-2. 重构消息组件和排序功能<br />
-3. 迁移Zod v4、集成HeroUI和Tailwind CSS<br />
-4. 重构滚动条组件和横向滚动支持  </p>
-<p>CI/CD改进：<br />
-1. 新增自动i18n和格式检查<br />
-2. 改进Claude翻译工作流<br />
-3. 新增合并分支删除工作流  </p>
-<p>新增贡献者：<br />
-@Bobholamovic、@33671等10位开发者首次贡献  </p>
-<p>完整更新日志见链接：https://github.com/CherryHQ/cherry-studio/compare/v1.5.11...v1.6.1  </p>
+    <h1 id="1-powertoys-v0942">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.94.2">PowerToys v0.94.2</a></h1>
+<p>Microsoft PowerToys is a collection of utilities that help you customize Windows and streamline everyday tasks  </p>
+<p>这是v0.94.2补丁版本，主要修复了v0.94.2中影响稳定性的重要问题。完整版本说明请参考v0.94.0版本。  </p>
+<p>该版本提供了四种安装程序，包括x64和ARM64架构的用户级安装程序和机器级安装程序。各安装程序的哈希值如下：  </p>
+<p>x64用户级安装程序：PowerToysUserSetup-0.94.2-x64.exe，SHA256哈希值为CE6654859BBAEC0E2AA49FF2E4F5C1353C4204C85A2CFB15E1E5CEC51BF3B003。  </p>
+<p>ARM64用户级安装程序：PowerToysUserSetup-0.94.2-arm64.exe，SHA256哈希值为1AD77D7D60D3D353C9F6A391759B4596F43F4F21549625BB8B22EF21CF7E1B55。  </p>
+<p>x64机器级安装程序：PowerToysSetup-0.94.2-x64.exe，SHA256哈希值为A0C2A2E2EB8C86DCC6E42FE652490F41B61D9C4875F170A63EECA353E7CEBB8B。  </p>
+<p>ARM64机器级安装程序：PowerToysSetup-0.94.2-arm64.exe，SHA256哈希值为2E59B5EBB86C9B7EECC57F902F709A67103AA7AA72396FEDEDC40BB6AA67AF20。  </p>
+<p>主要修复内容：解决了安装程序缺少vcruntime依赖项的问题，该问题导致安装失败并出现"Failed to load SilentFilesInUseBAFunction.dll (0x8007007e)"错误，现已恢复从GitHub、winget和Microsoft Store的正常安装功能。  </p>
 <h1 id="2-dify-190">2. <a href="https://github.com/langgenius/dify/releases/tag/1.9.0">dify 1.9.0</a></h1>
 <p>Production-ready platform for agentic workflow development.  </p>
-<p>Dify 1.9.0 引入两大核心功能：知识管道和基于队列的图引擎。  </p>
-<p>知识管道采用模块化架构，支持可视化节点编排，提供文档处理的完整工作流。主要特性包括：<br />
-1. 支持多样化数据源（本地文件/在线文档/云盘/爬虫）和工具插件<br />
-2. 新增问答处理器和图像提取功能<br />
-3. 提供测试运行和调试支持<br />
-4. 支持DSL导入导出模板<br />
-5. 一键迁移旧版知识库  </p>
-<p>基于队列的图引擎改进工作流执行：<br />
-1. 采用统一队列调度模型<br />
-2. 支持任意节点启停的灵活执行<br />
-3. 新增流处理组件ResponseCoordinator<br />
-4. 提供外部控制命令机制<br />
-5. 可扩展的GraphEngineLayer插件层  </p>
+<p>Dify 1.9.0 版本主要引入两大核心功能：知识管道和基于队列的图引擎。  </p>
+<p>知识管道：<br />
+1. 全新模块化架构，支持可视化节点编排文档处理流程<br />
+2. 提供官方模板和DSL导入导出功能，便于快速构建和共享<br />
+3. 支持多数据源集成（本地文件/在线文档/云盘/爬虫等）<br />
+4. 新增问答处理器和图像提取功能，提升内容处理质量<br />
+5. 支持单步调试和变量检查，增强开发体验<br />
+6. 提供一键迁移工具，兼容旧版知识库  </p>
+<p>基于队列的图引擎：<br />
+1. 采用统一队列调度模型，优化并行任务管理<br />
+2. 支持任意节点启动执行，实现部分运行和断点续传<br />
+3. 新增ResponseCoordinator处理流式输出<br />
+4. 引入命令机制实现外部控制（暂停/终止）<br />
+5. 提供GraphEngineLayer插件层扩展引擎功能  </p>
 <p>升级注意事项：<br />
 1. 必须执行数据源凭证迁移命令<br />
-2. 提供Docker和源码两种升级方式<br />
-3. Beta版用户需注意数据清除风险  </p>
-<p>未来计划将增强调试工具、智能调度、多模态支持等功能。该版本包含200+项代码改进，重点提升稳定性和可扩展性。  </p>
-<h1 id="3-powertoys-v0942">3. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.94.2">PowerToys v0.94.2</a></h1>
-<p>Microsoft PowerToys is a collection of utilities that help you customize Windows and streamline everyday tasks  </p>
-<p>本次发布为v0.94.2补丁版本，主要修复了v0.94.2中影响稳定性的关键问题。完整版本说明请参考v0.94.0版本。  </p>
-<p>更新内容包括：<br />
-1. 修复了安装程序缺失vcruntime依赖项的问题，该问题会导致"Failed to load SilentFilesInUseBAFunction.dll (0x8007007e)"错误，现已恢复从GitHub、winget和微软商店的正常安装功能。  </p>
-<p>提供了四种安装包及其SHA256校验值：<br />
-- 用户级x64安装包：PowerToysUserSetup-0.94.2-x64.exe (CE665...B003)<br />
-- 用户级ARM64安装包：PowerToysUserSetup-0.94.2-arm64.exe (1AD77...B55)<br />
-- 系统级x64安装包：PowerToysSetup-0.94.2-x64.exe (A0C2A...BB8B)<br />
-- 系统级ARM64安装包：PowerToysSetup-0.94.2-arm64.exe (2E59B...AF20)  </p>
-<h1 id="4-mihomo-v11914">4. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.14">mihomo v1.19.14</a></h1>
-<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.  </p>
-<p>本次更新主要包含以下内容：  </p>
-<p>功能新增：<br />
-1. Tun模式支持直接发送ping请求<br />
-2. 为客户端和服务端添加mTLS支持<br />
-3. 支持mieru 0-RTT握手协议<br />
-4. 移除了hy1/hy2/tuic出站的ca和ca-str选项，改用fingerprint<br />
-5. 支持AmneziaWG v2.0<br />
-6. 为Tun添加disable-icmp-forwarding选项<br />
-7. 为SS客户端/服务器支持kcptun插件  </p>
-<p>系统兼容性说明：<br />
-- macOS用户需注意：Go 1.25不再支持macOS 11，建议根据系统版本选择对应标签的二进制文件<br />
-- amd64平台已弃用-amd64和-amd64-compatible版本，改用-amd64-v1/v2/v3标记CPU级别  </p>
-<p>BUG修复：<br />
-1. 修复了服务器多路复用连接未关闭的问题<br />
-2. 解决了多个NTP时间同步相关的问题<br />
-3. 修复了vision读取过滤不完整的问题<br />
-4. 修复了tuic服务器goroutine泄漏问题<br />
-5. 解决了xudp服务器源地址丢失问题<br />
-6. 修复了多个数据竞争和内存泄漏问题<br />
-7. 解决了多个协议实现中的细节问题  </p>
-<p>维护更新：<br />
-1. 清理和优化了多个模块的代码<br />
-2. 更新了依赖库<br />
-3. 改进了内存使用效率<br />
-4. 优化了多个协议的实现细节<br />
-5. 增强了代码的防御性编程<br />
-6. 简化了多个功能模块的实现  </p>
-<p>完整变更日志可查看项目GitHub页面。  </p>
-<h1 id="5-rclone-v1711">5. <a href="https://github.com/rclone/rclone/releases/tag/v1.71.1">rclone v1.71.1</a></h1>
+2. 从v2.0.0测试版升级会清除现有知识管道数据<br />
+3. 提供Docker和源码两种升级方式  </p>
+<p>未来规划：<br />
+1. 可视化调试工具<br />
+2. 智能调度优化<br />
+3. 更完善的命令控制<br />
+4. 人工干预支持<br />
+5. 子图功能增强<br />
+6. 多模态嵌入  </p>
+<p>该版本聚焦架构改进，包含102项代码变更和35位新贡献者，主要提升系统稳定性、可扩展性和调试能力。  </p>
+<h1 id="3-rclone-v1711">3. <a href="https://github.com/rclone/rclone/releases/tag/v1.71.1">rclone v1.71.1</a></h1>
 <p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files  </p>
-<p>rclone发布v1.71.1版本。完整变更内容详见更新日志。  </p>
-<h1 id="6-servers-2025925">6. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.9.25">servers 2025.9.25</a></h1>
-<p>Model Context Protocol Servers  </p>
-<p>版本v2025.9.25发布，更新了以下软件包：@modelcontextprotocol/server-everything、@modelcontextprotocol/server-memory、mcp-server-git和mcp-server-time，版本号均为2025.9.25。  </p>
-<h1 id="7-datafaker-251">7. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.1">datafaker 2.5.1</a></h1>
+<p>rclone v1.71.1版本发布。完整更新内容详见官方更新日志。  </p>
+<h1 id="4-datafaker-251">4. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.1">datafaker 2.5.1</a></h1>
 <p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
-<p>本次更新主要包含以下内容：  </p>
+<p>本次更新主要包含以下变更：  </p>
 <ol>
-<li>新增功能：支持使用白名单条件（@snuyanzin贡献）  </li>
-<li>数据更新：为波兰语地区文件_PL.yml添加国家电话区号（@kopernic-pl贡献）  </li>
-<li>问题修复：  </li>
-<li>修复faker.text().text()方法问题（@asolntsev贡献）  </li>
-<li>补充弃用警告的缺失链接（@bodiam贡献）  </li>
-<li>修复土耳其语地区测试中可能存在的用户名空格问题（@snuyanzin贡献）  </li>
+<li>新增功能：  </li>
 <li>
-<p>停止在内部使用Internet#username()方法（@kingthorin贡献）  </p>
+<p>添加了白名单条件使用功能（@snuyanzin提交）  </p>
+</li>
+<li>
+<p>数据更新：  </p>
+</li>
+<li>
+<p>更新了波兰语地区文件，添加国家电话区号（@kopernic-pl提交）  </p>
+</li>
+<li>
+<p>问题修复：  </p>
+</li>
+<li>修复了faker.text().text()方法的参数问题（@asolntsev提交）  </li>
+<li>修复了土耳其语地区测试中用户名包含空格的问题（@snuyanzin提交）  </li>
+<li>修复了弃用警告中缺失的链接（@bodiam提交）  </li>
+<li>
+<p>停止在内部使用Internet#username()方法（@kingthorin提交）  </p>
 </li>
 <li>
 <p>新贡献者：  </p>
@@ -114,26 +69,102 @@
 <li>@maxandersen首次贡献  </li>
 <li>@kopernic-pl首次贡献  </li>
 </ol>
-<p>版本从2.5.0升级至2.5.1。  </p>
-<h1 id="8-proxypin-v121">8. <a href="https://github.com/wanghongenpin/proxypin/releases/tag/v1.2.1">proxypin v1.2.1</a></h1>
+<p>版本从2.5.0更新至2.5.1  </p>
+<h1 id="5-cherry-studio-v161">5. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.1">cherry-studio v1.6.1</a></h1>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
+<p>本次更新涵盖了Cherry Studio从v1.5.11到v1.6.1版本的主要变更，主要包括以下内容：  </p>
+<ol>
+<li>新功能与优化  </li>
+<li>新增PaddleOCR作为OCR服务提供商  </li>
+<li>支持自定义窗口最小化/最大化/关闭功能  </li>
+<li>添加知识库文件夹上传功能  </li>
+<li>集成Perplexity SDK和ByteDance/Ideogram模型提供商  </li>
+<li>增强终端命令处理和多语言支持  </li>
+<li>新增Qwen系列模型支持（包括图像模型）  </li>
+<li>
+<p>添加字体大小和目录设置到富文本编辑器  </p>
+</li>
+<li>
+<p>错误修复与改进  </p>
+</li>
+<li>修复Youtube渲染问题  </li>
+<li>优化Web搜索RAG并发处理  </li>
+<li>修正Anthropic API URL和端点处理  </li>
+<li>改进侧边栏响应式设计  </li>
+<li>修复笔记拖拽排序行为  </li>
+<li>
+<p>优化翻译助手内容处理  </p>
+</li>
+<li>
+<p>技术架构调整  </p>
+</li>
+<li>重构大文件上传逻辑，适配OpenAI标准  </li>
+<li>迁移至Zod v4  </li>
+<li>集成HeroUI和Tailwind CSS  </li>
+<li>移除Faiss数据库  </li>
+<li>
+<p>引入biome和oxlint加速代码格式化与检查  </p>
+</li>
+<li>
+<p>CI/CD改进  </p>
+</li>
+<li>新增自动删除已合并分支的工作流  </li>
+<li>优化Claude翻译工作流  </li>
+<li>添加PR格式检查  </li>
+<li>
+<p>限制CI仅在非草稿PR触发  </p>
+</li>
+<li>
+<p>新贡献者  </p>
+</li>
+<li>本次更新迎来了10位新贡献者，包括@Bobholamovic、@33671等  </li>
+</ol>
+<p>完整变更日志请查看：https://github.com/CherryHQ/cherry-studio/compare/v1.5.11...v1.6.1  </p>
+<h1 id="6-proxypin-v121">6. <a href="https://github.com/wanghongenpin/proxypin/releases/tag/v1.2.1">proxypin v1.2.1</a></h1>
 <p>Open source free capture HTTP S traffic software ProxyPin, supporting full platform systems  </p>
-<p>ProxyPin应用更新至V1.2.1版本，主要更新内容包括：  </p>
-<p>iOS和安卓平台下载地址：<br />
-- iOS版可通过App Store下载<br />
-- 安卓版可通过Google Play下载  </p>
+<p>ProxyPin应用发布了1.2.1版本更新，主要包含以下改进：  </p>
 <p>功能优化：<br />
 1. 消息体新增搜索高亮功能<br />
 2. WebSocket消息体增加预览功能<br />
-3. 安卓ROOT系统支持自动安装系统证书  </p>
+3. 安卓ROOT系统支持自动安装系统证书<br />
+4. 新增Socket自动清理功能，解决退出时的资源占用问题<br />
+5. 调整了UI菜单设计  </p>
 <p>问题修复：<br />
-1. 优化Socket自动清理机制，解决退出时的资源占用问题<br />
-2. 调整了UI菜单布局<br />
-3. 修复脚本fetch API部分请求问题<br />
-4. 修正HTTP2包大小计算错误<br />
-5. 修复请求映射Bug<br />
-6. 解决手机端历史记录未自动保存的问题<br />
-7. 修复安卓设备部分闪退情况  </p>
-<p>本次更新同时包含界面优化和多项稳定性改进。  </p>
+1. 修复脚本fetch API部分请求bug<br />
+2. 修正HTTP2包大小显示不正确问题<br />
+3. 修复请求映射Bug<br />
+4. 解决手机端历史记录未自动保存的问题<br />
+5. 修复安卓设备部分闪退情况  </p>
+<p>该版本已在iOS App Store和Google Play应用商店同步更新。  </p>
+<h1 id="7-mihomo-v11914">7. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.14">mihomo v1.19.14</a></h1>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.  </p>
+<p>本次更新主要包含以下内容：  </p>
+<p>新功能：<br />
+- 支持TUN模式下通过direct发送ping请求<br />
+- 新增客户端和服务器的mTLS支持（代理端支持certificate和private-key，监听端支持client-auth-type和client-auth-cert）<br />
+- 支持mieru 0-RTT握手<br />
+- 移除hy1/hy2/tuic出站的ca和ca-str参数，改用fingerprint<br />
+- 支持AmneziaWG v2.0<br />
+- 新增tun的disable-icmp-forwarding选项<br />
+- 支持ss客户端/服务器的kcptun插件  </p>
+<p>注意事项：<br />
+- macOS用户需注意Go 1.25不再支持macOS 11，建议macOS 11用户下载go124标签版本，macOS 10.15用户下载go122标签版本，macOS 10.13用户下载go120标签版本<br />
+- amd64平台的-amd64和-amd64-compatible版本已弃用，将使用-amd64-v1/-v2/-v3标记CPU级别  </p>
+<p>BUG修复：<br />
+- 修复服务器mux连接未关闭、ntp时间方法未传递给ss2022客户端、vision读取过滤器不完整等22个问题  </p>
+<p>维护更新：<br />
+- 优化vision代码实现、清理ntp代码、移除gopsutil依赖、更新gvisor等多项代码维护工作<br />
+- 更新多个依赖库版本  </p>
+<p>完整变更日志可参考GitHub发布页。  </p>
+<h1 id="8-servers-2025925">8. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.9.25">servers 2025.9.25</a></h1>
+<p>Model Context Protocol Servers  </p>
+<p>版本v2025.9.25发布摘要：<br />
+1. 更新了四个核心软件包：<br />
+   - @modelcontextprotocol/server-everything@2025.9.25<br />
+   - @modelcontextprotocol/server-memory@2025.9.25<br />
+   - mcp-server-git@2025.9.25<br />
+   - mcp-server-time@2025.9.25<br />
+2. 所有更新包版本号与发布版本号一致（2025.9.25）  </p>
   </article>
   
 <script>
