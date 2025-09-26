@@ -1,0 +1,171 @@
+
+  <article class="markdown-body">
+    <h2 id="docker">Docker常用命令表</h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker run</td>
+<td>运行一个容器</td>
+<td>docker run ubuntu</td>
+</tr>
+<tr>
+<td>docker ps</td>
+<td>列出正在运行的容器</td>
+<td>docker ps</td>
+</tr>
+<tr>
+<td>docker images</td>
+<td>查看本地镜像列表</td>
+<td>docker images</td>
+</tr>
+<tr>
+<td>docker pull</td>
+<td>下载镜像</td>
+<td>docker pull nginx</td>
+</tr>
+<tr>
+<td>docker stop</td>
+<td>停止容器</td>
+<td>docker stop mycontainer</td>
+</tr>
+<tr>
+<td>docker rm</td>
+<td>删除容器</td>
+<td>docker rm mycontainer</td>
+</tr>
+<tr>
+<td>docker rmi</td>
+<td>删除镜像</td>
+<td>docker rmi nginx</td>
+</tr>
+<tr>
+<td>docker build</td>
+<td>构建镜像</td>
+<td>docker build -t myimage .</td>
+</tr>
+<tr>
+<td>docker exec</td>
+<td>在容器中执行命令</td>
+<td>docker exec mycontainer ls</td>
+</tr>
+<tr>
+<td>docker logs</td>
+<td>查看容器日志</td>
+<td>docker logs mycontainer</td>
+</tr>
+<tr>
+<td>docker inspect</td>
+<td>查看详细信息</td>
+<td>docker inspect mycontainer</td>
+</tr>
+<tr>
+<td>docker cp</td>
+<td>文件拷贝（容器与主机间）</td>
+<td>docker cp mycontainer:/tmp/a.txt ./a.txt</td>
+</tr>
+<tr>
+<td>docker stats</td>
+<td>查看资源使用</td>
+<td>docker stats mycontainer</td>
+</tr>
+<tr>
+<td>docker attach</td>
+<td>连接到正在运行的容器</td>
+<td>docker attach mycontainer</td>
+</tr>
+<tr>
+<td>docker top</td>
+<td>查看容器进程</td>
+<td>docker top mycontainer</td>
+</tr>
+<tr>
+<td>docker commit</td>
+<td>用容器生成新镜像</td>
+<td>docker commit mycontainer newimage</td>
+</tr>
+<tr>
+<td>docker system prune</td>
+<td>清理无用资源</td>
+<td>docker system prune</td>
+</tr>
+<tr>
+<td>docker version</td>
+<td>查看Docker版本</td>
+<td>docker version</td>
+</tr>
+<tr>
+<td>docker network ls</td>
+<td>查看docker网络</td>
+<td>docker network ls</td>
+</tr>
+<tr>
+<td>docker network create</td>
+<td>创建网络</td>
+<td>docker network create mynet</td>
+</tr>
+<tr>
+<td>docker network connect</td>
+<td>容器加入网络</td>
+<td>docker network connect mynet mycontainer</td>
+</tr>
+<tr>
+<td>docker volume ls</td>
+<td>查看所有卷</td>
+<td>docker volume ls</td>
+</tr>
+<tr>
+<td>docker volume create</td>
+<td>创建卷</td>
+<td>docker volume create datavol</td>
+</tr>
+<tr>
+<td>docker volume rm</td>
+<td>删除卷</td>
+<td>docker volume rm datavol</td>
+</tr>
+<tr>
+<td>docker-compose up</td>
+<td>启动Compose项目</td>
+<td>docker-compose up</td>
+</tr>
+<tr>
+<td>docker-compose down</td>
+<td>停止并移除Compose项目</td>
+<td>docker-compose down</td>
+</tr>
+</tbody>
+</table>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
