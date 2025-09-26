@@ -46,9 +46,9 @@ PUT {{myes}}/my_index
 GET {{myes}}/my_index/_analyze
 ```
 
-1. **Standard Tokenizer**
-   - **描述**：标准分词器，对文本进行基本的分词处理。
-   - **示例**：
+### **Standard Tokenizer**
+**描述**：标准分词器，对文本进行基本的分词处理。
+**示例**：
 ```json
 {
   "analyzer": "standard",
@@ -119,7 +119,7 @@ GET {{myes}}/my_index/_analyze
 }
 ```
 
-   - **示例2**
+**示例2**
 ```json
 {
   "analyzer": "standard",
@@ -155,7 +155,7 @@ GET {{myes}}/my_index/_analyze
 }
 ```
 
-   - **示例3**
+**示例3**
 ```json
 {
   "analyzer": "standard",
@@ -213,9 +213,9 @@ GET {{myes}}/my_index/_analyze
 
 ```
 
-2. **Simple Tokenizer**
-   - **描述**：简单分词器，根据非字母数字字符进行分词，适用于多语言文本。主要特点是根据短横线、中横线、下划线、逗号、冒号、分号等常见符号进行分词。它不进行任何大小写转换或其他复杂处理。
-   - **示例**
+### **Simple Tokenizer**
+**描述**：简单分词器，根据非字母数字字符进行分词，适用于多语言文本。主要特点是根据短横线、中横线、下划线、逗号、冒号、分号等常见符号进行分词。它不进行任何大小写转换或其他复杂处理。
+**示例**
 ```json
 {
   "analyzer": "simple",
@@ -253,9 +253,9 @@ GET {{myes}}/my_index/_analyze
 
 ```
 
-4. **Whitespace Tokenizer**
-   - **描述**：根据空格进行分词，忽略标点符号。
-   - **示例**：
+### **Whitespace Tokenizer**
+**描述**：根据空格进行分词，忽略标点符号。
+**示例**：
 ```json
 {
   "analyzer": "whitespace",
@@ -327,9 +327,9 @@ GET {{myes}}/my_index/_analyze
 
 ```
 
-3. **Keyword Tokenizer**
-   - **描述**：保持输入的文本作为单个分词。
-   - **示例**：
+### **Keyword Tokenizer**
+**描述**：保持输入的文本作为单个分词。
+**示例**：
 ```json
 {
   "analyzer": "keyword",
@@ -352,9 +352,9 @@ GET {{myes}}/my_index/_analyze
 
 ```
 
-4. **Pattern Tokenizer**
-   - **描述**: 正则分词器, 创建索引时指定规则
-   - **示例**
+### **Pattern Tokenizer**
+**描述**: 正则分词器, 创建索引时指定规则
+**示例**
 ```json
 {
   "analyzer": "custom_pattern",

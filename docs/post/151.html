@@ -133,8 +133,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-26 13:37:38</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-26 13:41:28</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Elasticsearch中索引管理的基本操作，包括如何新增索引并自定义分词器。用户可以通过PUT请求创建新的索引，并在设置中定义分词器，如custom_pattern。文中还列举了常见的分词器及其用途，包括标准分词器、简单分词器、空格分词器、关键词分词器和正则分词器，并提供了相应的示例。值得注意的是，示例中的分词结果可能会因不同的分词器而有所不同，且在中文分词时，使用标准分词器可能无法正确处理分隔符，因此在处理中文时，建议使用自定义的分词器或其他适合中文的分词工具。
+    <strong>AI总结:</strong> 本文介绍了Elasticsearch中索引管理的基本操作，包括新增索引时自定义分词器custom_pattern的设置。示例中展示了如何使用PUT请求创建索引，设置分片和副本数量，以及定义字段的映射。文中还列举了常见的分词器及其用途，包括标准分词器、简单分词器、空格分词器、关键词分词器和正则分词器，并提供了相应的示例分析结果。需要注意的是，分词器的选择应根据文本的特性和需求来定，错误的分词器可能导致搜索效果不佳。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -180,17 +182,15 @@ pre {
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code>GET {{myes}}/my_index/_analyze  
 </code></pre></div></div></p>
-<ol>
-<li><strong>Standard Tokenizer</strong>  </li>
-<li><strong>描述</strong>：标准分词器，对文本进行基本的分词处理。  </li>
-<li><strong>示例</strong>：<br />
+<h3 id="standard-tokenizer"><strong>Standard Tokenizer</strong></h3>
+<p><strong>描述</strong>：标准分词器，对文本进行基本的分词处理。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span><span class="p">,</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, this is a document to be analyzed.&quot;</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></li>
-</ol>
+</code></pre></div></div></p>
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
@@ -253,15 +253,13 @@ pre {
 <span class="w">  </span><span class="p">]</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 </code></pre></div></div>
-<ul>
-<li><strong>示例2</strong><br />
+<p><strong>示例2</strong><br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span><span class="p">,</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aaa|bbb|ccc&quot;</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></li>
-</ul>
+</code></pre></div></div></p>
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
@@ -289,15 +287,13 @@ pre {
 <span class="w">  </span><span class="p">]</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 </code></pre></div></div>
-<ul>
-<li><strong>示例3</strong><br />
+<p><strong>示例3</strong><br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span><span class="p">,</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;中文|汉字|测试&quot;</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></li>
-</ul>
+</code></pre></div></div></p>
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
@@ -346,17 +342,15 @@ pre {
 <span class="w">  </span><span class="p">]</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 </code></pre></div></div>
-<ol>
-<li><strong>Simple Tokenizer</strong>  </li>
-<li><strong>描述</strong>：简单分词器，根据非字母数字字符进行分词，适用于多语言文本。主要特点是根据短横线、中横线、下划线、逗号、冒号、分号等常见符号进行分词。它不进行任何大小写转换或其他复杂处理。  </li>
-<li><strong>示例</strong><br />
+<h3 id="simple-tokenizer"><strong>Simple Tokenizer</strong></h3>
+<p><strong>描述</strong>：简单分词器，根据非字母数字字符进行分词，适用于多语言文本。主要特点是根据短横线、中横线、下划线、逗号、冒号、分号等常见符号进行分词。它不进行任何大小写转换或其他复杂处理。<br />
+<strong>示例</strong><br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;simple&quot;</span><span class="p">,</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;中文|汉字|测试&quot;</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></li>
-</ol>
+</code></pre></div></div></p>
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
@@ -384,17 +378,15 @@ pre {
 <span class="w">  </span><span class="p">]</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 </code></pre></div></div>
-<ol>
-<li><strong>Whitespace Tokenizer</strong>  </li>
-<li><strong>描述</strong>：根据空格进行分词，忽略标点符号。  </li>
-<li><strong>示例</strong>：<br />
+<h3 id="whitespace-tokenizer"><strong>Whitespace Tokenizer</strong></h3>
+<p><strong>描述</strong>：根据空格进行分词，忽略标点符号。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;whitespace&quot;</span><span class="p">,</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, this is a document to be analyzed.&quot;</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></li>
-</ol>
+</code></pre></div></div></p>
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
@@ -457,17 +449,15 @@ pre {
 <span class="w">  </span><span class="p">]</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 </code></pre></div></div>
-<ol>
-<li><strong>Keyword Tokenizer</strong>  </li>
-<li><strong>描述</strong>：保持输入的文本作为单个分词。  </li>
-<li><strong>示例</strong>：<br />
+<h3 id="keyword-tokenizer"><strong>Keyword Tokenizer</strong></h3>
+<p><strong>描述</strong>：保持输入的文本作为单个分词。<br />
+<strong>示例</strong>：<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;keyword&quot;</span><span class="p">,</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, this is a document to be analyzed.&quot;</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></li>
-</ol>
+</code></pre></div></div></p>
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
@@ -481,17 +471,15 @@ pre {
 <span class="w">  </span><span class="p">]</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 </code></pre></div></div>
-<ol>
-<li><strong>Pattern Tokenizer</strong>  </li>
-<li><strong>描述</strong>: 正则分词器, 创建索引时指定规则  </li>
-<li><strong>示例</strong><br />
+<h3 id="pattern-tokenizer"><strong>Pattern Tokenizer</strong></h3>
+<p><strong>描述</strong>: 正则分词器, 创建索引时指定规则<br />
+<strong>示例</strong><br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;custom_pattern&quot;</span><span class="p">,</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;中文|汉字|测试&quot;</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></li>
-</ol>
+</code></pre></div></div></p>
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
