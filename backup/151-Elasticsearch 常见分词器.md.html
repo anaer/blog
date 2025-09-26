@@ -36,6 +36,48 @@
 }  
 </code></pre></div></div>
 <h2 id="elasticsearch">Elasticsearch 常见分词器及其主要用途：</h2>
+<table>
+<thead>
+<tr>
+<th>内置分词器</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard</td>
+<td>默认分词器，按单词分类并进行小写处理</td>
+</tr>
+<tr>
+<td>Simple</td>
+<td>按照非字母切分，然后去除非字母并进行小写处理</td>
+</tr>
+<tr>
+<td>Stop</td>
+<td>按照停用词过滤并进行小写处理，停用词包括the、a、is</td>
+</tr>
+<tr>
+<td>Whitespace</td>
+<td>按照空格切分, 不转小写</td>
+</tr>
+<tr>
+<td>Language</td>
+<td>提供了多种常见语言的分词器</td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>按照正则表达式进行分词，默认是\W+ ,代表非字母</td>
+</tr>
+<tr>
+<td>Keyword</td>
+<td>不进行分词，作为一个整体输出</td>
+</tr>
+<tr>
+<td>Customer</td>
+<td>自定义分词器</td>
+</tr>
+</tbody>
+</table>
 <p>请求链接:<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code>GET {{myes}}/my_index/_analyze  
@@ -330,7 +372,7 @@
 <span class="p">}</span><span class="w">  </span>
 </code></pre></div></div>
 <h3 id="pattern-tokenizer"><strong>Pattern Tokenizer</strong></h3>
-<p><strong>描述</strong>: 正则分词器, 创建索引时指定规则<br />
+<p><strong>描述</strong>: 正则分词器, 创建索引时创建分词器<br />
 <strong>示例</strong><br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>

@@ -126,17 +126,19 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#e14b03">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#ElasticSearch">ElasticSearch</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-26 13:37:38</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-26 13:41:28</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-26 15:24:49</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Elasticsearch中索引管理的基本操作，包括新增索引时自定义分词器custom_pattern的设置。示例中展示了如何使用PUT请求创建索引，设置分片和副本数量，以及定义字段的映射。文中还列举了常见的分词器及其用途，包括标准分词器、简单分词器、空格分词器、关键词分词器和正则分词器，并提供了相应的示例分析结果。需要注意的是，分词器的选择应根据文本的特性和需求来定，错误的分词器可能导致搜索效果不佳。
+    <strong>AI总结:</strong> 本文介绍了Elasticsearch的索引管理和分词器的使用，包括如何新增索引和自定义分词器。用户可以在创建索引时定义分词器，并提供了多个内置分词器的描述和用途，如Standard、Simple、Stop、Whitespace、Language、Pattern、Keyword和自定义分词器。每种分词器的功能和示例都被详细列出，展示了其在文本分析中的应用。需要注意的是，示例中未提到的分词器使用场景可能导致误解，例如，Pattern分词器的默认正则表达式是\W+，而用户自定义的pattern可能会影响分词效果。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -178,6 +180,48 @@ pre {
 }  
 </code></pre></div></div>
 <h2 id="elasticsearch">Elasticsearch 常见分词器及其主要用途：</h2>
+<table>
+<thead>
+<tr>
+<th>内置分词器</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard</td>
+<td>默认分词器，按单词分类并进行小写处理</td>
+</tr>
+<tr>
+<td>Simple</td>
+<td>按照非字母切分，然后去除非字母并进行小写处理</td>
+</tr>
+<tr>
+<td>Stop</td>
+<td>按照停用词过滤并进行小写处理，停用词包括the、a、is</td>
+</tr>
+<tr>
+<td>Whitespace</td>
+<td>按照空格切分, 不转小写</td>
+</tr>
+<tr>
+<td>Language</td>
+<td>提供了多种常见语言的分词器</td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>按照正则表达式进行分词，默认是\W+ ,代表非字母</td>
+</tr>
+<tr>
+<td>Keyword</td>
+<td>不进行分词，作为一个整体输出</td>
+</tr>
+<tr>
+<td>Customer</td>
+<td>自定义分词器</td>
+</tr>
+</tbody>
+</table>
 <p>请求链接:<br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code>GET {{myes}}/my_index/_analyze  
@@ -472,7 +516,7 @@ pre {
 <span class="p">}</span><span class="w">  </span>
 </code></pre></div></div>
 <h3 id="pattern-tokenizer"><strong>Pattern Tokenizer</strong></h3>
-<p><strong>描述</strong>: 正则分词器, 创建索引时指定规则<br />
+<p><strong>描述</strong>: 正则分词器, 创建索引时创建分词器<br />
 <strong>示例</strong><br />
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>

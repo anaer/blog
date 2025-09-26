@@ -41,6 +41,18 @@ PUT {{myes}}/my_index
 
 ## Elasticsearch 常见分词器及其主要用途：
 
+|内置分词器|作用|
+|---|---|
+|Standard|默认分词器，按单词分类并进行小写处理|
+|Simple|按照非字母切分，然后去除非字母并进行小写处理|
+|Stop|按照停用词过滤并进行小写处理，停用词包括the、a、is|
+|Whitespace|按照空格切分, 不转小写|
+|Language|提供了多种常见语言的分词器|
+|Pattern|按照正则表达式进行分词，默认是\W+ ,代表非字母|
+|Keyword|不进行分词，作为一个整体输出|
+|Customer| 自定义分词器|
+
+
 请求链接:
 ```rest
 GET {{myes}}/my_index/_analyze
@@ -353,7 +365,7 @@ GET {{myes}}/my_index/_analyze
 ```
 
 ### **Pattern Tokenizer**
-**描述**: 正则分词器, 创建索引时指定规则
+**描述**: 正则分词器, 创建索引时创建分词器
 **示例**
 ```json
 {
