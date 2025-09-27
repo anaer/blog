@@ -135,180 +135,139 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-22 12:13:26</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-26 23:12:37</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-27 12:13:19</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的最新版本更新，包括Microsoft PowerToys v0.94.2、Dify 1.9.0、rclone v1.71.1、datafaker 2.5.1、Cherry Studio v1.6.1、ProxyPin v1.2.1、Mihomo v1.19.14和Servers 2025.9.25。PowerToys主要修复了稳定性问题并解决了安装依赖项缺失的错误；Dify引入了知识管道和基于队列的图引擎，提升了开发体验；rclone更新了云存储支持；datafaker增加了白名单功能并修复了多个问题；Cherry Studio新增了OCR服务和多项功能优化；ProxyPin改进了HTTP S流量捕获功能并修复了多个bug；Mihomo引入了新的安全功能和优化；Servers更新了核心软件包。所有版本均包含不同程度的功能增强和问题修复。没有明显的错误观点。
-</div>
+<p>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-powertoys-v0942">1. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.94.2">PowerToys v0.94.2</a></h1>
-<p>Microsoft PowerToys is a collection of utilities that help you customize Windows and streamline everyday tasks  </p>
-<p>这是v0.94.2补丁版本，主要修复了v0.94.2中影响稳定性的重要问题。完整版本说明请参考v0.94.0版本。  </p>
-<p>该版本提供了四种安装程序，包括x64和ARM64架构的用户级安装程序和机器级安装程序。各安装程序的哈希值如下：  </p>
-<p>x64用户级安装程序：PowerToysUserSetup-0.94.2-x64.exe，SHA256哈希值为CE6654859BBAEC0E2AA49FF2E4F5C1353C4204C85A2CFB15E1E5CEC51BF3B003。  </p>
-<p>ARM64用户级安装程序：PowerToysUserSetup-0.94.2-arm64.exe，SHA256哈希值为1AD77D7D60D3D353C9F6A391759B4596F43F4F21549625BB8B22EF21CF7E1B55。  </p>
-<p>x64机器级安装程序：PowerToysSetup-0.94.2-x64.exe，SHA256哈希值为A0C2A2E2EB8C86DCC6E42FE652490F41B61D9C4875F170A63EECA353E7CEBB8B。  </p>
-<p>ARM64机器级安装程序：PowerToysSetup-0.94.2-arm64.exe，SHA256哈希值为2E59B5EBB86C9B7EECC57F902F709A67103AA7AA72396FEDEDC40BB6AA67AF20。  </p>
-<p>主要修复内容：解决了安装程序缺少vcruntime依赖项的问题，该问题导致安装失败并出现"Failed to load SilentFilesInUseBAFunction.dll (0x8007007e)"错误，现已恢复从GitHub、winget和Microsoft Store的正常安装功能。  </p>
-<h1 id="2-dify-190">2. <a href="https://github.com/langgenius/dify/releases/tag/1.9.0">dify 1.9.0</a></h1>
+    <h1 id="1-dify-190">1. <a href="https://github.com/langgenius/dify/releases/tag/1.9.0">dify 1.9.0</a></h1>
 <p>Production-ready platform for agentic workflow development.  </p>
-<p>Dify 1.9.0 版本主要引入两大核心功能：知识管道和基于队列的图引擎。  </p>
-<p>知识管道：<br />
-1. 全新模块化架构，支持可视化节点编排文档处理流程<br />
-2. 提供官方模板和DSL导入导出功能，便于快速构建和共享<br />
-3. 支持多数据源集成（本地文件/在线文档/云盘/爬虫等）<br />
-4. 新增问答处理器和图像提取功能，提升内容处理质量<br />
-5. 支持单步调试和变量检查，增强开发体验<br />
-6. 提供一键迁移工具，兼容旧版知识库  </p>
-<p>基于队列的图引擎：<br />
-1. 采用统一队列调度模型，优化并行任务管理<br />
-2. 支持任意节点启动执行，实现部分运行和断点续传<br />
-3. 新增ResponseCoordinator处理流式输出<br />
-4. 引入命令机制实现外部控制（暂停/终止）<br />
-5. 提供GraphEngineLayer插件层扩展引擎功能  </p>
+<p>Dify 1.9.0 引入了两大核心功能：知识管道和基于队列的图引擎。  </p>
+<p>知识管道采用模块化可扩展架构，提供可视化节点编排界面，支持自定义文档处理流程。主要特性包括：<br />
+1. 支持多种数据源接入（本地文件/在线文档/云盘/爬虫）<br />
+2. 新增问答处理器插件优化分块策略<br />
+3. 实现PDF等文档的图像提取与混合检索<br />
+4. 提供测试运行和调试支持<br />
+5. 支持一键迁移旧版知识库  </p>
+<p>基于队列的图引擎重构了工作流执行机制，改进点包括：<br />
+1. 统一任务队列调度模型<br />
+2. 支持任意节点启动执行<br />
+3. 新增流式响应协调器<br />
+4. 引入外部控制命令机制<br />
+5. 提供可扩展的引擎插件层  </p>
 <p>升级注意事项：<br />
 1. 必须执行数据源凭证迁移命令<br />
-2. 从v2.0.0测试版升级会清除现有知识管道数据<br />
-3. 提供Docker和源码两种升级方式  </p>
-<p>未来规划：<br />
-1. 可视化调试工具<br />
-2. 智能调度优化<br />
-3. 更完善的命令控制<br />
-4. 人工干预支持<br />
-5. 子图功能增强<br />
-6. 多模态嵌入  </p>
-<p>该版本聚焦架构改进，包含102项代码变更和35位新贡献者，主要提升系统稳定性、可扩展性和调试能力。  </p>
-<h1 id="3-rclone-v1711">3. <a href="https://github.com/rclone/rclone/releases/tag/v1.71.1">rclone v1.71.1</a></h1>
-<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files  </p>
-<p>rclone v1.71.1版本发布。完整更新内容详见官方更新日志。  </p>
-<h1 id="4-datafaker-251">4. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.1">datafaker 2.5.1</a></h1>
-<p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
-<p>本次更新主要包含以下变更：  </p>
-<ol>
-<li>新增功能：  </li>
-<li>
-<p>添加了白名单条件使用功能（@snuyanzin提交）  </p>
-</li>
-<li>
-<p>数据更新：  </p>
-</li>
-<li>
-<p>更新了波兰语地区文件，添加国家电话区号（@kopernic-pl提交）  </p>
-</li>
-<li>
-<p>问题修复：  </p>
-</li>
-<li>修复了faker.text().text()方法的参数问题（@asolntsev提交）  </li>
-<li>修复了土耳其语地区测试中用户名包含空格的问题（@snuyanzin提交）  </li>
-<li>修复了弃用警告中缺失的链接（@bodiam提交）  </li>
-<li>
-<p>停止在内部使用Internet#username()方法（@kingthorin提交）  </p>
-</li>
-<li>
-<p>新贡献者：  </p>
-</li>
-<li>@maxandersen首次贡献  </li>
-<li>@kopernic-pl首次贡献  </li>
-</ol>
-<p>版本从2.5.0更新至2.5.1  </p>
-<h1 id="5-cherry-studio-v161">5. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.1">cherry-studio v1.6.1</a></h1>
+2. Docker和源码部署均需完整升级流程<br />
+3. 部分Beta版本需特殊处理数据迁移  </p>
+<p>未来计划将增强调试工具、智能调度、人机交互等功能。该版本侧重稳定性提升，包含200多项修复与优化，27位新贡献者参与开发。  </p>
+<h1 id="2-cherry-studio-v161">2. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.1">cherry-studio v1.6.1</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新涵盖了Cherry Studio从v1.5.11到v1.6.1版本的主要变更，主要包括以下内容：  </p>
+<p>本次更新主要包含以下内容：  </p>
 <ol>
-<li>新功能与优化  </li>
-<li>新增PaddleOCR作为OCR服务提供商  </li>
-<li>支持自定义窗口最小化/最大化/关闭功能  </li>
-<li>添加知识库文件夹上传功能  </li>
-<li>集成Perplexity SDK和ByteDance/Ideogram模型提供商  </li>
-<li>增强终端命令处理和多语言支持  </li>
-<li>新增Qwen系列模型支持（包括图像模型）  </li>
+<li>功能新增与优化  </li>
+<li>新增AI SDK包、PaddleOCR OCR提供商支持  </li>
+<li>新增知识库重构、Claude代码工作流、Anthropic OAuth设置界面  </li>
+<li>支持自定义最小化/最大化/关闭窗口、主题快捷键、终端命令增强  </li>
+<li>新增Qwen系列模型支持、ByteDance/Ideogram模型提供商logo  </li>
 <li>
-<p>添加字体大小和目录设置到富文本编辑器  </p>
+<p>增强多语言支持、文件上传逻辑重构、笔记文件夹上传功能  </p>
 </li>
 <li>
-<p>错误修复与改进  </p>
+<p>问题修复  </p>
 </li>
-<li>修复Youtube渲染问题  </li>
-<li>优化Web搜索RAG并发处理  </li>
-<li>修正Anthropic API URL和端点处理  </li>
-<li>改进侧边栏响应式设计  </li>
-<li>修复笔记拖拽排序行为  </li>
+<li>修复MCP服务日志和错误处理、翻译输入内容处理  </li>
+<li>修正YouTube渲染、模型设置样式对齐问题  </li>
+<li>修复无限状态更新循环、代码工具工作目录错误  </li>
 <li>
-<p>优化翻译助手内容处理  </p>
+<p>解决导航栏CSS问题、主题提供程序语言设置  </p>
 </li>
 <li>
-<p>技术架构调整  </p>
+<p>代码重构  </p>
 </li>
-<li>重构大文件上传逻辑，适配OpenAI标准  </li>
-<li>迁移至Zod v4  </li>
-<li>集成HeroUI和Tailwind CSS  </li>
-<li>移除Faiss数据库  </li>
+<li>改进MCPService错误处理和头部管理  </li>
+<li>迁移Zod v4、集成HeroUI和Tailwind CSS  </li>
+<li>重构消息组件、滚动条组件、排序功能  </li>
 <li>
-<p>引入biome和oxlint加速代码格式化与检查  </p>
+<p>优化快速面板和输入栏工具  </p>
 </li>
 <li>
 <p>CI/CD改进  </p>
 </li>
-<li>新增自动删除已合并分支的工作流  </li>
-<li>优化Claude翻译工作流  </li>
-<li>添加PR格式检查  </li>
+<li>新增自动i18n工作流、格式检查  </li>
+<li>优化Claude翻译工作流、PR触发条件  </li>
 <li>
-<p>限制CI仅在非草稿PR触发  </p>
+<p>添加合并分支删除工作流  </p>
 </li>
 <li>
 <p>新贡献者  </p>
 </li>
-<li>本次更新迎来了10位新贡献者，包括@Bobholamovic、@33671等  </li>
+<li>新增11位首次贡献者，涉及OCR支持、错误修复、模型集成等工作  </li>
 </ol>
-<p>完整变更日志请查看：https://github.com/CherryHQ/cherry-studio/compare/v1.5.11...v1.6.1  </p>
+<p>版本从v1.5.11升级至v1.6.1，包含大量功能增强、问题修复和架构优化。  </p>
+<h1 id="3-powertoys-v0942">3. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.94.2">PowerToys v0.94.2</a></h1>
+<p>Microsoft PowerToys is a collection of utilities that help you customize Windows and streamline everyday tasks  </p>
+<p>这是一个修复v0.94.2版本稳定性问题的补丁更新。主要修复了安装器缺失vcruntime依赖项的错误，该错误此前会导致安装失败并出现"Failed to load SilentFilesInUseBAFunction.dll"引导程序错误。更新后支持从GitHub、winget和微软商店正常安装。  </p>
+<p>提供了四种安装包的哈希校验值：<br />
+1. 用户级x64安装包：PowerToysUserSetup-0.94.2-x64.exe (SHA256: CE66...B003)<br />
+2. 用户级ARM64安装包：PowerToysUserSetup-0.94.2-arm64.exe (SHA256: 1AD7...1B55) <br />
+3. 全局x64安装包：PowerToysSetup-0.94.2-x64.exe (SHA256: A0C2...BB8B)<br />
+4. 全局ARM64安装包：PowerToysSetup-0.94.2-arm64.exe (SHA256: 2E59...AF20)  </p>
+<p>完整发布说明请参考v0.94.0版本。  </p>
+<h1 id="4-rclone-v1711">4. <a href="https://github.com/rclone/rclone/releases/tag/v1.71.1">rclone v1.71.1</a></h1>
+<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files  </p>
+<p>rclone发布v1.71.1版本，完整变更内容详见项目更新日志。  </p>
+<h1 id="5-datafaker-251">5. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.1">datafaker 2.5.1</a></h1>
+<p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
+<p>本次更新主要内容包括：<br />
+1. 新增白名单条件使用功能<br />
+2. 更新波兰语地区文件中的国家电话区号<br />
+3. 修复text()方法参数问题<br />
+4. 补充弃用警告的缺失链接<br />
+5. 修复土耳其语地区测试中用户名带空格的问题<br />
+6. 停止内部使用Internet#username()方法  </p>
+<p>新贡献者：<br />
+- maxandersen首次贡献<br />
+- kopernic-pl首次贡献  </p>
+<p>版本变更记录完整版：2.5.0到2.5.1  </p>
 <h1 id="6-proxypin-v121">6. <a href="https://github.com/wanghongenpin/proxypin/releases/tag/v1.2.1">proxypin v1.2.1</a></h1>
 <p>Open source free capture HTTP S traffic software ProxyPin, supporting full platform systems  </p>
-<p>ProxyPin应用发布了1.2.1版本更新，主要包含以下改进：  </p>
-<p>功能优化：<br />
-1. 消息体新增搜索高亮功能<br />
-2. WebSocket消息体增加预览功能<br />
-3. 安卓ROOT系统支持自动安装系统证书<br />
-4. 新增Socket自动清理功能，解决退出时的资源占用问题<br />
-5. 调整了UI菜单设计  </p>
-<p>问题修复：<br />
-1. 修复脚本fetch API部分请求bug<br />
-2. 修正HTTP2包大小显示不正确问题<br />
-3. 修复请求映射Bug<br />
-4. 解决手机端历史记录未自动保存的问题<br />
-5. 修复安卓设备部分闪退情况  </p>
-<p>该版本已在iOS App Store和Google Play应用商店同步更新。  </p>
+<p>ProxyPin应用更新至V1.2.1版本，主要更新内容包括：消息体新增搜索高亮功能；WebSocket消息体支持预览；安卓ROOT系统可自动安装系统证书；优化Socket自动清理机制防止资源占用；调整UI菜单；修复脚本fetch API请求问题、HTTP2包大小错误、请求映射错误、手机端历史记录未自动保存等多项bug，并解决安卓设备部分闪退问题。该版本已在iOS App Store和Google Play商店上架。  </p>
 <h1 id="7-mihomo-v11914">7. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.14">mihomo v1.19.14</a></h1>
 <p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.  </p>
 <p>本次更新主要包含以下内容：  </p>
 <p>新功能：<br />
-- 支持TUN模式下通过direct发送ping请求<br />
-- 新增客户端和服务器的mTLS支持（代理端支持certificate和private-key，监听端支持client-auth-type和client-auth-cert）<br />
-- 支持mieru 0-RTT握手<br />
-- 移除hy1/hy2/tuic出站的ca和ca-str参数，改用fingerprint<br />
-- 支持AmneziaWG v2.0<br />
-- 新增tun的disable-icmp-forwarding选项<br />
-- 支持ss客户端/服务器的kcptun插件  </p>
+1. 支持TUN模式下通过direct发送ping请求<br />
+2. 为客户端和服务端添加mTLS支持（代理支持certificate和private-key，监听器支持client-auth-type和client-auth-cert）<br />
+3. 支持mieru 0-RTT握手<br />
+4. 在hy1/hy2/tuic出站中移除ca和ca-str，改用fingerprint<br />
+5. 支持AmneziaWG v2.0<br />
+6. 为tun添加disable-icmp-forwarding选项<br />
+7. 支持ss客户端/服务器的kcptun插件  </p>
 <p>注意事项：<br />
-- macOS用户需注意Go 1.25不再支持macOS 11，建议macOS 11用户下载go124标签版本，macOS 10.15用户下载go122标签版本，macOS 10.13用户下载go120标签版本<br />
-- amd64平台的-amd64和-amd64-compatible版本已弃用，将使用-amd64-v1/-v2/-v3标记CPU级别  </p>
-<p>BUG修复：<br />
-- 修复服务器mux连接未关闭、ntp时间方法未传递给ss2022客户端、vision读取过滤器不完整等22个问题  </p>
+1. Go 1.25不再支持macOS 11，建议用户根据系统版本下载对应标签的二进制文件<br />
+2. 对于amd64平台，已弃用-amd64和-amd64-compatible版本，改用-amd64-v1/v2/v3标记CPU级别  </p>
+<p>错误修复：<br />
+修复了包括服务器mux连接未关闭、ntp时间方法未传递给ss2022客户端、vision读取过滤不完整、tuic服务器goroutine泄漏、xudp服务器源地址丢失、数据竞争等20多个问题。  </p>
 <p>维护更新：<br />
-- 优化vision代码实现、清理ntp代码、移除gopsutil依赖、更新gvisor等多项代码维护工作<br />
-- 更新多个依赖库版本  </p>
-<p>完整变更日志可参考GitHub发布页。  </p>
+1. 清理优化vision、ntp、dns客户端等代码<br />
+2. 更新依赖库<br />
+3. 改进内存使用效率<br />
+4. 优化vless加密代码风格<br />
+5. 增强防御性编程<br />
+6. 简化多个功能模块的实现  </p>
+<p>完整变更日志可查看GitHub版本比较链接。  </p>
 <h1 id="8-servers-2025925">8. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.9.25">servers 2025.9.25</a></h1>
 <p>Model Context Protocol Servers  </p>
-<p>版本v2025.9.25发布摘要：<br />
-1. 更新了四个核心软件包：<br />
-   - @modelcontextprotocol/server-everything@2025.9.25<br />
-   - @modelcontextprotocol/server-memory@2025.9.25<br />
-   - mcp-server-git@2025.9.25<br />
-   - mcp-server-time@2025.9.25<br />
-2. 所有更新包版本号与发布版本号一致（2025.9.25）  </p>
+<p>版本v2025.9.25发布，更新了以下软件包：<br />
+@modelcontextprotocol/server-everything@2025.9.25<br />
+@modelcontextprotocol/server-memory@2025.9.25<br />
+mcp-server-git@2025.9.25<br />
+mcp-server-time@2025.9.25  </p>
+<h1 id="9-fit-framework-v353">9. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/v3.5.3">fit-framework v3.5.3</a></h1>
+<p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。  </p>
+<p>FIT功能平台发布更新：优化了格式化模式，由@CodeCasterX贡献。特别感谢所有贡献者，包括@CodeCasterX。  </p>
   </article>
   
 <script>
