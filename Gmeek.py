@@ -169,7 +169,6 @@ class GMEEK():
             postBase["highlight"]=0
 
         self.renderHtml('post.html',postBase,{},post["htmlDir"])
-        # print("create postPage title=%s file=%s " % (issue["postTitle"],issue["htmlDir"]))
 
     def createPlistHtml(self):
         """
@@ -313,7 +312,8 @@ class GMEEK():
         post["htmlDir"]=gen_Html
         post["markdown"]=mdPath
         post["labels"]=labels
-        post["postTitle"]="%s %s" % (self.decimal_to_hex(issue.number), issue.title)
+        # post["postTitle"]="%s %s" % (self.decimal_to_hex(issue.number), issue.title)
+        post["postTitle"]=issue.title # 评论需要根据标题搜索, 所以简单的就不修改标题了
         post["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(issue.number))
         post["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
         post["commentNum"]=issue.get_comments().totalCount
