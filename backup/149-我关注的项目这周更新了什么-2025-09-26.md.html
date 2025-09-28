@@ -1,128 +1,87 @@
 
   <article class="markdown-body">
-    <h1 id="1-cherry-studio-v161">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.1">cherry-studio v1.6.1</a></h1>
-<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新主要包含以下内容：  </p>
-<p>功能新增：<br />
-1. 新增AI SDK工具包、PaddleOCR OCR提供商支持、知识库重构、自定义窗口控制功能<br />
-2. 增加Claude Code工作流、Anthropic OAuth设置界面、快捷重命名话题功能<br />
-3. 新增ByteDance/Ideogram模型提供商LOGO、文件上传支持、终端命令增强<br />
-4. 集成HeroUI和Tailwind CSS样式库、Perplexity SDK支持  </p>
-<p>优化改进：<br />
-1. 增强MCPService日志和错误处理、改进侧边栏响应式设计<br />
-2. 优化翻译功能粘贴处理、笔记拖拽排序行为<br />
-3. 重构消息组件、导航栏按钮模块化<br />
-4. 改进WebviewService用户代理处理、错误消息解析  </p>
-<p>问题修复：<br />
-1. 修复无限状态更新循环、YAML前端内容处理<br />
-2. 修正代码工具工作目录、API密钥提示<br />
-3. 解决笔记侧边栏功能问题、翻译助手内容处理<br />
-4. 修复SVG代码块显示、主题语言设置  </p>
-<p>CI/CD改进：<br />
-1. 新增自动i18n工作流、格式检查<br />
-2. 优化Claude翻译工作流、PR检查条件<br />
-3. 添加合并分支删除工作流  </p>
-<p>新贡献者：<br />
-@Bobholamovic @33671 等10位开发者首次贡献  </p>
-<p>版本更新：<br />
-从v1.5.11升级至v1.6.1  </p>
-<h1 id="2-dify-190">2. <a href="https://github.com/langgenius/dify/releases/tag/1.9.0">dify 1.9.0</a></h1>
+    <h1 id="1-dify-190">1. <a href="https://github.com/langgenius/dify/releases/tag/1.9.0">dify 1.9.0</a></h1>
 <p>Production-ready platform for agentic workflow development.  </p>
-<p>Dify 1.9.0 引入了两大核心功能：知识流水线和基于队列的图引擎。  </p>
-<p>知识流水线采用模块化设计，提供可视化节点编排界面，支持：<br />
-1. 灵活组合文档处理流程，支持快速启用官方模板和自定义DSL导入导出<br />
-2. 通过插件市场集成多样化数据源（本地文件/在线文档/云盘/爬虫）和处理工具<br />
-3. 新增Q&amp;A分块策略和图片提取功能，支持混合文本图像输出<br />
-4. 提供单步调试能力，可查看中间变量和Markdown预览<br />
-5. 支持一键迁移旧版知识库  </p>
-<p>基于队列的图引擎改进包括：<br />
-1. 统一队列调度模型，优化并行任务管理<br />
-2. 支持任意节点启动执行和流式响应协调<br />
-3. 新增命令机制实现外部控制（暂停/终止）<br />
-4. 通过GraphEngineLayer插件层扩展监控能力  </p>
-<p>升级注意事项：<br />
-- 必须执行数据源凭证迁移命令<br />
-- 容器部署需备份数据后升级<br />
-- 源码部署需更新依赖并运行迁移脚本  </p>
-<p>未来计划将增强调试工具、智能调度、多模态支持等功能。该版本主要聚焦架构改进，包含200+项代码修复和优化，涉及安全增强、性能调优和UI改进等方面。  </p>
-<h1 id="3-fit-framework-v353">3. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/v3.5.3">fit-framework v3.5.3</a></h1>
-<p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。  </p>
-<p>FIT 功能平台更新：优化了格式模式（由@CodeCasterX贡献，详见PR #305）。特别感谢本期所有贡献者，包括@CodeCasterX。  </p>
-<h1 id="4-powertoys-v0942">4. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.94.2">PowerToys v0.94.2</a></h1>
+<p>Dify 1.9.0 引入了两项核心功能：知识管道和基于队列的图引擎。  </p>
+<p>知识管道提供模块化、可扩展的工作流，重塑文档处理方式。主要特性包括：可视化节点编排系统、模板与DSL支持、多样化数据源集成（本地文件/在线文档/云盘/爬虫）、新增问答处理器插件、图片提取与检索功能、测试运行与调试支持、一键迁移旧版知识库。该架构解决了数据源整合受限、关键元素缺失、分块效果不佳等RAG痛点，使知识管理更透明可调试。  </p>
+<p>基于队列的图引擎优化了工作流并行执行，核心改进包含：统一队列调度模型、灵活执行起点设置、流处理组件ResponseCoordinator、命令机制（暂停/终止）、GraphEngineLayer插件层。新引擎通过任务队列管理和自动扩缩容WorkerPool，解决了分支状态管理难、调试信息不足、执行逻辑僵化等问题。  </p>
+<p>升级需注意：必须运行迁移脚本转换数据源凭证，Docker和源码部署均有详细步骤。新版本还修复了250余项问题，涉及类型安全、UI优化、API路由等，并迎来35位新贡献者。未来计划包括可视化调试工具、智能调度、更完整命令支持等增强功能。  </p>
+<p>该版本聚焦架构稳定性与正确性，为多模态检索、企业级治理等功能奠定基础。  </p>
+<h1 id="2-powertoys-v0942">2. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.94.2">PowerToys v0.94.2</a></h1>
 <p>Microsoft PowerToys is a collection of utilities that help you customize Windows and streamline everyday tasks  </p>
-<p>这是针对v0.94.2版本的补丁更新，主要修复了影响稳定性的重要问题。该版本解决了安装程序缺少vcruntime依赖项的错误，该错误会导致安装失败并出现"Failed to load SilentFilesInUseBAFunction.dll"的引导程序故障，现已恢复通过GitHub、winget和微软商店的正常安装功能。  </p>
-<p>同时提供了各版本安装文件的sha256校验哈希值：<br />
-- 用户级x64版本：CE665485...BF3B003<br />
-- 用户级ARM64版本：1AD77D7D...F7E1B55<br />
-- 全局安装x64版本：A0C2A2E2...E7CEBB8B  <br />
-- 全局安装ARM64版本：2E59B5EB...AA67AF20  </p>
-<p>完整版本说明可参考v0.94.0的发布文档。  </p>
-<h1 id="5-subs-check-v141">5. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.1">subs-check v1.4.1</a></h1>
-<p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
-<p>更新日志：<br />
-1. 更新mihomo至v1.19.14版本<br />
-2. 更新sub-store至2.20.25版本  </p>
-<h1 id="6-datafaker-251">6. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.1">datafaker 2.5.1</a></h1>
-<p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
-<p>本次更新主要包含以下内容：  </p>
-<ol>
-<li>功能改进：  </li>
-<li>新增白名单条件使用功能（@snuyanzin）  </li>
-<li>
-<p>更新波兰语地区文件，添加国家电话区号（@kopernic-pl）  </p>
-</li>
-<li>
-<p>问题修复：  </p>
-</li>
-<li>修复faker.text().text()方法的参数问题（@asolntsev）  </li>
-<li>修复土耳其语地区测试用例中可能存在的用户名空格问题（@snuyanzin）  </li>
-<li>修复弃用警告中缺失的链接（@bodiam）  </li>
-<li>
-<p>停止在内部使用Internet#username()方法（@kingthorin）  </p>
-</li>
-<li>
-<p>新贡献者：  </p>
-</li>
-<li>@maxandersen首次贡献  </li>
-<li>@kopernic-pl首次贡献  </li>
-</ol>
-<p>版本从2.5.0升级至2.5.1。  </p>
-<h1 id="7-rclone-v1711">7. <a href="https://github.com/rclone/rclone/releases/tag/v1.71.1">rclone v1.71.1</a></h1>
-<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files  </p>
-<p>rclone v1.71.1版本发布。完整变更内容请查看更新日志。  </p>
-<h1 id="8-proxypin-v121">8. <a href="https://github.com/wanghongenpin/proxypin/releases/tag/v1.2.1">proxypin v1.2.1</a></h1>
+<p>本次发布的是PowerToys v0.94.2修补版本，主要修复了v0.94.2中影响稳定性的关键问题。完整版本说明请参考v0.94.0。  </p>
+<p>主要变更：<br />
+1. 修复了安装程序缺失vcruntime依赖项的问题，该问题曾导致安装失败并出现"Failed to load SilentFilesInUseBAFunction.dll"错误<br />
+2. 该修复使得从GitHub、winget和微软商店的安装恢复正常  </p>
+<p>提供了四种安装包的哈希校验值：<br />
+- 用户级安装：x64和ARM64架构<br />
+- 系统级安装：x64和ARM64架构<br />
+每个安装包都提供了对应的文件名和SHA256哈希值用于验证文件完整性。  </p>
+<h1 id="3-proxypin-v121">3. <a href="https://github.com/wanghongenpin/proxypin/releases/tag/v1.2.1">proxypin v1.2.1</a></h1>
 <p>Open source free capture HTTP S traffic software ProxyPin, supporting full platform systems  </p>
 <p>ProxyPin应用V1.2.1版本更新内容：  </p>
-<p>iOS和安卓下载地址：<br />
-- iOS版可在App Store搜索ProxyPin下载<br />
-- 安卓版可在Google Play商店下载  </p>
-<p>主要更新功能：<br />
-1. 消息体新增搜索高亮功能<br />
-2. WebSocket消息增加预览功能<br />
+<p>iOS和安卓下载地址已提供。主要更新包括：<br />
+1. 新增消息体搜索高亮功能<br />
+2. WebSocket消息体增加预览功能<br />
 3. 安卓ROOT系统支持自动安装系统证书<br />
 4. 优化Socket自动清理机制，解决退出时资源占用问题<br />
-5. 调整了UI菜单布局  </p>
-<p>Bug修复：<br />
-1. 修复脚本fetch API部分请求问题<br />
-2. 修正HTTP2包大小计算错误<br />
-3. 修复请求映射Bug<br />
-4. 解决手机端历史记录未自动保存问题<br />
-5. 修复安卓端部分闪退情况  </p>
-<p>（注：更新内容中英文版本一致）  </p>
-<h1 id="9-mihomo-v11914">9. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.14">mihomo v1.19.14</a></h1>
+5. 调整了UI菜单布局<br />
+6. 修复了脚本fetch API的部分请求bug<br />
+7. 修正了HTTP2包大小计算不准确的问题<br />
+8. 修复请求映射功能bug<br />
+9. 解决了手机端历史记录未自动保存的问题<br />
+10. 修复了安卓端的部分闪退情况  </p>
+<p>该版本重点优化了消息展示、系统兼容性和稳定性，解决了多个影响用户体验的关键问题。  </p>
+<h1 id="4-cherry-studio-v162">4. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.2">cherry-studio v1.6.2</a></h1>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
+<p>本次更新主要包含以下改进和修复：  </p>
+<ol>
+<li>代码修复：  </li>
+<li>修复了斜杠换行问题  </li>
+<li>修复了Gemini通过代理调用时的AI_API错误  </li>
+<li>修正了deepseek模型检测的正则表达式模式  </li>
+<li>
+<p>修复了退出模型选择菜单时输入文本未清除的问题  </p>
+</li>
+<li>
+<p>功能优化：  </p>
+</li>
+<li>改进了网络搜索中对被屏蔽域名的条件处理  </li>
+<li>增强了文件操作期间的内容保护机制  </li>
+<li>改进了笔记管理的本地状态和文件处理  </li>
+<li>
+<p>优化了知识和网络搜索工具的描述  </p>
+</li>
+<li>
+<p>界面调整：  </p>
+</li>
+<li>移除了ContentContainer中不必要的内边距  </li>
+<li>修复了快速助手头像和搜索功能  </li>
+<li>
+<p>修复了ErrorBlock组件移除时的事件传播问题  </p>
+</li>
+<li>
+<p>其他：  </p>
+</li>
+<li>重构了部分工具模块  </li>
+<li>提升了整体稳定性  </li>
+</ol>
+<h1 id="5-mihomo-v11914">5. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.14">mihomo v1.19.14</a></h1>
 <p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.  </p>
-<p>本次更新主要包含以下内容：  </p>
+<p>本次更新主要内容包括：  </p>
 <p>功能新增：<br />
-1. 支持TUN模式下通过direct发送ping请求<br />
-2. 新增客户端和服务器的mTLS支持（代理配置增加certificate和private-key选项，监听器配置增加client-auth-type和client-auth-cert选项）<br />
-3. 支持mieru的0-RTT握手<br />
-4. 移除hy1/hy2/tuic出站配置中的ca和ca-str选项，改用fingerprint替代<br />
-5. 支持AmneziaWG v2.0<br />
-6. 为TUN增加disable-icmp-forwarding选项<br />
-7. 支持SS客户端/服务器的kcptun插件  </p>
-<p>注意事项：<br />
-1. macOS用户需注意：Go 1.25不再支持macOS 11，建议macOS 11用户下载带go124标签的二进制文件，macOS 10.15用户下载go122标签，macOS 10.13用户下载go120标签<br />
-2. 对于amd64平台，-amd64和-amd64-compatible版本已弃用，改用-amd64-v1/-amd64-v2/-amd64-v3标记CPU级别  </p>
+1. tun模式支持直接发送ping请求<br />
+2. 客户端和服务端新增mTLS支持<br />
+3. 支持mieru 0-RTT握手协议<br />
+4. hy1/hy2/tuic出站移除ca/ca-str配置项，改用fingerprint<br />
+5. 新增AmneziaWG v2.0支持<br />
+6. tun新增disable-icmp-forwarding选项<br />
+7. ss客户端/服务端支持kcptun插件  </p>
+<p>系统兼容性说明：<br />
+- macOS 11用户需下载go124标签版本<br />
+- macOS 10.15用户需下载go122标签版本<br />
+- macOS 10.13用户需下载go120标签版本<br />
+- amd64平台改用-amd64-v1/v2/v3标记CPU级别  </p>
 <p>BUG修复：<br />
 1. 修复服务器mux连接未关闭问题<br />
 2. 修复ss2022客户端未传递ntp时间方法问题<br />
@@ -132,34 +91,46 @@
 6. 修复xudp服务器源地址丢失问题<br />
 7. 修复数据包监听器中的snat键问题<br />
 8. 修复wintun dll加载失败时的panic问题<br />
-9. 修复vision读取中可能出现的数据位置错误问题<br />
-10. 修复更新UI中可能的"invalid cross-device link"错误问题<br />
+9. 修复vision读取中可能的数据定位错误<br />
+10. 修复更新UI时可能出现的"invalid cross-device link"错误<br />
 11. 修复SyscallVectorisedPacketWriter未处理地址类型问题<br />
 12. 修复resolveUDPAddr中ip4p端口未应用问题<br />
 13. 修复ws上vless加密使用vision的限制问题<br />
-14. 修复darwin上的数据竞争问题<br />
+14. 修复darwin平台数据竞争问题<br />
 15. 修复reality不应检查chacha的问题<br />
-16. 修复proxy-providers的exclude-filter中无法使用反引号分隔多个正则表达式的问题<br />
+16. 修复proxy-providers排除过滤器中正则表达式分隔问题<br />
 17. 修复reality服务器未应用ntp问题<br />
 18. 修复获取localAddr错误问题<br />
-19. 修复多个竞态条件问题<br />
-20. 修复vision中reshape缓冲区可能过长问题<br />
-21. 修复本地文件提供商的自动更新问题  </p>
+19. 修复race代码问题<br />
+20. 修复vision中缓冲区重塑可能过长问题<br />
+21. 修复本地文件提供程序自动更新问题  </p>
 <p>维护更新：<br />
-1. 清理和优化vision、ntp、vless等模块代码<br />
-2. 更新依赖库和组件<br />
-3. 改进内存使用效率<br />
-4. 增强防御性编程<br />
-5. 简化多个函数实现<br />
-6. 同步代码风格<br />
-7. 优化handwritten addons解析<br />
-8. 改进fingerprint验证器处理非叶证书的能力<br />
-9. 提升smux中的WriteBuffers支持<br />
-10. 更新gvisor和utls等依赖库  </p>
-<p>完整变更日志请参考GitHub发布页面。  </p>
+1. 清理vision、ntp、dns客户端等代码<br />
+2. 更新gvisor、utls等依赖库<br />
+3. 优化内存使用和性能<br />
+4. 改进错误处理和防御性编程<br />
+5. 同步vless加密代码风格<br />
+6. 简化多处代码实现<br />
+7. 改进测试覆盖<br />
+8. 更新anytls到v0.0.11版本<br />
+9. 优化各种内部实现细节  </p>
+<h1 id="6-fit-framework-v353">6. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/v3.5.3">fit-framework v3.5.3</a></h1>
+<p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。  </p>
+<p>FIT功能平台更新：优化了格式模式，由@CodeCasterX贡献（PR#305）。特别感谢所有贡献者，包括@CodeCasterX。  </p>
+<h1 id="7-subs-check-v141">7. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.1">subs-check v1.4.1</a></h1>
+<p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
+<p>更新记录：<br />
+1. 升级mihomo至版本v1.19.14<br />
+2. 升级sub-store至版本2.20.25  </p>
+<h1 id="8-datafaker-251">8. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.1">datafaker 2.5.1</a></h1>
+<p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
+<p>本次更新主要包含以下改动：1. 新增白名单条件使用功能；2. 更新波兰地区电话区号；3. 修复text方法参数问题；4. 补充弃用警告的缺失链接；5. 修复土耳其语言环境下的测试问题；6. 停止内部使用Internet#username()方法。两位新贡献者首次提交代码：@maxandersen和@kopernic-pl。完整变更日志可查看2.5.0到2.5.1版本的比较。  </p>
+<h1 id="9-rclone-v1711">9. <a href="https://github.com/rclone/rclone/releases/tag/v1.71.1">rclone v1.71.1</a></h1>
+<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files  </p>
+<p>rclone发布v1.71.1版本更新。完整变更详情请查看更新日志。  </p>
 <h1 id="10-servers-2025925">10. <a href="https://github.com/modelcontextprotocol/servers/releases/tag/2025.9.25">servers 2025.9.25</a></h1>
 <p>Model Context Protocol Servers  </p>
-<p>版本v2025.9.25发布更新，包含以下软件包升级：@modelcontextprotocol/server-everything@2025.9.25、@modelcontextprotocol/server-memory@2025.9.25、mcp-server-git@2025.9.25以及mcp-server-time@2025.9.25。  </p>
+<p>版本v2025.9.25发布，更新了以下软件包：@modelcontextprotocol/server-everything、@modelcontextprotocol/server-memory、mcp-server-git和mcp-server-time，版本号均为2025.9.25。  </p>
   </article>
   
 <script>
