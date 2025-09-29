@@ -128,6 +128,27 @@
     create 0640 root root  
 }  
 </code></pre></div></div>
+<h3 id="_2">测试配置</h3>
+<ul>
+<li>
+<p>检查语法（debug模式，仅校验不实际轮转）：<br />
+  <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>logrotate -d /path/to/your_rule_file  
+</code></pre></div></div></p>
+</li>
+<li>
+<p>强制执行轮转（真正进行日志分割）：<br />
+  <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>logrotate -f /path/to/your_rule_file  
+</code></pre></div></div></p>
+</li>
+<li>
+<p>加详细输出（可选）：<br />
+  <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>logrotate -vf /path/to/your_rule_file  
+</code></pre></div></div></p>
+</li>
+</ul>
   </article>
   
 <script>

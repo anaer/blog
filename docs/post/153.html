@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-29 17:30:51</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-29 17:31:02</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-29 17:33:22</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了logrotate的配置参数，包括日志轮转的时间频率（如daily、weekly、monthly、yearly），历史文件的保留策略（rotate N、maxage DAYS），文件大小限制（size SIZE），压缩选项（compress、nocompress、delaycompress），以及日志文件的创建和邮件通知设置（create、mail、nomail）。此外，还包括日志文件的存放位置（olddir、noolddir）、文件名格式（dateext、dateformat）和对特定扩展名的处理（tabooext）。最后，提供了一个实际的配置示例。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了logrotate的配置参数及其作用，包括日志的轮转频率、历史文件的保留数量、日志大小限制、压缩选项、邮件通知、文件创建权限等。配置实例展示了如何设置日志文件的轮转规则。测试配置的方法包括检查语法和强制执行轮转。没有明显的错误观点，但需要注意的是，使用copytruncate时应确保日志文件的完整性。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -272,6 +272,27 @@ pre {
     create 0640 root root  
 }  
 </code></pre></div></div>
+<h3 id="_2">测试配置</h3>
+<ul>
+<li>
+<p>检查语法（debug模式，仅校验不实际轮转）：<br />
+  <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>logrotate -d /path/to/your_rule_file  
+</code></pre></div></div></p>
+</li>
+<li>
+<p>强制执行轮转（真正进行日志分割）：<br />
+  <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>logrotate -f /path/to/your_rule_file  
+</code></pre></div></div></p>
+</li>
+<li>
+<p>加详细输出（可选）：<br />
+  <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>logrotate -vf /path/to/your_rule_file  
+</code></pre></div></div></p>
+</li>
+</ul>
   </article>
   
 <script>

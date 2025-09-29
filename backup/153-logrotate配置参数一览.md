@@ -45,3 +45,21 @@
     create 0640 root root
 }
 ```
+
+
+### 测试配置
+
+- 检查语法（debug模式，仅校验不实际轮转）：
+  ```
+  logrotate -d /path/to/your_rule_file
+  ```
+
+- 强制执行轮转（真正进行日志分割）：
+  ```
+  logrotate -f /path/to/your_rule_file
+  ```
+
+- 加详细输出（可选）：
+  ```
+  logrotate -vf /path/to/your_rule_file
+  ```
