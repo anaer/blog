@@ -1,0 +1,157 @@
+
+  <article class="markdown-body">
+    <h3 id="logrotate">logrotate配置参数一览</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>daily</td>
+<td>日志每天轮转</td>
+</tr>
+<tr>
+<td>weekly</td>
+<td>日志每周轮转</td>
+</tr>
+<tr>
+<td>monthly</td>
+<td>日志每月轮转</td>
+</tr>
+<tr>
+<td>yearly</td>
+<td>日志每年轮转</td>
+</tr>
+<tr>
+<td>rotate N</td>
+<td>仅保留 N 个历史文件，超过自动删除</td>
+</tr>
+<tr>
+<td>maxage DAYS</td>
+<td>仅保留最近 DAYS 天内日志</td>
+</tr>
+<tr>
+<td>size SIZE</td>
+<td>日志达到指定大小时轮转（如：50M, 500k）</td>
+</tr>
+<tr>
+<td>compress</td>
+<td>对旧日志进行压缩</td>
+</tr>
+<tr>
+<td>nocompress</td>
+<td>不压缩轮转后的旧日志</td>
+</tr>
+<tr>
+<td>delaycompress</td>
+<td>最近一次轮转日志暂不压缩，等下次轮转时再压缩</td>
+</tr>
+<tr>
+<td>missingok</td>
+<td>日志文件不存在时不报错</td>
+</tr>
+<tr>
+<td>notifempty</td>
+<td>如果日志为空则不轮转</td>
+</tr>
+<tr>
+<td>ifempty</td>
+<td>即使日志为空也轮转</td>
+</tr>
+<tr>
+<td>create MODE OWNER GROUP</td>
+<td>以指定权限/用户/组创建新日志文件</td>
+</tr>
+<tr>
+<td>copytruncate</td>
+<td>针对被进程占用的日志，先拷贝后截断</td>
+</tr>
+<tr>
+<td>nocopytruncate</td>
+<td>备份日志但不截断</td>
+</tr>
+<tr>
+<td>mail ADDRESS</td>
+<td>轮转后的日志发送到指定邮箱</td>
+</tr>
+<tr>
+<td>nomail</td>
+<td>不发送备份到邮箱</td>
+</tr>
+<tr>
+<td>olddir DIR</td>
+<td>轮转文件移动到指定目录，须与当前日志同文件系统</td>
+</tr>
+<tr>
+<td>noolddir</td>
+<td>轮转文件与当前日志同目录</td>
+</tr>
+<tr>
+<td>dateext</td>
+<td>轮转后的日志文件名带日期后缀</td>
+</tr>
+<tr>
+<td>dateformat</td>
+<td>配合 dateext 使用，自定义日期格式（如 -%Y%m%d%s）</td>
+</tr>
+<tr>
+<td>tabooext [+] LIST</td>
+<td>指定不轮转某些扩展名的文件</td>
+</tr>
+<tr>
+<td>prerotate/endscript</td>
+<td>轮转前执行脚本（单独成行）</td>
+</tr>
+<tr>
+<td>postrotate/endscript</td>
+<td>轮转后执行脚本（单独成行）</td>
+</tr>
+<tr>
+<td>sharedscripts</td>
+<td>全部日志文件轮转完再统一执行一次脚本</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_1">配置实例</h3>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>/log/*.log  
+{  
+    daily  
+    rotate 3  
+    nocompress  
+    missingok  
+    notifempty  
+    copytruncate  
+    create 0640 root root  
+}  
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
