@@ -15,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X4B 导航</title>
+<title>导航</title>
 
 
 </head>
@@ -98,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X4B 导航</a>
+    <a style="font-size:18px">导航</a>
 </h1>
 
 <div class="title-right">
@@ -133,10 +133,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-02-21 09:44:19</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-25 12:15:13</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-29 16:57:44</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了一个包含多种开发资源、在线工具、娱乐资源、软件服务、IP工具、临时邮箱、免费域名、加密解密工具、AI工具、影视资源等的综合性网站列表。该列表提供了多种实用工具和资源链接，适合开发者与普通用户使用。需要注意的是，部分影视资源可能涉及版权问题，用户在使用时应遵循相关法律法规。
+    <strong>AI总结:</strong> 本文介绍了各种常用的开发资源、在线文档、社交媒体接口、支付文档、云服务文档、搜索引擎、娱乐资源、软件服务、在线工具、IP工具、临时邮箱、免费域名、正则表达式工具、下载工具、加密解密工具、浏览器插件、在线订阅转换工具、AI工具、影视资源和其他相关服务。文本中提到的某些工具和服务可能存在版权或使用限制，使用时需遵循相关法律法规。此外，部分影视资源可能涉及盗版内容，用户需谨慎使用。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -466,6 +466,7 @@ pre {
 <ul>
 <li><a href="https://tts.ciallo.de/">TTS文本转语音</a>  </li>
 <li><a href="https://tts.neolovec.com/">语音合成</a>  </li>
+<li><a href="https://t.leftsite.cn/">文本转语音</a> 支持导入爱阅记  </li>
 </ul>
 <h2 id="_16">其他</h2>
 <ul>
@@ -589,8 +590,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
