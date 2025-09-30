@@ -92,3 +92,4 @@ blocktype = unreachable
 ## 参考链接
 
 [Fail2Ban 教程](https://github.com/wangdoc/ssh-tutorial/blob/main/docs/fail2ban.md)
+[Fail2ban推荐配置脚本](https://idcflare.com/t/topic/17588)

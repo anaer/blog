@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X9 Ubuntu安装fail2ban</title>
+<title>Ubuntu安装fail2ban</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/high-contrast.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X9 Ubuntu安装fail2ban</a>
+    <a style="font-size:18px">Ubuntu安装fail2ban</a>
 </h1>
 
 <div class="title-right">
@@ -135,82 +137,126 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2023-11-03 13:59:18</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-21 14:06:03</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-30 13:14:09</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了在Ubuntu 20.04.6 LTS系统上安装和配置Fail2Ban的步骤。首先，使用apt-get命令安装Fail2Ban，并通过service和systemctl命令查询服务状态。接着，使用fail2ban-client命令查看启用的规则及其详情，并提供了重新加载配置、手动解禁IP的命令。配置文件位于/etc/fail2ban，特别是对sshd的配置进行了详细说明，包括启用状态、端口、过滤器等设置。此外，介绍了如何添加自定义动作bark.conf。需要注意的是，文中提到的“bark”动作的具体实现和效果未详细说明，可能导致用户对其功能产生误解。
+</div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">安装</h2><a id="user-content-安装" class="anchor" aria-label="Permalink: 安装" href="#安装"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>系统: Ubuntu 20.04.6 LTS</p>
-<div class="highlight highlight-source-shell"><pre>apt-get install fail2ban</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">命令</h2><a id="user-content-命令" class="anchor" aria-label="Permalink: 命令" href="#命令"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h3 class="heading-element">查询服务状态</h3><a id="user-content-查询服务状态" class="anchor" aria-label="Permalink: 查询服务状态" href="#查询服务状态"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>service fail2ban status
-systemctl status fail2ban.service</pre></div>
-<div class="markdown-heading"><h3 class="heading-element">查询状态</h3><a id="user-content-查询状态" class="anchor" aria-label="Permalink: 查询状态" href="#查询状态"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 查看启用的规则</span>
-<span class="pl-c"><span class="pl-c">#</span> fail2ban-client status</span>
-Status
-<span class="pl-k">|</span>- Number of jail:      1
-<span class="pl-s"><span class="pl-pds">`</span>- Jail list:   sshd</span>
-<span class="pl-s"></span>
-<span class="pl-s"><span class="pl-c"><span class="pl-c">#</span> 查看规则详情</span></span>
-<span class="pl-s"><span class="pl-c"><span class="pl-c">#</span> fail2ban-client status sshd</span></span>
-<span class="pl-s">Status <span class="pl-k">for</span> the jail: sshd</span>
-<span class="pl-s"><span class="pl-k">|</span>- Filter</span>
-<span class="pl-s"><span class="pl-k">|</span>  <span class="pl-k">|</span>- Currently failed: 0</span>
-<span class="pl-s"><span class="pl-k">|</span>  <span class="pl-k">|</span>- Total failed:     0</span>
-<span class="pl-s"><span class="pl-k">|</span>  <span class="pl-pds">`</span></span>- File list:        /var/log/auth.log
-<span class="pl-s"><span class="pl-pds">`</span>- Actions</span>
-<span class="pl-s">   <span class="pl-k">|</span>- Currently banned: 0</span>
-<span class="pl-s">   <span class="pl-k">|</span>- Total banned:     0</span>
-<span class="pl-s">   <span class="pl-pds">`</span></span>- Banned IP list:
 
-<span class="pl-c"><span class="pl-c">#</span> 重新加载配置</span>
-<span class="pl-c"><span class="pl-c">#</span> fail2ban-client reload</span>
+  <article class="markdown-body">
+    <h2 id="_1">安装</h2>
+<p>系统: Ubuntu 20.04.6 LTS  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>apt-get<span class="w"> </span>install<span class="w"> </span>fail2ban<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_2">命令</h2>
+<h3 id="_3">查询服务状态</h3>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>service<span class="w"> </span>fail2ban<span class="w"> </span>status<span class="w">  </span>
+systemctl<span class="w"> </span>status<span class="w"> </span>fail2ban.service<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_4">查询状态</h3>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="c1"># 查看启用的规则  </span>
+<span class="c1"># fail2ban-client status  </span>
+Status<span class="w">  </span>
+<span class="p">|</span>-<span class="w"> </span>Number<span class="w"> </span>of<span class="w"> </span>jail:<span class="w">      </span><span class="m">1</span><span class="w">  </span>
+<span class="sb">`</span>-<span class="w"> </span>Jail<span class="w"> </span>list:<span class="w">   </span>sshd<span class="w">  </span>
 
-<span class="pl-c"><span class="pl-c">#</span> 重新加载单个配置</span>
-<span class="pl-c"><span class="pl-c">#</span> fail2ban-client reload sshd</span>
+<span class="c1"># 查看规则详情  </span>
+<span class="c1"># fail2ban-client status sshd  </span>
+Status<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>jail:<span class="w"> </span>sshd<span class="w">  </span>
+<span class="p">|</span>-<span class="w"> </span>Filter<span class="w">  </span>
+<span class="p">|</span><span class="w">  </span><span class="p">|</span>-<span class="w"> </span>Currently<span class="w"> </span>failed:<span class="w"> </span><span class="m">0</span><span class="w">  </span>
+<span class="p">|</span><span class="w">  </span><span class="p">|</span>-<span class="w"> </span>Total<span class="w"> </span>failed:<span class="w">     </span><span class="m">0</span><span class="w">  </span>
+<span class="p">|</span><span class="w">  </span><span class="sb">`</span>-<span class="w"> </span>File<span class="w"> </span>list:<span class="w">        </span>/var/log/auth.log<span class="w">  </span>
+<span class="sb">`</span>-<span class="w"> </span>Actions<span class="w">  </span>
+<span class="w">   </span><span class="p">|</span>-<span class="w"> </span>Currently<span class="w"> </span>banned:<span class="w"> </span><span class="m">0</span><span class="w">  </span>
+<span class="w">   </span><span class="p">|</span>-<span class="w"> </span>Total<span class="w"> </span>banned:<span class="w">     </span><span class="m">0</span><span class="w">  </span>
+<span class="w">   </span><span class="sb">`</span>-<span class="w"> </span>Banned<span class="w"> </span>IP<span class="w"> </span>list:<span class="w">  </span>
 
-<span class="pl-c"><span class="pl-c">#</span> 手动解禁IP</span>
-<span class="pl-c"><span class="pl-c">#</span> fail2ban-client set sshd unbanip 192.168.1.1</span></pre></div>
-<div class="markdown-heading"><h2 class="heading-element">配置</h2><a id="user-content-配置" class="anchor" aria-label="Permalink: 配置" href="#配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>配置目录: <code>/etc/fail2ban</code></p>
-<p>修改sshd配置
-/etc/fail2ban/jail.d/sshd.conf</p>
-<div class="highlight highlight-source-shell"><pre>[sshd]
-enabled = <span class="pl-c1">true</span>
-mode   = normal
-port    = ssh
-filter  = sshd
-banaction = iptables
-            bark[name<span class="pl-k">=</span>sshd]
-backend = systemd
-maxretry = 2
-findtime = 1d
-bantime = 2w
-ignoreip = 127.0.0.1/8
-logpath = %(sshd_log)s
-<span class="pl-c"><span class="pl-c">#</span>backend = %(sshd_backend)s</span></pre></div>
-<p>添加bark.conf自定义action</p>
-<div class="highlight highlight-source-shell"><pre>vim /etc/fail2ban/action.d/bark.conf</pre></div>
-<div class="highlight highlight-source-shell"><pre>[Definition]
-norestored = 1
-actionban   = /usr/bin/python3 /root/script/bark.py fail2ban-<span class="pl-k">&lt;</span>name<span class="pl-k">&gt;</span> <span class="pl-k">&lt;</span>ip<span class="pl-k">&gt;</span>
-actionunban =
-actioncheck =
-actionstart =
-actionstop =
+<span class="c1"># 重新加载配置  </span>
+<span class="c1"># fail2ban-client reload  </span>
 
-[Init]
+<span class="c1"># 重新加载单个配置  </span>
+<span class="c1"># fail2ban-client reload sshd  </span>
 
-name = default
-blocktype = unreachable</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">参考链接</h2><a id="user-content-参考链接" class="anchor" aria-label="Permalink: 参考链接" href="#参考链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a href="https://github.com/wangdoc/ssh-tutorial/blob/main/docs/fail2ban.md">Fail2Ban 教程</a></p>
+<span class="c1"># 手动解禁IP  </span>
+<span class="c1"># fail2ban-client set sshd unbanip 192.168.1.1  </span>
+</code></pre></div></div>
+<h2 id="_5">配置</h2>
+<p>配置目录: <code>/etc/fail2ban</code>  </p>
+<p>修改sshd配置<br />
+/etc/fail2ban/jail.d/sshd.conf  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="o">[</span>sshd<span class="o">]</span><span class="w">  </span>
+<span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="w">  </span>
+<span class="nv">mode</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>normal<span class="w">  </span>
+<span class="nv">port</span><span class="w">    </span><span class="o">=</span><span class="w"> </span>ssh<span class="w">  </span>
+<span class="nv">filter</span><span class="w">  </span><span class="o">=</span><span class="w"> </span>sshd<span class="w">  </span>
+<span class="nv">banaction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>iptables<span class="w">  </span>
+<span class="w">            </span>bark<span class="o">[</span><span class="nv">name</span><span class="o">=</span>sshd<span class="o">]</span><span class="w">  </span>
+<span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>systemd<span class="w">  </span>
+<span class="nv">maxretry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="w">  </span>
+<span class="nv">findtime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>1d<span class="w">  </span>
+<span class="nv">bantime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>2w<span class="w">  </span>
+<span class="nv">ignoreip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">127</span>.0.0.1/8<span class="w">  </span>
+<span class="nv">logpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>%<span class="o">(</span>sshd_log<span class="o">)</span>s<span class="w">  </span>
+<span class="c1">#backend = %(sshd_backend)s  </span>
+</code></pre></div></div>
+<p>添加bark.conf自定义action<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>vim<span class="w"> </span>/etc/fail2ban/action.d/bark.conf<span class="w">  </span>
+</code></pre></div></div></p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="o">[</span>Definition<span class="o">]</span><span class="w">  </span>
+<span class="nv">norestored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w">  </span>
+<span class="nv">actionban</span><span class="w">   </span><span class="o">=</span><span class="w"> </span>/usr/bin/python3<span class="w"> </span>/root/script/bark.py<span class="w"> </span>fail2ban-&lt;name&gt;<span class="w"> </span>&lt;ip&gt;<span class="w">  </span>
+<span class="nv">actionunban</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
+<span class="nv">actioncheck</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
+<span class="nv">actionstart</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
+<span class="nv">actionstop</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
+
+<span class="o">[</span>Init<span class="o">]</span><span class="w">  </span>
+
+<span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>default<span class="w">  </span>
+<span class="nv">blocktype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>unreachable<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_6">参考链接</h2>
+<p><a href="https://github.com/wangdoc/ssh-tutorial/blob/main/docs/fail2ban.md">Fail2Ban 教程</a><br />
+<a href="https://idcflare.com/t/topic/17588">Fail2ban推荐配置脚本</a>  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/10.html" aria-label="Previous Page">0XA fail2ban配置nginx</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/8.html" aria-label="Next Page">0X8 Ubuntu部署WebDAV服务</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/8.html" aria-label="Previous Page">0X8 Ubuntu部署WebDAV服务</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/10.html" aria-label="Next Page">0XA fail2ban配置nginx</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -292,8 +338,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
