@@ -36,7 +36,7 @@
 5. ~~fastcopy~~ [官网](https://fastcopy.jp/)   大文件复制用的不多
 
 ### AI
-1. Cherry Studio [GitHub](https://github.com/CherryHQ/cherry-studio/releases)
+1. ~~Cherry Studio~~ [GitHub](https://github.com/CherryHQ/cherry-studio/releases) 用得少
 
 ### 压缩
 1. 7zip [官网](https://www.7-zip.org/)  [GitHub](https://github.com/ip7z/7zip/releases)
@@ -61,7 +61,7 @@
 
 ### 输入法
 1. InputTip输入法状态管理工具 [GitHub](https://github.com/abgox/InputTip)
-2. ~~weasel小狼毫输入法~~ [官网](https://rime.im/)
+2. weasel小狼毫输入法 [官网](https://rime.im/) 又用回来了
 
 ### 资源管理
 1. ~~MultiCommander~~  [官网](http://multicommander.com/downloads) 
@@ -108,15 +108,15 @@
 
 ### 抓包
 1. ProxyPin [GitHub](https://github.com/wanghongenpin/proxypin)
-2. Charles [官网](https://www.charlesproxy.com/latest-release/download.do)  [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
-3. Proxifier [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN) 代理工具 指定软件走代理
-4. Wireshark [官网](https://www.wireshark.org)
+2. ~~Charles~~ [官网](https://www.charlesproxy.com/latest-release/download.do)  [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
+3. ~~Proxifier~~ [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN) 代理工具 指定软件走代理
+4. ~~Wireshark~~ [官网](https://www.wireshark.org)
 
 ### 数据库
 1. HeidiSQL [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差
-2. SQLiteStudio [官网](https://sqlitestudio.pl/) SQLite客户端 表设计支持较好
-3. DB Browser for SQLite [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)
-5. Robo 3T [GitHub](https://github.com/Studio3T/robomongo/releases) 
+2. ~~SQLiteStudio~~ [官网](https://sqlitestudio.pl/) SQLite客户端 表设计支持较好
+3. ~~DB Browser for SQLite~~ [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)
+5. ~~Robo 3T~~ [GitHub](https://github.com/Studio3T/robomongo/releases) 
 5. ~~Compass~~ [GitHub](https://github.com/mongodb-js/compass/releases) 要求4.x
 6. ~~Navicat Premium Lite~~ [官网](https://www.navicat.com.cn/download/navicat-premium-lite) 需要注册登录了
 7. ~~SQLyog~~  [GitHub](https://github.com/webyog/sqlyog-community/wiki/Downloads) 网上有注册码 只支持mysql
