@@ -1,0 +1,161 @@
+
+  <article class="markdown-body">
+    <h2 id="systemctl">systemctl 常用命令</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">命令</th>
+<th style="text-align: left;">说明</th>
+<th style="text-align: left;">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">systemctl start [服务名]</td>
+<td style="text-align: left;">启动服务</td>
+<td style="text-align: left;">systemctl start nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl stop [服务名]</td>
+<td style="text-align: left;">停止服务</td>
+<td style="text-align: left;">systemctl stop nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl restart [服务名]</td>
+<td style="text-align: left;">重启服务</td>
+<td style="text-align: left;">systemctl restart nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl reload [服务名]</td>
+<td style="text-align: left;">重新加载服务配置</td>
+<td style="text-align: left;">systemctl reload nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl status [服务名]</td>
+<td style="text-align: left;">查看服务状态</td>
+<td style="text-align: left;">systemctl status nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl enable [服务名]</td>
+<td style="text-align: left;">开机自启服务</td>
+<td style="text-align: left;">systemctl enable nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl disable [服务名]</td>
+<td style="text-align: left;">取消开机自启</td>
+<td style="text-align: left;">systemctl disable nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl is-enabled [服务名]</td>
+<td style="text-align: left;">查看服务是否开机自启</td>
+<td style="text-align: left;">systemctl is-enabled nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl is-active [服务名]</td>
+<td style="text-align: left;">查看服务是否激活</td>
+<td style="text-align: left;">systemctl is-active nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl list-units --type=service</td>
+<td style="text-align: left;">列出所有已加载服务</td>
+<td style="text-align: left;">systemctl list-units --type=service</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl list-unit-files --type=service</td>
+<td style="text-align: left;">列出所有服务及自启状态</td>
+<td style="text-align: left;">systemctl list-unit-files --type=service</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl daemon-reload</td>
+<td style="text-align: left;">重新加载单元文件</td>
+<td style="text-align: left;">systemctl daemon-reload</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl mask [服务名]</td>
+<td style="text-align: left;">服务彻底禁止启动</td>
+<td style="text-align: left;">systemctl mask nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl unmask [服务名]</td>
+<td style="text-align: left;">取消服务mask限制</td>
+<td style="text-align: left;">systemctl unmask nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl reload-or-restart [服务名]</td>
+<td style="text-align: left;">配置变更自动重载或重启</td>
+<td style="text-align: left;">systemctl reload-or-restart nginx</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl --failed</td>
+<td style="text-align: left;">查看失败的服务</td>
+<td style="text-align: left;">systemctl --failed</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl get-default</td>
+<td style="text-align: left;">查看默认启动级别(target)</td>
+<td style="text-align: left;">systemctl get-default</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl set-default [target]</td>
+<td style="text-align: left;">设置默认启动级别(target)</td>
+<td style="text-align: left;">systemctl set-default multi-user.target</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl isolate [target]</td>
+<td style="text-align: left;">切换系统运行级别</td>
+<td style="text-align: left;">systemctl isolate rescue.target</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl poweroff</td>
+<td style="text-align: left;">关机</td>
+<td style="text-align: left;">systemctl poweroff</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl reboot</td>
+<td style="text-align: left;">重启</td>
+<td style="text-align: left;">systemctl reboot</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl suspend</td>
+<td style="text-align: left;">挂起</td>
+<td style="text-align: left;">systemctl suspend</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl hibernate</td>
+<td style="text-align: left;">休眠</td>
+<td style="text-align: left;">systemctl hibernate</td>
+</tr>
+<tr>
+<td style="text-align: left;">systemctl list-dependencies [服务名]</td>
+<td style="text-align: left;">查看服务依赖</td>
+<td style="text-align: left;">systemctl list-dependencies nginx</td>
+</tr>
+</tbody>
+</table>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
