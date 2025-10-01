@@ -135,81 +135,61 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-29 23:11:27</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-01 12:13:45</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-01 23:14:59</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件的版本更新情况。首先，anx-reader v1.8.1增强了AI功能并支持多种电子书格式，修复了AI服务问题并优化了翻译功能。其次，dify 1.9.1是一个用于代理工作流开发的平台，庆祝第1000位贡献者的加入，更新包括基础设施、管道与引擎、社区文档等多个方面的改进和修复。此外，InputTip v2025.10.01是一个输入法状态管理工具，建议使用zip版本而非exe版本，并进行了图标文件和样式命名规则的优化。整体上，更新内容涵盖了性能提升、错误修复和用户体验改进等方面。需要指出的是，未提及的具体错误观点可能在某些功能的描述上存在简化或遗漏，未详细说明每项修复的具体影响。
+    <strong>AI总结:</strong> 本文介绍了dify 1.9.1和anx-reader v1.8.1的主要更新内容。dify 1.9.1是一款用于代理工作流开发的生产就绪平台，庆祝其迎来第1000位贡献者，更新包括基础架构升级、API增强、多语言支持、安全改进、多个修复与优化以及UI/UX改进，并提供了详细的升级指南。anx-reader v1.8.1则增强了AI能力，支持多种电子书格式，修复了部分AI服务故障并优化了全文翻译功能。InputTip v2025.10.01是一个输入法状态管理工具，建议优先使用zip版本，并进行了图标文件和样式的调整。文本中没有明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-anx-reader-v181">1. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
+    <h1 id="1-dify-191">1. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<p>庆祝项目迎来第1000位贡献者！  </p>
+<p>主要更新内容：  </p>
+<p>【新功能】<br />
+1. 基础架构升级：Next.js升级至15.5版本，开发模式启用Turbopack加速构建<br />
+2. API增强：市场接口新增X-Dify-Version头信息，提升可追溯性<br />
+3. 多语言支持：内置流水线模板现支持多语言配置<br />
+4. 安全改进：新增安全报告工作流  </p>
+<p>【修复与优化】<br />
+1. 调试日志：修复图引擎中NodeRunRetryEvent日志失效问题<br />
+2. 并发处理：修复LLM节点在并行迭代中丢失Flask上下文的问题<br />
+3. 搜索功能：改进全文搜索名称可靠性和IME输入处理<br />
+4. 文件处理：修正远程文件Content-Disposition解析问题<br />
+5. 性能优化：改进httpx客户端连接池管理  </p>
+<p>【UI/UX改进】<br />
+1. 修复Turbopack下的CSS动画问题<br />
+2. 统一日语翻译术语<br />
+3. 优化时间显示的国际化支持<br />
+4. 修复验证码输入maxLength属性错误  </p>
+<p>【代码重构】<br />
+1. 组件导出标准化重构<br />
+2. 路由应用ns.route样式<br />
+3. 简化lint脚本命名<br />
+4. 添加缺失的按钮type属性  </p>
+<p>【升级指南】<br />
+1. Docker部署：<br />
+   - 备份配置和数据<br />
+   - 拉取最新代码<br />
+   - 执行标准升级流程  </p>
+<ol>
+<li>源码部署：  </li>
+<li>停止服务后更新代码  </li>
+<li>同步Python依赖  </li>
+<li>执行数据库迁移  </li>
+<li>重启服务  </li>
+</ol>
+<p>本次更新包含58项主要改动，由5位新贡献者参与。完整变更日志可通过项目链接查看。  </p>
+<h1 id="2-anx-reader-v181">2. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
 <p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.   </p>
 <p>1.8.1版本更新内容：<br />
-1. 修复了部分AI服务无法正常使用的问题<br />
+1. 修复了部分AI服务无法使用的故障<br />
 2. 对全文翻译功能的效果进行了优化改进  </p>
-<h1 id="2-dify-191">2. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
-<p>Production-ready platform for agentic workflow development.  </p>
-<p>恭喜项目迎来第1000位贡献者！  </p>
-<p>主要更新内容：  </p>
-<p>基础设施与DevOps：<br />
-- Next.js升级至15.5版本，开发模式启用Turbopack提升构建速度<br />
-- 市场API增加X-Dify-Version头信息增强可追溯性<br />
-- 新增安全报告工作流提升安全性  </p>
-<p>管道与引擎：<br />
-- 内置管道模板支持多语言配置<br />
-- 图引擎在流式传输时屏蔽响应节点避免意外输出  </p>
-<p>社区与文档：<br />
-- 优化AGENTS.md贡献指南<br />
-- 更新图引擎README文档提升可读性  </p>
-<p>修复与改进：<br />
-调试与日志：<br />
-- 修复图引擎调试日志记录问题<br />
-- 解决LLM节点并行迭代时Flask上下文丢失问题<br />
-- 修正agent-strategy提示生成器错误  </p>
-<p>搜索与解析：<br />
-- 修复全文搜索名称可靠性问题<br />
-- 改进搜索输入框IME合成处理<br />
-- 澄清OceanBase解析器选择说明  </p>
-<p>管道与工作流：<br />
-- 修复工作流变量分割逻辑<br />
-- 解决工具节点版本判断错误导致的兼容性问题<br />
-- 修正迭代会话变量同步问题<br />
-- 修复知识库节点空检索模型崩溃问题  </p>
-<p>文件处理：<br />
-- 修正远程文件名处理逻辑<br />
-- 同步文件上传器上下文与属性<br />
-- 修复数据库连接错误和模型列表刷新问题  </p>
-<p>性能与网络：<br />
-- 优化httpx客户端连接池<br />
-- 分布式插件自动升级任务<br />
-- 插件详情面板显示超过100个插件的问题  </p>
-<p>UI/UX：<br />
-- 解决翻译和UI一致性问题<br />
-- 修复Turbopack下的CSS动画问题<br />
-- 改进国际化支持和术语标准化  </p>
-<p>代码与组件：<br />
-- 重构组件导出保持一致性<br />
-- 应用新的路由装饰器风格<br />
-- 简化lint脚本命名  </p>
-<p>升级指南：<br />
-Docker Compose部署：<br />
-1. 备份配置文件和数据<br />
-2. 拉取最新代码<br />
-3. 停止服务并升级<br />
-4. 重新启动服务  </p>
-<p>源码部署：<br />
-1. 停止相关服务<br />
-2. 切换到发布分支<br />
-3. 更新Python依赖<br />
-4. 运行数据库迁移<br />
-5. 重启服务  </p>
-<p>新贡献者：<br />
-欢迎5位新贡献者加入项目，分别解决了连接池、翻译、组件类型、配置文件和变量查找等问题。  </p>
 <h1 id="3-inputtip-v20251001">3. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.10.01">InputTip v2025.10.01</a></h1>
 <p>一个输入法状态管理工具: 实时提示 鼠标方案/符号方案 + 状态切换 窗口触发/热键触发   </p>
-<p>InputTip更新说明：建议优先使用zip版本而非exe版本。主要变更包括：1) 图标文件需移至InputTipIcon目录；2) 调整了图片符号默认样式；3) 优化了默认图片符号和鼠标样式目录命名规则，如CN.png改为triangle-red.png等；4) 包含其他修复和优化内容。  </p>
+<p>InputTip更新说明：建议优先使用zip版本而非exe版本。主要变更包括：1)图标文件需移至InputTipIcon目录；2)调整图片符号默认样式；3)优化默认图片符号和鼠标样式目录命名（如CN.png改为triangle-red.png，CN目录改为oreo-red）；4)其他修复与优化。  </p>
   </article>
   
 <script>
