@@ -1,33 +1,71 @@
 
   <article class="markdown-body">
-    <h1 id="1-dify-191">1. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
-<p>Production-ready platform for agentic workflow development.  </p>
-<p>项目庆祝迎来第1000位贡献者，并发布1.9.1版本更新。  </p>
-<p>主要新特性：<br />
-1. 基础设施升级：Next.js升级至15.5版本，开发模式启用Turbopack提升构建速度<br />
-2. 新增API追踪头X-Dify-Version和安全报告工作流<br />
-3. 流水线引擎支持多语言配置，图表引擎优化流式响应处理  </p>
-<p>重要修复与改进：<br />
-1. 调试日志：修复Graph Engine调试日志失效、LLM节点并发上下文丢失等问题<br />
-2. 搜索功能：优化全文搜索名称可靠性、IME输入处理<br />
-3. 工作流：修复变量分割逻辑、工具节点版本判断错误等15项问题<br />
-4. 文件处理：修复远程文件解析、上传参数同步等8项问题<br />
-5. 性能优化：改进HTTP客户端池化、插件自动升级改用Redis缓存<br />
-6. 国际化：统一日文术语翻译，增强时间显示多语言支持  </p>
-<p>升级指南：<br />
-- Docker部署：需备份数据后更新代码重启服务<br />
-- 源码部署：需切换分支、更新依赖并执行数据库迁移  </p>
-<p>代码优化：<br />
-1. 重构组件导出和路由规范<br />
-2. 简化lint脚本<br />
-3. 修复类型错误和缺失导入<br />
-4. Python SDK新增27个API端点  </p>
-<p>本次更新共合并67个PR，修复多项关键问题，引入5位新贡献者。完整变更日志可查看GitHub对比。  </p>
-<h1 id="2-anx-reader-v181">2. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
+    <h1 id="1-anx-reader-v181">1. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
 <p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.   </p>
 <p>1.8.1版本更新内容：<br />
-1. 修复部分AI服务无法使用的问题<br />
-2. 优化全文翻译效果  </p>
+1. 修复了部分AI服务无法正常使用的问题<br />
+2. 对全文翻译功能的效果进行了优化改进  </p>
+<h1 id="2-dify-191">2. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<p>恭喜项目迎来第1000位贡献者！  </p>
+<p>主要更新内容：  </p>
+<p>基础设施与DevOps：<br />
+- Next.js升级至15.5版本，开发模式启用Turbopack提升构建速度<br />
+- 市场API增加X-Dify-Version头信息增强可追溯性<br />
+- 新增安全报告工作流提升安全性  </p>
+<p>管道与引擎：<br />
+- 内置管道模板支持多语言配置<br />
+- 图引擎在流式传输时屏蔽响应节点避免意外输出  </p>
+<p>社区与文档：<br />
+- 优化AGENTS.md贡献指南<br />
+- 更新图引擎README文档提升可读性  </p>
+<p>修复与改进：<br />
+调试与日志：<br />
+- 修复图引擎调试日志记录问题<br />
+- 解决LLM节点并行迭代时Flask上下文丢失问题<br />
+- 修正agent-strategy提示生成器错误  </p>
+<p>搜索与解析：<br />
+- 修复全文搜索名称可靠性问题<br />
+- 改进搜索输入框IME合成处理<br />
+- 澄清OceanBase解析器选择说明  </p>
+<p>管道与工作流：<br />
+- 修复工作流变量分割逻辑<br />
+- 解决工具节点版本判断错误导致的兼容性问题<br />
+- 修正迭代会话变量同步问题<br />
+- 修复知识库节点空检索模型崩溃问题  </p>
+<p>文件处理：<br />
+- 修正远程文件名处理逻辑<br />
+- 同步文件上传器上下文与属性<br />
+- 修复数据库连接错误和模型列表刷新问题  </p>
+<p>性能与网络：<br />
+- 优化httpx客户端连接池<br />
+- 分布式插件自动升级任务<br />
+- 插件详情面板显示超过100个插件的问题  </p>
+<p>UI/UX：<br />
+- 解决翻译和UI一致性问题<br />
+- 修复Turbopack下的CSS动画问题<br />
+- 改进国际化支持和术语标准化  </p>
+<p>代码与组件：<br />
+- 重构组件导出保持一致性<br />
+- 应用新的路由装饰器风格<br />
+- 简化lint脚本命名  </p>
+<p>升级指南：<br />
+Docker Compose部署：<br />
+1. 备份配置文件和数据<br />
+2. 拉取最新代码<br />
+3. 停止服务并升级<br />
+4. 重新启动服务  </p>
+<p>源码部署：<br />
+1. 停止相关服务<br />
+2. 切换到发布分支<br />
+3. 更新Python依赖<br />
+4. 运行数据库迁移<br />
+5. 重启服务  </p>
+<p>新贡献者：<br />
+欢迎5位新贡献者加入项目，分别解决了连接池、翻译、组件类型、配置文件和变量查找等问题。  </p>
+<h1 id="3-inputtip-v20251001">3. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.10.01">InputTip v2025.10.01</a></h1>
+<p>一个输入法状态管理工具: 实时提示 鼠标方案/符号方案 + 状态切换 窗口触发/热键触发   </p>
+<p>InputTip更新说明：建议优先使用zip版本而非exe版本。主要变更包括：1) 图标文件需移至InputTipIcon目录；2) 调整了图片符号默认样式；3) 优化了默认图片符号和鼠标样式目录命名规则，如CN.png改为triangle-red.png等；4) 包含其他修复和优化内容。  </p>
   </article>
   
 <script>
