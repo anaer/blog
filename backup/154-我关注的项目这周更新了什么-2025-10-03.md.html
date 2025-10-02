@@ -1,51 +1,42 @@
 
   <article class="markdown-body">
-    <h1 id="1-dify-191">1. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
-<p>Production-ready platform for agentic workflow development.  </p>
-<p>庆祝项目迎来第1000位贡献者！  </p>
-<p>主要更新内容：  </p>
-<p>【新功能】<br />
-1. 基础架构升级：Next.js升级至15.5版本，开发模式启用Turbopack加速构建<br />
-2. API增强：市场接口新增X-Dify-Version头信息，提升可追溯性<br />
-3. 多语言支持：内置流水线模板现支持多语言配置<br />
-4. 安全改进：新增安全报告工作流  </p>
-<p>【修复与优化】<br />
-1. 调试日志：修复图引擎中NodeRunRetryEvent日志失效问题<br />
-2. 并发处理：修复LLM节点在并行迭代中丢失Flask上下文的问题<br />
-3. 搜索功能：改进全文搜索名称可靠性和IME输入处理<br />
-4. 文件处理：修正远程文件Content-Disposition解析问题<br />
-5. 性能优化：改进httpx客户端连接池管理  </p>
-<p>【UI/UX改进】<br />
-1. 修复Turbopack下的CSS动画问题<br />
-2. 统一日语翻译术语<br />
-3. 优化时间显示的国际化支持<br />
-4. 修复验证码输入maxLength属性错误  </p>
-<p>【代码重构】<br />
-1. 组件导出标准化重构<br />
-2. 路由应用ns.route样式<br />
-3. 简化lint脚本命名<br />
-4. 添加缺失的按钮type属性  </p>
-<p>【升级指南】<br />
-1. Docker部署：<br />
-   - 备份配置和数据<br />
-   - 拉取最新代码<br />
-   - 执行标准升级流程  </p>
-<ol>
-<li>源码部署：  </li>
-<li>停止服务后更新代码  </li>
-<li>同步Python依赖  </li>
-<li>执行数据库迁移  </li>
-<li>重启服务  </li>
-</ol>
-<p>本次更新包含58项主要改动，由5位新贡献者参与。完整变更日志可通过项目链接查看。  </p>
-<h1 id="2-anx-reader-v181">2. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
-<p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.   </p>
-<p>1.8.1版本更新内容：<br />
-1. 修复了部分AI服务无法使用的故障<br />
-2. 对全文翻译功能的效果进行了优化改进  </p>
-<h1 id="3-inputtip-v20251001">3. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.10.01">InputTip v2025.10.01</a></h1>
+    <h1 id="1-inputtip-v20251001">1. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.10.01">InputTip v2025.10.01</a></h1>
 <p>一个输入法状态管理工具: 实时提示 鼠标方案/符号方案 + 状态切换 窗口触发/热键触发   </p>
-<p>InputTip更新说明：建议优先使用zip版本而非exe版本。主要变更包括：1)图标文件需移至InputTipIcon目录；2)调整图片符号默认样式；3)优化默认图片符号和鼠标样式目录命名（如CN.png改为triangle-red.png，CN目录改为oreo-red）；4)其他修复与优化。  </p>
+<p>本文档介绍了InputTip的zip与exe版本区别及更新内容。主要说明zip版本优于exe版本，建议优先使用zip版。更新内容包括：将图标文件移至InputTipIcon目录；调整图片符号默认样式；优化命名规范，如将CN.png改为triangle-red.png等；并包含其他修复和优化。  </p>
+<h1 id="2-dify-191">2. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<p>项目庆祝迎来第1000位贡献者，发布了1.9.1版本更新，主要内容包括：  </p>
+<p>新功能：<br />
+- 基础设施升级：Next.js升级至15.5版本，开发模式采用Turbopack提升构建速度<br />
+- 新增API追踪头信息X-Dify-Version<br />
+- 内置流水线模板支持多语言配置<br />
+- 图引擎新增响应节点流式处理阻断功能  </p>
+<p>修复与改进：<br />
+- 调试日志：修复图引擎重试事件日志、LLM节点Flask上下文丢失等问题<br />
+- 搜索功能：修复全文检索名称可靠性、输入法组合处理等问题<br />
+- 工作流：修复变量分割逻辑、工具节点版本判断错误等<br />
+- 文件处理：修复远程文件名解析、文件上传参数同步等问题<br />
+- 性能优化：改进HTTP客户端连接池、插件自动升级改用Redis缓存  </p>
+<p>文档与本地化：<br />
+- 优化代理文档指南<br />
+- 完善图引擎README<br />
+- 修复日语翻译不一致问题<br />
+- 增强时间显示国际化支持  </p>
+<p>升级指南：<br />
+1. Docker部署：备份配置和数据，拉取最新代码后重启服务<br />
+2. 源码部署：停止服务后更新代码，执行依赖安装和数据库迁移  </p>
+<p>代码优化：<br />
+- 重构组件导出方式<br />
+- 规范路由命名空间<br />
+- 精简lint脚本<br />
+- 修复类型检查错误  </p>
+<p>新贡献者：欢迎5位首次提交代码的开发者加入项目。  </p>
+<p>完整变更日志可查看项目版本比较页面。  </p>
+<h1 id="3-anx-reader-v181">3. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
+<p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.   </p>
+<p>本次更新包含两个主要修复：<br />
+1. 解决了部分AI服务无法正常使用的问题<br />
+2. 对全文翻译功能的效果进行了优化提升  </p>
   </article>
   
 <script>
