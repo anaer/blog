@@ -135,52 +135,42 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-29 23:11:27</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-02 12:13:02</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-02 23:11:15</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了InputTip v2025.10.01、dify 1.9.1和anx-reader v1.8.1的更新内容。InputTip主要更新了文件结构和图标命名，建议使用zip版本。dify则庆祝迎来第1000位贡献者，更新了基础设施、API功能和多个修复，且提供了详细的升级指南。anx-reader的更新集中在修复AI服务和优化翻译功能。需要指出的是，InputTip的优劣对比未提供充分的理由，可能导致用户误解其必要性。
+    <strong>AI总结:</strong> 本文介绍了三个软件的最新版本更新。dify 1.9.1是一个用于开发代理工作流的平台，更新包括基础架构的升级、管道引擎的多语言支持以及社区文档的优化，修复了多个问题并提供了详细的升级指南。InputTip v2025.10.01是一个输入法状态管理工具，更新内容包括文件结构的调整和样式优化，建议使用zip版本。anx-reader v1.8.1则是一款支持多种电子书格式的阅读工具，更新修复了AI服务和优化了翻译功能。没有明显的错误观点，但在dify部分提到的“第1000位贡献者”可能需要进一步的上下文说明以便理解其重要性。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-inputtip-v20251001">1. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.10.01">InputTip v2025.10.01</a></h1>
-<p>一个输入法状态管理工具: 实时提示 鼠标方案/符号方案 + 状态切换 窗口触发/热键触发   </p>
-<p>本文档介绍了InputTip的zip与exe版本区别及更新内容。主要说明zip版本优于exe版本，建议优先使用zip版。更新内容包括：将图标文件移至InputTipIcon目录；调整图片符号默认样式；优化命名规范，如将CN.png改为triangle-red.png等；并包含其他修复和优化。  </p>
-<h1 id="2-dify-191">2. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
+    <h1 id="1-dify-191">1. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
 <p>Production-ready platform for agentic workflow development.  </p>
-<p>项目庆祝迎来第1000位贡献者，发布了1.9.1版本更新，主要内容包括：  </p>
-<p>新功能：<br />
-- 基础设施升级：Next.js升级至15.5版本，开发模式采用Turbopack提升构建速度<br />
-- 新增API追踪头信息X-Dify-Version<br />
-- 内置流水线模板支持多语言配置<br />
-- 图引擎新增响应节点流式处理阻断功能  </p>
-<p>修复与改进：<br />
-- 调试日志：修复图引擎重试事件日志、LLM节点Flask上下文丢失等问题<br />
-- 搜索功能：修复全文检索名称可靠性、输入法组合处理等问题<br />
-- 工作流：修复变量分割逻辑、工具节点版本判断错误等<br />
-- 文件处理：修复远程文件名解析、文件上传参数同步等问题<br />
-- 性能优化：改进HTTP客户端连接池、插件自动升级改用Redis缓存  </p>
-<p>文档与本地化：<br />
-- 优化代理文档指南<br />
-- 完善图引擎README<br />
-- 修复日语翻译不一致问题<br />
-- 增强时间显示国际化支持  </p>
-<p>升级指南：<br />
-1. Docker部署：备份配置和数据，拉取最新代码后重启服务<br />
-2. 源码部署：停止服务后更新代码，执行依赖安装和数据库迁移  </p>
-<p>代码优化：<br />
-- 重构组件导出方式<br />
-- 规范路由命名空间<br />
-- 精简lint脚本<br />
-- 修复类型检查错误  </p>
-<p>新贡献者：欢迎5位首次提交代码的开发者加入项目。  </p>
-<p>完整变更日志可查看项目版本比较页面。  </p>
+<p>项目迎来第1000位贡献者！本次更新包含以下主要内容：  </p>
+<p>【新功能】<br />
+1. 基础架构：升级Next.js至15.5版本，开发模式使用Turbopack提升构建速度；市场API新增版本追踪头信息；增强安全报告机制<br />
+2. 管道引擎：内置模板支持多语言配置；图引擎新增流式响应阻断功能<br />
+3. 社区文档：优化代理贡献指南和图引擎文档  </p>
+<p>【修复与改进】<br />
+1. 调试日志：修复图引擎重试事件日志、LLM节点上下文丢失等问题<br />
+2. 搜索解析：修复全文检索命名、IME输入处理等问题<br />
+3. 工作流：修复变量分割逻辑、工具节点版本判断等12项问题<br />
+4. 文件处理：修复远程文件解析、上传参数同步等8项问题<br />
+5. 性能网络：优化HTTP客户端连接池；插件升级改用Redis缓存<br />
+6. 界面体验：修复CSS动画、验证码输入等10项问题，改进多语言支持<br />
+7. 代码重构：统一组件导出、路由注解风格，简化脚本命名  </p>
+<p>【升级指南】<br />
+1. Docker部署：备份配置→拉取代码→停服→数据备份→重启<br />
+2. 源码部署：停服→切换分支→更新依赖→执行迁移→重启服务  </p>
+<p>共合并67个PR，涉及基础设施、核心功能、用户体验等多方面优化，欢迎5位新贡献者加入。完整变更详见版本对比链接。  </p>
+<h1 id="2-inputtip-v20251001">2. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.10.01">InputTip v2025.10.01</a></h1>
+<p>一个输入法状态管理工具: 实时提示 鼠标方案/符号方案 + 状态切换 窗口触发/热键触发   </p>
+<p>zip与exe版本的区别说明，建议优先使用zip版本。更新内容包括：将图标文件移至InputTipIcon目录；调整图片符号默认样式；优化图片符号和鼠标样式目录命名（如CN.png改为triangle-red.png，CN目录改为oreo-red）；其他修复和优化。  </p>
 <h1 id="3-anx-reader-v181">3. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
 <p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.   </p>
-<p>本次更新包含两个主要修复：<br />
-1. 解决了部分AI服务无法正常使用的问题<br />
-2. 对全文翻译功能的效果进行了优化提升  </p>
+<p>1.8.1版本更新内容：<br />
+1. 修复了部分AI服务无法正常使用的问题<br />
+2. 优化了全文翻译功能的翻译效果  </p>
   </article>
   
 <script>
