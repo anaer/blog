@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-29 23:11:27</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-03 12:12:57</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-03 23:11:09</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了三个软件的更新内容。首先，dify 1.9.1是一个面向代理工作流开发的生产就绪平台，迎来了第1000位贡献者，更新包括核心升级、安全增强、新增功能、问题修复和体验优化等，共有76项变更。其次，InputTip v2025.10.01是一个输入法状态管理工具，建议使用zip版本，更新内容包括调整图片符号样式和优化目录命名规则。最后，anx-reader v1.8.1是一款支持多种电子书格式的智能阅读工具，更新主要修复了AI服务问题并提升了翻译效果。整体上，三个软件均进行了不同程度的功能优化和问题修复，没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了三个软件项目的最新版本更新。Dify 1.9.1是一个面向代理工作流开发的生产就绪平台，庆祝第1000位贡献者加入，主要新特性包括基础设施和API的增强、多语言支持以及图形引擎的优化，修复了调试、搜索、工作流和文件处理等功能的问题，并进行了性能优化。InputTip v2025.10.01是一个输入法状态管理工具，主要更新包括对图标文件的管理和默认样式的优化，建议使用zip版本。anx-reader v1.8.1则专注于AI能力，修复了AI服务问题并优化了翻译功能的显示效果。存在的错误观点是没有提及Dify与其他两个项目的具体关联性或相似性，可能导致读者对它们之间的关系产生误解。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -146,54 +146,35 @@ pre {
   <article class="markdown-body">
     <h1 id="1-dify-191">1. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
 <p>Production-ready platform for agentic workflow development.  </p>
-<p>项目迎来第1000位贡献者！本次更新包含多项重要改进：  </p>
-<p>【核心升级】<br />
-1. 基础设施：Next.js升级至15.5版本，开发模式启用Turbopack加速构建<br />
-2. 安全增强：新增安全报告工作流，API添加X-Dify-Version追踪头  </p>
-<p>【功能新增】<br />
-1. 流水线支持多语言部署配置<br />
-2. 图引擎新增响应节点流式处理阻断机制<br />
-3. Python SDK新增27个服务API端点  </p>
-<p>【问题修复】<br />
-1. 修复LLM节点并行迭代时的Flask上下文丢失问题<br />
-2. 解决知识库节点retrieval_model为null时的崩溃问题<br />
-3. 修正工作流变量分割逻辑（现需≥2部分）<br />
-4. 修复文件上传Content-Disposition解析错误<br />
-5. 优化httpx客户端连接池管理  </p>
-<p>【体验优化】<br />
-1. 统一数据集流水线多语言术语<br />
-2. 修复日语翻译不一致问题<br />
-3. 改进"time from now"国际化支持<br />
-4. 修复Turbopack下的CSS动画问题  </p>
-<p>【代码重构】<br />
-1. 组件导出标准化<br />
-2. 路由应用ns.route风格<br />
-3. 精简lint脚本  </p>
-<p>【升级指南】<br />
-1. Docker部署：备份数据后拉取最新代码重启<br />
-2. 源码部署：更新依赖后执行数据库迁移  </p>
-<p>共包含76项变更，由39位贡献者完成，其中5位新贡献者加入。完整变更日志可查看项目发布页。  </p>
+<p>项目庆祝第1000位贡献者加入，并发布了1.9.1版本更新。  </p>
+<p>主要新特性：<br />
+1. 基础设施升级：Next.js升级至15.5版本，开发模式使用Turbopack提升构建速度<br />
+2. API增强：市场API增加X-Dify-Version头信息，改进安全报告流程<br />
+3. 多语言支持：内置流水线模板新增语言配置功能<br />
+4. 图形引擎优化：流式处理时阻止响应节点输出  </p>
+<p>重要修复和改进：<br />
+1. 调试功能：修复图形引擎调试日志和LLM节点上下文问题<br />
+2. 搜索功能：修复全文搜索名称可靠性和IME输入处理<br />
+3. 工作流：修正变量分割逻辑、工具节点版本判断等多项问题<br />
+4. 文件处理：改进远程文件名解析和文件上传器同步<br />
+5. 性能优化：改善httpx客户端池化，插件自动升级改用Redis缓存  </p>
+<p>UI/UX改进：<br />
+1. 修复CSS动画在Turbopack下的兼容性问题<br />
+2. 改进多语言翻译一致性<br />
+3. 修正验证码输入和列表筛选器等问题  </p>
+<p>升级指南：<br />
+1. Docker部署：备份数据后拉取最新代码重启服务<br />
+2. 源码部署：更新依赖后执行数据库迁移<br />
+3. 详细步骤包含数据备份和版本切换说明  </p>
+<p>项目新增5位首次贡献者，完整变更日志包含260多项改进和修复。  </p>
 <h1 id="2-inputtip-v20251001">2. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.10.01">InputTip v2025.10.01</a></h1>
 <p>一个输入法状态管理工具: 实时提示 鼠标方案/符号方案 + 状态切换 窗口触发/热键触发   </p>
-<p>文本摘要：  </p>
-<ol>
-<li>建议优先使用zip版本而非exe版本，并提供了相关说明链接。  </li>
-<li>图标文件需移动到InputTipIcon目录。  </li>
-<li>主要更新内容：  </li>
-<li>调整了图片符号默认样式  </li>
-<li>优化了图片符号和鼠标样式目录命名规则  <ul>
-<li>将CN/EN/Caps.png改为颜色标识的三角形图标命名  </li>
-<li>将CN/EN/Caps目录改为奥利奥风格的彩色命名  </li>
-</ul>
-</li>
-<li>包含其他未详细说明的修复和优化内容。  </li>
-</ol>
+<p>zip与exe版本区别说明，建议优先使用zip版。主要更新内容：1）图标文件需移至InputTipIcon目录；2）调整图片符号默认样式；3）优化默认图片符号和鼠标样式目录命名（如CN.png改为triangle-red.png）；4）其他修复优化。  </p>
 <h1 id="3-anx-reader-v181">3. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
 <p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.   </p>
 <p>1.8.1版本更新内容：<br />
-1. 修复了部分AI服务无法使用的技术问题<br />
-2. 对全文翻译功能进行了效果优化和提升  </p>
-<p>主要解决了AI服务可用性和翻译质量两方面问题。  </p>
+1. 修复了部分AI服务无法正常使用的问题<br />
+2. 优化了全文翻译功能的显示效果  </p>
   </article>
   
 <script>
