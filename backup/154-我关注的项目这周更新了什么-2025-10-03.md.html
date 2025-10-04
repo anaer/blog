@@ -1,45 +1,60 @@
 
   <article class="markdown-body">
-    <h1 id="1-dify-191">1. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
-<p>Production-ready platform for agentic workflow development.  </p>
-<p>项目迎来第1000位贡献者！本次更新包含多项重要改进：  </p>
-<p>基础设施方面：<br />
-- 升级Next.js至15.5版本，开发环境使用Turbopack提升构建速度<br />
-- 市场API新增X-Dify-Version头信息增强可追溯性<br />
-- 新增安全报告工作流  </p>
-<p>核心功能优化：<br />
-- 内置流水线模板支持多语言配置<br />
-- 图引擎修复流式响应节点问题<br />
-- 知识库节点增加空值处理<br />
-- 修复LLM节点并行迭代时的上下文丢失问题  </p>
-<p>开发者体验：<br />
-- 简化AGENTS.md贡献指南<br />
-- 更新图引擎文档<br />
-- 重构组件导出规范<br />
-- 优化lint脚本  </p>
-<p>问题修复：<br />
-- 文件上传参数同步问题<br />
-- 工作流变量分割逻辑<br />
-- 检索配置处理异常<br />
-- 日文翻译不一致<br />
-- CSS动画在Turbopack下的兼容性  </p>
-<p>性能优化：<br />
-- 改用Redis存储插件自动升级缓存<br />
-- 改进httpx客户端连接池<br />
-- 分布式处理插件升级任务  </p>
-<p>升级指南：<br />
-1. Docker部署需备份数据后更新镜像<br />
-2. 源码部署需停服后更新依赖并执行数据库迁移<br />
-3. 详细步骤见文档说明  </p>
-<p>本次更新共合并85个PR，包含5位新贡献者的提交。完整变更日志可查看GitHub发布页。  </p>
-<h1 id="2-inputtip-v20251001">2. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.10.01">InputTip v2025.10.01</a></h1>
-<p>一个输入法状态管理工具: 实时提示 鼠标方案/符号方案 + 状态切换 窗口触发/热键触发   </p>
-<p>InputTip更新说明：建议优先使用zip版本而非exe版本。主要变更包括：1）将图标文件移至InputTipIcon目录；2）调整图片符号默认样式；3）优化默认图片符号和鼠标样式目录命名（如CN.png改为triangle-red.png，CN目录改为oreo-red）；4）其他修复和优化。具体改动涉及#234和#235号issue。  </p>
-<h1 id="3-anx-reader-v181">3. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
+    <h1 id="1-mole-v150">1. <a href="https://github.com/tw93/Mole/releases/tag/V1.5.0">Mole V1.5.0</a></h1>
+<p>🦡 Dig deep like a mole to clean your Mac. 🦡 像鼹鼠一样深入挖掘来清理您的 Mac  </p>
+<p>Mole V1.5版本更新内容主要包括：  </p>
+<ol>
+<li>新增功能：  </li>
+<li>新增磁盘空间分析器(Disk Space Analyzer)，支持交互式扫描磁盘占用并生成分类报告  </li>
+<li>
+<p>加入白名单管理工具，可交互式挑选/查看dry-run模式下检测到的缓存文件，并将白名单写入~/.config/mole/whitelist  </p>
+</li>
+<li>
+<p>功能增强：  </p>
+</li>
+<li>大幅改进清理/卸载流程：扩展默认保护名单、加强数据库与系统工具保护、优化批量卸载交互体验、防止误删不规则文件  </li>
+<li>
+<p>改进命令行界面体验：新增运行等待提示、优化界面文案，使多步骤操作更清晰  </p>
+</li>
+<li>
+<p>文档更新：  </p>
+</li>
+<li>同步更新文档与指南，新增磁盘分析器、白名单使用说明及常见问题解答等内容  </li>
+</ol>
+<p>项目主页地址：https://github.com/tw93/Mole  </p>
+<h1 id="2-anx-reader-v181">2. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
 <p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.   </p>
-<p>1.8.1版本主要修复了两个问题：<br />
-1. 修复了部分AI服务无法正常使用的故障<br />
-2. 优化了全文翻译功能的实际效果  </p>
+<p>1.8.1版本更新内容：<br />
+1. 修复了部分AI服务无法使用的故障<br />
+2. 对全文翻译功能的效果进行了优化  </p>
+<h1 id="3-dify-191">3. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<p>项目迎来第1000位贡献者，发布1.9.1版本更新。  </p>
+<p>主要新特性：<br />
+1. 基础设施升级：Next.js升级至15.5，开发模式使用Turbopack提升构建速度<br />
+2. 多语言支持：内置流水线模板新增语言配置功能<br />
+3. 安全增强：新增安全报告工作流，API添加版本追踪头  </p>
+<p>重要修复与改进：<br />
+1. 调试优化：修复图引擎调试日志和LLM节点上下文丢失问题<br />
+2. 搜索功能：修正全文检索名称和输入法处理<br />
+3. 工作流：修复变量分割、工具节点兼容性和知识库节点崩溃问题<br />
+4. 文件处理：修正远程文件名解析和文件上传参数同步<br />
+5. 性能优化：HTTP客户端连接池改进，插件升级改用Redis缓存  </p>
+<p>UI/UX改进：<br />
+1. 修复CSS动画和验证码输入问题<br />
+2. 统一日语翻译术语<br />
+3. 增强国际化支持  </p>
+<p>代码重构：<br />
+1. 组件导出标准化<br />
+2. 路由和lint脚本重构<br />
+3. 添加缺失的类型声明  </p>
+<p>升级指南：<br />
+1. Docker部署：备份数据后更新代码重启服务<br />
+2. 源码部署：更新依赖并运行数据库迁移  </p>
+<p>共包含75项变更，由5位新贡献者参与。完整变更日志可查看项目发布页。  </p>
+<h1 id="4-inputtip-v20251001">4. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.10.01">InputTip v2025.10.01</a></h1>
+<p>一个输入法状态管理工具: 实时提示 鼠标方案/符号方案 + 状态切换 窗口触发/热键触发   </p>
+<p>InputTip更新说明：建议优先使用zip版本而非exe版本。主要变更包括：1）图标文件需移至InputTipIcon目录；2）调整图片符号默认样式；3）优化默认图片符号和鼠标样式目录命名，如CN.png改为triangle-red.png，CN目录改为oreo-red；4）其他修复与优化。  </p>
   </article>
   
 <script>
