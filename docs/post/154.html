@@ -135,65 +135,21 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-29 23:11:27</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-05 12:12:21</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-05 23:11:39</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件项目的更新内容。Mole V1.5.0是一个Mac清理工具，新增磁盘空间分析器和白名单管理工具，优化了清理流程和命令行界面，并更新了相关文档。anx-reader v1.8.1是一款支持多种电子书格式的智能阅读工具。dify 1.9.1则是一个用于工作流开发的平台，进行了基础设施升级、安全增强和多语言支持，修复了多个重要问题并优化了性能。此外，InputTip v2025.10.01是一个输入法状态管理工具，提供实时提示和状态切换功能。总结中没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了四款软件及其主要功能。anx-reader v1.8.1 是一款具有强大人工智能功能的电子书阅读器，支持多种电子书格式，旨在提升阅读体验。dify 1.9.1 是一个用于开发自主工作流的生产级平台。Mole V1.6.2 是一款旨在深度清理Mac的工具，使用鼹鼠作为隐喻。InputTip v2025.10.01 是一个输入法状态管理工具，提供实时提示和状态切换功能。文本中没有明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="1-mole-v150">1. <a href="https://github.com/tw93/Mole/releases/tag/V1.5.0">Mole V1.5.0</a></h1>
-<p>🦡 Dig deep like a mole to clean your Mac. 🦡 像鼹鼠一样深入挖掘来清理您的 Mac  </p>
-<p>Mole V1.5版本更新主要内容包括：  </p>
-<ol>
-<li>新增功能  </li>
-<li>新增磁盘空间分析器(Disk Space Analyzer)，支持交互式扫描磁盘占用情况并生成分类报告  </li>
-<li>
-<p>加入白名单管理工具，可交互式选择查看dry-run模式下检测到的缓存文件，并将选择结果写入配置文件  </p>
-</li>
-<li>
-<p>功能增强  </p>
-</li>
-<li>大幅优化清理/卸载流程：扩展默认保护名单、加强对数据库和系统工具的保护、改进批量卸载交互体验  </li>
-<li>
-<p>改进命令行界面体验：新增运行进度提示、优化界面文案，使多步骤操作更清晰  </p>
-</li>
-<li>
-<p>文档更新  </p>
-</li>
-<li>同步更新文档和指南，新增磁盘分析器使用方法、白名单使用说明和常见问题解答等内容  </li>
-</ol>
-<p>该项目是一个Mac系统清理工具，鼓励用户star项目主页。  </p>
-<h1 id="2-anx-reader-v181">2. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
+    <h1 id="1-anx-reader-v181">1. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.8.1">anx-reader v1.8.1</a></h1>
 <p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.   </p>
-<h1 id="3-dify-191">3. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
+<h1 id="2-dify-191">2. <a href="https://github.com/langgenius/dify/releases/tag/1.9.1">dify 1.9.1</a></h1>
 <p>Production-ready platform for agentic workflow development.  </p>
-<p>项目迎来第1000位贡献者！本次更新包含多项重要改进：  </p>
-<p>核心更新：<br />
-1. 基础设施升级：Next.js升级至15.5版本，开发环境使用Turbopack提升构建速度<br />
-2. 安全增强：新增安全报告工作流，API访问增加版本追踪头<br />
-3. 多语言支持：内置流水线模板新增语言配置功能  </p>
-<p>重要修复：<br />
-- 修复Graph Engine调试日志失效问题<br />
-- 解决LLM节点在并行迭代中丢失上下文的问题<br />
-- 修正工作流变量分割逻辑（现要求≥2部分）<br />
-- 修复知识库节点在retrieval_model为空时的崩溃问题<br />
-- 改进文件上传处理，修复远程文件名解析问题  </p>
-<p>性能优化：<br />
-- 使用Redis替代原有插件自动升级缓存<br />
-- 优化httpx客户端连接池管理<br />
-- 增加分布式插件自动升级任务并发控制  </p>
-<p>UI/UX改进：<br />
-- 修复Turbopack下的CSS动画问题<br />
-- 统一数据集流水线的国际化术语<br />
-- 修正日语翻译不一致问题<br />
-- 优化时间显示的国际化支持  </p>
-<p>升级指南：<br />
-1. Docker部署：备份数据后拉取最新代码重启服务<br />
-2. 源码部署：停止服务后更新代码和依赖，执行数据库迁移  </p>
-<p>新增27个Python SDK API端点，修复多项类型错误。欢迎5位新贡献者加入！完整变更请查看项目Changelog。  </p>
+<h1 id="3-mole-v162">3. <a href="https://github.com/tw93/Mole/releases/tag/V1.6.2">Mole V1.6.2</a></h1>
+<p>🐹 Dig deep like a mole to clean you Mac. 像鼹鼠一样深入挖掘来清理你的 Mac  </p>
 <h1 id="4-inputtip-v20251001">4. <a href="https://github.com/abgox/InputTip/releases/tag/v2025.10.01">InputTip v2025.10.01</a></h1>
 <p>一个输入法状态管理工具: 实时提示 鼠标方案/符号方案 + 状态切换 窗口触发/热键触发   </p>
   </article>
