@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-10-06 12:12:34</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-08 23:11:27</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-09 12:13:34</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了四个软件工具：Cherry Studio v1.6.3是一个支持多种大型语言模型提供者的桌面客户端；subs-check v1.4.2是一个用于订阅转换、测速、流媒体检测等功能的工具；chsrc v0.2.3是一个全平台通用的换源工具与框架；gixy v0.2.9是一个用于NGINX配置的静态分析器。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了多个软件的更新日志，包括Cherry Studio v1.6.3、subs-check v1.4.2、chsrc v0.2.3和gixy v0.2.9。Cherry Studio的更新包括功能改进、问题修复和其他更新，如支持新的LLM提供商和增加笔记导出功能。subs-check的更新主要集中在配置文件和内存问题的修复。chsrc则提供了换源功能的增强和多个软件源的支持。gixy的摘要讨论了正则表达式中的命名冲突和变量捕获问题，建议使用明确的命名空间和非捕获组来提高代码的可靠性和可维护性。不存在明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -146,12 +146,47 @@ pre {
   <article class="markdown-body">
     <h1 id="1-cherry-studio-v163">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.3">cherry-studio v1.6.3</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
+<p>本次更新主要包含以下内容：  </p>
+<p>功能改进：<br />
+1. 工具插件分离提供者定义工具和提示工具<br />
+2. 新增LongCat提供商支持<br />
+3. 添加Intel OVMS(OpenVINO模型服务器)提供商<br />
+4. 支持GPT-5-Codex<br />
+5. 新增GitHub Copilot CLI集成到编码工具<br />
+6. 添加笔记导出功能<br />
+7. 允许使用LLM重命名笔记<br />
+8. 支持中间点击关闭标签页<br />
+9. 更新Gemini正则表达式<br />
+10. 添加表格自动换行支持<br />
+11. 增加笔记拼写检查控制  </p>
+<p>问题修复：<br />
+1. 支持deepseek v3.2/claude 4.5/glm 4.6<br />
+2. 修复文本文件预览编辑器只读但可复制<br />
+3. 恢复首个令牌延迟报告<br />
+4. 修复分叉主题和重命名模态框保留旧名称问题<br />
+5. 移除并排视图中的冗余滚动条<br />
+6. 修复消息菜单栏溢出  </p>
+<p>其他更新：<br />
+1. 重构推理时间处理<br />
+2. 更新依赖和版本管理<br />
+3. 更新Electron版本<br />
+4. 添加readOnly扩展属性到代码编辑器<br />
+5. 修复视觉模型问题<br />
+6. 扩展主题就地重命名点击区域  </p>
+<p>版本升级至1.6.3，并新增3位贡献者。  </p>
 <h1 id="2-subs-check-v142">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.2">subs-check v1.4.2</a></h1>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
+<p>更新日志：<br />
+1. 更新config.example.yaml配置文件<br />
+2. 修复内存相关问题<br />
+3. 升级sub-store至2.20.29版本  </p>
 <h1 id="3-chsrc-v023">3. <a href="https://github.com/RubyMetric/chsrc/releases/tag/v0.2.3">chsrc v0.2.3</a></h1>
 <p>chsrc 全平台通用换源工具与框架. Change Source everywhere for every software  </p>
+<p>该附件为预编译二进制文件(v0.2.3版本，2025-10-06发布)。主要更新包括：1)显示recipe维护信息；2)重构内部数据结构；3)增加通用函数。换源功能方面：支持mvnd换源，修复Rust/WinGet/Ruby等换源问题。新增Java和Arch Linux源，修复Python源。首次贡献者包括@BingChunMoLi和@Young-Lord。更新详情可查看GitHub版本对比链接。  </p>
 <h1 id="4-gixy-v029">4. <a href="https://github.com/dvershinin/gixy/releases/tag/v0.2.9">gixy v0.2.9</a></h1>
 <p>NGINX configuration static analyzer  </p>
+<p>摘要：  </p>
+<p>本文讨论了正则表达式中由导入和变量捕获引发的主要问题。主要内容包括：1) 导入外部库可能导致命名冲突或意外覆盖；2) 变量捕获在正则匹配时可能产生非预期结果；3) 这些问题会导致代码行为不稳定和难以调试；4) 建议采用明确的命名空间管理和局部变量限制来规避风险；5) 推荐使用非捕获组(?:)替代普通捕获组以提升性能。这些修复措施有助于提高正则表达式的可靠性和可维护性。  </p>
   </article>
   
 <script>
