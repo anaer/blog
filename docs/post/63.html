@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X3F 推送厂商对比</title>
+<title>推送厂商对比</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/high-contrast-dark.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X3F 推送厂商对比</a>
+    <a style="font-size:18px">推送厂商对比</a>
 </h1>
 
 <div class="title-right">
@@ -133,170 +135,217 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23 13:27:13</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-19 17:16:54</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-09 11:13:53</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了多个手机推送服务的鉴权、消息体限制、消息量限制及错误码，包括华为、小米、OPPO、VIVO、魅族、苹果和个推等。每个服务的鉴权方式、消息体内容限制和每日消息发送量都有不同的规定。例如，华为的Access Token流控阈值为1000个/5分钟，而小米的APP_SECRET是长期有效的，OPPO和VIVO则有24小时的有效期限制。消息体的大小和内容限制也各有不同，如华为的消息体默认限制为4096Bytes，小米的payload最大为4KB，VIVO的title最大为20个汉字等。
+
+存在的错误观点包括对苹果推送服务的描述，提到“无限制”的消息量限制，这并不准确，因为尽管APNs的消息量限制没有明确规定，但实际上仍然可能受到其他因素的影响。此外，个推的错误码示例中提到的“AppidError”并未详细说明其原因和解决方案。整体来看，各个平台的推送服务在实现上有各自的特点和限制，开发者需根据具体需求选择合适的服务。
+</div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">华为</h1><a id="user-content-华为" class="anchor" aria-label="Permalink: 华为" href="#华为"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>没有别名和标签</p>
-<p><a href="https://developer.huawei.com/consumer/cn/hms/huawei-pushkit/" rel="nofollow">官方网站</a></p>
-<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/privacy-statement-0000001050042021" rel="nofollow">隐私政策</a></p>
-<p><a href="https://developer.huawei.com/consumer/cn/training/course/video/100000000083" rel="nofollow">接入视频</a></p>
-<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-server-dev-0000001050040110" rel="nofollow">开发文档</a></p>
-<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/msg-receipt-guide-0000001050040176" rel="nofollow">消息回执</a></p>
-<p><a href="https://developer.huawei.com/consumer/cn/forum/topic/37729830?fid=18" rel="nofollow">常见问题</a></p>
-<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/https-send-api-0000001050986197" rel="nofollow">下行消息及错误码</a></p>
-<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835" rel="nofollow">消息分类</a></p>
-<p>鉴权说明: 开发者应用在 Access Token 有效期（expires_in）内，请勿过于频繁请求，否则可能会被流控（当前应用级 Access Token 的流控阈值为 1000 个/5 分钟，5 分钟内申请 Access Token 超过 1000 个，后续将提示被流控，无法申请。5 分钟后重置，可以再次申请）。您可根据有效期，提前重新申请或通过 Refresh Token 刷新鉴权凭证，同时您也可根据鉴权凭证超时错误返回（NSP_STATUS=6，请参见错误与异常机制），重新触发申请鉴权凭证流程。</p>
-<p>消息体限制:<br>
-title, body 无明确限制<br>
-消息体大小（不含 Token）系统设置的默认限制（4096Bytes）</p>
-<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-restriction-description-0000001361648361" rel="nofollow">消息量限制</a></p>
-<p>流控限制 3000QPS,每秒不能超过 3000token 数.</p>
-<div class="markdown-heading"><h1 class="heading-element">鸿蒙</h1><a id="user-content-鸿蒙" class="anchor" aria-label="Permalink: 鸿蒙" href="#鸿蒙"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/push-scenes-send-V5" rel="nofollow">推送场景化消息</a><br>
-<a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V14/push-jwt-token-V14" rel="nofollow">生成鉴权令牌</a><br>
-<a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-api-msg-receipt-V5" rel="nofollow">消息回执</a><br>
-<a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/push-msg-receipt-V5#section19100519195717" rel="nofollow">回执状态码</a></p>
-<div class="markdown-heading"><h1 class="heading-element">小米</h1><a id="user-content-小米" class="anchor" aria-label="Permalink: 小米" href="#小米"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>regId</p>
-<p>regid 与 alias 一一对应
-多个设备设置同一 alias, 只有最后的设备才能收到消息 (如果需要多个设备使用同一 alias, 推荐使用 UserAccount 消息)
-每个 app 单台设备可订阅的 alias 上限为 15 个</p>
-<p><a href="https://dev.mi.com/console/appservice/push.html" rel="nofollow">官方网站</a></p>
-<p><a href="https://dev.mi.com/console/doc/detail?pId=1822" rel="nofollow">隐私政策</a></p>
-<p><a href="https://dev.mi.com/console/doc/detail?pId=2379" rel="nofollow">合规指南</a></p>
-<p><a href="https://dev.mi.com/console/doc/detail?pId=230#_2" rel="nofollow">开发文档</a></p>
-<p><a href="https://dev.mi.com/console/doc/detail?pId=1278#_0" rel="nofollow">服务端 Java SDK 文档</a></p>
-<p>鉴权方式: 添加 HEADER 字段 Authorization，用于身份验证。格式是 key=&lt;APP_SECRET&gt;。
-APP_SECRET 是从开发者网站申请得到。</p>
-<p>APP_SECRET 固定的, 没有失效期, 长期有效</p>
-<p>消息体限制:</p>
-<pre><code>title:设置在通知栏展示的通知的标题, 不允许全是空白字符, 长度小于 50, 一个中英文字符均计算为 1(通知栏消息必填)
-description:设置在通知栏展示的通知描述, 不允许全是空白字符, 长度小于 128, 一个中英文字符均计算为 1(通知栏消息必填)
-payload:设置要发送的消息内容 payload, 不允许全是空白字符, 长度小于 4KB, 一个中英文字符均计算为 1(透传消息回传给 APP, 为必填字段, 非透传消息可选)
-extra: key 和 value 的字符数不能超过 1024, 至多可以设置 10 个 key-value 键值对
-callback: 第三方接收回执的 Http 接口, 最大长度 128 字节
-callback.param: 第三方自定义回执参数, 最大长度 64 字节
-</code></pre>
-<p>消息量限制:
-(广播)普通消息限制 50000 条/天<br>
-(运营)重要消息</p>
-<p>回执: 只有单推有回执</p>
-<div class="markdown-heading"><h2 class="heading-element">错误码</h2><a id="user-content-错误码" class="anchor" aria-label="Permalink: 错误码" href="#错误码"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre lang="jsonp"><code>[ messageId=tdm587XXX errorCode=0 data={"day_acked":"979","id":"tdm587XXX","day_quota":"50000"} trace_id=Xdm587XXX ]
-[ messageId=Xcm609XXX errorCode=10008 reason=Title or Description exceeds the maximum number of characters! data={"day_acked":"3159","day_quota":"50000"} trace_id=Xcm609XXX ]
-[ messageId=Xdm575XXX errorCode=65015 reason=Extra total length is too long, must less than 2048. data={"day_acked":"3130","day_quota":"50000"} trace_id=Xdm575XXX ]
-[ messageId=Xdm603XXX errorCode=200001 reason=exceed quota, quota : 50000, have acked 52168 trace_id=Xdm603XXX ]
-</code></pre>
-<div class="markdown-heading"><h1 class="heading-element">OPPO</h1><a id="user-content-oppo" class="anchor" aria-label="Permalink: OPPO" href="#oppo"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>regId
-alias 与 regId 一一对应, 同一 alias 不能对应多个 regId, alias 对应的 regId 以最后一次为准</p>
-<p>alias 失效:<br>
-主动调用 unsetalias<br>
-alias 对应的 regId 已经失效<br>
-设置 alias 不成功(调用 setalias 失败)</p>
-<p><a href="https://open.oppomobile.com/newservice/capability?pagename=push" rel="nofollow">官方网站</a></p>
-<p><a href="https://open.oppomobile.com/wiki/doc#id=10194" rel="nofollow">服务协议</a></p>
-<p><a href="https://open.oppomobile.com/wiki/doc#id=10742" rel="nofollow">开发文档</a></p>
-<p><a href="https://open.oppomobile.com/new/developmentDoc/info?id=10289" rel="nofollow">通知通道</a></p>
-<p>鉴权: 官网未说明一个 appId 是否可以有多个 token<br>
-有效期默认为 24 小时</p>
-<p>回执: 当消息到达设备之后, oppo 才会发送回执, 因此瞎填的 regId 就没有回执了.<br>
-只有单推 有回执</p>
-<p>消息体限制:</p>
-<pre><code>title:设置在通知栏展示的通知栏标题, 【字数串长度限制在 50 个字符内，中英文字符及特殊符号（如 emoji）均视为一个字符】
-content:设置在通知栏展示的通知的正文内容
-1）当选择标准样式（style 设置为 1）时，内容字符串长度限制在 200 以内；
-2）当选择长文本样式（style 设置 为 2）时，内容字符串长度限制在 128 以内；
-3）当选择大图样式（style 设置为 3）时，内容字符串长度限制在 50 以内。
-【字符串长度计算说明：中英文字符及特殊符号（如 emoji）均视作一个字符计算】
-action_parameters:打开应用内页或网页时传递给应用或网页的附加参数【JSON 格式】，字符串长度不超过 4000。当跳转类型是 URL 类型时，参数会以 URL 参数直接拼接在 URL 后面。
-call_back_url:URL 长度限制在限制 200 以内。
-call_back_parameter:参数字符串长度限制在 100 以内，OPPO PUSH 将这个参数设置在回执请求体单个 JSON 结构的 param 字段中。
-</code></pre>
-<p>推送限制: <a target="_blank" rel="noopener noreferrer" href="OPPO%E6%8E%A8%E9%80%81%E9%99%90%E5%88%B6.png"><img src="OPPO%E6%8E%A8%E9%80%81%E9%99%90%E5%88%B6.png" alt="" style="max-width: 100%;"></a></p>
-<p>消息量限制:<br>
-公信消息限制 100000 条/天</p>
-<div class="markdown-heading"><h2 class="heading-element">错误码</h2><a id="user-content-错误码-1" class="anchor" aria-label="Permalink: 错误码" href="#错误码-1"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-json"><pre>{<span class="pl-ent">"code"</span>: <span class="pl-c1">10000</span>, <span class="pl-ent">"message"</span>: <span class="pl-s"><span class="pl-pds">"</span>Invalid RegistrationId<span class="pl-pds">"</span></span> }
-{<span class="pl-ent">"code"</span>:<span class="pl-c1">33</span>,<span class="pl-ent">"data"</span>:{<span class="pl-ent">"permits"</span>:<span class="pl-c1">100000</span>,<span class="pl-ent">"pushed"</span>:<span class="pl-c1">105207</span>},<span class="pl-ent">"message"</span>:<span class="pl-s"><span class="pl-pds">"</span>The number of messages exceeds the daily limit<span class="pl-pds">"</span></span>}</pre></div>
-<div class="markdown-heading"><h1 class="heading-element">VIVO</h1><a id="user-content-vivo" class="anchor" aria-label="Permalink: VIVO" href="#vivo"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>regId
-alias 与 regId 一一对应, 同一 alias 不能对应多个 regId, alias 对应的 regId 以最后一次为准</p>
-<p>alias 失效:</p>
-<pre><code>主动调用 unsetalias
-alias 对应的 regId 已经失效
-</code></pre>
-<p><a href="https://dev.vivo.com.cn/home" rel="nofollow">官方网站</a></p>
-<p><a href="https://dev.vivo.com.cn/documentCenter/doc/366" rel="nofollow">隐私政策</a></p>
-<p><a href="https://dev.vivo.com.cn/documentCenter/doc/180" rel="nofollow">开发文档</a></p>
-<p>鉴权说明: 一个 appId 可对应多个 token，24 小时过期，业务方做中心缓存，1-2 小时更新一次。<br>
-限制：一天限制调用不超过 10000 次。</p>
-<p>消息分级:<br>
-系统消息:</p>
-<p>运营消息:</p>
-<pre><code>频控管控：单用户单应用每天收到的消息条数上限 5 条
-</code></pre>
-<p>消息体限制:</p>
-<pre><code>title:通知标题（用于通知栏消息） 最大 20 个汉字（一个汉字等于两个英文字符，即最大不超过 40 个英文字符）
-content:通知内容（用于通知栏消息） 最大 50 个汉字（一个汉字等于两个英文字符，即最大不超过 100 个英文字符）
-skipContent:跳转内容 跳转类型为 2 时，跳转内容最大 1000 个字符，跳转类型为 3 或 4 时，跳转内容最大 1024 个字符
-requestId:用户请求唯一标识 最大 64 字符
-callback: 第三方接收回执的 http 接口，最大长度 128 个字符
-callback.param:第三方自定义回执参数，最大长度 64 个字符
-</code></pre>
-<p>消息量限制:</p>
-<pre><code>系统消息 限制 10000 条/天 &gt;&gt; 100000 条/天  
-运营消息 频控 单用户 5 条/天  
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">错误码</h2><a id="user-content-错误码-2" class="anchor" aria-label="Permalink: 错误码" href="#错误码-2"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre lang="jsonp"><code>{"result":0,"desc":"请求成功","taskId":"xxx"}
-{"result":10058,"desc":"content长度不能超过100个字符"}
-{"result":10069,"desc":"skipType = 4, skipContent超过长度限制"}
-{"result":10302,"desc":"用户Id不合法","invalidUser":{"status":2,"userid":"xxx"}}
-{"result":10306,"desc":"extra callback.param长度不能超过64个字符"}
-{"result":10070,"desc":"运营消息发送量总量超出限制"}
-</code></pre>
-<div class="markdown-heading"><h1 class="heading-element">魅族</h1><a id="user-content-魅族" class="anchor" aria-label="Permalink: 魅族" href="#魅族"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>同个 pushId 只有一个别名, pushId 对应的别名以最后一次订阅为准  
-多个 pushId 可以绑定同一别名  
 
-别名失效:  
-对应的 pushId 失效  
-App 调用 unSubScribeAlias  
-</code></pre>
-<p><a href="https://open.flyme.cn/open-web/views/push.html?t=1514529597773" rel="nofollow">官方网站</a></p>
-<p><a href="http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?10" rel="nofollow">隐私政策</a></p>
-<p><a href="http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129" rel="nofollow">开发文档</a></p>
-<div class="markdown-heading"><h1 class="heading-element">苹果</h1><a id="user-content-苹果" class="anchor" aria-label="Permalink: 苹果" href="#苹果"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a href="https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW1" rel="nofollow">错误码</a></p>
-<p><a href="https://github.com/jchambers/pushy/wiki/Best-practices">pushy 最佳实践</a></p>
-<p>消息体限制:<br>
-For regular remote notifications, the maximum size is 4KB (4096 bytes)</p>
-<p>消息量限制:<br>
-无限制</p>
-<p><a href="https://stackoverflow.com/questions/42511476/what-are-the-possible-reasons-to-get-apns-responses-baddevicetoken-or-unregister" rel="nofollow">What are the possible reasons to get APNs responses BadDeviceToken or Unregistered?</a></p>
-<p><a href="https://developer.apple.com/forums/thread/670868?answerId=655652022#655652022" rel="nofollow">APNS Push Token Management</a></p>
-<pre><code>How this works though, is, when an app is deleted from a device, the device token is not invalidated immediately.
-To avoid developers from detecting and tracking user behavior around installations and uninstallations, APNs invalidates tokens on a sliding schedule. This schedule is not documented, and can change at any time. This is for protecting the users’ privacy, and is by design.
+  <article class="markdown-body">
+    <h1 id="_1">华为</h1>
+<p>没有别名和标签  </p>
+<p><a href="https://developer.huawei.com/consumer/cn/hms/huawei-pushkit/">官方网站</a>  </p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/privacy-statement-0000001050042021">隐私政策</a>  </p>
+<p><a href="https://developer.huawei.com/consumer/cn/training/course/video/100000000083">接入视频</a>  </p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-server-dev-0000001050040110">开发文档</a>  </p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/msg-receipt-guide-0000001050040176">消息回执</a>  </p>
+<p><a href="https://developer.huawei.com/consumer/cn/forum/topic/37729830?fid=18">常见问题</a>  </p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References/https-send-api-0000001050986197">下行消息及错误码</a>  </p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835">消息分类</a>  </p>
+<p>鉴权说明: 开发者应用在 Access Token 有效期（expires_in）内，请勿过于频繁请求，否则可能会被流控（当前应用级 Access Token 的流控阈值为 1000 个/5 分钟，5 分钟内申请 Access Token 超过 1000 个，后续将提示被流控，无法申请。5 分钟后重置，可以再次申请）。您可根据有效期，提前重新申请或通过 Refresh Token 刷新鉴权凭证，同时您也可根据鉴权凭证超时错误返回（NSP_STATUS=6，请参见错误与异常机制），重新触发申请鉴权凭证流程。  </p>
+<p>消息体限制:  <br />
+title, body 无明确限制  <br />
+消息体大小（不含 Token）系统设置的默认限制（4096Bytes）    </p>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-restriction-description-0000001361648361">消息量限制</a>  </p>
+<p>流控限制 3000QPS,每秒不能超过 3000token 数.  </p>
+<h1 id="_2">鸿蒙</h1>
+<p><a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/push-scenes-send-V5">推送场景化消息</a>   <br />
+<a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V14/push-jwt-token-V14">生成鉴权令牌</a>   <br />
+<a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-api-msg-receipt-V5">消息回执</a>   <br />
+<a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/push-msg-receipt-V5#section19100519195717">回执状态码</a>     </p>
+<h1 id="_3">小米</h1>
+<p>regId  </p>
+<p>regid 与 alias 一一对应<br />
+多个设备设置同一 alias, 只有最后的设备才能收到消息 (如果需要多个设备使用同一 alias, 推荐使用 UserAccount 消息)<br />
+每个 app 单台设备可订阅的 alias 上限为 15 个  </p>
+<p><a href="https://dev.mi.com/console/appservice/push.html">官方网站</a>  </p>
+<p><a href="https://dev.mi.com/console/doc/detail?pId=1822">隐私政策</a>  </p>
+<p><a href="https://dev.mi.com/console/doc/detail?pId=2379">合规指南</a>  </p>
+<p><a href="https://dev.mi.com/console/doc/detail?pId=230#_2">开发文档</a>  </p>
+<p><a href="https://dev.mi.com/console/doc/detail?pId=1278#_0">服务端 Java SDK 文档</a>  </p>
+<p>鉴权方式: 添加 HEADER 字段 Authorization，用于身份验证。格式是 key=<APP_SECRET>。<br />
+APP_SECRET 是从开发者网站申请得到。  </p>
+<p>APP_SECRET 固定的, 没有失效期, 长期有效  </p>
+<p>消息体限制:<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>title:设置在通知栏展示的通知的标题, 不允许全是空白字符, 长度小于 50, 一个中英文字符均计算为 1(通知栏消息必填)  
+description:设置在通知栏展示的通知描述, 不允许全是空白字符, 长度小于 128, 一个中英文字符均计算为 1(通知栏消息必填)  
+payload:设置要发送的消息内容 payload, 不允许全是空白字符, 长度小于 4KB, 一个中英文字符均计算为 1(透传消息回传给 APP, 为必填字段, 非透传消息可选)  
+extra: key 和 value 的字符数不能超过 1024, 至多可以设置 10 个 key-value 键值对  
+callback: 第三方接收回执的 Http 接口, 最大长度 128 字节  
+callback.param: 第三方自定义回执参数, 最大长度 64 字节  
+</code></pre></div></div></p>
+<p>消息量限制:<br />
+(广播)普通消息限制 50000 条/天  <br />
+(运营)重要消息    </p>
+<p>回执: 只有单推有回执  </p>
+<h2 id="_4">错误码</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>[ messageId=tdm587XXX errorCode=0 data={&quot;day_acked&quot;:&quot;979&quot;,&quot;id&quot;:&quot;tdm587XXX&quot;,&quot;day_quota&quot;:&quot;50000&quot;} trace_id=Xdm587XXX ]  
+[ messageId=Xcm609XXX errorCode=10008 reason=Title or Description exceeds the maximum number of characters! data={&quot;day_acked&quot;:&quot;3159&quot;,&quot;day_quota&quot;:&quot;50000&quot;} trace_id=Xcm609XXX ]  
+[ messageId=Xdm575XXX errorCode=65015 reason=Extra total length is too long, must less than 2048. data={&quot;day_acked&quot;:&quot;3130&quot;,&quot;day_quota&quot;:&quot;50000&quot;} trace_id=Xdm575XXX ]  
+[ messageId=Xdm603XXX errorCode=200001 reason=exceed quota, quota : 50000, have acked 52168 trace_id=Xdm603XXX ]  
+</code></pre></div></div>
+<h1 id="oppo">OPPO</h1>
+<p>regId<br />
+alias 与 regId 一一对应, 同一 alias 不能对应多个 regId, alias 对应的 regId 以最后一次为准  </p>
+<p>alias 失效:  <br />
+主动调用 unsetalias  <br />
+alias 对应的 regId 已经失效  <br />
+设置 alias 不成功(调用 setalias 失败)    </p>
+<p><a href="https://open.oppomobile.com/newservice/capability?pagename=push">官方网站</a>  </p>
+<p><a href="https://open.oppomobile.com/wiki/doc#id=10194">服务协议</a>  </p>
+<p><a href="https://open.oppomobile.com/wiki/doc#id=10742">开发文档</a>  </p>
+<p><a href="https://open.oppomobile.com/new/developmentDoc/info?id=10289">通知通道</a>  </p>
+<p><a href="https://open.oppomobile.com/documentation/page/info?id=11239">消息回执</a>  </p>
+<p>鉴权: 官网未说明一个 appId 是否可以有多个 token  <br />
+有效期默认为 24 小时    </p>
+<p>回执: 当消息到达设备之后, oppo 才会发送回执, 因此瞎填的 regId 就没有回执了.  <br />
+只有单推 有回执  </p>
+<p>消息体限制:<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>title:设置在通知栏展示的通知栏标题, 【字数串长度限制在 50 个字符内，中英文字符及特殊符号（如 emoji）均视为一个字符】  
+content:设置在通知栏展示的通知的正文内容  
+1）当选择标准样式（style 设置为 1）时，内容字符串长度限制在 200 以内；  
+2）当选择长文本样式（style 设置 为 2）时，内容字符串长度限制在 128 以内；  
+3）当选择大图样式（style 设置为 3）时，内容字符串长度限制在 50 以内。  
+【字符串长度计算说明：中英文字符及特殊符号（如 emoji）均视作一个字符计算】  
+action_parameters:打开应用内页或网页时传递给应用或网页的附加参数【JSON 格式】，字符串长度不超过 4000。当跳转类型是 URL 类型时，参数会以 URL 参数直接拼接在 URL 后面。  
+call_back_url:URL 长度限制在限制 200 以内。  
+call_back_parameter:参数字符串长度限制在 100 以内，OPPO PUSH 将这个参数设置在回执请求体单个 JSON 结构的 param 字段中。  
+</code></pre></div></div></p>
+<p>推送限制: <img alt="" src="OPPO推送限制.png" />  </p>
+<p>消息量限制:  <br />
+公信消息限制 100000 条/天    </p>
+<h2 id="_5">错误码</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid RegistrationId&quot;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span>
+<span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">33</span><span class="p">,</span><span class="nt">&quot;data&quot;</span><span class="p">:{</span><span class="nt">&quot;permits&quot;</span><span class="p">:</span><span class="mi">100000</span><span class="p">,</span><span class="nt">&quot;pushed&quot;</span><span class="p">:</span><span class="mi">105207</span><span class="p">},</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;The number of messages exceeds the daily limit&quot;</span><span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h1 id="vivo">VIVO</h1>
+<p>regId<br />
+alias 与 regId 一一对应, 同一 alias 不能对应多个 regId, alias 对应的 regId 以最后一次为准  </p>
+<p>alias 失效:<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>主动调用 unsetalias  
+alias 对应的 regId 已经失效  
+</code></pre></div></div></p>
+<p><a href="https://dev.vivo.com.cn/home">官方网站</a>  </p>
+<p><a href="https://dev.vivo.com.cn/documentCenter/doc/366">隐私政策</a>  </p>
+<p><a href="https://dev.vivo.com.cn/documentCenter/doc/180">开发文档</a>  </p>
+<p>鉴权说明: 一个 appId 可对应多个 token，24 小时过期，业务方做中心缓存，1-2 小时更新一次。  <br />
+限制：一天限制调用不超过 10000 次。  </p>
+<p>消息分级:  <br />
+系统消息:    </p>
+<p>运营消息:    </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>频控管控：单用户单应用每天收到的消息条数上限 5 条  
+</code></pre></div></div>
+<p>消息体限制:<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>title:通知标题（用于通知栏消息） 最大 20 个汉字（一个汉字等于两个英文字符，即最大不超过 40 个英文字符）  
+content:通知内容（用于通知栏消息） 最大 50 个汉字（一个汉字等于两个英文字符，即最大不超过 100 个英文字符）  
+skipContent:跳转内容 跳转类型为 2 时，跳转内容最大 1000 个字符，跳转类型为 3 或 4 时，跳转内容最大 1024 个字符  
+requestId:用户请求唯一标识 最大 64 字符  
+callback: 第三方接收回执的 http 接口，最大长度 128 个字符  
+callback.param:第三方自定义回执参数，最大长度 64 个字符  
+</code></pre></div></div></p>
+<p>消息量限制:<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>系统消息 限制 10000 条/天 &gt;&gt; 100000 条/天    
+运营消息 频控 单用户 5 条/天    
+</code></pre></div></div></p>
+<h2 id="_6">错误码</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>{&quot;result&quot;:0,&quot;desc&quot;:&quot;请求成功&quot;,&quot;taskId&quot;:&quot;xxx&quot;}  
+{&quot;result&quot;:10058,&quot;desc&quot;:&quot;content长度不能超过100个字符&quot;}  
+{&quot;result&quot;:10069,&quot;desc&quot;:&quot;skipType = 4, skipContent超过长度限制&quot;}  
+{&quot;result&quot;:10302,&quot;desc&quot;:&quot;用户Id不合法&quot;,&quot;invalidUser&quot;:{&quot;status&quot;:2,&quot;userid&quot;:&quot;xxx&quot;}}  
+{&quot;result&quot;:10306,&quot;desc&quot;:&quot;extra callback.param长度不能超过64个字符&quot;}  
+{&quot;result&quot;:10070,&quot;desc&quot;:&quot;运营消息发送量总量超出限制&quot;}  
+</code></pre></div></div>
+<h1 id="_7">魅族</h1>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>同个 pushId 只有一个别名, pushId 对应的别名以最后一次订阅为准    
+多个 pushId 可以绑定同一别名    
 
-但是，当从设备中删除应用程序时，设备令牌不会立即失效。
-为了避免开发人员检测和跟踪安装和卸载的用户行为，APNs 会按滑动计划使令牌失效。此时间表未记录在案，并且可能随时更改。这是为了保护用户的隐私，并且是设计使然。
-</code></pre>
-<p><a href="https://developer.apple.com/forums/thread/109376?answerId=669256022#669256022" rel="nofollow">Apple push feedback service with new token based http2 requests</a></p>
-<pre><code>Unfortunately, it even returns "200" or success for a device token from a device that uninstalled the app 2 years ago. So basically there is no way to know if the user uninstalled the app or not
-</code></pre>
-<div class="markdown-heading"><h1 class="heading-element">个推</h1><a id="user-content-个推" class="anchor" aria-label="Permalink: 个推" href="#个推"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+别名失效:    
+对应的 pushId 失效    
+App 调用 unSubScribeAlias    
+</code></pre></div></div>
+<p><a href="https://open.flyme.cn/open-web/views/push.html?t=1514529597773">官方网站</a>  </p>
+<p><a href="http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?10">隐私政策</a>  </p>
+<p><a href="http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129">开发文档</a>  </p>
+<h1 id="_8">苹果</h1>
+<p><a href="https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW1">错误码</a>  </p>
+<p><a href="https://github.com/jchambers/pushy/wiki/Best-practices">pushy 最佳实践</a>  </p>
+<p>消息体限制:  <br />
+For regular remote notifications, the maximum size is 4KB (4096 bytes)  </p>
+<p>消息量限制:  <br />
+无限制  </p>
+<p><a href="https://stackoverflow.com/questions/42511476/what-are-the-possible-reasons-to-get-apns-responses-baddevicetoken-or-unregister">What are the possible reasons to get APNs responses BadDeviceToken or Unregistered?</a>  </p>
+<p><a href="https://developer.apple.com/forums/thread/670868?answerId=655652022#655652022">APNS Push Token Management</a>  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>How this works though, is, when an app is deleted from a device, the device token is not invalidated immediately.  
+To avoid developers from detecting and tracking user behavior around installations and uninstallations, APNs invalidates tokens on a sliding schedule. This schedule is not documented, and can change at any time. This is for protecting the users’ privacy, and is by design.  
+
+但是，当从设备中删除应用程序时，设备令牌不会立即失效。  
+为了避免开发人员检测和跟踪安装和卸载的用户行为，APNs 会按滑动计划使令牌失效。此时间表未记录在案，并且可能随时更改。这是为了保护用户的隐私，并且是设计使然。  
+</code></pre></div></div>
+<p><a href="https://developer.apple.com/forums/thread/109376?answerId=669256022#669256022">Apple push feedback service with new token based http2 requests</a>  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>Unfortunately, it even returns &quot;200&quot; or success for a device token from a device that uninstalled the app 2 years ago. So basically there is no way to know if the user uninstalled the app or not  
+</code></pre></div></div>
+<h1 id="_9">个推</h1>
 <ul>
-<li>根据clientId推送, 返回报错: {"response":{"result":"AppidError"},"resultCode":"RESULT_OK"}</li>
+<li>根据clientId推送, 返回报错: {"response":{"result":"AppidError"},"resultCode":"RESULT_OK"}  </li>
 </ul>
-<p>用真机调试，必须用个推平台登记的应用参数重新云端打包才行。</p>
-<p><a href="https://blog.csdn.net/java_newbie2/article/details/102315019" rel="nofollow">问题相关链接</a></p>
+<p>用真机调试，必须用个推平台登记的应用参数重新云端打包才行。  </p>
+<p><a href="https://blog.csdn.net/java_newbie2/article/details/102315019">问题相关链接</a>  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/64.html" aria-label="Previous Page">0X40 微信公众号错误码</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/62.html" aria-label="Next Page">0X3E CIDR表示法</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/62.html" aria-label="Previous Page">0X3E CIDR表示法</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/64.html" aria-label="Next Page">0X40 微信公众号错误码</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -378,8 +427,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
