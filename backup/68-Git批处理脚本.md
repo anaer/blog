@@ -61,3 +61,11 @@ echo -------------------end
 pull='for i in `seq 1 100`; do echo $i && git pull && break; sleep 5; done'
 push='for i in `seq 1 100`; do echo $i && git push && break; done'
 ```
+
+## chcp
+修改cmd编码
+
+```sh
+chcp 936  #GBK
+chcp 65001 #UTF-8
+```

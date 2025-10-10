@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X44 Git批处理脚本</title>
+<title>Git批处理脚本</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia-light.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X44 Git批处理脚本</a>
+    <a style="font-size:18px">Git批处理脚本</a>
 </h1>
 
 <div class="title-right">
@@ -137,59 +139,103 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23 13:58:23</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-25 14:03:34</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-10 17:00:58</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了用于循环执行git命令的Windows批处理脚本，包括pull和push操作。脚本设置了在连接GitHub失败时，每5秒重试，最多可尝试100次。用户可以将这些脚本放在PATH目录下，直接在仓库目录中执行。脚本中检查当前目录是否为git仓库，并在失败时输出相应提示。文中还提到在Mac上可以通过添加alias来实现类似功能。需要注意的是，脚本中的循环次数设置为100次，如果需要永久循环，应调整为(0,0,1)。此外，chcp命令用于修改命令行窗口的编码格式。存在的错误观点是，脚本中提到的“如果需要永久循环设置为(0,0,1)”并不符合标准的循环控制语法，应明确说明如何实现这一点。
+</div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">循环执行脚本</h2><a id="user-content-循环执行脚本" class="anchor" aria-label="Permalink: 循环执行脚本" href="#循环执行脚本"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>判断参数命令执行结果, 如果失败则重复执行
-<code>retry.cmd git push origin main</code></p>
-<div class="highlight highlight-source-shell"><pre>@echo off
-chcp 65001
-<span class="pl-c1">echo</span> %<span class="pl-k">*</span>
-<span class="pl-k">for</span> <span class="pl-smi">/l %%a</span> <span class="pl-k">in</span> (1,1,100) <span class="pl-k">do</span> (echo %%a------------------- <span class="pl-k">&amp;&amp;</span> %<span class="pl-k">*</span> <span class="pl-k">&amp;&amp;</span> goto :EOF<span class="pl-k">;</span> sleep 5)
 
-:EOF
-<span class="pl-c1">echo</span> -------------------end</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">git推拉脚本</h2><a id="user-content-git推拉脚本" class="anchor" aria-label="Permalink: git推拉脚本" href="#git推拉脚本"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>因github容易连不上, 所以pull, push时, 有时需要循环执行
-暂定间隔5秒循环执行, 一般10次以内能成功 这里设置了100次, 如果需要永久循环 设置为(0,0,1)</p>
-<p>用法: 将pull.cmd, push.cmd脚本放到PATH目录下, 使用时直接在仓库目录, 执行pull, push即可</p>
-<div class="markdown-heading"><h3 class="heading-element">pull.cmd</h3><a id="user-content-pullcmd" class="anchor" aria-label="Permalink: pull.cmd" href="#pullcmd"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>@echo off
-chcp 65001
-rem 因github容易连不上, 所以间隔5秒循环执行, 一般10次以内都能成功 这里设置了100次, 如果需要永久循环 设置为(0,0,1)
-<span class="pl-c1">echo</span> git pull
-git rev-parse --is-inside-work-tree <span class="pl-k">&gt;</span>nul <span class="pl-k">2&gt;</span>nul
-<span class="pl-k">if</span> %errorlevel% equ 0 (
-    <span class="pl-k">for</span> <span class="pl-smi">/l %%a</span> <span class="pl-k">in</span> (1,1,100) <span class="pl-k">do</span> (echo %%a----------------------- <span class="pl-k">&amp;&amp;</span> git pull <span class="pl-k">&amp;&amp;</span> goto :EOF<span class="pl-k">;</span> sleep 5)
-) <span class="pl-k">else</span> (
-    <span class="pl-c1">echo</span> 当前目录不是git仓库
-)
-:EOF
-<span class="pl-c1">echo</span> -------------------------end</pre></div>
-<div class="markdown-heading"><h3 class="heading-element">push.cmd</h3><a id="user-content-pushcmd" class="anchor" aria-label="Permalink: push.cmd" href="#pushcmd"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>@echo off
-chcp 65001
-rem 因github容易连不上, 所以间隔5秒循环执行, 一般10次以内都能成功 这里设置了100次, 如果需要永久循环 设置为(0,0,1)
-<span class="pl-c1">echo</span> git push
-git rev-parse --is-inside-work-tree <span class="pl-k">&gt;</span>nul <span class="pl-k">2&gt;</span>nul
-<span class="pl-k">if</span> %errorlevel% equ 0 (
-    <span class="pl-k">for</span> <span class="pl-smi">/l %%a</span> <span class="pl-k">in</span> (1,1,100) <span class="pl-k">do</span> (echo %%a------------------- <span class="pl-k">&amp;&amp;</span> git push <span class="pl-k">&amp;&amp;</span> goto :EOF<span class="pl-k">;</span> sleep 5)
-) <span class="pl-k">else</span> (
-    <span class="pl-c1">echo</span> 当前目录不是git仓库
-)
+  <article class="markdown-body">
+    <h2 id="_1">循环执行脚本</h2>
+<p>判断参数命令执行结果, 如果失败则重复执行<br />
+<code>retry.cmd git push origin main</code>  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>@echo<span class="w"> </span>off<span class="w">  </span>
+chcp<span class="w"> </span><span class="m">65001</span><span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span>%*<span class="w">  </span>
+<span class="k">for</span><span class="w"> </span>/l<span class="w"> </span>%%a<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">(</span><span class="m">1</span>,1,100<span class="o">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">(</span><span class="nb">echo</span><span class="w"> </span>%%a-------------------<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>%*<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>goto<span class="w"> </span>:EOF<span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">5</span><span class="o">)</span><span class="w">  </span>
 
-:EOF
-<span class="pl-c1">echo</span> -------------------end</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">Mac添加alias实现</h2><a id="user-content-mac添加alias实现" class="anchor" aria-label="Permalink: Mac添加alias实现" href="#mac添加alias实现"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>pull='for i in `seq 1 100`; do echo $i &amp;&amp; git pull &amp;&amp; break; sleep 5; done'
-push='for i in `seq 1 100`; do echo $i &amp;&amp; git push &amp;&amp; break; done'
-</code></pre>
+:EOF<span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span>-------------------end<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="git">git推拉脚本</h2>
+<p>因github容易连不上, 所以pull, push时, 有时需要循环执行<br />
+暂定间隔5秒循环执行, 一般10次以内能成功 这里设置了100次, 如果需要永久循环 设置为(0,0,1)  </p>
+<p>用法: 将pull.cmd, push.cmd脚本放到PATH目录下, 使用时直接在仓库目录, 执行pull, push即可  </p>
+<h3 id="pullcmd">pull.cmd</h3>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>@echo<span class="w"> </span>off<span class="w">  </span>
+chcp<span class="w"> </span><span class="m">65001</span><span class="w">  </span>
+rem<span class="w"> </span>因github容易连不上,<span class="w"> </span>所以间隔5秒循环执行,<span class="w"> </span>一般10次以内都能成功<span class="w"> </span>这里设置了100次,<span class="w"> </span>如果需要永久循环<span class="w"> </span>设置为<span class="o">(</span><span class="m">0</span>,0,1<span class="o">)</span><span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span>git<span class="w"> </span>pull<span class="w">  </span>
+git<span class="w"> </span>rev-parse<span class="w"> </span>--is-inside-work-tree<span class="w"> </span>&gt;nul<span class="w"> </span><span class="m">2</span>&gt;nul<span class="w">  </span>
+<span class="k">if</span><span class="w"> </span>%errorlevel%<span class="w"> </span>equ<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span><span class="w">  </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>/l<span class="w"> </span>%%a<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">(</span><span class="m">1</span>,1,100<span class="o">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">(</span><span class="nb">echo</span><span class="w"> </span>%%a-----------------------<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>goto<span class="w"> </span>:EOF<span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">5</span><span class="o">)</span><span class="w">  </span>
+<span class="o">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="o">(</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>当前目录不是git仓库<span class="w">  </span>
+<span class="o">)</span><span class="w">  </span>
+:EOF<span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span>-------------------------end<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="pushcmd">push.cmd</h3>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>@echo<span class="w"> </span>off<span class="w">  </span>
+chcp<span class="w"> </span><span class="m">65001</span><span class="w">  </span>
+rem<span class="w"> </span>因github容易连不上,<span class="w"> </span>所以间隔5秒循环执行,<span class="w"> </span>一般10次以内都能成功<span class="w"> </span>这里设置了100次,<span class="w"> </span>如果需要永久循环<span class="w"> </span>设置为<span class="o">(</span><span class="m">0</span>,0,1<span class="o">)</span><span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span>git<span class="w"> </span>push<span class="w">  </span>
+git<span class="w"> </span>rev-parse<span class="w"> </span>--is-inside-work-tree<span class="w"> </span>&gt;nul<span class="w"> </span><span class="m">2</span>&gt;nul<span class="w">  </span>
+<span class="k">if</span><span class="w"> </span>%errorlevel%<span class="w"> </span>equ<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span><span class="w">  </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>/l<span class="w"> </span>%%a<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">(</span><span class="m">1</span>,1,100<span class="o">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">(</span><span class="nb">echo</span><span class="w"> </span>%%a-------------------<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>goto<span class="w"> </span>:EOF<span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">5</span><span class="o">)</span><span class="w">  </span>
+<span class="o">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="o">(</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>当前目录不是git仓库<span class="w">  </span>
+<span class="o">)</span><span class="w">  </span>
+
+:EOF<span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span>-------------------end<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="macalias">Mac添加alias实现</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>pull=&#39;for i in `seq 1 100`; do echo $i &amp;&amp; git pull &amp;&amp; break; sleep 5; done&#39;  
+push=&#39;for i in `seq 1 100`; do echo $i &amp;&amp; git push &amp;&amp; break; done&#39;  
+</code></pre></div></div>
+<h2 id="chcp">chcp</h2>
+<p>修改cmd编码  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>chcp<span class="w"> </span><span class="m">936</span><span class="w">  </span><span class="c1">#GBK  </span>
+chcp<span class="w"> </span><span class="m">65001</span><span class="w"> </span><span class="c1">#UTF-8  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/69.html" aria-label="Previous Page">0X45 Nginx日志配置</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/67.html" aria-label="Next Page">0X43 Git删除大文件</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/67.html" aria-label="Previous Page">0X43 Git删除大文件</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/69.html" aria-label="Next Page">0X45 Nginx日志配置</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -271,8 +317,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
