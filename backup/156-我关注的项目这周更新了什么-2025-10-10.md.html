@@ -1,23 +1,41 @@
 
   <article class="markdown-body">
-    <h1 id="1-cherry-studio-v163">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.3">cherry-studio v1.6.3</a></h1>
+    <h1 id="1-cherry-studio-v164">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.4">cherry-studio v1.6.4</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<h1 id="2-higress-v219-rc1">2. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.9-rc.1">higress v2.1.9-rc.1</a></h1>
-<p>🤖 AI Gateway AI Native API Gateway  </p>
-<p>Higress发布版本2.1.9-rc.1包含11项更新，涵盖新功能、Bug修复、重构优化和文档更新。主要新功能包括：key-auth插件记录消费者名称、向量数据库映射核心功能和自定义系统提示生成发布说明。修复了5个Bug，如mcp-session过滤器兼容性问题、JSON字段映射错误和Azure服务URL检测逻辑优化。重构优化了负载均衡算法逻辑，提升了性能。文档更新包括AI插件配置说明和多语言发布说明。  </p>
-<p>Higress Console发布版本包含4项更新，重点新增支持OpenAI LLM提供商使用已知服务的功能，提升了开发效率和灵活性。修复了路由重写必填字段验证和自定义标签处理逻辑的问题。文档方面更新了README.md，清理非项目描述并添加代码格式指南。  </p>
-<p>两个版本均感谢贡献者的努力，详细变更日志可查看GitHub链接。  </p>
-<h1 id="3-subs-check-v142">3. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.2">subs-check v1.4.2</a></h1>
+<h1 id="2-datafaker-252">2. <a href="https://github.com/datafaker-net/datafaker/releases/tag/2.5.2">datafaker 2.5.2</a></h1>
+<p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
+<p>本次更新主要包含以下变更：1) 新增挪威(NO)的个人识别号码提供器；2) 改进了无参数构造函数的获取方式；3) 将libphonenumber库从9.0.14升级到9.0.16；4) 调整了发布后工作流以更精确处理版本标识符；5) 移除了未使用的"country_by_code"设置；6) 优化了图像断言功能。此次更新还迎来了新贡献者@mt657-jpg的首次提交。版本从2.5.1升级到2.5.2。  </p>
+<h1 id="3-chsrc-v023">3. <a href="https://github.com/RubyMetric/chsrc/releases/tag/v0.2.3">chsrc v0.2.3</a></h1>
+<p>chsrc 全平台通用换源工具与框架. Change Source everywhere for every software  </p>
+<h1 id="4-subs-check-v142">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.2">subs-check v1.4.2</a></h1>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
 <p>更新日志：<br />
-1. 修改了config.example.yaml配置文件<br />
+1. 更新了config.example.yaml配置文件<br />
 2. 修复了内存相关问题<br />
 3. 将sub-store更新至2.20.29版本  </p>
-<h1 id="4-chsrc-v023">4. <a href="https://github.com/RubyMetric/chsrc/releases/tag/v0.2.3">chsrc v0.2.3</a></h1>
-<p>chsrc 全平台通用换源工具与框架. Change Source everywhere for every software  </p>
-<p>该预编译二进制文件版本为v0.2.3，发布于2025-10-06。主要更新包括：1）显示每个recipe的维护信息；2）重构内部数据结构便于维护；3）增加通用函数增强框架功能。换源方面支持mvnd换源，修复了Rust、WinGet和Ruby的换源问题。新增Java源、修复Python源、为Arch Linux添加新源。两位新贡献者@BingChunMoLi和@Young-Lord首次参与项目开发。  </p>
-<h1 id="5-gixy-v029">5. <a href="https://github.com/dvershinin/gixy/releases/tag/v0.2.9">gixy v0.2.9</a></h1>
+<h1 id="5-higress-v219-rc1">5. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.9-rc.1">higress v2.1.9-rc.1</a></h1>
+<p>🤖 AI Gateway AI Native API Gateway  </p>
+<p>Higress本次发布包含11项更新，涵盖新功能、Bug修复、重构优化和文档更新。主要亮点包括：    </p>
+<p><strong>新功能</strong>  <br />
+1. key-auth插件新增记录消费者名称功能，提升系统可追溯性。  <br />
+2. 引入向量数据库映射核心功能，支持灵活字段映射和索引配置。  <br />
+3. 新增自定义系统提示功能，优化发布说明生成体验。    </p>
+<p><strong>Bug修复</strong>  <br />
+1. 修复mcp-session过滤器域名匹配问题，提升兼容性。  <br />
+2. 修正ToolSecurity结构体字段映射错误。  <br />
+3. 优化Azure服务URL检测逻辑，增强边缘场景处理。  <br />
+4. 解决LLM提供方空值问题并优化文档说明。  <br />
+5. 修复旧配置兼容性问题。    </p>
+<p><strong>重构优化</strong>  <br />
+1. 优化全局最小请求数负载均衡算法，提升资源分配效率。    </p>
+<p><strong>文档更新</strong>  <br />
+1. 完善ai-proxy插件Azure服务URL说明。  <br />
+2. 新增2.1.8版本中英文发布说明。    </p>
+<p>Higress Console同期发布4项更新，包含1项关键功能：支持OpenAI LLM提供方预定义服务集成，提升开发灵活性。其他修复包括路由重写字段验证、自定义标签逻辑修正，以及README文档清理优化。    </p>
+<p>统计数据：Higress总计11项变更（3功能/5修复/1优化/2文档），Console总计4项变更（1功能/2修复/1文档）。  </p>
+<h1 id="6-gixy-v029">6. <a href="https://github.com/dvershinin/gixy/releases/tag/v0.2.9">gixy v0.2.9</a></h1>
 <p>NGINX configuration static analyzer  </p>
+<p>摘要：本文讨论了正则表达式中因导入和变量捕获引发的问题及修复方法。主要内容包括：1）导入外部内容可能导致正则模式冲突；2）变量捕获不当会造成匹配错误或安全漏洞；3）提出了严格的变量隔离和输入验证方案；4）建议使用原始字符串（raw strings）处理特殊字符；5）推荐显式命名捕获组提升可维护性。这些修复措施能有效提高正则表达式的安全性和可靠性。  </p>
   </article>
   
 <script>
