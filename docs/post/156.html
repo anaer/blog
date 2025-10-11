@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-10-06 12:12:34</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-10 23:11:00</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-11 12:12:00</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件更新的主要内容。Cherry Studio v1.6.3增加了对多种LLM提供商的支持，新增功能包括LongCat和Intel OVMS的支持、GPT-5-Codex模型的集成以及GitHub Copilot CLI的集成等，同时进行了多项优化和修复。higress v2.1.9-rc.1是一个AI Gateway，提供AI原生API网关功能。subs-check v1.4.2是一个用于订阅转换和流媒体检测的工具。chsrc v0.2.3是一个通用换源工具，增加了新的源和修复了多个换源问题，并列出了新贡献者。gixy v0.2.9是一个NGINX配置静态分析器。需要注意的是，chsrc的发布日期标注为2025年，这可能是一个错误，因其应为未来的日期。
+    <strong>AI总结:</strong> 本文介绍了多个软件版本的更新情况。Cherry Studio v1.6.3是一个支持多种大型语言模型提供商的桌面客户端。Higress v2.1.9-rc.1作为AI网关，包含11项更新，主要包括新功能、Bug修复和性能优化，特别是对OpenAI LLM的支持。subs-check v1.4.2是一个用于订阅管理的工具，更新包括配置文件修改和内存问题修复。chsrc v0.2.3是一个全平台换源工具，更新包括维护信息显示和多种源的支持。gixy v0.2.9是一个NGINX配置静态分析工具。文本中提到的chsrc的发布日期为2025-10-06，显然是一个错误，因为当前时间在2023年。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -146,39 +146,20 @@ pre {
   <article class="markdown-body">
     <h1 id="1-cherry-studio-v163">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.3">cherry-studio v1.6.3</a></h1>
 <p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
-<p>本次更新主要包含功能新增、优化修复和依赖更新三方面内容：  </p>
-<p>功能新增：<br />
-1. 工具插件分离提供商定义工具与提示工具<br />
-2. 新增LongCat提供商支持<br />
-3. 新增Intel OVMS(OpenVINO模型服务器)提供商<br />
-4. 支持GPT-5-Codex模型<br />
-5. 新增GitHub Copilot CLI集成到编码工具<br />
-6. 添加笔记导出功能<br />
-7. 支持使用LLM重命名笔记<br />
-8. 新增中键关闭标签页功能<br />
-9. 支持笔记表格自动换行<br />
-10. 添加笔记拼写检查控制  </p>
-<p>优化修复：<br />
-1. 重构推理时间处理<br />
-2. 更新Gemini正则表达式<br />
-3. 支持DeepSeek v3.2、Claude 4.5、GLM 4.6等模型<br />
-4. 修复文本文件预览编辑器只读但可复制问题<br />
-5. 修复分叉主题和重命名模态框保留旧名称问题<br />
-6. 扩展主题就地重命名的可点击区域<br />
-7. 修复并排视图中冗余滚动条问题<br />
-8. 恢复首个令牌延迟报告<br />
-9. 更新Electron版本  </p>
-<p>依赖更新：<br />
-1. 更新各包依赖和版本<br />
-2. 升级actions/setup-node、actions/checkout、actions/github-script等CI依赖  </p>
-<p>版本升级至1.6.3，新增3位贡献者：@makejiang、@PPKunOfficial和@dhofheinz。  </p>
 <h1 id="2-higress-v219-rc1">2. <a href="https://github.com/alibaba/higress/releases/tag/v2.1.9-rc.1">higress v2.1.9-rc.1</a></h1>
 <p>🤖 AI Gateway AI Native API Gateway  </p>
+<p>Higress发布版本2.1.9-rc.1包含11项更新，涵盖新功能、Bug修复、重构优化和文档更新。主要新功能包括：key-auth插件记录消费者名称、向量数据库映射核心功能和自定义系统提示生成发布说明。修复了5个Bug，如mcp-session过滤器兼容性问题、JSON字段映射错误和Azure服务URL检测逻辑优化。重构优化了负载均衡算法逻辑，提升了性能。文档更新包括AI插件配置说明和多语言发布说明。  </p>
+<p>Higress Console发布版本包含4项更新，重点新增支持OpenAI LLM提供商使用已知服务的功能，提升了开发效率和灵活性。修复了路由重写必填字段验证和自定义标签处理逻辑的问题。文档方面更新了README.md，清理非项目描述并添加代码格式指南。  </p>
+<p>两个版本均感谢贡献者的努力，详细变更日志可查看GitHub链接。  </p>
 <h1 id="3-subs-check-v142">3. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.2">subs-check v1.4.2</a></h1>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
+<p>更新日志：<br />
+1. 修改了config.example.yaml配置文件<br />
+2. 修复了内存相关问题<br />
+3. 将sub-store更新至2.20.29版本  </p>
 <h1 id="4-chsrc-v023">4. <a href="https://github.com/RubyMetric/chsrc/releases/tag/v0.2.3">chsrc v0.2.3</a></h1>
 <p>chsrc 全平台通用换源工具与框架. Change Source everywhere for every software  </p>
-<p>该附件是预编译二进制文件v0.2.3版本，发布于2025-10-06。主要更新内容包括：明确显示recipe维护信息、重构内部数据结构便于维护、增加通用函数增强框架功能。在换源方法方面，新增支持mvnd换源，修复了Rust、WinGet和Ruby的换源问题。在源方面，为Java添加了新源，修复了Python部分源，并为Arch Linux添加了新源。此外，还列出了两位首次贡献者@BingChunMoLi和@Young-Lord及其对应的PR链接。  </p>
+<p>该预编译二进制文件版本为v0.2.3，发布于2025-10-06。主要更新包括：1）显示每个recipe的维护信息；2）重构内部数据结构便于维护；3）增加通用函数增强框架功能。换源方面支持mvnd换源，修复了Rust、WinGet和Ruby的换源问题。新增Java源、修复Python源、为Arch Linux添加新源。两位新贡献者@BingChunMoLi和@Young-Lord首次参与项目开发。  </p>
 <h1 id="5-gixy-v029">5. <a href="https://github.com/dvershinin/gixy/releases/tag/v0.2.9">gixy v0.2.9</a></h1>
 <p>NGINX configuration static analyzer  </p>
   </article>
