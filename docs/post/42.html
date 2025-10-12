@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X2A SQLite客户端</title>
+<title>SQLite问题</title>
 
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X2A SQLite客户端</a>
+    <a style="font-size:18px">SQLite问题</a>
 </h1>
 
 <div class="title-right">
@@ -137,27 +139,58 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-15 17:31:22</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-21 13:36:25</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-12 16:58:36</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了三款数据库管理工具的特点。SQLiteStudio允许用户直接修改表结构，并且支持中文。SQLiteSpy在修改表结构方面不方便，需要手动编写SQL语句。HeidiSQL 12.9对SQLite表结构的修改支持较差。存在的错误观点是，HeidiSQL 12.9并不专注于SQLite，可能导致用户对其功能产生误解。
+</div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element"><a href="https://github.com/pawelsalawa/sqlitestudio/releases">sqlitestudio</a></h2><a id="user-content-sqlitestudio" class="anchor" aria-label="Permalink: sqlitestudio" href="#sqlitestudio"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  <article class="markdown-body">
+    <h2 id="sqlitestudio"><a href="https://github.com/pawelsalawa/sqlitestudio/releases">sqlitestudio</a></h2>
 <ol>
-<li>可直接修改表结构</li>
-<li>支持中文</li>
+<li>可直接修改表结构  </li>
+<li>支持中文  </li>
 </ol>
-<div class="markdown-heading"><h2 class="heading-element"><a href="https://www.yunqa.de/delphi/apps/sqlitespy/index" rel="nofollow">SQLiteSpy</a></h2><a id="user-content-sqlitespy" class="anchor" aria-label="Permalink: SQLiteSpy" href="#sqlitespy"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h2 id="sqlitespy"><a href="https://www.yunqa.de/delphi/apps/sqlitespy/index">SQLiteSpy</a></h2>
 <ol>
-<li>修改表结构不方便, 需手写sql</li>
+<li>修改表结构不方便, 需手写sql  </li>
 </ol>
-<div class="markdown-heading"><h2 class="heading-element"><a href="https://www.heidisql.com/download.php" rel="nofollow">HeidiSQL 12.9</a></h2><a id="user-content-heidisql-129" class="anchor" aria-label="Permalink: HeidiSQL 12.9" href="#heidisql-129"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h2 id="heidisql-129"><a href="https://www.heidisql.com/download.php">HeidiSQL 12.9</a></h2>
 <ol>
-<li>对sqlite表结构修改支持的不好</li>
+<li>对sqlite表结构修改支持的不好  </li>
 </ol>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/43.html" aria-label="Previous Page">0X2B ip-api接口查询IP对应国家名称</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/39.html" aria-label="Next Page">0X27 Deepseek API</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/41.html" aria-label="Previous Page">0X29 获取网站favicon图标</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/43.html" aria-label="Next Page">0X2B ip-api接口查询IP对应国家名称</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -239,8 +272,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

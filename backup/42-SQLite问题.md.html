@@ -1,0 +1,42 @@
+
+  <article class="markdown-body">
+    <h2 id="sqlitestudio"><a href="https://github.com/pawelsalawa/sqlitestudio/releases">sqlitestudio</a></h2>
+<ol>
+<li>可直接修改表结构  </li>
+<li>支持中文  </li>
+</ol>
+<h2 id="sqlitespy"><a href="https://www.yunqa.de/delphi/apps/sqlitespy/index">SQLiteSpy</a></h2>
+<ol>
+<li>修改表结构不方便, 需手写sql  </li>
+</ol>
+<h2 id="heidisql-129"><a href="https://www.heidisql.com/download.php">HeidiSQL 12.9</a></h2>
+<ol>
+<li>对sqlite表结构修改支持的不好  </li>
+</ol>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
