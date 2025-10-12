@@ -112,7 +112,7 @@
 
 ### 数据库
 1. HeidiSQL [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差
-2. ~~SQLiteStudio~~ [官网](https://sqlitestudio.pl/) SQLite客户端 表设计支持较好
+2. SQLiteStudio [官网](https://sqlitestudio.pl/)  [GitHub](https://github.com/pawelsalawa/sqlitestudio/releases/) SQLite客户端 表设计支持较好
 3. ~~DB Browser for SQLite~~ [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)
 5. ~~Robo 3T~~ [GitHub](https://github.com/Studio3T/robomongo/releases) 
 5. ~~Compass~~ [GitHub](https://github.com/mongodb-js/compass/releases) 要求4.x
