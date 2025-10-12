@@ -1,12 +1,9 @@
-## [sqlitestudio](https://github.com/pawelsalawa/sqlitestudio/releases)
+## 冲突时更新
 
-1. 可直接修改表结构
-2. 支持中文
+```sql
+INSERT INTO table_name(column1, column2) VALUES(value1, value2)
+ON CONFLICT(column1) DO UPDATE SET
+  column2 = excluded.column2;
+```
 
-## [SQLiteSpy](https://www.yunqa.de/delphi/apps/sqlitespy/index)
-
-1. 修改表结构不方便, 需手写sql
-
-## [HeidiSQL 12.9](https://www.heidisql.com/download.php)
-
-1. 对sqlite表结构修改支持的不好
+column1 需要有唯一约束

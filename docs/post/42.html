@@ -16,7 +16,7 @@
     </script>
     
 <title>SQLite问题</title>
-
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/both.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -126,11 +126,7 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#682650">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Win10">Win10</a></object>
-        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#软件">软件</a></object>
-        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#774C51">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#774C51">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#数据库">数据库</a></object>
         </span>
 </div>
@@ -139,28 +135,22 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-15 17:31:22</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-12 16:58:36</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-12 16:59:30</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了三款数据库管理工具的特点。SQLiteStudio允许用户直接修改表结构，并且支持中文。SQLiteSpy在修改表结构方面不方便，需要手动编写SQL语句。HeidiSQL 12.9对SQLite表结构的修改支持较差。存在的错误观点是，HeidiSQL 12.9并不专注于SQLite，可能导致用户对其功能产生误解。
+    <strong>AI总结:</strong> 本文介绍了在数据库操作中使用INSERT语句处理冲突的方式，具体是通过ON CONFLICT子句来更新已存在的记录。该示例中，当column1出现冲突时，会更新column2的值为新的值。需要注意的是，column1必须具备唯一约束以保证冲突检测的有效性。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h2 id="sqlitestudio"><a href="https://github.com/pawelsalawa/sqlitestudio/releases">sqlitestudio</a></h2>
-<ol>
-<li>可直接修改表结构  </li>
-<li>支持中文  </li>
-</ol>
-<h2 id="sqlitespy"><a href="https://www.yunqa.de/delphi/apps/sqlitespy/index">SQLiteSpy</a></h2>
-<ol>
-<li>修改表结构不方便, 需手写sql  </li>
-</ol>
-<h2 id="heidisql-129"><a href="https://www.heidisql.com/download.php">HeidiSQL 12.9</a></h2>
-<ol>
-<li>对sqlite表结构修改支持的不好  </li>
-</ol>
+    <h2 id="_1">冲突时更新</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">value2</span><span class="p">)</span><span class="w">  </span>
+<span class="k">ON</span><span class="w"> </span><span class="n">CONFLICT</span><span class="p">(</span><span class="n">column1</span><span class="p">)</span><span class="w"> </span><span class="k">DO</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">SET</span><span class="w">  </span>
+<span class="w">  </span><span class="n">column2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">excluded</span><span class="p">.</span><span class="n">column2</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<p>column1 需要有唯一约束  </p>
   </article>
   
 <script>

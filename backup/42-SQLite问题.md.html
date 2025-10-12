@@ -1,18 +1,12 @@
 
   <article class="markdown-body">
-    <h2 id="sqlitestudio"><a href="https://github.com/pawelsalawa/sqlitestudio/releases">sqlitestudio</a></h2>
-<ol>
-<li>可直接修改表结构  </li>
-<li>支持中文  </li>
-</ol>
-<h2 id="sqlitespy"><a href="https://www.yunqa.de/delphi/apps/sqlitespy/index">SQLiteSpy</a></h2>
-<ol>
-<li>修改表结构不方便, 需手写sql  </li>
-</ol>
-<h2 id="heidisql-129"><a href="https://www.heidisql.com/download.php">HeidiSQL 12.9</a></h2>
-<ol>
-<li>对sqlite表结构修改支持的不好  </li>
-</ol>
+    <h2 id="_1">冲突时更新</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">value2</span><span class="p">)</span><span class="w">  </span>
+<span class="k">ON</span><span class="w"> </span><span class="n">CONFLICT</span><span class="p">(</span><span class="n">column1</span><span class="p">)</span><span class="w"> </span><span class="k">DO</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">SET</span><span class="w">  </span>
+<span class="w">  </span><span class="n">column2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">excluded</span><span class="p">.</span><span class="n">column2</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<p>column1 需要有唯一约束  </p>
   </article>
   
 <script>
