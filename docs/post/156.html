@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-10-06 12:12:34</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-12 23:09:10</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-13 13:55:09</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个软件工具及其版本更新，包括Cherry Studio v1.6.4，它是一个支持多种LLM提供者的桌面客户端；datafaker v2.5.2，旨在为JVM生成虚假数据；chsrc v0.2.3，是一个全平台的换源工具，具有多项功能更新和修复；subs-check v1.4.2，提供订阅转换和测速等功能，并修复了内存问题；higress v2.1.9-rc.1，作为AI原生API网关；以及gixy v0.2.9，NGINX配置的静态分析工具。文本中的错误观点包括chsrc的发布日期错误，实际发布日期应为2023年，而非2025年。
+    <strong>AI总结:</strong> 本文介绍了多个软件工具及其更新信息，包括Cherry Studio v1.6.4，是一个支持多种LLM提供商的桌面客户端；datafaker v2.5.2，旨在简化在JVM环境中生成虚假数据的过程；chsrc v0.2.3，是一个全平台的换源工具，包含多个更新和修复；subs-check v1.4.2，提供订阅转换和流媒体检测功能，并修复了内存问题；higress v2.1.9-rc.1，是一个AI原生API网关；gixy v0.2.9，是NGINX配置的静态分析器。需要注意的是，chsrc的发布日期被错误地标注为2025年，实际日期应为2023年。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -150,7 +150,7 @@ pre {
 <p>Generating fake data for the JVM Java, Kotlin, Groovy has never been easier!  </p>
 <h1 id="3-chsrc-v023">3. <a href="https://github.com/RubyMetric/chsrc/releases/tag/v0.2.3">chsrc v0.2.3</a></h1>
 <p>chsrc 全平台通用换源工具与框架. Change Source everywhere for every software  </p>
-<p>该预编译二进制文件版本为v0.2.3，发布于2025-10-06。主要更新内容包括：1) 显示各recipe维护信息；2) 重构内部数据结构便于维护；3) 新增通用函数增强框架功能。换源方面支持mvnd换源，修复了Rust、WinGet和Ruby的换源功能。新增Java源，修复Python源，并为Arch Linux添加新源。本次版本有两位新贡献者@BingChunMoLi和@Young-Lord首次提交代码。  </p>
+<p>该预编译二进制文件版本为v0.2.3，发布于2025-10-06。主要更新内容包括：1) 显示各recipe维护信息；2) 重构内部数据结构便于维护；3) 新增通用函数增强框架功能。换源方面支持mvnd换源，修复了Rust、WinGet和Ruby的换源功能。新增Java源，修复Python源，并为Arch Linux添加新源。  </p>
 <h1 id="4-subs-check-v142">4. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.2">subs-check v1.4.2</a></h1>
 <p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
 <ul>
@@ -259,7 +259,18 @@ console.log("\n %c Gmeek v2.4 %c https://github.com/Meekdai/Gmeek \n\n", "color:
 
 <script>
 
+cmButton=document.getElementById("cmButton");
+    span=document.createElement("span");
+    span.setAttribute("class","Counter");
+    span.innerHTML="1";
+    cmButton.appendChild(span);
 
+    // 如果存在评论 延迟1秒后自动加载
+    window.onload = function() {
+    setTimeout(function() {
+        openComments();
+    }, 1000);
+    };
 
 function openComments(){
     cm=document.getElementById("comments");
