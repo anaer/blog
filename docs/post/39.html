@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,8 +15,8 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X27 Deepseek API</title>
-
+<title>AI模型</title>
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia-dark.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X27 Deepseek API</a>
+    <a style="font-size:18px">AI模型</a>
 </h1>
 
 <div class="title-right">
@@ -133,33 +135,85 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-14 15:54:02</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-04 15:31:37</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-14 14:55:48</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了多个支持DeepSeek模型的平台及其相关信息，包括阿里云、字节火山引擎、腾讯云、硅基流动、DeepSeek官方和讯飞星火等，每个平台提供不同数量的免费额度或赠送token。此外，列出了硅基流动可用的免费模型，涵盖推理、翻译、对话和编码等功能。相关链接提供了DeepSeek模型的兼容性检测、实用集成和使用指南等资源。没有明显的错误观点。
+</div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">DeepSeek模型支持平台</h2><a id="user-content-deepseek模型支持平台" class="anchor" aria-label="Permalink: DeepSeek模型支持平台" href="#deepseek模型支持平台"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  <article class="markdown-body">
+    <h2 id="deepseek">DeepSeek模型支持平台</h2>
 <ul>
-<li>阿里云百炼 <a href="http://bailian.console.aliyun.com" rel="nofollow">http://bailian.console.aliyun.com</a> （赠送 100 万 token）</li>
-<li>字节火山引擎 <a href="http://volcengine.com" rel="nofollow">http://volcengine.com</a> （赠送 50 万 token）</li>
-<li>腾讯云 <a href="http://cloud.tencent.com/act/pro/deepseek-api" rel="nofollow">http://cloud.tencent.com/act/pro/deepseek-api</a> （赠送 50 万 token）</li>
-<li>硅基流动 <a href="http://siliconflow.cn" rel="nofollow">http://siliconflow.cn</a> （赠送 14 元额度）</li>
-<li>DeepSeek 官方 <a href="http://platform.deepseek.com" rel="nofollow">http://platform.deepseek.com</a> （赠送 10 元额度）</li>
-<li>讯飞星火 <a href="https://training.xfyun.cn" rel="nofollow">https://training.xfyun.cn</a> (限时免费)</li>
+<li>阿里云百炼 http://bailian.console.aliyun.com （赠送 100 万 token）  </li>
+<li>字节火山引擎 http://volcengine.com （赠送 50 万 token）  </li>
+<li>腾讯云 http://cloud.tencent.com/act/pro/deepseek-api （赠送 50 万 token）  </li>
+<li>硅基流动 http://siliconflow.cn （赠送 14 元额度）  </li>
+<li>DeepSeek 官方 http://platform.deepseek.com （赠送 10 元额度）  </li>
+<li>讯飞星火 https://training.xfyun.cn (限时免费)  </li>
 </ul>
-<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h2 id="_1">硅基流动免费模型</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="gu">### 推理  </span>
+
+Qwen/Qwen3-8B  
+THUDM/GLM-Z1-9B-0414  
+
+<span class="gu">### 翻译  </span>
+
+tencent/Hunyuan-MT-7B  
+
+<span class="gu">### 对话  </span>
+
+THUDM/GLM-4-9B-0414  
+deepseek-ai/DeepSeek-R1-Distill-Qwen-7B  
+Qwen/Qwen2.5-7B-Instruct  
+THUDM/glm-4-9b-chat  
+
+<span class="gu">### 编码  </span>
+
+Qwen/Qwen2.5-Coder-7B-Instruct  
+</code></pre></div></div>
+<h2 id="_2">相关链接</h2>
 <ol>
-<li><a href="https://tools.thinkinai.xyz/" rel="nofollow">DeepSeek 模型兼容性检测</a></li>
-<li><a href="https://github.com/deepseek-ai/awesome-deepseek-integration">DeepSeek实用集成</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/21086282882" rel="nofollow">DeepSeek使用大全</a></li>
-<li><a href="https://andrewji8-9527.xlog.app/quan-wang-man-xue-ban-DeepSeek-R1-mian-fei-shi-yong-ping-tai-hui-zong-" rel="nofollow">全网满血版DeepSeek-R1免费使用平台汇总！</a></li>
-<li><a href="https://github.com/n4ze3m/page-assist">Page Assist - A Web UI for Local AI Models</a></li>
-<li>
-<a href="https://deepseek404.com/" rel="nofollow">DeepSeek导航网</a> 收录接入DeepSeek的网页, 软件等</li>
+<li><a href="https://tools.thinkinai.xyz/">DeepSeek 模型兼容性检测</a>    </li>
+<li><a href="https://github.com/deepseek-ai/awesome-deepseek-integration">DeepSeek实用集成</a>    </li>
+<li><a href="https://zhuanlan.zhihu.com/p/21086282882">DeepSeek使用大全</a>    </li>
+<li><a href="https://andrewji8-9527.xlog.app/quan-wang-man-xue-ban-DeepSeek-R1-mian-fei-shi-yong-ping-tai-hui-zong-">全网满血版DeepSeek-R1免费使用平台汇总！</a>  </li>
+<li><a href="https://github.com/n4ze3m/page-assist">Page Assist - A Web UI for Local AI Models</a>     </li>
+<li><a href="https://deepseek404.com/">DeepSeek导航网</a> 收录接入DeepSeek的网页, 软件等  </li>
 </ol>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/42.html" aria-label="Previous Page">0X2A SQLite客户端</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/37.html" aria-label="Next Page">0X25 Git命令记录</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/38.html" aria-label="Previous Page">0X26 Blog页面添加下雪特效</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/40.html" aria-label="Next Page">0X28 在线二维码API</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -241,8 +295,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

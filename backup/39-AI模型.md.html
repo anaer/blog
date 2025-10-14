@@ -1,0 +1,69 @@
+
+  <article class="markdown-body">
+    <h2 id="deepseek">DeepSeek模型支持平台</h2>
+<ul>
+<li>阿里云百炼 http://bailian.console.aliyun.com （赠送 100 万 token）  </li>
+<li>字节火山引擎 http://volcengine.com （赠送 50 万 token）  </li>
+<li>腾讯云 http://cloud.tencent.com/act/pro/deepseek-api （赠送 50 万 token）  </li>
+<li>硅基流动 http://siliconflow.cn （赠送 14 元额度）  </li>
+<li>DeepSeek 官方 http://platform.deepseek.com （赠送 10 元额度）  </li>
+<li>讯飞星火 https://training.xfyun.cn (限时免费)  </li>
+</ul>
+<h2 id="_1">硅基流动免费模型</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="gu">### 推理  </span>
+
+Qwen/Qwen3-8B  
+THUDM/GLM-Z1-9B-0414  
+
+<span class="gu">### 翻译  </span>
+
+tencent/Hunyuan-MT-7B  
+
+<span class="gu">### 对话  </span>
+
+THUDM/GLM-4-9B-0414  
+deepseek-ai/DeepSeek-R1-Distill-Qwen-7B  
+Qwen/Qwen2.5-7B-Instruct  
+THUDM/glm-4-9b-chat  
+
+<span class="gu">### 编码  </span>
+
+Qwen/Qwen2.5-Coder-7B-Instruct  
+</code></pre></div></div>
+<h2 id="_2">相关链接</h2>
+<ol>
+<li><a href="https://tools.thinkinai.xyz/">DeepSeek 模型兼容性检测</a>    </li>
+<li><a href="https://github.com/deepseek-ai/awesome-deepseek-integration">DeepSeek实用集成</a>    </li>
+<li><a href="https://zhuanlan.zhihu.com/p/21086282882">DeepSeek使用大全</a>    </li>
+<li><a href="https://andrewji8-9527.xlog.app/quan-wang-man-xue-ban-DeepSeek-R1-mian-fei-shi-yong-ping-tai-hui-zong-">全网满血版DeepSeek-R1免费使用平台汇总！</a>  </li>
+<li><a href="https://github.com/n4ze3m/page-assist">Page Assist - A Web UI for Local AI Models</a>     </li>
+<li><a href="https://deepseek404.com/">DeepSeek导航网</a> 收录接入DeepSeek的网页, 软件等  </li>
+</ol>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
