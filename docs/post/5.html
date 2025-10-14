@@ -15,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X5 中文等宽字体</title>
+<title>字体</title>
 
 
 </head>
@@ -98,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X5 中文等宽字体</a>
+    <a style="font-size:18px">字体</a>
 </h1>
 
 <div class="title-right">
@@ -135,16 +135,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2023-10-26 10:37:30</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-04 15:27:32</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-14 14:11:10</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了几种编程专用的等宽字体，包括Google Sans Code、JetBrains Maple Mono、Maple-Mono、LXGW WenKai GB、Cascadia Code和Ubuntu Mono。其中，Maple-Mono被推荐为较为舒适的选择。文本未提及这些字体的具体优缺点或适用场景，可能导致读者对字体选择的理解不够全面。
+    <strong>AI总结:</strong> 本文介绍了多种中文等宽字体和Emoji字体。推荐的等宽字体包括Google Sans Code、JetBrains Maple Mono、Maple-Mono、LXGW WenKai GB、Cascadia Code和Ubuntu Mono，其中Maple-Mono被认为较为舒适。Emoji字体方面，推荐使用Noto Color Emoji和Twemoji，分别适用于Android和网页应用。Apple Color Emoji和Segoe UI Emoji为非官方字体，适用于苹果和微软平台。该文本未提及字体的具体使用场景和兼容性问题，可能导致用户对选择的字体不够了解。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <ul>
+    <h2 id="_1">中文等宽字体</h2>
+<ul>
 <li>
 <p><a href="https://github.com/googlefonts/googlesans-code">Google Sans Code</a> 谷歌开源等宽编程专用字体  </p>
 </li>
@@ -165,6 +166,26 @@ JetBrains Mono + Maple Mono 合成字体  </p>
 </li>
 <li><a href="https://github.com/powerline/fonts/tree/master/UbuntuMono">UbuntuMono</a>  </li>
 </ul>
+<h2 id="emoji">Emoji字体</h2>
+<ol>
+<li>
+<p><a href="https://github.com/googlefonts/noto-emoji">Noto Color Emoji</a><br />
+谷歌提供的开源 Emoji 字体，推荐用于 Android 和开源项目。  </p>
+</li>
+<li>
+<p><a href="https://github.com/13rac1/twemoji-color-font">Twemoji</a><br />
+由 X（原 Twitter）提供的开源 Emoji 库，常用于网页和跨平台应用。  </p>
+</li>
+<li>
+<p><a href="https://github.com/zhdsmy/apple-emoji">Apple Color Emoji（非官方）</a><br />
+苹果的 Emoji 字体。  </p>
+</li>
+</ol>
+<p>fonts/AppleColorEmoji_WindowsCompatible.ttf  </p>
+<ol>
+<li><a href="https://github.com/popemkt/segoe-ui-emoji">Segoe UI Emoji（非官方）</a><br />
+微软的 Emoji 字体  </li>
+</ol>
   </article>
   
 <script>
@@ -194,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/4.html" aria-label="Previous Page">0X4 pyGitHub文档</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/6.html" aria-label="Next Page">0X6 PC端常用软件</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/4.html" aria-label="Previous Page">0X4 pyGitHub文档</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/6.html" aria-label="Next Page">PC端常用软件</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -276,8 +297,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

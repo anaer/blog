@@ -1,0 +1,71 @@
+
+  <article class="markdown-body">
+    <h2 id="_1">中文等宽字体</h2>
+<ul>
+<li>
+<p><a href="https://github.com/googlefonts/googlesans-code">Google Sans Code</a> 谷歌开源等宽编程专用字体  </p>
+</li>
+<li>
+<p><a href="https://github.com/SpaceTimee/Fusion-JetBrainsMapleMono">JetBrains Maple Mono</a><br />
+JetBrains Mono + Maple Mono 合成字体  </p>
+</li>
+<li>
+<p><a href="https://github.com/subframe7536/Maple-font">Maple-Mono</a><br />
+推荐, 目前感觉较为舒适吧  </p>
+</li>
+<li>
+<p><a href="https://github.com/lxgw/LxgwWenkaiGB">LXGW WenKai GB / 霞鹜文楷 GB</a><br />
+等宽, markdown表格格式化 也能对齐  </p>
+</li>
+<li>
+<p><a href="https://github.com/microsoft/cascadia-code">Cascadia Code</a>  </p>
+</li>
+<li><a href="https://github.com/powerline/fonts/tree/master/UbuntuMono">UbuntuMono</a>  </li>
+</ul>
+<h2 id="emoji">Emoji字体</h2>
+<ol>
+<li>
+<p><a href="https://github.com/googlefonts/noto-emoji">Noto Color Emoji</a><br />
+谷歌提供的开源 Emoji 字体，推荐用于 Android 和开源项目。  </p>
+</li>
+<li>
+<p><a href="https://github.com/13rac1/twemoji-color-font">Twemoji</a><br />
+由 X（原 Twitter）提供的开源 Emoji 库，常用于网页和跨平台应用。  </p>
+</li>
+<li>
+<p><a href="https://github.com/zhdsmy/apple-emoji">Apple Color Emoji（非官方）</a><br />
+苹果的 Emoji 字体。  </p>
+</li>
+</ol>
+<p>fonts/AppleColorEmoji_WindowsCompatible.ttf  </p>
+<ol>
+<li><a href="https://github.com/popemkt/segoe-ui-emoji">Segoe UI Emoji（非官方）</a><br />
+微软的 Emoji 字体  </li>
+</ol>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
