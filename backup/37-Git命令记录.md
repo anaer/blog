@@ -1,4 +1,4 @@
-## Git变量
+## Git命令调试
 
 ```sh
 set GIT_TRACE=1    # 启用 GIT_TRACE 来调试
