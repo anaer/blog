@@ -3341,6 +3341,27 @@
             "dateLabelColor": "hsl(140, 52%, 35%)",
             "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u4e00\u4e2a\u547d\u4ee4\u884c\u5de5\u5177WeaselDeployer.exe\uff0c\u7528\u4e8e\u6267\u884c\u90e8\u7f72\u64cd\u4f5c\uff0c\u5177\u4f53\u547d\u4ee4\u4e3a\"/deploy\"\u3002\u6b64\u5916\uff0c\u63d0\u5230\u4e86\u4e00\u4e2a\u76f8\u5173\u94fe\u63a5\u6307\u5411RIME\u4ed3\u5e93\uff0c\u4f46\u672a\u63d0\u4f9b\u66f4\u591a\u4fe1\u606f\u3002\u6587\u672c\u4e2d\u6ca1\u6709\u660e\u663e\u7684\u9519\u8bef\u89c2\u70b9\u3002",
             "buildedAt": 1760498644
+        },
+        "P158": {
+            "number": "158",
+            "htmlDir": "docs/post/158.html",
+            "markdown": "backup/158-Chrome\u6d4f\u89c8\u5668.md",
+            "labels": [
+                "\u6d4f\u89c8\u5668"
+            ],
+            "postTitle": "Chrome\u6d4f\u89c8\u5668",
+            "postUrl": "post/158.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/158",
+            "commentNum": 0,
+            "createdAt": 1760517025,
+            "updatedAt": 1760517037,
+            "top": 0,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-10-15",
+            "dateLabelColor": "hsl(140, 37%, 39%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86Chrome Network\u9762\u677f\u7684\u5e38\u89c1\u8fc7\u6ee4\u5668\u53ca\u5176\u4f7f\u7528\u65b9\u6cd5\uff0c\u5305\u62ec\u6309HTTP\u65b9\u6cd5\u3001\u57df\u540d\u3001\u72b6\u6001\u7801\u3001\u5185\u5bb9\u7c7b\u578b\u3001\u54cd\u5e94\u4f53\u5927\u5c0f\u7b49\u8fdb\u884c\u7b5b\u9009\u3002\u6b64\u5916\uff0c\u8fd8\u4ecb\u7ecd\u4e86\u903b\u8f91\u8fd0\u7b97\u7b26\u7684\u5e94\u7528\uff0c\u5982AND\u548cNOT\u903b\u8f91\u3002\u6587\u672c\u4e2d\u6ca1\u6709\u660e\u663e\u7684\u9519\u8bef\u89c2\u70b9\u3002",
+            "buildedAt": 1760517037
         }
     },
     "singeListJson": {},

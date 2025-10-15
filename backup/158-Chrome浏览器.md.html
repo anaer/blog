@@ -1,0 +1,131 @@
+
+  <article class="markdown-body">
+    <h2 id="chrome-network">Chrome Network面板过滤器</h2>
+<hr />
+<h3 id="_1">常见过滤键</h3>
+<table>
+<thead>
+<tr>
+<th>过滤键</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>method:</strong></td>
+<td><code>method:GET</code> <code>method:POST</code></td>
+<td>按 HTTP 方法筛选</td>
+</tr>
+<tr>
+<td><strong>domain:</strong></td>
+<td><code>domain:example.com</code></td>
+<td>只看特定域名的请求</td>
+</tr>
+<tr>
+<td><strong>status-code:</strong></td>
+<td><code>status-code:404</code></td>
+<td>筛选指定 HTTP 状态码</td>
+</tr>
+<tr>
+<td><strong>mime-type:</strong></td>
+<td><code>mime-type:application/json</code></td>
+<td>按返回的内容类型筛选</td>
+</tr>
+<tr>
+<td><strong>larger-than:</strong></td>
+<td><code>larger-than:50kb</code></td>
+<td>按响应体大小（支持单位：b, kb, mb）</td>
+</tr>
+<tr>
+<td><strong>is:</strong></td>
+<td><code>is:from-cache</code>、<code>is:running</code>、<code>is:redirect</code></td>
+<td>筛选特定请求状态</td>
+</tr>
+<tr>
+<td><strong>scheme:</strong></td>
+<td><code>scheme:https</code></td>
+<td>区分 http / https</td>
+</tr>
+<tr>
+<td><strong>mixed-content:</strong></td>
+<td><code>mixed-content:all</code>、<code>mixed-content:displayed</code></td>
+<td>检查混合内容问题</td>
+</tr>
+<tr>
+<td><strong>priority:</strong></td>
+<td><code>priority:High</code>、<code>priority:Low</code></td>
+<td>请求优先级（渲染调试用）</td>
+</tr>
+<tr>
+<td><strong>has-response-header:</strong></td>
+<td><code>has-response-header:cache-control</code></td>
+<td>检查响应是否包含某个头</td>
+</tr>
+<tr>
+<td><strong>response-header:</strong></td>
+<td><code>response-header:content-type:image/png</code></td>
+<td>精确匹配响应头内容</td>
+</tr>
+<tr>
+<td><strong>set-cookie-domain:</strong></td>
+<td><code>set-cookie-domain:example.com</code></td>
+<td>查看特定域设置的 Cookie</td>
+</tr>
+<tr>
+<td><strong>cookie-name:</strong></td>
+<td><code>cookie-name:sessionid</code></td>
+<td>筛选包含特定 Cookie 的请求</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_2">逻辑运算符</h3>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空格</td>
+<td><code>method:POST domain:api.example.com</code></td>
+<td>AND（且）逻辑</td>
+</tr>
+<tr>
+<td><code>-</code> 前缀</td>
+<td><code>-method:GET</code></td>
+<td>NOT（非）逻辑</td>
+</tr>
+</tbody>
+</table>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
