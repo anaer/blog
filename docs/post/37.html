@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X25 Git命令记录</title>
+<title>Git命令记录</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/high-contrast.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X25 Git命令记录</a>
+    <a style="font-size:18px">Git命令记录</a>
 </h1>
 
 <div class="title-right">
@@ -133,59 +135,112 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-14 11:24:59</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-01 15:52:58</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-15 14:22:57</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了多种Git配置和命令的使用方法，包括启用调试、处理中文乱码、强制识别大小写变化、查询提交用户记录、修改历史提交用户信息、进行浅克隆及其转换为完整克隆、比较分支并导出变更文件，以及删除敏感文件的历史提交记录。需要注意的是，Git在默认情况下对大小写不敏感的系统不会提交仅大小写不同的文件名更改。该文中提到的关于推送和删除大文件的部分没有详细展开，可能导致读者对如何处理大文件缺乏具体指导。
+</div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">Git命令中文乱码 测试有效</h2><a id="user-content-git命令中文乱码-测试有效" class="anchor" aria-label="Permalink: Git命令中文乱码 测试有效" href="#git命令中文乱码-测试有效"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 设置文件名编码为 UTF-8</span>
-git config --global core.quotepath <span class="pl-c1">false</span>
 
-<span class="pl-c"><span class="pl-c">#</span> 设置提交日志等输出编码为 UTF-8</span>
-git config --global i18n.commit.encoding utf-8
-git config --global i18n.logoutputencoding utf-8</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">使用 Git 配置强制识别大小写变化</h2><a id="user-content-使用-git-配置强制识别大小写变化" class="anchor" aria-label="Permalink: 使用 Git 配置强制识别大小写变化" href="#使用-git-配置强制识别大小写变化"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Git 默认在 大小写不敏感的系统（如 Windows/macOS 默认设置）中不会提交 仅大小写不同的文件名更改。</p>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 临时设置</span>
-git config core.ignorecase <span class="pl-c1">false</span></pre></div>
-<div class="markdown-heading"><h2 class="heading-element">查询Git提交用户记录</h2><a id="user-content-查询git提交用户记录" class="anchor" aria-label="Permalink: 查询Git提交用户记录" href="#查询git提交用户记录"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>git log --format=<span class="pl-s"><span class="pl-pds">"</span>%an &lt;%ae&gt;<span class="pl-pds">"</span></span> --all <span class="pl-k">|</span> sort <span class="pl-k">|</span> uniq</pre></div>
-<p>--all：包括所有分支的提交。</p>
-<p>sort | uniq：对结果排序并去重。</p>
-<p>输出示例：</p>
-<pre><code>random &lt;r@n.dom&gt;
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">修改历史提交用户信息</h2><a id="user-content-修改历史提交用户信息" class="anchor" aria-label="Permalink: 修改历史提交用户信息" href="#修改历史提交用户信息"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>git filter-repo --name-callback <span class="pl-s"><span class="pl-pds">"</span>return b<span class="pl-cce">\"</span>random<span class="pl-cce">\"</span><span class="pl-pds">"</span></span> --email-callback <span class="pl-s"><span class="pl-pds">"</span>return b<span class="pl-cce">\"</span>r@n.dom<span class="pl-cce">\"</span><span class="pl-pds">"</span></span> --force
+  <article class="markdown-body">
+    <h2 id="git">Git变量</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="nb">set</span><span class="w"> </span><span class="nv">GIT_TRACE</span><span class="o">=</span><span class="m">1</span><span class="w">    </span><span class="c1"># 启用 GIT_TRACE 来调试  </span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">GIT_PAGER</span><span class="o">=</span>cat<span class="w">  </span><span class="c1"># 禁用分页器，直接查看输出  </span>
+</code></pre></div></div>
+<h2 id="git_1">Git命令中文乱码 测试有效</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="c1"># 设置文件名编码为 UTF-8  </span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.quotepath<span class="w"> </span><span class="nb">false</span><span class="w">  </span>
 
-git push --force</pre></div>
-<p>PS: 在 Windows 的 CMD 中，单引号可能不被识别，建议用双引号</p>
-<div class="markdown-heading"><h2 class="heading-element">depth=1 拉取其他分支</h2><a id="user-content-depth1-拉取其他分支" class="anchor" aria-label="Permalink: depth=1 拉取其他分支" href="#depth1-拉取其他分支"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>当你使用 git clone --depth 1 克隆仓库时，Git 只会克隆最新的提交历史（浅克隆），并且默认只拉取默认分支（通常是 main 或 master）。如果你需要获取其他分支, 执行以下命令</p>
-<div class="highlight highlight-source-shell"><pre>git config remote.origin.fetch <span class="pl-s"><span class="pl-pds">"</span>+refs/heads/*:refs/remotes/origin/*<span class="pl-pds">"</span></span>
-git fetch --depth=1
-git checkout branch-name</pre></div>
-<p>将浅克隆转换为完整克隆</p>
-<div class="highlight highlight-source-shell"><pre>git fetch --unshallow</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">比较分支并导出变更文件</h2><a id="user-content-比较分支并导出变更文件" class="anchor" aria-label="Permalink: 比较分支并导出变更文件" href="#比较分支并导出变更文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>git diff 6db1256718a184ece757df2b7d8bf22444801661 8906e42d5aeff10b70086bd7aece0f3663edbddd --name-only <span class="pl-k">|</span> xargs zip update.zip
+<span class="c1"># 设置提交日志等输出编码为 UTF-8  </span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>i18n.commit.encoding<span class="w"> </span>utf-8<span class="w">  </span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>i18n.logoutputencoding<span class="w"> </span>utf-8<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="git_2">使用 Git 配置强制识别大小写变化</h2>
+<p>Git 默认在 大小写不敏感的系统（如 Windows/macOS 默认设置）中不会提交 仅大小写不同的文件名更改。  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="c1"># 临时设置  </span>
+git<span class="w"> </span>config<span class="w"> </span>core.ignorecase<span class="w"> </span><span class="nb">false</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="git_3">查询Git提交用户记录</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%an &lt;%ae&gt;&quot;</span><span class="w"> </span>--all<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w">  </span>
+</code></pre></div></div>
+<p>--all：包括所有分支的提交。  </p>
+<p>sort | uniq：对结果排序并去重。  </p>
+<p>输出示例：<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>random &lt;r@n.dom&gt;  
+</code></pre></div></div></p>
+<h2 id="_1">修改历史提交用户信息</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>git<span class="w"> </span>filter-repo<span class="w"> </span>--name-callback<span class="w"> </span><span class="s2">&quot;return b\&quot;random\&quot;&quot;</span><span class="w"> </span>--email-callback<span class="w"> </span><span class="s2">&quot;return b\&quot;r@n.dom\&quot;&quot;</span><span class="w"> </span>--force<span class="w">  </span>
 
-<span class="pl-c"><span class="pl-c">#</span> 比较文件并导出为zip压缩包, 根据本机情况可以选择zip或者7zip</span>
-git diff feature/xxx-0719 origin/master --name-only <span class="pl-k">|</span> xargs zip user.zip
+git<span class="w"> </span>push<span class="w"> </span>--force<span class="w">  </span>
+</code></pre></div></div>
+<p>PS: 在 Windows 的 CMD 中，单引号可能不被识别，建议用双引号  </p>
+<h2 id="depth1">depth=1 拉取其他分支</h2>
+<p>当你使用 git clone --depth 1 克隆仓库时，Git 只会克隆最新的提交历史（浅克隆），并且默认只拉取默认分支（通常是 main 或 master）。如果你需要获取其他分支, 执行以下命令  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>remote.origin.fetch<span class="w"> </span><span class="s2">&quot;+refs/heads/*:refs/remotes/origin/*&quot;</span><span class="w">  </span>
+git<span class="w"> </span>fetch<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w">  </span>
+git<span class="w"> </span>checkout<span class="w"> </span>branch-name<span class="w">  </span>
+</code></pre></div></div>
+<p>将浅克隆转换为完整克隆<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>--unshallow<span class="w">  </span>
+</code></pre></div></div></p>
+<h2 id="_2">比较分支并导出变更文件</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>git<span class="w"> </span>diff<span class="w"> </span>6db1256718a184ece757df2b7d8bf22444801661<span class="w"> </span>8906e42d5aeff10b70086bd7aece0f3663edbddd<span class="w"> </span>--name-only<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>zip<span class="w"> </span>update.zip<span class="w">  </span>
 
-git diff feature/xxx-0719 origin/master --name-only <span class="pl-k">|</span> xargs 7z a -tzip user.zip</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">删除敏感文件历史提交记录</h2><a id="user-content-删除敏感文件历史提交记录" class="anchor" aria-label="Permalink: 删除敏感文件历史提交记录" href="#删除敏感文件历史提交记录"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>以<code>.vscode/settings.json</code>文件为例</p>
-<div class="highlight highlight-source-shell"><pre>git filter-branch --force --index-filter  <span class="pl-s"><span class="pl-pds">"</span>git rm --cached --ignore-unmatch .vscode/settings.json<span class="pl-pds">"</span></span> --prune-empty --tag-name-filter cat -- --all
+<span class="c1"># 比较文件并导出为zip压缩包, 根据本机情况可以选择zip或者7zip  </span>
+git<span class="w"> </span>diff<span class="w"> </span>feature/xxx-0719<span class="w"> </span>origin/master<span class="w"> </span>--name-only<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>zip<span class="w"> </span>user.zip<span class="w">  </span>
 
-git add <span class="pl-c1">.</span>
-git commit -am <span class="pl-s"><span class="pl-pds">"</span>commit<span class="pl-pds">"</span></span>
-git push origin --force --all</pre></div>
-<p>#67</p>
+git<span class="w"> </span>diff<span class="w"> </span>feature/xxx-0719<span class="w"> </span>origin/master<span class="w"> </span>--name-only<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>7z<span class="w"> </span>a<span class="w"> </span>-tzip<span class="w"> </span>user.zip<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_3">删除敏感文件历史提交记录</h2>
+<p>以<code>.vscode/settings.json</code>文件为例  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>git<span class="w"> </span>filter-branch<span class="w"> </span>--force<span class="w"> </span>--index-filter<span class="w">  </span><span class="s2">&quot;git rm --cached --ignore-unmatch .vscode/settings.json&quot;</span><span class="w"> </span>--prune-empty<span class="w"> </span>--tag-name-filter<span class="w"> </span>cat<span class="w"> </span>--<span class="w"> </span>--all<span class="w">  </span>
+
+git<span class="w"> </span>add<span class="w"> </span>.<span class="w">  </span>
+git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">&quot;commit&quot;</span><span class="w">  </span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--force<span class="w"> </span>--all<span class="w">  </span>
+</code></pre></div></div>
+<p><a href="https://anaer.github.io/blog/post/67.html">0X43 Git删除大文件</a>    </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/39.html" aria-label="Previous Page">0X27 Deepseek API</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/34.html" aria-label="Next Page">0X22 Python分词</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/36.html" aria-label="Previous Page">0X24 中文分词API</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/38.html" aria-label="Next Page">0X26 Blog页面添加下雪特效</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -267,8 +322,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

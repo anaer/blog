@@ -804,19 +804,19 @@
             "labels": [
                 "Git"
             ],
-            "postTitle": "0X25 Git\u547d\u4ee4\u8bb0\u5f55",
+            "postTitle": "Git\u547d\u4ee4\u8bb0\u5f55",
             "postUrl": "post/37.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/37",
             "commentNum": 0,
             "createdAt": 1736825099,
-            "updatedAt": 1751356378,
+            "updatedAt": 1760509377,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "hsl(308, 48%, 23%)",
-            "description": "",
-            "buildedAt": 1751356378
+            "dateLabelColor": "hsl(54, 40%, 26%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u591a\u79cdGit\u914d\u7f6e\u548c\u547d\u4ee4\u7684\u4f7f\u7528\u65b9\u6cd5\uff0c\u5305\u62ec\u542f\u7528\u8c03\u8bd5\u3001\u5904\u7406\u4e2d\u6587\u4e71\u7801\u3001\u5f3a\u5236\u8bc6\u522b\u5927\u5c0f\u5199\u53d8\u5316\u3001\u67e5\u8be2\u63d0\u4ea4\u7528\u6237\u8bb0\u5f55\u3001\u4fee\u6539\u5386\u53f2\u63d0\u4ea4\u7528\u6237\u4fe1\u606f\u3001\u8fdb\u884c\u6d45\u514b\u9686\u53ca\u5176\u8f6c\u6362\u4e3a\u5b8c\u6574\u514b\u9686\u3001\u6bd4\u8f83\u5206\u652f\u5e76\u5bfc\u51fa\u53d8\u66f4\u6587\u4ef6\uff0c\u4ee5\u53ca\u5220\u9664\u654f\u611f\u6587\u4ef6\u7684\u5386\u53f2\u63d0\u4ea4\u8bb0\u5f55\u3002\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0cGit\u5728\u9ed8\u8ba4\u60c5\u51b5\u4e0b\u5bf9\u5927\u5c0f\u5199\u4e0d\u654f\u611f\u7684\u7cfb\u7edf\u4e0d\u4f1a\u63d0\u4ea4\u4ec5\u5927\u5c0f\u5199\u4e0d\u540c\u7684\u6587\u4ef6\u540d\u66f4\u6539\u3002\u8be5\u6587\u4e2d\u63d0\u5230\u7684\u5173\u4e8e\u63a8\u9001\u548c\u5220\u9664\u5927\u6587\u4ef6\u7684\u90e8\u5206\u6ca1\u6709\u8be6\u7ec6\u5c55\u5f00\uff0c\u53ef\u80fd\u5bfc\u81f4\u8bfb\u8005\u5bf9\u5982\u4f55\u5904\u7406\u5927\u6587\u4ef6\u7f3a\u4e4f\u5177\u4f53\u6307\u5bfc\u3002",
+            "buildedAt": 1760509377
         },
         "P38": {
             "number": "38",

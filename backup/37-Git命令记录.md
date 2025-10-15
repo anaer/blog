@@ -1,3 +1,10 @@
+## Git变量
+
+```sh
+set GIT_TRACE=1    # 启用 GIT_TRACE 来调试
+set GIT_PAGER=cat  # 禁用分页器，直接查看输出
+```
+
 ## Git命令中文乱码 测试有效
 
 ```sh
