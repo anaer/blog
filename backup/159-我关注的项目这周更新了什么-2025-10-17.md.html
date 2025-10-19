@@ -1,0 +1,69 @@
+
+  <article class="markdown-body">
+    <h1 id="1-cherry-studio-v165">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.5">cherry-studio v1.6.5</a></h1>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
+<p>新增功能：<br />
+- 添加Claude Haiku 4.5模型支持<br />
+- 添加Mistral提供者配置<br />
+- 添加Intel OpenVINO（NPU）OCR提供者<br />
+- 添加笔记全文搜索并支持高亮显示<br />
+- 添加内置DiDi MCP服务器（仅限中国地区）<br />
+- 支持NewAPI作为通用提供者  </p>
+<p>修复问题：<br />
+- 修复webview搜索（Cmd/Ctrl+F）功能<br />
+- 修复每次请求的API密钥轮换功能<br />
+- 修复翻译自动复制功能<br />
+- 修复消息布局和溢出显示问题  </p>
+<h1 id="2-folo-desktopv071">2. <a href="https://github.com/RSSNext/Folo/releases/tag/desktop/v0.7.1">Folo desktop/v0.7.1</a></h1>
+<p>🧡 Follow everything in one place  </p>
+<h1 id="3-anx-reader-v190">3. <a href="https://github.com/Anxcye/anx-reader/releases/tag/v1.9.0">anx-reader v1.9.0</a></h1>
+<p>Featuring powerful AI capabilities and supporting various e-book formats, it makes reading smarter and more focused.   </p>
+<h1 id="4-iptv-api-173">4. <a href="https://github.com/Guovin/iptv-api/releases/tag/1.7.3">iptv-api 1.7.3</a></h1>
+<p>📺IPTV电视直播源更新项目『✨秒播级体验🚀』：支持自定义频道与EPG；支持多种源获取方式；支持RTMP推流；支持IPv4/IPv6；支持获取归属地与运营商；每天自动更新两次，结果可用于TVBox等播放软件；支持工作流、Docker amd64/arm64/arm v7 、命令行、GUI运行方式 IPTV live TV source update project  </p>
+<h1 id="5-powertoys-v0950">5. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.95.0">PowerToys v0.95.0</a></h1>
+<p>Microsoft PowerToys is a collection of utilities that help you customize Windows and streamline everyday tasks  </p>
+<h1 id="6-mihomo-v11915">6. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.15">mihomo v1.19.15</a></h1>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.  </p>
+<h1 id="7-chatwoot-v470">7. <a href="https://github.com/chatwoot/chatwoot/releases/tag/v4.7.0">chatwoot v4.7.0</a></h1>
+<p>Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬  </p>
+<ul>
+<li>SP Initiated SAML auth flow (Enterprise)  </li>
+<li>Support for custom tools in captain (Enterprise)  </li>
+<li>Health monitoring page for Whatsapp cloud channels  </li>
+<li>Email channel supports reply threads as quoted texts   </li>
+<li>UI to manage allowed domains for website widget  </li>
+<li>Support for lock to single thread in telegram channel  </li>
+<li>Support for incoming file attachments in line channel  </li>
+<li>Numerous bug fixes, UI fixes, and performance enhancements  </li>
+</ul>
+<h1 id="8-ripgrep-1500">8. <a href="https://github.com/BurntSushi/ripgrep/releases/tag/15.0.0">ripgrep 15.0.0</a></h1>
+<p>ripgrep recursively searches directories for a regex pattern while respecting your gitignore  </p>
+<h1 id="9-subs-check-v143">9. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.3">subs-check v1.4.3</a></h1>
+<p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
