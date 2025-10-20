@@ -90,6 +90,7 @@
 2. JDK17 [官网](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) 
 3. JDK8-17 [华为云镜像](https://repo.huaweicloud.com/java/jdk/)  [三方镜像](https://mirrors.yangxingzhen.com/jdk/)
 4. Maven [华为云镜像](https://mirrors.huaweicloud.com/apache/maven/maven-3/3.9.8/binaries/)     
+5. Gradle [上交](https://s3.jcloud.sjtu.edu.cn/899a892efef34b1b944a19981040f55b-oss01/gradle/distributions/mirror_clone_list.html)
                                               
 ### Android
 1. dex-tools [GitHub](https://github.com/pxb1988/dex2jar/releases)   dex反编译   
