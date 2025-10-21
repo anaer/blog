@@ -1,85 +1,144 @@
-<div class="markdown-heading"><h2 class="heading-element">启动</h2><a id="user-content-启动" class="anchor" aria-label="Permalink: 启动" href="#启动"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>$ pm2 start app.js                  # 启动app.js应用程序
-$ pm2 start app.js -i 4             # cluster mode 模式启动4个app.js的应用实例, 4个应用程序会自动进行负载均衡
-$ pm2 start app.js --name="api"     # 启动应用程序并命名为 "api"
-$ pm2 start app.js --watch          # 当文件变化时自动重启应用
-$ pm2 start script.sh               # 启动 bash 脚本
-</code></pre>
-<p>pm2 start app.js --node-args="--max-old-space-size=1024"</p>
-<div class="markdown-heading"><h2 class="heading-element">查看进程</h2><a id="user-content-查看进程" class="anchor" aria-label="Permalink: 查看进程" href="#查看进程"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>$ pm2 list                          # 列表 PM2 启动的所有的应用程序
-$ pm2 show [app-name]               # 显示应用程序的所有信息
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">监控</h2><a id="user-content-监控" class="anchor" aria-label="Permalink: 监控" href="#监控"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>$ pm2 monit                         # 显示每个应用程序的CPU和内存占用情况
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">日志</h2><a id="user-content-日志" class="anchor" aria-label="Permalink: 日志" href="#日志"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>$ pm2 logs                          # 显示所有应用程序的日志
-$ pm2 logs [app-name]               # 显示指定应用程序的日志
-$ pm2 flush                         # 清空所有日志文件
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">停止</h2><a id="user-content-停止" class="anchor" aria-label="Permalink: 停止" href="#停止"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>$ pm2 stop all                      # 停止所有的应用程序
-$ pm2 stop 0                        # 停止 id为 0的指定应用程序
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">重载</h2><a id="user-content-重载" class="anchor" aria-label="Permalink: 重载" href="#重载"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>$ pm2 reload all                    # 重启 cluster mode下的所有应用
-$ pm2 gracefulReload all            # Graceful reload all apps in cluster mode
-$ pm2 reload pm2.json --update-env   #配置修改后使用 --update-env 重载, 否则新配置如"cron_restart"可能不会生效
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">重启</h2><a id="user-content-重启" class="anchor" aria-label="Permalink: 重启" href="#重启"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>$ pm2 restart all                   # 重启所有应用
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">删除应用</h2><a id="user-content-删除应用" class="anchor" aria-label="Permalink: 删除应用" href="#删除应用"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>$ pm2 delete all                    # 关闭并删除所有应用
-$ pm2 delete 0                      # 删除指定应用 id 0
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">其他</h2><a id="user-content-其他" class="anchor" aria-label="Permalink: 其他" href="#其他"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>$ pm2 scale api 10                  # 把名字叫api的应用扩展到10个实例
-$ pm2 reset [app-name]              # 重置重启数量
-$ pm2 startup                       # 创建开机自启动命令
-$ pm2 save                          # 保存当前应用列表
-$ pm2 resurrect                     # 重新加载保存的应用列表
-$ pm2 update                        # Save processes, kill PM2 and restore processes
-$ pm2 generate                      # Generate a sample json configuration file
-$ pm2 deploy app.json prod setup    # Setup "prod" remote server
-$ pm2 deploy app.json prod          # Update "prod" remote server
-$ pm2 deploy app.json prod revert 2 # Revert "prod" remote server by 2
-$ pm2 module:generate [name]        # Generate sample module with name [name]
-$ pm2 install pm2-logrotate         # Install module (here a log rotation system)
-$ pm2 uninstall pm2-logrotate       # Uninstall module
-$ pm2 publish                       # Increment version, git push and npm publish
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">pm2.json</h2><a id="user-content-pm2json" class="anchor" aria-label="Permalink: pm2.json" href="#pm2json"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-json-comments"><pre>{
-  <span class="pl-s">"apps"</span>: [
-    {
-      <span class="pl-s">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>名称<span class="pl-pds">"</span></span>,
-      <span class="pl-s">"script"</span>: <span class="pl-s"><span class="pl-pds">"</span>脚本名.py<span class="pl-pds">"</span></span>,
-      <span class="pl-s">"instances"</span>: <span class="pl-c1">1</span>,
-      <span class="pl-s">"interpreter"</span>: <span class="pl-s"><span class="pl-pds">"</span>./.venv/bin/python<span class="pl-pds">"</span></span>,
-      <span class="pl-s">"autorestart"</span>: <span class="pl-c1">true</span>,
-      <span class="pl-s">"watch"</span>: [<span class="pl-s"><span class="pl-pds">"</span>main.py<span class="pl-pds">"</span></span>],  <span class="pl-ii">#</span> <span class="pl-ii">监听文件变更</span>
-      <span class="pl-s">"cron_restart"</span>: <span class="pl-s"><span class="pl-pds">"</span>0 0 * * *<span class="pl-pds">"</span></span>, <span class="pl-ii">#</span> <span class="pl-ii">每天0点</span> <span class="pl-ii">定时重启</span>
-      <span class="pl-s">"merge_logs"</span>: <span class="pl-c1">false</span>,   <span class="pl-ii">#</span> <span class="pl-ii">是否合并文件,</span> <span class="pl-ii">false时</span> <span class="pl-ii">按pm2</span> <span class="pl-ii">id拆分日志文件,</span> <span class="pl-ii">如error_1.log</span>
-      <span class="pl-s">"log_date_format"</span>: <span class="pl-s"><span class="pl-pds">"</span>YYYY-MM-DD HH:mm Z<span class="pl-pds">"</span></span>, <span class="pl-ii">#</span> <span class="pl-ii">日志日期格式</span>
-      <span class="pl-s">"error_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/error.log<span class="pl-pds">"</span></span>, <span class="pl-ii">#</span> <span class="pl-ii">错误日志文件</span>
-      <span class="pl-s">"out_file"</span>: <span class="pl-s"><span class="pl-pds">"</span>logs/output.log<span class="pl-pds">"</span></span> <span class="pl-ii">#</span> <span class="pl-ii">日志文件</span>  <span class="pl-ii">当error_file和out_file配置一样时</span>, <span class="pl-ii">可输出到同一个文件</span>
-    }
-  ]
-}</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">pm2-logrotate 日志切割</h2><a id="user-content-pm2-logrotate-日志切割" class="anchor" aria-label="Permalink: pm2-logrotate 日志切割" href="#pm2-logrotate-日志切割"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>pm2 install pm2-logrotate</pre></div>
-<div class="highlight highlight-source-shell"><pre>pm2 conf <span class="pl-c"><span class="pl-c">#</span> 查询配置</span></pre></div>
-<p>配置参数：</p>
-<div class="highlight highlight-source-shell"><pre>pm2 <span class="pl-c1">set</span> pm2-logrotate:max_size 10M  <span class="pl-c"><span class="pl-c">#</span> 单个文件最大10M</span>
-pm2 <span class="pl-c1">set</span> pm2-logrotate:retain 30     <span class="pl-c"><span class="pl-c">#</span> 保留30个历史文件</span>
-pm2 <span class="pl-c1">set</span> pm2-logrotate:compress <span class="pl-c1">true</span> <span class="pl-c"><span class="pl-c">#</span> 启用压缩</span>
-pm2 <span class="pl-c1">set</span> pm2-logrotate:workerInterval 30 <span class="pl-c"><span class="pl-c">#</span> 每30秒检查日志文件大小</span>
-pm2 <span class="pl-c1">set</span> pm2-logrotate:rotateInterval <span class="pl-s"><span class="pl-pds">'</span>0 0 * * *<span class="pl-pds">'</span></span> <span class="pl-c"><span class="pl-c">#</span> 每天0点执行</span></pre></div>
-<p>手动触发日志切割</p>
-<div class="highlight highlight-source-shell"><pre>pm2 reloadLogs</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  <article class="markdown-body">
+    <h2 id="_1">启动</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>start<span class="w"> </span>app.js<span class="w">                  </span><span class="c1"># 启动app.js应用程序  </span>
+$<span class="w"> </span>pm2<span class="w"> </span>start<span class="w"> </span>app.js<span class="w"> </span>-i<span class="w"> </span><span class="m">4</span><span class="w">             </span><span class="c1"># cluster mode 模式启动4个app.js的应用实例, 4个应用程序会自动进行负载均衡  </span>
+$<span class="w"> </span>pm2<span class="w"> </span>start<span class="w"> </span>app.js<span class="w"> </span>--name<span class="o">=</span><span class="s2">&quot;api&quot;</span><span class="w">     </span><span class="c1"># 启动应用程序并命名为 &quot;api&quot;  </span>
+$<span class="w"> </span>pm2<span class="w"> </span>start<span class="w"> </span>app.js<span class="w"> </span>--watch<span class="w">          </span><span class="c1"># 当文件变化时自动重启应用  </span>
+$<span class="w"> </span>pm2<span class="w"> </span>start<span class="w"> </span>script.sh<span class="w">               </span><span class="c1"># 启动 bash 脚本</span>
+</code></pre></div></div>
+
+<p>pm2 start app.js --node-args="--max-old-space-size=1024"  </p>
+<h2 id="_2">查看进程</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>list<span class="w">                          </span><span class="c1"># 列表 PM2 启动的所有的应用程序  </span>
+$<span class="w"> </span>pm2<span class="w"> </span>show<span class="w"> </span><span class="o">[</span>app-name<span class="o">]</span><span class="w">               </span><span class="c1"># 显示应用程序的所有信息</span>
+</code></pre></div></div>
+
+<h2 id="_3">监控</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>monit<span class="w">                         </span><span class="c1"># 显示每个应用程序的CPU和内存占用情况</span>
+</code></pre></div></div>
+
+<h2 id="_4">日志</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>logs<span class="w">                          </span><span class="c1"># 显示所有应用程序的日志  </span>
+$<span class="w"> </span>pm2<span class="w"> </span>logs<span class="w"> </span><span class="o">[</span>app-name<span class="o">]</span><span class="w">               </span><span class="c1"># 显示指定应用程序的日志  </span>
+$<span class="w"> </span>pm2<span class="w"> </span>flush<span class="w">                         </span><span class="c1"># 清空所有日志文件</span>
+</code></pre></div></div>
+
+<h2 id="_5">停止</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>stop<span class="w"> </span>all<span class="w">                      </span><span class="c1"># 停止所有的应用程序  </span>
+$<span class="w"> </span>pm2<span class="w"> </span>stop<span class="w"> </span><span class="m">0</span><span class="w">                        </span><span class="c1"># 停止 id为 0的指定应用程序</span>
+</code></pre></div></div>
+
+<h2 id="_6">重载</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="o">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">reload</span><span class="w"> </span><span class="n">all</span><span class="w">                    </span><span class="c1"># 重启 cluster mode下的所有应用  </span>
+<span class="o">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">gracefulReload</span><span class="w"> </span><span class="n">all</span><span class="w">            </span><span class="c1"># Graceful reload all apps in cluster mode  </span>
+<span class="o">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">reload</span><span class="w"> </span><span class="n">pm2</span><span class="o">.</span><span class="n">json</span><span class="w"> </span><span class="o">--</span><span class="n">update</span><span class="o">-</span><span class="n">env</span><span class="w">   </span><span class="c1">#配置修改后使用 --update-env 重载, 否则新配置如&quot;cron_restart&quot;可能不会生效</span>
+</code></pre></div></div>
+
+<h2 id="_7">重启</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>restart<span class="w"> </span>all<span class="w">                   </span><span class="c1"># 重启所有应用</span>
+</code></pre></div></div>
+
+<h2 id="_8">删除应用</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>delete<span class="w"> </span>all<span class="w">                    </span><span class="c1"># 关闭并删除所有应用  </span>
+$<span class="w"> </span>pm2<span class="w"> </span>delete<span class="w"> </span><span class="m">0</span><span class="w">                      </span><span class="c1"># 删除指定应用 id 0</span>
+</code></pre></div></div>
+
+<h2 id="_9">其他</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="n">api</span><span class="w"> </span><span class="mi">10</span><span class="w">                  </span><span class="err">#</span><span class="w"> </span><span class="n">把名字叫api的应用扩展到10个实例</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="o">[</span><span class="n">app-name</span><span class="o">]</span><span class="w">              </span><span class="err">#</span><span class="w"> </span><span class="n">重置重启数量</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">startup</span><span class="w">                       </span><span class="err">#</span><span class="w"> </span><span class="n">创建开机自启动命令</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="k">save</span><span class="w">                          </span><span class="err">#</span><span class="w"> </span><span class="n">保存当前应用列表</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">resurrect</span><span class="w">                     </span><span class="err">#</span><span class="w"> </span><span class="n">重新加载保存的应用列表</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="k">update</span><span class="w">                        </span><span class="err">#</span><span class="w"> </span><span class="k">Save</span><span class="w"> </span><span class="n">processes</span><span class="p">,</span><span class="w"> </span><span class="k">kill</span><span class="w"> </span><span class="n">PM2</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">restore</span><span class="w"> </span><span class="n">processes</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">generate</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="n">Generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="k">file</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">deploy</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">json</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="n">setup</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">Setup</span><span class="w"> </span><span class="ss">&quot;prod&quot;</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">server</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">deploy</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">json</span><span class="w"> </span><span class="n">prod</span><span class="w">          </span><span class="err">#</span><span class="w"> </span><span class="k">Update</span><span class="w"> </span><span class="ss">&quot;prod&quot;</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">server</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">deploy</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">json</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="k">revert</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="k">Revert</span><span class="w"> </span><span class="ss">&quot;prod&quot;</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="k">module</span><span class="err">:</span><span class="n">generate</span><span class="w"> </span><span class="o">[</span><span class="n">name</span><span class="o">]</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Generate</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">[</span><span class="n">name</span><span class="o">]</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">pm2</span><span class="o">-</span><span class="n">logrotate</span><span class="w">         </span><span class="err">#</span><span class="w"> </span><span class="n">Install</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="p">(</span><span class="n">here</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nf">log</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="k">system</span><span class="p">)</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">uninstall</span><span class="w"> </span><span class="n">pm2</span><span class="o">-</span><span class="n">logrotate</span><span class="w">       </span><span class="err">#</span><span class="w"> </span><span class="n">Uninstall</span><span class="w"> </span><span class="k">module</span><span class="w">  </span>
+<span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">publish</span><span class="w">                       </span><span class="err">#</span><span class="w"> </span><span class="n">Increment</span><span class="w"> </span><span class="n">version</span><span class="p">,</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">npm</span><span class="w"> </span><span class="n">publish</span>
+</code></pre></div></div>
+
+<h2 id="pm2json">pm2.json</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>{  
+  &quot;apps&quot;: [  
+    {  
+      &quot;name&quot;: &quot;名称&quot;,  
+      &quot;script&quot;: &quot;脚本名.py&quot;,  
+      &quot;instances&quot;: 1,  
+      &quot;interpreter&quot;: &quot;./.venv/bin/python&quot;,  
+      &quot;autorestart&quot;: true,  
+      &quot;watch&quot;: [&quot;main.py&quot;],  # 监听文件变更  
+      &quot;cron_restart&quot;: &quot;0 0 * * *&quot;, # 每天0点 定时重启  
+      &quot;merge_logs&quot;: false,   # 是否合并文件, false时 按pm2 id拆分日志文件, 如error_1.log  
+      &quot;log_date_format&quot;: &quot;YYYY-MM-DD HH:mm Z&quot;, # 日志日期格式  
+      &quot;error_file&quot;: &quot;logs/error.log&quot;, # 错误日志文件  
+      &quot;out_file&quot;: &quot;logs/output.log&quot; # 日志文件  当error_file和out_file配置一样时, 可输出到同一个文件  
+    }  
+  ]  
+}  
+</code></pre></div></div>
+<h2 id="pm2-logrotate">pm2-logrotate 日志切割</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>pm2<span class="w"> </span>install<span class="w"> </span>pm2-logrotate<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>pm2<span class="w"> </span>conf<span class="w"> </span><span class="c1"># 查询配置  </span>
+</code></pre></div></div>
+<p>配置参数：<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm2-logrotate:max_size<span class="w"> </span>10M<span class="w">  </span><span class="c1"># 单个文件最大10M  </span>
+pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm2-logrotate:retain<span class="w"> </span><span class="m">30</span><span class="w">     </span><span class="c1"># 保留30个历史文件  </span>
+pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm2-logrotate:compress<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="c1"># 启用压缩  </span>
+pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm2-logrotate:dateFormat<span class="w"> </span>YYYY-MM-DD_HH-mm-ss<span class="w"> </span><span class="c1"># 设置日志文件名格式  </span>
+pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm2-logrotate:workerInterval<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="c1"># 每30秒检查日志文件大小  </span>
+pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm2-logrotate:rotateInterval<span class="w"> </span><span class="s1">&#39;0 0 * * *&#39;</span><span class="w"> </span><span class="c1"># 每天0点执行  </span>
+pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm2-logrotate:rotateModule<span class="w"> </span><span class="nb">true</span><span class="w">  </span>
+</code></pre></div></div></p>
+<p>手动触发日志切割<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>pm2<span class="w"> </span>reloadLogs<span class="w">  </span>
+</code></pre></div></div></p>
+<h2 id="_10">相关链接</h2>
 <ol>
-<li><a href="https://github.com/keymetrics/pm2-logrotate">pm2-logrotate</a></li>
+<li><a href="https://github.com/keymetrics/pm2-logrotate">pm2-logrotate</a>  </li>
 </ol>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
