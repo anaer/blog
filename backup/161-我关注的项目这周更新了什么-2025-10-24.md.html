@@ -1,0 +1,218 @@
+
+  <article class="markdown-body">
+    <h1 id="1-dify-192">1. <a href="https://github.com/langgenius/dify/releases/tag/1.9.2">dify 1.9.2</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<h3 id="_1">主要变更</h3>
+<ul>
+<li><strong>稳定性与性能提升</strong>：改进了稳定性，异步性能，并优化了开发体验。  </li>
+<li><strong>Weaviate集成更新</strong>：将Weaviate Python客户端从v3升级到v4，要求Weaviate服务器版本至少为1.24.0。需要升级Weaviate服务器并更新Dify。  </li>
+<li><strong>工作流与代理</strong>：  </li>
+<li>可暂停和恢复工作流图执行。  </li>
+<li>支持LLM节点流式处理中的结构化输出。  </li>
+<li>代理变量支持拖放操作。  </li>
+<li>从日志中重新执行工作流运行并按状态过滤。  </li>
+<li><strong>集成与SDK</strong>：  </li>
+<li>支持OpenTelemetry + HTTPX跟踪，提高可观测性。  </li>
+<li>CORS配置支持自定义头部。  </li>
+<li><strong>Web与UI</strong>：  </li>
+<li>加快加载速度，通过拆分和懒加载常量文件。  </li>
+<li>改进数据源，集成市场插件和筛选功能。  </li>
+<li>添加定价页税额提示。  </li>
+<li><strong>核心改进</strong>：  </li>
+<li>启用Pyright并在多个模块中修复类型问题。  </li>
+<li>优化HTTP超时配置和输入验证。  </li>
+<li>提高Redis队列效率。  </li>
+<li><strong>修复</strong>：  </li>
+<li>解决重复片段和数据集分页重复问题。  </li>
+<li>解决工作流令牌使用、LLM使用跟踪和断开用户会话问题。  </li>
+<li>解决Weaviate向量距离计算中的逻辑错误。  </li>
+<li>解决多认证凭据冲突。  </li>
+<li>解决聊天闪烁、无限重载、登录重定向和加载指示器可见性问题。  </li>
+<li><strong>清理与开发体验</strong>：  </li>
+<li>移除未使用的依赖、冗余数据库提交和死模板。  </li>
+<li>添加Knip配置以检测死代码。  </li>
+<li><strong>升级指南</strong>：  </li>
+<li>提供了Docker Compose部署和源代码部署的升级指南。  </li>
+<li><strong>变更记录</strong>：  </li>
+<li>包含了多个改进、修复和新功能的详细列表。  </li>
+</ul>
+<h1 id="2-folo-desktopv090">2. <a href="https://github.com/RSSNext/Folo/releases/tag/desktop/v0.9.0">Folo desktop/v0.9.0</a></h1>
+<p>🧡 Follow everything in one place  </p>
+<ul>
+<li>去掉了最大浏览次数限制  </li>
+<li>允许隐藏“所有”视图  </li>
+<li>引入视图右键菜单，快速访问隐藏或打开设置  </li>
+<li>添加了打开条目详情时的平滑滑动动画  </li>
+<li>修复了切换条目详情时滚动条未重置的问题  </li>
+</ul>
+<h1 id="3-starship-v1240">3. <a href="https://github.com/starship/starship/releases/tag/v1.24.0">starship v1.24.0</a></h1>
+<p>☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any shell!  </p>
+<h3 id="_2">新增功能</h3>
+<ul>
+<li>添加Mercurial状态检测  </li>
+<li>支持AWS SSO的持续时间  </li>
+<li>CLI接受'powershell'作为completions子命令  </li>
+<li>添加对Incus容器的检测  </li>
+<li>支持Helix键绑定的输入模式检测  </li>
+<li>添加Fortran模块  </li>
+<li>添加git_branch模块的ignore_bare_repo标志  </li>
+<li>使安装脚本处理安装目录提示响应不区分大小写  </li>
+<li>添加xmake模块  </li>
+<li>添加nushell作业支持  </li>
+<li>添加Ansible Galaxy支持  </li>
+<li>使用hatchling动态版本  </li>
+</ul>
+<h3 id="_3">修复问题</h3>
+<ul>
+<li>考虑仅文本元变量在条件中设置时非空的情况  </li>
+<li>添加<code>compose.yml</code>和<code>compose.yaml</code>到Docker上下文文件  </li>
+<li>过滤非打印ANSI转义码  </li>
+<li>匹配单文件  </li>
+<li>遵循<code>git_status</code> <code>use_git_executable</code>选项  </li>
+<li>不显示已更新状态  </li>
+<li>去除hg分支中的多余换行符  </li>
+<li>改进目录扫描超时  </li>
+<li>使用鱼 shell 组作业计数  </li>
+<li>修正用户名检测环境变量逻辑  </li>
+<li>启动 cmd_duration 应为 0ms 而不是 823ms  </li>
+<li>不触发 pixi 模块 <code>.pixi</code> 目录  </li>
+<li>移除默认值中的多余空格  </li>
+<li>修复 rust-ini 0.21.2 被移除的问题  </li>
+<li>调整 terraform 模块以使用 <code>exec_cmds_return_first</code>-changes  </li>
+<li>避免在启用标签签名时引发超时  </li>
+<li>避免打印误导性日志消息  </li>
+<li>检查变量是否设置再读取  </li>
+<li>在ERR_EXIT条件下避免失败  </li>
+</ul>
+<h3 id="_4">性能改进</h3>
+<ul>
+<li>避免在使用<code>core.fsmonitor</code>时加载git索引  </li>
+<li>并行化环境变量和自定义模块子模块  </li>
+</ul>
+<h1 id="4-powertoys-v0951">4. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.95.1">PowerToys v0.95.1</a></h1>
+<p>Microsoft PowerToys is a collection of utilities that help you customize Windows and streamline everyday tasks  </p>
+<p>此补丁修复了基于反馈在v0.95.0中发现的重要稳定性问题。主要变更包括：  </p>
+<ul>
+<li><strong>Light Switch</strong>  </li>
+<li>修复默认启用Light Switch的问题  </li>
+<li>修复手动时间表被日落计算覆盖的问题  </li>
+<li>将“手动”模式重命名为“固定时段”以增加清晰度  </li>
+<li>添加“关闭”模式，该模式禁用计划但仍然允许快捷键使用  </li>
+<li>修复了任务栏在亮模式下变成强调色的问题（仅允许在暗模式下）  </li>
+<li>
+<p>修复了模式切换时亮/暗时间未更新的问题（特别是手动切换回日落到日出模式）  </p>
+</li>
+<li>
+<p><strong>CmdPal</strong>  </p>
+</li>
+<li>修复了使用过滤器（如Windows Terminal配置文件、Windows服务）时的崩溃问题  </li>
+<li>
+<p>修复了窗口样式更改（如WS_EX_TOOLWINDOW）未正确应用的问题  </p>
+</li>
+<li>
+<p><strong>Find My Mouse</strong>  </p>
+</li>
+<li>修复了窗口失去焦点的问题  </li>
+<li>
+<p>修复了鼠标变忙（小时玻璃）的问题  </p>
+</li>
+<li>
+<p><strong>安装程序</strong>  </p>
+</li>
+<li>
+<p>移除WiX v3基础设施，迁移到WiX v5，缩短构建时间  </p>
+</li>
+<li>
+<p><strong>Bug报告</strong>  </p>
+</li>
+<li>优化了Bug报告系统  </li>
+</ul>
+<h1 id="5-rclone-v1712">5. <a href="https://github.com/rclone/rclone/releases/tag/v1.71.2">rclone v1.71.2</a></h1>
+<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files  </p>
+<p>v1.71.2版本包含以下主要变更：<br />
+- 修复了在某些情况下挂载可能失败的问题。<br />
+- 优化了S3存储桶上的性能。<br />
+- 修复了与Google Drive集成时的连接问题。  </p>
+<h1 id="6-gixy-v0212">6. <a href="https://github.com/dvershinin/gixy/releases/tag/v0.2.12">gixy v0.2.12</a></h1>
+<p>NGINX configuration static analyzer  </p>
+<p>变更说明：<br />
+- 添加 invalid_regex 插件，用于检测不存在的正则表达式捕获组  </p>
+<h1 id="7-duplicati-v2200_stable_2025-10-23">7. <a href="https://github.com/duplicati/duplicati/releases/tag/v2.2.0.0_stable_2025-10-23">duplicati v2.2.0.0_stable_2025-10-23</a></h1>
+<p>Store securely encrypted backups in the cloud!  </p>
+<ul>
+<li>新增用户界面，更友好且更美观，可切换回旧版界面  </li>
+<li>新增云服务支持：pCloud, Filen, Filejump  </li>
+<li>新增SMB后端支持，无需挂载文件夹或安装SMB支持，适用于Windows、Linux和macOS  </li>
+<li>新增恢复流程，启用后恢复速度更快，可回退至旧流程  </li>
+<li>包含Duplicati Inc签名，Windows包使用EV证书签名  </li>
+<li>支持本地和远程数据备份，S3, IDrive, SSH和CIFS源  </li>
+<li>AWS S3和Azure Blob Storage支持档案属性  </li>
+<li>更新本地数据库格式至版本17，设置数据库格式至v9  </li>
+<li>新增命令行工具<code>CommandLine.DatabaseTool.exe</code>，可降级数据库  </li>
+<li>备份速率控制更新，使用共享限制  </li>
+<li>移除Sia后端，因版本不兼容  </li>
+<li>标记Mega后端为未维护，建议迁移至Mega S4存储  </li>
+<li>所有后端更新，处理超时更精细  </li>
+<li>默认数据文件夹位置更改，Windows建议使用<code>C:\ProgramData\Duplicati</code>，Linux建议使用<code>/var/lib/Duplicati</code>  </li>
+<li>新增文件和文件夹枚举逻辑  </li>
+<li>所有后端操作增加超时逻辑  </li>
+<li>数据库验证和修复逻辑改进  </li>
+<li>ServerUtil输出JSON用于脚本集成  </li>
+<li>改善代理支持  </li>
+<li>更新速率控制逻辑，所有流共享速率限制  </li>
+<li>修复逻辑改进  </li>
+<li>Windows运行时自动启用VSS  </li>
+<li>后端测试功能改进  </li>
+<li>警告抑制功能  </li>
+<li>远程提供的报告URL和远程管理备份配置支持  </li>
+<li>支持Google IAM在Google Drive上  </li>
+</ul>
+<h1 id="8-ripgrep-1510">8. <a href="https://github.com/BurntSushi/ripgrep/releases/tag/15.1.0">ripgrep 15.1.0</a></h1>
+<p>ripgrep recursively searches directories for a regex pattern while respecting your gitignore  </p>
+<p>此版本修复了 ripgrep 在处理行缓冲时的一个问题。这可能会导致 ripgrep 比预期晚输出结果或与 <code>tail -f</code> 不兼容（即使使用了 <code>--line-buffered</code> 标志）。修复了以下问题：  </p>
+<ul>
+<li>修复了在 ripgrep 15.0.0 中引入的 <code>--line-buffered</code> 选项的回归问题（#3194）。  </li>
+</ul>
+<p>增加了以下功能：  </p>
+<ul>
+<li>添加了 Cursor 的超链接别名（#3192）。  </li>
+</ul>
+<h1 id="9-ublacklist-v930">9. <a href="https://github.com/iorate/ublacklist/releases/tag/v9.3.0">ublacklist v9.3.0</a></h1>
+<p>Blocks specific sites from appearing in Google search results  </p>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>强制隐藏被阻拦的结果，增加CSS特异性 (<a href="https://github.com/iorate/ublacklist/commit/4f351e206c14bc5bb989fa77cbe8da22d26c7120">4f351e2</a>)  </li>
+<li>更新翻译 (<a href="https://github.com/iorate/ublacklist/issues/686">#686</a>) (<a href="https://github.com/iorate/ublacklist/commit/b019a6d72c5fb6ca0408660d624b405a0886950d">b019a6d</a>)  </li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li>添加"icon"和"text"按钮命令 (<a href="https://github.com/iorate/ublacklist/commit/f7252f58827f6f8f8c19d4eda77e9a0d498f0010">f7252f5</a>)  </li>
+<li>在Safari中启用订阅链接 (<a href="https://github.com/iorate/ublacklist/commit/89689c131a28aa778e40d3d8a5e12434fc658822">89689c1</a>)  </li>
+</ul>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+

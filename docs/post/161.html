@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
+    <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <script>
+        if(localStorage.getItem("meek_theme")==null){}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
+    </script>
+    
+<title>我关注的项目这周更新了什么-2025-10-24</title>
+
+
+</head>
+<style>
+body{
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 45px;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.25;
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 767px) {body {padding: 8px;}}
+
+pre {
+    white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
+    word-wrap: break-word; /* 允许长单词或 URL 换行 */
+    overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
+}
+
+.new-post {
+    bottom: 20px; /* 距离底部 20px */
+}
+
+.edit-post {
+    bottom: 60px; /* 距离底部60px */
+}
+
+/* 悬浮按钮样式 */
+.floating-button {
+    position: fixed; /* 固定位置 */
+    right: 5%; /* 距离右侧 5% */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 32px; /* 宽度 */
+    height: 32px; /* 高度 */
+    font-size: 16px; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    z-index: 1000; /* 确保按钮在最上层 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* 添加悬停效果 */
+}
+
+/* 按钮悬停效果 */
+.floating-button:hover {
+    background-color: #0056b3; /* 悬停时改变背景颜色 */
+}
+
+.previous_page {text-align: left;}
+.next_page {text-align: right;}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1>
+    <a style="font-size:18px">我关注的项目这周更新了什么-2025-10-24</a>
+</h1>
+
+<div class="title-right">
+
+    <a href="https://anaer.github.io/blog"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    <a href="https://github.com/anaer/blog/issues/161" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+</div>
+</div>
+    <div id="content">
+
+<div class="listLabels">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#1d76db">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#关注">关注</a></object>
+        </span>
+</div>
+<br>
+
+<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
+<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-10-26 18:13:25</time></span>
+
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了多个软件版本更新的主要变更和修复。Dify 1.9.2增强了稳定性与性能，更新了Weaviate集成，支持工作流的暂停和恢复，并优化了开发体验。Folo desktop v0.9.0去掉了浏览次数限制，改进了界面交互。Starship v1.24.0新增了多项功能和修复，包括对Mercurial和AWS SSO的支持。PowerToys v0.95.1解决了多个稳定性问题，并改进了Light Switch和CmdPal功能。Rclone v1.71.2修复了挂载和Google Drive连接问题，优化了S3性能。Gixy v0.2.12添加了用于检测正则表达式的插件。Duplicati v2.2.0.0_stable_2025-10-23新增了用户界面和云服务支持，改进了备份流程和数据库管理。Ripgrep 15.1.0修复了行缓冲问题并增加了新功能。Ublacklist v9.3.0修复了隐藏结果的bug并添加了新按钮命令。整体上，更新集中在提升用户体验和修复已知问题上，没有明显错误观点。
+</div>
+
+<div class="markdown-body" id="postBody">
+
+  <article class="markdown-body">
+    <h1 id="1-dify-192">1. <a href="https://github.com/langgenius/dify/releases/tag/1.9.2">dify 1.9.2</a></h1>
+<p>Production-ready platform for agentic workflow development.  </p>
+<h3 id="_1">主要变更</h3>
+<ul>
+<li><strong>稳定性与性能提升</strong>：改进了稳定性，异步性能，并优化了开发体验。  </li>
+<li><strong>Weaviate集成更新</strong>：将Weaviate Python客户端从v3升级到v4，要求Weaviate服务器版本至少为1.24.0。需要升级Weaviate服务器并更新Dify。  </li>
+<li><strong>工作流与代理</strong>：  </li>
+<li>可暂停和恢复工作流图执行。  </li>
+<li>支持LLM节点流式处理中的结构化输出。  </li>
+<li>代理变量支持拖放操作。  </li>
+<li>从日志中重新执行工作流运行并按状态过滤。  </li>
+<li><strong>集成与SDK</strong>：  </li>
+<li>支持OpenTelemetry + HTTPX跟踪，提高可观测性。  </li>
+<li>CORS配置支持自定义头部。  </li>
+<li><strong>Web与UI</strong>：  </li>
+<li>加快加载速度，通过拆分和懒加载常量文件。  </li>
+<li>改进数据源，集成市场插件和筛选功能。  </li>
+<li>添加定价页税额提示。  </li>
+<li><strong>核心改进</strong>：  </li>
+<li>启用Pyright并在多个模块中修复类型问题。  </li>
+<li>优化HTTP超时配置和输入验证。  </li>
+<li>提高Redis队列效率。  </li>
+<li><strong>修复</strong>：  </li>
+<li>解决重复片段和数据集分页重复问题。  </li>
+<li>解决工作流令牌使用、LLM使用跟踪和断开用户会话问题。  </li>
+<li>解决Weaviate向量距离计算中的逻辑错误。  </li>
+<li>解决多认证凭据冲突。  </li>
+<li>解决聊天闪烁、无限重载、登录重定向和加载指示器可见性问题。  </li>
+<li><strong>清理与开发体验</strong>：  </li>
+<li>移除未使用的依赖、冗余数据库提交和死模板。  </li>
+<li>添加Knip配置以检测死代码。  </li>
+<li><strong>升级指南</strong>：  </li>
+<li>提供了Docker Compose部署和源代码部署的升级指南。  </li>
+<li><strong>变更记录</strong>：  </li>
+<li>包含了多个改进、修复和新功能的详细列表。  </li>
+</ul>
+<h1 id="2-folo-desktopv090">2. <a href="https://github.com/RSSNext/Folo/releases/tag/desktop/v0.9.0">Folo desktop/v0.9.0</a></h1>
+<p>🧡 Follow everything in one place  </p>
+<ul>
+<li>去掉了最大浏览次数限制  </li>
+<li>允许隐藏“所有”视图  </li>
+<li>引入视图右键菜单，快速访问隐藏或打开设置  </li>
+<li>添加了打开条目详情时的平滑滑动动画  </li>
+<li>修复了切换条目详情时滚动条未重置的问题  </li>
+</ul>
+<h1 id="3-starship-v1240">3. <a href="https://github.com/starship/starship/releases/tag/v1.24.0">starship v1.24.0</a></h1>
+<p>☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any shell!  </p>
+<h3 id="_2">新增功能</h3>
+<ul>
+<li>添加Mercurial状态检测  </li>
+<li>支持AWS SSO的持续时间  </li>
+<li>CLI接受'powershell'作为completions子命令  </li>
+<li>添加对Incus容器的检测  </li>
+<li>支持Helix键绑定的输入模式检测  </li>
+<li>添加Fortran模块  </li>
+<li>添加git_branch模块的ignore_bare_repo标志  </li>
+<li>使安装脚本处理安装目录提示响应不区分大小写  </li>
+<li>添加xmake模块  </li>
+<li>添加nushell作业支持  </li>
+<li>添加Ansible Galaxy支持  </li>
+<li>使用hatchling动态版本  </li>
+</ul>
+<h3 id="_3">修复问题</h3>
+<ul>
+<li>考虑仅文本元变量在条件中设置时非空的情况  </li>
+<li>添加<code>compose.yml</code>和<code>compose.yaml</code>到Docker上下文文件  </li>
+<li>过滤非打印ANSI转义码  </li>
+<li>匹配单文件  </li>
+<li>遵循<code>git_status</code> <code>use_git_executable</code>选项  </li>
+<li>不显示已更新状态  </li>
+<li>去除hg分支中的多余换行符  </li>
+<li>改进目录扫描超时  </li>
+<li>使用鱼 shell 组作业计数  </li>
+<li>修正用户名检测环境变量逻辑  </li>
+<li>启动 cmd_duration 应为 0ms 而不是 823ms  </li>
+<li>不触发 pixi 模块 <code>.pixi</code> 目录  </li>
+<li>移除默认值中的多余空格  </li>
+<li>修复 rust-ini 0.21.2 被移除的问题  </li>
+<li>调整 terraform 模块以使用 <code>exec_cmds_return_first</code>-changes  </li>
+<li>避免在启用标签签名时引发超时  </li>
+<li>避免打印误导性日志消息  </li>
+<li>检查变量是否设置再读取  </li>
+<li>在ERR_EXIT条件下避免失败  </li>
+</ul>
+<h3 id="_4">性能改进</h3>
+<ul>
+<li>避免在使用<code>core.fsmonitor</code>时加载git索引  </li>
+<li>并行化环境变量和自定义模块子模块  </li>
+</ul>
+<h1 id="4-powertoys-v0951">4. <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.95.1">PowerToys v0.95.1</a></h1>
+<p>Microsoft PowerToys is a collection of utilities that help you customize Windows and streamline everyday tasks  </p>
+<p>此补丁修复了基于反馈在v0.95.0中发现的重要稳定性问题。主要变更包括：  </p>
+<ul>
+<li><strong>Light Switch</strong>  </li>
+<li>修复默认启用Light Switch的问题  </li>
+<li>修复手动时间表被日落计算覆盖的问题  </li>
+<li>将“手动”模式重命名为“固定时段”以增加清晰度  </li>
+<li>添加“关闭”模式，该模式禁用计划但仍然允许快捷键使用  </li>
+<li>修复了任务栏在亮模式下变成强调色的问题（仅允许在暗模式下）  </li>
+<li>
+<p>修复了模式切换时亮/暗时间未更新的问题（特别是手动切换回日落到日出模式）  </p>
+</li>
+<li>
+<p><strong>CmdPal</strong>  </p>
+</li>
+<li>修复了使用过滤器（如Windows Terminal配置文件、Windows服务）时的崩溃问题  </li>
+<li>
+<p>修复了窗口样式更改（如WS_EX_TOOLWINDOW）未正确应用的问题  </p>
+</li>
+<li>
+<p><strong>Find My Mouse</strong>  </p>
+</li>
+<li>修复了窗口失去焦点的问题  </li>
+<li>
+<p>修复了鼠标变忙（小时玻璃）的问题  </p>
+</li>
+<li>
+<p><strong>安装程序</strong>  </p>
+</li>
+<li>
+<p>移除WiX v3基础设施，迁移到WiX v5，缩短构建时间  </p>
+</li>
+<li>
+<p><strong>Bug报告</strong>  </p>
+</li>
+<li>优化了Bug报告系统  </li>
+</ul>
+<h1 id="5-rclone-v1712">5. <a href="https://github.com/rclone/rclone/releases/tag/v1.71.2">rclone v1.71.2</a></h1>
+<p>"rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files  </p>
+<p>v1.71.2版本包含以下主要变更：<br />
+- 修复了在某些情况下挂载可能失败的问题。<br />
+- 优化了S3存储桶上的性能。<br />
+- 修复了与Google Drive集成时的连接问题。  </p>
+<h1 id="6-gixy-v0212">6. <a href="https://github.com/dvershinin/gixy/releases/tag/v0.2.12">gixy v0.2.12</a></h1>
+<p>NGINX configuration static analyzer  </p>
+<p>变更说明：<br />
+- 添加 invalid_regex 插件，用于检测不存在的正则表达式捕获组  </p>
+<h1 id="7-duplicati-v2200_stable_2025-10-23">7. <a href="https://github.com/duplicati/duplicati/releases/tag/v2.2.0.0_stable_2025-10-23">duplicati v2.2.0.0_stable_2025-10-23</a></h1>
+<p>Store securely encrypted backups in the cloud!  </p>
+<ul>
+<li>新增用户界面，更友好且更美观，可切换回旧版界面  </li>
+<li>新增云服务支持：pCloud, Filen, Filejump  </li>
+<li>新增SMB后端支持，无需挂载文件夹或安装SMB支持，适用于Windows、Linux和macOS  </li>
+<li>新增恢复流程，启用后恢复速度更快，可回退至旧流程  </li>
+<li>包含Duplicati Inc签名，Windows包使用EV证书签名  </li>
+<li>支持本地和远程数据备份，S3, IDrive, SSH和CIFS源  </li>
+<li>AWS S3和Azure Blob Storage支持档案属性  </li>
+<li>更新本地数据库格式至版本17，设置数据库格式至v9  </li>
+<li>新增命令行工具<code>CommandLine.DatabaseTool.exe</code>，可降级数据库  </li>
+<li>备份速率控制更新，使用共享限制  </li>
+<li>移除Sia后端，因版本不兼容  </li>
+<li>标记Mega后端为未维护，建议迁移至Mega S4存储  </li>
+<li>所有后端更新，处理超时更精细  </li>
+<li>默认数据文件夹位置更改，Windows建议使用<code>C:\ProgramData\Duplicati</code>，Linux建议使用<code>/var/lib/Duplicati</code>  </li>
+<li>新增文件和文件夹枚举逻辑  </li>
+<li>所有后端操作增加超时逻辑  </li>
+<li>数据库验证和修复逻辑改进  </li>
+<li>ServerUtil输出JSON用于脚本集成  </li>
+<li>改善代理支持  </li>
+<li>更新速率控制逻辑，所有流共享速率限制  </li>
+<li>修复逻辑改进  </li>
+<li>Windows运行时自动启用VSS  </li>
+<li>后端测试功能改进  </li>
+<li>警告抑制功能  </li>
+<li>远程提供的报告URL和远程管理备份配置支持  </li>
+<li>支持Google IAM在Google Drive上  </li>
+</ul>
+<h1 id="8-ripgrep-1510">8. <a href="https://github.com/BurntSushi/ripgrep/releases/tag/15.1.0">ripgrep 15.1.0</a></h1>
+<p>ripgrep recursively searches directories for a regex pattern while respecting your gitignore  </p>
+<p>此版本修复了 ripgrep 在处理行缓冲时的一个问题。这可能会导致 ripgrep 比预期晚输出结果或与 <code>tail -f</code> 不兼容（即使使用了 <code>--line-buffered</code> 标志）。修复了以下问题：  </p>
+<ul>
+<li>修复了在 ripgrep 15.0.0 中引入的 <code>--line-buffered</code> 选项的回归问题（#3194）。  </li>
+</ul>
+<p>增加了以下功能：  </p>
+<ul>
+<li>添加了 Cursor 的超链接别名（#3192）。  </li>
+</ul>
+<h1 id="9-ublacklist-v930">9. <a href="https://github.com/iorate/ublacklist/releases/tag/v9.3.0">ublacklist v9.3.0</a></h1>
+<p>Blocks specific sites from appearing in Google search results  </p>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>强制隐藏被阻拦的结果，增加CSS特异性 (<a href="https://github.com/iorate/ublacklist/commit/4f351e206c14bc5bb989fa77cbe8da22d26c7120">4f351e2</a>)  </li>
+<li>更新翻译 (<a href="https://github.com/iorate/ublacklist/issues/686">#686</a>) (<a href="https://github.com/iorate/ublacklist/commit/b019a6d72c5fb6ca0408660d624b405a0886950d">b019a6d</a>)  </li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li>添加"icon"和"text"按钮命令 (<a href="https://github.com/iorate/ublacklist/commit/f7252f58827f6f8f8c19d4eda77e9a0d498f0010">f7252f5</a>)  </li>
+<li>在Safari中启用订阅链接 (<a href="https://github.com/iorate/ublacklist/commit/89689c131a28aa778e40d3d8a5e12434fc658822">89689c1</a>)  </li>
+</ul>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
+
+</div><nav class="paginate-container" aria-label="Pagination">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/160.html" aria-label="Previous Page">Vim常用命令</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+</nav>
+
+<!-- 编辑按钮 -->
+<a href="https://github.com/anaer/blog/issues/161" target="_blank">
+    <button class="floating-button edit-post">🖋</button>
+</a>
+
+<!-- 新增按钮 -->
+<a href="https://github.com/anaer/blog/issues/new" target="_blank">
+    <button class="floating-button new-post">+</button>
+</a>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
+
+<script>
+if("2023-09-08"!=""){
+    var now=new Date();
+    var startSite=new Date("2023-09-08");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script></div>
+
+    <!-- oneko.js中用到document.body, 需要在body块中加载 否则提示为null -->
+    <script src="https://anaer.github.io/blog/assets/oneko.js/oneko.js"></script>
+</body>
+<script>
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
+var utterancesLoad=0;
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek v2.4 %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+
+<script>
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","anaer/blog");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+
+
+<script src="https://anaer.github.io/blog/assets/toc.js"></script>
+
+
+</html>
