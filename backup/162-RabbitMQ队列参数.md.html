@@ -1,0 +1,88 @@
+
+  <article class="markdown-body">
+    <h1 id="rabbitmq-queue">RabbitMQ queue(队列)参数说明</h1>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>queue</td>
+<td>队列名称</td>
+</tr>
+<tr>
+<td>durable</td>
+<td>是否持久化</td>
+</tr>
+<tr>
+<td>exclusive</td>
+<td>是否排外 会对当前队列加锁，其他通道channel是不能访问的，如果强制访问会报异常, 当连接被关闭或者丢失, 队列会被删除</td>
+</tr>
+<tr>
+<td>autoDelete</td>
+<td>是否自动删除  当最后一个订阅者被取消, 连接丢失, 队列会被删除</td>
+</tr>
+<tr>
+<td>Message TTL(x-message-ttl)</td>
+<td>消息的生存周期</td>
+</tr>
+<tr>
+<td>Auto Expire(x-expires)</td>
+<td>队列定时删除 当队列在指定的时间没有被访问就会被删除</td>
+</tr>
+<tr>
+<td>Max Length(x-max-length)</td>
+<td>队列的消息的最大值长度 超过指定长度将会把最早的几条消息删除掉</td>
+</tr>
+<tr>
+<td>Max Length Bytes(x-max-length-bytes)</td>
+<td>队列最大占用的空间大小 一般受限于内存、磁盘的大小</td>
+</tr>
+<tr>
+<td>Dead letter exchange(x-dead-letter-exchange)</td>
+<td>当队列消息长度大于最大长度、或者过期的等，将从队列中删除的消息推送到指定的交换机中去而不是丢弃掉</td>
+</tr>
+<tr>
+<td>Dead letter routing key(x-dead-letter-routing-key)</td>
+<td>将删除的消息推送到指定交换机的指定路由键的队列中去</td>
+</tr>
+<tr>
+<td>Maximum priority(x-max-priority)</td>
+<td>优先级队列 声明队列时先定义最大优先级值，在发布消息的时候指定该消息的优先级， 优先级更高（数值更大的）的消息先被消费,</td>
+</tr>
+<tr>
+<td>Lazy mode(x-queue-mode=lazy)</td>
+<td>先将消息保存到磁盘上，不放在内存中，当消费者开始消费的时候才加载到内存中</td>
+</tr>
+</tbody>
+</table>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
