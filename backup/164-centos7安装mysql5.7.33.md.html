@@ -1,0 +1,119 @@
+
+  <article class="markdown-body">
+    <h1 id="centos7mysql5733">centos7安装mysql5.7.33</h1>
+<h2 id="_1">下载安装包</h2>
+<p>mysql-5.7.33-linux-glibc2.12-x86_64.tar.gz  </p>
+<h2 id="_2">解压并移动</h2>
+<p>解压到/data/mysql/mysql-5.7.33<br />
+创建mysq数据目录 /data/mysql/mysql-data  </p>
+<h2 id="mysql">创建mysql组和用户</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>groupadd<span class="w"> </span>mysql<span class="w">  </span>
+useradd<span class="w"> </span>-r<span class="w"> </span>-g<span class="w"> </span>mysql<span class="w"> </span>mysql<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_3">参数配置</h2>
+<p>vim /etc/my.cnf  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>[mysqld]  
+bind-address=0.0.0.0  
+port=3306  
+user=mysql  
+basedir=/data/mysql/mysql-5.7.33/  
+datadir=/data/mysql/mysql-data  
+socket=/tmp/mysql.sock  
+character_set_server=utf8mb4  
+# Disabling symbolic-links is recommended to prevent assorted security risks  
+symbolic-links=0  
+# Settings user and group are ignored when systemd is used.  
+# If you need to run mysqld under a different user or group,  
+# customize your systemd unit file for mariadb according to the  
+# instructions in http://fedoraproject.org/wiki/Systemd  
+
+[mysqld_safe]  
+log-error=/data/mysql/mysql-data/mysql.err  
+pid-file=/data/mysql/mysql-data/mysql.pid  
+
+#  
+# include all files from the config directory  
+#  
+!includedir /etc/my.cnf.d  
+</code></pre></div></div>
+<h2 id="mysql_1">初始化mysql</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/data/mysql/mysql-5.7.33/bin/<span class="w">  </span>
+./mysqld<span class="w"> </span>--defaults-file<span class="o">=</span>/etc/my.cnf<span class="w"> </span>--basedir<span class="o">=</span>/data/mysql/mysql-5.7.33/<span class="w"> </span>--datadir<span class="o">=</span>/data/mysql/mysql-data/<span class="w"> </span>--user<span class="o">=</span>mysql<span class="w"> </span>--initialize<span class="w">  </span>
+</code></pre></div></div>
+<p>执行完有打印初始密码, 或者查看日志文件/data/mysql/mysql-data/mysql.err  </p>
+<h2 id="mysqlroot">启动mysql，并更改root 密码</h2>
+<p>拷贝服务文件<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>cp<span class="w"> </span>/data/mysql/mysql-5.7.33/support-files/mysql.server<span class="w"> </span>/etc/init.d/mysqld<span class="w">  </span>
+</code></pre></div></div></p>
+<p>启动：<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>service<span class="w"> </span>mysqld<span class="w"> </span>start<span class="w">  </span>
+</code></pre></div></div></p>
+<p>停止：<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>service<span class="w"> </span>mysqld<span class="w"> </span>stop<span class="w">  </span>
+</code></pre></div></div></p>
+<p>更改密码：  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/data/mysql/mysql-5.7.33/bin<span class="w">  </span>
+./mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p<span class="w">  </span>
+</code></pre></div></div>
+<p>提示输入密码，把刚才复制的密码粘过来  </p>
+<p>然后执行修改，并刷新：  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>SET<span class="w"> </span><span class="nv">PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>PASSWORD<span class="o">(</span><span class="s1">&#39;newpassword&#39;</span><span class="o">)</span><span class="p">;</span><span class="w">  </span>
+
+ALTER<span class="w"> </span>USER<span class="w"> </span><span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="w"> </span>PASSWORD<span class="w"> </span>EXPIRE<span class="w"> </span>NEVER<span class="p">;</span><span class="w">  </span>
+
+FLUSH<span class="w"> </span>PRIVILEGES<span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<p>如果想关闭mysql 执行  </p>
+<h2 id="_4">设置开机启动</h2>
+<p>chkconfig --add mysqld<br />
+chkconfig --list  </p>
+<h2 id="_5">配置环境变量</h2>
+<p>vim /etc/profile<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MYSQL_HOME</span><span class="o">=</span>/data/mysql/mysql-5.7.33<span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$MYSQL_HOME</span>/bin<span class="w">  </span>
+</code></pre></div></div></p>
+<h2 id="faq">FAQ</h2>
+<h3 id="host-xxxxxxxxxxxx-is-not-allowed-to-connect-to-this-mysql-server">Host 'xxx.xxx.xxx.xxx' is not allowed to connect to this MySQL server</h3>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">user</span><span class="p">,</span><span class="w"> </span><span class="k">host</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">  </span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="k">host</span><span class="o">=</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">  </span>
+<span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="error-2002-hy000-cant-connect-to-local-mysql-server-through-socket-tmpmysqlsock-2">ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)</h3>
+<p>检查mysql.sock路径  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
