@@ -1,0 +1,64 @@
+
+  <article class="markdown-body">
+    <h2 id="jenkins">jenkins数据迁移</h2>
+<p>centos 7.9  </p>
+<h3 id="_1">配置目录</h3>
+<p>默认在主目录下的.jenkins目录  </p>
+<p>config.xml 配置信息<br />
+jobs 工程项目任务目录, 打包排除builds构建目录<br />
+    tar -cvf jobs.tar jobs/ --exclude 'builds'<br />
+users 用户账号信息<br />
+plugins 插件目录  </p>
+<h3 id="_2">新机部署</h3>
+<p>拷贝旧机的以下包<br />
+jdk-8u171-linux-x64.tar.gz<br />
+apache-maven-3.5.2-bin.tar.gz<br />
+apache-tomcat-8.5.24.tar.gz<br />
+jenkins.war  </p>
+<p>=&gt;  </p>
+<p>/data/jdk1.8.0_171<br />
+/data/apache-maven-3.5.2<br />
+/data/apache-tomcat-8.5.24<br />
+/data/apache-tomcat-8.5.24/webapps/jenkins.war  </p>
+<p>编辑/etc/profile  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/data/jdk1.8.0_171<span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/lib<span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MAVEN_HOME</span><span class="o">=</span>/data/apache-maven-3.5.2<span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$MAVEN_HOME</span>/bin<span class="w">  </span>
+</code></pre></div></div>
+<p>将备份的config.xml, jobs, users, plugins拷贝到 /data/jenkins 目录下<br />
+拷贝原settings.xml到/data/apache-maven-3.5.2/conf/settings.xml  </p>
+<p>在主目录下创建软链接<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>ln<span class="w"> </span>-s<span class="w"> </span>/data/jenkins<span class="w"> </span>.jenkins<span class="w">  </span>
+ln<span class="w"> </span>-s<span class="w"> </span>/data/m2/<span class="w"> </span>.m2<span class="w">  </span>
+</code></pre></div></div></p>
+<p>启动tomcat即可以原账户密码登录新Jenkins, 且保留原有的job任务, 不过发现git账号信息以及服务器配置信息丢失, 可能还缺配置, 不过因为是新机部署，也是需要重新配置, 所以不影响  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
