@@ -1,19 +1,60 @@
-<div class="markdown-heading"><h1 class="heading-element">Linux 中安装字体</h1><a id="user-content-linux-中安装字体" class="anchor" aria-label="Permalink: Linux 中安装字体" href="#linux-中安装字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h2 class="heading-element">查看系统中的字体</h2><a id="user-content-查看系统中的字体" class="anchor" aria-label="Permalink: 查看系统中的字体" href="#查看系统中的字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>fc-list</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">查看系统中的中文字体</h2><a id="user-content-查看系统中的中文字体" class="anchor" aria-label="Permalink: 查看系统中的中文字体" href="#查看系统中的中文字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>fc-list :lang=zh</pre></div>
-<p>将字体文件拷贝到/usr/share/fonts/中</p>
-<div class="highlight highlight-source-shell"><pre>cp simsun.ttc /usr/share/fonts
-<span class="pl-c1">cd</span> /usr/lshare/fonts
-mkfontscale
-mkfontdir</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">检验：</h2><a id="user-content-检验" class="anchor" aria-label="Permalink: 检验：" href="#检验"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>fc-list :lang=zh</pre></div>
-<p>就可以看到刚安装的字体了</p>
-<div class="markdown-heading"><h2 class="heading-element">Ubuntu</h2><a id="user-content-ubuntu" class="anchor" aria-label="Permalink: Ubuntu" href="#ubuntu"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>apt-get install fontconfig
-apt-get install xfonts-utils</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">CentOS</h2><a id="user-content-centos" class="anchor" aria-label="Permalink: CentOS" href="#centos"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>yum -y install fontconfig <span class="pl-c"><span class="pl-c">#</span>安装字体库</span>
-yum -y install ttmkfdir mkfontscale <span class="pl-c"><span class="pl-c">#</span>安装字体索引信息</span></pre></div>
+
+  <article class="markdown-body">
+    <h1 id="linux">Linux 中安装字体</h1>
+<h2 id="_1">查看系统中的字体</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>fc-list<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_2">查看系统中的中文字体</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>fc-list<span class="w"> </span>:lang<span class="o">=</span>zh<span class="w">  </span>
+</code></pre></div></div>
+<p>将字体文件拷贝到/usr/share/fonts/中  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>cp<span class="w"> </span>simsun.ttc<span class="w"> </span>/usr/share/fonts<span class="w">  </span>
+<span class="nb">cd</span><span class="w"> </span>/usr/share/fonts<span class="w">  </span>
+mkfontscale<span class="w">  </span>
+mkfontdir<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_3">检验：</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>fc-list<span class="w"> </span>:lang<span class="o">=</span>zh<span class="w">  </span>
+</code></pre></div></div>
+<p>就可以看到刚安装的字体了  </p>
+<h2 id="ubuntu">Ubuntu</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>apt-get<span class="w"> </span>install<span class="w"> </span>fontconfig<span class="w">  </span>
+apt-get<span class="w"> </span>install<span class="w"> </span>xfonts-utils<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="centos">CentOS</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>fontconfig<span class="w"> </span><span class="c1">#安装字体库  </span>
+yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>ttmkfdir<span class="w"> </span>mkfontscale<span class="w"> </span><span class="c1">#安装字体索引信息  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+

@@ -17,7 +17,7 @@ fc-list :lang=zh
 
 ```bash
 cp simsun.ttc /usr/share/fonts
-cd /usr/lshare/fonts
+cd /usr/share/fonts
 mkfontscale
 mkfontdir
 ```

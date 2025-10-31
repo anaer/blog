@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X30 Linux中安装字体</title>
+<title>Linux中安装字体</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/dimmed.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X30 Linux中安装字体</a>
+    <a style="font-size:18px">Linux中安装字体</a>
 </h1>
 
 <div class="title-right">
@@ -126,6 +128,8 @@ pre {
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#服务器">服务器</a></object>
         </span>
 </div>
 <br>
@@ -133,31 +137,76 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-21 10:52:02</time></span>
 
-<p>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-31 09:14:42</time></span>
+
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了在Linux系统中安装和查看字体的步骤。用户可以使用fc-list命令查看系统中的所有字体和中文字体。安装字体的过程包括将字体文件拷贝到/usr/share/fonts/目录，并使用mkfontscale和mkfontdir命令生成字体索引。对于Ubuntu系统，需要安装fontconfig和xfonts-utils，而CentOS系统则需要安装fontconfig、ttmkfdir和mkfontscale。文中未提及的是，字体文件的权限和格式可能会影响字体的加载，因此在安装前应确保字体文件的正确性和可读性。
+</div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h1 class="heading-element">Linux 中安装字体</h1><a id="user-content-linux-中安装字体" class="anchor" aria-label="Permalink: Linux 中安装字体" href="#linux-中安装字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h2 class="heading-element">查看系统中的字体</h2><a id="user-content-查看系统中的字体" class="anchor" aria-label="Permalink: 查看系统中的字体" href="#查看系统中的字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>fc-list</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">查看系统中的中文字体</h2><a id="user-content-查看系统中的中文字体" class="anchor" aria-label="Permalink: 查看系统中的中文字体" href="#查看系统中的中文字体"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>fc-list :lang=zh</pre></div>
-<p>将字体文件拷贝到/usr/share/fonts/中</p>
-<div class="highlight highlight-source-shell"><pre>cp simsun.ttc /usr/share/fonts
-<span class="pl-c1">cd</span> /usr/lshare/fonts
-mkfontscale
-mkfontdir</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">检验：</h2><a id="user-content-检验" class="anchor" aria-label="Permalink: 检验：" href="#检验"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>fc-list :lang=zh</pre></div>
-<p>就可以看到刚安装的字体了</p>
-<div class="markdown-heading"><h2 class="heading-element">Ubuntu</h2><a id="user-content-ubuntu" class="anchor" aria-label="Permalink: Ubuntu" href="#ubuntu"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>apt-get install fontconfig
-apt-get install xfonts-utils</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">CentOS</h2><a id="user-content-centos" class="anchor" aria-label="Permalink: CentOS" href="#centos"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>yum -y install fontconfig <span class="pl-c"><span class="pl-c">#</span>安装字体库</span>
-yum -y install ttmkfdir mkfontscale <span class="pl-c"><span class="pl-c">#</span>安装字体索引信息</span></pre></div>
+
+  <article class="markdown-body">
+    <h1 id="linux">Linux 中安装字体</h1>
+<h2 id="_1">查看系统中的字体</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>fc-list<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_2">查看系统中的中文字体</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>fc-list<span class="w"> </span>:lang<span class="o">=</span>zh<span class="w">  </span>
+</code></pre></div></div>
+<p>将字体文件拷贝到/usr/share/fonts/中  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>cp<span class="w"> </span>simsun.ttc<span class="w"> </span>/usr/share/fonts<span class="w">  </span>
+<span class="nb">cd</span><span class="w"> </span>/usr/share/fonts<span class="w">  </span>
+mkfontscale<span class="w">  </span>
+mkfontdir<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_3">检验：</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>fc-list<span class="w"> </span>:lang<span class="o">=</span>zh<span class="w">  </span>
+</code></pre></div></div>
+<p>就可以看到刚安装的字体了  </p>
+<h2 id="ubuntu">Ubuntu</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>apt-get<span class="w"> </span>install<span class="w"> </span>fontconfig<span class="w">  </span>
+apt-get<span class="w"> </span>install<span class="w"> </span>xfonts-utils<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="centos">CentOS</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>fontconfig<span class="w"> </span><span class="c1">#安装字体库  </span>
+yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>ttmkfdir<span class="w"> </span>mkfontscale<span class="w"> </span><span class="c1">#安装字体索引信息  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/50.html" aria-label="Previous Page">0X32 Windows常用注册表</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/47.html" aria-label="Next Page">0X2F Python查询m3u8视频信息</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/47.html" aria-label="Previous Page">0X2F Python查询m3u8视频信息</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/49.html" aria-label="Next Page">0X31 Office字体大小转换关系</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -239,8 +288,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

@@ -1036,21 +1036,22 @@
             "htmlDir": "docs/post/48.html",
             "markdown": "backup/48-Linux\u4e2d\u5b89\u88c5\u5b57\u4f53.md",
             "labels": [
-                "Linux"
+                "Linux",
+                "\u670d\u52a1\u5668"
             ],
-            "postTitle": "0X30 Linux\u4e2d\u5b89\u88c5\u5b57\u4f53",
+            "postTitle": "Linux\u4e2d\u5b89\u88c5\u5b57\u4f53",
             "postUrl": "post/48.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/48",
             "commentNum": 0,
             "createdAt": 1737427922,
-            "updatedAt": 1737427922,
+            "updatedAt": 1761873282,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-21",
-            "dateLabelColor": "hsl(140, 52%, 17%)",
-            "description": "",
-            "buildedAt": 1737427922
+            "dateLabelColor": "hsl(62, 36%, 37%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u5728Linux\u7cfb\u7edf\u4e2d\u5b89\u88c5\u548c\u67e5\u770b\u5b57\u4f53\u7684\u6b65\u9aa4\u3002\u7528\u6237\u53ef\u4ee5\u4f7f\u7528fc-list\u547d\u4ee4\u67e5\u770b\u7cfb\u7edf\u4e2d\u7684\u6240\u6709\u5b57\u4f53\u548c\u4e2d\u6587\u5b57\u4f53\u3002\u5b89\u88c5\u5b57\u4f53\u7684\u8fc7\u7a0b\u5305\u62ec\u5c06\u5b57\u4f53\u6587\u4ef6\u62f7\u8d1d\u5230/usr/share/fonts/\u76ee\u5f55\uff0c\u5e76\u4f7f\u7528mkfontscale\u548cmkfontdir\u547d\u4ee4\u751f\u6210\u5b57\u4f53\u7d22\u5f15\u3002\u5bf9\u4e8eUbuntu\u7cfb\u7edf\uff0c\u9700\u8981\u5b89\u88c5fontconfig\u548cxfonts-utils\uff0c\u800cCentOS\u7cfb\u7edf\u5219\u9700\u8981\u5b89\u88c5fontconfig\u3001ttmkfdir\u548cmkfontscale\u3002\u6587\u4e2d\u672a\u63d0\u53ca\u7684\u662f\uff0c\u5b57\u4f53\u6587\u4ef6\u7684\u6743\u9650\u548c\u683c\u5f0f\u53ef\u80fd\u4f1a\u5f71\u54cd\u5b57\u4f53\u7684\u52a0\u8f7d\uff0c\u56e0\u6b64\u5728\u5b89\u88c5\u524d\u5e94\u786e\u4fdd\u5b57\u4f53\u6587\u4ef6\u7684\u6b63\u786e\u6027\u548c\u53ef\u8bfb\u6027\u3002",
+            "buildedAt": 1761873282
         },
         "P49": {
             "number": "49",
