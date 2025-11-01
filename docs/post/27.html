@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X1B ip归属地查询</title>
+<title>ip归属地查询</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X1B ip归属地查询</a>
+    <a style="font-size:18px">ip归属地查询</a>
 </h1>
 
 <div class="title-right">
@@ -126,6 +128,8 @@ pre {
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#351497">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#工具">工具</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#774C51">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#数据库">数据库</a></object>
         </span>
 </div>
 <br>
@@ -133,46 +137,70 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-03 10:05:26</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-17 15:02:07</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-01 17:02:10</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了ip2region及其相关数据库的信息，包括ip2region-xdb的大小和数据来源，以及MaxMind的GeoLite2数据库更新频率和使用示例。该示例展示了如何使用geoip2库查询IP地址的国家信息。
-
-优化建议：
-1. 在函数get_ip_info中，增加对输入IP地址格式的验证，以确保输入有效性。
-2. 考虑将数据库路径作为参数传递时，提供默认值的同时，允许用户自定义路径。
-3. 在异常处理部分，建议增加日志记录功能，以便后续分析失败的查询。
-4. 提供更多的使用示例，展示如何获取城市和ASN信息，增强实用性。
+    <strong>AI总结:</strong> 本文介绍了ip2region及其相关数据库的更新频率，包括ip2region-xdb的数据来自IP-API，GeoLite2数据库每三天更新，MaxMind的GeoLite2 Country、City和ASN数据库每月更新，geoip2-mirror每周更新，而GeoLite.mmdb则是每天更新。文中提供了一个Python示例，展示如何使用geoip2库从GeoLite2-Country.mmdb中获取IP地址的国家信息。没有明显的错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element"><a href="https://github.com/lionsoul2014/ip2region">ip2region</a></h2><a id="user-content-ip2region" class="anchor" aria-label="Permalink: ip2region" href="#ip2region"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h2 class="heading-element">
-<a href="https://github.com/alading89/ip2region-xdb/releases">ip2region-xdb</a>  58M</h2><a id="user-content-ip2region-xdb--58m" class="anchor" aria-label="Permalink: ip2region-xdb  58M" href="#ip2region-xdb--58m"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>数据来自IP-API</p>
-<div class="markdown-heading"><h2 class="heading-element">
-<a href="https://github.com/mojolabs-id/GeoLite2-Database/releases/">GeoLite2-Database</a> 每3天更新</h2><a id="user-content-geolite2-database-每3天更新" class="anchor" aria-label="Permalink: GeoLite2-Database 每3天更新" href="#geolite2-database-每3天更新"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>MaxMind's GeoLite2 Country, City, and ASN databases in csv and mmdb.</p>
-<p><a href="https://github.com/Dreamacro/maxmind-geoip/releases">maxmind-geoip</a> 每月12号更新</p>
-<p><a href="https://github.com/Skiddle-ID/geoip2-mirror/releases">geoip2-mirror</a>  每周二,五更新</p>
-<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">geoip2</span>.<span class="pl-s1">database</span>
 
-<span class="pl-k">def</span> <span class="pl-en">get_ip_info</span>(<span class="pl-s1">ip_address</span>, <span class="pl-s1">db_path</span><span class="pl-c1">=</span><span class="pl-s">"GeoLite2-Country.mmdb"</span>):
-    <span class="pl-k">try</span>:
-        <span class="pl-k">with</span> <span class="pl-s1">geoip2</span>.<span class="pl-c1">database</span>.<span class="pl-c1">Reader</span>(<span class="pl-s1">db_path</span>) <span class="pl-k">as</span> <span class="pl-s1">reader</span>:
-            <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-s1">reader</span>.<span class="pl-c1">country</span>(<span class="pl-s1">ip_address</span>)
-            <span class="pl-k">return</span> <span class="pl-s1">response</span>.<span class="pl-c1">country</span>.<span class="pl-c1">names</span>.<span class="pl-c1">get</span>(<span class="pl-s">'zh-CN'</span>, <span class="pl-s1">response</span>.<span class="pl-c1">country</span>.<span class="pl-c1">name</span>)
-    <span class="pl-k">except</span> <span class="pl-v">Exception</span> <span class="pl-k">as</span> <span class="pl-s1">e</span>:
-        <span class="pl-en">print</span>(<span class="pl-s">f"GeoIP lookup failed for <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">ip_address</span><span class="pl-kos">}</span></span>: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">e</span><span class="pl-kos">}</span></span>"</span>)
-        <span class="pl-k">return</span> <span class="pl-s">''</span>
+  <article class="markdown-body">
+    <h2 id="ip2region"><a href="https://github.com/lionsoul2014/ip2region">ip2region</a></h2>
+<h2 id="ip2region-xdb-58m"><a href="https://github.com/alading89/ip2region-xdb/releases">ip2region-xdb</a>  58M</h2>
+<p>数据来自IP-API  </p>
+<h2 id="geolite2-database-3"><a href="https://github.com/mojolabs-id/GeoLite2-Database/releases/">GeoLite2-Database</a> 每3天更新</h2>
+<p>MaxMind's GeoLite2 Country, City, and ASN databases in csv and mmdb.  </p>
+<p><a href="https://github.com/Dreamacro/maxmind-geoip/releases">maxmind-geoip</a> 每月12号更新  </p>
+<p><a href="https://github.com/Skiddle-ID/geoip2-mirror/releases">geoip2-mirror</a>  每周二,五更新  </p>
+<p><a href="https://github.com/P3TERX/GeoLite.mmdb/releases">GeoLite.mmdb</a> 每天  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">geoip2.database</span>  
 
-<span class="pl-c"># 使用示例</span>
-<span class="pl-s1">ip_address</span> <span class="pl-c1">=</span> <span class="pl-s">"8.8.8.8"</span>
-<span class="pl-s1">country</span> <span class="pl-c1">=</span> <span class="pl-en">get_ip_info</span>(<span class="pl-s1">ip_address</span>)
-<span class="pl-en">print</span>(<span class="pl-s">f"Country: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">country</span><span class="pl-kos">}</span></span>"</span>)</pre></div>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_ip_info</span><span class="p">(</span><span class="n">ip_address</span><span class="p">,</span> <span class="n">db_path</span><span class="o">=</span><span class="s2">&quot;GeoLite2-Country.mmdb&quot;</span><span class="p">):</span>  
+    <span class="k">try</span><span class="p">:</span>  
+        <span class="k">with</span> <span class="n">geoip2</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>  
+            <span class="n">response</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">country</span><span class="p">(</span><span class="n">ip_address</span><span class="p">)</span>  
+            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;zh-CN&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GeoIP lookup failed for </span><span class="si">{</span><span class="n">ip_address</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>  
+
+<span class="c1"># 使用示例  </span>
+<span class="n">ip_address</span> <span class="o">=</span> <span class="s2">&quot;8.8.8.8&quot;</span>  
+<span class="n">country</span> <span class="o">=</span> <span class="n">get_ip_info</span><span class="p">(</span><span class="n">ip_address</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Country: </span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/28.html" aria-label="Previous Page">0X1C Git配置文件说明</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/26.html" aria-label="Next Page">0X1A API接口测试工具</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/26.html" aria-label="Previous Page">0X1A API接口测试工具</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/28.html" aria-label="Next Page">0X1C Git配置文件说明</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -254,8 +282,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
