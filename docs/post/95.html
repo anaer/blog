@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X5F Linux常用命令记录</title>
+<title>Linux常用命令记录</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia-dark.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X5F Linux常用命令记录</a>
+    <a style="font-size:18px">Linux常用命令记录</a>
 </h1>
 
 <div class="title-right">
@@ -135,27 +137,60 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-24 16:14:46</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-04-16 17:15:20</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-03 15:17:20</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何清理日志目录中超过1G的日志文件，通过清空文件而不是删除文件来节省空间，并使用fdupes检测和删除重复文件。具体步骤包括使用find命令查找并清空大于1G的日志文件，以及安装fdupes工具并运行该工具来处理重复文件。
-
-优化建议：
-1. 在执行truncate命令前，可以先备份重要日志文件，以防止意外数据丢失。
-2. 在使用fdupes时，建议先使用-f选项进行预览，确认删除的文件，避免误删。
-3. 定期执行日志清理任务，可以考虑将命令添加到定时任务中，保持日志目录的整洁。
+    <strong>AI总结:</strong> 本文介绍了批量替换当前目录下所有.conf文件中的内容，将127.0.0.1替换为localhost的命令。接着，介绍了如何清理日志目录中超过1G的日志文件，通过清空文件内容而不删除文件。最后，提到使用fdupes工具检测并删除重复文件，只保留一个。文本中没有明显错误观点。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">清理日志目录超过1G的日志文件</h2><a id="user-content-清理日志目录超过1g的日志文件" class="anchor" aria-label="Permalink: 清理日志目录超过1G的日志文件" href="#清理日志目录超过1g的日志文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>不删文件只清空</p>
-<div class="highlight highlight-source-shell"><pre>find /data/app_log -type f -name <span class="pl-s"><span class="pl-pds">"</span>*.log<span class="pl-pds">"</span></span> -size +1G -exec truncate -s 0 {} <span class="pl-cce">\;</span></pre></div>
-<div class="markdown-heading"><h2 class="heading-element">fdupes检测重复文件</h2><a id="user-content-fdupes检测重复文件" class="anchor" aria-label="Permalink: fdupes检测重复文件" href="#fdupes检测重复文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>apt install fdupes
-fdupes -dN <span class="pl-c1">.</span> <span class="pl-c"><span class="pl-c">#</span> 删除重复内容的文件, 只保留一个</span></pre></div>
+
+  <article class="markdown-body">
+    <h2 id="conf">批量替换当前目录下.conf文件中内容</h2>
+<p>如将内容中的127.0.0.1替换为localhost  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.conf&quot;</span><span class="w"> </span>-exec<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/127.0.0.1/localhost/g&#39;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span>+<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="1g">清理日志目录超过1G的日志文件</h2>
+<p>不删文件只清空  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>find<span class="w"> </span>/data/app_log<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.log&quot;</span><span class="w"> </span>-size<span class="w"> </span>+1G<span class="w"> </span>-exec<span class="w"> </span>truncate<span class="w"> </span>-s<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="fdupes">fdupes检测重复文件</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>fdupes<span class="w">  </span>
+fdupes<span class="w"> </span>-dN<span class="w"> </span>.<span class="w"> </span><span class="c1"># 删除重复内容的文件, 只保留一个  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/96.html" aria-label="Previous Page">0X60 Mac配置</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/93.html" aria-label="Next Page">0X5D VSCode插件包生成</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/94.html" aria-label="Previous Page">0X5E 我关注的项目这周更新了什么-2025-03-28</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/96.html" aria-label="Next Page">0X60 Mac配置</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -237,8 +272,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

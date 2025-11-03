@@ -1,3 +1,9 @@
+## 批量替换当前目录下.conf文件中内容
+如将内容中的127.0.0.1替换为localhost
+
+```sh
+find . -type f -name "*.conf" -exec sed -i 's/127.0.0.1/localhost/g' {} +
+```
 
 ## 清理日志目录超过1G的日志文件
 不删文件只清空

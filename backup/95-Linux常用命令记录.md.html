@@ -1,6 +1,44 @@
-<div class="markdown-heading"><h2 class="heading-element">清理日志目录超过1G的日志文件</h2><a id="user-content-清理日志目录超过1g的日志文件" class="anchor" aria-label="Permalink: 清理日志目录超过1G的日志文件" href="#清理日志目录超过1g的日志文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>不删文件只清空</p>
-<div class="highlight highlight-source-shell"><pre>find /data/app_log -type f -name <span class="pl-s"><span class="pl-pds">"</span>*.log<span class="pl-pds">"</span></span> -size +1G -exec truncate -s 0 {} <span class="pl-cce">\;</span></pre></div>
-<div class="markdown-heading"><h2 class="heading-element">fdupes检测重复文件</h2><a id="user-content-fdupes检测重复文件" class="anchor" aria-label="Permalink: fdupes检测重复文件" href="#fdupes检测重复文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>apt install fdupes
-fdupes -dN <span class="pl-c1">.</span> <span class="pl-c"><span class="pl-c">#</span> 删除重复内容的文件, 只保留一个</span></pre></div>
+
+  <article class="markdown-body">
+    <h2 id="conf">批量替换当前目录下.conf文件中内容</h2>
+<p>如将内容中的127.0.0.1替换为localhost  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.conf&quot;</span><span class="w"> </span>-exec<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/127.0.0.1/localhost/g&#39;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span>+<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="1g">清理日志目录超过1G的日志文件</h2>
+<p>不删文件只清空  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>find<span class="w"> </span>/data/app_log<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.log&quot;</span><span class="w"> </span>-size<span class="w"> </span>+1G<span class="w"> </span>-exec<span class="w"> </span>truncate<span class="w"> </span>-s<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="fdupes">fdupes检测重复文件</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>fdupes<span class="w">  </span>
+fdupes<span class="w"> </span>-dN<span class="w"> </span>.<span class="w"> </span><span class="c1"># 删除重复内容的文件, 只保留一个  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
