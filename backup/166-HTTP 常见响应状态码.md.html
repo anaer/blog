@@ -1,0 +1,58 @@
+
+  <article class="markdown-body">
+    <p>| 类型   | 状态码   | 英文名                 | 描述信息                                                                                 |<br />
+| ------ | -------- | ---------------------- | ---------------------------------------------------------------------------------------- |<br />
+| 1xx    | 100      | Continue               | 表示服务器已接收了客户端的请求头，客户端应继续发送请求体。                               |<br />
+|        | 101      | Switching Protocols    | 服务器将遵照客户端的请求转换到一个不同的协议。                                           |<br />
+|        | 103      | Early Hints            | 提供一些响应的早期提示，通常用于性能优化。                                               |<br />
+| ------ | -------- | ------------------     | --------------------------------------------------------------------------               |<br />
+| 2xx    | 200      | OK                     | 请求成功。请求的资源已成功返回。                                                         |<br />
+|        | 201      | Created                | 请求成功并且服务器创建了新的资源。                                                       |<br />
+|        | 202      | Accepted               | 请求已经接收并开始处理，但是处理还没有完成。                                             |<br />
+|        | 204      | No Content             | 请求已经处理完成，但是没有信息要返回                                                     |<br />
+|        | 206      | Partial Content        | 服务器成功处理了部分 GET 请求。                                                          |<br />
+| ------ | -------- | ------------------     | --------------------------------------------------------------------------               |<br />
+| 3xx    | 301      | Moved Permanently      | 资源永久移动到新位置。客户端应该自动转向新的 URL。                                       |<br />
+|        | 302      | Found                  | 临时重定向。客户端应该自动转向新的 URL。                                                 |<br />
+|        | 304      | Not Modified           | 自从上次请求后，请求的网页未修改过，客户端可以使用缓存的版本。                           |<br />
+|        | 307      | Temporary Redirect     | 目标资源暂时性地移动到新的地址，客户端需要去新地址进行操作，但是<strong>不能</strong>修改请求的方法。 |<br />
+|        | 308      | Permanent Redirect     | 和 301 类似，除了客户端<strong>不能</strong>修改原请求的方法                                          |<br />
+| ------ | -------- | ------------------     | --------------------------------------------------------------------------               |<br />
+| 4xx    | 400      | Bad Request            | 服务器无法理解请求的格式，客户端不应当尝试更改请求而再次发送。                           |<br />
+|        | 401      | Unauthorized           | 请求的资源需要认证，客户端没有提供认证信息或者认证信息不正确                             |<br />
+|        | 403      | Forbidden              | 服务器理解请求客户端的请求，但是拒绝执行此请求。                                         |<br />
+|        | 404      | Not Found              | 请求的资源不存在。                                                                       |<br />
+|        | 405      | Method Not Allowed     | 服务端接收到了请求，而且要访问的资源也存在，但是不支持对应的方法。                       |<br />
+|        | 415      | Unsupported Media Type | 服务端不支持客户端请求的资源格式                                                         |<br />
+|        | 429      | Too Many Requests      | 客户端在规定的时间里发送了太多请求，在进行限流的时候会用到                               |<br />
+| ------ | -------- | ------------------     | --------------------------------------------------------------------------               |<br />
+| 5xx    | 500      | Internal Server Error  | 服务器遇到了不知道如何处理的情况。                                                       |<br />
+|        | 502      | Bad Gateway            | 作为网关或代理工作的服务器从上游服务器收到了无效响应。                                   |<br />
+|        | 503      | Service Unavailable    | 服务器目前无法使用（由于超载或停机维护）。                                               |  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
