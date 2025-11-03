@@ -133,8 +133,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-11-03 15:33:16</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-03 15:37:59</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了HTTP状态码的分类及其含义，包括1xx、2xx、3xx、4xx和5xx类型的状态码。1xx状态码表示信息性响应，2xx状态码表示成功请求，3xx状态码表示重定向，4xx状态码表示客户端错误，5xx状态码表示服务器错误。每个状态码后都有相应的描述，清晰阐述了其功能和使用场景。文本中没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了HTTP状态码的分类及其含义，包括1xx（信息性），2xx（成功），3xx（重定向），4xx（客户端错误）和5xx（服务器错误）五大类。每类状态码都有具体的代码和描述，例如，200表示请求成功，404表示请求的资源不存在等。文本中存在的错误观点包括对某些状态码的描述不够准确，比如对于307和308的解释不够清晰，307应强调请求方法不变，而308则确实不允许修改请求方法。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -149,6 +151,7 @@ pre {
 | 2xx    | 200      | OK                     | 请求成功。请求的资源已成功返回。                                                         |<br />
 |        | 201      | Created                | 请求成功并且服务器创建了新的资源。                                                       |<br />
 |        | 202      | Accepted               | 请求已经接收并开始处理，但是处理还没有完成。                                             |<br />
+|        | 203      | Non-Authoritative Information | 服务器成功处理了请求，但返回的内容可能来自缓存或另一个源，而不是原始的服务器  |<br />
 |        | 204      | No Content             | 请求已经处理完成，但是没有信息要返回                                                     |<br />
 |        | 206      | Partial Content        | 服务器成功处理了部分 GET 请求。                                                          |<br />
 | ------ | -------- | ------------------     | --------------------------------------------------------------------------               |<br />
@@ -168,7 +171,8 @@ pre {
 | ------ | -------- | ------------------     | --------------------------------------------------------------------------               |<br />
 | 5xx    | 500      | Internal Server Error  | 服务器遇到了不知道如何处理的情况。                                                       |<br />
 |        | 502      | Bad Gateway            | 作为网关或代理工作的服务器从上游服务器收到了无效响应。                                   |<br />
-|        | 503      | Service Unavailable    | 服务器目前无法使用（由于超载或停机维护）。                                               |  </p>
+|        | 503      | Service Unavailable    | 服务器目前无法使用（由于超载或停机维护）。                                               |<br />
+|        | 504      | Gateway Timeout        | 网关或代理无法在规定时间内从上游服务器获得响应，通常是网络或服务器故障  </p>
   </article>
   
 <script>
