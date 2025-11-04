@@ -1,0 +1,52 @@
+
+  <article class="markdown-body">
+    <h2 id="event-scheduler">开启事件调度器（Event Scheduler）：</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">event_scheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ON</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<p>这个命令会立即启用事件调度器，而不需要重启 MySQL 服务。你可以通过以下命令来验证事件调度器是否已经启用：  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;event_scheduler&#39;</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<p>如果结果是 <code>ON</code>，那么事件调度器已经成功启用。  </p>
+<h3 id="_1">注意事项：</h3>
+<ol>
+<li><code>SET GLOBAL event_scheduler = ON;</code> 是一个全局变量的设置，通常需要管理员权限（<code>SUPER</code> 或 <code>SET</code> 权限）。  </li>
+<li>如果你希望在 MySQL 启动时自动启用事件调度器，可以将配置文件中的 <code>event_scheduler</code> 设置为 <code>ON</code>：  </li>
+</ol>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="k">[mysqld]</span><span class="w">  </span>
+<span class="na">event_scheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ON</span><span class="w">  </span>
+</code></pre></div></div>
+<p>这种方法需要重启 MySQL 服务来生效，但它确保每次启动时事件调度器都会启用。  </p>
+<h3 id="_2">禁用事件调度器：</h3>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">event_scheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
