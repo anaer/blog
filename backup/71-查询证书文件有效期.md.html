@@ -1,17 +1,57 @@
-<div class="markdown-heading"><h2 class="heading-element">查询pem/cer证书有效期</h2><a id="user-content-查询pemcer证书有效期" class="anchor" aria-label="Permalink: 查询pem/cer证书有效期" href="#查询pemcer证书有效期"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>$ openssl x509 -enddate -noout -in cacert.pem
-notAfter=May 29 02:07:58 2021 GMT</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">查询p12证书有效期</h2><a id="user-content-查询p12证书有效期" class="anchor" aria-label="Permalink: 查询p12证书有效期" href="#查询p12证书有效期"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>$ openssl pkcs12 -in dev.p12 -nokeys -clcerts <span class="pl-k">|</span> openssl x509 -noout -dates
-Enter Import Password:
-notBefore=Jun 19 05:48:10 2024 GMT
-notAfter=Jul 19 05:48:09 2025 GMT</pre></div>
-<div class="markdown-heading"><h3 class="heading-element">参数说明</h3><a id="user-content-参数说明" class="anchor" aria-label="Permalink: 参数说明" href="#参数说明"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>pkcs12 -in dev.p12：读取.p12文件。
--nokeys：不输出私钥。
--clcerts：仅输出客户端证书（避免输出CA证书）。
-|：将提取的证书传递给x509命令。
--dates：显示证书的有效期。
-</code></pre>
-<p>存在密码时 会提示输入密码, 也可以通过添加参数-passin pass:你的密码</p>
-<div class="highlight highlight-source-shell"><pre>openssl pkcs12 -in dev.p12 -nokeys -clcerts -passin pass:123456 <span class="pl-k">|</span> openssl x509 -noout -dates</pre></div>
+
+  <article class="markdown-body">
+    <h2 id="pemcer">查询pem/cer证书有效期</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-enddate<span class="w"> </span>-noout<span class="w"> </span>-in<span class="w"> </span>cacert.pem<span class="w">  </span>
+<span class="nv">notAfter</span><span class="o">=</span>May<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">02</span>:07:58<span class="w"> </span><span class="m">2021</span><span class="w"> </span>GMT<span class="w">  </span>
+</code></pre></div></div>
+<p>查询当前目录下所有证书的过期时间  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.pem&quot;</span><span class="w"> </span>-exec<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;File: {}&quot;</span><span class="w"> </span><span class="se">\;</span><span class="w"> </span>-exec<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-enddate<span class="w"> </span>-noout<span class="w"> </span>-in<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="p12">查询p12证书有效期</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>pkcs12<span class="w"> </span>-in<span class="w"> </span>dev.p12<span class="w"> </span>-nokeys<span class="w"> </span>-clcerts<span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-dates<span class="w">  </span>
+Enter<span class="w"> </span>Import<span class="w"> </span>Password:<span class="w">  </span>
+<span class="nv">notBefore</span><span class="o">=</span>Jun<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">05</span>:48:10<span class="w"> </span><span class="m">2024</span><span class="w"> </span>GMT<span class="w">  </span>
+<span class="nv">notAfter</span><span class="o">=</span>Jul<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">05</span>:48:09<span class="w"> </span><span class="m">2025</span><span class="w"> </span>GMT<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_1">参数说明</h3>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>pkcs12 -in dev.p12：读取.p12文件。  
+-nokeys：不输出私钥。  
+-clcerts：仅输出客户端证书（避免输出CA证书）。  
+|：将提取的证书传递给x509命令。  
+-dates：显示证书的有效期。  
+</code></pre></div></div>
+<p>存在密码时 会提示输入密码, 也可以通过添加参数-passin pass:你的密码  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>openssl<span class="w"> </span>pkcs12<span class="w"> </span>-in<span class="w"> </span>dev.p12<span class="w"> </span>-nokeys<span class="w"> </span>-clcerts<span class="w"> </span>-passin<span class="w"> </span>pass:123456<span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-dates<span class="w">  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
