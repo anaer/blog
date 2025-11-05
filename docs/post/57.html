@@ -15,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X39 curl统计耗时</title>
+<title>curl统计耗时</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/colorblind-dark.css" rel="stylesheet" />
 
 </head>
@@ -98,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X39 curl统计耗时</a>
+    <a style="font-size:18px">curl统计耗时</a>
 </h1>
 
 <div class="title-right">
@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-22 16:17:49</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-09-25 16:46:27</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-05 15:32:57</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了通过curl命令查询HTTPS请求各阶段的耗时，具体包括DNS解析、TCP连接、TLS握手等多个阶段的耗时统计。每个阶段的耗时都有明确的定义，例如time_namelookup表示DNS解析的耗时，time_connect表示TCP连接的耗时，time_appconnect表示TLS握手的耗时等。文章还列出了HTTP性能指标，包括DNS请求耗时、TCP建立耗时、SSL握手耗时等，并提供了相应的计算公式。最后，给出了使用curl命令获取这些统计信息的示例。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了使用curl命令查询HTTPS请求各阶段的耗时，包括DNS解析、TCP连接、SSL握手、请求处理和总耗时等多个指标。详细解释了每个阶段的定义和计算方法，并提供了curl命令示例用于获取这些统计信息。还提到使用阿里云服务器时可能出现SSL/TLS连接失败的原因，包括域名未备案、未接入阿里云备案或备案信息不符等问题。需要注意的是，SSL握手失败的原因可能不仅限于备案问题，还可能与服务器配置或网络问题有关。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -259,6 +259,17 @@ time_starttransfer: 0.235369
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code>curl<span class="w"> </span>-v<span class="w"> </span>--trace-time<span class="w"> </span>-L<span class="w"> </span><span class="s1">&#39;https://www.baidu.com/&#39;</span><span class="w">  </span>
 </code></pre></div></div>
+<h2 id="curl-35-schannel-failed-to-receive-handshake-ssltls-connection-failed">curl: (35) schannel: failed to receive handshake, SSL/TLS connection failed</h2>
+<p>使用阿里云服务器可能原因: <br />
+1. 域名未在工信部备案。查询域名是否备案可至工信部备案管理系统。  </p>
+<ol>
+<li>
+<p>域名已在工信部备案、但未在阿里云接入。使用阿里云服务前，您需要完成新增接入备案。  </p>
+</li>
+<li>
+<p>域名已在阿里云备案、但被限制访问。包括网站内容与备案信息不符、备案信息不准确、网站存在不适宜传播的内容等情形。  </p>
+</li>
+</ol>
   </article>
   
 <script>
@@ -370,8 +381,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

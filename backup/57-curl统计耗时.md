@@ -73,3 +73,12 @@ time_starttransfer: 0.235369
 ```sh
 curl -v --trace-time -L 'https://www.baidu.com/'
 ```
+
+
+## curl: (35) schannel: failed to receive handshake, SSL/TLS connection failed
+使用阿里云服务器可能原因: 
+1. 域名未在工信部备案。查询域名是否备案可至工信部备案管理系统。
+
+2. 域名已在工信部备案、但未在阿里云接入。使用阿里云服务前，您需要完成新增接入备案。
+
+3. 域名已在阿里云备案、但被限制访问。包括网站内容与备案信息不符、备案信息不准确、网站存在不适宜传播的内容等情形。
