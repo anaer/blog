@@ -5,6 +5,9 @@
 WeaselDeployer.exe /deploy
 ```
 
+### 问题
+跟WPS Office 10.8.2.6613兼容有问题 输入卡顿
+
 
 ## 相关链接
 

@@ -3335,14 +3335,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/157",
             "commentNum": 0,
             "createdAt": 1760498587,
-            "updatedAt": 1761979905,
+            "updatedAt": 1762343992,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-10-15",
-            "dateLabelColor": "hsl(157, 45%, 11%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u91cd\u65b0\u90e8\u7f72\u7684\u6307\u4ee4\uff0c\u5177\u4f53\u4e3a\u4f7f\u7528\u547d\u4ee4\"WeaselDeployer.exe /deploy\"\u8fdb\u884c\u64cd\u4f5c\uff0c\u5e76\u63d0\u5230\u4e86\u4e00\u4e9b\u76f8\u5173\u94fe\u63a5\uff0c\u5305\u62ecRIME\u4ed3\u5e93\u548coh-my-rime\u3002\u6ca1\u6709\u660e\u663e\u7684\u9519\u8bef\u89c2\u70b9\u3002",
-            "buildedAt": 1761979905
+            "dateLabelColor": "hsl(161, 50%, 26%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86WeaselDeployer.exe\u5728\u91cd\u65b0\u90e8\u7f72\u65f6\u53ef\u80fd\u4e0eWPS Office 10.8.2.6613\u5b58\u5728\u517c\u5bb9\u6027\u95ee\u9898\uff0c\u5bfc\u81f4\u8f93\u5165\u51fa\u73b0\u5361\u987f\u73b0\u8c61\u3002\u76f8\u5173\u7684\u8d44\u6e90\u94fe\u63a5\u5305\u62ecRIME\u4ed3\u5e93\u548coh-my-rime\u3002",
+            "buildedAt": 1762343992
         },
         "P158": {
             "number": "158",
