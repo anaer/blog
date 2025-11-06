@@ -108,7 +108,7 @@
 ### 抓包
 1. ProxyPin [GitHub](https://github.com/wanghongenpin/proxypin)
 2. ~~Charles~~ [官网](https://www.charlesproxy.com/latest-release)  [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
-3. ~~Proxifier~~ [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN) 代理工具 指定软件走代理
+3. ~~Proxifier~~ [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN)  [序列号](https://gist.github.com/montasim/11e313f82dc6c2aea28298941158429f) 代理工具 指定软件走代理
 4. ~~Wireshark~~ [官网](https://www.wireshark.org)
 
 ### 数据库
