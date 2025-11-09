@@ -3547,6 +3547,27 @@
             "dateLabelColor": "hsl(140, 39%, 24%)",
             "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u5982\u4f55\u5f00\u542f\u548c\u7981\u7528MySQL\u4e8b\u4ef6\u8c03\u5ea6\u5668\u3002\u901a\u8fc7\u6267\u884cSET GLOBAL event_scheduler = ON;\u547d\u4ee4\u53ef\u4ee5\u7acb\u5373\u542f\u7528\u4e8b\u4ef6\u8c03\u5ea6\u5668\uff0c\u800c\u4e0d\u9700\u91cd\u542fMySQL\u670d\u52a1\u3002\u53ef\u4ee5\u4f7f\u7528SHOW VARIABLES LIKE 'event_scheduler';\u547d\u4ee4\u9a8c\u8bc1\u5176\u72b6\u6001\u3002\u5982\u679c\u7ed3\u679c\u4e3aON\uff0c\u5219\u8868\u793a\u542f\u7528\u6210\u529f\u3002\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0cSET GLOBAL event_scheduler = ON;\u9700\u8981\u7ba1\u7406\u5458\u6743\u9650\u3002\u5982\u679c\u5e0c\u671b\u5728MySQL\u542f\u52a8\u65f6\u81ea\u52a8\u542f\u7528\u4e8b\u4ef6\u8c03\u5ea6\u5668\uff0c\u53ef\u4ee5\u5728\u914d\u7f6e\u6587\u4ef6\u4e2d\u8bbe\u7f6eevent_scheduler = ON\uff0c\u4f46\u8fd9\u9700\u8981\u91cd\u542fMySQL\u670d\u52a1\u624d\u80fd\u751f\u6548\u3002\u7981\u7528\u4e8b\u4ef6\u8c03\u5ea6\u5668\u53ef\u4ee5\u901a\u8fc7SET GLOBAL event_scheduler = OFF;\u547d\u4ee4\u5b9e\u73b0\u3002\u6ca1\u6709\u660e\u663e\u7684\u9519\u8bef\u89c2\u70b9\u3002",
             "buildedAt": 1762247920
+        },
+        "P168": {
+            "number": "168",
+            "htmlDir": "docs/post/168.html",
+            "markdown": "backup/168-\u6211\u5173\u6ce8\u7684\u9879\u76ee\u8fd9\u5468\u66f4\u65b0\u4e86\u4ec0\u4e48-2025-11-07.md",
+            "labels": [
+                "\u5173\u6ce8"
+            ],
+            "postTitle": "\u6211\u5173\u6ce8\u7684\u9879\u76ee\u8fd9\u5468\u66f4\u65b0\u4e86\u4ec0\u4e48-2025-11-07",
+            "postUrl": "post/168.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/168",
+            "commentNum": 0,
+            "createdAt": 1762683181,
+            "updatedAt": 1762683181,
+            "top": 0,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-11-09",
+            "dateLabelColor": "hsl(140, 70%, 19%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u591a\u4e2a\u8f6f\u4ef6\u7684\u66f4\u65b0\u548c\u4fee\u590d\u60c5\u51b5\uff0c\u5305\u62ecCherry Studio v1.6.7\u7684\u9519\u8bef\u4fee\u590d\u548c\u7a33\u5b9a\u6027\u63d0\u5347\uff0csubs-check v1.4.4\u7684\u529f\u80fd\u589e\u5f3a\u548c\u6d41\u91cf\u7edf\u8ba1\u4fee\u590d\uff0cmihomo v1.19.16\u7684\u591a\u9879\u4fee\u590d\u548c\u652f\u6301\u65b0\u529f\u80fd\uff0cfit-framework v3.5.5\u7684\u5b89\u5168\u95ee\u9898\u4fee\u590d\u548c\u529f\u80fd\u589e\u5f3a\uff0cFolo desktop v1.1.0\u7684\u7528\u6237\u4f53\u9a8c\u6539\u8fdb\u548c\u95ee\u9898\u4fee\u590d\uff0cssh-action v1.2.3\u7684\u811a\u672c\u6267\u884c\u6539\u8fdb\u548c\u6587\u6863\u66f4\u65b0\uff0c\u4ee5\u53caExplorerPatcher 26100.4946.69.6_7384790\u5bf9Windows\u73af\u5883\u7684\u589e\u5f3a\u548c\u591a\u9879\u4fee\u590d\u3002\u6587\u672c\u4e2d\u6ca1\u6709\u660e\u663e\u7684\u9519\u8bef\u89c2\u70b9\u3002",
+            "buildedAt": 1762683181
         }
     },
     "singeListJson": {},

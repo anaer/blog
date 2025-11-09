@@ -1,0 +1,166 @@
+
+  <article class="markdown-body">
+    <h1 id="1-cherry-studio-v167">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.7">cherry-studio v1.6.7</a></h1>
+<p>🍒 Cherry Studio is a desktop client that supports for multiple LLM providers.  </p>
+<p>修复了多个错误并提高了稳定性，包括但不限于：优化了数据库连接，改进了用户界面响应速度，修复了数据导出功能的兼容性问题，增强了服务器在高负载情况下的稳定性。  </p>
+<h1 id="2-subs-check-v144">2. <a href="https://github.com/beck-8/subs-check/releases/tag/v1.4.4">subs-check v1.4.4</a></h1>
+<p>订阅转换、测速、测活、流媒体检测、重命名、导出为任意格式的工具  </p>
+<p>feat: 支持自定义获取订阅时的UA<br />
+fix: 修复流量统计<br />
+op: 优化测速速度限制<br />
+op: 关闭获取订阅时tls校验<br />
+update sub-store to 2.20.35<br />
+update mihomo to v1.19.16<br />
+update config.example.yaml  </p>
+<h1 id="3-mihomo-v11916">3. <a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.16">mihomo v1.19.16</a></h1>
+<p>A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.  </p>
+<ul>
+<li>添加对mieru inbound的支持  </li>
+<li>支持<code>fake-ip-range6</code>在dns模块中的使用  </li>
+<li>修复OpenBSD编译问题  </li>
+<li>修复处理nil指针存储在非nil接口中的问题  </li>
+<li>修复kcp-go中的竞态条件  </li>
+<li>修复拨号代理情况下vision引起的恐慌  </li>
+<li>修复策略函数索引超出范围的问题  </li>
+<li>修复h3流劫持中的内存泄露问题  </li>
+<li>清理constant/provider的导入路径  </li>
+<li>结构化支持忽略标签  </li>
+<li>清理<code>parseProxy</code>中的默认值  </li>
+<li>减少amneziawg-go中不应使用的全局变量  </li>
+<li>更新sing-tun  </li>
+<li>当获取接口地址失败时忽略ipv6检查  </li>
+<li>撤销将速度转换的更改  </li>
+<li>更新bart  </li>
+<li>更新purego  </li>
+<li>更新依赖项  </li>
+<li>清理component/process的导入路径  </li>
+<li>共享追加链逻辑  </li>
+<li>检查<code>fake-ip-range</code>和<code>fake-ip-range6</code>是否确实是ipv4和ipv6前缀  </li>
+<li>删除未使用的代码  </li>
+<li>更好的maphash测试  </li>
+<li>减少ntp包的内部依赖  </li>
+<li>清理listener的导入路径  </li>
+</ul>
+<h1 id="4-fit-framework-v355">4. <a href="https://github.com/ModelEngine-Group/fit-framework/releases/tag/v3.5.5">fit-framework v3.5.5</a></h1>
+<p>FIT: 企业级AI开发框架，提供多语言函数引擎（FIT）、流式编排引擎（WaterFlow）及Java生态的LangChain替代方案（FEL）。原生/Spring双模运行，支持插件热插拔与智能聚散部署，无缝统一大模型与业务系统。  </p>
+<h2 id="fit-function-platform">FIT Function Platform</h2>
+<h3 id="enhancement">✨ Enhancement</h3>
+<ul>
+<li>升级 swagger-ui 版本至 v5.30.0  </li>
+<li>对于默认的参数值，若为空，则不添加该值  </li>
+</ul>
+<h3 id="bugfix">✅ Bugfix</h3>
+<ul>
+<li>修复 socket 绑定到所有网络接口的安全问题  </li>
+<li>增加时间窗口保护，避免与热加载注册冲突  </li>
+</ul>
+<h1 id="5-folo-desktopv110">5. <a href="https://github.com/RSSNext/Folo/releases/tag/desktop/v1.1.0">Folo desktop/v1.1.0</a></h1>
+<p>🧡 Folo is the AI Reader  </p>
+<ul>
+<li>重新引入简洁高效的三列布局，提升阅读体验。  </li>
+<li>集成Fabric，方便MCP用户使用。  </li>
+<li>在直播期间自动生成聊天标题。  </li>
+<li>简化AI使用指标显示，并改进样式。  </li>
+<li>在订阅引导流时添加进度条。  </li>
+<li>采用更可靠的软件更新检查机制。  </li>
+<li>默认状态下，Windows启动时最小化到系统托盘。  </li>
+<li>时间线AI摘要在所有视图中自动触发。  </li>
+<li>简化AI推理显示，提高清晰度。  </li>
+<li>引导流程允许手动跳过。  </li>
+<li>合并AI聊天历史和AI任务历史，使其可通过单个下拉菜单访问。  </li>
+<li>修复Windows EXE软件更新检查无法正常运行的问题。  </li>
+<li>修复“所有”视图中分类移动受阻的问题。  </li>
+<li>修复某些条件下AI聊天间断的问题。  </li>
+</ul>
+<h1 id="6-ssh-action-v123">6. <a href="https://github.com/appleboy/ssh-action/releases/tag/v1.2.3">ssh-action v1.2.3</a></h1>
+<p>GitHub Actions for executing remote ssh commands.  </p>
+<h3 id="_1">新增功能</h3>
+<ul>
+<li>添加可配置的 <code>curl insecure</code> 标志到 GitHub 动作 (@appleboy)  </li>
+</ul>
+<h3 id="_2">修复问题</h3>
+<ul>
+<li>改进二进制下载流程并加入健壮的错误处理 (#394) (@appleboy)  </li>
+</ul>
+<h3 id="_3">优化与改进</h3>
+<ul>
+<li>重构系统以提高效率并更新 API 使用 (@appleboy)  </li>
+<li>提高多脚本的一致性和健壮性 (@appleboy)  </li>
+</ul>
+<h3 id="_4">代码重构</h3>
+<ul>
+<li>改进脚本中的错误处理和代码可读性 (#374) (@appleboy)  </li>
+</ul>
+<h3 id="_5">构建过程更新</h3>
+<ul>
+<li>统一并增强 GitHub 工作流配置 (@appleboy)  </li>
+<li>添加多命令 SSH 测试的工作流步骤 (#386) (@appleboy)  </li>
+<li>通过 GitHub Actions 添加自动化 Trivy 安全扫描 (@appleboy)  </li>
+</ul>
+<h3 id="_6">文档更新</h3>
+<ul>
+<li>更新所有 README 文件中的 SSH 动作版本为 v1 (#372) (@appleboy)  </li>
+<li>改进 CLI 消息和错误清晰度 (@appleboy)  </li>
+<li>文档新增 <code>curl_insecure</code> 配置选项 (@appleboy)  </li>
+<li>文档和配置无人机 SSH 版本使用 (#381) (@appleboy)  </li>
+<li>重写并统一所有支持语言的文档 (@appleboy)  </li>
+<li>在多语言 README 文件中添加目录 (@appleboy)  </li>
+<li>重构成统一多语言 readme 文档 (@appleboy)  </li>
+<li>在所有 README 文件中添加全面的目录 (@appleboy)  </li>
+<li>重构并澄清所有 readmes 中的参数文档 (@appleboy)  </li>
+<li>为 script_path 属性提供更好的描述 (#387) (@kontur)  </li>
+<li>在远程执行文档中澄清 script_path 使用 (@appleboy)  </li>
+<li>为项目设置和使用添加全面文档 (@appleboy)  </li>
+<li>在所有文档中添加 Trivy 安全扫描徽章 (@appleboy)  </li>
+</ul>
+<h1 id="7-explorerpatcher-261004946696_7384790">7. <a href="https://github.com/valinet/ExplorerPatcher/releases/tag/26100.4946.69.6_7384790">ExplorerPatcher 26100.4946.69.6_7384790</a></h1>
+<p>This project aims to enhance the working environment on Windows  </p>
+<ol>
+<li>修复了ep_weather因Google端更改导致的天气信息加载失败问题。  </li>
+<li>修复了Start11推荐部分在较新24H2版本中隐藏的问题。  </li>
+<li>解决了在&gt;=22H2版本中文件资源管理器标题栏不可用的问题。  </li>
+<li>减少了Windows 11中由于WM_SETTINGCHANGE导致文件夹项列表滚动到顶部的错误。  </li>
+<li>更改了挂钩库为SlimDetours，解决了某些Windhawk模组与CreateWindowExW不兼容的问题。  </li>
+<li>ep_taskbar现在静态链接使用到的私有函数。  </li>
+<li>修复了Taskbar10文件夹工具栏菜单和新工具栏在具有TrayThreadBSTA功能标志的版本中的问题。  </li>
+<li>解决了Windows 8网络飞出在&gt;=25346版本中不再是一个选项的问题。  </li>
+<li>默认使用Windows 11 22H2+版本中的Windows 10（ExplorerPatcher）任务栏。  </li>
+<li>修复了天气按钮缺少图标的问题。  </li>
+<li>修复了X64 27938+和ARM64 27881+版本中Start10的打开/关闭动画修复。  </li>
+<li>修复了在具有新Windows 11 Start菜单功能标志的版本中Start10启动菜单无法打开的问题。  </li>
+<li>修复了ARM64 226x1和27686+版本中Alt+Tab和任务栏Win+X功能的问题。  </li>
+<li>修正了启用Servicing_CFDNavButtonsTheming时XAML文件夹视图中地址栏工具按钮大小的问题。  </li>
+<li>修复了XAML导航栏中的Alt+D无法使用的问题。  </li>
+<li>解决了启用文件资源管理器选项卡时的一些崩溃问题。  </li>
+<li>修复了ep_taskbar在22H2/23H2 ARM64版本中启动菜单无法打开的问题。  </li>
+<li>当Windows 11命令栏未使用时，禁用了文件资源管理器中的XAML文件夹视图。  </li>
+<li>修复了在具有现代XAML导航栏的文件资源管理器中Alt+D无法使用的问题。  </li>
+<li>修复了在具有文件资源管理器选项卡的版本中的一些崩溃问题。  </li>
+</ol>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
