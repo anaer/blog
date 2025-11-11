@@ -1,0 +1,153 @@
+
+  <article class="markdown-body">
+    <h1 id="elasticsearch-762">elasticsearch-7.6.2安装</h1>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>xvf<span class="w"> </span>elasticsearch-7.6.2.tar.gz<span class="w"> </span>-C<span class="w"> </span>/data/elasticsearch-7.6.2<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="configelasticsearchyaml">修改config/elasticsearch.yaml文件</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="nt">cluster.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-es</span><span class="w">  </span>
+<span class="nt">node.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node-1</span><span class="w">  </span>
+<span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0</span><span class="w">  </span>
+<span class="nt">http.port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9200</span><span class="w">  </span>
+<span class="nt">discovery.seed_hosts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;[::1]&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span>
+<span class="nt">cluster.initial_master_nodes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;node-1&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="etcsysctlconf">修改/etc/sysctl.conf文件配置</h2>
+<p>不修改的话 启动会提示 <code>max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</code>  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>vim<span class="w"> </span>/etc/sysctl.conf<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>vm.max_map_count = 262144  
+</code></pre></div></div>
+<h2 id="sysctl">启动sysctl配置</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>sysctl<span class="w"> </span>-p<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_1">设置环境变量</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="c1">####### elasticsearch ######  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">ES_HOME</span><span class="o">=</span>/data/elasticsearch-7.6.2<span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ES_HOME</span>/bin<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_2">切换用户</h2>
+<p>es不能使用root启动 data目录授权  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>groupadd<span class="w">  </span>es<span class="w">  </span>
+$<span class="w"> </span>useradd<span class="w"> </span>-g<span class="w"> </span>es<span class="w"> </span>es<span class="w">  </span>
+$<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>es:es<span class="w"> </span>/data/elasticsearch-7.6.2<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="elasticsearch">创建elasticsearch服务</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>vim<span class="w"> </span>/usr/lib/systemd/system/elasticsearch.service<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>[Unit]  
+Description=elasticsearch  
+After=network.target  
+
+[Service]  
+Type=forking  
+User=es  
+Group=es  
+ExecStart=/data/elasticsearch-7.6.2/bin/elasticsearch -d  
+PrivateTmp=true  
+
+
+# 指定此进程可以打开的最大文件数  
+LimitNOFILE=65535  
+# 指定此进程可以打开的最大进程数  
+LimitNPROC=65535  
+# 最大虚拟内存  
+LimitAS=infinity  
+# 最大文件大小  
+LimitFSIZE=infinity  
+# 超时设置 0-永不超时  
+TimeoutStopSec=0  
+# SIGTERM是停止java进程的信号  
+KillSignal=SIGTERM  
+# 信号只发送给给JVM  
+KillMode=process  
+# java进程不会被杀掉  
+SendSIGKILL=no  
+# 正常退出状态  
+SuccessExitStatus=143  
+
+[Install]  
+WantedBy=multi-user.target  
+</code></pre></div></div>
+<p>给脚本赋权限：  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/lib/systemd/system/elasticsearch.service<span class="w">  </span>
+</code></pre></div></div>
+<p>重新加载systemd的守护线程  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload<span class="w">  </span>
+</code></pre></div></div>
+<p>开机启动生效  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>elasticsearch.service<span class="w">  </span>
+</code></pre></div></div>
+<p>启动elasticsearch.service  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>elasticsearch.service<span class="w">  </span>
+</code></pre></div></div>
+<p>查看elasticsearch.serivce状态  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>elasticsearch.service<span class="w">  </span>
+</code></pre></div></div>
+<p>如果出现错误可以使用如下命令查看日志  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>elaticsearch.service<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="es">测试es</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span>http://127.0.0.1:9200<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node-1&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&quot;cluster_name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-es&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&quot;cluster_uuid&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dDwggAe9RfqyVRAp5s1Wzg&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;number&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7.6.2&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;build_flavor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;build_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tar&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;build_hash&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ef48eb35cf30adf4db14086e8aabd07ef6fb113f&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;build_date&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-03-26T06:34:37.794943Z&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;build_snapshot&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;lucene_version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8.4.0&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;minimum_wire_compatibility_version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6.8.0&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;minimum_index_compatibility_version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6.0.0-beta1&quot;</span><span class="w">  </span>
+<span class="w">  </span><span class="p">},</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&quot;tagline&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You Know, for Search&quot;</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
