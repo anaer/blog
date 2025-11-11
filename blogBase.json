@@ -3579,14 +3579,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/169",
             "commentNum": 0,
             "createdAt": 1762847961,
-            "updatedAt": 1762847961,
+            "updatedAt": 1762848025,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-11-11",
-            "dateLabelColor": "hsl(140, 64%, 13%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86Elasticsearch 7.6.2\u7684\u5b89\u88c5\u8fc7\u7a0b\uff0c\u5305\u62ec\u89e3\u538b\u6587\u4ef6\u3001\u914d\u7f6eYAML\u6587\u4ef6\u3001\u4fee\u6539\u7cfb\u7edf\u53c2\u6570\u3001\u8bbe\u7f6e\u73af\u5883\u53d8\u91cf\u3001\u521b\u5efa\u7528\u6237\u3001\u914d\u7f6e\u670d\u52a1\u3001\u8d4b\u4e88\u6743\u9650\u3001\u542f\u7528\u5f00\u673a\u542f\u52a8\u3001\u542f\u52a8\u670d\u52a1\u4ee5\u53ca\u6d4b\u8bd5Elasticsearch\u662f\u5426\u6b63\u5e38\u8fd0\u884c\u3002\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0c\u6587\u4e2d\u63d0\u5230\u7684\u65e5\u5fd7\u67e5\u770b\u547d\u4ee4\u5b58\u5728\u62fc\u5199\u9519\u8bef\uff0c\u5e94\u4e3a\"elasticsearch.service\"\u800c\u975e\"elaticsearch.service\"\u3002",
-            "buildedAt": 1762847961
+            "dateLabelColor": "hsl(140, 40%, 13%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u5728CentOS 7.9\u4e0a\u5b89\u88c5Elasticsearch 7.6.2\u7684\u6b65\u9aa4\uff0c\u5305\u62ec\u89e3\u538b\u6587\u4ef6\u3001\u914d\u7f6eelasticsearch.yaml\u3001\u4fee\u6539\u7cfb\u7edf\u5185\u6838\u53c2\u6570\u3001\u8bbe\u7f6e\u73af\u5883\u53d8\u91cf\u3001\u521b\u5efa\u7528\u6237\u548c\u670d\u52a1\u3001\u4ee5\u53ca\u542f\u52a8\u548c\u6d4b\u8bd5Elasticsearch\u3002\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0c\u6587\u672c\u4e2d\u63d0\u5230\u7684\u67e5\u770b\u65e5\u5fd7\u547d\u4ee4\u6709\u4e00\u4e2a\u62fc\u5199\u9519\u8bef\uff0c\u5e94\u4e3a\"elasticsearch.service\"\u800c\u975e\"elaticsearch.service\"\u3002",
+            "buildedAt": 1762848025
         }
     },
     "singeListJson": {},

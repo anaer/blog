@@ -1,5 +1,7 @@
 # elasticsearch-7.6.2安装
 
+CentOS 7.9
+
 ```sh
 $ tar xvf elasticsearch-7.6.2.tar.gz -C /data/elasticsearch-7.6.2
 ```
