@@ -117,7 +117,7 @@
 3. ~~DB Browser for SQLite~~ [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)
 5. ~~Robo 3T~~ [GitHub](https://github.com/Studio3T/robomongo/releases) mongodb
 5. ~~Compass~~ [GitHub](https://github.com/mongodb-js/compass/releases) mongodb 要求mongo 4.x版本
-6. ~~Navicat Premium Lite~~ [官网](https://www.navicat.com.cn/download/navicat-premium-lite) 需要注册登录了
+6. ~~Navicat~~ [官网](https://www.navicat.com.cn/)  [GitHub](https://github.com/shuhongfan/NavicatCracker/)
 7. ~~SQLyog~~  [GitHub](https://github.com/webyog/sqlyog-community/wiki/Downloads) 网上有注册码 只支持mysql
 8. MySQL [化为云镜像](https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-5.7/)
 
