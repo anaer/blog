@@ -15,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X93 Nginx常用配置</title>
+<title>Nginx常用配置</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/high-contrast-dark.css" rel="stylesheet" />
 
 </head>
@@ -98,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X93 Nginx常用配置</a>
+    <a style="font-size:18px">Nginx常用配置</a>
 </h1>
 
 <div class="title-right">
@@ -135,14 +135,22 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-09 11:08:18</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-13 17:26:08</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何配置一个用于txt文件校验的Nginx位置块，指定了匹配以.txt结尾的请求，并设置了根目录为/var/www/txt/。此外，提供了一个示例文件路径和对应的HTTP访问链接。需要注意的是，示例中提到的HTTP链接可能存在隐私或安全性问题，建议确保文件内容的安全性和正确性。
+    <strong>AI总结:</strong> 本文介绍了如何在特定的 location 块中使用 proxy_hide_header 指令来隐藏 "Access-Control-Allow-Origin" 头部，并在响应中添加一个新的 "Access-Control-Allow-Origin" 头部，允许所有来源的访问。此外，还展示了如何配置一个 location 块来处理以 ".txt" 结尾的文件请求，并指定其根目录为 /var/www/txt/。错误观点在于没有说明使用 proxy_hide_header 指令后，添加的 Access-Control-Allow-Origin 头部可能会被客户端忽略，具体行为依赖于客户端的实现。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h2 id="txt">配置txt校验文件</h2>
+    <h2 id="_1">重复请求头处理</h2>
+<p>在特定的 location 块中添加 proxy_hide_header 指令来隐藏 "Access-Control-Allow-Origin" 头部。该指令会在将响应发送到客户端之前从响应中删除指定的头部。  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>proxy_hide_header Access-Control-Allow-Origin;  
+add_header Access-Control-Allow-Origin &quot;*&quot;;  
+</code></pre></div></div>
+<h2 id="txt">配置txt校验文件</h2>
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code>location ~ ^/.*txt$ {  
        root /var/www/txt/;  
@@ -181,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/146.html" aria-label="Previous Page">0X92 我关注的项目这周更新了什么-2025-09-12</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/146.html" aria-label="Previous Page">0X92 我关注的项目这周更新了什么-2025-09-12</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/148.html" aria-label="Next Page">我关注的项目这周更新了什么-2025-09-19</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -263,8 +271,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
