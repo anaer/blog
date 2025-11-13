@@ -1,0 +1,104 @@
+
+  <article class="markdown-body">
+    <h2 id="_1">源安装</h2>
+<p>centos 7.9 默认安装的3.2.12版本, 源安装会自动创建redis组和redis用户, 且会添加到系统服务中  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>yum<span class="w"> </span>install<span class="w"> </span>redis<span class="w">  </span>
+</code></pre></div></div>
+<p>修改配置<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>vi<span class="w"> </span>/etc/redis.conf<span class="w">  </span>
+</code></pre></div></div></p>
+<p>主要修改以下几项, 其他按需修改<br />
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>bind 0.0.0.0  
+port 9736  
+pidfile /data/redis/redis_6379.pid  
+logfile &quot;/data/redis/redis.log&quot;  
+databases 64  
+dir /data/redis/  
+daemonize yes # 后台执行  
+</code></pre></div></div></p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>systemctl<span class="w"> </span>daemon-reload<span class="w"> </span><span class="c1"># 重载配置  </span>
+
+systemctl<span class="w"> </span>start<span class="w"> </span>redis.service<span class="w"> </span><span class="c1">#启动redis服务器  </span>
+
+systemctl<span class="w"> </span>stop<span class="w"> </span>redis.service<span class="w"> </span><span class="c1">#停止redis服务器  </span>
+
+systemctl<span class="w"> </span>restart<span class="w"> </span>redis.service<span class="w"> </span><span class="c1">#重新启动redis服务器  </span>
+
+systemctl<span class="w"> </span>status<span class="w"> </span>redis.service<span class="w"> </span><span class="c1">#获取redis服务器的运行状态  </span>
+
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>redis.service<span class="w"> </span><span class="c1">#开机启动redis服务器  </span>
+
+systemctl<span class="w"> </span>disable<span class="w"> </span>redis.service<span class="w"> </span><span class="c1">#开机禁用redis服务器  </span>
+</code></pre></div></div>
+<h2 id="_2">下载安装</h2>
+<p>下载地址: http://download.redis.io/releases/ 按需下载指定版本  </p>
+<p><div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>tar<span class="w"> </span>-zxvf<span class="w"> </span>redis-4.0.1.tar.gz<span class="w">  </span>
+<span class="nb">cd</span><span class="w"> </span>redis-4.0<span class="w">  </span>
+make<span class="w">  </span>
+make<span class="w"> </span>install<span class="w">  </span>
+</code></pre></div></div>
+会将可执行程序复制到/usr/local/bin目录下  </p>
+<h3 id="_3">添加用户组和用户</h3>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>groupadd<span class="w"> </span>redis<span class="w">  </span>
+useradd<span class="w"> </span>-g<span class="w"> </span>redis<span class="w"> </span>redis<span class="w">  </span>
+
+mkdir<span class="w"> </span>/data/redis<span class="w">  </span>
+chown<span class="w"> </span>redis:redis<span class="w"> </span>/data/redis<span class="w">  </span>
+</code></pre></div></div>
+<p>redis.conf配置 同源安装中操作  </p>
+<h3 id="_4">添加系统服务</h3>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>vim<span class="w"> </span>/usr/lib/systemd/system/redis.service<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>[Unit]  
+Description=Redis persistent key-value database  
+After=network.target  
+After=network-online.target  
+Wants=network-online.target  
+
+[Service]  
+ExecStart=/usr/local/bin/redis-server /data/redis/redis.conf --supervised systemd  
+ExecStop=/usr/local/bin/redis-cli shutdown  
+Type=notify  
+User=redis  
+Group=redis  
+RuntimeDirectory=redis  
+RuntimeDirectoryMode=0755  
+
+[Install]  
+WantedBy=multi-user.target  
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+

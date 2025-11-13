@@ -1,0 +1,89 @@
+
+## 源安装
+centos 7.9 默认安装的3.2.12版本, 源安装会自动创建redis组和redis用户, 且会添加到系统服务中
+
+```sh
+yum install redis
+```
+
+修改配置
+```sh
+vi /etc/redis.conf
+```
+
+主要修改以下几项, 其他按需修改
+```conf
+bind 0.0.0.0
+port 9736
+pidfile /data/redis/redis_6379.pid
+logfile "/data/redis/redis.log"
+databases 64
+dir /data/redis/
+daemonize yes # 后台执行
+```
+
+```sh
+systemctl daemon-reload # 重载配置
+
+systemctl start redis.service #启动redis服务器
+
+systemctl stop redis.service #停止redis服务器
+
+systemctl restart redis.service #重新启动redis服务器
+
+systemctl status redis.service #获取redis服务器的运行状态
+
+systemctl enable redis.service #开机启动redis服务器
+
+systemctl disable redis.service #开机禁用redis服务器
+```
+
+## 下载安装
+
+下载地址: http://download.redis.io/releases/ 按需下载指定版本
+
+```sh
+tar -zxvf redis-4.0.1.tar.gz
+cd redis-4.0
+make
+make install
+```
+会将可执行程序复制到/usr/local/bin目录下
+
+### 添加用户组和用户
+
+```sh
+groupadd redis
+useradd -g redis redis
+
+mkdir /data/redis
+chown redis:redis /data/redis
+```
+
+redis.conf配置 同源安装中操作
+
+### 添加系统服务
+
+```sh
+vim /usr/lib/systemd/system/redis.service
+```
+
+```conf
+[Unit]
+Description=Redis persistent key-value database
+After=network.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/redis-server /data/redis/redis.conf --supervised systemd
+ExecStop=/usr/local/bin/redis-cli shutdown
+Type=notify
+User=redis
+Group=redis
+RuntimeDirectory=redis
+RuntimeDirectoryMode=0755
+
+[Install]
+WantedBy=multi-user.target
+```
