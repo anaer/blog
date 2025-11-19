@@ -1,0 +1,123 @@
+
+  <article class="markdown-body">
+    <h1 id="centos79-rabbitmq-3100">Centos7.9 安装RabbitMQ 3.10.0</h1>
+<p>编译安装下包太慢, 而且可能存在各种问题, 所以简单点直接yum安装  </p>
+<h2 id="yum">添加yum源</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>vim<span class="w"> </span>/etc/yum.repos.d/rabbitmq.repo<span class="w">  </span>
+</code></pre></div></div>
+<p>配置中的github地址可能因为XX无法访问, 可以更换为加速地址  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code># In /etc/yum.repos.d/rabbitmq.repo  
+
+##  
+## Zero dependency Erlang  
+##  
+
+[rabbitmq_erlang]  
+name=rabbitmq_erlang  
+baseurl=https://packagecloud.io/rabbitmq/erlang/el/7/$basearch  
+repo_gpgcheck=1  
+gpgcheck=1  
+enabled=1  
+# PackageCloud&#39;s repository key and RabbitMQ package signing key  
+gpgkey=https://packagecloud.io/rabbitmq/erlang/gpgkey  
+       https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc  
+sslverify=1  
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt  
+metadata_expire=300  
+
+[rabbitmq_erlang-source]  
+name=rabbitmq_erlang-source  
+baseurl=https://packagecloud.io/rabbitmq/erlang/el/7/SRPMS  
+repo_gpgcheck=1  
+gpgcheck=0  
+enabled=1  
+gpgkey=https://packagecloud.io/rabbitmq/erlang/gpgkey  
+sslverify=1  
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt  
+metadata_expire=300  
+
+##  
+## RabbitMQ server  
+##  
+
+[rabbitmq_server]  
+name=rabbitmq_server  
+baseurl=https://packagecloud.io/rabbitmq/rabbitmq-server/el/7/$basearch  
+repo_gpgcheck=1  
+gpgcheck=1  
+enabled=1  
+# PackageCloud&#39;s repository key and RabbitMQ package signing key  
+gpgkey=https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey  
+       https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc  
+sslverify=1  
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt  
+metadata_expire=300  
+
+[rabbitmq_server-source]  
+name=rabbitmq_server-source  
+baseurl=https://packagecloud.io/rabbitmq/rabbitmq-server/el/7/SRPMS  
+repo_gpgcheck=1  
+gpgcheck=0  
+enabled=1  
+gpgkey=https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey  
+sslverify=1  
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt  
+metadata_expire=300  
+</code></pre></div></div>
+<h2 id="_1">更新安装</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>yum<span class="w"> </span>update<span class="w"> </span>-y<span class="w">  </span>
+$<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>socat<span class="w"> </span>logrotate<span class="w"> </span>-y<span class="w">  </span>
+$<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>erlang<span class="w"> </span>rabbitmq-server<span class="w"> </span>-y<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_2">启动服务</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>rabbitmq-server<span class="w">  </span>
+systemctl<span class="w"> </span>start<span class="w"> </span>rabbitmq-server<span class="w">  </span>
+rabbitmqctl<span class="w"> </span>status<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_3">添加用户</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>rabbitmqctl<span class="w"> </span>add_user<span class="w"> </span>admin<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="c1"># 添加用户  </span>
+$<span class="w"> </span>rabbitmqctl<span class="w"> </span>set_user_tags<span class="w"> </span>admin<span class="w"> </span>administrator<span class="w"> </span><span class="c1"># 管理员权限  </span>
+$<span class="w"> </span>rabbitmqctl<span class="w"> </span>set_permissions<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="w"> </span>admin<span class="w"> </span><span class="s1">&#39;.*&#39;</span><span class="w"> </span><span class="s1">&#39;.*&#39;</span><span class="w"> </span><span class="s1">&#39;.*&#39;</span><span class="w">  </span><span class="c1"># 设置用户权限  </span>
+$<span class="w"> </span>rabbitmqctl<span class="w"> </span>list_user_permissions<span class="w"> </span>admin<span class="w"> </span><span class="c1"># 查看用户权限  </span>
+$<span class="w"> </span>rabbitmqctl<span class="w"> </span>delete_user<span class="w"> </span>guest<span class="w"> </span><span class="c1"># 删除guest用户  </span>
+$<span class="w"> </span>rabbitmqctl<span class="w"> </span>list_users<span class="w"> </span><span class="c1"># 查看所有用户  </span>
+</code></pre></div></div>
+<h2 id="_4">安装插件</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>rabbitmq-plugins<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>rabbitmq_management<span class="w"> </span><span class="c1"># Web管理  </span>
+rabbitmq-plugins<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>rabbitmq_tracing<span class="w"> </span><span class="c1"># 日志  </span>
+</code></pre></div></div>
+<h2 id="_5">登录测试</h2>
+<p>访问服务器IP:15672，使用admin/123456登录管理界面  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
