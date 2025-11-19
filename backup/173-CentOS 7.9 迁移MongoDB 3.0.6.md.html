@@ -1,0 +1,86 @@
+
+  <article class="markdown-body">
+    <h1 id="centos-79-mongodb-306">CentOS 7.9 迁移MongoDB 3.0.6</h1>
+<h2 id="mongodb">安装MongoDB</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span>-O<span class="w"> </span>https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz<span class="w">  </span>
+$<span class="w"> </span>tar<span class="w"> </span>-zxvf<span class="w"> </span>mongodb-linux-x86_64-3.0.6.tgz<span class="w">  </span>
+$<span class="w"> </span>mv<span class="w"> </span>mongodb-linux-x86_64-3.0.6/<span class="w"> </span>/usr/local/mongodb<span class="w">                         </span><span class="c1"># 将解压包拷贝到指定目录  </span>
+</code></pre></div></div>
+<p>MongoDB 的可执行文件位于 bin 目录下，所以可以将其添加到 PATH 路径中：  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>vim<span class="w"> </span>/etc/profile<span class="w">  </span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/mongodb/bin:<span class="nv">$PATH</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="mongodb_1">迁移MongoDB</h2>
+<p>将原MongoDB的数据打包复制到新服务器上  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>dbpath=/data/mongodb/data  
+logpath=/data/mongodb/log/mongod.log  
+pidfilepath=/data/mongodb/mongod.pid  
+</code></pre></div></div>
+<h2 id="_1">添加系统服务</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>groupadd<span class="w"> </span>mongodb<span class="w">  </span>
+$<span class="w"> </span>useradd<span class="w"> </span>-g<span class="w"> </span>mongodb<span class="w"> </span>mongodb<span class="w">  </span>
+$<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongodb:mongodb<span class="w"> </span>/data/mongodb<span class="w">  </span>
+
+$<span class="w"> </span>vim<span class="w"> </span>/etc/systemd/system/mongodb.service<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>[Unit]  
+Description=MongoDB Database Server  
+After=network.target  
+
+[Service]  
+Type=forking  
+User=mongodb  
+Group=mongodb  
+PIDFile=/data/mongodb/mongod.pid  
+Environment=&quot;OPTIONS=-f /data/mongodb/mongod.conf&quot;  
+ExecStart=/usr/local/mongodb/bin/mongod $OPTIONS  
+ExecStop=/usr/local/mongodb/bin/mongod --shutdown -f /data/mongodb/conf/mongod.conf  
+Restart=always  
+
+[Install]  
+WantedBy=multi-user.target  
+</code></pre></div></div>
+<p>启动服务  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload<span class="w">  </span>
+$<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mongodb.service<span class="w">  </span>
+$<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongodb<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_2">测试</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>mongo<span class="w"> </span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>-u<span class="w"> </span>user<span class="w"> </span>-p<span class="w"> </span>pass<span class="w">  </span>
+</code></pre></div></div>
+<p>这里主要讲迁移MongoDB, 如果是全新创建, 需要新增db和用户的 到时再查下.  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
