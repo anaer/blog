@@ -69,3 +69,20 @@ SELECT EVENT_NAME, LAST_EXECUTED
 FROM information_schema.events
 WHERE EVENT_NAME = 'ev_drop_daily_table';
 ```
+
+
+定时删除历史数据:
+
+```sql
+CREATE EVENT IF NOT EXISTS `ev_delete_history` 
+ON SCHEDULE EVERY 1 DAY 
+STARTS (CURRENT_DATE + INTERVAL 1 DAY + INTERVAL 2 HOUR + INTERVAL 10 MINUTE)  
+DO 
+BEGIN  
+    SET @sql_text = 'DELETE FROM t_history WHERE create_time < DATE_SUB(now(),INTERVAL 100 DAY);';  
+
+    PREPARE stmt FROM @sql_text;  
+    EXECUTE stmt;  
+    DEALLOCATE PREPARE stmt;  
+END
+```

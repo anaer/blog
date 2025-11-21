@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-11-04 17:18:40</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-21 17:19:33</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-21 17:46:56</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何开启和管理 MySQL 的事件调度器，包括启用和禁用调度器的命令、在 MySQL 启动时自动启用调度器的配置方法，以及创建一个定时删除日表的事件的步骤。此外，还提供了查询事件执行情况的 SQL 语句。需要注意的是，SET GLOBAL event_scheduler = ON; 命令需要管理员权限，且在配置文件中设置事件调度器为 ON 需要重启 MySQL 服务。错误观点是没有提及事件调度器的使用可能会对性能产生影响，特别是在执行频繁的事件时。
+    <strong>AI总结:</strong> 本文介绍了如何在MySQL中启用和配置事件调度器。首先，可以通过命令SET GLOBAL event_scheduler = ON来立即启用事件调度器，并使用SHOW VARIABLES LIKE 'event_scheduler'命令验证其状态。此设置需要管理员权限，并且可以在MySQL配置文件中设置为自动启用，但需要重启服务。还介绍了如何禁用事件调度器。接着，提供了一个示例事件，用于定期删除前一天的表，并展示了如何查询事件的执行情况。最后，介绍了另一个事件，用于定期删除历史数据。需要注意的是，创建事件和执行相关SQL语句时，使用PREPARE和EXECUTE语句是必要的。文中未提及的错误观点包括未明确说明在某些情况下可能需要额外的权限或设置，此外，可能会对事件调度器的性能影响缺乏详细讨论。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -200,6 +200,20 @@ pre {
 <pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">EVENT_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">LAST_EXECUTED</span><span class="w">  </span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">events</span><span class="w">  </span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">EVENT_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ev_drop_daily_table&#39;</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<p>定时删除历史数据:  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EVENT</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="o">`</span><span class="n">ev_delete_history</span><span class="o">`</span><span class="w">   </span>
+<span class="k">ON</span><span class="w"> </span><span class="n">SCHEDULE</span><span class="w"> </span><span class="k">EVERY</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">DAY</span><span class="w">   </span>
+<span class="n">STARTS</span><span class="w"> </span><span class="p">(</span><span class="k">CURRENT_DATE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">DAY</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">HOUR</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">MINUTE</span><span class="p">)</span><span class="w">    </span>
+<span class="k">DO</span><span class="w">   </span>
+<span class="k">BEGIN</span><span class="w">    </span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">sql_text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DELETE FROM t_history WHERE create_time &lt; DATE_SUB(now(),INTERVAL 100 DAY);&#39;</span><span class="p">;</span><span class="w">    </span>
+
+<span class="w">    </span><span class="k">PREPARE</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">@</span><span class="n">sql_text</span><span class="p">;</span><span class="w">    </span>
+<span class="w">    </span><span class="k">EXECUTE</span><span class="w"> </span><span class="n">stmt</span><span class="p">;</span><span class="w">    </span>
+<span class="w">    </span><span class="k">DEALLOCATE</span><span class="w"> </span><span class="k">PREPARE</span><span class="w"> </span><span class="n">stmt</span><span class="p">;</span><span class="w">    </span>
+<span class="k">END</span><span class="w">  </span>
 </code></pre></div></div>
   </article>
   
