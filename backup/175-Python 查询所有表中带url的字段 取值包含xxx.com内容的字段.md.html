@@ -1,0 +1,91 @@
+
+  <article class="markdown-body">
+    <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="sd">&quot;&quot;&quot;  </span>
+<span class="sd">查询所有表中带url的字段 取值包含xxx.com内容的字段  </span>
+<span class="sd">&quot;&quot;&quot;</span>  
+<span class="kn">import</span><span class="w"> </span><span class="nn">pymysql</span>  
+
+<span class="c1"># MySQL连接配置  </span>
+<span class="n">DB_HOST</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span>           <span class="c1"># 数据库主机  </span>
+<span class="n">DB_USER</span> <span class="o">=</span> <span class="s1">&#39;root&#39;</span>                <span class="c1"># 数据库用户名  </span>
+<span class="n">DB_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>          <span class="c1"># 数据库密码  </span>
+<span class="n">DB_NAME</span> <span class="o">=</span> <span class="s1">&#39;INFORMATION_SCHEMA&#39;</span>  <span class="c1"># 数据库名称  </span>
+
+<span class="c1"># 连接到MySQL数据库  </span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>  
+    <span class="n">host</span><span class="o">=</span><span class="n">DB_HOST</span><span class="p">,</span>  
+    <span class="n">user</span><span class="o">=</span><span class="n">DB_USER</span><span class="p">,</span>  
+    <span class="n">password</span><span class="o">=</span><span class="n">DB_PASSWORD</span><span class="p">,</span>  
+    <span class="n">database</span><span class="o">=</span><span class="n">DB_NAME</span>  
+<span class="p">)</span>  
+
+<span class="c1"># 创建游标对象  </span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_tables_with_url_fields</span><span class="p">():</span>  
+    <span class="c1"># 查询所有包含&#39;url&#39;字段的表和字段  </span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;  </span>
+<span class="s2">    SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME  </span>
+<span class="s2">    FROM INFORMATION_SCHEMA.COLUMNS  </span>
+<span class="s2">    WHERE COLUMN_NAME LIKE &quot;</span><span class="si">%u</span><span class="s2">rl%&quot;;  </span>
+<span class="s2">    &quot;&quot;&quot;</span>  
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>  
+    <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>  
+
+<span class="k">def</span><span class="w"> </span><span class="nf">search_url_in_table</span><span class="p">(</span><span class="n">table_schema</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">column_name</span><span class="p">):</span>  
+    <span class="c1"># 查询表中字段包含&#39;xxx.com&#39;的记录  </span>
+    <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table_schema</span><span class="si">}</span><span class="s2">.`</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">` WHERE </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2"> LIKE &#39;%xxx.com%&#39; limit 1&quot;</span>  
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>  
+    <span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>  
+
+    <span class="k">if</span> <span class="n">results</span><span class="p">:</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">table_schema</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">);</span>  
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>  
+    <span class="k">try</span><span class="p">:</span>  
+        <span class="c1"># 获取所有包含&#39;url&#39;字段的表和字段  </span>
+        <span class="n">tables_and_columns</span> <span class="o">=</span> <span class="n">get_tables_with_url_fields</span><span class="p">()</span>  
+
+        <span class="c1"># 逐个表和字段查询  </span>
+        <span class="k">for</span> <span class="n">table_schema</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">tables_and_columns</span><span class="p">:</span>  
+            <span class="n">search_url_in_table</span><span class="p">(</span><span class="n">table_schema</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">column_name</span><span class="p">)</span>  
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;发生错误: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
+
+    <span class="k">finally</span><span class="p">:</span>  
+        <span class="c1"># 关闭游标和连接  </span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  
+        <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  
+    <span class="n">main</span><span class="p">()</span>  
+</code></pre></div></div>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
