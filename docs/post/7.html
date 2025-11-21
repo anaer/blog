@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X7 ECS操作记录</title>
+<title>ECS操作记录</title>
 
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X7 ECS操作记录</a>
+    <a style="font-size:18px">ECS操作记录</a>
 </h1>
 
 <div class="title-right">
@@ -135,37 +137,53 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2023-11-01 10:37:56</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-21 11:16:35</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-21 11:29:49</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了重置密码时未提示默认密码的问题，以及在使用apt-get命令时需要先更新以避免找不到包的错误。此外，内容还涉及到安装nginx、配置云服务的安全组以快速添加80端口、部署webdav、安装fail2ban以防止暴力破解系统密码，以及安装deepLX。
-
-优化建议：
-1. 明确重置密码的具体步骤和建议，以便用户能够顺利完成操作。
-2. 在提到apt-get update时，说明更新的必要性和常见错误提示，以帮助用户理解。
-3. 对于nginx安装，提供基本配置的建议，以便用户能够快速上手。
-4. 在安全组配置中，建议说明如何设置入方向的规则，确保用户安全。
-5. 对于webdav的部署，简要介绍其用途和基本配置步骤。
-6. 在安装fail2ban时，建议提供基本的配置示例，以增强安全性。
-7. 对于deepLX，说明其功能和适用场景，以帮助用户理解其价值。
+    <strong>AI总结:</strong> 本文介绍了重置密码时未提示默认密码的情况，以及在使用apt-get命令时需要先更新软件包列表，直接安装可能导致找不到包的错误。接着提到安装nginx的步骤，以及在云服务中如何快速添加80端口的入方向安全组设置。此外，还介绍了在Ubuntu上部署WebDAV服务的过程，以及安装fail2ban以防止暴力破解系统密码的步骤。需要注意的是，未提及如何查找或重置默认密码的具体方法。
 </div>
 
 <div class="markdown-body" id="postBody">
-<ol>
-<li>重置密码， 没有提示默认密码</li>
-<li>
-<code>apt-get update</code> 需要先更新, 直接安装会提示找不到包</li>
-<li>
-<code>apt-get install nginx</code> 安装nginx</li>
-<li>云服务 安全组 入方向 快速添加80端口</li>
-<li>部署webdav #8</li>
-<li>安装fail2ban 防止暴力破解系统密码 #9</li>
-<li>安装<a href="https://github.com/OwO-Network/DeepLX">deepLX</a>
-</li>
+
+  <article class="markdown-body">
+    <ol>
+<li>重置密码， 没有提示默认密码  </li>
+<li><code>apt-get update</code> 需要先更新, 直接安装会提示找不到包  </li>
+<li><code>apt-get install nginx</code> 安装nginx   </li>
+<li>云服务 安全组 入方向 快速添加80端口   </li>
+<li>部署webdav  <a href="https://anaer.github.io/blog/post/8.html">0X8 Ubuntu部署WebDAV服务</a>    </li>
+<li>安装fail2ban 防止暴力破解系统密码  <a href="https://anaer.github.io/blog/post/9.html">Ubuntu安装fail2ban</a>    </li>
 </ol>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/8.html" aria-label="Previous Page">0X8 Ubuntu部署WebDAV服务</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/5.html" aria-label="Next Page">0X5 中文等宽字体</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/6.html" aria-label="Previous Page">PC端常用软件</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/8.html" aria-label="Next Page">0X8 Ubuntu部署WebDAV服务</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -247,8 +265,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

@@ -1,12 +1,37 @@
-<ol>
-<li>重置密码， 没有提示默认密码</li>
-<li>
-<code>apt-get update</code> 需要先更新, 直接安装会提示找不到包</li>
-<li>
-<code>apt-get install nginx</code> 安装nginx</li>
-<li>云服务 安全组 入方向 快速添加80端口</li>
-<li>部署webdav #8</li>
-<li>安装fail2ban 防止暴力破解系统密码 #9</li>
-<li>安装<a href="https://github.com/OwO-Network/DeepLX">deepLX</a>
-</li>
+
+  <article class="markdown-body">
+    <ol>
+<li>重置密码， 没有提示默认密码  </li>
+<li><code>apt-get update</code> 需要先更新, 直接安装会提示找不到包  </li>
+<li><code>apt-get install nginx</code> 安装nginx   </li>
+<li>云服务 安全组 入方向 快速添加80端口   </li>
+<li>部署webdav  <a href="https://anaer.github.io/blog/post/8.html">0X8 Ubuntu部署WebDAV服务</a>    </li>
+<li>安装fail2ban 防止暴力破解系统密码  <a href="https://anaer.github.io/blog/post/9.html">Ubuntu安装fail2ban</a>    </li>
 </ol>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
