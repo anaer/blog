@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0XB 公共DNS解析</title>
+<title>公共DNS解析</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia-dark.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0XB 公共DNS解析</a>
+    <a style="font-size:18px">公共DNS解析</a>
 </h1>
 
 <div class="title-right">
@@ -133,13 +135,19 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2023-11-08 17:28:30</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-22 14:14:23</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-21 14:10:45</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了DNS over HTTPS（DoH）作为一种安全的域名解析方案，通过加密的HTTPS协议来保护用户的DNS请求，防止窃听和修改。文中列出了多种DoH服务提供商及其对应的地址，包括AdGuard、Cloudflare、Google等，并提供了请求示例和Python调用示例。此外，讨论了DNS污染及其应对方法，包括DNS缓存服务器污染、DNS抢答和DNS劫持，并建议使用加密协议如DoH和DNS over TLS来保护DNS请求。最后，提到修改hosts文件后如何刷新DNS缓存，以及DNS泄漏检测的工具和相关链接。
+
+存在的错误观点包括对DNS污染的描述，文中未明确指出DNS污染的具体影响和机制，可能导致误解。同时，提到的应对方法并未考虑到所有潜在的风险和复杂性。
+</div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">DNS Over HTTPS</h2><a id="user-content-dns-over-https" class="anchor" aria-label="Permalink: DNS Over HTTPS" href="#dns-over-https"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>DNS over HTTPS（缩写：DoH）是一个进行安全化的域名解析方案。其意义在于以加密的 HTTPS 协议进行 DNS 解析请求，避免原始 DNS 协议中用户的 DNS 解析请求被窃听或者修改的问题（例如中间人攻击）来达到保护用户隐私的目的</p>
+
+  <article class="markdown-body">
+    <h2 id="dns-over-https">DNS Over HTTPS</h2>
+<p>DNS over HTTPS（缩写：DoH）是一个进行安全化的域名解析方案。其意义在于以加密的 HTTPS 协议进行 DNS 解析请求，避免原始 DNS 协议中用户的 DNS 解析请求被窃听或者修改的问题（例如中间人攻击）来达到保护用户隐私的目的  </p>
 <table>
 <thead>
 <tr>
@@ -152,115 +160,115 @@ pre {
 <tbody>
 <tr>
 <td>AdGuard</td>
-<td><a href="https://dns.adguard-dns.com/dns-query" rel="nofollow">https://dns.adguard-dns.com/dns-query</a></td>
+<td>https://dns.adguard-dns.com/dns-query</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>AdGuard-无过滤</td>
-<td><a href="https://unfiltered.adguard-dns.com/dns-query" rel="nofollow">https://unfiltered.adguard-dns.com/dns-query</a></td>
+<td>https://unfiltered.adguard-dns.com/dns-query</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>AdGuard-家庭</td>
-<td><a href="https://family.adguard-dns.com/dns-query" rel="nofollow">https://family.adguard-dns.com/dns-query</a></td>
+<td>https://family.adguard-dns.com/dns-query</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>Blahdns</td>
-<td><a href="https://doh-jp.blahdns.com/dns-query" rel="nofollow">https://doh-jp.blahdns.com/dns-query</a></td>
+<td>https://doh-jp.blahdns.com/dns-query</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>CleanBrowsing</td>
-<td><a href="https://doh.cleanbrowsing.org/doh/family-filter/" rel="nofollow">https://doh.cleanbrowsing.org/doh/family-filter/</a></td>
+<td>https://doh.cleanbrowsing.org/doh/family-filter/</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>Cloudflare</td>
-<td><a href="https://cloudflare-dns.com/dns-query" rel="nofollow">https://cloudflare-dns.com/dns-query</a></td>
+<td>https://cloudflare-dns.com/dns-query</td>
 <td>cloudflare-dns.com</td>
 <td>1.1.1.1</td>
 </tr>
 <tr>
 <td>DNS.SB</td>
-<td><a href="https://doh.dns.sb/dns-query" rel="nofollow">https://doh.dns.sb/dns-query</a></td>
+<td>https://doh.dns.sb/dns-query</td>
 <td>dot.sb</td>
 <td></td>
 </tr>
 <tr>
 <td>DNS.SB</td>
-<td><a href="https://doh.sb/dns-query" rel="nofollow">https://doh.sb/dns-query</a></td>
+<td>https://doh.sb/dns-query</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>Google</td>
-<td><a href="https://dns.google.com/dns-query" rel="nofollow">https://dns.google.com/dns-query</a></td>
+<td>https://dns.google.com/dns-query</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>Google</td>
-<td><a href="https://dns.google/dns-query" rel="nofollow">https://dns.google/dns-query</a></td>
+<td>https://dns.google/dns-query</td>
 <td>dns.google</td>
 <td></td>
 </tr>
 <tr>
 <td>OpenDNS</td>
-<td><a href="https://doh.opendns.com/dns-query" rel="nofollow">https://doh.opendns.com/dns-query</a></td>
+<td>https://doh.opendns.com/dns-query</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>Quad9</td>
-<td><a href="https://dns.quad9.net/dns-query" rel="nofollow">https://dns.quad9.net/dns-query</a></td>
+<td>https://dns.quad9.net/dns-query</td>
 <td>dns.quad9.net</td>
 <td></td>
 </tr>
 <tr>
 <td>rixCloud</td>
-<td><a href="https://doh.rixcloud.dev/dns-query" rel="nofollow">https://doh.rixcloud.dev/dns-query</a></td>
+<td>https://doh.rixcloud.dev/dns-query</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>红鱼 DNS</td>
-<td><a href="https://rubyfish.cn/dns-query" rel="nofollow">https://rubyfish.cn/dns-query</a></td>
+<td>https://rubyfish.cn/dns-query</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>阿里 DNS</td>
-<td><a href="https://dns.alidns.com/dns-query" rel="nofollow">https://dns.alidns.com/dns-query</a></td>
+<td>https://dns.alidns.com/dns-query</td>
 <td>dns.alidns.com</td>
 <td></td>
 </tr>
 <tr>
 <td>DNSWatch</td>
-<td><a href="https://resolver2.dns.watch/dns-query" rel="nofollow">https://resolver2.dns.watch/dns-query</a></td>
+<td>https://resolver2.dns.watch/dns-query</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>腾讯</td>
-<td><a href="https://doh.pub/dns-query" rel="nofollow">https://doh.pub/dns-query</a></td>
+<td>https://doh.pub/dns-query</td>
 <td>dot.pub</td>
 <td>1.12.12.12、120.53.53.53</td>
 </tr>
 <tr>
 <td>TWNIC Quad 101</td>
-<td><a href="https://dns.twnic.tw/dns-query" rel="nofollow">https://dns.twnic.tw/dns-query</a></td>
+<td>https://dns.twnic.tw/dns-query</td>
 <td>dns.twnic.tw</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<div class="markdown-heading"><h2 class="heading-element">公共 DNS</h2><a id="user-content-公共-dns" class="anchor" aria-label="Permalink: 公共 DNS" href="#公共-dns"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h2 id="dns">公共 DNS</h2>
 <table>
 <thead>
 <tr>
@@ -287,92 +295,139 @@ pre {
 </tr>
 </tbody>
 </table>
-<div class="markdown-heading"><h2 class="heading-element">请求说明</h2><a id="user-content-请求说明" class="anchor" aria-label="Permalink: 请求说明" href="#请求说明"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>https://dns.adguard.com/dns-query<span class="pl-k">?</span>dns=<span class="pl-k">&lt;</span>base64url encoded data<span class="pl-k">&gt;</span>
-https://dns.adguard.com/resolve<span class="pl-k">?</span>name=<span class="pl-k">&lt;</span>domain<span class="pl-k">&gt;&amp;</span>type=<span class="pl-k">&lt;</span>DNS Q/A type<span class="pl-k">&gt;</span></pre></div>
-<div class="markdown-heading"><h3 class="heading-element">curl 请求方式</h3><a id="user-content-curl-请求方式" class="anchor" aria-label="Permalink: curl 请求方式" href="#curl-请求方式"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>$ curl <span class="pl-s"><span class="pl-pds">'</span>https://dns.adguard.com/resolve?name=www.baidu.com&amp;type=A<span class="pl-pds">'</span></span>
-{
-  <span class="pl-s"><span class="pl-pds">"</span>Question<span class="pl-pds">"</span></span>: [
-    {
-      <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>www.baidu.com.<span class="pl-pds">"</span></span>,
-      <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: 1
-    }
-  ],
-  <span class="pl-s"><span class="pl-pds">"</span>Answer<span class="pl-pds">"</span></span>: [
-    {
-      <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>www.baidu.com.<span class="pl-pds">"</span></span>,
-      <span class="pl-s"><span class="pl-pds">"</span>data<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>www.a.shifen.com.<span class="pl-pds">"</span></span>,
-      <span class="pl-s"><span class="pl-pds">"</span>TTL<span class="pl-pds">"</span></span>: 12,
-      <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: 5,
-      <span class="pl-s"><span class="pl-pds">"</span>class<span class="pl-pds">"</span></span>: 1
-    },
-    {
-      <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>www.a.shifen.com.<span class="pl-pds">"</span></span>,
-      <span class="pl-s"><span class="pl-pds">"</span>data<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>14.119.104.189<span class="pl-pds">"</span></span>,
-      <span class="pl-s"><span class="pl-pds">"</span>TTL<span class="pl-pds">"</span></span>: 12,
-      <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: 1,
-      <span class="pl-s"><span class="pl-pds">"</span>class<span class="pl-pds">"</span></span>: 1
-    },
-    {
-      <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>www.a.shifen.com.<span class="pl-pds">"</span></span>,
-      <span class="pl-s"><span class="pl-pds">"</span>data<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>14.119.104.254<span class="pl-pds">"</span></span>,
-      <span class="pl-s"><span class="pl-pds">"</span>TTL<span class="pl-pds">"</span></span>: 12,
-      <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: 1,
-      <span class="pl-s"><span class="pl-pds">"</span>class<span class="pl-pds">"</span></span>: 1
-    }
-  ],
-  <span class="pl-s"><span class="pl-pds">"</span>Extra<span class="pl-pds">"</span></span>: null,
-  <span class="pl-s"><span class="pl-pds">"</span>TC<span class="pl-pds">"</span></span>: false,
-  <span class="pl-s"><span class="pl-pds">"</span>RD<span class="pl-pds">"</span></span>: true,
-  <span class="pl-s"><span class="pl-pds">"</span>RA<span class="pl-pds">"</span></span>: true,
-  <span class="pl-s"><span class="pl-pds">"</span>AD<span class="pl-pds">"</span></span>: false,
-  <span class="pl-s"><span class="pl-pds">"</span>CD<span class="pl-pds">"</span></span>: false,
-  <span class="pl-s"><span class="pl-pds">"</span>Status<span class="pl-pds">"</span></span>: 0
-}</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">python 调用示例</h2><a id="user-content-python-调用示例" class="anchor" aria-label="Permalink: python 调用示例" href="#python-调用示例"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">dns</span>.<span class="pl-s1">message</span>
-<span class="pl-k">import</span> <span class="pl-s1">requests</span>
-<span class="pl-k">import</span> <span class="pl-s1">base64</span>
-<span class="pl-k">import</span> <span class="pl-s1">json</span>
+<h2 id="_1">请求说明</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>https://dns.adguard.com/dns-query?dns<span class="o">=</span>&lt;base64url<span class="w"> </span>encoded<span class="w"> </span>data&gt;<span class="w">  </span>
+https://dns.adguard.com/resolve?name<span class="o">=</span>&lt;domain&gt;<span class="p">&amp;</span><span class="nv">type</span><span class="o">=</span>&lt;DNS<span class="w"> </span>Q/A<span class="w"> </span>type&gt;<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="curl">curl 请求方式</h3>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span><span class="s1">&#39;https://dns.adguard.com/resolve?name=www.baidu.com&amp;type=A&#39;</span><span class="w">  </span>
+<span class="o">{</span><span class="w">  </span>
+<span class="w">  </span><span class="s2">&quot;Question&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="w">  </span>
+<span class="w">    </span><span class="o">{</span><span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;www.baidu.com.&quot;</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span>
+<span class="w">    </span><span class="o">}</span><span class="w">  </span>
+<span class="w">  </span><span class="o">]</span>,<span class="w">  </span>
+<span class="w">  </span><span class="s2">&quot;Answer&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="w">  </span>
+<span class="w">    </span><span class="o">{</span><span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;www.baidu.com.&quot;</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;data&quot;</span>:<span class="w"> </span><span class="s2">&quot;www.a.shifen.com.&quot;</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;TTL&quot;</span>:<span class="w"> </span><span class="m">12</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">5</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;class&quot;</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span>
+<span class="w">    </span><span class="o">}</span>,<span class="w">  </span>
+<span class="w">    </span><span class="o">{</span><span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;www.a.shifen.com.&quot;</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;data&quot;</span>:<span class="w"> </span><span class="s2">&quot;14.119.104.189&quot;</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;TTL&quot;</span>:<span class="w"> </span><span class="m">12</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">1</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;class&quot;</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span>
+<span class="w">    </span><span class="o">}</span>,<span class="w">  </span>
+<span class="w">    </span><span class="o">{</span><span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;www.a.shifen.com.&quot;</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;data&quot;</span>:<span class="w"> </span><span class="s2">&quot;14.119.104.254&quot;</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;TTL&quot;</span>:<span class="w"> </span><span class="m">12</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">1</span>,<span class="w">  </span>
+<span class="w">      </span><span class="s2">&quot;class&quot;</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span>
+<span class="w">    </span><span class="o">}</span><span class="w">  </span>
+<span class="w">  </span><span class="o">]</span>,<span class="w">  </span>
+<span class="w">  </span><span class="s2">&quot;Extra&quot;</span>:<span class="w"> </span>null,<span class="w">  </span>
+<span class="w">  </span><span class="s2">&quot;TC&quot;</span>:<span class="w"> </span>false,<span class="w">  </span>
+<span class="w">  </span><span class="s2">&quot;RD&quot;</span>:<span class="w"> </span>true,<span class="w">  </span>
+<span class="w">  </span><span class="s2">&quot;RA&quot;</span>:<span class="w"> </span>true,<span class="w">  </span>
+<span class="w">  </span><span class="s2">&quot;AD&quot;</span>:<span class="w"> </span>false,<span class="w">  </span>
+<span class="w">  </span><span class="s2">&quot;CD&quot;</span>:<span class="w"> </span>false,<span class="w">  </span>
+<span class="w">  </span><span class="s2">&quot;Status&quot;</span>:<span class="w"> </span><span class="m">0</span><span class="w">  </span>
+<span class="o">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="python">python 调用示例</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">dns.message</span>  
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>  
+<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>  
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>  
 
-<span class="pl-s1">doh_url</span> <span class="pl-c1">=</span> <span class="pl-s">"https://dns.alidns.com/dns-query"</span>
-<span class="pl-s1">domain</span> <span class="pl-c1">=</span> <span class="pl-s">"alibaba.com"</span>
-<span class="pl-s1">rr</span> <span class="pl-c1">=</span> <span class="pl-s">"A"</span>
-<span class="pl-s1">result</span> <span class="pl-c1">=</span> []
+<span class="n">doh_url</span> <span class="o">=</span> <span class="s2">&quot;https://dns.alidns.com/dns-query&quot;</span>  
+<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;alibaba.com&quot;</span>  
+<span class="n">rr</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span>  
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>  
 
-<span class="pl-s1">message</span> <span class="pl-c1">=</span> <span class="pl-s1">dns</span>.<span class="pl-c1">message</span>.<span class="pl-c1">make_query</span>(<span class="pl-s1">domain</span>, <span class="pl-s1">rr</span>)
-<span class="pl-s1">dns_req</span> <span class="pl-c1">=</span> <span class="pl-s1">base64</span>.<span class="pl-c1">b64encode</span>(<span class="pl-s1">message</span>.<span class="pl-c1">to_wire</span>()).<span class="pl-c1">decode</span>(<span class="pl-s">"UTF8"</span>).<span class="pl-c1">rstrip</span>(<span class="pl-s">"="</span>)
-<span class="pl-s1">r</span> <span class="pl-c1">=</span> <span class="pl-s1">requests</span>.<span class="pl-c1">get</span>(<span class="pl-s1">doh_url</span> <span class="pl-c1">+</span> <span class="pl-s">"?dns="</span> <span class="pl-c1">+</span> <span class="pl-s1">dns_req</span>,
-                 <span class="pl-s1">headers</span><span class="pl-c1">=</span>{<span class="pl-s">"Content-type"</span>: <span class="pl-s">"application/dns-message"</span>})
-<span class="pl-k">for</span> <span class="pl-s1">answer</span> <span class="pl-c1">in</span> <span class="pl-s1">dns</span>.<span class="pl-c1">message</span>.<span class="pl-c1">from_wire</span>(<span class="pl-s1">r</span>.<span class="pl-c1">content</span>).<span class="pl-c1">answer</span>:
-    <span class="pl-s1">dns</span> <span class="pl-c1">=</span> <span class="pl-s1">answer</span>.<span class="pl-c1">to_text</span>().<span class="pl-c1">split</span>()
-    <span class="pl-s1">result</span>.<span class="pl-c1">append</span>({<span class="pl-s">"Query"</span>: <span class="pl-s1">dns</span>[<span class="pl-c1">0</span>], <span class="pl-s">"TTL"</span>: <span class="pl-s1">dns</span>[<span class="pl-c1">1</span>], <span class="pl-s">"RR"</span>: <span class="pl-s1">dns</span>[<span class="pl-c1">3</span>], <span class="pl-s">"Answer"</span>: <span class="pl-s1">dns</span>[<span class="pl-c1">4</span>]})
-    <span class="pl-en">print</span>(<span class="pl-s1">json</span>.<span class="pl-c1">dumps</span>(<span class="pl-s1">result</span>))</pre></div>
-<div class="highlight highlight-source-shell"><pre>$ python test_doh.py
-[{<span class="pl-s"><span class="pl-pds">"</span>Answer<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>106.11.223.101<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Query<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>alibaba.com.<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>RR<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>A<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>TTL<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>133<span class="pl-pds">"</span></span>}]</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">DNS 污染</h2><a id="user-content-dns-污染" class="anchor" aria-label="Permalink: DNS 污染" href="#dns-污染"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>DNS 污染大致与以下内容为同义词：</p>
-<p>DNS 缓存服务器污染：运营商的 DNS 服务器被污染，使用默认 DNS，网络就会被干扰。</p>
-<p>DNS 抢答：DNS 请求没有防篡改功能，所以中间人能抢先发送错误的 DNS，网络就会被干扰。</p>
-<p>DNS 劫持：使用自定义 DNS，同样是缺乏防篡改功能，所以中间人能劫持 DNS 请求，网络就会被干扰。</p>
-<p>应对方法分别是：</p>
-<p>DNS 缓存服务器污染：直接换 114.114.114.114 与 8.8.8.8 这样的非运营商的 DNS，只要没有抢答和劫持，就有效。</p>
-<p>DNS 抢答：修改系统内核，使系统忽略错误的 DNS，因为早期 GFW 抢答给出的错误 IP 数量不多，然后真正的 DNS 返回的 IP，就能被正常使用。</p>
-<p>DNS 劫持：使用 DNS over HTTPS（HTTP over TLS）、DNS over TLS 等方式，通过加密的协议来保护 DNS 请求。只要 GFW 没有将提供服务的域名，进行 SNI 封禁，就有效。</p>
-<div class="markdown-heading"><h2 class="heading-element">DNS泄漏检测</h2><a id="user-content-dns泄漏检测" class="anchor" aria-label="Permalink: DNS泄漏检测" href="#dns泄漏检测"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a href="https://dnsleaktest.org/dns-leak-test" rel="nofollow">DNS Leak Test</a></p>
-<p><a href="https://www.browserscan.net/dns-leak" rel="nofollow">BrowserScan - DNS Leak</a></p>
-<p><a href="https://browserleaks.com/dns" rel="nofollow">DNS Leak Test - BrowserLeaks</a></p>
-<p><a href="https://surfshark.com/zh/dns-leak-test" rel="nofollow">DNS泄漏测试</a></p>
-<p><a href="https://ipleak.net/" rel="nofollow">IP/DNS Detect</a></p>
-<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a href="https://zh.wikipedia.org/wiki/DNS_over_HTTPS" rel="nofollow">DNS_over_HTTPS - 维基百科</a></p>
-<p><a href="https://www.alibabacloud.com/help/zh/alibaba-cloud-public-dns/latest/dns-over-https" rel="nofollow">DNS over HTTPs(DoH)</a></p>
-<p><a href="https://adguard-dns.io/zh_cn/welcome.html" rel="nofollow">AdGuard</a></p>
+<span class="n">message</span> <span class="o">=</span> <span class="n">dns</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">make_query</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">rr</span><span class="p">)</span>  
+<span class="n">dns_req</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">to_wire</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;UTF8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>  
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">doh_url</span> <span class="o">+</span> <span class="s2">&quot;?dns=&quot;</span> <span class="o">+</span> <span class="n">dns_req</span><span class="p">,</span>  
+                 <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/dns-message&quot;</span><span class="p">})</span>  
+<span class="k">for</span> <span class="n">answer</span> <span class="ow">in</span> <span class="n">dns</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">from_wire</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">answer</span><span class="p">:</span>  
+    <span class="n">dns</span> <span class="o">=</span> <span class="n">answer</span><span class="o">.</span><span class="n">to_text</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>  
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;Query&quot;</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;TTL&quot;</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;RR&quot;</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;Answer&quot;</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">4</span><span class="p">]})</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>  
+</code></pre></div></div>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>test_doh.py<span class="w">  </span>
+<span class="o">[{</span><span class="s2">&quot;Answer&quot;</span>:<span class="w"> </span><span class="s2">&quot;106.11.223.101&quot;</span>,<span class="w"> </span><span class="s2">&quot;Query&quot;</span>:<span class="w"> </span><span class="s2">&quot;alibaba.com.&quot;</span>,<span class="w"> </span><span class="s2">&quot;RR&quot;</span>:<span class="w"> </span><span class="s2">&quot;A&quot;</span>,<span class="w"> </span><span class="s2">&quot;TTL&quot;</span>:<span class="w"> </span><span class="s2">&quot;133&quot;</span><span class="o">}]</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="dns_1">DNS 污染</h2>
+<p>DNS 污染大致与以下内容为同义词：  </p>
+<p>DNS 缓存服务器污染：运营商的 DNS 服务器被污染，使用默认 DNS，网络就会被干扰。  </p>
+<p>DNS 抢答：DNS 请求没有防篡改功能，所以中间人能抢先发送错误的 DNS，网络就会被干扰。  </p>
+<p>DNS 劫持：使用自定义 DNS，同样是缺乏防篡改功能，所以中间人能劫持 DNS 请求，网络就会被干扰。  </p>
+<p>应对方法分别是：  </p>
+<p>DNS 缓存服务器污染：直接换 114.114.114.114 与 8.8.8.8 这样的非运营商的 DNS，只要没有抢答和劫持，就有效。  </p>
+<p>DNS 抢答：修改系统内核，使系统忽略错误的 DNS，因为早期 GFW 抢答给出的错误 IP 数量不多，然后真正的 DNS 返回的 IP，就能被正常使用。  </p>
+<p>DNS 劫持：使用 DNS over HTTPS（HTTP over TLS）、DNS over TLS 等方式，通过加密的协议来保护 DNS 请求。只要 GFW 没有将提供服务的域名，进行 SNI 封禁，就有效。  </p>
+<h2 id="dns_2">DNS刷新</h2>
+<p>修改hosts文件后 刷新DNS缓存  </p>
+<p>Windows:  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>ipconfig<span class="w"> </span>/flushdns<span class="w">  </span>
+</code></pre></div></div>
+<p>Mac: 两种方式  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code>sudo<span class="w"> </span>killall<span class="w"> </span>-HUP<span class="w"> </span>mDNSResponder<span class="w">  </span>
+
+sudo<span class="w"> </span>dscacheutil<span class="w"> </span>-flushcache<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="dns_3">DNS泄漏检测</h2>
+<p><a href="https://dnsleaktest.org/dns-leak-test">DNS Leak Test</a>  </p>
+<p><a href="https://www.browserscan.net/dns-leak">BrowserScan - DNS Leak</a>  </p>
+<p><a href="https://browserleaks.com/dns">DNS Leak Test - BrowserLeaks</a>  </p>
+<p><a href="https://surfshark.com/zh/dns-leak-test">DNS泄漏测试</a>  </p>
+<p><a href="https://ipleak.net/">IP/DNS Detect</a>  </p>
+<h2 id="_2">相关链接</h2>
+<p><a href="https://zh.wikipedia.org/wiki/DNS_over_HTTPS">DNS_over_HTTPS - 维基百科</a>  </p>
+<p><a href="https://www.alibabacloud.com/help/zh/alibaba-cloud-public-dns/latest/dns-over-https">DNS over HTTPs(DoH)</a>  </p>
+<p><a href="https://adguard-dns.io/zh_cn/welcome.html">AdGuard</a>  </p>
+  </article>
+  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '收起' : '展开';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/12.html" aria-label="Previous Page">0XC bark消息推送</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/10.html" aria-label="Next Page">0XA fail2ban配置nginx</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/10.html" aria-label="Previous Page">0XA fail2ban配置nginx</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/12.html" aria-label="Next Page">0XC bark消息推送</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -454,8 +509,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
