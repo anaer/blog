@@ -135,8 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-11-04 17:18:40</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-21 17:19:33</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何开启和禁用MySQL事件调度器。通过执行SET GLOBAL event_scheduler = ON;命令可以立即启用事件调度器，而不需重启MySQL服务。可以使用SHOW VARIABLES LIKE 'event_scheduler';命令验证其状态。如果结果为ON，则表示启用成功。需要注意的是，SET GLOBAL event_scheduler = ON;需要管理员权限。如果希望在MySQL启动时自动启用事件调度器，可以在配置文件中设置event_scheduler = ON，但这需要重启MySQL服务才能生效。禁用事件调度器可以通过SET GLOBAL event_scheduler = OFF;命令实现。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了如何开启和管理 MySQL 的事件调度器，包括启用和禁用调度器的命令、在 MySQL 启动时自动启用调度器的配置方法，以及创建一个定时删除日表的事件的步骤。此外，还提供了查询事件执行情况的 SQL 语句。需要注意的是，SET GLOBAL event_scheduler = ON; 命令需要管理员权限，且在配置文件中设置事件调度器为 ON 需要重启 MySQL 服务。错误观点是没有提及事件调度器的使用可能会对性能产生影响，特别是在执行频繁的事件时。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -164,6 +166,40 @@ pre {
 <h3 id="_2">禁用事件调度器：</h3>
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
 <pre><span></span><code><span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">event_scheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_3">定时删除日表</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="c1">-- 打开事件调度器（需要管理员权限）  </span>
+<span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">event_scheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ON</span><span class="p">;</span><span class="w">  </span>
+
+<span class="k">DELIMITER</span><span class="w"> </span><span class="err">$$</span><span class="w">  </span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="n">EVENT</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">ev_drop_daily_table</span><span class="w">  </span>
+<span class="k">ON</span><span class="w"> </span><span class="n">SCHEDULE</span><span class="w"> </span><span class="k">EVERY</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">DAY</span><span class="w">  </span>
+<span class="c1">-- 从明天 02:10 开始第一次执行，之后每天同一时间执行  </span>
+<span class="n">STARTS</span><span class="w"> </span><span class="p">(</span><span class="k">CURRENT_DATE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">DAY</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">HOUR</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">MINUTE</span><span class="p">)</span><span class="w">  </span>
+<span class="k">DO</span><span class="w">  </span>
+<span class="k">BEGIN</span><span class="w">  </span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="n">tbl_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">64</span><span class="p">);</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">-- 生成要删除的表名（这里为昨天的表），例如 t_table_2025-11-20  </span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="n">tbl_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="s1">&#39;t_table_&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">DATE_FORMAT</span><span class="p">(</span><span class="n">DATE_SUB</span><span class="p">(</span><span class="n">CURDATE</span><span class="p">(),</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">DAY</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">));</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">-- 使用用户变量传入 PREPARE  </span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">sql_text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="s1">&#39;DROP TABLE IF EXISTS `&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tbl_name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;`&#39;</span><span class="p">);</span><span class="w">  </span>
+
+<span class="w">    </span><span class="k">PREPARE</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">@</span><span class="n">sql_text</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">EXECUTE</span><span class="w"> </span><span class="n">stmt</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">DEALLOCATE</span><span class="w"> </span><span class="k">PREPARE</span><span class="w"> </span><span class="n">stmt</span><span class="p">;</span><span class="w">  </span>
+<span class="k">END</span><span class="err">$$</span><span class="w">  </span>
+
+<span class="k">DELIMITER</span><span class="w"> </span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<p>查询事件执行情况:  </p>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">EVENT_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">LAST_EXECUTED</span><span class="w">  </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">events</span><span class="w">  </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">EVENT_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ev_drop_daily_table&#39;</span><span class="p">;</span><span class="w">  </span>
 </code></pre></div></div>
   </article>
   
@@ -194,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/166.html" aria-label="Previous Page">HTTP 常见响应状态码</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/166.html" aria-label="Previous Page">HTTP 常见响应状态码</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/168.html" aria-label="Next Page">我关注的项目这周更新了什么-2025-11-07</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
