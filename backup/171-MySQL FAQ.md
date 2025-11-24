@@ -1,3 +1,34 @@
+## 查询每个db容量
+
+```sql
+SELECT 
+    table_schema AS `Database`,
+    ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS `Size_MB`
+FROM 
+    information_schema.tables
+GROUP BY 
+    table_schema
+ORDER BY `Size_MB` DESC;
+```
+
+
+## 查询容量最大的10张表
+
+```sql
+SELECT 
+    table_schema AS `Database`,
+    table_name AS `Table`,
+    ROUND((data_length + index_length) / 1024 / 1024, 2) AS `Size_MB`
+FROM 
+    information_schema.tables
+WHERE 
+    table_schema NOT IN ('information_schema', 'performance_schema', 'mysql', 'sys')  -- 排除系统数据库
+ORDER BY 
+    `Size_MB` DESC
+LIMIT 10;
+```
+
+
 
 ## Invalid default value for 'update_time'
 

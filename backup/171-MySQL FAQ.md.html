@@ -1,6 +1,31 @@
 
   <article class="markdown-body">
-    <h2 id="invalid-default-value-for-update_time">Invalid default value for 'update_time'</h2>
+    <h2 id="db">查询每个db容量</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="k">SELECT</span><span class="w">   </span>
+<span class="w">    </span><span class="n">table_schema</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="k">Database</span><span class="o">`</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">data_length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">index_length</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="n">Size_MB</span><span class="o">`</span><span class="w">  </span>
+<span class="k">FROM</span><span class="w">   </span>
+<span class="w">    </span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span><span class="w">  </span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">   </span>
+<span class="w">    </span><span class="n">table_schema</span><span class="w">  </span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">`</span><span class="n">Size_MB</span><span class="o">`</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="10">查询容量最大的10张表</h2>
+<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<pre><span></span><code><span class="k">SELECT</span><span class="w">   </span>
+<span class="w">    </span><span class="n">table_schema</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="k">Database</span><span class="o">`</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="k">table_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="k">Table</span><span class="o">`</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="n">ROUND</span><span class="p">((</span><span class="n">data_length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">index_length</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="n">Size_MB</span><span class="o">`</span><span class="w">  </span>
+<span class="k">FROM</span><span class="w">   </span>
+<span class="w">    </span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span><span class="w">  </span>
+<span class="k">WHERE</span><span class="w">   </span>
+<span class="w">    </span><span class="n">table_schema</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;information_schema&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;performance_schema&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mysql&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;sys&#39;</span><span class="p">)</span><span class="w">  </span><span class="c1">-- 排除系统数据库  </span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w">   </span>
+<span class="w">    </span><span class="o">`</span><span class="n">Size_MB</span><span class="o">`</span><span class="w"> </span><span class="k">DESC</span><span class="w">  </span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="invalid-default-value-for-update_time">Invalid default value for 'update_time'</h2>
 <p>MySQL 5.7.33  </p>
 <p>update_time 默认值 '0000-00-00 00:00:00'(零时间戳)，不满足sql_mode中的NO_ZERO_DATE而报错。  </p>
 <p>NO_ZERO_DATE：若设置该值，MySQL数据库不允许插入零日期，插入零日期会抛出错误而不是警告。  </p>
