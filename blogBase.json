@@ -3671,21 +3671,23 @@
         "P174": {
             "number": "174",
             "htmlDir": "docs/post/174.html",
-            "markdown": "backup/174-Centos7.9 \u5b89\u88c5RabbitMQ 3.10.0.md",
-            "labels": [],
-            "postTitle": "Centos7.9 \u5b89\u88c5RabbitMQ 3.10.0",
+            "markdown": "backup/174-CentOS 7.9 \u5b89\u88c5RabbitMQ 3.10.0.md",
+            "labels": [
+                "Linux"
+            ],
+            "postTitle": "CentOS 7.9 \u5b89\u88c5RabbitMQ 3.10.0",
             "postUrl": "post/174.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/174",
             "commentNum": 0,
             "createdAt": 1763543746,
-            "updatedAt": 1763543746,
+            "updatedAt": 1763975200,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-11-19",
-            "dateLabelColor": "hsl(140, 48%, 32%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u5728CentOS 7.9\u4e0a\u901a\u8fc7yum\u5b89\u88c5RabbitMQ 3.10.0\u7684\u6b65\u9aa4\uff0c\u5305\u62ec\u6dfb\u52a0yum\u6e90\u3001\u66f4\u65b0\u7cfb\u7edf\u3001\u5b89\u88c5\u5fc5\u8981\u7684\u8f6f\u4ef6\u5305\u3001\u542f\u52a8RabbitMQ\u670d\u52a1\u3001\u6dfb\u52a0\u7528\u6237\u4ee5\u53ca\u5b89\u88c5\u63d2\u4ef6\u3002\u7528\u6237\u9700\u6ce8\u610f\uff0c\u914d\u7f6e\u4e2d\u7684GitHub\u5730\u5740\u53ef\u80fd\u56e0\u5730\u533a\u9650\u5236\u65e0\u6cd5\u8bbf\u95ee\uff0c\u5efa\u8bae\u66f4\u6362\u4e3a\u52a0\u901f\u5730\u5740\u3002\u6b64\u5916\uff0c\u6587\u4e2d\u63d0\u5230\u7684RabbitMQ\u7248\u672c\u4e3a3.10.0\uff0c\u4f46\u672a\u8bf4\u660eErlang\u7684\u7248\u672c\u8981\u6c42\uff0c\u53ef\u80fd\u5bfc\u81f4\u517c\u5bb9\u6027\u95ee\u9898\u3002",
-            "buildedAt": 1763543746
+            "dateLabelColor": "hsl(144, 70%, 36%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u5728CentOS 7.9\u4e0a\u901a\u8fc7yum\u5b89\u88c5RabbitMQ 3.10.0\u7684\u6b65\u9aa4\u3002\u9996\u5148\uff0c\u7528\u6237\u9700\u6dfb\u52a0RabbitMQ\u7684yum\u6e90\uff0c\u5e76\u6ce8\u610f\u53ef\u80fd\u56e0\u8bbf\u95ee\u9650\u5236\u800c\u65e0\u6cd5\u4f7f\u7528GitHub\u5730\u5740\uff0c\u5efa\u8bae\u66f4\u6362\u4e3a\u52a0\u901f\u5730\u5740\u3002\u63a5\u7740\uff0c\u6267\u884cyum\u66f4\u65b0\u548c\u5b89\u88c5\u6240\u9700\u7684\u8f6f\u4ef6\u5305\uff0c\u5305\u62ecsocat\u548cerlang\u3002\u7136\u540e\uff0c\u542f\u52a8RabbitMQ\u670d\u52a1\u5e76\u68c0\u67e5\u5176\u72b6\u6001\u3002\u7528\u6237\u53ef\u4ee5\u6dfb\u52a0\u65b0\u7528\u6237\u5e76\u8bbe\u7f6e\u6743\u9650\uff0c\u540c\u65f6\u5220\u9664\u9ed8\u8ba4\u7684guest\u7528\u6237\u3002\u6700\u540e\uff0c\u7528\u6237\u80fd\u901a\u8fc7\u542f\u7528\u7ba1\u7406\u548c\u65e5\u5fd7\u63d2\u4ef6\u6765\u8bbf\u95ee\u7ba1\u7406\u754c\u9762\uff0c\u4f7f\u7528admin\u8d26\u6237\u8fdb\u884c\u767b\u5f55\u6d4b\u8bd5\u3002\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0c\u5b89\u88c5\u8fc7\u7a0b\u4e2d\u7684GitHub\u5730\u5740\u53ef\u80fd\u4f1a\u51fa\u73b0\u8bbf\u95ee\u95ee\u9898\uff0c\u7528\u6237\u5e94\u63d0\u524d\u505a\u597d\u76f8\u5e94\u7684\u8c03\u6574\u3002",
+            "buildedAt": 1763975200
         },
         "P175": {
             "number": "175",

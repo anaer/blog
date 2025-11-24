@@ -15,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>Centos7.9 安装RabbitMQ 3.10.0</title>
+<title>CentOS 7.9 安装RabbitMQ 3.10.0</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/dimmed.css" rel="stylesheet" />
 
 </head>
@@ -98,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">Centos7.9 安装RabbitMQ 3.10.0</a>
+    <a style="font-size:18px">CentOS 7.9 安装RabbitMQ 3.10.0</a>
 </h1>
 
 <div class="title-right">
@@ -126,21 +126,25 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-11-19 17:15:46</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-24 17:06:40</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在CentOS 7.9上通过yum安装RabbitMQ 3.10.0的步骤，包括添加yum源、更新系统、安装必要的软件包、启动RabbitMQ服务、添加用户以及安装插件。用户需注意，配置中的GitHub地址可能因地区限制无法访问，建议更换为加速地址。此外，文中提到的RabbitMQ版本为3.10.0，但未说明Erlang的版本要求，可能导致兼容性问题。
+    <strong>AI总结:</strong> 本文介绍了在CentOS 7.9上通过yum安装RabbitMQ 3.10.0的步骤。首先，用户需添加RabbitMQ的yum源，并注意可能因访问限制而无法使用GitHub地址，建议更换为加速地址。接着，执行yum更新和安装所需的软件包，包括socat和erlang。然后，启动RabbitMQ服务并检查其状态。用户可以添加新用户并设置权限，同时删除默认的guest用户。最后，用户能通过启用管理和日志插件来访问管理界面，使用admin账户进行登录测试。需要注意的是，安装过程中的GitHub地址可能会出现访问问题，用户应提前做好相应的调整。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h1 id="centos79-rabbitmq-3100">Centos7.9 安装RabbitMQ 3.10.0</h1>
+    <h1 id="centos-79-rabbitmq-3100">CentOS 7.9 安装RabbitMQ 3.10.0</h1>
 <p>编译安装下包太慢, 而且可能存在各种问题, 所以简单点直接yum安装  </p>
 <h2 id="yum">添加yum源</h2>
 <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
@@ -263,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/173.html" aria-label="Previous Page">CentOS 7.9 迁移MongoDB 3.0.6</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/173.html" aria-label="Previous Page">CentOS 7.9 迁移MongoDB 3.0.6</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/175.html" aria-label="Next Page">Python 查询所有表中带url的字段 取值包含xxx.com内容的字段</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
