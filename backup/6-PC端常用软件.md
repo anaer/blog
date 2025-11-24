@@ -74,6 +74,7 @@
 10. ~~mucommander~~ [GitHub](https://github.com/mucommander/mucommander/releases/)多端 支持Mac
 11. ~~doublecmd~~  [GitHub](https://github.com/doublecmd/doublecmd/releases/) 多端 支持Mac
 12. ~~FileConverter~~ 文件转换 [GitHub](https://github.com/Tichau/FileConverter/releases) 
+13. TrafficMonitor [GitHub](https://github.com/zhongyang219/TrafficMonitor) 支持插件 可看天气股票
 
 ## 健康
 1. ~~LightBulb~~ 开源护眼软件 [GitHub](https://github.com/Tyrrrz/LightBulb/releases/) 效果一般
