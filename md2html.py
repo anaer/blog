@@ -15,8 +15,24 @@ class Markdown2GithubHtml:
     # GitHub 官方样式（自动跟随亮色/暗色）
     CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css"
 
-    # 额外内联 JS：折叠+复制
+    # 额外内联 JS：折叠+复制 + 按钮样式
     EXTRA_JS = """
+<style>
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  margin-right: 4px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
@@ -24,8 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const code = btn.nextElementSibling.querySelector('code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        // 切换为已复制图标
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          // 恢复为复制图标
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -36,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const pre = e.target.parentElement.querySelector('pre');
       const collapsed = pre.style.display === 'none';
       pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
@@ -74,14 +94,21 @@ document.addEventListener('DOMContentLoaded', () => {
     def _add_controls(self, html: str) -> str:
         """
         为每个 <pre><code>...</code></pre> 插入控制元素：
-          <button class='fold-btn'>收起</button>
+          <button class='fold-btn'>▲</button>
           <button class='copy-btn'>复制</button>
         """
         def _repl(m):
             pre_tag = m.group(0)
             # 代码块第一行前插入按钮
-            controls = ('<button class="fold-btn">收起</button>'
-                        '<button class="copy-btn">复制</button>')
+            controls = (
+                '<button class="fold-btn">▲</button>'
+                '<button class="copy-btn">'
+                '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle">'
+                '<rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/>'
+                '<rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/>'
+                '</svg>'
+                '</button>'
+            )
             return '<div>' + controls + '\n' + pre_tag + '</div>'
 
         # 匹配 <pre> 标签，允许 <pre> 内 <code> 前存在 <span> 等标签
@@ -107,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return full_html
 
 # =====================
-# 简易 CLI，可直接 `python md2html.py file.md > out.html`
+# 简易 CLI，可直接 `python md2html.py file.md out.html`
 if __name__ == "__main__":
     import sys
     tool = Markdown2GithubHtml()
