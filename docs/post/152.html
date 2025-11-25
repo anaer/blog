@@ -16,7 +16,7 @@
     </script>
     
 <title>Docker常用命令表</title>
-
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia-light.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -137,10 +137,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-26 16:39:53</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-25 11:05:25</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-25 11:23:53</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Docker的常用命令及其说明，包括如何运行容器、查看和管理镜像、停止和删除容器、构建镜像、执行命令、查看日志、检查详细信息、文件拷贝、资源使用、连接容器、查看进程、生成新镜像、清理无用资源、查看版本、网络和卷的管理，以及使用Docker Compose管理项目。改进建议包括增加命令的使用场景和注意事项，以帮助用户更好地理解每个命令的应用。
+    <strong>AI总结:</strong> 本文介绍了Docker常用命令及其功能，包括运行容器、列出容器、查看镜像、下载镜像、停止和删除容器、构建镜像、执行命令、查看日志、检查资源使用、连接容器、管理网络和卷等操作。同时，提供了一个脚本用于检测多个Docker镜像源的可用性。改进建议包括增加对每个命令的使用场景和注意事项的说明，以帮助用户更好地理解和应用这些命令。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -291,6 +291,47 @@ pre {
 <h2 id="docker_1">Docker镜像</h2>
 <p><a href="https://github.com/dongyubin/DockerHub">DockerHub国内镜像列表</a>  </p>
 <p><a href="https://status.1panel.top/status/docker">国内 Docker 服务状态 &amp; 镜像加速监控</a>  </p>
+<h2 id="docker_2">Docker镜像源检测</h2>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<pre><span></span><code><span class="ch">#!/bin/bash  </span>
+
+<span class="c1"># 设置要检测的镜像源列表  </span>
+<span class="nv">REGISTRIES</span><span class="o">=(</span><span class="w">  </span>
+<span class="w">    </span><span class="s2">&quot;docker.io&quot;</span><span class="w">                       </span><span class="c1"># Docker 官方源  </span>
+<span class="w">    </span><span class="s2">&quot;docker.1ms.run&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="s2">&quot;docker.m.daocloud.io&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">#&quot;docker.ketches.cn&quot;  </span>
+<span class="w">    </span><span class="c1">#&quot;hub1.nat.tf&quot;  </span>
+<span class="w">    </span><span class="c1">#&quot;hub2.nat.tf&quot;  </span>
+<span class="w">    </span><span class="c1">#&quot;registry.cn-hangzhou.aliyuncs.com&quot;  # 阿里云镜像源  </span>
+<span class="w">    </span><span class="c1">#&quot;hub-mirror.c.163.com&quot;              # 网易云镜像源  </span>
+<span class="w">    </span><span class="c1">#&quot;mirror.huaweicloud.com&quot;            # 华为云镜像源  </span>
+<span class="w">    </span><span class="c1">#&quot;registry.docker-cn.com&quot;            # Docker 官方中国镜像  </span>
+<span class="o">)</span><span class="w">  </span>
+
+<span class="c1"># 检测镜像源是否可用  </span>
+<span class="k">function</span><span class="w"> </span>check_registry<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">registry</span><span class="o">=</span><span class="nv">$1</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;正在检测镜像源: </span><span class="si">${</span><span class="nv">registry</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1"># 使用 docker pull 拉取一个小镜像（如 hello-world）来检测源的可用性  </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">registry</span><span class="si">}</span><span class="s2">/hello-world&quot;</span><span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w">  </span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;镜像源 </span><span class="si">${</span><span class="nv">registry</span><span class="si">}</span><span class="s2"> 可用&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">else</span><span class="w">  </span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;镜像源 </span><span class="si">${</span><span class="nv">registry</span><span class="si">}</span><span class="s2"> 不可用&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">fi</span><span class="w">  </span>
+<span class="o">}</span><span class="w">  </span>
+
+<span class="c1"># 批量检测多个镜像源  </span>
+<span class="k">function</span><span class="w"> </span>check_all_registries<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>registry<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">REGISTRIES</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w">  </span>
+<span class="w">        </span>check_registry<span class="w"> </span><span class="nv">$registry</span><span class="w">  </span>
+<span class="w">    </span><span class="k">done</span><span class="w">  </span>
+<span class="o">}</span><span class="w">  </span>
+
+<span class="c1"># 执行批量检测  </span>
+check_all_registries<span class="w">  </span>
+</code></pre></div></div>
   </article>
   
 <style>

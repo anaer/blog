@@ -145,6 +145,47 @@
 <h2 id="docker_1">Docker镜像</h2>
 <p><a href="https://github.com/dongyubin/DockerHub">DockerHub国内镜像列表</a>  </p>
 <p><a href="https://status.1panel.top/status/docker">国内 Docker 服务状态 &amp; 镜像加速监控</a>  </p>
+<h2 id="docker_2">Docker镜像源检测</h2>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<pre><span></span><code><span class="ch">#!/bin/bash  </span>
+
+<span class="c1"># 设置要检测的镜像源列表  </span>
+<span class="nv">REGISTRIES</span><span class="o">=(</span><span class="w">  </span>
+<span class="w">    </span><span class="s2">&quot;docker.io&quot;</span><span class="w">                       </span><span class="c1"># Docker 官方源  </span>
+<span class="w">    </span><span class="s2">&quot;docker.1ms.run&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="s2">&quot;docker.m.daocloud.io&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">#&quot;docker.ketches.cn&quot;  </span>
+<span class="w">    </span><span class="c1">#&quot;hub1.nat.tf&quot;  </span>
+<span class="w">    </span><span class="c1">#&quot;hub2.nat.tf&quot;  </span>
+<span class="w">    </span><span class="c1">#&quot;registry.cn-hangzhou.aliyuncs.com&quot;  # 阿里云镜像源  </span>
+<span class="w">    </span><span class="c1">#&quot;hub-mirror.c.163.com&quot;              # 网易云镜像源  </span>
+<span class="w">    </span><span class="c1">#&quot;mirror.huaweicloud.com&quot;            # 华为云镜像源  </span>
+<span class="w">    </span><span class="c1">#&quot;registry.docker-cn.com&quot;            # Docker 官方中国镜像  </span>
+<span class="o">)</span><span class="w">  </span>
+
+<span class="c1"># 检测镜像源是否可用  </span>
+<span class="k">function</span><span class="w"> </span>check_registry<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">registry</span><span class="o">=</span><span class="nv">$1</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;正在检测镜像源: </span><span class="si">${</span><span class="nv">registry</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1"># 使用 docker pull 拉取一个小镜像（如 hello-world）来检测源的可用性  </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">registry</span><span class="si">}</span><span class="s2">/hello-world&quot;</span><span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w">  </span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;镜像源 </span><span class="si">${</span><span class="nv">registry</span><span class="si">}</span><span class="s2"> 可用&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">else</span><span class="w">  </span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;镜像源 </span><span class="si">${</span><span class="nv">registry</span><span class="si">}</span><span class="s2"> 不可用&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">fi</span><span class="w">  </span>
+<span class="o">}</span><span class="w">  </span>
+
+<span class="c1"># 批量检测多个镜像源  </span>
+<span class="k">function</span><span class="w"> </span>check_all_registries<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>registry<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">REGISTRIES</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w">  </span>
+<span class="w">        </span>check_registry<span class="w"> </span><span class="nv">$registry</span><span class="w">  </span>
+<span class="w">    </span><span class="k">done</span><span class="w">  </span>
+<span class="o">}</span><span class="w">  </span>
+
+<span class="c1"># 执行批量检测  </span>
+check_all_registries<span class="w">  </span>
+</code></pre></div></div>
   </article>
   
 <style>
