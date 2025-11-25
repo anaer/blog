@@ -142,8 +142,27 @@
 </tr>
 </tbody>
 </table>
+<h2 id="docker_1">Docker镜像</h2>
+<p><a href="https://github.com/dongyubin/DockerHub">DockerHub国内镜像列表</a>  </p>
+<p><a href="https://status.1panel.top/status/docker">国内 Docker 服务状态 &amp; 镜像加速监控</a>  </p>
   </article>
   
+<style>
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  margin-right: 4px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
@@ -151,8 +170,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const code = btn.nextElementSibling.querySelector('code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        // 切换为已复制图标
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          // 恢复为复制图标
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -163,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const pre = e.target.parentElement.querySelector('pre');
       const collapsed = pre.style.display === 'none';
       pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });

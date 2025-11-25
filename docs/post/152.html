@@ -15,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X98 Docker常用命令表</title>
+<title>Docker常用命令表</title>
 
 
 </head>
@@ -98,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X98 Docker常用命令表</a>
+    <a style="font-size:18px">Docker常用命令表</a>
 </h1>
 
 <div class="title-right">
@@ -126,15 +126,21 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#1606df">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Wins">Wins</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-09-26 16:39:53</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-25 11:05:25</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Docker的常用命令及其说明，包括容器的运行、停止、删除，镜像的管理，文件的拷贝，以及网络和卷的操作等。每个命令都配有示例，便于用户理解和使用。然而，文本中未提及一些重要的命令选项和参数，可能导致用户在实际使用中遇到困难。此外，命令的使用场景和最佳实践没有详细说明，可能影响用户对Docker的全面理解。
+    <strong>AI总结:</strong> 本文介绍了Docker的常用命令及其说明，包括如何运行容器、查看和管理镜像、停止和删除容器、构建镜像、执行命令、查看日志、检查详细信息、文件拷贝、资源使用、连接容器、查看进程、生成新镜像、清理无用资源、查看版本、网络和卷的管理，以及使用Docker Compose管理项目。改进建议包括增加命令的使用场景和注意事项，以帮助用户更好地理解每个命令的应用。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -282,8 +288,27 @@ pre {
 </tr>
 </tbody>
 </table>
+<h2 id="docker_1">Docker镜像</h2>
+<p><a href="https://github.com/dongyubin/DockerHub">DockerHub国内镜像列表</a>  </p>
+<p><a href="https://status.1panel.top/status/docker">国内 Docker 服务状态 &amp; 镜像加速监控</a>  </p>
   </article>
   
+<style>
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  margin-right: 4px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
@@ -291,8 +316,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const code = btn.nextElementSibling.querySelector('code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        // 切换为已复制图标
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          // 恢复为复制图标
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -303,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const pre = e.target.parentElement.querySelector('pre');
       const collapsed = pre.style.display === 'none';
       pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
@@ -311,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/151.html" aria-label="Previous Page">0X97 Elasticsearch 常见分词器</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/151.html" aria-label="Previous Page">0X97 Elasticsearch 常见分词器</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/153.html" aria-label="Next Page">logrotate配置参数一览</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -393,8 +422,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
