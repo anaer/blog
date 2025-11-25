@@ -48,6 +48,25 @@ sql_mode=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AU
 <span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">  </span>
 <span class="k">SHOW</span><span class="w"> </span><span class="n">GRANTS</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="s1">&#39;replica_user&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span><span class="w">  </span>
 </code></pre></div></div>
+<h2 id="binlog_1">开启binlog</h2>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<pre><span></span><code>[mysqld]  
+server-id=1  
+log-bin = /data/mysql/binlog/mysql-bin  
+binlog_format = ROW  
+expire_logs_days = 10  
+</code></pre></div></div>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<pre><span></span><code><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;log_bin&#39;</span><span class="p">;</span><span class="w">  </span>
+<span class="k">SHOW</span><span class="w"> </span><span class="nb">BINARY</span><span class="w"> </span><span class="n">LOGS</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_1">开启慢查询日志</h2>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<pre><span></span><code>[mysqld]  
+slow_query_log = ON  
+long_query_time = 1  
+slow_query_log_file=/data/mysql/mysql-slow.log  
+</code></pre></div></div>
   </article>
   
 <style>

@@ -64,3 +64,26 @@ GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
 FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'replica_user'@'%';
 ```
+
+## 开启binlog
+```conf
+[mysqld]
+server-id=1
+log-bin = /data/mysql/binlog/mysql-bin
+binlog_format = ROW
+expire_logs_days = 10
+```
+
+```sql
+SHOW VARIABLES LIKE 'log_bin';
+SHOW BINARY LOGS;
+```
+
+## 开启慢查询日志
+```conf
+[mysqld]
+slow_query_log = ON
+long_query_time = 1
+slow_query_log_file=/data/mysql/mysql-slow.log
+
+```
