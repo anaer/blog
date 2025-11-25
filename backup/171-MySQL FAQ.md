@@ -56,3 +56,11 @@ sql_mode=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AU
 ```
 
 重启mysql
+
+## binlog复制权限
+
+```sql
+GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
+FLUSH PRIVILEGES;
+SHOW GRANTS FOR 'replica_user'@'%';
+```

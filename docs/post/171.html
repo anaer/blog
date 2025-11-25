@@ -135,17 +135,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-11-13 17:10:42</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-24 15:53:21</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-25 14:32:02</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何查询MySQL数据库的容量和容量最大的10张表。首先，通过查询information_schema.tables，可以获取每个数据库的大小，并按大小降序排列。其次，查询容量最大的10张表时，需要排除系统数据库。文中提到在MySQL 5.7.33中，使用零时间戳作为默认值会导致错误，因为它不符合sql_mode中的NO_ZERO_DATE设置。为解决此问题，建议修改MySQL配置文件，去掉NO_ZERO_DATE选项，并重启MySQL服务。需要指出的是，虽然文中提到的修改sql_mode可以避免错误，但可能会影响其他功能，因此在修改之前应充分评估影响。
+    <strong>AI总结:</strong> 本文介绍了如何查询MySQL数据库的容量及容量最大的表，并指出了在MySQL 5.7.33中遇到的默认时间戳值问题，特别是与NO_ZERO_DATE相关的错误。首先，通过SQL语句获取每个数据库的大小和容量最大的10张表。接着，提到在严格模式下，零时间戳会导致插入失败，并提供了修改sql_mode的步骤以解决此问题。最后，介绍了如何为binlog复制设置权限。改进建议包括提供更多关于如何处理容量超限的建议和优化数据库性能的方法。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
     <h2 id="db">查询每个db容量</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code><span class="k">SELECT</span><span class="w">   </span>
 <span class="w">    </span><span class="n">table_schema</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="k">Database</span><span class="o">`</span><span class="p">,</span><span class="w">  </span>
 <span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">data_length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">index_length</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="n">Size_MB</span><span class="o">`</span><span class="w">  </span>
@@ -156,7 +156,7 @@ pre {
 <span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">`</span><span class="n">Size_MB</span><span class="o">`</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">  </span>
 </code></pre></div></div>
 <h2 id="10">查询容量最大的10张表</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code><span class="k">SELECT</span><span class="w">   </span>
 <span class="w">    </span><span class="n">table_schema</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="k">Database</span><span class="o">`</span><span class="p">,</span><span class="w">  </span>
 <span class="w">    </span><span class="k">table_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="k">Table</span><span class="o">`</span><span class="p">,</span><span class="w">  </span>
@@ -174,20 +174,42 @@ pre {
 <p>update_time 默认值 '0000-00-00 00:00:00'(零时间戳)，不满足sql_mode中的NO_ZERO_DATE而报错。  </p>
 <p>NO_ZERO_DATE：若设置该值，MySQL数据库不允许插入零日期，插入零日期会抛出错误而不是警告。  </p>
 <p>5.7版本默认严格模式  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;sql_mode&#39;</span><span class="p">;</span><span class="w">  </span>
 </code></pre></div></div>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code>ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION  
 </code></pre></div></div>
 <p>修改/etc/my.cnf  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code>[mysqld]  
 sql_mode=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION  
 </code></pre></div></div>
 <p>重启mysql  </p>
+<h2 id="binlog">binlog复制权限</h2>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<pre><span></span><code><span class="k">GRANT</span><span class="w"> </span><span class="n">REPLICATION</span><span class="w"> </span><span class="n">SLAVE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;replica_user&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span><span class="w">  </span>
+<span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">  </span>
+<span class="k">SHOW</span><span class="w"> </span><span class="n">GRANTS</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="s1">&#39;replica_user&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
   </article>
   
+<style>
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  margin-right: 4px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
@@ -195,8 +217,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const code = btn.nextElementSibling.querySelector('code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        // 切换为已复制图标
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          // 恢复为复制图标
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -207,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const pre = e.target.parentElement.querySelector('pre');
       const collapsed = pre.style.display === 'none';
       pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
