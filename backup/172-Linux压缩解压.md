@@ -1,16 +1,38 @@
-zip格式
+## atool 智能压缩解压工具
+
+atool 会根据文件类型自动选择正确的解压方式。
+
+安装（CentOS/RedHat）：
+```sh
+yum install atool -y
+```
+
+解压任意压缩包：
+```sh
+aunpack yourfile.xxx
+```
+
+压缩：
+```sh
+apack out.zip file1 file2 dir/
+```
+
+识别所有常见格式，实现几乎“全自动”。
+
+
+## zip格式
 ```sh
 $ zip -r [目标文件名].zip [原文件/目录名]
 $ unzip [原文件名].zip
 ```
 
-tar格式
+## tar格式
 ```sh
 $ tar -cvf [目标文件名].tar [原文件名/目录名]
 $ tar -xvf [原文件名].tar
 ```
 
-tar.gz格式
+## tar.gz格式
 ```sh
 $ gzip [原文件名].tar
 $ gunzip [原文件名].tar.gz
@@ -19,7 +41,7 @@ $ tar -zcvf [目标文件名].tar.gz [原文件名/目录名]
 $ tar -zxvf [原文件名].tar.gz
 ```
 
-tar.bz2格式
+## tar.bz2格式
 
 ```sh
 $ bzip2 [原文件名].tar
@@ -29,7 +51,7 @@ $ tar -jcvf [目标文件名].tar.bz2 [原文件名/目录名]
 $ tar -jxvf [原文件名].tar.bz2
 ```
 
-tar.xz格式
+## tar.xz格式
 
 ```sh
 $ xz [原文件名].tar
@@ -39,14 +61,14 @@ $ tar -Jcvf [目标文件名].tar.xz [原文件名/目录名]
 $ tar -Jxvf [原文件名].tar.xz
 ```
 
-7z格式
+## 7z格式
 
 ```sh
 $ 7z a [目标文件名].7z [原文件名/目录名]
 $ 7z x [原文件名].7z
 ```
 
-jar格式
+## jar格式
 
 ```sh
 $ jar -cvf [目标文件名].jar [原文件名/目录名]

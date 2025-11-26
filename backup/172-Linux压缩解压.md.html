@@ -1,46 +1,61 @@
 
   <article class="markdown-body">
-    <p>zip格式<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+    <h2 id="atool">atool 智能压缩解压工具</h2>
+<p>atool 会根据文件类型自动选择正确的解压方式。  </p>
+<p>安装（CentOS/RedHat）：<br />
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<pre><span></span><code>yum<span class="w"> </span>install<span class="w"> </span>atool<span class="w"> </span>-y<span class="w">  </span>
+</code></pre></div></div></p>
+<p>解压任意压缩包：<br />
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<pre><span></span><code>aunpack<span class="w"> </span>yourfile.xxx<span class="w">  </span>
+</code></pre></div></div></p>
+<p>压缩：<br />
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<pre><span></span><code>apack<span class="w"> </span>out.zip<span class="w"> </span>file1<span class="w"> </span>file2<span class="w"> </span>dir/<span class="w">  </span>
+</code></pre></div></div></p>
+<p>识别所有常见格式，实现几乎“全自动”。  </p>
+<h2 id="zip">zip格式</h2>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code>$<span class="w"> </span>zip<span class="w"> </span>-r<span class="w"> </span><span class="o">[</span>目标文件名<span class="o">]</span>.zip<span class="w"> </span><span class="o">[</span>原文件/目录名<span class="o">]</span><span class="w">  </span>
 $<span class="w"> </span>unzip<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.zip<span class="w">  </span>
-</code></pre></div></div></p>
-<p>tar格式<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+</code></pre></div></div>
+<h2 id="tar">tar格式</h2>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-cvf<span class="w"> </span><span class="o">[</span>目标文件名<span class="o">]</span>.tar<span class="w"> </span><span class="o">[</span>原文件名/目录名<span class="o">]</span><span class="w">  </span>
 $<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.tar<span class="w">  </span>
-</code></pre></div></div></p>
-<p>tar.gz格式<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+</code></pre></div></div>
+<h2 id="targz">tar.gz格式</h2>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code>$<span class="w"> </span>gzip<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.tar<span class="w">  </span>
 $<span class="w"> </span>gunzip<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.tar.gz<span class="w">  </span>
 
 $<span class="w"> </span>tar<span class="w"> </span>-zcvf<span class="w"> </span><span class="o">[</span>目标文件名<span class="o">]</span>.tar.gz<span class="w"> </span><span class="o">[</span>原文件名/目录名<span class="o">]</span><span class="w">  </span>
 $<span class="w"> </span>tar<span class="w"> </span>-zxvf<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.tar.gz<span class="w">  </span>
-</code></pre></div></div></p>
-<p>tar.bz2格式  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+</code></pre></div></div>
+<h2 id="tarbz2">tar.bz2格式</h2>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code>$<span class="w"> </span>bzip2<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.tar<span class="w">  </span>
 $<span class="w"> </span>bunzip2<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.tar.bz2<span class="w">  </span>
 
 $<span class="w"> </span>tar<span class="w"> </span>-jcvf<span class="w"> </span><span class="o">[</span>目标文件名<span class="o">]</span>.tar.bz2<span class="w"> </span><span class="o">[</span>原文件名/目录名<span class="o">]</span><span class="w">  </span>
 $<span class="w"> </span>tar<span class="w"> </span>-jxvf<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.tar.bz2<span class="w">  </span>
 </code></pre></div></div>
-<p>tar.xz格式  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<h2 id="tarxz">tar.xz格式</h2>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code>$<span class="w"> </span>xz<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.tar<span class="w">  </span>
 $<span class="w"> </span>unxz<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.tar.xz<span class="w">  </span>
 
 $<span class="w"> </span>tar<span class="w"> </span>-Jcvf<span class="w"> </span><span class="o">[</span>目标文件名<span class="o">]</span>.tar.xz<span class="w"> </span><span class="o">[</span>原文件名/目录名<span class="o">]</span><span class="w">  </span>
 $<span class="w"> </span>tar<span class="w"> </span>-Jxvf<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.tar.xz<span class="w">  </span>
 </code></pre></div></div>
-<p>7z格式  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<h2 id="7z">7z格式</h2>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code>$<span class="w"> </span>7z<span class="w"> </span>a<span class="w"> </span><span class="o">[</span>目标文件名<span class="o">]</span>.7z<span class="w"> </span><span class="o">[</span>原文件名/目录名<span class="o">]</span><span class="w">  </span>
 $<span class="w"> </span>7z<span class="w"> </span>x<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.7z<span class="w">  </span>
 </code></pre></div></div>
-<p>jar格式  </p>
-<p><div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<h2 id="jar">jar格式</h2>
+<p><div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code>$<span class="w"> </span>jar<span class="w"> </span>-cvf<span class="w"> </span><span class="o">[</span>目标文件名<span class="o">]</span>.jar<span class="w"> </span><span class="o">[</span>原文件名/目录名<span class="o">]</span><span class="w">  </span>
 $<span class="w"> </span>jar<span class="w"> </span>-xvf<span class="w"> </span><span class="o">[</span>原文件名<span class="o">]</span>.jar<span class="w">  </span>
 注：如果是打包的是Java类库，并且该类库中存在主类，那么需要写一个META-INF/MANIFEST.MF配置文件，内容如下：<span class="w">  </span>
@@ -51,11 +66,27 @@ Created-By:<span class="w"> </span><span class="m">1</span>.8.0_27<span class="w
 Main-class:<span class="w"> </span>Main.class<span class="w">  </span>
 </code></pre></div></div>
 然后用如下命令打包：  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
 <pre><span></span><code>jar<span class="w"> </span>-cvfm<span class="w"> </span><span class="o">[</span>目标文件名<span class="o">]</span>.jar<span class="w"> </span>META-INF/MANIFEST.MF<span class="w"> </span><span class="o">[</span>原文件名/目录名<span class="o">]</span><span class="w"> </span>这样以后就能用“java<span class="w"> </span>-jar<span class="w"> </span><span class="o">[</span>文件名<span class="o">]</span>.jar”命令直接运行主类中的main方法了。<span class="w">  </span>
 </code></pre></div></div>
   </article>
   
+<style>
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  margin-right: 4px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
@@ -63,8 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const code = btn.nextElementSibling.querySelector('code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        // 切换为已复制图标
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          // 恢复为复制图标
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -75,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const pre = e.target.parentElement.querySelector('pre');
       const collapsed = pre.style.display === 'none';
       pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
