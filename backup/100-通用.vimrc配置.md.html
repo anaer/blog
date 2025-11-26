@@ -34,6 +34,9 @@ set ruler                     &quot; 显示光标位置
 set wrap                      &quot; 自动换行  
 set linebreak                 &quot; 在单词边界换行  
 
+autocmd InsertLeave * se nocul  &quot; 用浅色高亮当前行  
+autocmd InsertEnter * se cul    &quot; 用浅色高亮当前行  
+
 &quot; 搜索设置  
 set hlsearch                  &quot; 高亮搜索结果  
 set incsearch                 &quot; 增量搜索  
