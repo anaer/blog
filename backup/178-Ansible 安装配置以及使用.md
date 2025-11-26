@@ -57,3 +57,21 @@ ansible all -m copy -a "src=/root/myconf/nginx.conf dest=/etc/nginx/nginx.conf"
 ```sh
 ansible all -m shell -a "systemctl restart nginx"
 ```
+
+## 自动化
+
+Playbook 做成自动化：sync.yml
+
+```yaml
+- hosts: all
+  tasks:
+    - name: sync config
+      copy:
+        src: ./nginx.conf
+        dest: /etc/nginx/nginx.conf
+```
+
+运行：
+```sh
+ansible-playbook sync.yml
+```
