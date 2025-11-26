@@ -3713,6 +3713,27 @@
             "dateLabelColor": "hsl(140, 61%, 16%)",
             "description": "",
             "buildedAt": 1763703593
+        },
+        "P176": {
+            "number": "176",
+            "htmlDir": "docs/post/176.html",
+            "markdown": "backup/176-Linux \u7cfb\u7edf\u767b\u5f55\u65e5\u5fd7.md",
+            "labels": [
+                "Linux"
+            ],
+            "postTitle": "Linux \u7cfb\u7edf\u767b\u5f55\u65e5\u5fd7",
+            "postUrl": "post/176.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/176",
+            "commentNum": 0,
+            "createdAt": 1764123934,
+            "updatedAt": 1764123934,
+            "top": 0,
+            "style": "",
+            "script": "",
+            "createdDate": "2025-11-26",
+            "dateLabelColor": "hsl(140, 36%, 22%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86Linux\u7cfb\u7edf\u4e2d\u5e38\u89c1\u7684\u65e5\u5fd7\u6587\u4ef6\u53ca\u5176\u529f\u80fd\uff0c\u5305\u62ec/var/log/btmp\u8bb0\u5f55\u9519\u8bef\u767b\u5f55\u65e5\u5fd7\uff0c/var/log/lastlog\u8bb0\u5f55\u7528\u6237\u6700\u540e\u4e00\u6b21\u6210\u529f\u767b\u5f55\u65f6\u95f4\uff0c/var/log/wtmp\u6c38\u4e45\u8bb0\u5f55\u7528\u6237\u7684\u767b\u5f55\u548c\u6ce8\u9500\u4fe1\u606f\uff0c\u4ee5\u53ca\u7cfb\u7edf\u7684\u542f\u52a8\u548c\u5173\u673a\u4e8b\u4ef6\uff0c/var/log/utmp\u8bb0\u5f55\u5f53\u524d\u767b\u5f55\u7528\u6237\u7684\u4fe1\u606f\uff0c/var/log/secure\u5219\u8bb0\u5f55\u4e0e\u9a8c\u8bc1\u548c\u6388\u6743\u76f8\u5173\u7684\u4fe1\u606f\u3002\u6539\u8fdb\u5efa\u8bae\u662f\u53ef\u4ee5\u589e\u52a0\u5bf9\u8fd9\u4e9b\u65e5\u5fd7\u6587\u4ef6\u7684\u7ba1\u7406\u548c\u5206\u6790\u5de5\u5177\u7684\u4ecb\u7ecd\uff0c\u4ee5\u4fbf\u66f4\u597d\u5730\u5229\u7528\u8fd9\u4e9b\u65e5\u5fd7\u4fe1\u606f\u3002",
+            "buildedAt": 1764123934
         }
     },
     "singeListJson": {},

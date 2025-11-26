@@ -1,0 +1,56 @@
+
+  <article class="markdown-body">
+    <p>日志文件|说明<br />
+---|--|<br />
+<code>/var/log/btmp</code>|记录<strong>错误登录（登陆失败）</strong>日志；使用<strong>lastb</strong>命令查看<br />
+<code>/var/log/lastlog</code>|记录系统中所有用户最后一次成功登录时间，使用<strong>lastlog</strong>命令查看<br />
+<code>/var/log/wtmp</code>|永久记录所有用户的登录、注销信息，同时记录系统的启动、重启、关机事件；用<strong>last</strong>命令来查看<br />
+<code>/var/log/utmp</code>|只记录<strong>当前登录用户</strong>的信息；使用<strong>w,who,users</strong>等命令来查询<br />
+<code>/var/log/secure</code>|记录验证和授权方面的信息，如SSH登录，su切换用户，sudo授权，甚至添加用户和修改用户密码（Centos）  </p>
+  </article>
+  
+<style>
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  margin-right: 4px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        // 切换为已复制图标
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          // 恢复为复制图标
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
