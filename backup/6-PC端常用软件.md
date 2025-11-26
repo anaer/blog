@@ -13,7 +13,7 @@
 1. SmartPutty [GitHub](https://github.com/anaer/SmartPutty) Windows
 2. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 可集成到VSCode中
 3. ~~cnKiTTY~~ [GitHub](https://github.com/dZ8Lx9OwX/cnKiTTY/releases) KiTTY中文版 可集成WinSCP, 将WinSCP便携版程序放到同目录下
-4. ~~Putty~~ [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
+4. Putty [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
 5. ~~MobaXterm 中文版~~ [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) [keygen](https://github.com/ryanlycch/MobaXterm-keygen)
 6. ~~KiTTY~~ [GitHub](https://github.com/cyd01/KiTTY/releases)       
 7. ~~WindTerm~~ [GitHub](https://github.com/kingToolbox/WindTerm/releases/) 多端  
@@ -74,14 +74,14 @@
 10. ~~mucommander~~ [GitHub](https://github.com/mucommander/mucommander/releases/)多端 支持Mac
 11. ~~doublecmd~~  [GitHub](https://github.com/doublecmd/doublecmd/releases/) 多端 支持Mac
 12. ~~FileConverter~~ 文件转换 [GitHub](https://github.com/Tichau/FileConverter/releases) 
-13. TrafficMonitor [GitHub](https://github.com/zhongyang219/TrafficMonitor) 支持插件 可看天气股票
+13. TrafficMonitor [GitHub](https://github.com/zhongyang219/TrafficMonitor) 支持插件 可看天气股票  任务栏展示 会消失
 
 ## 健康
 1. ~~LightBulb~~ 开源护眼软件 [GitHub](https://github.com/Tyrrrz/LightBulb/releases/) 效果一般
 
 ## 办公
 1. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
-2. ~~OnlyOffice~~ [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
+2. OnlyOffice [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
 3. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
 
 ## 开发
@@ -107,20 +107,20 @@
 1. flink [阿里云镜像](https://mirrors.aliyun.com/apache/flink/)
 
 ### 抓包
-1. ProxyPin [GitHub](https://github.com/wanghongenpin/proxypin)
-2. ~~Charles~~ [官网](https://www.charlesproxy.com/latest-release)  [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
+1. ~~ProxyPin~~ [GitHub](https://github.com/wanghongenpin/proxypin)
+2. Charles [官网](https://www.charlesproxy.com/latest-release) [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
 3. ~~Proxifier~~ [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN)  [序列号](https://gist.github.com/montasim/11e313f82dc6c2aea28298941158429f) 代理工具 指定软件走代理
 4. ~~Wireshark~~ [官网](https://www.wireshark.org)
 
 ### 数据库
-1. HeidiSQL [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差, 不建议用来管理sqlite
-2. SQLiteStudio [官网](https://sqlitestudio.pl/)  [GitHub](https://github.com/pawelsalawa/sqlitestudio/releases/) SQLite客户端 表设计支持较好
+1. ~~HeidiSQL~~ [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差, 不建议用来管理sqlite
+2. ~~SQLiteStudio~~ [官网](https://sqlitestudio.pl/)  [GitHub](https://github.com/pawelsalawa/sqlitestudio/releases/) SQLite客户端 表设计支持较好
 3. ~~DB Browser for SQLite~~ [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)
 5. ~~Robo 3T~~ [GitHub](https://github.com/Studio3T/robomongo/releases) mongodb
 5. ~~Compass~~ [GitHub](https://github.com/mongodb-js/compass/releases) mongodb 要求mongo 4.x版本
-6. ~~Navicat~~ [官网](https://www.navicat.com.cn/)  [GitHub](https://github.com/shuhongfan/NavicatCracker/)
+6. Navicat [官网](https://www.navicat.com.cn/)  [GitHub](https://github.com/shuhongfan/NavicatCracker/)
 7. ~~SQLyog~~  [GitHub](https://github.com/webyog/sqlyog-community/wiki/Downloads) 网上有注册码 只支持mysql
-8. MySQL [化为云镜像](https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-5.7/)
+8. MySQL [华为云镜像](https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-5.7/)
 
 ### 版本控制
 1. Git [官网](https://git-scm.com/downloads/win) [GitHub](https://github.com/git-for-windows/git/releases/)
