@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,8 +15,8 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X64 通用.vimrc配置</title>
-
+<title>通用.vimrc配置</title>
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/colorblind-light.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X64 通用.vimrc配置</a>
+    <a style="font-size:18px">通用.vimrc配置</a>
 </h1>
 
 <div class="title-right">
@@ -133,82 +135,128 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-27 14:08:33</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-03-27 14:14:42</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-26 13:38:47</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了通用.vimrc配置，旨在解决服务器上vim中文乱码及Tab转空格问题，包含基本设置、编码设置、Tab和缩进设置、显示设置、搜索设置、其他实用设置、键映射以及保存和退出的快捷方式。
-
-优化建议：
-1. 考虑添加注释以解释每个设置的具体作用，帮助后续维护。
-2. 检查是否需要所有编码设置，简化配置以提高可读性。
-3. 根据个人习惯，选择性启用相对行号和光标行高亮功能，增强可视化效果。
-4. 评估是否需要启用鼠标支持，确保配置适合所有使用场景。
-5. 在键映射部分，考虑添加更多常用命令的快捷键，提高使用效率。
+    <strong>AI总结:</strong> 本文介绍了一个通用的.vimrc配置文件，主要用于解决服务器上Vim的中文乱码和Tab转空格的问题。配置文件包括基本设置、编码设置、Tab和缩进设置、显示设置、搜索设置、其他实用设置以及键映射。改进建议包括考虑添加更多注释以便更好地理解每项设置的作用，以及根据个人习惯调整键映射以提高使用效率。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">通用.vimrc配置</h2><a id="user-content-通用vimrc配置" class="anchor" aria-label="Permalink: 通用.vimrc配置" href="#通用vimrc配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>主要用来解决服务器上vim中文乱码, 以及tab转空格问题</p>
-<pre><code>" 基本设置
-set nocompatible              " 关闭 Vi 兼容模式，使用 Vim 增强功能
-filetype on                   " 启用文件类型检测
-filetype plugin on            " 启用文件类型插件
-filetype indent on            " 启用文件类型缩进
 
-" 编码设置（支持中文）
-set encoding=utf-8            " Vim 内部使用 UTF-8
-set fileencoding=utf-8        " 默认保存为 UTF-8
-set fileencodings=utf-8,gbk,gb2312,cp936  " 自动识别编码
-set termencoding=utf-8        " 终端编码
+  <article class="markdown-body">
+    <h2 id="vimrc">通用.vimrc配置</h2>
+<p>主要用来解决服务器上vim中文乱码, 以及tab转空格问题  </p>
+<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<pre><span></span><code>&quot; 基本设置  
+set nocompatible              &quot; 关闭 Vi 兼容模式，使用 Vim 增强功能  
+filetype on                   &quot; 启用文件类型检测  
+filetype plugin on            &quot; 启用文件类型插件  
+filetype indent on            &quot; 启用文件类型缩进  
+syn on                        &quot; 开启语法高亮功能  
 
-" Tab 和缩进设置
-set tabstop=4                 " Tab 显示为 4 个空格宽度
-set shiftwidth=4              " 自动缩进宽度为 4 个空格
-set expandtab                 " 将 Tab 转换为空格
-set smarttab                  " 根据 shiftwidth 插入空格
-set softtabstop=4             " 按 Tab 键时插入 4 个空格
-set autoindent                " 自动缩进
-set smartindent               " 智能缩进
+&quot; 编码设置（支持中文）  
+set encoding=utf-8            &quot; Vim 内部使用 UTF-8  
+set fileencoding=utf-8        &quot; 默认保存为 UTF-8  
+set fileencodings=utf-8,gbk,gb2312,cp936  &quot; 自动识别编码  
+set termencoding=utf-8        &quot; 终端编码  
 
-" 显示设置
-set number                    " 显示行号
-" set relativenumber            " 显示相对行号
-" set cursorline                " 高亮当前行
-set showcmd                   " 显示输入的命令
-set ruler                     " 显示光标位置
-set wrap                      " 自动换行
-set linebreak                 " 在单词边界换行
+&quot; Tab 和缩进设置  
+set tabstop=4                 &quot; Tab 显示为 4 个空格宽度  
+set shiftwidth=4              &quot; 自动缩进宽度为 4 个空格  
+set expandtab                 &quot; 将 Tab 转换为空格  
+set smarttab                  &quot; 根据 shiftwidth 插入空格  
+set softtabstop=4             &quot; 按 Tab 键时插入 4 个空格  
+set autoindent                &quot; 自动缩进  
+set smartindent               &quot; 智能缩进  
 
-" 搜索设置
-set hlsearch                  " 高亮搜索结果
-set incsearch                 " 增量搜索
-set ignorecase                " 搜索时忽略大小写
-set smartcase                 " 智能大小写（配合 ignorecase）
+&quot; 显示设置  
+set number                    &quot; 显示行号  
+&quot; set relativenumber            &quot; 显示相对行号  
+&quot; set cursorline                &quot; 高亮当前行  
+set showcmd                   &quot; 显示输入的命令  
+set ruler                     &quot; 显示光标位置  
+set wrap                      &quot; 自动换行  
+set linebreak                 &quot; 在单词边界换行  
 
-" 其他实用设置
-set backspace=indent,eol,start " 允许退格键删除缩进、换行符等
-set wildmenu                  " 命令补全增强
-" set mouse=a                   " 启用鼠标支持
-set clipboard=unnamedplus     " 使用系统剪贴板（需 Vim 支持 +clipboard）
+&quot; 搜索设置  
+set hlsearch                  &quot; 高亮搜索结果  
+set incsearch                 &quot; 增量搜索  
+set ignorecase                &quot; 搜索时忽略大小写  
+set smartcase                 &quot; 智能大小写（配合 ignorecase）  
 
-" 键映射
-nnoremap &lt;Tab&gt; &gt;&gt;             " Normal 模式下 Tab 增加缩进
-nnoremap &lt;S-Tab&gt; &lt;&lt;           " Normal 模式下 Shift+Tab 减少缩进
-inoremap &lt;S-Tab&gt; &lt;C-d&gt;        " Insert 模式下 Shift+Tab 减少缩进
+&quot; 其他实用设置  
+set backspace=indent,eol,start &quot; 允许退格键删除缩进、换行符等  
+set wildmenu                  &quot; 命令补全增强 按TAB键时命令行自动补全  
+&quot; set mouse=a                   &quot; 启用鼠标支持  
+set clipboard=unnamedplus     &quot; 使用系统剪贴板（需 Vim 支持 +clipboard）  
 
-" 取消高亮搜索结果
-nnoremap &lt;leader&gt;/ :nohlsearch&lt;CR&gt;
+&quot; 键映射  
+nnoremap &lt;Tab&gt; &gt;&gt;             &quot; Normal 模式下 Tab 增加缩进  
+nnoremap &lt;S-Tab&gt; &lt;&lt;           &quot; Normal 模式下 Shift+Tab 减少缩进  
+inoremap &lt;S-Tab&gt; &lt;C-d&gt;        &quot; Insert 模式下 Shift+Tab 减少缩进  
 
-" 默认 leader 键是 '\', 可根据需要调整
-let mapleader = ","           " 将 leader 键改为 ','
+map &lt;silent&gt; &lt;C-A&gt; gg v G $   &quot; Ctrl+A 选中所有内容  
 
-" 保存和退出
-nnoremap &lt;leader&gt;w :w&lt;CR&gt;     " 快速保存
-nnoremap &lt;leader&gt;q :q&lt;CR&gt;     " 快速退出
-</code></pre>
+&quot; 取消高亮搜索结果  
+nnoremap &lt;leader&gt;/ :nohlsearch&lt;CR&gt;  
+
+&quot; 默认 leader 键是 &#39;\&#39;, 可根据需要调整  
+let mapleader = &quot;,&quot;           &quot; 将 leader 键改为 &#39;,&#39;  
+
+&quot; 保存和退出  
+nnoremap &lt;leader&gt;w :w&lt;CR&gt;     &quot; 快速保存  
+nnoremap &lt;leader&gt;q :q&lt;CR&gt;     &quot; 快速退出  
+</code></pre></div></div>
+  </article>
+  
+<style>
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  margin-right: 4px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.nextElementSibling.querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        // 切换为已复制图标
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          // 恢复为复制图标
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const pre = e.target.parentElement.querySelector('pre');
+      const collapsed = pre.style.display === 'none';
+      pre.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/101.html" aria-label="Previous Page">0X65 openresty打印请求入参和出参</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/99.html" aria-label="Next Page">0X63 Ubuntu服务器中文乱码问题</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/99.html" aria-label="Previous Page">0X63 Ubuntu服务器中文乱码问题</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/101.html" aria-label="Next Page">0X65 openresty打印请求入参和出参</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -290,8 +338,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
