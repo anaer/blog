@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.nextElementSibling.querySelector('code').innerText;
       navigator.clipboard.writeText(code).then(() => {
         // 切换为已复制图标
         btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
+      const pre = e.target.parentElement.parentElement.querySelector('pre');
       const collapsed = pre.style.display === 'none';
       pre.style.display = collapsed ? 'block' : 'none';
       e.target.textContent = collapsed ? '▲' : '▼';
@@ -99,8 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
         """
         def _repl(m):
             pre_tag = m.group(0)
-            # 代码块第一行前插入按钮
+            # 代码块第一行前插入按钮，整体右对齐
             controls = (
+                '<div style="text-align:right; margin-bottom:2px;">'
                 '<button class="fold-btn">▲</button>'
                 '<button class="copy-btn">'
                 '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle">'
@@ -108,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 '<rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/>'
                 '</svg>'
                 '</button>'
+                '</div>'
             )
             return '<div>' + controls + '\n' + pre_tag + '</div>'
 
