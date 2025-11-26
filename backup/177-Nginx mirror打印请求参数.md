@@ -21,31 +21,43 @@ logging.basicConfig(
 def handle_request(path):
     logging.info("---------------------------------------------")
 
-    msg = "\n"
+    try:
+        msg = "\n"
 
-    msg = msg + f"{request.method} {request.headers['X-Forwarded-Proto']}://{request.headers['Host']}{request.headers['X-Mirror-Path']}" + "\n"
+        msg += f"{request.method} {request.headers['X-Forwarded-Proto']}://{request.headers['Host']}{request.headers['X-Mirror-Path']}" + "\n"
 
-    exclude_headers = {"Accept-Encoding", "Host", "Accept", "X-Mirror-Path", "Connection", "Content-Length", "X-Forwarded-Proto"}
-    filtered_headers = {k: v for k, v in request.headers.items() if k not in exclude_headers}
-    for k, v in filtered_headers.items():
-        msg = msg + f"{k}: {v}" + "\n"
+        exclude_headers = {"Accept-Encoding", "Host", "Accept", "X-Mirror-Path", "Connection", "Content-Length", "X-Forwarded-Proto"}
+        filtered_headers = {k: v for k, v in request.headers.items() if k not in exclude_headers}
+        for k, v in filtered_headers.items():
+            msg += f"{k}: {v}" + "\n"
 
-    if request.args:
-        args_str = "&".join([f"{key}={value}" for key, value in request.args.items()])
-        msg = msg + args_str
+        if request.args:
+            args_str = "&".join([f"{key}={value}" for key, value in request.args.items()])
+            msg += args_str
 
-    msg = msg + "\n"
+        msg += "\n"
 
-    if request.form:
-        form_str = "&".join([f"{key}={value}" for key, value in request.form.items()])
-        msg = msg + form_str
+        if request.form:
+            form_str = "&".join([f"{key}={value}" for key, value in request.form.items()])
+            msg += form_str
 
-    if request.is_json:
-        msg = msg + str(request.get_json())
-    else:
-        msg = msg + request.data.decode('utf-8')
+        #if request.is_json:
+        #    msg += str(request.get_json())
+        #else:
+        #    msg += request.data.decode('utf-8')
 
-    logging.info(msg)
+        # 尝试解析 JSON，force=True 表示忽略 Content-Type 也尝试解析
+        data = request.get_json(force=False, silent=True)
+
+        if data is not None:
+            msg += str(data)
+        else:
+            msg += request.get_data(as_text=True)
+
+        logging.info(msg)
+    except Exception as e:
+        logging.info(msg)
+        logging.error(e)
 
     return "Request received and logged"
 
