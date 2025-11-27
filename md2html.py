@@ -18,12 +18,24 @@ class Markdown2GithubHtml:
     # 额外内联 JS：折叠+复制 + 按钮样式
     EXTRA_JS = """
 <style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
 .fold-btn, .copy-btn {
   border: none;
   background: transparent;
   cursor: pointer;
   padding: 2px 6px;
-  margin-right: 4px;
   font-size: 16px;
   outline: none;
   box-shadow: none;
@@ -38,12 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.parentElement.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        // 切换为已复制图标
         btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
         setTimeout(() => {
-          // 恢复为复制图标
           btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
         }, 1500);
       });
@@ -99,9 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
         """
         def _repl(m):
             pre_tag = m.group(0)
-            # 代码块第一行前插入按钮，整体右对齐
             controls = (
-                '<div style="text-align:right; margin-bottom:2px;">'
+                '<div class="code-block-controls">'
                 '<button class="fold-btn">▲</button>'
                 '<button class="copy-btn">'
                 '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle">'
@@ -111,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 '</button>'
                 '</div>'
             )
-            return '<div>' + controls + '\n' + pre_tag + '</div>'
+            return f'<div class="code-block-wrapper">{controls}\n{pre_tag}</div>'
 
         # 匹配 <pre> 标签，允许 <pre> 内 <code> 前存在 <span> 等标签
         # 例如 <pre><span ...></span><code>...</code></pre>
