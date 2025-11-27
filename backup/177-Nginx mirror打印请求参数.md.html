@@ -2,7 +2,7 @@
   <article class="markdown-body">
     <p>Python 3.6.8  </p>
 <h2 id="apppy">app.py</h2>
-<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>  
 <span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span>  
 
@@ -65,7 +65,7 @@
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">9876</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
 </code></pre></div></div>
 <h2 id="pm2json">pm2.json</h2>
-<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;apps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
 <span class="w">    </span><span class="p">{</span><span class="w">  </span>
@@ -82,8 +82,11 @@
 <span class="w">  </span><span class="p">]</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 </code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>pm2<span class="w"> </span>start<span class="w"> </span>pm2.json<span class="w">  </span>
+</code></pre></div></div>
 <h2 id="nginx">nginx</h2>
-<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>location / {  
     proxy_pass http://backend;  
 
@@ -111,12 +114,24 @@ location = /mirrorlog {
   </article>
   
 <style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
 .fold-btn, .copy-btn {
   border: none;
   background: transparent;
   cursor: pointer;
   padding: 2px 6px;
-  margin-right: 4px;
   font-size: 16px;
   outline: none;
   box-shadow: none;
@@ -131,12 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        // 切换为已复制图标
         btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
         setTimeout(() => {
-          // 恢复为复制图标
           btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
         }, 1500);
       });
@@ -146,9 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
       e.target.textContent = collapsed ? '▲' : '▼';
     }
   });

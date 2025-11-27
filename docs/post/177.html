@@ -137,10 +137,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-11-26 13:10:48</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-26 15:59:00</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-27 16:57:53</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了一个使用Flask框架的Python应用程序，该应用程序用于处理HTTP请求并记录请求的详细信息。应用程序配置了日志记录，能够捕获请求方法、头部信息、查询参数和表单数据，并将这些信息写入日志文件。应用程序通过Nginx进行反向代理，并支持请求镜像，确保请求的所有头部信息都被保留。改进建议包括取消注释处理JSON数据的部分，以支持对JSON请求体的解析，并考虑添加对不同HTTP方法的特定处理逻辑，以增强功能和灵活性。
+    <strong>AI总结:</strong> 本文介绍了一个使用Flask框架的Python应用程序，该程序通过日志记录处理各种HTTP请求。应用程序配置了日志记录，以便将请求信息输出到控制台和文件中。请求的详细信息，包括请求方法、头部、查询参数和表单数据，会被记录下来。应用程序还使用PM2进行管理，并通过Nginx进行请求镜像，确保请求的所有头部信息得以保留。改进建议包括考虑添加对请求的JSON数据的处理，以及在日志记录中提供更多上下文信息以便于调试。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -148,7 +148,7 @@ pre {
   <article class="markdown-body">
     <p>Python 3.6.8  </p>
 <h2 id="apppy">app.py</h2>
-<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>  
 <span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span>  
 
@@ -211,7 +211,7 @@ pre {
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">9876</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
 </code></pre></div></div>
 <h2 id="pm2json">pm2.json</h2>
-<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="p">{</span><span class="w">  </span>
 <span class="w">  </span><span class="nt">&quot;apps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
 <span class="w">    </span><span class="p">{</span><span class="w">  </span>
@@ -228,8 +228,11 @@ pre {
 <span class="w">  </span><span class="p">]</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 </code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>pm2<span class="w"> </span>start<span class="w"> </span>pm2.json<span class="w">  </span>
+</code></pre></div></div>
 <h2 id="nginx">nginx</h2>
-<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>location / {  
     proxy_pass http://backend;  
 
@@ -257,12 +260,24 @@ location = /mirrorlog {
   </article>
   
 <style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
 .fold-btn, .copy-btn {
   border: none;
   background: transparent;
   cursor: pointer;
   padding: 2px 6px;
-  margin-right: 4px;
   font-size: 16px;
   outline: none;
   box-shadow: none;
@@ -277,12 +292,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        // 切换为已复制图标
         btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
         setTimeout(() => {
-          // 恢复为复制图标
           btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
         }, 1500);
       });
@@ -292,9 +305,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
       e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
@@ -303,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/176.html" aria-label="Previous Page">Linux 系统登录日志</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/176.html" aria-label="Previous Page">Linux 系统登录日志</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/178.html" aria-label="Next Page">Ansible 安装配置以及使用</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

@@ -87,6 +87,10 @@ if __name__ == "__main__":
 }
 ```
 
+```sh
+pm2 start pm2.json
+```
+
 
 ## nginx
 
