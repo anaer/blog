@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-15 17:31:22</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-27 16:21:18</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-27 16:34:16</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在Ubuntu 20.04上安装和使用SQLite3的基本步骤，包括如何安装SQLite3、连接数据库、显示表格和结构、以不同模式显示查询结果，以及在插入数据时处理冲突的方式。改进建议包括提供更多关于SQLite的功能和命令的详细说明，以帮助用户更全面地理解和使用SQLite。
+    <strong>AI总结:</strong> 本文介绍了在Ubuntu 20.04上安装和使用SQLite3的基本步骤，包括如何连接数据库、显示表和结构、调整显示模式以及进行数据查询和更新操作。用户可以通过apt命令安装SQLite3，使用sqlite3命令连接数据库，并通过一系列命令查看表结构和数据。对于数据冲突的处理，提供了插入和更新的语法示例。改进建议包括增加对SQLite3更高级功能的介绍，例如索引和事务管理，以帮助用户更全面地理解和使用SQLite。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -146,40 +146,40 @@ pre {
   <article class="markdown-body">
     <p>Ubuntu 20.04  </p>
 <h2 id="_1">安装</h2>
-<div class="highlight"><div><div style="text-align:right; margin-bottom:2px;"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>sqlite3<span class="w">  </span>
 </code></pre></div></div>
 <h2 id="_2">连接数据库</h2>
-<div class="highlight"><div><div style="text-align:right; margin-bottom:2px;"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>sqlite3<span class="w"> </span>your_db_file<span class="w">  </span>
 </code></pre></div></div>
-<h2 id="_3">显示所有表</h2>
-<div class="highlight"><div><div style="text-align:right; margin-bottom:2px;"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<h2 id="_3">命令</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>sqlite&gt;<span class="w"> </span>.tables<span class="w">  </span><span class="c1"># 显示所有表  </span>
 sqlite&gt;<span class="w"> </span>.schema<span class="w"> </span>table_name<span class="w">  </span><span class="c1"># 显示指定表的结构  </span>
 sqlite&gt;<span class="w"> </span>.schema<span class="w">  </span><span class="c1"># 显示所有表的结构  </span>
 sqlite&gt;<span class="w"> </span>.fullschema<span class="w">  </span><span class="c1"># 显示所有表的完整结构 包含触发器等  </span>
 </code></pre></div></div>
-<div class="highlight"><div><div style="text-align:right; margin-bottom:2px;"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>sqlite&gt;<span class="w"> </span>.mode<span class="w"> </span>column<span class="w"> </span><span class="c1"># 以列模式显示  </span>
 sqlite&gt;<span class="w"> </span>.headers<span class="w"> </span>on<span class="w"> </span><span class="c1"># 显示列名  </span>
 </code></pre></div></div>
-<div class="highlight"><div><div style="text-align:right; margin-bottom:2px;"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>sqlite&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span>t_ad<span class="w"> </span>limit<span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w">  </span>
 id<span class="w">  </span><span class="nb">type</span><span class="w">  </span>name<span class="w">            </span>sort<span class="w">  </span>status<span class="w">  </span>remark<span class="w">  </span>created_at<span class="w">                  </span>updated_at<span class="w">  </span>
 --<span class="w">  </span>----<span class="w">  </span>--------------<span class="w">  </span>----<span class="w">  </span>------<span class="w">  </span>------<span class="w">  </span>--------------------------<span class="w">  </span>----------<span class="w">  </span>
 <span class="m">1</span><span class="w">   </span><span class="m">0</span><span class="w">     </span>abcd.011q2l.cn<span class="w">  </span><span class="m">0</span><span class="w">     </span><span class="m">0</span><span class="w">               </span><span class="m">2021</span>-11-18<span class="w"> </span><span class="m">13</span>:24:32.152277<span class="w">  </span>
 </code></pre></div></div>
-<div class="highlight"><div><div style="text-align:right; margin-bottom:2px;"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>sqlite&gt;<span class="w"> </span>.mode<span class="w"> </span>list<span class="w"> </span><span class="c1"># 以列表模式显示  </span>
 sqlite&gt;<span class="w"> </span>.headers<span class="w"> </span>off<span class="w"> </span><span class="c1"># 不显示列名  </span>
 </code></pre></div></div>
-<div class="highlight"><div><div style="text-align:right; margin-bottom:2px;"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>sqlite&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span>t_ad<span class="w"> </span>limit<span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w">  </span>
 <span class="m">1</span><span class="p">|</span><span class="m">0</span><span class="p">|</span>abcd.011q2l.cn<span class="p">|</span><span class="m">0</span><span class="p">|</span><span class="m">0</span><span class="o">||</span><span class="m">2021</span>-11-18<span class="w"> </span><span class="m">13</span>:24:32.152277<span class="p">|</span><span class="w">  </span>
 </code></pre></div></div>
 <h2 id="_4">冲突时更新</h2>
-<div class="highlight"><div><div style="text-align:right; margin-bottom:2px;"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">value2</span><span class="p">)</span><span class="w">  </span>
 <span class="k">ON</span><span class="w"> </span><span class="n">CONFLICT</span><span class="p">(</span><span class="n">column1</span><span class="p">)</span><span class="w"> </span><span class="k">DO</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">SET</span><span class="w">  </span>
 <span class="w">  </span><span class="n">column2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">excluded</span><span class="p">.</span><span class="n">column2</span><span class="p">;</span><span class="w">  </span>
@@ -188,12 +188,24 @@ sqlite&gt;<span class="w"> </span>.headers<span class="w"> </span>off<span class
   </article>
   
 <style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
 .fold-btn, .copy-btn {
   border: none;
   background: transparent;
   cursor: pointer;
   padding: 2px 6px;
-  margin-right: 4px;
   font-size: 16px;
   outline: none;
   box-shadow: none;
@@ -208,12 +220,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.parentElement.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        // 切换为已复制图标
         btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
         setTimeout(() => {
-          // 恢复为复制图标
           btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
         }, 1500);
       });

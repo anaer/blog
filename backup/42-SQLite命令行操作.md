@@ -13,7 +13,7 @@ apt install sqlite3
 sqlite3 your_db_file
 ```
 
-## 显示所有表
+## 命令
 
 ```sh
 sqlite> .tables  # 显示所有表
