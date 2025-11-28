@@ -137,17 +137,17 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-22 16:36:09</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-21 15:50:16</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-28 14:01:43</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了使用PM2管理Node.js应用程序的各种命令，包括启动、查看进程、监控、日志管理、停止、重载、重启和删除应用等功能。PM2支持集群模式、自动重启和日志管理，用户可以通过pm2.json配置文件来设定应用的基本信息和行为。还介绍了pm2-logrotate模块的安装和配置，用于管理日志文件的大小和保留策略。文中未提及的是，使用PM2时需确保Node.js环境已正确配置，且部分命令可能需要管理员权限。
+    <strong>AI总结:</strong> 本文介绍了PM2的基本命令和功能，包括启动、查看、监控、日志管理、停止、重载、重启、删除应用以及其他高级功能如扩展实例、创建自启动命令和日志切割。具体命令包括使用不同参数启动应用、监控CPU和内存使用情况、管理日志文件和配置重载等。建议在使用PM2时，定期检查和清理日志文件，合理配置应用实例以优化性能，并充分利用日志切割功能来管理日志文件大小。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
     <h2 id="_1">启动</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>start<span class="w"> </span>app.js<span class="w">                  </span><span class="c1"># 启动app.js应用程序  </span>
 $<span class="w"> </span>pm2<span class="w"> </span>start<span class="w"> </span>app.js<span class="w"> </span>-i<span class="w"> </span><span class="m">4</span><span class="w">             </span><span class="c1"># cluster mode 模式启动4个app.js的应用实例, 4个应用程序会自动进行负载均衡  </span>
 $<span class="w"> </span>pm2<span class="w"> </span>start<span class="w"> </span>app.js<span class="w"> </span>--name<span class="o">=</span><span class="s2">&quot;api&quot;</span><span class="w">     </span><span class="c1"># 启动应用程序并命名为 &quot;api&quot;  </span>
@@ -157,49 +157,49 @@ $<span class="w"> </span>pm2<span class="w"> </span>start<span class="w"> </span
 
 <p>pm2 start app.js --node-args="--max-old-space-size=1024"  </p>
 <h2 id="_2">查看进程</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>list<span class="w">                          </span><span class="c1"># 列表 PM2 启动的所有的应用程序  </span>
 $<span class="w"> </span>pm2<span class="w"> </span>show<span class="w"> </span><span class="o">[</span>app-name<span class="o">]</span><span class="w">               </span><span class="c1"># 显示应用程序的所有信息</span>
 </code></pre></div></div>
 
 <h2 id="_3">监控</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>monit<span class="w">                         </span><span class="c1"># 显示每个应用程序的CPU和内存占用情况</span>
 </code></pre></div></div>
 
 <h2 id="_4">日志</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>logs<span class="w">                          </span><span class="c1"># 显示所有应用程序的日志  </span>
 $<span class="w"> </span>pm2<span class="w"> </span>logs<span class="w"> </span><span class="o">[</span>app-name<span class="o">]</span><span class="w">               </span><span class="c1"># 显示指定应用程序的日志  </span>
 $<span class="w"> </span>pm2<span class="w"> </span>flush<span class="w">                         </span><span class="c1"># 清空所有日志文件</span>
 </code></pre></div></div>
 
 <h2 id="_5">停止</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>stop<span class="w"> </span>all<span class="w">                      </span><span class="c1"># 停止所有的应用程序  </span>
 $<span class="w"> </span>pm2<span class="w"> </span>stop<span class="w"> </span><span class="m">0</span><span class="w">                        </span><span class="c1"># 停止 id为 0的指定应用程序</span>
 </code></pre></div></div>
 
 <h2 id="_6">重载</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="o">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">reload</span><span class="w"> </span><span class="n">all</span><span class="w">                    </span><span class="c1"># 重启 cluster mode下的所有应用  </span>
 <span class="o">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">gracefulReload</span><span class="w"> </span><span class="n">all</span><span class="w">            </span><span class="c1"># Graceful reload all apps in cluster mode  </span>
 <span class="o">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">reload</span><span class="w"> </span><span class="n">pm2</span><span class="o">.</span><span class="n">json</span><span class="w"> </span><span class="o">--</span><span class="n">update</span><span class="o">-</span><span class="n">env</span><span class="w">   </span><span class="c1">#配置修改后使用 --update-env 重载, 否则新配置如&quot;cron_restart&quot;可能不会生效</span>
 </code></pre></div></div>
 
 <h2 id="_7">重启</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>restart<span class="w"> </span>all<span class="w">                   </span><span class="c1"># 重启所有应用</span>
 </code></pre></div></div>
 
 <h2 id="_8">删除应用</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>$<span class="w"> </span>pm2<span class="w"> </span>delete<span class="w"> </span>all<span class="w">                    </span><span class="c1"># 关闭并删除所有应用  </span>
 $<span class="w"> </span>pm2<span class="w"> </span>delete<span class="w"> </span><span class="m">0</span><span class="w">                      </span><span class="c1"># 删除指定应用 id 0</span>
 </code></pre></div></div>
 
 <h2 id="_9">其他</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="n">api</span><span class="w"> </span><span class="mi">10</span><span class="w">                  </span><span class="err">#</span><span class="w"> </span><span class="n">把名字叫api的应用扩展到10个实例</span><span class="w">  </span>
 <span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="o">[</span><span class="n">app-name</span><span class="o">]</span><span class="w">              </span><span class="err">#</span><span class="w"> </span><span class="n">重置重启数量</span><span class="w">  </span>
 <span class="err">$</span><span class="w"> </span><span class="n">pm2</span><span class="w"> </span><span class="n">startup</span><span class="w">                       </span><span class="err">#</span><span class="w"> </span><span class="n">创建开机自启动命令</span><span class="w">  </span>
@@ -217,7 +217,7 @@ $<span class="w"> </span>pm2<span class="w"> </span>delete<span class="w"> </spa
 </code></pre></div></div>
 
 <h2 id="pm2json">pm2.json</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>{  
   &quot;apps&quot;: [  
     {  
@@ -237,14 +237,15 @@ $<span class="w"> </span>pm2<span class="w"> </span>delete<span class="w"> </spa
 }  
 </code></pre></div></div>
 <h2 id="pm2-logrotate">pm2-logrotate 日志切割</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>pm2<span class="w"> </span>install<span class="w"> </span>pm2-logrotate<span class="w">  </span>
 </code></pre></div></div>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>pm2<span class="w"> </span>conf<span class="w"> </span><span class="c1"># 查询配置  </span>
+pm2<span class="w"> </span><span class="nb">set</span><span class="w">    </span><span class="c1"># 修改配置文件  </span>
 </code></pre></div></div>
 <p>配置参数：<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm2-logrotate:max_size<span class="w"> </span>10M<span class="w">  </span><span class="c1"># 单个文件最大10M  </span>
 pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm2-logrotate:retain<span class="w"> </span><span class="m">30</span><span class="w">     </span><span class="c1"># 保留30个历史文件  </span>
 pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm2-logrotate:compress<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="c1"># 启用压缩  </span>
@@ -254,7 +255,7 @@ pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm
 pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm2-logrotate:rotateModule<span class="w"> </span><span class="nb">true</span><span class="w">  </span>
 </code></pre></div></div></p>
 <p>手动触发日志切割<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>pm2<span class="w"> </span>reloadLogs<span class="w">  </span>
 </code></pre></div></div></p>
 <h2 id="_10">相关链接</h2>
@@ -263,15 +264,45 @@ pm2<span class="w"> </span><span class="nb">set</span><span class="w"> </span>pm
 </ol>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -279,10 +310,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
