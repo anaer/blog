@@ -133,10 +133,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-02-21 09:44:19</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-26 10:41:29</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-28 09:14:07</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了一个丰富的在线资源和工具列表，涵盖了开发者工具、在线文档、微信和支付宝开发文档、云服务文档、搜索引擎、娱乐资源、软件服务、在线工具、IP工具、临时邮箱、免费域名、正则表达式工具、下载工具、加密解密工具、Chrome及Edge插件、AI工具、影视资源、文本转语音工具等多个领域。建议在内容组织上进行分类和分组，以便用户更快速地找到所需资源，同时可以考虑添加使用说明或推荐使用场景，以提高用户体验。
+    <strong>AI总结:</strong> 本文介绍了一个涵盖多种工具和资源的列表，包括开发工具、在线文档、社交媒体开发、支付平台文档、搜索引擎、娱乐资源、软件服务、在线工具、IP工具、临时邮箱、免费域名、正则表达式工具、下载工具、加密解密工具、Chrome和Edge插件、在线订阅转换工具、AI工具、影视资源、文本转语音服务及其他资源。改进建议包括对每个工具或资源进行简要描述，以便用户更快速地找到所需信息。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -158,6 +158,7 @@ pre {
 <li><a href="https://en.wikipedia.org/wiki/Z-Library">Z-Library 维基百科</a>  </li>
 <li><a href="https://reddit.com/r/zlibrary">Z-Library Reddit 社区</a>  </li>
 <li><a href="https://haveibeenpwned.com/">检测邮箱密码泄露</a>  </li>
+<li><a href="https://rules.fecoder.cn/">AI编程提示词大全</a>  </li>
 </ul>
 <h2 id="_2">在线文档</h2>
 <ul>
@@ -470,12 +471,24 @@ pre {
   </article>
   
 <style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
 .fold-btn, .copy-btn {
   border: none;
   background: transparent;
   cursor: pointer;
   padding: 2px 6px;
-  margin-right: 4px;
   font-size: 16px;
   outline: none;
   box-shadow: none;
@@ -490,12 +503,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        // 切换为已复制图标
         btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
         setTimeout(() => {
-          // 恢复为复制图标
           btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
         }, 1500);
       });
@@ -505,9 +516,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
       e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
