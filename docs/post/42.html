@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-15 17:31:22</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-27 16:34:16</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-12-04 16:56:26</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在Ubuntu 20.04上安装和使用SQLite3的基本步骤，包括如何连接数据库、显示表和结构、调整显示模式以及进行数据查询和更新操作。用户可以通过apt命令安装SQLite3，使用sqlite3命令连接数据库，并通过一系列命令查看表结构和数据。对于数据冲突的处理，提供了插入和更新的语法示例。改进建议包括增加对SQLite3更高级功能的介绍，例如索引和事务管理，以帮助用户更全面地理解和使用SQLite。
+    <strong>AI总结:</strong> 本文介绍了在Ubuntu 20.04上安装和使用SQLite3数据库的基本操作，包括安装命令、连接数据库、显示表和表结构的命令、数据查询的不同显示模式、添加字段以及处理插入冲突时的更新方法。建议在使用ALTER TABLE添加字段时，确保字段的设计符合数据表的整体结构，并在插入数据时考虑适当的唯一约束，以避免潜在的冲突问题。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -178,7 +178,11 @@ sqlite&gt;<span class="w"> </span>.headers<span class="w"> </span>off<span class
 <pre><span></span><code>sqlite&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span>t_ad<span class="w"> </span>limit<span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w">  </span>
 <span class="m">1</span><span class="p">|</span><span class="m">0</span><span class="p">|</span>abcd.011q2l.cn<span class="p">|</span><span class="m">0</span><span class="p">|</span><span class="m">0</span><span class="o">||</span><span class="m">2021</span>-11-18<span class="w"> </span><span class="m">13</span>:24:32.152277<span class="p">|</span><span class="w">  </span>
 </code></pre></div></div>
-<h2 id="_4">冲突时更新</h2>
+<h2 id="_4">添加字段</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">phone_number</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_5">冲突时更新</h2>
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">value2</span><span class="p">)</span><span class="w">  </span>
 <span class="k">ON</span><span class="w"> </span><span class="n">CONFLICT</span><span class="p">(</span><span class="n">column1</span><span class="p">)</span><span class="w"> </span><span class="k">DO</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">SET</span><span class="w">  </span>
@@ -233,9 +237,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
       e.target.textContent = collapsed ? '▲' : '▼';
     }
   });

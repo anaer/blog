@@ -44,6 +44,11 @@ sqlite> select * from t_ad limit 1;
 1|0|abcd.011q2l.cn|0|0||2021-11-18 13:24:32.152277|
 ```
 
+## 添加字段
+
+```sql
+ALTER TABLE users ADD COLUMN phone_number TEXT NOT NULL;
+```
 
 ## 冲突时更新
 
