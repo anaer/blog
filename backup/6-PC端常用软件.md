@@ -35,6 +35,7 @@
 
 ### AI
 1. ~~Cherry Studio~~ [GitHub](https://github.com/CherryHQ/cherry-studio/releases) 用得少
+2. Everywhere [GitHub](https://github.com/DearVa/Everywhere/releases)
 
 ### 压缩
 1. 7zip [官网](https://www.7-zip.org/)  [GitHub](https://github.com/ip7z/7zip/releases)

@@ -41,6 +41,7 @@
 <h3 id="ai">AI</h3>
 <ol>
 <li><del>Cherry Studio</del> <a href="https://github.com/CherryHQ/cherry-studio/releases">GitHub</a> 用得少  </li>
+<li>Everywhere <a href="https://github.com/DearVa/Everywhere/releases">GitHub</a>  </li>
 </ol>
 <h3 id="_6">压缩</h3>
 <ol>
@@ -175,12 +176,24 @@
   </article>
   
 <style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
 .fold-btn, .copy-btn {
   border: none;
   background: transparent;
   cursor: pointer;
   padding: 2px 6px;
-  margin-right: 4px;
   font-size: 16px;
   outline: none;
   box-shadow: none;
@@ -195,12 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        // 切换为已复制图标
         btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
         setTimeout(() => {
-          // 恢复为复制图标
           btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
         }, 1500);
       });
@@ -210,9 +221,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
       e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
