@@ -5,7 +5,9 @@
 1. ~~Comet~~ [官网](https://www.perplexity.ai/comet) 
 4. ~~Edge~~  共享标签页功能还行
 5. ~~Floorp浏览器~~ [GitHub](https://github.com/Floorp-Projects/Floorp/releases) Firefox fork版 增加一些特性 
-6. ~~Zen Browser~~  [GitHub](https://github.com/zen-browser/desktop) Firefox fork版 支持左侧标签栏 ### 比较
+6. ~~Zen Browser~~  [GitHub](https://github.com/zen-browser/desktop) Firefox fork版 支持左侧标签栏 
+ 
+### 比较
 1. WinMerge [GitHub](https://github.com/WinMerge/winmerge/releases)  在用
 2. ~~BeyondCompare~~
 
