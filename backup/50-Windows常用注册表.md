@@ -1,3 +1,33 @@
+## VSCode Insiders 添加右键菜单
+正常安装完会有右键菜单, 如果丢失可以执行以下注册表脚本
+
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\VSCodeInsiders]
+@="Open with Code - Insiders"
+"Icon"="D:\\Microsoft VS Code Insiders\\Code - Insiders.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\VSCodeInsiders\command]
+@="\"D:\\Microsoft VS Code Insiders\\Code - Insiders.exe\" \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\VSCodeInsiders]
+@="Open with Code - Insiders"
+"Icon"="D:\\Microsoft VS Code Insiders\\Code - Insiders.exe"
+
+[HKEY_CLASSES_ROOT\Directory\shell\VSCodeInsiders\command]
+@="\"D:\\Microsoft VS Code Insiders\\Code - Insiders.exe\" \"%V\""
+
+[HKEY_CLASSES_ROOT\*\shell\VSCodeInsiders]
+@="Open with Code - Insiders"
+"Icon"="D:\\Microsoft VS Code Insiders\\Code - Insiders.exe"
+
+[HKEY_CLASSES_ROOT\*\shell\VSCodeInsiders\command]
+@="\"D:\\Microsoft VS Code Insiders\\Code - Insiders.exe\" \"%1\""
+
+```
+
+
 ## 我的电脑删除3D对象等
 
 ```reg

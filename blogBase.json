@@ -1082,19 +1082,19 @@
             "labels": [
                 "Win10"
             ],
-            "postTitle": "0X32 Windows\u5e38\u7528\u6ce8\u518c\u8868",
+            "postTitle": "Windows\u5e38\u7528\u6ce8\u518c\u8868",
             "postUrl": "post/50.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/50",
             "commentNum": 0,
             "createdAt": 1737428630,
-            "updatedAt": 1737438520,
+            "updatedAt": 1765869910,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-21",
-            "dateLabelColor": "hsl(140, 59%, 22%)",
-            "description": "",
-            "buildedAt": 1737438520
+            "dateLabelColor": "hsl(109, 39%, 25%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u901a\u8fc7\u6ce8\u518c\u8868\u811a\u672c\u5728Windows\u4e2d\u6dfb\u52a0\u3001\u5220\u9664\u548c\u4fee\u6539\u4e00\u4e9b\u529f\u80fd\uff0c\u5305\u62ec\u4e3aVSCode Insiders\u6dfb\u52a0\u53f3\u952e\u83dc\u5355\u3001\u5220\u9664\u201c\u6211\u7684\u7535\u8111\u201d\u4e2d\u7684\u7279\u5b9a\u6587\u4ef6\u5939\u3001\u6dfb\u52a0Notepad2\u7684\u53f3\u952e\u83dc\u5355\u3001\u66ff\u6362\u7cfb\u7edf\u9ed8\u8ba4\u8bb0\u4e8b\u672c\u3001\u7981\u7528Windows 10\u548c11\u7684\u7cfb\u7edf\u66f4\u65b0\u3001\u8bbe\u7f6e\u9ed8\u8ba4\u6d4f\u89c8\u5668\u4ee5\u53ca\u89e3\u51b3Chrome\u548cEdge\u6d4f\u89c8\u5668\u7531\u7ec4\u7ec7\u7ba1\u7406\u7684\u95ee\u9898\u3002\u6539\u8fdb\u5efa\u8bae\u5305\u62ec\u63d0\u4f9b\u66f4\u8be6\u7ec6\u7684\u6b65\u9aa4\u8bf4\u660e\uff0c\u786e\u4fdd\u7528\u6237\u5728\u64cd\u4f5c\u6ce8\u518c\u8868\u65f6\u80fd\u591f\u6e05\u695a\u7406\u89e3\u6bcf\u4e00\u6b65\u7684\u76ee\u7684\u548c\u98ce\u9669\u3002",
+            "buildedAt": 1765869910
         },
         "P51": {
             "number": "51",
@@ -3820,6 +3820,7 @@
         "Nginx": "#1d76db",
         "NodeJS": "#6009b4",
         "Python": "#0A7358",
+        "Redis": "#aaaaaa",
         "Vim": "#0E8A16",
         "VSCode": "#BB0E42",
         "Win10": "#682650",
