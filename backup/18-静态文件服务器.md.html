@@ -1,23 +1,119 @@
-<div class="markdown-heading"><h1 class="heading-element"><a href="https://github.com/sigoden/dufs">dufs</a></h1><a id="user-content-dufs" class="anchor" aria-label="Permalink: dufs" href="#dufs"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/dee71768-2086-489e-a87d-871a06d07e87"><img src="https://github.com/user-attachments/assets/dee71768-2086-489e-a87d-871a06d07e87" alt="image" style="max-width: 100%;"></a></p>
-<div class="markdown-heading"><h1 class="heading-element"><a href="https://github.com/svenstaro/miniserve">miniserve</a></h1><a id="user-content-miniserve" class="anchor" aria-label="Permalink: miniserve" href="#miniserve"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/ad9d97aa-0ef3-4e67-b5e0-f60841220b9c"><img src="https://github.com/user-attachments/assets/ad9d97aa-0ef3-4e67-b5e0-f60841220b9c" alt="image" style="max-width: 100%;"></a></p>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> --mkdir 允许创建目录</span>
-<span class="pl-c"><span class="pl-c">#</span> --upload-files 需要指定路径, 该路径相对于根目录</span>
-<span class="pl-c"><span class="pl-c">#</span> --auth-file 授权文件</span>
-<span class="pl-c"><span class="pl-c">#</span> --qrcode 显示二维码</span>
-nohup /root/miniserve/miniserve --auth-file auth.txt --mkdir --upload-files / /root/miniserve/web <span class="pl-k">&amp;</span></pre></div>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> stop.sh 停止服务</span>
-pkill -f <span class="pl-s"><span class="pl-pds">"</span>miniserve<span class="pl-pds">"</span></span></pre></div>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> useradd.sh 添加用户脚本</span>
-user=<span class="pl-smi">$1</span>
-pass=<span class="pl-smi">$2</span>
-pw=<span class="pl-s"><span class="pl-pds">$(</span>echo -n <span class="pl-smi">${pass}</span> <span class="pl-k">|</span> sha256sum <span class="pl-k">|</span> cut -f 1 -d <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span><span class="pl-pds">)</span></span>
-<span class="pl-c1">echo</span> <span class="pl-smi">${user}</span>:sha256:<span class="pl-smi">$pw</span> <span class="pl-k">&gt;&gt;</span> auth.txt</pre></div>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 添加用户</span>
-sh useradd.sh user pass</pre></div>
-<p>新增用户需要重启服务才生效</p>
-<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a href="https://github.com/svenstaro/miniserve">miniserve</a></p>
-<div class="markdown-heading"><h1 class="heading-element"><a href="https://github.com/docblue/chfsgui">chfsgui</a></h1><a id="user-content-chfsgui" class="anchor" aria-label="Permalink: chfsgui" href="#chfsgui"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/550870b3-2a10-4351-8876-069a5fb8af38"><img src="https://github.com/user-attachments/assets/550870b3-2a10-4351-8876-069a5fb8af38" alt="image" style="max-width: 100%;"></a></p>
+
+  <article class="markdown-body">
+    <h1 id="dufs"><a href="https://github.com/sigoden/dufs">dufs</a></h1>
+<p><img alt="image" src="https://github.com/user-attachments/assets/dee71768-2086-489e-a87d-871a06d07e87" />  </p>
+<p>config.yaml  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">bind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0</span><span class="w">  </span>
+<span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5000</span><span class="w">  </span>
+<span class="nt">path-prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dufs</span><span class="w">  </span>
+<span class="nt">auth</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;@/:ro&#39;</span><span class="w">  </span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;user123:pass234@/:rw&#39;</span><span class="w">  </span>
+<span class="nt">allow-all</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">  </span>
+<span class="nt">allow-upload</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span>
+<span class="nt">allow-delete</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span>
+<span class="nt">allow-search</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span>
+<span class="nt">allow-symlink</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">  </span>
+<span class="nt">allow-archive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">  </span>
+<span class="nt">enable-cors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">  </span>
+<span class="nt">render-try-index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span>
+<span class="nt">render-spa</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span>
+
+<span class="nt">hidden</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">config.yaml,nohup.out</span><span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>nohup<span class="w"> </span>dufs<span class="w"> </span>-c<span class="w"> </span>config.yaml<span class="w"> </span><span class="p">&amp;</span><span class="w">  </span>
+</code></pre></div></div>
+<p>nginx.conf  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>location /dufs {  
+    proxy_pass http://127.0.0.1:5000/dufs;  
+}  
+</code></pre></div></div>
+<h1 id="miniserve"><a href="https://github.com/svenstaro/miniserve">miniserve</a></h1>
+<p><img alt="image" src="https://github.com/user-attachments/assets/ad9d97aa-0ef3-4e67-b5e0-f60841220b9c" />  </p>
+<p>```sh start.sh 启动服务  </p>
+<h1 id="-mkdir">--mkdir 允许创建目录</h1>
+<h1 id="-upload-files">--upload-files 需要指定路径, 该路径相对于根目录</h1>
+<h1 id="-auth-file">--auth-file 授权文件</h1>
+<h1 id="-qrcode">--qrcode 显示二维码</h1>
+<p>nohup /root/miniserve/miniserve --auth-file auth.txt --mkdir --upload-files / /root/miniserve/web &amp;<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>```sh  
+# stop.sh 停止服务  
+pkill -f &quot;miniserve&quot;  
+</code></pre></div></div></p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># useradd.sh 添加用户脚本  </span>
+<span class="nv">user</span><span class="o">=</span><span class="nv">$1</span><span class="w">  </span>
+<span class="nv">pass</span><span class="o">=</span><span class="nv">$2</span><span class="w">  </span>
+<span class="nv">pw</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">pass</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sha256sum<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-f<span class="w"> </span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39; &#39;</span><span class="k">)</span><span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">user</span><span class="si">}</span>:sha256:<span class="nv">$pw</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>auth.txt<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 添加用户  </span>
+sh<span class="w"> </span>useradd.sh<span class="w"> </span>user<span class="w"> </span>pass<span class="w">  </span>
+</code></pre></div></div>
+<p>新增用户需要重启服务才生效  </p>
+<h2 id="_1">相关链接</h2>
+<p><a href="https://github.com/svenstaro/miniserve">miniserve</a>  </p>
+<h1 id="chfsgui"><a href="https://github.com/docblue/chfsgui">chfsgui</a></h1>
+<p><img alt="image" src="https://github.com/user-attachments/assets/550870b3-2a10-4351-8876-069a5fb8af38" />  </p>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
