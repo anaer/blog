@@ -1,3 +1,14 @@
+## 查询系统版本
+
+```sh
+# 查 Linux 系统版本
+cat /etc/os-release；
+# 看内核
+uname -a；
+# 老系统
+lsb_release -a；
+```
+
 ## 批量替换当前目录下.conf文件中内容
 如将内容中的127.0.0.1替换为localhost
 
