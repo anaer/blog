@@ -1,0 +1,113 @@
+
+  <article class="markdown-body">
+    <h2 id="acmesh">安装acme.sh</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>curl<span class="w"> </span>https://get.acme.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s<span class="w"> </span><span class="nv">email</span><span class="o">=</span>my@example.com<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_1">手动下载</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>curl<span class="w"> </span>https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh<span class="w"> </span>-o<span class="w"> </span>acme.sh<span class="w">  </span>
+curl<span class="w"> </span>https://github.com/acmesh-official/acme.sh/archive/master.tar.gz<span class="w"> </span>-o<span class="w"> </span>master.tar.gz<span class="w">  </span>
+</code></pre></div></div>
+<p>执行acme.sh后 会在主目录创建.acme.sh目录  </p>
+<h2 id="nginx">nginx添加验证</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/www/letsencrypt<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>location ~ ^/.well-known/(acme-challenge|pki-validation)/ {  
+    add_header Content-Type text/plain;  
+    root /var/www/letsencrypt;  
+}  
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>nginx<span class="w"> </span>-t<span class="w">  </span>
+nginx<span class="w"> </span>-s<span class="w"> </span>reload<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_2">生成证书</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>sh<span class="w"> </span>acme.sh<span class="w"> </span>--issue<span class="w"> </span>--server<span class="w"> </span>letsencrypt<span class="w"> </span>-d<span class="w"> </span><span class="m">47</span>.xx.xx.xx<span class="w"> </span>-w<span class="w"> </span>/var/www/letsencrypt<span class="w"> </span>--certificate-profile<span class="w"> </span>shortlived<span class="w"> </span>--days<span class="w"> </span><span class="m">3</span><span class="w">  </span>
+</code></pre></div></div>
+<p>--issue：申请证书<br />
+--server letsencrypt：使用 Let’s Encrypt 服务器<br />
+-d 47.xx.xx.xx：目标IP地址<br />
+--certificate-profile shortlived：申请一个短期证书<br />
+--days 3：证书的有效期3天 不确定有效, 申请的3天, 生成的7天  </p>
+<p>证书路径:  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>Your cert is in: /root/.acme.sh/47.xx.xx.xx_ecc/47.xx.xx.xx.cer  
+Your cert key is in: /root/.acme.sh/47.xx.xx.xx_ecc/47.xx.xx.xx.key  
+The intermediate CA cert is in: /root/.acme.sh/47.xx.xx.xx_ecc/ca.cer  
+And the full-chain cert is in: /root/.acme.sh/47.xx.xx.xx_ecc/fullchain.cer  
+</code></pre></div></div>
+<h2 id="nginx_1">nginx配置</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>#填写证书文件绝对路径  
+ssl_certificate /root/.acme.sh/47.xx.xx.xx_ecc/47.xx.xx.xx.cer;  
+#填写证书私钥文件绝对路径  
+ssl_certificate_key /root/.acme.sh/47.xx.xx.xx_ecc/47.xx.xx.xx.key;  
+</code></pre></div></div>
+<h2 id="crontab">添加crontab定时任务</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>crontab<span class="w"> </span>-e<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>/root/.acme.sh/acme.sh<span class="w"> </span>--cron<span class="w"> </span>--home<span class="w"> </span><span class="s2">&quot;/root/.acme.sh&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w">  </span>
+</code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
