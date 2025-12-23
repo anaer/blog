@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,8 +15,8 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X38 aira2命令参数</title>
-
+<title>aira2命令参数</title>
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/both.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X38 aira2命令参数</a>
+    <a style="font-size:18px">aira2命令参数</a>
 </h1>
 
 <div class="title-right">
@@ -133,10 +135,16 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-22 16:16:09</time></span>
 
-<p>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-12-23 17:38:59</time></span>
+
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了aria2c命令行工具的各种参数及其配置选项，包括断点续传、输出文件、下载路径、日志文件、并发下载数等。还提供了Windows和Linux系统下的配置文件示例，涵盖了全局设置、HTTP/FTP/SFTP设置、BitTorrent设置、RPC设置等多个方面。建议用户在修改配置时注意注释内容，确保理解每个选项的功能，避免不必要的错误。
+</div>
 
 <div class="markdown-body" id="postBody">
-<p><code>aria2c --help=#all</code></p>
+
+  <article class="markdown-body">
+    <p><code>aria2c --help=#all</code>  </p>
 <table>
 <thead>
 <tr>
@@ -215,9 +223,420 @@ pre {
 </tr>
 </tbody>
 </table>
+<p>aria2.conf配置文件  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>## `#`开头为注释内容, 选项都有相应的注释说明, 根据需要修改  
+## 被注释的选项填写的是默认值, 建议在需要修改时再取消注释  
+## 如果出现`Initializing EpollEventPoll failed.`之类的错误提示, 可以取消event-poll选项的注释  
+
+###### Windows路径设置  
+# 日志文件  
+log=D:\Desktop\logs\aria2.log  
+# 下载路径(可使用绝对路径或相对路径) 不设置默认当前路径  
+# dir=D:\Downloads  
+# .netrc文件路径  
+netrc-path=C:\Users\Administrator\.aria2\.netrc  
+# DHT(IPv4)文件路径  
+dht-file-path=C:\Users\Administrator\.aria2\dht.dat  
+# DHT(IPv6)文件路径  
+dht-file-path6=C:\Users\Administrator\.aria2\dht6.dat  
+# 状态保存文件  
+save-session=C:\Users\Administrator\.aria2\aria2.session  
+
+###### Linux路径设置  
+# 日志文件  
+#log=/root/.aria2/aria2.log  
+# 下载路径(可使用绝对路径或相对路径)  
+#dir=/root/download  
+# .netrc文件路径  
+#netrc-path=/root/.aria2/.netrc  
+# DHT(IPv4)文件路径  
+#dht-file-path=/root/.aria2/dht.dat  
+# DHT(IPv6)文件路径  
+#dht-file-path6=/root/.aria2/dht6.dat  
+# 状态保存文件  
+#save-session=/root/.aria2/aria2.session  
+
+###### 全局设置  
+# 最大同时下载任务数  
+max-concurrent-downloads=5  
+# 全局最大下载速度 0:不限速  
+max-overall-download-limit=0  
+# 检查完整性  
+check-integrity=false  
+# 断点续传  
+continue=true  
+
+###### HTTP/FTP/SFTP设置  
+# 代理服务器  
+all-proxy=  
+# 代理服务器用户名  
+# all-proxy-user=  
+# 代理服务器密码  
+# all-proxy-passwd=  
+# 连接超时时间  
+connect-timeout=60  
+# 模拟运行 # true 仅检查远程文件是否存在, 不下载文件  
+dry-run=false  
+# 最小速度限制  
+lowest-speed-limit=0  
+# 单服务器最大连接数  
+max-connection-per-server=16  
+# 文件未找到重试次数  
+max-file-not-found=3  
+# 最大下载速度  
+max-download-limit=0  
+# 最大上传速度  
+max-upload-limit=0  
+# 最大尝试次数  
+max-tries=0  
+# 最小文件分片大小, 添加时可指定, 取值范围1M -1024M, 默认:20M  
+# 假定size=10M, 文件为20MiB 则使用两个来源下载# 文件为15MiB 则使用一个来源下载  
+min-split-size=1M  
+# .netrc文件路径  
+no-netrc=false  
+# 不使用代理服务器列表  
+# no-proxy=  
+# 代理服务器请求方法 取值:[get, tunnel]  
+proxy-method=get  
+# 获取服务器文件时间  
+remote-time=false  
+# URI 服用  
+reuse-uri=false  
+# 重试等待时间 单位:秒  
+retry-wait=5  
+# 服务器状态保存文件  
+server-stat-of=  
+# 服务器状态超时 单位:秒  
+server-stat-timeout=86400  
+# 单任务连接数 默认:5 需&lt;=max-connection-per-server  
+split=10  
+# 分片选择算法 取值:[default, inorder, random, geom]  
+stream-piece-selector=default  
+# 超时时间 单位:秒  
+timeout=60  
+# URI选择算法 取值:[inorder, feedback, adaptive]  
+uri-selector=feedback  
+
+###### HTTP设置  
+# 检查证书, 默认:true  
+check-certificate=false  
+# 支持GZip  
+http-accept-gzip=true  
+# 认证质询  
+http-auth-challenge=true  
+# 禁用缓存  
+# http-no-cache=true  
+# HTTP 默认用户名  
+# http-user=  
+# HTTP 默认密码  
+# http-passwd=  
+# HTTP 代理服务器  
+# http-proxy=  
+# HTTP 代理服务器用户名  
+# http-proxy-user=  
+# HTTP 代理服务器密码  
+# http-proxy-passwd=  
+# HTTPS 代理服务器  
+# https-proxy=  
+# HTTPS 代理服务器用户名  
+# https-proxy-user=  
+# HTTPS 代理服务器密码  
+# https-proxy-passwd=  
+# 请求来源  
+referer=  
+# 启用持久连接  
+enable-http-keep-alive=true  
+# 启用HTTP管线化  
+enable-http-pipelining=false  
+# 自定义请求头  
+# header=  
+# Cookies保存路径  
+# save-cookies=  
+# 启用HEAD方法  
+use-head=  
+# 自定义User Agent PT需要  
+user-agent=Transmission/2.77  
+
+###### FTP设置  
+# FTP默认用户名  
+# ftp-user=  
+# FTP默认密码  
+# ftp-passwd=  
+#被动模式  
+ftp-pasv=true  
+# FTP代理服务器  
+# ftp-proxy=  
+# FTP代理服务器用户名  
+# ftp-proxy-user=  
+# FTP代理服务器密码  
+# ftp-proxy-passwd=  
+# 传输类型  
+# ftp-type=ascii  
+# 连接复用  
+ftp-reuse-connection=true  
+# SSH公钥校验和 取值:[sha-1, md5]  
+# ssh-host-key-md=  
+
+###### BitTorrent设置  
+# 分离仅做种任务  
+bt-detach-seed-only=true  
+# 启用哈希检查完成时间  
+# bt-enable-hook-after-hash-check=true  
+# 启用本地节点发现(LPD) PT需要禁用, 默认:false  
+bt-enable-lpd=false  
+# BT排除服务器地址  
+bt-exclude-tracker=  
+# 外部IP地址  
+bt-external-ip=  
+# 强制加密  
+# bt-force-encryption=false  
+# 做种前检查文件哈希 默认:true  
+bt-hash-check-seed=true  
+# 加载已保存的元数据文件  
+bt-load-saved-metadata=false  
+# 最多打开文件数  
+bt-max-open-files=100  
+# 最大连接节点数 默认:55  
+bt-max-peers=55  
+# 仅下载种子文件  
+bt-metadata-only=false  
+# 优先下载  
+# bt-prioritize-piece=  
+# 删除未选择的文件  
+bt-remove-unselected-file=false  
+# 需要加密  
+# bt-require-crypto=false  
+# 期望下载速度 默认:50K  
+bt-request-peer-speed-limit=100K  
+# 保存种子文件 默认:false  
+bt-save-metadata=false  
+# 不检查已经下载的文件 默认:false  
+bt-seed-unverified=true  
+# 无速度时自动停止时间  
+bt-stop-timeout=0  
+# BT 服务器地址, 多个地址用逗号分隔  
+bt-tracker=http://1337.abcvg.info:80/announce,http://207.241.226.111:6969/announce,http://207.241.231.226:6969/announce,http://[2a04:ac00:1:3dd8::1:2710]:2710/announce,http://bittorrent-tracker.e-n-c-r-y-p-t.net:1337/announce,http://bt.okmp3.ru:2710/announce,http://buny.uk:6969/announce,http://finbytes.org:80/announce.php,http://fleira.no:6969/announce,http://ipv4.rer.lol:2710/announce,http://ipv4announce.sktorrent.eu:6969/announce,http://nyaa.tracker.wf:7777/announce,http://p4p.arenabg.com:1337/announce,http://public.tracker.vraphim.com:6969/announce,http://retracker.hotplug.ru:2710/announce,http://t.overflow.biz:6969/announce,http://taciturn-shadow.spb.ru:6969/announce,http://tk.greedland.net:80/announce,http://torrentsmd.com:8080/announce,http://tr.nyacat.pw:80/announce,http://tr1.aag.moe:2095/announce,http://tracker-zhuqiy.dgj055.icu:80/announce,http://tracker.beeimg.com:6969/announce,http://tracker.bt4g.com:2095/announce,http://tracker.corpscorp.online:80/announce,http://tracker.dler.com:6969/announce,http://tracker.dler.org:6969/announce,http://tracker.edkj.club:6969/announce,http://tracker.ipv6tracker.org:80/announce,http://tracker.mywaifu.best:6969/announce,http://tracker.qu.ax:6969/announce,http://tracker.renfei.net:8080/announce,http://tracker.sbsub.com:2710/announce,http://tracker.srv00.com:6969/announce,http://tracker.vraphim.com:6969/announce,http://tracker2.dler.org:80/announce,http://tracker2.itzmx.com:6961/announce,http://tracker3.itzmx.com:6961/announce,http://tracker4.itzmx.com:2710/announce,http://wepzone.net:6969/announce,http://www.all4nothin.net:80/announce.php,http://www.wareztorrent.com:80/announce,https://1337.abcvg.info:443/announce,https://api.ipv4online.uk:443/announce,https://mathkangaroo.jp:443/announce,https://retracker.x2k.ru:443/announce,https://sparkle.ghostchu-services.top:443/announce,https://t.213891.xyz:443/announce,https://tr.burnabyhighstar.com:443/announce,https://tr.nyacat.pw:443/announce,https://tr.zukizuki.org:443/announce,https://tracker-zhuqiy.dgj055.icu:443/announce,https://tracker.bjut.jp:443/announce,https://tracker.bt4g.com:443/announce,https://tracker.cloudit.top:443/announce,https://tracker.gcrenwp.top:443/announce,https://tracker.ipfsscan.io:443/announce,https://tracker.kuroy.me:443/announce,https://tracker.leechshield.link:443/announce,https://tracker.lilithraws.org:443/announce,https://tracker.moeking.me:443/announce,https://tracker.pmman.tech:443/announce,https://tracker.yemekyedim.com:443/announce,https://tracker1.520.jp:443/announce,https://trackers.mlsub.net:443/announce,udp://207.241.226.111:6969/announce,udp://207.241.231.226:6969/announce,udp://52.58.128.163:6969/announce,udp://[2a03:7220:8083:cd00::1]:451/announce,udp://[2a04:ac00:1:3dd8::1:2710]:2710/announce,udp://[2a0f:e586:f:f::81]:6969/announce,udp://amigacity.xyz:6969/announce,udp://bandito.byterunner.io:6969/announce,udp://bittorrent-tracker.e-n-c-r-y-p-t.net:1337/announce,udp://bt.ktrackers.com:6666/announce,udp://bt.rer.lol:2710/announce,udp://bt.rer.lol:6969/announce,udp://concen.org:6969/announce,udp://d40969.acod.regrucolo.ru:6969/announce,udp://discord.heihachi.pw:6969/announce,udp://ec2-18-191-163-220.us-east-2.compute.amazonaws.com:6969/announce,udp://evan.im:6969/announce,udp://exodus.desync.com:6969/announce,udp://ipv4.rer.lol:2710/announce,udp://ipv4announce.sktorrent.eu:6969/announce,udp://ismaarino.com:1234/announce,udp://jutone.com:6969/announce,udp://martin-gebhardt.eu:25/announce,udp://ns1.monolithindustries.com:6969/announce,udp://odd-hd.fr:6969/announce,udp://open.demonii.com:1337/announce,udp://open.dstud.io:6969/announce,udp://open.stealth.si:80/announce,udp://open.tracker.ink:6969/announce,udp://opentor.org:2710/announce,udp://opentracker.io:6969/announce,udp://p2p.publictracker.xyz:6969/announce,udp://p4p.arenabg.com:1337/announce,udp://public.tracker.vraphim.com:6969/announce,udp://retracker.hotplug.ru:2710/announce,udp://retracker.lanta.me:2710/announce,udp://retracker01-msk-virt.corbina.net:80/announce,udp://rt.tace.ru:6969/announce,udp://seedpeer.net:6969/announce,udp://serpb.vpsburti.com:6969/announce,udp://t.overflow.biz:6969/announce,udp://tr4ck3r.duckdns.org:6969/announce,udp://trackarr.org:6969/announce,udp://tracker-udp.gbitt.info:80/announce,udp://tracker.0x7c0.com:6969/announce,udp://tracker.birkenwald.de:6969/announce,udp://tracker.breizh.pm:6969/announce,udp://tracker.cyberia.is:6969/announce,udp://tracker.darkness.services:6969/announce,udp://tracker.deadorbit.nl:6969/announce,udp://tracker.dler.com:6969/announce,udp://tracker.dler.org:6969/announce,udp://tracker.dump.cl:6969/announce,udp://tracker.edkj.club:6969/announce,udp://tracker.filemail.com:6969/announce,udp://tracker.fnix.net:6969/announce,udp://tracker.gigantino.net:6969/announce,udp://tracker.gmi.gd:6969/announce,udp://tracker.kmzs123.tk:17272/announce,udp://tracker.opentrackr.org:1337/announce,udp://tracker.qu.ax:6969/announce,udp://tracker.skynetcloud.site:6969/announce,udp://tracker.skyts.net:6969/announce,udp://tracker.srv00.com:6969/announce,udp://tracker.theoks.net:6969/announce,udp://tracker.tiny-vps.com:6969/announce,udp://tracker.torrent.eu.org:451/announce,udp://tracker.torrust-demo.com:6969/announce,udp://tracker.tryhackx.org:6969/announce,udp://tracker.yume-hatsuyuki.moe:6969/announce,udp://tracker1.myporn.club:9337/announce,udp://tracker2.dler.org:80/announce,udp://tracker2.itzmx.com:6961/announce,udp://tracker3.itzmx.com:6961/announce,udp://tracker4.itzmx.com:2710/announce,udp://ttk2.nbaonlineservice.com:6969/announce,udp://u4.trakx.crim.ist:1337/announce,udp://u6.trakx.crim.ist:1337/announce,udp://wepzone.net:6969/announce,udp://www.torrent.eu.org:451/announce,udp://z.mercax.com:53/announce,wss://tracker.openwebtorrent.com:443/announce  
+# BT 服务器连接超时时间  
+bt-tracker-connect-timeout=60  
+# BT 服务器连接间隔时间  
+bt-tracker-interval=0  
+# DHT 监听端口 默认:6881-6999  
+dht-listen-port=6881-6999  
+# DHT 消息超时时间  
+dht-message-timeout=10  
+# 启用DHT(IPv4) PT需要禁用, 默认:true  
+enable-dht=false  
+# 启用DHT(IPv6) PT需要禁用  
+enable-dht6=false  
+# 启用节点交换 PT需要禁用, 默认:true  
+enable-peer-exchange=false  
+# 跟随下载种子文件内容, 下载种子文件后, 自动开始BT任务, 默认:true  
+follow-torrent=true  
+# BT 服务器超时时间  
+bt-tracker-timeout=60  
+# BT 监听端口 默认:6881-6999  
+listen-port=51413  
+# 启用Upnp端口映射  
+# enable-pmap=false 提示Unknown option  
+# 全局最大上传速度 默认:0  
+# max-overall-upload-limit=0  
+# 节点 ID 前缀 客户端伪装, PT需要  
+peer-id-prefix=-TR2770-  
+# Peer Agent  aira2/1.37.0  
+peer-agent=Transmission/2.94 (1707050)  
+# 最小分享率 当分享率到达该值时, 自动停止做种 0:一直做种, 默认:1.0  
+seed-ratio=1.0  
+# 最小做种时间  
+seed-time=1  
+
+###### Metalink设置  
+# 下载Metalink中的文件  
+follow-metalink=true  
+# 基础URL, 默认:空  
+# metalink-base-uri=  
+# 语言  
+# metalink-language=  
+# 首选服务器位置  
+# metalink-location=  
+# 操作系统  
+# metalink-os=  
+# 版本号  
+# metalink-version=  
+# 首选使用协议 取值:[http,https,ftp,none]  
+metalink-preferred-protocol=none  
+# 仅使用唯一协议, 默认:false  
+metalink-enable-unique-protocol=true  
+
+###### RPC设置  
+# 启用JSON-RPC/XML-RPC服务器 默认:false  
+enable-rpc=false  
+# 种子文件下载完后暂停  
+pause-metadata=false  
+# 接受所有远程请求 默认:false  
+rpc-allow-origin-all=true  
+# 在所有网卡上监听 默认:false  
+rpc-listen-all=true  
+# 监听端口 默认:6800  
+rpc-listen-port=6800  
+# 最大请求大小  
+rpc-max-request-size=20M  
+# 保存上传的种子文件  
+rpc-save-upload-metadata=true  
+# 启用SSL/TLS, 默认:false  
+rpc-secure=false  
+
+###### 高级设置  
+# 允许覆盖  
+allow-overwrite=true  
+# 允许分片大小变化  
+# allow-piece-length-change=false  
+# 始终断点续传  
+always-resume=true  
+# 异步DNS  
+async-dns=true  
+# 文件自动重命名  
+auto-file-renaming=true  
+# 自动保存间隔 单位:秒  
+auto-save-interval=60  
+# 条件下载  
+conf-path=aria2.conf  
+# 控制台日志级别  
+console-log-level=error  
+# 使用UTF-8处理Content-Disposition, 默认:false  
+content-disposition-default-utf8=true  
+# 启用后台进程  
+daemon=false  
+# 延迟加载  
+deferred-input=false  
+# 禁用IPv6  
+disable-ipv6=false  
+# 磁盘缓存 0:禁用缓存, 需1.16以上版本, 默认:16M  
+disk-cache=64M  
+# 下载结果 取值:[default,full,hide]  
+download-result=default  
+# DSCP  
+dscp=0  
+# 最多打开的文件描述符  
+# rlimit-nofile=1024 提示Unknown option  
+# 终端输出使用颜色  
+enable-color=true  
+# 启用MMap  
+enable-mmap=true  
+# 事件轮询方式, 取值:[epoll, kqueue, port, poll, select], 不同系统默认值不同, 建议使用默认值  
+event-poll=select  
+# 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc  
+# 预分配所需时间: none &lt; falloc ? trunc &lt; prealloc  
+# falloc 和 trunc 则需要文件系统和内核支持, NTFS 建议使用 falloc, EXT3/4建议trunc  
+file-allocation=falloc  
+# 保存下载记录.aria2 默认:false  
+force-save=false  
+# 保存未找到的文件  
+save-not-found=true  
+# 仅哈希检查  
+hash-check-only=false  
+# 控制台可读输出  
+human-readable=true  
+# 保留未完成的任务, 默认:false  
+keep-unfinished-download-result=true  
+# 最多下载结果  
+max-download-result=1000  
+# MMap最大限制  
+max-mmap-limit=0  
+# 最大断点续传尝试次数  
+max-resume-failure-tries=0  
+# 最低TLS版本  
+min-tls-version=TLSv1.2  
+# 日志级别  
+log-level=info  
+# 优化并发下载  
+optimize-concurrent-downloads=true  
+# 文件分片大小, 默认:1M  
+# piece-length=1M  
+# 禁用配置文件  
+no-conf=false  
+# 文件分配限制  
+no-file-allocation-limit=0  
+# 启用参数化URI支持  
+parameterized-uri=false  
+# 禁用控制台输出  
+quiet=false  
+# 实时数据块验证, 默认:false  
+realtime-chunk-checksum=false  
+# 删除控制文件  
+# 删除控制文件  
+remove-control-file=true  
+# 状态保存间隔 0:退出时保存, 需1.16.1以上版本 默认:0  
+# save-session-interval=0  
+# Socket 接收缓冲区大小  
+socket-recv-buffer-size=0  
+# 自动关闭时间  
+stop=0  
+# 显示控制台输出  
+show-console-readout=true  
+# 缩短控制台输出内容  
+truncate-console-readout=true  
+</code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/57.html" aria-label="Previous Page">0X39 curl统计耗时</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/55.html" aria-label="Next Page">0X37 prompt相关</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/55.html" aria-label="Previous Page">0X37 prompt相关</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/57.html" aria-label="Next Page">curl统计耗时</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -299,8 +718,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
