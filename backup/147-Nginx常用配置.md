@@ -20,3 +20,6 @@ location ~ ^/.*txt$ {
 http://myecs/.well-known/pki-validation/xxx.txt
 ```
 
+## 相关链接
+
+[Nginx常见问题处理](https://gixy.getpagespeed.com/zh/)
