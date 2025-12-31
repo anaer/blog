@@ -56,9 +56,10 @@
 ### 清理
 1. PrivaZer [官网](https://www.PrivaZer.com/download-pro.php) 已购 
 2. HiBit Uninstaller [官网](https://www.hibitsoft.ir/Uninstaller.html) 
-3. ~~BleachBit~~ 清理工具 [官网](https://www.bleachbit.org/)  垃圾清理
-4. ~~privacy.sexy~~ [GitHub](https://github.com/undergroundwires/privacy.sexy) 隐私安全最佳实践 
-5. ~~Bulk-Crap-Uninstaller~~ [GitHub](https://github.com/Klocman/Bulk-Crap-Uninstaller/releases) 
+3. Mole Mac清理 [GitHub](https://github.com/tw93/Mole)
+4. ~~BleachBit~~ 清理工具 [官网](https://www.bleachbit.org/)  垃圾清理
+5. ~~privacy.sexy~~ [GitHub](https://github.com/undergroundwires/privacy.sexy) 隐私安全最佳实践 
+6. ~~Bulk-Crap-Uninstaller~~ [GitHub](https://github.com/Klocman/Bulk-Crap-Uninstaller/releases) 
 
 ### 输入法
 1. InputTip输入法状态管理工具 [GitHub](https://github.com/abgox/InputTip)
