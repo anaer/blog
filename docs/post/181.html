@@ -128,6 +128,8 @@ pre {
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#1606df">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Wins">Wins</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#f63e62">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#抓包">抓包</a></object>
         </span>
 </div>
 <br>
@@ -135,8 +137,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-12-26 16:56:03</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-12-31 16:37:58</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何通过Proxifier抓包HTTPS接口，同时不影响SOCKET接口的配置过程。首先，在Proxifier中设置代理服务器为127.0.0.1，端口为9099，并选择HTTPS协议。接着，新增代理规则以缩小目标范围，确保不影响某些不允许代理的第三方服务，规则包括应用程序、目标主机和目标端口。随后，通过ProxyPin安装HTTPS代理证书到系统，并在设置中取消系统代理和SOCKS5选项，同时配置域名代理黑名单。改进建议包括在设置代理规则时，增加对不同应用程序的具体需求分析，以减少潜在的服务冲突风险。
+    <strong>AI总结:</strong> 本文介绍了如何抓包HTTPS接口而不影响SOCKET接口的配置步骤。首先，需要使用Proxifer进行代理服务器的设置，指定地址为127.0.0.1，端口为9099，并选择HTTPS协议。接着，在代理规则中新增规则以缩小目标范围，避免对某些第三方服务造成影响，设置名称为New，应用程序为test.exe和test1.exe，目标主机为*.test.com和*.example.com，目标端口为80和443，动作设置为Proxy HTTPS 127.0.0.1。对于ProxyPin，安装证书到系统并选择"受信任的根证书颁发机构"，同时在设置中取消"SOCKS5"，并将其设置为系统代理，最后维护域名代理黑名单以避免不必要的代理干扰。改进建议包括明确说明各步骤的具体操作和可能遇到的问题，以帮助用户更好地理解和实施配置。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -158,7 +162,7 @@ pre {
 <p>其他未说明的直接默认配置  </p>
 <h2 id="proxypin">ProxyPin</h2>
 <p>HTTPS代理 -&gt; 安装证书到本系统, 选择"受信任的根证书颁发机构"<br />
-设置 -&gt; 代理 取消"设置为系统代理" 取消"SOCKS5"<br />
+设置 -&gt; 代理 取消"SOCKS5"   需要设置为系统代理<br />
 设置 -&gt; 域名代理列表 -&gt; 代理域名黑名单  </p>
   </article>
   
