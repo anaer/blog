@@ -131,7 +131,7 @@
 2. ~~TortoiseGit~~ [官网](https://tortoisegit.org/download/)
 
 ### 编辑器
-1. VSCode [官网](https://code.visualstudio.com/)           
+1. VSCode [官网](https://code.visualstudio.com/)  [open-vsx插件站](https://open-vsx.org/)
 1. ~~Neovim~~  [GitHub](https://github.com/neovim/neovim/releases)      
 2. ~~Obsidian.md~~   [GitHub](https://github.com/obsidianmd/obsidian-releases/releases/) 编辑工具 
 4. ~~Windsurf~~ [官网](https://codeium.com/windsurf)     集成Codeium AI补全 
