@@ -1,25 +1,131 @@
 
   <article class="markdown-body">
     <h3 id="_1">重新部署</h3>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>WeaselDeployer.exe<span class="w"> </span>/deploy<span class="w">  </span>
 </code></pre></div></div>
 <h3 id="_2">问题</h3>
 <p>跟WPS Office 10.8.2.6613兼容有问题 输入卡顿  </p>
-<h2 id="_3">相关链接</h2>
+<h2 id="_3">万象输入法</h2>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数字、金额大写</td>
+<td>R数字</td>
+</tr>
+<tr>
+<td>计算器</td>
+<td>V数字</td>
+</tr>
+<tr>
+<td>辅助码提示</td>
+<td>Ctrl+a</td>
+</tr>
+<tr>
+<td>音调显示</td>
+<td>Ctrl+s</td>
+</tr>
+<tr>
+<td>翻译模式</td>
+<td>Ctrl+e</td>
+</tr>
+<tr>
+<td>时间</td>
+<td>osj 或者 /sj</td>
+</tr>
+<tr>
+<td>日期</td>
+<td>orq 或者 /rq</td>
+</tr>
+<tr>
+<td>农历</td>
+<td>onl 或者 /nl</td>
+</tr>
+<tr>
+<td>星期</td>
+<td>oxq 或者 /xq</td>
+</tr>
+<tr>
+<td>今年第几周</td>
+<td>oww 或者 /ww</td>
+</tr>
+<tr>
+<td>节气</td>
+<td>ojq 或者 /jq</td>
+</tr>
+<tr>
+<td>日期+时间</td>
+<td>ors 或者 /rs</td>
+</tr>
+<tr>
+<td>时间戳</td>
+<td>ott 或者 /tt</td>
+</tr>
+<tr>
+<td>大写N日期</td>
+<td>N20250315</td>
+</tr>
+<tr>
+<td>节日</td>
+<td>ojr 或者 /jr</td>
+</tr>
+<tr>
+<td>问候模板</td>
+<td>/day 或者 oday</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">相关链接</h2>
 <p><a href="https://github.com/rime">RIME仓库</a><br />
-<a href="https://github.com/Mintimate/oh-my-rime">oh-my-rime</a>  </p>
+<a href="https://github.com/Mintimate/oh-my-rime">oh-my-rime</a><br />
+<a href="https://github.com/amzxyz/rime_wanxiang">万象拼音</a>  </p>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -27,10 +133,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
