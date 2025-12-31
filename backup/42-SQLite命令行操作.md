@@ -13,6 +13,24 @@ apt install sqlite3
 sqlite3 your_db_file
 ```
 
+## 开启自动压缩
+
+PRAGMA page_size 允许你设置数据库的页面大小，间接影响数据库的存储效率。较大的页面大小（例如 4096 或 8192 字节）有时能减少碎片并提高压缩效率。
+```sql
+PRAGMA page_size = 4096;
+```
+PRAGMA auto_vacuum 设置，它可以在每次删除数据时自动压缩数据库，减少未使用空间。
+
+```sql
+PRAGMA auto_vacuum = FULL;
+```
+
+FULL：表示启用自动压缩，每次删除数据时，SQLite 会自动清理空白空间。
+
+INCREMENTAL：允许你手动触发压缩。
+
+NONE：禁用自动压缩。
+
 ## 命令
 
 ```sh
