@@ -1,58 +1,133 @@
-<ul>
-<li>
-<p><strong>新项目</strong>
-使用 <code>uv init</code> 命令快速生成项目结构和配置（如 <code>pyproject.toml</code>、<code>.python-version</code>）:</p>
-<div class="highlight highlight-source-shell"><pre>uv init my_project
-<span class="pl-c1">cd</span> my_project
 
-uv venv --python 3.11 .venv   <span class="pl-c"><span class="pl-c">#</span> 默认生成 .venv 目录</span>
-<span class="pl-c"><span class="pl-c">#</span> 或自定义名称</span>
-uv venv --python 3.12 my_env  <span class="pl-c"><span class="pl-c">#</span> 创建名为 my_env 的环境</span>
+  <article class="markdown-body">
+    <ul>
+<li>
+<p><strong>新项目</strong><br />
+  使用 <code>uv init</code> 命令快速生成项目结构和配置（如 <code>pyproject.toml</code>、<code>.python-version</code>）:<br />
+  <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>uv<span class="w"> </span>init<span class="w"> </span>my_project<span class="w">  </span>
+<span class="nb">cd</span><span class="w"> </span>my_project<span class="w">  </span>
 
-<span class="pl-c1">source</span> .venv/bin/activate     </pre></div>
-</li>
-<li>
-<p><strong>现有项目</strong></p>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> existing_project
-uv init
-uv run              <span class="pl-c"><span class="pl-c">#</span> 生成 .venv 环境</span>
-uv add flask
-uv add -r requirements.txt</pre></div>
-</li>
-<li>
-<p><strong>依赖同步</strong>
-对于已有 <code>pyproject.toml</code> 和 <code>uv.lock</code> 的项目，快速同步环境:</p>
-<div class="highlight highlight-source-shell"><pre>uv sync</pre></div>
-</li>
-<li>
-<p><strong>重新生成requirements.txt</strong></p>
-</li>
-</ul>
-<div class="highlight highlight-source-shell"><pre>uv pip freeze <span class="pl-k">&gt;</span> requirements.txt</pre></div>
-<ul>
-<li><strong>检测并升级依赖</strong></li>
-</ul>
-<div class="highlight highlight-source-shell"><pre>uv pip list --outdated
-uv pip install --upgrade urllib3</pre></div>
-<ul>
-<li><strong>查看依赖树</strong></li>
-</ul>
-<div class="highlight highlight-source-shell"><pre>uv tree</pre></div>
-<ul>
-<li><strong>Python 版本切换</strong></li>
-</ul>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 指定安装镜像 默认到github下载, 使用时查询当前可用的加速镜像地址</span>
-<span class="pl-k">export</span> UV_PYTHON_INSTALL_MIRROR=https://github.com/indygreg/python-build-standalone/releases/download
-uv python install 3.11    <span class="pl-c"><span class="pl-c">#</span> 安装指定版本</span>
-uv python use 3.11        <span class="pl-c"><span class="pl-c">#</span> 切换当前环境版本</span></pre></div>
-<ul>
-<li><strong>检测无用依赖</strong></li>
-</ul>
-<p><code>uv pip install deptry</code></p>
-<pre lang="log"><code># deptry .
-Scanning 7 files...
+uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.11<span class="w"> </span>.venv<span class="w">   </span><span class="c1"># 默认生成 .venv 目录  </span>
+<span class="c1"># 或自定义名称  </span>
+uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.12<span class="w"> </span>my_env<span class="w">  </span><span class="c1"># 创建名为 my_env 的环境  </span>
 
-pyproject.toml: DEP002 'flask' defined as a dependency but not used in the codebase
-pyproject.toml: DEP002 'loguru' defined as a dependency but not used in the codebase
-Found 2 dependency issues.
-</code></pre>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">       </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>现有项目</strong><br />
+  <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nb">cd</span><span class="w"> </span>existing_project<span class="w">  </span>
+uv<span class="w"> </span>init<span class="w">  </span>
+uv<span class="w"> </span>run<span class="w">              </span><span class="c1"># 生成 .venv 环境  </span>
+uv<span class="w"> </span>add<span class="w"> </span>flask<span class="w">  </span>
+uv<span class="w"> </span>add<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>依赖同步</strong><br />
+  对于已有 <code>pyproject.toml</code> 和 <code>uv.lock</code> 的项目，快速同步环境:<br />
+  <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>uv<span class="w"> </span>sync<span class="w">  </span>
+uv<span class="w"> </span>sync<span class="w"> </span>--upgrade<span class="w">  </span><span class="c1"># 升级依赖包, 需要在pyproject.toml中配置的版本号&gt;=  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>重新生成requirements.txt</strong><br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt<span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>检测并升级依赖</strong><br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>list<span class="w"> </span>--outdated<span class="w">  </span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>urllib3<span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>查看依赖树</strong><br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>uv<span class="w"> </span>tree<span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>Python 版本切换</strong><br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 指定安装镜像 默认到github下载, 使用时查询当前可用的加速镜像地址  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">UV_PYTHON_INSTALL_MIRROR</span><span class="o">=</span>https://github.com/indygreg/python-build-standalone/releases/download<span class="w">  </span>
+uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.11<span class="w">    </span><span class="c1"># 安装指定版本  </span>
+uv<span class="w"> </span>python<span class="w"> </span>use<span class="w"> </span><span class="m">3</span>.11<span class="w">        </span><span class="c1"># 切换当前环境版本  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>检测无用依赖</strong>  </p>
+</li>
+</ul>
+<p><code>uv pip install deptry</code>  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code># deptry .  
+Scanning 7 files...  
+
+pyproject.toml: DEP002 &#39;flask&#39; defined as a dependency but not used in the codebase  
+pyproject.toml: DEP002 &#39;loguru&#39; defined as a dependency but not used in the codebase  
+Found 2 dependency issues.  
+</code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+

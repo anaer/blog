@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X6C uv管理Python虚拟环境</title>
+<title>uv管理Python虚拟环境</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/light.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X6C uv管理Python虚拟环境</a>
+    <a style="font-size:18px">uv管理Python虚拟环境</a>
 </h1>
 
 <div class="title-right">
@@ -126,8 +128,6 @@ pre {
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#0A7358">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Python">Python</a></object>
-        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#服务器">服务器</a></object>
         </span>
 </div>
 <br>
@@ -135,81 +135,149 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-11 10:28:03</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-24 10:52:06</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-01-09 14:17:34</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何使用 uv 工具快速生成和管理 Python 项目，包括项目结构初始化、虚拟环境创建、依赖管理和版本切换等功能。用户可以通过 uv init 命令创建新项目，使用 uv venv 创建虚拟环境，并通过 uv add 添加依赖。对于已有项目，用户可以同步环境、更新依赖、查看依赖树，并检测无用依赖。
-
-优化建议：
-1. 在创建虚拟环境时，建议明确选择 Python 版本，避免使用默认设置，确保与项目需求一致。
-2. 定期使用 uv sync 命令同步依赖，确保环境与配置文件一致，减少潜在问题。
-3. 在添加依赖时，考虑使用 requirements.txt 文件，确保团队成员能够一致地安装相同的库版本。
-4. 定期检测并清理无用依赖，保持项目整洁，避免不必要的包影响性能。
-5. 对于依赖升级，建议在升级前查看兼容性，确保新版本不会引入破坏性更改。
+    <strong>AI总结:</strong> 本文介绍了使用 uv 工具快速生成和管理 Python 项目的方法，包括新项目的初始化、现有项目的环境生成、依赖同步、依赖检测与升级、查看依赖树、Python 版本切换以及检测无用依赖的步骤。用户可以通过命令行指令如 uv init、uv venv、uv sync 等来实现这些功能。改进建议包括提供更详细的命令参数说明和示例，以帮助新用户更好地理解和使用这些功能。
 </div>
 
 <div class="markdown-body" id="postBody">
-<ul>
-<li>
-<p><strong>新项目</strong>
-使用 <code>uv init</code> 命令快速生成项目结构和配置（如 <code>pyproject.toml</code>、<code>.python-version</code>）:</p>
-<div class="highlight highlight-source-shell"><pre>uv init my_project
-<span class="pl-c1">cd</span> my_project
 
-uv venv --python 3.11 .venv   <span class="pl-c"><span class="pl-c">#</span> 默认生成 .venv 目录</span>
-<span class="pl-c"><span class="pl-c">#</span> 或自定义名称</span>
-uv venv --python 3.12 my_env  <span class="pl-c"><span class="pl-c">#</span> 创建名为 my_env 的环境</span>
+  <article class="markdown-body">
+    <ul>
+<li>
+<p><strong>新项目</strong><br />
+  使用 <code>uv init</code> 命令快速生成项目结构和配置（如 <code>pyproject.toml</code>、<code>.python-version</code>）:<br />
+  <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>uv<span class="w"> </span>init<span class="w"> </span>my_project<span class="w">  </span>
+<span class="nb">cd</span><span class="w"> </span>my_project<span class="w">  </span>
 
-<span class="pl-c1">source</span> .venv/bin/activate     </pre></div>
-</li>
-<li>
-<p><strong>现有项目</strong></p>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> existing_project
-uv init
-uv run              <span class="pl-c"><span class="pl-c">#</span> 生成 .venv 环境</span>
-uv add flask
-uv add -r requirements.txt</pre></div>
-</li>
-<li>
-<p><strong>依赖同步</strong>
-对于已有 <code>pyproject.toml</code> 和 <code>uv.lock</code> 的项目，快速同步环境:</p>
-<div class="highlight highlight-source-shell"><pre>uv sync</pre></div>
-</li>
-<li>
-<p><strong>重新生成requirements.txt</strong></p>
-</li>
-</ul>
-<div class="highlight highlight-source-shell"><pre>uv pip freeze <span class="pl-k">&gt;</span> requirements.txt</pre></div>
-<ul>
-<li><strong>检测并升级依赖</strong></li>
-</ul>
-<div class="highlight highlight-source-shell"><pre>uv pip list --outdated
-uv pip install --upgrade urllib3</pre></div>
-<ul>
-<li><strong>查看依赖树</strong></li>
-</ul>
-<div class="highlight highlight-source-shell"><pre>uv tree</pre></div>
-<ul>
-<li><strong>Python 版本切换</strong></li>
-</ul>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 指定安装镜像 默认到github下载, 使用时查询当前可用的加速镜像地址</span>
-<span class="pl-k">export</span> UV_PYTHON_INSTALL_MIRROR=https://github.com/indygreg/python-build-standalone/releases/download
-uv python install 3.11    <span class="pl-c"><span class="pl-c">#</span> 安装指定版本</span>
-uv python use 3.11        <span class="pl-c"><span class="pl-c">#</span> 切换当前环境版本</span></pre></div>
-<ul>
-<li><strong>检测无用依赖</strong></li>
-</ul>
-<p><code>uv pip install deptry</code></p>
-<pre lang="log"><code># deptry .
-Scanning 7 files...
+uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.11<span class="w"> </span>.venv<span class="w">   </span><span class="c1"># 默认生成 .venv 目录  </span>
+<span class="c1"># 或自定义名称  </span>
+uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.12<span class="w"> </span>my_env<span class="w">  </span><span class="c1"># 创建名为 my_env 的环境  </span>
 
-pyproject.toml: DEP002 'flask' defined as a dependency but not used in the codebase
-pyproject.toml: DEP002 'loguru' defined as a dependency but not used in the codebase
-Found 2 dependency issues.
-</code></pre>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">       </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>现有项目</strong><br />
+  <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nb">cd</span><span class="w"> </span>existing_project<span class="w">  </span>
+uv<span class="w"> </span>init<span class="w">  </span>
+uv<span class="w"> </span>run<span class="w">              </span><span class="c1"># 生成 .venv 环境  </span>
+uv<span class="w"> </span>add<span class="w"> </span>flask<span class="w">  </span>
+uv<span class="w"> </span>add<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>依赖同步</strong><br />
+  对于已有 <code>pyproject.toml</code> 和 <code>uv.lock</code> 的项目，快速同步环境:<br />
+  <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>uv<span class="w"> </span>sync<span class="w">  </span>
+uv<span class="w"> </span>sync<span class="w"> </span>--upgrade<span class="w">  </span><span class="c1"># 升级依赖包, 需要在pyproject.toml中配置的版本号&gt;=  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>重新生成requirements.txt</strong><br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt<span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>检测并升级依赖</strong><br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>uv<span class="w"> </span>pip<span class="w"> </span>list<span class="w"> </span>--outdated<span class="w">  </span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>urllib3<span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>查看依赖树</strong><br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>uv<span class="w"> </span>tree<span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>Python 版本切换</strong><br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 指定安装镜像 默认到github下载, 使用时查询当前可用的加速镜像地址  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">UV_PYTHON_INSTALL_MIRROR</span><span class="o">=</span>https://github.com/indygreg/python-build-standalone/releases/download<span class="w">  </span>
+uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.11<span class="w">    </span><span class="c1"># 安装指定版本  </span>
+uv<span class="w"> </span>python<span class="w"> </span>use<span class="w"> </span><span class="m">3</span>.11<span class="w">        </span><span class="c1"># 切换当前环境版本  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p><strong>检测无用依赖</strong>  </p>
+</li>
+</ul>
+<p><code>uv pip install deptry</code>  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code># deptry .  
+Scanning 7 files...  
+
+pyproject.toml: DEP002 &#39;flask&#39; defined as a dependency but not used in the codebase  
+pyproject.toml: DEP002 &#39;loguru&#39; defined as a dependency but not used in the codebase  
+Found 2 dependency issues.  
+</code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/109.html" aria-label="Previous Page">0X6D 爱阅记听书配置</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/107.html" aria-label="Next Page">0X6B Rest Client使用记录</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/107.html" aria-label="Previous Page">0X6B Rest Client使用记录</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/109.html" aria-label="Next Page">0X6D 爱阅记听书配置</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -291,8 +359,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

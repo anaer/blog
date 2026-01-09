@@ -24,6 +24,7 @@
   对于已有 `pyproject.toml` 和 `uv.lock` 的项目，快速同步环境:
   ```bash
   uv sync
+  uv sync --upgrade  # 升级依赖包, 需要在pyproject.toml中配置的版本号>=
   ```
 
 - **重新生成requirements.txt**
