@@ -116,11 +116,12 @@
 3. ~~Charles~~ [官网](https://www.charlesproxy.com/latest-release) [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
 4. ~~Proxifier~~ [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN)  [序列号](https://gist.github.com/montasim/11e313f82dc6c2aea28298941158429f) 代理工具 指定软件走代理
 5. ~~Wireshark~~ [官网](https://www.wireshark.org)
+
 ### 数据库
-1. ~~HeidiSQL~~ [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差, 不建议用来管理sqlite
-2. ~~SQLiteStudio~~ [官网](https://sqlitestudio.pl/)  [GitHub](https://github.com/pawelsalawa/sqlitestudio/releases/) SQLite客户端 表设计支持较好
-3. ~~DB Browser for SQLite~~ [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)
-5. ~~Robo 3T~~ [GitHub](https://github.com/Studio3T/robomongo/releases) mongodb
+1. dbeaver [GitHub](https://github.com/dbeaver/dbeaver/releases/)
+2. ~~HeidiSQL~~ [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差, 不建议用来管理sqlite
+3. ~~SQLiteStudio~~ [官网](https://sqlitestudio.pl/)  [GitHub](https://github.com/pawelsalawa/sqlitestudio/releases/) SQLite客户端 表设计支持较好
+4. ~~DB Browser for SQLite~~ [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)5. ~~Robo 3T~~ [GitHub](https://github.com/Studio3T/robomongo/releases) mongodb
 5. ~~Compass~~ [GitHub](https://github.com/mongodb-js/compass/releases) mongodb 要求mongo 4.x版本
 6. Navicat [官网](https://www.navicat.com.cn/)  [GitHub](https://github.com/shuhongfan/NavicatCracker/)
 7. ~~SQLyog~~  [GitHub](https://github.com/webyog/sqlyog-community/wiki/Downloads) 网上有注册码 只支持mysql
