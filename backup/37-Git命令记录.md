@@ -1,3 +1,13 @@
+## 删除本地存在而远程不存在的分支
+
+```sh
+git branch --merged | grep -v -E "master|main|develop" | xargs git branch -d
+```
+
+1. `git branch --merged`：列出所有已经合并到当前分支的本地分支。
+2. `grep -v -E "master|main|develop"`：排除 `master`、`main` 和 `develop` 这些合并分支的名称。
+3. `xargs git branch -d`：将过滤后的分支名称传递给 `git branch -d` 命令，删除这些分支。
+
 ## Git命令调试
 
 ```sh

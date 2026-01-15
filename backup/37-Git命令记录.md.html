@@ -1,12 +1,21 @@
 
   <article class="markdown-body">
-    <h2 id="git">Git命令调试</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+    <h2 id="_1">删除本地存在而远程不存在的分支</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>--merged<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;master|main|develop&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w">  </span>
+</code></pre></div></div>
+<ol>
+<li><code>git branch --merged</code>：列出所有已经合并到当前分支的本地分支。  </li>
+<li><code>grep -v -E "master|main|develop"</code>：排除 <code>master</code>、<code>main</code> 和 <code>develop</code> 这些合并分支的名称。  </li>
+<li><code>xargs git branch -d</code>：将过滤后的分支名称传递给 <code>git branch -d</code> 命令，删除这些分支。  </li>
+</ol>
+<h2 id="git">Git命令调试</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="nb">set</span><span class="w"> </span><span class="nv">GIT_TRACE</span><span class="o">=</span><span class="m">1</span><span class="w">    </span><span class="c1"># 启用 GIT_TRACE 来调试  </span>
 <span class="nb">set</span><span class="w"> </span><span class="nv">GIT_PAGER</span><span class="o">=</span>cat<span class="w">  </span><span class="c1"># 禁用分页器，直接查看输出  </span>
 </code></pre></div></div>
 <h2 id="git_1">Git命令中文乱码 测试有效</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="c1"># 设置文件名编码为 UTF-8  </span>
 git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.quotepath<span class="w"> </span><span class="nb">false</span><span class="w">  </span>
 
@@ -16,22 +25,22 @@ git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"
 </code></pre></div></div>
 <h2 id="git_2">使用 Git 配置强制识别大小写变化</h2>
 <p>Git 默认在 大小写不敏感的系统（如 Windows/macOS 默认设置）中不会提交 仅大小写不同的文件名更改。  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="c1"># 临时设置  </span>
 git<span class="w"> </span>config<span class="w"> </span>core.ignorecase<span class="w"> </span><span class="nb">false</span><span class="w">  </span>
 </code></pre></div></div>
 <h2 id="git_3">查询Git提交用户记录</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%an &lt;%ae&gt;&quot;</span><span class="w"> </span>--all<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w">  </span>
 </code></pre></div></div>
 <p>--all：包括所有分支的提交。  </p>
 <p>sort | uniq：对结果排序并去重。  </p>
 <p>输出示例：<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>random &lt;r@n.dom&gt;  
 </code></pre></div></div></p>
-<h2 id="_1">修改历史提交用户信息</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<h2 id="_2">修改历史提交用户信息</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>git<span class="w"> </span>filter-repo<span class="w"> </span>--name-callback<span class="w"> </span><span class="s2">&quot;return b\&quot;random\&quot;&quot;</span><span class="w"> </span>--email-callback<span class="w"> </span><span class="s2">&quot;return b\&quot;r@n.dom\&quot;&quot;</span><span class="w"> </span>--force<span class="w">  </span>
 
 git<span class="w"> </span>push<span class="w"> </span>--force<span class="w">  </span>
@@ -39,17 +48,17 @@ git<span class="w"> </span>push<span class="w"> </span>--force<span class="w">  
 <p>PS: 在 Windows 的 CMD 中，单引号可能不被识别，建议用双引号  </p>
 <h2 id="depth1">depth=1 拉取其他分支</h2>
 <p>当你使用 git clone --depth 1 克隆仓库时，Git 只会克隆最新的提交历史（浅克隆），并且默认只拉取默认分支（通常是 main 或 master）。如果你需要获取其他分支, 执行以下命令  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>remote.origin.fetch<span class="w"> </span><span class="s2">&quot;+refs/heads/*:refs/remotes/origin/*&quot;</span><span class="w">  </span>
 git<span class="w"> </span>fetch<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w">  </span>
 git<span class="w"> </span>checkout<span class="w"> </span>branch-name<span class="w">  </span>
 </code></pre></div></div>
 <p>将浅克隆转换为完整克隆<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>--unshallow<span class="w">  </span>
 </code></pre></div></div></p>
-<h2 id="_2">比较分支并导出变更文件</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<h2 id="_3">比较分支并导出变更文件</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>git<span class="w"> </span>diff<span class="w"> </span>6db1256718a184ece757df2b7d8bf22444801661<span class="w"> </span>8906e42d5aeff10b70086bd7aece0f3663edbddd<span class="w"> </span>--name-only<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>zip<span class="w"> </span>update.zip<span class="w">  </span>
 
 <span class="c1"># 比较文件并导出为zip压缩包, 根据本机情况可以选择zip或者7zip  </span>
@@ -57,9 +66,9 @@ git<span class="w"> </span>diff<span class="w"> </span>feature/xxx-0719<span cla
 
 git<span class="w"> </span>diff<span class="w"> </span>feature/xxx-0719<span class="w"> </span>origin/master<span class="w"> </span>--name-only<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>7z<span class="w"> </span>a<span class="w"> </span>-tzip<span class="w"> </span>user.zip<span class="w">  </span>
 </code></pre></div></div>
-<h2 id="_3">删除敏感文件历史提交记录</h2>
+<h2 id="_4">删除敏感文件历史提交记录</h2>
 <p>以<code>.vscode/settings.json</code>文件为例  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>git<span class="w"> </span>filter-branch<span class="w"> </span>--force<span class="w"> </span>--index-filter<span class="w">  </span><span class="s2">&quot;git rm --cached --ignore-unmatch .vscode/settings.json&quot;</span><span class="w"> </span>--prune-empty<span class="w"> </span>--tag-name-filter<span class="w"> </span>cat<span class="w"> </span>--<span class="w"> </span>--all<span class="w">  </span>
 
 git<span class="w"> </span>add<span class="w"> </span>.<span class="w">  </span>
@@ -69,15 +78,45 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <p><a href="https://anaer.github.io/blog/post/67.html">0X43 Git删除大文件</a>    </p>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -85,10 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
