@@ -151,3 +151,6 @@
 1. chsrc 换源 [GitHub](https://github.com/RubyMetric/chsrc/releases/)
 2. cmirror 换源 [GitHub](https://github.com/ox01024/cmirror)
 1. ~~lsx 命令帮助~~ [GitHub](https://github.com/CJSen/lsx)
+
+### VSCode扩展
+1. Rebuild-gitlens [GitHub](https://github.com/AliverAnme/Rebuild-gitlens/releases)
