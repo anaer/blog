@@ -126,15 +126,19 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#服务器">服务器</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-12-19 18:05:42</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-01-19 16:11:25</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了安装和配置acme.sh以获取SSL证书的步骤。首先，可以通过curl命令安装acme.sh，或手动下载其脚本和源代码。执行acme.sh后，会在主目录创建一个.acme.sh目录。接着，需在nginx中添加验证配置，并重启nginx。然后，通过指定目标IP地址和证书配置生成证书，证书和密钥的路径会在生成后给出。最后，需在nginx配置中填写证书和密钥的绝对路径，并设置crontab定时任务以自动更新证书。改进建议包括增加对不同操作系统的兼容性说明，以及提供更详细的错误处理和调试步骤。
+    <strong>AI总结:</strong> 本文介绍了如何安装和配置acme.sh以生成和管理SSL证书。首先，通过curl命令安装acme.sh，并手动下载相关文件。执行acme.sh后，会在主目录创建.acme.sh目录。接着，配置nginx以添加验证，创建相应的目录并更新nginx配置。然后，通过acme.sh生成证书，指定使用Let’s Encrypt服务器和证书有效期。证书和密钥的路径会在执行后显示。最后，更新nginx配置以使用生成的证书，并添加crontab任务以定期检查和更新证书。改进建议包括编写脚本以自动判断证书更新情况并自动重载nginx。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -193,7 +197,9 @@ ssl_certificate_key /root/.acme.sh/47.xx.xx.xx_ecc/47.xx.xx.xx.key;
 </code></pre></div></div>
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>/root/.acme.sh/acme.sh<span class="w"> </span>--cron<span class="w"> </span>--home<span class="w"> </span><span class="s2">&quot;/root/.acme.sh&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w">  </span>
+<span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>nginx<span class="w"> </span>-s<span class="w"> </span>reload<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w">  </span>
 </code></pre></div></div>
+<p>可以写个脚本判断证书是否有更新, 有更新再reload nginx  </p>
   </article>
   
 <style>
@@ -253,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/179.html" aria-label="Previous Page">Redis 慢日志（Slow Log）使用与配置</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/179.html" aria-label="Previous Page">Redis 慢日志（Slow Log）使用与配置</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/181.html" aria-label="Next Page">Proxifier + ProxyPin 抓包 QT客户端</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
