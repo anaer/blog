@@ -154,3 +154,7 @@
 
 ### VSCode扩展
 1. Rebuild-gitlens [GitHub](https://github.com/AliverAnme/Rebuild-gitlens/releases)
+
+### 相关链接
+
+[Mac 软件库](https://my.feishu.cn/wiki/VzoswszWzi6YJ5k3IrucEnCynFc)
