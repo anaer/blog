@@ -46,13 +46,13 @@ sort | uniq：对结果排序并去重。
 
 输出示例：
 ```
-random <r@n.dom>
+random <r@n.om>
 ```
 
 ## 修改历史提交用户信息
 
 ```sh
-git filter-repo --name-callback "return b\"random\"" --email-callback "return b\"r@n.dom\"" --force
+git filter-repo --name-callback "return b\"random\"" --email-callback "return b\"r@n.om\"" --force
 
 git push --force
 ```
