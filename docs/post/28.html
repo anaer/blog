@@ -15,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X1C Git配置文件说明</title>
+<title>Git配置文件说明</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/both.css" rel="stylesheet" />
 
 </head>
@@ -98,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X1C Git配置文件说明</a>
+    <a style="font-size:18px">Git配置文件说明</a>
 </h1>
 
 <div class="title-right">
@@ -137,193 +137,218 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-03 11:05:36</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 15:28:35</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-01-21 15:20:50</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Git数据传输的基本流程，包括工作空间、数据缓存区、本地仓库和远程仓库的关系。具体操作包括添加、提交、推送、拉取和检索等。文中详细描述了.git/config文件的各项配置，如仓库格式版本、文件权限跟踪、裸仓库设置、日志记录等，以及用户信息和远程仓库的配置。此外，还提到.gitattributes文件的用途，包括换行符处理、文件类型识别和合并策略。最后，介绍了通过includeIf指令进行多仓库目录环境配置的方式，以实现智能切换不同的Git配置。文本中没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了Git数据传输的基本流程，包括工作区、索引、本地仓库和远程仓库之间的操作，以及.git/config和.gitattributes文件的配置细节。主要内容涵盖了仓库配置、用户信息、换行符处理、合并策略、文件类型处理和多仓库环境配置等方面。建议在使用Git时，注意不同操作系统对文件权限和换行符的处理差异，同时根据项目需求合理配置合并策略和差异工具，以提高工作效率。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
     <h2 id="git">git数据传输</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="c">workspace       index          local repository      remote repository</span>
-<span class="nb">-------------</span><span class="c">commit </span><span class="nb">-</span><span class="c">a</span><span class="nb">----------------</span><span class="nv">&gt;</span><span class="c">|</span>
-<span class="nb">--------</span><span class="c">add</span><span class="nb">------</span><span class="nv">&gt;</span><span class="c">|</span><span class="nb">--------</span><span class="c">commit</span><span class="nb">-----</span><span class="nv">&gt;</span><span class="c">|</span>
-<span class="c">                                        </span><span class="nb">-------</span><span class="c">push</span><span class="nb">--------</span><span class="nv">&gt;</span><span class="c">|</span>
-<span class="nv">&lt;</span><span class="nb">------------------------</span><span class="c">pull</span><span class="nb">-------------------------------</span><span class="c">|</span>
-<span class="c">                                       |</span><span class="nv">&lt;</span><span class="nb">------</span><span class="c">fetch</span><span class="nb">--------</span><span class="c">|</span>
-<span class="nv">&lt;</span><span class="nb">--------------</span><span class="c">checkout head</span><span class="nb">-----------</span><span class="c">|</span>
-<span class="nv">&lt;</span><span class="nb">-----</span><span class="c">checkout</span><span class="nb">----</span><span class="c">|</span>
-<span class="nv">&lt;</span><span class="nb">-----------------</span><span class="c">diff head</span><span class="nb">------------</span><span class="c">|</span>
-<span class="nv">&lt;</span><span class="nb">------</span><span class="c">diff</span><span class="nb">-------</span><span class="c">|</span>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>workspace       index          local repository      remote repository  
+-------------commit -a----------------&gt;|  
+--------add------&gt;|--------commit-----&gt;|  
+                                        -------push--------&gt;|  
+&lt;------------------------pull-------------------------------|  
+                                       |&lt;------fetch--------|  
+&lt;--------------checkout head-----------|  
+&lt;-----checkout----|  
+&lt;-----------------diff head------------|  
+&lt;------diff-------|  
 </code></pre></div></div>
-
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>workspace            用户的工作空间 
-index                数据缓存区 
-local repository     本地仓库 
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>workspace            用户的工作空间   
+index                数据缓存区   
+local repository     本地仓库   
 remote repository    远程仓库
 </code></pre></div></div>
 
 <h2 id="gitconfig">.git/config</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="k">[core]</span>
-<span class="w">    </span><span class="c1"># repositoryformatversion 指定 Git 仓库的版本，默认值为 0，通常不需要修改</span>
-<span class="w">    </span><span class="na">repositoryformatversion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span><span class="w">  </span>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>[core]  
+    # repositoryformatversion 指定 Git 仓库的版本，默认值为 0，通常不需要修改  
+    repositoryformatversion = 0    
 
-<span class="w">    </span><span class="c1"># filemode 表示是否跟踪文件的权限变化</span>
-<span class="w">    </span><span class="c1"># true: 跟踪权限变化（适用于 Linux/macOS）</span>
-<span class="w">    </span><span class="c1"># false: 忽略权限变化（适用于 Windows）</span>
-<span class="w">    </span><span class="na">filemode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w">  </span>
+    # filemode 表示是否跟踪文件的权限变化  
+    # true: 跟踪权限变化（适用于 Linux/macOS）  
+    # false: 忽略权限变化（适用于 Windows）  
+    filemode = false    
 
-<span class="w">    </span><span class="c1"># bare 表示是否为裸仓库（无工作区，仅存储 Git 数据）</span>
-<span class="w">    </span><span class="c1"># true: 裸仓库，适用于远程仓库</span>
-<span class="w">    </span><span class="c1"># false: 非裸仓库，适用于本地开发</span>
-<span class="w">    </span><span class="na">bare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w">  </span>
+    # bare 表示是否为裸仓库（无工作区，仅存储 Git 数据）  
+    # true: 裸仓库，适用于远程仓库  
+    # false: 非裸仓库，适用于本地开发  
+    bare = false    
 
-<span class="w">    </span><span class="c1"># logallrefupdates 表示是否记录所有引用的更新（如分支、标签等的变化）</span>
-<span class="w">    </span><span class="c1"># true: 启用，便于日志追踪</span>
-<span class="w">    </span><span class="c1"># false: 禁用</span>
-<span class="w">    </span><span class="na">logallrefupdates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w">  </span>
+    # logallrefupdates 表示是否记录所有引用的更新（如分支、标签等的变化）  
+    # true: 启用，便于日志追踪  
+    # false: 禁用  
+    logallrefupdates = true    
 
-<span class="w">    </span><span class="c1"># ignorecase 指定是否忽略文件名的大小写差异</span>
-<span class="w">    </span><span class="c1"># true: 忽略大小写（适用于 Windows/Mac）</span>
-<span class="w">    </span><span class="c1"># false: 区分大小写（适用于 Linux）</span>
-<span class="w">    </span><span class="na">ignorecase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w">  </span>
+    # ignorecase 指定是否忽略文件名的大小写差异  
+    # true: 忽略大小写（适用于 Windows/Mac）  
+    # false: 区分大小写（适用于 Linux）  
+    ignorecase = false    
 
-<span class="w">    </span><span class="c1"># autocrlf 指定是否在换行符转换上启用自动化处理</span>
-<span class="w">    </span><span class="c1"># true: 提交时将 CRLF 转换为 LF，检出时将 LF 转换为 CRLF（适用于 Windows）</span>
-<span class="w">    </span><span class="c1"># input: 提交时将 CRLF 转换为 LF，检出时不做转换（适用于 Linux/Mac）</span>
-<span class="w">    </span><span class="c1"># false: 不进行任何换行符转换</span>
-<span class="w">    </span><span class="na">autocrlf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w">  </span>
+    # autocrlf 指定是否在换行符转换上启用自动化处理  
+    # true: 提交时将 CRLF 转换为 LF，检出时将 LF 转换为 CRLF（适用于 Windows）  
+    # input: 提交时将 CRLF 转换为 LF，检出时不做转换（适用于 Linux/Mac）  
+    # false: 不进行任何换行符转换  
+    autocrlf = false    
 
-<span class="k">[remote &quot;origin&quot;]</span>
-<span class="w">    </span><span class="c1"># url 是远程仓库的地址，支持 HTTP(S)、SSH 等协议</span>
-<span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/xxx/xxx.git</span><span class="w">  </span>
+[remote &quot;origin&quot;]  
+    # url 是远程仓库的地址，支持 HTTP(S)、SSH 等协议  
+    url = https://github.com/xxx/xxx.git    
 
-<span class="w">    </span><span class="c1"># fetch 定义从远程仓库抓取分支的规则</span>
-<span class="w">    </span><span class="c1"># +refs/heads/main:refs/remotes/origin/main 表示同步远程主分支到本地</span>
-<span class="w">    </span><span class="na">fetch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">+refs/heads/main:refs/remotes/origin/main</span><span class="w">  </span>
+    # fetch 定义从远程仓库抓取分支的规则  
+    # +refs/heads/main:refs/remotes/origin/main 表示同步远程主分支到本地  
+    fetch = +refs/heads/main:refs/remotes/origin/main    
 
-<span class="k">[branch &quot;main&quot;]</span>
-<span class="w">    </span><span class="c1"># remote 指定当前分支关联的远程仓库</span>
-<span class="w">    </span><span class="na">remote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">origin</span><span class="w">  </span>
+[branch &quot;main&quot;]  
+    # remote 指定当前分支关联的远程仓库  
+    remote = origin    
 
-<span class="w">    </span><span class="c1"># merge 指定当前分支与远程仓库的哪个分支进行合并</span>
-<span class="w">    </span><span class="na">merge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">refs/heads/main</span><span class="w">  </span>
+    # merge 指定当前分支与远程仓库的哪个分支进行合并  
+    merge = refs/heads/main    
 
-<span class="w">    </span><span class="c1"># vscode-merge-base 是 Visual Studio Code 的扩展字段，用于记录分支合并基线</span>
-<span class="w">    </span><span class="na">vscode-merge-base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">origin/main</span><span class="w">  </span>
+    # vscode-merge-base 是 Visual Studio Code 的扩展字段，用于记录分支合并基线  
+    vscode-merge-base = origin/main    
 
-<span class="k">[user]</span>
-<span class="w">    </span><span class="c1"># name 是用户的 Git 提交签名用户名</span>
-<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">random</span><span class="w">  </span>
+[user]  
+    # name 是用户的 Git 提交签名用户名  
+    name = random    
 
-<span class="w">    </span><span class="c1"># email 是用户的 Git 提交签名邮箱地址</span>
-<span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">r@n.dom</span><span class="w">  </span>
+    # email 是用户的 Git 提交签名邮箱地址  
+    email = r@n.om    
 
-<span class="c1"># 比较工具</span>
-<span class="k">[diff]</span>
-<span class="w">    </span><span class="na">tool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diffmerge</span>
-<span class="k">[difftool &quot;diffmerge&quot;]</span>
-<span class="w">    </span><span class="na">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">\&quot;D:/WinMerge/WinMergeU.exe\&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;</span>
-<span class="k">[merge]</span>
-<span class="w">    </span><span class="na">tool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diffmerge</span>
-<span class="k">[mergetool]</span>
-<span class="w">    </span><span class="na">keepbackup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
-<span class="k">[mergetool &quot;diffmerge&quot;]</span>
-<span class="w">    </span><span class="na">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">\&quot;D:/WinMerge/WinMergeU.exe\&quot; \&quot;$REMOTE\&quot; \&quot;$LOCAL\&quot; \&quot;$BASE\&quot; \&quot;$MERGED\&quot;</span>
-<span class="w">    </span><span class="na">trustexitcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+# 比较工具  
+[diff]  
+    tool = diffmerge  
+[difftool &quot;diffmerge&quot;]  
+    cmd = \&quot;D:/WinMerge/WinMergeU.exe\&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;  
+[merge]  
+    tool = diffmerge  
+[mergetool]  
+    keepbackup = false  
+[mergetool &quot;diffmerge&quot;]  
+    cmd = \&quot;D:/WinMerge/WinMergeU.exe\&quot; \&quot;$REMOTE\&quot; \&quot;$LOCAL\&quot; \&quot;$BASE\&quot; \&quot;$MERGED\&quot;  
+    trustexitcode = true  
 </code></pre></div></div>
-
 <h2 id="gitattritubes">.gitattritubes</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="gh">#</span> 设置文本文件的换行符处理规则
-<span class="gh">#</span> text: 指定文件为文本文件，Git 将自动处理换行符
-<span class="gh">#</span> eol=lf: 仓库中保存 LF（适用于 Linux/Mac）
-<span class="gh">#</span> eol=crlf: 仓库中保存 CRLF（适用于 Windows）
-<span class="gh">#</span> auto: 根据系统自动设置换行符
-<span class="k">*</span> text eol=lf
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code># 设置文本文件的换行符处理规则  
+# text: 指定文件为文本文件，Git 将自动处理换行符  
+# eol=lf: 仓库中保存 LF（适用于 Linux/Mac）  
+# eol=crlf: 仓库中保存 CRLF（适用于 Windows）  
+# auto: 根据系统自动设置换行符  
+* text eol=lf  
 
-<span class="gh">#</span> 为 Markdown 文件强制指定为文本文件，使用 LF 换行符
-*.md text eol=lf
+# 为 Markdown 文件强制指定为文本文件，使用 LF 换行符  
+*.md text eol=lf  
 
-<span class="gh">#</span> 为批处理脚本文件强制指定为文本文件，使用 CRLF 换行符
-*.bat text eol=crlf
+# 为批处理脚本文件强制指定为文本文件，使用 CRLF 换行符  
+*.bat text eol=crlf  
 
-<span class="gh">#</span> 忽略二进制文件的自动换行符处理
-<span class="gh">#</span> binary: 指定文件为二进制文件，Git 不会进行任何换行符转换
-*.png binary
-<span class="gs">*.jpg binary</span>
-<span class="gs">*</span>.zip binary
+# 忽略二进制文件的自动换行符处理  
+# binary: 指定文件为二进制文件，Git 不会进行任何换行符转换  
+*.png binary  
+*.jpg binary  
+*.zip binary  
 
-<span class="gh">#</span> 禁用合并策略的处理，防止合并冲突对某些文件类型生效
-<span class="gh">#</span> merge=ours: 在合并时使用“我们”的版本，忽略对方的更改
-*.lock merge=ours
+# 禁用合并策略的处理，防止合并冲突对某些文件类型生效  
+# merge=ours: 在合并时使用“我们”的版本，忽略对方的更改  
+*.lock merge=ours  
 
-<span class="gh">#</span> 为 JSON 文件指定自定义差异工具
-<span class="gh">#</span> diff=custom_json: 使用自定义工具处理 JSON 文件的差异
-*.json diff=custom_json
+# 为 JSON 文件指定自定义差异工具  
+# diff=custom_json: 使用自定义工具处理 JSON 文件的差异  
+*.json diff=custom_json  
 
-<span class="gh">#</span> 配置大文件的存储，使用 Git LFS
-<span class="gh">#</span> filter=lfs: 启用 Git LFS（大文件存储）过滤器
-*.psd filter=lfs
-<span class="gs">*.mp4 filter=lfs</span>
+# 配置大文件的存储，使用 Git LFS  
+# filter=lfs: 启用 Git LFS（大文件存储）过滤器  
+*.psd filter=lfs  
+*.mp4 filter=lfs  
 
-<span class="gs"># 指定文件在合并时自动接受所有更改</span>
-<span class="gs"># merge=union: 合并时自动保留双方的更改</span>
-<span class="gs">*</span>.txt merge=union
+# 指定文件在合并时自动接受所有更改  
+# merge=union: 合并时自动保留双方的更改  
+*.txt merge=union  
 </code></pre></div></div>
-
 <h2 id="_1">多仓库目录环境配置</h2>
-<p>采用 <code>includeIf</code> 指令实现智能切换：</p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="c1"># ~/.gitconfig 主配置文件</span>
-<span class="k">[includeIf &quot;gitdir:D:/work/&quot;]</span>
-<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-work</span><span class="w">  </span><span class="c1"># 工作账号配置</span>
+<p>采用 <code>includeIf</code> 指令实现智能切换：  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># ~/.gitconfig 主配置文件  </span>
+<span class="k">[includeIf &quot;gitdir:D:/work/&quot;]</span><span class="w">  </span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-work</span><span class="w">  </span><span class="c1"># 工作账号配置  </span>
 
-<span class="k">[includeIf &quot;gitdir:D:/personal/&quot;]</span>
-<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span><span class="w">  </span><span class="c1"># 私人账号配置</span>
+<span class="k">[includeIf &quot;gitdir:D:/personal/&quot;]</span><span class="w">  </span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span><span class="w">  </span><span class="c1"># 私人账号配置  </span>
 
-<span class="k">[includeIf &quot;onbranch:main&quot;]</span>
-<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span>
+<span class="k">[includeIf &quot;onbranch:main&quot;]</span><span class="w">  </span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span><span class="w">  </span>
 
-<span class="k">[includeIf &quot;hasconfig:remote.*.url:https://github.com/**&quot;]</span>
-<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span><span class="w"> </span>
+<span class="k">[includeIf &quot;hasconfig:remote.*.url:https://github.com/**&quot;]</span><span class="w">  </span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span><span class="w">   </span>
 </code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># ~/.gitconfig-work 工作专用配置  </span>
+<span class="k">[user]</span><span class="w">  </span>
+<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">公司开发者</span><span class="w">  </span>
+<span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">work@company.com</span><span class="w">  </span>
+<span class="w">    </span><span class="na">signingkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">WORK-SIGN-KEY</span><span class="w">  </span>
 
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="c1"># ~/.gitconfig-work 工作专用配置</span>
-<span class="k">[user]</span>
-<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">公司开发者</span>
-<span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">work@company.com</span>
-<span class="w">    </span><span class="na">signingkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">WORK-SIGN-KEY</span>
-
-<span class="k">[core]</span>
-<span class="w">    </span><span class="na">autocrlf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">input</span>
+<span class="k">[core]</span><span class="w">  </span>
+<span class="w">    </span><span class="na">autocrlf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">input</span><span class="w">  </span>
 </code></pre></div></div>
-
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="c1"># ~/.gitconfig-personal 私人配置</span>
-<span class="k">[user]</span>
-<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">个人开发者</span>
-<span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">me@domain.com</span>
-<span class="k">[github]</span>
-<span class="w">    </span><span class="na">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">xxxx-xxxx-xxxx-xxxx</span>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># ~/.gitconfig-personal 私人配置  </span>
+<span class="k">[user]</span><span class="w">  </span>
+<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">个人开发者</span><span class="w">  </span>
+<span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">me@domain.com</span><span class="w">  </span>
+<span class="k">[github]</span><span class="w">  </span>
+<span class="w">    </span><span class="na">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">xxxx-xxxx-xxxx-xxxx</span><span class="w">  </span>
 </code></pre></div></div>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -331,10 +356,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
@@ -342,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/27.html" aria-label="Previous Page">0X1B ip归属地查询</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/29.html" aria-label="Next Page">0X1D whistle抓包工具</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/27.html" aria-label="Previous Page">ip归属地查询</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/29.html" aria-label="Next Page">0X1D whistle抓包工具</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -424,8 +449,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

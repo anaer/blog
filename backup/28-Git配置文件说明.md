@@ -74,7 +74,7 @@ workspace       index          local repository      remo
 	name = random  
 
 	# email 是用户的 Git 提交签名邮箱地址
-	email = r@n.dom  
+	email = r@n.om  
 
 # 比较工具
 [diff]
