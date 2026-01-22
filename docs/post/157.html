@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-10-15 11:23:07</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-12-31 10:01:36</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-01-22 10:16:56</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了WeaselDeployer.exe的重新部署命令以及与WPS Office 10.8.2.6613的兼容性问题，特别是输入卡顿现象。文中列出了多种特性和快捷键，包括数字和金额大写、辅助码提示、音调显示、翻译模式等功能的使用方法。此外，还提到了一些与日期和时间相关的命令。改进建议包括提供更详细的兼容性说明和解决方案，以帮助用户更好地解决输入卡顿问题。
+    <strong>AI总结:</strong> 本文介绍了WeaselDeployer.exe的重新部署命令及其与WPS Office 10.8.2.6613的兼容性问题，导致输入出现卡顿。文中列出了万象输入法的多项特性，包括数字和金额大写、计算器功能、辅助码提示、音调显示、翻译模式、时间和日期显示等快捷键操作。同时，提供了添加万象模型的步骤，包括下载和配置相关文件。建议在解决兼容性问题时，考虑使用更新版本的WPS Office或联系技术支持以获得更好的输入体验。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -225,7 +225,21 @@ pre {
 </tr>
 </tbody>
 </table>
-<h2 id="_4">相关链接</h2>
+<h2 id="_4">添加万象模型</h2>
+<p><a href="https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram">下载模型wanxiang-lts-zh-hans.gram</a>  </p>
+<p>universe_pinyin.custom.yaml 添加配置  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">patch</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">grammar</span><span class="p">:</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wanxiang-lts-zh-hans</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">collocation_max_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">collocation_min_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">translator/contextual_suggestions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">translator/max_homophones</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">translator/max_homographs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span><span class="w">  </span>
+</code></pre></div></div>
+<p>验证尝试输出 <code>苍茫的天涯是我的爱</code>  </p>
+<h2 id="_5">相关链接</h2>
 <p><a href="https://github.com/rime">RIME仓库</a><br />
 <a href="https://github.com/Mintimate/oh-my-rime">oh-my-rime</a><br />
 <a href="https://github.com/amzxyz/rime_wanxiang">万象拼音</a>  </p>

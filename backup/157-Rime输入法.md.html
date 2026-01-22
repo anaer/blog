@@ -81,7 +81,21 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_4">相关链接</h2>
+<h2 id="_4">添加万象模型</h2>
+<p><a href="https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram">下载模型wanxiang-lts-zh-hans.gram</a>  </p>
+<p>universe_pinyin.custom.yaml 添加配置  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">patch</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">grammar</span><span class="p">:</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wanxiang-lts-zh-hans</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">collocation_max_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">collocation_min_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">translator/contextual_suggestions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">translator/max_homophones</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">translator/max_homographs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span><span class="w">  </span>
+</code></pre></div></div>
+<p>验证尝试输出 <code>苍茫的天涯是我的爱</code>  </p>
+<h2 id="_5">相关链接</h2>
 <p><a href="https://github.com/rime">RIME仓库</a><br />
 <a href="https://github.com/Mintimate/oh-my-rime">oh-my-rime</a><br />
 <a href="https://github.com/amzxyz/rime_wanxiang">万象拼音</a>  </p>
