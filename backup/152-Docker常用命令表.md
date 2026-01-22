@@ -18,6 +18,7 @@
 | docker attach          | 连接到正在运行的容器           | docker attach mycontainer                 |
 | docker top             | 查看容器进程                   | docker top mycontainer                    |
 | docker commit          | 用容器生成新镜像               | docker commit mycontainer newimage        |
+| docker system df      | 查询Docker磁盘占用           | docker system df                              |
 | docker system prune    | 清理无用资源                   | docker system prune                       |
 | docker version         | 查看Docker版本                 | docker version                            |
 | docker network ls      | 查看docker网络                 | docker network ls                         |
