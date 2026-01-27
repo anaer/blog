@@ -1,3 +1,10 @@
+- **安装uv**
+
+```sh
+curl -LsSf https://astral.sh/uv/install.sh | sh
+wget -qO- https://astral.sh/uv/install.sh | sh
+``` 
+ 
 - **新项目**
   使用 `uv init` 命令快速生成项目结构和配置（如 `pyproject.toml`、`.python-version`）:
   ```bash
