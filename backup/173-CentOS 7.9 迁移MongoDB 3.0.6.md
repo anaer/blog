@@ -69,3 +69,25 @@ $ mongo --host 127.0.0.1 --port 27017 -u user -p pass
 ```
 
 这里主要讲迁移MongoDB, 如果是全新创建, 需要新增db和用户的 到时再查下.
+
+
+```sh
+use admin
+// 查看当前用户
+db.getUsers()
+
+// 创建用户
+db.createUser({
+  user: "admin",
+  pwd: "123456",
+  roles: [
+    { role: "readWrite", db: "admin" }
+  ]
+})
+
+// 修改 admin 用户密码
+db.changeUserPassword("admin", "NewPassword")
+
+//  测试新密码
+mongo -u admin -p 'NewPassword' --authenticationDatabase admin
+```sh
