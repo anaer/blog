@@ -90,4 +90,10 @@ db.changeUserPassword("admin", "NewPassword")
 
 //  测试新密码
 mongo -u admin -p 'NewPassword' --authenticationDatabase admin
+
+// 查询所有db  admin登录
+show dbs
+
+// 查询db下所有集合
+show collections
 ```sh

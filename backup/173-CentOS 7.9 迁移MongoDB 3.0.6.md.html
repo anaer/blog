@@ -72,7 +72,11 @@ db.createUser({<br />
 <p>// 修改 admin 用户密码<br />
 db.changeUserPassword("admin", "NewPassword")  </p>
 <p>//  测试新密码<br />
-mongo -u admin -p 'NewPassword' --authenticationDatabase admin<br />
+mongo -u admin -p 'NewPassword' --authenticationDatabase admin  </p>
+<p>// 查询所有db  admin登录<br />
+show dbs  </p>
+<p>// 查询db下所有集合<br />
+show collections<br />
 ```sh  </p>
   </article>
   

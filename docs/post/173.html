@@ -137,10 +137,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-11-19 14:39:04</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-02-03 17:09:55</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-02-03 17:14:57</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在CentOS 7.9上迁移MongoDB 3.0.6的步骤，包括安装MongoDB、配置系统服务以及测试连接。首先，通过curl命令下载并解压MongoDB，然后将其可执行文件路径添加到系统环境变量中。接着，将原MongoDB的数据迁移到新服务器，并创建mongodb用户和组，设置数据目录的权限。之后，编写systemd服务文件以管理MongoDB服务，并通过systemctl命令启动服务。最后，通过mongo命令测试连接。改进建议包括提供更多关于如何创建数据库和用户的详细步骤，以及确保数据备份和迁移过程中的安全性。
+    <strong>AI总结:</strong> 本文介绍了在CentOS 7.9上迁移MongoDB 3.0.6的步骤，包括安装MongoDB、迁移数据、添加系统服务以及启动服务的过程。首先，通过curl下载并解压MongoDB，然后将其可执行文件路径添加到系统环境变量中。接着，用户需要将原MongoDB的数据打包并复制到新服务器上，并创建相应的系统用户和服务文件以管理MongoDB服务。最后，通过systemctl命令启动服务，并提供了测试连接和用户管理的基本操作。改进建议包括详细说明如何配置MongoDB的配置文件，以及提供更具体的错误处理和故障排查步骤。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -218,7 +218,11 @@ db.createUser({<br />
 <p>// 修改 admin 用户密码<br />
 db.changeUserPassword("admin", "NewPassword")  </p>
 <p>//  测试新密码<br />
-mongo -u admin -p 'NewPassword' --authenticationDatabase admin<br />
+mongo -u admin -p 'NewPassword' --authenticationDatabase admin  </p>
+<p>// 查询所有db  admin登录<br />
+show dbs  </p>
+<p>// 查询db下所有集合<br />
+show collections<br />
 ```sh  </p>
   </article>
   
