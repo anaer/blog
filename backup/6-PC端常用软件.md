@@ -147,6 +147,7 @@
 
 ### 翻译
 1. ~~STranslate~~ [GitHub](https://github.com/ZGGSONG/STranslate/releases)
+2. POT 翻译+OCR [GitHub](https://github.com/pot-app/pot-desktop/releases)
 
 ### 命令行
 1. chsrc 换源 [GitHub](https://github.com/RubyMetric/chsrc/releases/)
