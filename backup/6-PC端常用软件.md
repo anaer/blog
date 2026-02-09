@@ -87,7 +87,7 @@
 1. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
 2. OnlyOffice [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
 3. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
-4. [Umi-OCR 识别截图中的文本](https://github.com/hiroi-sora/Umi-OCR)
+4. Umi-OCR 识别截图中的文本 [GitHub](https://github.com/hiroi-sora/Umi-OCR)
 
 ## 开发
 
