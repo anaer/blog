@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X5A 将应用程序添加为系统服务进行管理</title>
+<title>将应用程序添加为系统服务进行管理</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/dimmed.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X5A 将应用程序添加为系统服务进行管理</a>
+    <a style="font-size:18px">将应用程序添加为系统服务进行管理</a>
 </h1>
 
 <div class="title-right">
@@ -139,110 +141,179 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-14 10:05:18</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-07-16 16:41:48</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-02-11 11:20:02</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在Windows、Mac和Linux系统中如何创建和管理服务。Windows服务使用winsw.exe进行全局管理，可以通过配置XML文件来定义服务的基本信息、环境变量、可执行文件和日志设置。提供了安装、卸载、启动、停止、重启和查询服务状态的命令。Mac服务则通过创建和编辑LaunchAgent配置文件（.plist）来实现，包含服务标识、程序参数及加载验证的步骤。Linux服务通过systemd配置文件定义，包含服务描述、依赖关系、资源限制和启动命令等，并提供了启用服务的命令。
-
-存在的错误观点包括：在Mac服务部分，示例代码中“/MYAPP_HOME/myapp”应替换为实际的应用程序路径，而不是使用占位符。
+    <strong>AI总结:</strong> 本文介绍了如何在Windows、Mac和Linux系统中配置和管理服务。Windows服务使用winsw.exe进行管理和配置，通过XML文件定义服务的基本信息和日志设置，并提供了安装、卸载、启动、停止、重启和查询状态的命令。Mac服务通过创建LaunchAgent配置文件并编辑.plist文件来设置服务，最后使用launchctl命令加载和验证服务。Linux服务则通过创建systemd服务文件，定义服务的描述、类型、执行命令及重启策略，并使用systemctl命令进行管理。改进建议包括增加对每个系统的具体配置示例和常见问题的解决方案，以帮助用户更好地理解和实施服务管理。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">Win服务</h2><a id="user-content-win服务" class="anchor" aria-label="Permalink: Win服务" href="#win服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>可以使用winsw.exe进行全局管理, 也可以重命名为指定应用的服务程序如<code>myapp-server.exe</code></p>
-<div class="markdown-heading"><h3 class="heading-element">服务配置</h3><a id="user-content-服务配置" class="anchor" aria-label="Permalink: 服务配置" href="#服务配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">service</span>&gt;
-  &lt;<span class="pl-ent">id</span>&gt;myapp&lt;/<span class="pl-ent">id</span>&gt;
-  &lt;<span class="pl-ent">name</span>&gt;myapp&lt;/<span class="pl-ent">name</span>&gt;
-  &lt;<span class="pl-ent">description</span>&gt;myapp服务&lt;/<span class="pl-ent">description</span>&gt;
-  &lt;<span class="pl-ent">env</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>MYAPP_HOME<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>%BASE%<span class="pl-pds">"</span></span>/&gt; <span class="pl-c"><span class="pl-c">&lt;!--</span> BASE: 指向包含重命名后的 WinSW.exe 的目录 <span class="pl-c">--&gt;</span></span>
-  &lt;<span class="pl-ent">executable</span>&gt;myapp.exe&lt;/<span class="pl-ent">executable</span>&gt;
-  &lt;<span class="pl-ent">arguments</span>&gt;-f "%BASE%\myapp.yaml" -d "%BASE%"&lt;/<span class="pl-ent">arguments</span>&gt; <span class="pl-c"><span class="pl-c">&lt;!--</span> 应用程序参数 <span class="pl-c">--&gt;</span></span>
-  &lt;<span class="pl-ent">logpath</span>&gt;%BASE%\logs&lt;/<span class="pl-ent">logpath</span>&gt;
-  &lt;<span class="pl-ent">log</span> <span class="pl-e">mode</span>=<span class="pl-s"><span class="pl-pds">"</span>roll-by-size<span class="pl-pds">"</span></span>&gt;
-    &lt;<span class="pl-ent">sizeThreshold</span>&gt;10240&lt;/<span class="pl-ent">sizeThreshold</span>&gt;
-    &lt;<span class="pl-ent">keepFiles</span>&gt;3&lt;/<span class="pl-ent">keepFiles</span>&gt;
-  &lt;/<span class="pl-ent">log</span>&gt;
-&lt;/<span class="pl-ent">service</span>&gt;</pre></div>
-<div class="markdown-heading"><h3 class="heading-element">服务管理</h3><a id="user-content-服务管理" class="anchor" aria-label="Permalink: 服务管理" href="#服务管理"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 安装服务</span>
-winsw.exe install myapp-server.xml
-<span class="pl-c"><span class="pl-c">#</span> 卸载服务</span>
-winsw.exe uninstall myapp-server.xml
-<span class="pl-c"><span class="pl-c">#</span> 启动服务</span>
-winsw.exe start myapp-server.xml
-<span class="pl-c"><span class="pl-c">#</span> 停止服务</span>
-winsw.exe stop myapp-server.xml
-<span class="pl-c"><span class="pl-c">#</span> 重启服务</span>
-winsw.exe restart myapp-server.xml
-<span class="pl-c"><span class="pl-c">#</span> 查询服务状态</span>
-winsw.exe status myapp-server.xml
-<span class="pl-c"><span class="pl-c">#</span> 刷新服务属性</span>
-winsw.exe refresh myapp-server.xml</pre></div>
-<div class="markdown-heading"><h3 class="heading-element">相关链接</h3><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  <article class="markdown-body">
+    <h2 id="win">Win服务</h2>
+<p>可以使用winsw.exe进行全局管理, 也可以重命名为指定应用的服务程序如<code>myapp-server.exe</code>  </p>
+<h3 id="_1">服务配置</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">&lt;service&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;id&gt;</span>myapp<span class="nt">&lt;/id&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;name&gt;</span>myapp<span class="nt">&lt;/name&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;description&gt;</span>myapp服务<span class="nt">&lt;/description&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;env</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;MYAPP_HOME&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;%BASE%&quot;</span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- BASE: 指向包含重命名后的 WinSW.exe 的目录 --&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;executable&gt;</span>myapp.exe<span class="nt">&lt;/executable&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;arguments&gt;</span>-f<span class="w"> </span>&quot;%BASE%\myapp.yaml&quot;<span class="w"> </span>-d<span class="w"> </span>&quot;%BASE%&quot;<span class="nt">&lt;/arguments&gt;</span><span class="w"> </span><span class="cm">&lt;!-- 应用程序参数 --&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;logpath&gt;</span>%BASE%\logs<span class="nt">&lt;/logpath&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;log</span><span class="w"> </span><span class="na">mode=</span><span class="s">&quot;roll-by-size&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;sizeThreshold&gt;</span>10240<span class="nt">&lt;/sizeThreshold&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;keepFiles&gt;</span>3<span class="nt">&lt;/keepFiles&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;/log&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/service&gt;</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_2">服务管理</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 安装服务  </span>
+winsw.exe<span class="w"> </span>install<span class="w"> </span>myapp-server.xml<span class="w">  </span>
+<span class="c1"># 卸载服务  </span>
+winsw.exe<span class="w"> </span>uninstall<span class="w"> </span>myapp-server.xml<span class="w">  </span>
+<span class="c1"># 启动服务  </span>
+winsw.exe<span class="w"> </span>start<span class="w"> </span>myapp-server.xml<span class="w">  </span>
+<span class="c1"># 停止服务  </span>
+winsw.exe<span class="w"> </span>stop<span class="w"> </span>myapp-server.xml<span class="w">  </span>
+<span class="c1"># 重启服务  </span>
+winsw.exe<span class="w"> </span>restart<span class="w"> </span>myapp-server.xml<span class="w">  </span>
+<span class="c1"># 查询服务状态  </span>
+winsw.exe<span class="w"> </span>status<span class="w"> </span>myapp-server.xml<span class="w">  </span>
+<span class="c1"># 刷新服务属性  </span>
+winsw.exe<span class="w"> </span>refresh<span class="w"> </span>myapp-server.xml<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_3">相关链接</h3>
 <ol>
-<li><a href="https://github.com/winsw/winsw">winsw服务管理</a></li>
-<li><a href="https://github.com/winsw/winsw/blob/v3/docs/xml-config-file.md">服务配置文件说明</a></li>
-<li><a href="https://github.com/winsw/winsw/blob/v3/docs/logging-and-error-reporting.md">日志设置</a></li>
+<li><a href="https://github.com/winsw/winsw">winsw服务管理</a>  </li>
+<li><a href="https://github.com/winsw/winsw/blob/v3/docs/xml-config-file.md">服务配置文件说明</a>  </li>
+<li><a href="https://github.com/winsw/winsw/blob/v3/docs/logging-and-error-reporting.md">日志设置</a>  </li>
+<li><a href="https://github.com/aelassas/servy">Servy winsw替代</a>  </li>
 </ol>
-<hr>
-<div class="markdown-heading"><h2 class="heading-element">Mac服务</h2><a id="user-content-mac服务" class="anchor" aria-label="Permalink: Mac服务" href="#mac服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h3 class="heading-element">1. <strong>创建 LaunchAgent 配置文件</strong>
-</h3><a id="user-content-1-创建-launchagent-配置文件" class="anchor" aria-label="Permalink: 1. 创建 LaunchAgent 配置文件" href="#1-创建-launchagent-配置文件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>在终端执行以下命令，在 <code>~/Library/LaunchAgents</code> 目录（如未存在则新增目录）新增配置文件：</p>
-<div class="highlight highlight-source-shell"><pre>vim <span class="pl-k">~</span>/Library/LaunchAgents/myapp.plist</pre></div>
-<div class="markdown-heading"><h3 class="heading-element">2. <strong>编辑 <code>.plist</code> 文件内容</strong>
-</h3><a id="user-content-2-编辑-plist-文件内容" class="anchor" aria-label="Permalink: 2. 编辑 .plist 文件内容" href="#2-编辑-plist-文件内容"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>将以下内容填入文件中，并根据 <strong>实际路径</strong> 调整以下部分：</p>
-<div class="highlight highlight-text-xml"><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>?&gt;
-&lt;!<span class="pl-ent">DOCTYPE</span> <span class="pl-e">plist</span> PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
-&lt;<span class="pl-ent">plist</span> <span class="pl-e">version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span>&gt;
-&lt;<span class="pl-ent">dict</span>&gt;
-    &lt;<span class="pl-ent">key</span>&gt;Label&lt;/<span class="pl-ent">key</span>&gt;
-    &lt;<span class="pl-ent">string</span>&gt;myapp.service&lt;/<span class="pl-ent">string</span>&gt;                <span class="pl-c"><span class="pl-c">&lt;!--</span> 自定义服务标识 <span class="pl-c">--&gt;</span></span>
-    &lt;<span class="pl-ent">key</span>&gt;ProgramArguments&lt;/<span class="pl-ent">key</span>&gt;
-    &lt;<span class="pl-ent">array</span>&gt;
-        &lt;<span class="pl-ent">string</span>&gt;/MYAPP_HOME/myapp&lt;/<span class="pl-ent">string</span>&gt;        <span class="pl-c"><span class="pl-c">&lt;!--</span> 应用绝对路径 <span class="pl-c">--&gt;</span></span>
-        &lt;<span class="pl-ent">string</span>&gt;-f&lt;/<span class="pl-ent">string</span>&gt;                       <span class="pl-c"><span class="pl-c">&lt;!--</span> 以下应用程序参数, 可根据实际情况进行调整 <span class="pl-c">--&gt;</span></span>
-        &lt;<span class="pl-ent">string</span>&gt;/MYAPP_HOME/myapp.yaml&lt;/<span class="pl-ent">string</span>&gt;   
-        &lt;<span class="pl-ent">string</span>&gt;-d&lt;/<span class="pl-ent">string</span>&gt;
-        &lt;<span class="pl-ent">string</span>&gt;/MYAPP_HOME&lt;/<span class="pl-ent">string</span>&gt;              
-    &lt;/<span class="pl-ent">array</span>&gt;
-    &lt;<span class="pl-ent">key</span>&gt;RunAtLoad&lt;/<span class="pl-ent">key</span>&gt;
-    &lt;<span class="pl-ent">true</span>/&gt;
-    &lt;<span class="pl-ent">key</span>&gt;KeepAlive&lt;/<span class="pl-ent">key</span>&gt;
-    &lt;<span class="pl-ent">false</span>/&gt;
-&lt;/<span class="pl-ent">dict</span>&gt;
-&lt;/<span class="pl-ent">plist</span>&gt;</pre></div>
-<div class="markdown-heading"><h3 class="heading-element">3. <strong>加载并验证服务</strong>
-</h3><a id="user-content-3-加载并验证服务" class="anchor" aria-label="Permalink: 3. 加载并验证服务" href="#3-加载并验证服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>保存文件后执行以下命令，确保服务生效：</p>
-<div class="highlight highlight-source-shell"><pre>launchctl load <span class="pl-k">~</span>/Library/LaunchAgents/myapp.plist     <span class="pl-c"><span class="pl-c">#</span> 加载服务</span>
-launchctl list <span class="pl-k">|</span> grep myapp                           <span class="pl-c"><span class="pl-c">#</span> 验证是否加载</span></pre></div>
-<div class="markdown-heading"><h2 class="heading-element">Linux服务</h2><a id="user-content-linux服务" class="anchor" aria-label="Permalink: Linux服务" href="#linux服务"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>/etc/systemd/system/myapp.service</p>
-<div class="highlight highlight-source-ini"><pre><span class="pl-en">[Unit]</span>
-<span class="pl-k">Description</span>=myapp service
-<span class="pl-k">After</span>=network.target NetworkManager.service systemd-networkd.service iwd.service
+<hr />
+<h2 id="mac">Mac服务</h2>
+<h3 id="1-launchagent">1. <strong>创建 LaunchAgent 配置文件</strong></h3>
+<p>在终端执行以下命令，在 <code>~/Library/LaunchAgents</code> 目录（如未存在则新增目录）新增配置文件：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>vim<span class="w"> </span>~/Library/LaunchAgents/myapp.plist<span class="w">  </span>
+</code></pre></div></div></p>
+<h3 id="2-plist">2. <strong>编辑 <code>.plist</code> 文件内容</strong></h3>
+<p>将以下内容填入文件中，并根据 <strong>实际路径</strong> 调整以下部分：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><span class="w">  </span>
+<span class="cp">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple Computer//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span><span class="w">  </span>
+<span class="nt">&lt;plist</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="nt">&lt;dict&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;key&gt;</span>Label<span class="nt">&lt;/key&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;string&gt;</span>myapp.service<span class="nt">&lt;/string&gt;</span><span class="w">                </span><span class="cm">&lt;!-- 自定义服务标识 --&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;key&gt;</span>ProgramArguments<span class="nt">&lt;/key&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;array&gt;</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">&lt;string&gt;</span>/MYAPP_HOME/myapp<span class="nt">&lt;/string&gt;</span><span class="w">        </span><span class="cm">&lt;!-- 应用绝对路径 --&gt;</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">&lt;string&gt;</span>-f<span class="nt">&lt;/string&gt;</span><span class="w">                       </span><span class="cm">&lt;!-- 以下应用程序参数, 可根据实际情况进行调整 --&gt;</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">&lt;string&gt;</span>/MYAPP_HOME/myapp.yaml<span class="nt">&lt;/string&gt;</span><span class="w">     </span>
+<span class="w">        </span><span class="nt">&lt;string&gt;</span>-d<span class="nt">&lt;/string&gt;</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">&lt;string&gt;</span>/MYAPP_HOME<span class="nt">&lt;/string&gt;</span><span class="w">                </span>
+<span class="w">    </span><span class="nt">&lt;/array&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;key&gt;</span>RunAtLoad<span class="nt">&lt;/key&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;true/&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;key&gt;</span>KeepAlive<span class="nt">&lt;/key&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;false/&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/dict&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/plist&gt;</span><span class="w">  </span>
+</code></pre></div></div></p>
+<h3 id="3">3. <strong>加载并验证服务</strong></h3>
+<p>保存文件后执行以下命令，确保服务生效：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>launchctl<span class="w"> </span>load<span class="w"> </span>~/Library/LaunchAgents/myapp.plist<span class="w">     </span><span class="c1"># 加载服务  </span>
+launchctl<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>myapp<span class="w">                           </span><span class="c1"># 验证是否加载  </span>
+</code></pre></div></div></p>
+<h2 id="linux">Linux服务</h2>
+<p>/etc/systemd/system/myapp.service  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="k">[Unit]</span><span class="w">  </span>
+<span class="na">Description</span><span class="o">=</span><span class="s">myapp service</span><span class="w">  </span>
+<span class="na">After</span><span class="o">=</span><span class="s">network.target NetworkManager.service systemd-networkd.service iwd.service</span><span class="w">  </span>
 
-<span class="pl-en">[Service]</span>
-<span class="pl-k">Type</span>=simple
-<span class="pl-k">LimitNPROC</span>=500
-<span class="pl-k">LimitNOFILE</span>=1000000
-<span class="pl-k">CapabilityBoundingSet</span>=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_TIME CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE
-<span class="pl-k">AmbientCapabilities</span>=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_TIME CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE
-<span class="pl-k">Restart</span>=always
-<span class="pl-k">ExecStartPre</span>=/usr/bin/sleep 1s
-<span class="pl-k">ExecStart</span>=/usr/local/bin/myapp -d /etc/myapp
-<span class="pl-k">ExecReload</span>=/bin/kill -HUP $MAINPID
+<span class="k">[Service]</span><span class="w">  </span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span><span class="w">  </span>
+<span class="na">LimitNPROC</span><span class="o">=</span><span class="s">500</span><span class="w">  </span>
+<span class="na">LimitNOFILE</span><span class="o">=</span><span class="s">1000000</span><span class="w">  </span>
+<span class="na">CapabilityBoundingSet</span><span class="o">=</span><span class="s">CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_TIME CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE</span><span class="w">  </span>
+<span class="na">AmbientCapabilities</span><span class="o">=</span><span class="s">CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_TIME CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE</span><span class="w">  </span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">always</span><span class="w">  </span>
+<span class="na">ExecStartPre</span><span class="o">=</span><span class="s">/usr/bin/sleep 1s</span><span class="w">  </span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/myapp -d /etc/myapp</span><span class="w">  </span>
+<span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -HUP $MAINPID</span><span class="w">  </span>
 
-<span class="pl-en">[Install]</span>
-<span class="pl-k">WantedBy</span>=multi-user.target</pre></div>
-<div class="highlight highlight-source-shell"><pre>systemctl daemon-reload <span class="pl-c"><span class="pl-c">#</span> 重新加载systemd</span>
-systemctl <span class="pl-c1">enable</span> myapp <span class="pl-c"><span class="pl-c">#</span> 启用服务</span></pre></div>
+<span class="k">[Install]</span><span class="w">  </span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span><span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>systemctl<span class="w"> </span>daemon-reload<span class="w"> </span><span class="c1"># 重新加载systemd  </span>
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>myapp<span class="w"> </span><span class="c1"># 启用服务  </span>
+</code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/92.html" aria-label="Previous Page">0X5C MCP开发手册</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/89.html" aria-label="Next Page">0X59 VSCode扩展配置说明</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/89.html" aria-label="Previous Page">0X59 VSCode扩展配置说明</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/91.html" aria-label="Next Page">0X5B 我关注的项目这周更新了什么-2025-03-21</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -324,8 +395,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
