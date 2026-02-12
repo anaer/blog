@@ -1,7 +1,7 @@
 ## 系统
 
 ### 浏览器
-2. **Chrome** [官网](https://www.google.cn/chrome/?standalone=1&platform=win64&extra=stablechannel)
+1. **Chrome** [官网](https://www.google.cn/chrome/?standalone=1&platform=win64&extra=stablechannel)
 1. ~~Comet~~ [官网](https://www.perplexity.ai/comet) 
 4. ~~Edge~~  共享标签页功能还行
 5. ~~Floorp浏览器~~ [GitHub](https://github.com/Floorp-Projects/Floorp/releases) Firefox fork版 增加一些特性 
@@ -56,7 +56,7 @@
 ### 清理
 1. PrivaZer [官网](https://www.PrivaZer.com/download-pro.php) 已购 
 2. HiBit Uninstaller [官网](https://www.hibitsoft.ir/Uninstaller.html) 
-3. Mole Mac清理 [GitHub](https://github.com/tw93/Mole)
+3. ~~Mole~~ Mac清理 [GitHub](https://github.com/tw93/Mole)
 4. ~~BleachBit~~ 清理工具 [官网](https://www.bleachbit.org/)  垃圾清理
 5. ~~privacy.sexy~~ [GitHub](https://github.com/undergroundwires/privacy.sexy) 隐私安全最佳实践 
 6. ~~Bulk-Crap-Uninstaller~~ [GitHub](https://github.com/Klocman/Bulk-Crap-Uninstaller/releases) 
@@ -78,16 +78,16 @@
 10. ~~mucommander~~ [GitHub](https://github.com/mucommander/mucommander/releases/)多端 支持Mac
 11. ~~doublecmd~~  [GitHub](https://github.com/doublecmd/doublecmd/releases/) 多端 支持Mac
 12. ~~FileConverter~~ 文件转换 [GitHub](https://github.com/Tichau/FileConverter/releases) 
-13. TrafficMonitor [GitHub](https://github.com/zhongyang219/TrafficMonitor) 支持插件 可看天气股票  任务栏展示 会消失
+13. ~~TrafficMonitor~~ [GitHub](https://github.com/zhongyang219/TrafficMonitor) 支持插件 可看天气股票  存在问题: 任务栏展示偶现消失
 
 ## 健康
 1. ~~LightBulb~~ 开源护眼软件 [GitHub](https://github.com/Tyrrrz/LightBulb/releases/) 效果一般
 
 ## 办公
 1. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
-2. OnlyOffice [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
+2. ~~OnlyOffice~~ [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
 3. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
-4. Umi-OCR 识别截图中的文本 [GitHub](https://github.com/hiroi-sora/Umi-OCR)
+4. ~~Umi-OCR~~ 识别截图中的文本 [GitHub](https://github.com/hiroi-sora/Umi-OCR)
 
 ## 开发
 
@@ -119,7 +119,7 @@
 5. ~~Wireshark~~ [官网](https://www.wireshark.org)
 
 ### 数据库
-1. dbeaver [GitHub](https://github.com/dbeaver/dbeaver/releases/)
+1. ~~dbeaver~~ [GitHub](https://github.com/dbeaver/dbeaver/releases/)
 2. ~~HeidiSQL~~ [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差, 不建议用来管理sqlite
 3. ~~SQLiteStudio~~ [官网](https://sqlitestudio.pl/)  [GitHub](https://github.com/pawelsalawa/sqlitestudio/releases/) SQLite客户端 表设计支持较好
 4. ~~DB Browser for SQLite~~ [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)5. ~~Robo 3T~~ [GitHub](https://github.com/Studio3T/robomongo/releases) mongodb
@@ -151,7 +151,7 @@
 
 ### 命令行
 1. chsrc 换源 [GitHub](https://github.com/RubyMetric/chsrc/releases/)
-2. cmirror 换源 [GitHub](https://github.com/ox01024/cmirror)
+2. ~~cmirror~~ 换源 [GitHub](https://github.com/ox01024/cmirror)
 1. ~~lsx 命令帮助~~ [GitHub](https://github.com/CJSen/lsx)
 
 ### VSCode扩展
