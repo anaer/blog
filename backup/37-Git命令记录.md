@@ -1,3 +1,11 @@
+## push时自动设置远程分支
+
+push时 自动执行 `git push --set-upstream origin newbranch`
+
+```sh
+git config --global push.autoSetupRemote true
+```
+
 ## 删除本地存在而远程不存在的分支
 
 ```sh

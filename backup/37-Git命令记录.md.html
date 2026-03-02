@@ -1,6 +1,11 @@
 
   <article class="markdown-body">
-    <h2 id="_1">删除本地存在而远程不存在的分支</h2>
+    <h2 id="push">push时自动设置远程分支</h2>
+<p>push时 自动执行 <code>git push --set-upstream origin newbranch</code>  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>push.autoSetupRemote<span class="w"> </span><span class="nb">true</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_1">删除本地存在而远程不存在的分支</h2>
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>--merged<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;master|main|develop&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w">  </span>
 </code></pre></div></div>

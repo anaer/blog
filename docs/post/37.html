@@ -135,16 +135,21 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-14 11:24:59</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-01-21 15:20:15</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-03-02 16:43:53</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多种Git命令的使用方法，包括删除本地存在但远程不存在的分支、调试Git命令、解决中文乱码问题、强制识别文件名大小写变化、查询提交用户记录、修改历史提交用户信息、浅克隆和完整克隆的操作、比较分支并导出变更文件以及删除敏感文件的历史提交记录。建议在执行命令时注意系统环境差异，尤其在Windows上使用双引号，确保命令的正确执行。同时，可以考虑提供更详细的上下文或示例，以帮助用户更好地理解每个命令的应用场景。
+    <strong>AI总结:</strong> 本文介绍了多种Git操作和配置技巧，包括在push时自动设置远程分支、删除本地存在而远程不存在的分支、调试Git命令、解决中文乱码问题、强制识别大小写变化、查询和修改提交用户记录、浅克隆和完整克隆的转换、比较分支并导出变更文件，以及删除敏感文件的历史提交记录。改进建议包括在执行命令时注意操作系统的兼容性，并在使用复杂命令时确保理解每个参数的作用，以避免潜在的错误。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
-    <h2 id="_1">删除本地存在而远程不存在的分支</h2>
+    <h2 id="push">push时自动设置远程分支</h2>
+<p>push时 自动执行 <code>git push --set-upstream origin newbranch</code>  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>push.autoSetupRemote<span class="w"> </span><span class="nb">true</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_1">删除本地存在而远程不存在的分支</h2>
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>--merged<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;master|main|develop&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w">  </span>
 </code></pre></div></div>
