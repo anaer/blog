@@ -3,18 +3,18 @@
 ### 浏览器
 1. **Chrome** [官网](https://www.google.cn/chrome/?standalone=1&platform=win64&extra=stablechannel)
 1. ~~Comet~~ [官网](https://www.perplexity.ai/comet) 
-4. ~~Edge~~  共享标签页功能还行
+4. ~~Edge~~  
 5. ~~Floorp浏览器~~ [GitHub](https://github.com/Floorp-Projects/Floorp/releases) Firefox fork版 增加一些特性 
 6. ~~Zen Browser~~  [GitHub](https://github.com/zen-browser/desktop) Firefox fork版 支持左侧标签栏 
  
 ### 比较
-1. WinMerge [GitHub](https://github.com/WinMerge/winmerge/releases)  在用
+1. ~~WinMerge~~ [GitHub](https://github.com/WinMerge/winmerge/releases)  在用
 2. ~~BeyondCompare~~
 
 ### 终端
 1. SmartPutty [GitHub](https://github.com/anaer/SmartPutty) Windows
 2. Cmder终端工具 [GitHub](https://github.com/cmderdev/cmder/releases) 可集成到VSCode中
-3. ~~cnKiTTY~~ [GitHub](https://github.com/dZ8Lx9OwX/cnKiTTY/releases) KiTTY中文版 可集成WinSCP, 将WinSCP便携版程序放到同目录下
+3. ~~cnKiTTY~~ [GitHub](https://github.com/dZ8Lx9OwX/cnKiTTY/releases) KiTTY中文版 可集成WinSCP, 需要将WinSCP便携版程序放到程序目录下
 4. Putty [阿里云镜像](https://mirrors.aliyun.com/putty/latest.html)
 5. ~~MobaXterm 中文版~~ [GitHub](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified/releases) [keygen](https://github.com/ryanlycch/MobaXterm-keygen)
 6. ~~KiTTY~~ [GitHub](https://github.com/cyd01/KiTTY/releases)       
@@ -63,22 +63,23 @@
 
 ### 输入法
 1. InputTip输入法状态管理工具 [GitHub](https://github.com/abgox/InputTip)
-2. weasel小狼毫输入法 [官网](https://rime.im/) 又用回来了
+2. weasel小狼毫输入法 [官网](https://rime.im/)
 
 ### 资源管理
-1. ~~MultiCommander~~  [官网](http://multicommander.com/downloads) 
-2. ~~PowerToys~~   [GitHub](https://github.com/microsoft/PowerToys/releases) WingetUI安装 配合Everything插件         
-3. ~~QTTabBar~~ [GitHub](https://github.com/indiff/qttabbar/releases)  资源管理器 多标签 重启后报错了 另一个Clover报毒 
-4. ~~QTTabBar~~ [官网](http://qttabbar.wikidot.com/) 资源管理器多标签，这个暂时能用          
-5. ~~Shell~~ [GitHub](https://github.com/moudey/Shell)            
-6. ~~Stats~~ [GitHub](https://github.com/exelban/stats)  
-7. ~~SwitchHosts~~ [GitHub](https://github.com/oldj/SwitchHosts/releases) 
-8. ~~Unlocker~~   [下载](https://www.52pojie.cn/thread-1317159-1-1.html)   
-9. ~~uTools~~      [官网](https://www.u.tools/)                       
-10. ~~mucommander~~ [GitHub](https://github.com/mucommander/mucommander/releases/)多端 支持Mac
-11. ~~doublecmd~~  [GitHub](https://github.com/doublecmd/doublecmd/releases/) 多端 支持Mac
-12. ~~FileConverter~~ 文件转换 [GitHub](https://github.com/Tichau/FileConverter/releases) 
-13. ~~TrafficMonitor~~ [GitHub](https://github.com/zhongyang219/TrafficMonitor) 支持插件 可看天气股票  存在问题: 任务栏展示偶现消失
+1. Directory Opus 
+2. ~~MultiCommander~~  [官网](http://multicommander.com/downloads) 
+3. ~~PowerToys~~   [GitHub](https://github.com/microsoft/PowerToys/releases) WingetUI安装 配合Everything插件         
+4. ~~QTTabBar~~ [GitHub](https://github.com/indiff/qttabbar/releases)  资源管理器 多标签 重启后报错了 另一个Clover报毒 
+5. ~~QTTabBar~~ [官网](http://qttabbar.wikidot.com/) 资源管理器多标签，这个暂时能用          
+6. ~~Shell~~ [GitHub](https://github.com/moudey/Shell)            
+7. ~~Stats~~ [GitHub](https://github.com/exelban/stats)  
+8. ~~SwitchHosts~~ [GitHub](https://github.com/oldj/SwitchHosts/releases) 
+9. ~~Unlocker~~   [下载](https://www.52pojie.cn/thread-1317159-1-1.html)   
+10. ~~uTools~~      [官网](https://www.u.tools/)                       
+11. ~~mucommander~~ [GitHub](https://github.com/mucommander/mucommander/releases/)多端 支持Mac
+12. ~~doublecmd~~  [GitHub](https://github.com/doublecmd/doublecmd/releases/) 多端 支持Mac
+13. ~~FileConverter~~ 文件转换 [GitHub](https://github.com/Tichau/FileConverter/releases) 
+14. ~~TrafficMonitor~~ [GitHub](https://github.com/zhongyang219/TrafficMonitor) 支持插件 可看天气股票  存在问题: 任务栏展示偶现消失
 
 ## 健康
 1. ~~LightBulb~~ 开源护眼软件 [GitHub](https://github.com/Tyrrrz/LightBulb/releases/) 效果一般
@@ -109,7 +110,7 @@
 4. Lua [官方](https://luabinaries.sourceforge.net/download.html) [GitHub](https://github.com/rjpcomputing/luaforwindows/releases)
 
 ### 大数据
-1. flink [阿里云镜像](https://mirrors.aliyun.com/apache/flink/)
+1. ~~flink~~ [阿里云镜像](https://mirrors.aliyun.com/apache/flink/)
 
 ### 抓包
 1. mitmproxy [GitHub](https://github.com/mitmproxy/mitmproxy/) [官网下载](https://www.mitmproxy.org/downloads/)
