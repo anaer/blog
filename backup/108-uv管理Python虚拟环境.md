@@ -29,6 +29,7 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
   uv run              # 生成 .venv 环境
   uv add flask
   uv add -r requirements.txt
+  uv add --requirements requirements.txt    # 将requirements.txt中依赖信息同步到pyproject.toml文件中
   ```
 
 - **依赖同步**

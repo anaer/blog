@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-04-11 10:28:03</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-03-16 10:18:17</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-03-16 11:03:00</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何安装和使用uv工具，包括通过curl、wget和powershell进行安装的命令。用户可以使用uv init命令快速生成新项目的结构和配置，创建虚拟环境并激活。对于现有项目，uv init可以初始化环境并添加依赖。uv sync命令可以快速同步依赖，对于已有的pyproject.toml和uv.lock文件，支持依赖的升级和重新生成requirements.txt文件。用户还可以检测和升级过时的依赖、查看依赖树、切换Python版本，并使用deptry检测无用依赖。改进建议包括提供更详细的错误处理信息和使用示例，以帮助用户更好地理解每个命令的效果。
+    <strong>AI总结:</strong> 本文介绍了如何安装和使用uv工具，包括通过curl、wget和PowerShell进行安装的方法。对于新项目，可以使用uv init命令快速生成项目结构，并创建虚拟环境。现有项目则可以通过uv init和uv run命令生成环境，并添加依赖。依赖同步和升级可以通过uv sync和相关命令实现，此外，还可以重新生成requirements.txt文件，检测和升级依赖，查看依赖树，以及切换Python版本。最后，用户可以使用deptry工具检测无用依赖。改进建议包括提供更多示例和详细的错误处理说明，以帮助用户更好地理解和使用这些命令。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -177,6 +177,7 @@ uv<span class="w"> </span>init<span class="w">  </span>
 uv<span class="w"> </span>run<span class="w">              </span><span class="c1"># 生成 .venv 环境  </span>
 uv<span class="w"> </span>add<span class="w"> </span>flask<span class="w">  </span>
 uv<span class="w"> </span>add<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span>
+uv<span class="w"> </span>add<span class="w"> </span>--requirements<span class="w"> </span>requirements.txt<span class="w">    </span><span class="c1"># 将requirements.txt中依赖信息同步到pyproject.toml文件中  </span>
 </code></pre></div></div></p>
 </li>
 <li>
