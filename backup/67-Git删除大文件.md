@@ -1,3 +1,26 @@
+## 使用 BFG Repo-Cleaner 清理
+
+### 下载
+
+[下载链接](https://repo1.maven.org/maven2/com/madgag/bfg/1.15.0/bfg-1.15.0.jar)
+
+### 命令行
+repo.git为仓库目录, 可以使用相对路径.
+
+```sh
+# 删除大于100M的文件
+java -jar bfg.jar --strip-blobs-bigger-than 100M repo.git
+
+# 删除指定文件
+java -jar bfg.jar  --delete-files id_{dsa,rsa}  repo.git
+```
+
+```sh
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+git push --force
+```
+
+
 ## 使用 git repo-clean 工具清理
 git repo-clean是用 Golang 开发的具备 Git 仓库大文件扫描，清理，并重写 commit 提交记录功能的 Git 拓展工具。
 
