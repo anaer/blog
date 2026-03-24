@@ -1,0 +1,100 @@
+
+  <article class="markdown-body">
+    <p>在使用 @ConfigurationProperties 绑定 Map 时，Spring Boot 的 松散绑定 (Relaxed Binding) 机制会默认移除 Key 中的特殊字符（如斜杠 /、中划线 - 等）以进行规范化处理。  </p>
+<p>解决方案：使用方括号 [] 包裹 Key<br />
+要保留 Key 中的斜杠或其他特殊字符，你必须在配置文件（YAML 或 Properties）中使用 方括号语法。<br />
+1. YAML 配置示例  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">my</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">config</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">map</span><span class="p">:</span><span class="w">  </span>
+<span class="w">      </span><span class="s">&quot;[/api/v1/user]&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;value1&quot;</span><span class="w">  </span>
+<span class="w">      </span><span class="s">&quot;[/auth/login]&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;value2&quot;</span><span class="w">  </span>
+</code></pre></div></div>
+<ul>
+<li>
+<p>关键点：必须使用双引号包裹整个 Key，且 Key 内部使用 []。  </p>
+</li>
+<li>
+<p>Properties 配置示例  </p>
+</li>
+</ul>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="na">my.config.map.[/api/v1/user]</span><span class="o">=</span><span class="s">value1</span><span class="w">  </span>
+<span class="na">my.config.map.[/auth/login]</span><span class="o">=</span><span class="s">value2</span><span class="w">  </span>
+</code></pre></div></div>
+<ol>
+<li>Java 代码接收  </li>
+</ol>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nd">@Component</span><span class="w">  </span>
+<span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;my.config&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyProperties</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">// getter and setter  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<p>为什么斜杠会丢失？<br />
+Spring Boot 在处理 Map 的 Key 时，如果 Key 没有被 [] 包裹，它会尝试应用松散绑定规则。在此规则下： [1, 2]   </p>
+<ul>
+<li>/ 会被视作路径分隔符或非法字符被剔除。  </li>
+<li>my-key 会被转为 myKey。  </li>
+<li>使用 [] 可以显式告诉 Spring “这是一个字面量 Key”，从而跳过松散绑定逻辑，原样保留所有字符。  </li>
+</ul>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
