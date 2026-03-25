@@ -1,0 +1,195 @@
+
+  <article class="markdown-body">
+    <h2 id="_1">目录</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>/etc/nats  
+  - docker-compose.yml  
+  - nats.conf  
+  - certs/  
+    - ca.pem  
+    - client-cert.pem  
+    - client-key.pem  
+    - server-cert.pem  
+    - server-key.pem  
+</code></pre></div></div>
+<h3 id="docker-composeyml">docker-compose.yml</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">services</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">nats</span><span class="p">:</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nats:latest</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">ports</span><span class="p">:</span><span class="w">  </span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;4222:4222&quot;</span><span class="w">  </span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8222:8222&quot;</span><span class="w"> </span><span class="c1"># 管理端口  </span>
+<span class="w">      </span><span class="nt">volumes</span><span class="p">:</span><span class="w">  </span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./nats.conf:/etc/nats/nats.conf:ro</span><span class="w">  </span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./certs:/etc/nats/certs:ro</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;-c</span><span class="nv"> </span><span class="s">/etc/nats/nats.conf&quot;</span><span class="w"> </span><span class="c1"># 明确指定配置文件  </span>
+</code></pre></div></div>
+<h3 id="natsconf">nats.conf</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>port: 4222  
+tls {  
+  cert_file: &quot;/etc/nats/certs/server-cert.pem&quot;  
+  key_file:  &quot;/etc/nats/certs/server-key.pem&quot;  
+  ca_file:   &quot;/etc/nats/certs/ca.pem&quot;  
+  verify:    true  # 开启 mTLS 验证客户端  
+  min_version: &quot;1.2&quot; # 设置最低TLS版本以保证安全  
+}  
+</code></pre></div></div>
+<h2 id="mkcert">mkcert 生成本地证书</h2>
+<p>CentOS安装mkcert  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># mkcert 依赖 nss-tools 来操作系统的证书信任库  </span>
+yum<span class="w"> </span>install<span class="w"> </span>nss-tools<span class="w"> </span>-y<span class="w">  </span>
+
+<span class="c1"># 下载二进制文件 (以 v1.4.4 为例，请根据需要检查最新版)  </span>
+wget<span class="w"> </span>-O<span class="w"> </span>mkcert<span class="w"> </span>https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-amd64<span class="w">  </span>
+
+<span class="c1"># 赋予执行权限并移动到系统路径  </span>
+chmod<span class="w"> </span>+x<span class="w"> </span>mkcert<span class="w">  </span>
+sudo<span class="w"> </span>mv<span class="w"> </span>mkcert<span class="w"> </span>/usr/local/bin/<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 初始化本地CA证书并安装到系统信任存储中  </span>
+mkcert<span class="w"> </span>-install<span class="w">  </span>
+
+ls<span class="w"> </span>/root/.local/share/mkcert<span class="w">  </span>
+<span class="c1"># rootCA-key.pem  </span>
+<span class="c1"># rootCA.pem  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/etc/nats/certs<span class="w">  </span>
+cp<span class="w"> </span>/root/.local/share/mkcert/rootCA.pem<span class="w"> </span>ca.pem<span class="w">  </span>
+
+<span class="c1"># 生成证书，包含 localhost、127.0.0.1 等  </span>
+mkcert<span class="w"> </span>-cert-file<span class="w"> </span>server-cert.pem<span class="w"> </span>-key-file<span class="w"> </span>server-key.pem<span class="w"> </span>localhost<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>nats-server<span class="w">  </span>
+
+<span class="c1"># 生成客户端证书  </span>
+mkcert<span class="w"> </span>-client<span class="w"> </span>-cert-file<span class="w"> </span>client-cert.pem<span class="w"> </span>-key-file<span class="w"> </span>client-key.pem<span class="w"> </span>nats-client<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_2">测试脚本</h2>
+<h3 id="subpy">sub.py</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># pip install nats-py  </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>  
+<span class="kn">import</span><span class="w"> </span><span class="nn">nats</span>  
+<span class="kn">import</span><span class="w"> </span><span class="nn">ssl</span>  
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>  
+    <span class="c1"># 1. 创建 SSL 上下文  </span>
+    <span class="n">ssl_ctx</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">(</span><span class="n">purpose</span><span class="o">=</span><span class="n">ssl</span><span class="o">.</span><span class="n">Purpose</span><span class="o">.</span><span class="n">SERVER_AUTH</span><span class="p">)</span>  
+
+    <span class="c1"># 2. 加载 mkcert 的根证书 (rootCA.pem)  </span>
+    <span class="c1"># 这样 Python 才能信任 NATS 服务端出示的自签名证书  </span>
+    <span class="n">ssl_ctx</span><span class="o">.</span><span class="n">load_verify_locations</span><span class="p">(</span><span class="n">cafile</span><span class="o">=</span><span class="s2">&quot;ca.pem&quot;</span><span class="p">)</span>  
+
+    <span class="n">ssl_ctx</span><span class="o">.</span><span class="n">load_cert_chain</span><span class="p">(</span>  
+        <span class="n">certfile</span><span class="o">=</span><span class="s2">&quot;client-cert.pem&quot;</span><span class="p">,</span>  
+        <span class="n">keyfile</span><span class="o">=</span><span class="s2">&quot;client-key.pem&quot;</span>  
+    <span class="p">)</span>  
+
+    <span class="c1"># 连接到 NATS 服务器  </span>
+    <span class="n">nc</span> <span class="o">=</span> <span class="k">await</span> <span class="n">nats</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;tls://127.0.0.1:4222&quot;</span><span class="p">,</span> <span class="n">tls</span><span class="o">=</span><span class="n">ssl_ctx</span><span class="p">)</span>  
+
+    <span class="c1"># 创建一个订阅对象  </span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="k">await</span> <span class="n">nc</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s2">&quot;subject_test&quot;</span><span class="p">)</span>  
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;订阅者已启动，等待消息...&quot;</span><span class="p">)</span>  
+
+    <span class="c1"># 处理接收到的消息  </span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">sub</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>  
+        <span class="n">data</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;收到消息: &#39;</span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&#39; 在主题: &#39;</span><span class="si">{</span><span class="n">msg</span><span class="o">.</span><span class="n">subject</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>  
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>  
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>  
+</code></pre></div></div>
+<h3 id="pubpy">pub.py</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>  
+<span class="kn">import</span><span class="w"> </span><span class="nn">nats</span>  
+<span class="kn">import</span><span class="w"> </span><span class="nn">ssl</span>  
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>  
+    <span class="c1"># 1. 创建 SSL 上下文  </span>
+    <span class="n">ssl_ctx</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">(</span><span class="n">purpose</span><span class="o">=</span><span class="n">ssl</span><span class="o">.</span><span class="n">Purpose</span><span class="o">.</span><span class="n">SERVER_AUTH</span><span class="p">)</span>  
+
+    <span class="c1"># 2. 加载 mkcert 的根证书 (rootCA.pem)  </span>
+    <span class="c1"># 这样 Python 才能信任 NATS 服务端出示的自签名证书  </span>
+    <span class="n">ssl_ctx</span><span class="o">.</span><span class="n">load_verify_locations</span><span class="p">(</span><span class="n">cafile</span><span class="o">=</span><span class="s2">&quot;ca.pem&quot;</span><span class="p">)</span>  
+
+    <span class="n">ssl_ctx</span><span class="o">.</span><span class="n">load_cert_chain</span><span class="p">(</span>  
+        <span class="n">certfile</span><span class="o">=</span><span class="s2">&quot;client-cert.pem&quot;</span><span class="p">,</span>  
+        <span class="n">keyfile</span><span class="o">=</span><span class="s2">&quot;client-key.pem&quot;</span>  
+    <span class="p">)</span>  
+
+    <span class="c1"># 连接到 NATS 服务器  </span>
+    <span class="n">nc</span> <span class="o">=</span> <span class="k">await</span> <span class="n">nats</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;tls://127.0.0.1:4222&quot;</span><span class="p">,</span> <span class="n">tls</span><span class="o">=</span><span class="n">ssl_ctx</span><span class="p">)</span>  
+
+    <span class="c1"># 发布消息到主题  </span>
+    <span class="k">await</span> <span class="n">nc</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;subject_test&quot;</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;Hello NATS!&quot;</span><span class="p">)</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;消息已发布: Hello NATS!&quot;</span><span class="p">)</span>  
+
+    <span class="c1"># 关闭连接  </span>
+    <span class="k">await</span> <span class="n">nc</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>  
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>  
+</code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
