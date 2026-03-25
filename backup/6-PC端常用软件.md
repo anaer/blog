@@ -66,7 +66,7 @@
 2. weasel小狼毫输入法 [官网](https://rime.im/)
 
 ### 资源管理
-1. Directory Opus 
+1. ~~Directory Opus~~ 
 2. ~~MultiCommander~~  [官网](http://multicommander.com/downloads) 
 3. ~~PowerToys~~   [GitHub](https://github.com/microsoft/PowerToys/releases) WingetUI安装 配合Everything插件         
 4. ~~QTTabBar~~ [GitHub](https://github.com/indiff/qttabbar/releases)  资源管理器 多标签 重启后报错了 另一个Clover报毒 
@@ -86,9 +86,10 @@
 
 ## 办公
 1. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
-2. ~~OnlyOffice~~ [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
-3. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
-4. ~~Umi-OCR~~ 识别截图中的文本 [GitHub](https://github.com/hiroi-sora/Umi-OCR)
+2. ShareX 截图/录屏工具 [GitHub](https://github.com/ShareX/ShareX/releases)
+3. ~~OnlyOffice~~ [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
+4. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
+5. ~~Umi-OCR~~ 识别截图中的文本 [GitHub](https://github.com/hiroi-sora/Umi-OCR)
 
 ## 开发
 
