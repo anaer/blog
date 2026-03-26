@@ -3,13 +3,13 @@
 ### 浏览器
 1. **Chrome** [官网](https://www.google.cn/chrome/?standalone=1&platform=win64&extra=stablechannel)
 1. ~~Comet~~ [官网](https://www.perplexity.ai/comet) 
-4. ~~Edge~~  
+4. ~~Edge~~  [官网](https://www.microsoft.com/en-us/edge/download)
 5. ~~Floorp浏览器~~ [GitHub](https://github.com/Floorp-Projects/Floorp/releases) Firefox fork版 增加一些特性 
 6. ~~Zen Browser~~  [GitHub](https://github.com/zen-browser/desktop) Firefox fork版 支持左侧标签栏 
  
 ### 比较
-1. ~~WinMerge~~ [GitHub](https://github.com/WinMerge/winmerge/releases)  在用
-2. ~~BeyondCompare~~
+1. ~~WinMerge~~ [GitHub](https://github.com/WinMerge/winmerge/releases)
+2. ~~BeyondCompare~~ [官网](https://bcompare.cn/beyond-compare-5-download)
 
 ### 终端
 1. SmartPutty [GitHub](https://github.com/anaer/SmartPutty) Windows
@@ -36,8 +36,8 @@
 5. ~~fastcopy~~ [官网](https://fastcopy.jp/)   大文件复制用的不多
 
 ### AI
-1. ~~Cherry Studio~~ [GitHub](https://github.com/CherryHQ/cherry-studio/releases) 用得少
-2. Everywhere [GitHub](https://github.com/DearVa/Everywhere/releases)
+1. ~~Cherry Studio~~ [GitHub](https://github.com/CherryHQ/cherry-studio/releases)
+2. ~~Everywhere~~ [GitHub](https://github.com/DearVa/Everywhere/releases)
 
 ### 压缩
 1. 7zip [官网](https://www.7-zip.org/)  [GitHub](https://github.com/ip7z/7zip/releases)
@@ -66,7 +66,7 @@
 2. weasel小狼毫输入法 [官网](https://rime.im/)
 
 ### 资源管理
-1. ~~Directory Opus~~ 
+1. ~~Directory Opus~~ [官网](https://support.gpsoft.com.au/download)
 2. ~~MultiCommander~~  [官网](http://multicommander.com/downloads) 
 3. ~~PowerToys~~   [GitHub](https://github.com/microsoft/PowerToys/releases) WingetUI安装 配合Everything插件         
 4. ~~QTTabBar~~ [GitHub](https://github.com/indiff/qttabbar/releases)  资源管理器 多标签 重启后报错了 另一个Clover报毒 
@@ -129,6 +129,7 @@
 6. Navicat [官网](https://www.navicat.com.cn/)  [GitHub](https://github.com/shuhongfan/NavicatCracker/)
 7. ~~SQLyog~~  [GitHub](https://github.com/webyog/sqlyog-community/wiki/Downloads) 网上有注册码 只支持mysql
 8. MySQL [华为云镜像](https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-5.7/)
+9. SQLiteSpy [下载](https://www.yunqa.de/delphi/apps/sqlitespy/index)
 
 ### 版本控制
 1. Git [官网](https://git-scm.com/downloads/win) [GitHub](https://github.com/git-for-windows/git/releases/)
