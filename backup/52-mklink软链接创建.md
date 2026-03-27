@@ -29,4 +29,5 @@ mklink /D "C:\Users\Administrator\.m2\repository" "D:\repository"
 ```
 mklink /D "C:\Users\Administrator\AppData\Roaming\Code\User\workspaceStorage" "D:\VSCode\workspaceStorage"
 mklink /D "C:\Users\Administrator\AppData\Roaming\Code - Insiders\User\workspaceStorage" "D:\VSCode\workspaceStorage"
+mklink /D "C:\Users\Administrator\.m2\repository" "D:\repository"
 ```

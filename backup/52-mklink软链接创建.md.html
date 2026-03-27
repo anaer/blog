@@ -1,22 +1,85 @@
-<div class="markdown-heading"><h2 class="heading-element">mklink 命令</h2><a id="user-content-mklink-命令" class="anchor" aria-label="Permalink: mklink 命令" href="#mklink-命令"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>&gt;mklink /?
-创建符号链接。
 
-MKLINK [[/D] | [/H] | [/J]] Link Target
+  <article class="markdown-body">
+    <h2 id="mklink">mklink 命令</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>&gt;mklink /?  
+创建符号链接。  
 
-        /D      创建目录符号链接。默认为文件
-                符号链接。
-        /H      创建硬链接而非符号链接。
-        /J      创建目录联接。
-        Link    指定新的符号链接名称。
-        Target  指定新链接引用的路径
-                (相对或绝对)。
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">示例</h2><a id="user-content-示例" class="anchor" aria-label="Permalink: 示例" href="#示例"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h3 class="heading-element">指定 maven 仓库目录</h3><a id="user-content-指定-maven-仓库目录" class="anchor" aria-label="Permalink: 指定 maven 仓库目录" href="#指定-maven-仓库目录"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>mklink /D "C:\Users\Administrator\.m2\repository" "D:\repository"
-</code></pre>
-<div class="markdown-heading"><h3 class="heading-element">VSCode 工作目录, 目录较大 移动到非系统盘</h3><a id="user-content-vscode-工作目录-目录较大-移动到非系统盘" class="anchor" aria-label="Permalink: VSCode 工作目录, 目录较大 移动到非系统盘" href="#vscode-工作目录-目录较大-移动到非系统盘"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>mklink /D "C:\Users\Administrator\AppData\Roaming\Code\User\workspaceStorage" "D:\VSCode\workspaceStorage"
-mklink /D "C:\Users\Administrator\AppData\Roaming\Code - Insiders\User\workspaceStorage" "D:\VSCode\workspaceStorage"
-</code></pre>
+MKLINK [[/D] | [/H] | [/J]] Link Target  
+
+        /D      创建目录符号链接。默认为文件  
+                符号链接。  
+        /H      创建硬链接而非符号链接。  
+        /J      创建目录联接。  
+        Link    指定新的符号链接名称。  
+        Target  指定新链接引用的路径  
+                (相对或绝对)。  
+</code></pre></div></div>
+<h2 id="_1">示例</h2>
+<h3 id="maven">指定 maven 仓库目录</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>mklink /D &quot;C:\Users\Administrator\.m2\repository&quot; &quot;D:\repository&quot;  
+</code></pre></div></div>
+<h3 id="vscode">VSCode 工作目录, 目录较大 移动到非系统盘</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>mklink /D &quot;C:\Users\Administrator\AppData\Roaming\Code\User\workspaceStorage&quot; &quot;D:\VSCode\workspaceStorage&quot;  
+mklink /D &quot;C:\Users\Administrator\AppData\Roaming\Code - Insiders\User\workspaceStorage&quot; &quot;D:\VSCode\workspaceStorage&quot;  
+mklink /D &quot;C:\Users\Administrator\.m2\repository&quot; &quot;D:\repository&quot;  
+</code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+

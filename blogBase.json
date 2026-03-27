@@ -1124,19 +1124,19 @@
             "labels": [
                 "Win10"
             ],
-            "postTitle": "0X34 mklink\u8f6f\u94fe\u63a5\u521b\u5efa",
+            "postTitle": "mklink\u8f6f\u94fe\u63a5\u521b\u5efa",
             "postUrl": "post/52.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/52",
             "commentNum": 0,
             "createdAt": 1737530289,
-            "updatedAt": 1737530289,
+            "updatedAt": 1774600393,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "hsl(140, 56%, 33%)",
-            "description": "",
-            "buildedAt": 1737530289
+            "dateLabelColor": "hsl(209, 42%, 32%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86mklink\u547d\u4ee4\u7684\u7528\u6cd5\uff0c\u4e3b\u8981\u7528\u4e8e\u521b\u5efa\u7b26\u53f7\u94fe\u63a5\u3001\u786c\u94fe\u63a5\u548c\u76ee\u5f55\u8054\u63a5\u3002\u547d\u4ee4\u683c\u5f0f\u4e3aMKLINK [[/D] | [/H] | [/J]] Link Target\uff0c\u5176\u4e2d/D\u7528\u4e8e\u521b\u5efa\u76ee\u5f55\u7b26\u53f7\u94fe\u63a5\uff0c/H\u7528\u4e8e\u521b\u5efa\u786c\u94fe\u63a5\uff0c/J\u7528\u4e8e\u521b\u5efa\u76ee\u5f55\u8054\u63a5\u3002\u793a\u4f8b\u4e2d\u5c55\u793a\u4e86\u5982\u4f55\u5c06maven\u4ed3\u5e93\u76ee\u5f55\u548cVSCode\u5de5\u4f5c\u76ee\u5f55\u7684\u94fe\u63a5\u521b\u5efa\u5230\u975e\u7cfb\u7edf\u76d8\u3002\u6539\u8fdb\u5efa\u8bae\u5305\u62ec\u63d0\u4f9b\u66f4\u591a\u793a\u4f8b\u548c\u89e3\u91ca\u4e0d\u540c\u94fe\u63a5\u7c7b\u578b\u7684\u4f7f\u7528\u573a\u666f\uff0c\u4ee5\u5e2e\u52a9\u7528\u6237\u66f4\u597d\u5730\u7406\u89e3\u548c\u5e94\u7528\u8be5\u547d\u4ee4\u3002",
+            "buildedAt": 1774600393
         },
         "P53": {
             "number": "53",
