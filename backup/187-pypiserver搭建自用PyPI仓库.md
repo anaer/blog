@@ -81,3 +81,9 @@ pip config set global.trusted-host 你的服务器IP
 ```sh
 pip index versions some_package
 ```
+
+4. 升级包
+
+```sh
+pip install -U some_package
+```
