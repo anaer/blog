@@ -21,7 +21,7 @@ services:
     command:  
       - &quot;-p&quot;  
       - &quot;8080&quot;  
-      - &quot;--authenticate=update&quot;    # 认证方式：上传update、下载download、列表list  
+      - &quot;--authenticate=update&quot;                  # 认证方式：上传update、下载download、列表list  
       - &quot;--passwords&quot;  
       - &quot;/data/auth/.htpasswd&quot;                   # 如果启用认证  
       - &quot;/data/packages&quot;  
@@ -38,7 +38,8 @@ services:
 </ol>
 <p>确认是否安装htpasswd, 未安装则安装  </p>
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code>yum<span class="w"> </span>install<span class="w"> </span>httpd-tools<span class="w">  </span>
+<pre><span></span><code><span class="c1"># CentOS  </span>
+yum<span class="w"> </span>install<span class="w"> </span>httpd-tools<span class="w">  </span>
 htpasswd<span class="w"> </span>-V<span class="w">  </span>
 </code></pre></div></div>
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>

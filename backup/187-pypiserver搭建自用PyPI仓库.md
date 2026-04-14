@@ -21,7 +21,7 @@ services:
     command:
       - "-p"
       - "8080"
-      - "--authenticate=update"    # 认证方式：上传update、下载download、列表list
+      - "--authenticate=update"                  # 认证方式：上传update、下载download、列表list
       - "--passwords"
       - "/data/auth/.htpasswd"                   # 如果启用认证
       - "/data/packages"
@@ -39,6 +39,7 @@ mkdir -p packages auth
 确认是否安装htpasswd, 未安装则安装
 
 ```sh
+# CentOS
 yum install httpd-tools
 htpasswd -V
 ```
