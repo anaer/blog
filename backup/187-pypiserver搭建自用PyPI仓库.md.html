@@ -1,0 +1,146 @@
+
+  <article class="markdown-body">
+    <h2 id="pypi">自建PyPI仓库</h2>
+<h3 id="pypiserver">pypiserver</h3>
+<p>最简单、最轻量，适合个人、小团队或快速搭建。只需一个目录存放 .whl / .tar.gz 包。  </p>
+<h3 id="docker">Docker部署</h3>
+<ol>
+<li>准备docker-compose.yml  </li>
+</ol>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>version: &#39;3.8&#39;  
+services:  
+  pypi-server:  
+    image: pypiserver/pypiserver:latest          # 官方镜像  
+    container_name: private-pypi  
+    ports:  
+      - &quot;8080:8080&quot;                              # 宿主机端口:容器端口，可改成 80 或其他  
+    volumes:  
+      - ./packages:/data/packages                # 存放包的目录（持久化）  
+      - ./auth:/data/auth                        # 可选：存放密码文件  
+    command:  
+      - &quot;-p&quot;  
+      - &quot;8080&quot;  
+      - &quot;--authenticate=update&quot;    # 认证方式：上传update、下载download、列表list  
+      - &quot;--passwords&quot;  
+      - &quot;/data/auth/.htpasswd&quot;                   # 如果启用认证  
+      - &quot;/data/packages&quot;  
+    restart: always  
+</code></pre></div></div>
+<ol>
+<li>创建目录  </li>
+</ol>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>packages<span class="w"> </span>auth<span class="w">  </span>
+</code></pre></div></div>
+<ol>
+<li>添加认证  </li>
+</ol>
+<p>确认是否安装htpasswd, 未安装则安装  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>yum<span class="w"> </span>install<span class="w"> </span>httpd-tools<span class="w">  </span>
+htpasswd<span class="w"> </span>-V<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nb">cd</span><span class="w"> </span>auth<span class="w">  </span>
+<span class="c1"># 创建用户 需输入两次密码  </span>
+htpasswd<span class="w"> </span>-B<span class="w"> </span>-c<span class="w"> </span>.htpasswd<span class="w"> </span>username<span class="w">  </span>
+</code></pre></div></div>
+<ol>
+<li>启动服务  </li>
+</ol>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>docker compose up -d  
+</code></pre></div></div>
+<ol>
+<li>
+<p>验证<br />
+访问<br />
+http://你的服务器IP:8080/<br />
+http://你的服务器IP:8080/simple  </p>
+</li>
+<li>
+<p>上传包<br />
+只需要将whl包放到packages目录下，然后访问 http://你的服务器IP:8080/simple ，即可看到上传的包。  </p>
+</li>
+</ol>
+<h3 id="_1">客户端</h3>
+<ol>
+<li>客户端下载  </li>
+</ol>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>some_package<span class="w"> </span>--index-url<span class="w"> </span>http://你的服务器IP:8080/simple/<span class="w"> </span>--trusted-host<span class="w"> </span>你的服务器IP<span class="w">  </span>
+</code></pre></div></div>
+<ol>
+<li>
+<p>配置pip<br />
+配置后, 下载时无需指定index-url<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.extra-index-url<span class="w"> </span>http://你的服务器IP:8080/simple/<span class="w">  </span>
+pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.trusted-host<span class="w"> </span>你的服务器IP<span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+<li>
+<p>查询服务器包版本<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>pip<span class="w"> </span>index<span class="w"> </span>versions<span class="w"> </span>some_package<span class="w">  </span>
+</code></pre></div></div></p>
+</li>
+</ol>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
