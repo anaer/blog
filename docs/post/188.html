@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
+    <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <script>
+        if(localStorage.getItem("meek_theme")==null){}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
+    </script>
+    
+<title>开源框架学习</title>
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/dimmed.css" rel="stylesheet" />
+
+</head>
+<style>
+body{
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 45px;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.25;
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 767px) {body {padding: 8px;}}
+
+pre {
+    white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
+    word-wrap: break-word; /* 允许长单词或 URL 换行 */
+    overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
+}
+
+.new-post {
+    bottom: 20px; /* 距离底部 20px */
+}
+
+.edit-post {
+    bottom: 60px; /* 距离底部60px */
+}
+
+/* 悬浮按钮样式 */
+.floating-button {
+    position: fixed; /* 固定位置 */
+    right: 5%; /* 距离右侧 5% */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 32px; /* 宽度 */
+    height: 32px; /* 高度 */
+    font-size: 16px; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    z-index: 1000; /* 确保按钮在最上层 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* 添加悬停效果 */
+}
+
+/* 按钮悬停效果 */
+.floating-button:hover {
+    background-color: #0056b3; /* 悬停时改变背景颜色 */
+}
+
+.previous_page {text-align: left;}
+.next_page {text-align: right;}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1>
+    <a style="font-size:18px">开源框架学习</a>
+</h1>
+
+<div class="title-right">
+
+    <a href="https://anaer.github.io/blog"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    <a href="https://github.com/anaer/blog/issues/188" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+</div>
+</div>
+    <div id="content">
+
+<div class="listLabels">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#0e8a16">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Java">Java</a></object>
+        </span>
+</div>
+<br>
+
+<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
+<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2026-04-17 15:11:04</time></span>
+
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了RBAC权限模型的基本结构，包括用户、角色和权限的关系，以及如何通过角色将用户与权限关联。权限类型分为功能权限、按钮权限、数据权限和租户权限，分别控制用户的菜单、按钮、数据访问和多租户隔离。权限校验流程涉及后端使用Spring Security和JWT进行用户角色权限的加载和校验，前端利用动态路由和权限指令控制界面元素的显示。双Token机制用于提高接口安全性和用户体验，Mock Token功能用于开发测试。框架还包括操作日志和访问日志的处理，支持本地开发调试，负载均衡策略以及多租户数据库实现方案。改进建议包括更详细的权限校验示例和多租户实现方案的具体应用场景，以帮助用户更好地理解和应用这些技术。
+</div>
+
+<div class="markdown-body" id="postBody">
+
+  <article class="markdown-body">
+    <h2 id="_1">框架</h2>
+<h3 id="rbac">RBAC权限模型</h3>
+<p>RBAC 基于角色的访问控制  </p>
+<p>简而言之，共有三个类型（用户、角色、权限），用户和权限通过角色进行交集绑定，也就是某一个用户有哪一些角色，这些角色有哪一些权限。只要用户和角色、角色和权限之间存在交集，就是该用户具有某一个权限。  </p>
+<ul>
+<li><strong>用户（User）</strong> —— 可以拥有多个 <strong>角色（Role）</strong>  </li>
+<li><strong>角色（Role）</strong> —— 可以拥有多个 <strong>菜单/权限（Menu/Permission）</strong>  </li>
+<li><strong>菜单（Menu）</strong> —— 包含目录、菜单、按钮（操作权限），支持 <strong>权限标识（permission）</strong> 如 <code>system:user:query</code>  </li>
+</ul>
+<p><strong>关系总结</strong>：<br />
+- 用户 ↔ 角色（多对多）<br />
+- 角色 ↔ 菜单（多对多）<br />
+- 菜单中定义 <strong>按钮/接口权限</strong>（如 <code>user:add</code>、<code>user:edit</code> 等）  </p>
+<h4 id="_2">权限类型</h4>
+<table>
+<thead>
+<tr>
+<th>权限类型</th>
+<th>说明</th>
+<th>实现方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>功能权限</strong></td>
+<td>控制用户能看到哪些菜单、按钮，能调用哪些接口</td>
+<td>动态路由 + <code>@PreAuthorize</code> 或自定义注解</td>
+</tr>
+<tr>
+<td><strong>按钮权限</strong></td>
+<td>细粒度到页面按钮（如新增、删除、导出按钮）</td>
+<td>权限标识（permission） + 前端 v-hasPermi 指令</td>
+</tr>
+<tr>
+<td><strong>数据权限</strong></td>
+<td>控制用户能看到哪些数据（本部门、本人、自定义部门等）</td>
+<td><code>@DataScope</code> 注解 + MyBatis 拦截器重写 SQL</td>
+</tr>
+<tr>
+<td><strong>租户权限</strong></td>
+<td>SaaS 多租户隔离，每个租户可独立配置菜单、角色、数据权限</td>
+<td>Tenant 过滤器 + TenantRedisCacheManager</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_3">权限校验流程</h4>
+<p><strong>后端</strong>：<br />
+- 使用 Spring Security + JWT/Token<br />
+- 登录后加载用户所有角色和权限，存入 Redis（使用 <code>TimeoutRedisCacheManager</code> 缓存权限信息）<br />
+- 接口权限校验：<code>@PreAuthorize("hasPermission('system:user:query')")</code> 或自定义 Security 表达式<br />
+- 数据权限：MyBatis 拦截器（DataScopeAspect）在 SQL 执行前动态追加 <code>WHERE</code> 条件  </p>
+<p><strong>前端</strong>：<br />
+- 登录后获取用户菜单树（动态路由）<br />
+- 使用 <code>v-hasPermi="'system:user:add'"</code> 或 <code>v-hasRole="'admin'"</code> 控制按钮显示<br />
+- 路由守卫中进行权限校验，防止未授权页面访问  </p>
+<h3 id="token">双Token系统</h3>
+<p>双Token机制出现的需求是： 需要既能高频使用来保证接口安全（短效Access Token），又能长期保持登录状态从而不打扰用户（长效Refresh Token）  </p>
+<p>设置访问令牌，先将访问令牌设置到数据库中，之后设置到Redis中。<br />
+刷新令牌可以不需要设置到Redis中，原因是这个刷新令牌的过期时间很长30天。  </p>
+<p>如果用户注销登录，删除访问令牌（删除数据库中的和Redis中的），之后删除刷新令牌。  </p>
+<h3 id="mock-token">开发测试Mock Token</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">virgo</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">security</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">mock-enable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># 是否开启Mock功能  </span>
+<span class="w">    </span><span class="nt">mock-secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span><span class="w">  </span><span class="c1"># 设置Mock密钥 不设置默认为test  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 请求头示例  </span>
+<span class="c1"># Token必须以{{mock-secret}}开头, 后面跟用户编号, 如test1  </span>
+<span class="nt">Authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bearer test1</span><span class="w">  </span>
+</code></pre></div></div>
+<p>相关类:<br />
+- com.virgo.framework.security.config.SecurityProperties  配置文件<br />
+- com.virgo.framework.security.core.filter.TokenAuthenticationFilter#mockLoginUser() Mock实现逻辑  </p>
+<h3 id="url">实现URL是否需要登录</h3>
+<p>com.virgo.framework.security.config.VirgoWebSecurityConfigurerAdapter  </p>
+<p>filterChain(HttpSecurity httpSecurity) URL 安全配置<br />
+1. getPermitAllUrlsFromAnnotations() 获取所有@PermitAll注解的接口<br />
+2. com.virgo.module.system.framework.security.config.SecurityConfiguration  业务模块自定义安全配置<br />
+3. 配置文件配置免登录URL<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">virgo</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">security</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">permit-all-urls</span><span class="p">:</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/admin-api/system/auth/login</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/admin-api/system/auth/logout</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/admin-api/system/auth/refresh-token</span><span class="w">  </span>
+</code></pre></div></div></p>
+<h2 id="_4">框架组件</h2>
+<h3 id="_5">操作日志、访问日志、错误日志处理</h3>
+<h4 id="_6">访问日志</h4>
+<p>com.virgo.framework.apilog.core.annotation.ApiAccessLog 注解定义<br />
+com.virgo.framework.apilog.core.filter.ApiAccessLogFilter 拦截器处理  </p>
+<p>@ApiAccessLog<br />
+enable: 是否记录访问日志<br />
+requestEnable: 是否记录请求参数<br />
+responseEnable: 是否记录响应结果<br />
+sanitizeKeys: 敏感参数数组, 配置后不会输出到日志  </p>
+<h3 id="_7">本地开发调试</h3>
+<p><strong>spring-boot-starter-env</strong>组件，通过tag给服务打标签，实现在同一个注册中心的情况下，本地只需要正常启动服务，保证自己的请求只会打到自己的服务。  </p>
+<h4 id="_8">实现方法</h4>
+<p>com.virgo.framework.env.config.EnvEnvironmentPostProcessor<br />
+将 virgo.env.tag 设置到 nacos 等组件对应的 tag 配置项，当且仅当它们不存在时  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">virgo</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="c1"># 多环境的配置项  </span>
+<span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${HOSTNAME}</span><span class="w">  </span>
+</code></pre></div></div>
+<blockquote>
+<p>EnvironmentPostProcessor是一个用于在Spring环境准备完成之后、应用上下文创建之前，对配置环境进行自定义处理。  </p>
+<p>启动流程：  </p>
+<ol>
+<li>SpringApplication.run()；  </li>
+<li>环境准备时期：创建ConfigurableEnvironment对象。  </li>
+<li>属性加载：加载application.yaml文件配置。  </li>
+<li>EnvironmentPostProcessor执行-自定义环境处理。  </li>
+<li>应用上下文创建-创建ApplicationContext。  </li>
+<li>Bean加载和初始化-完成应用的启动。  </li>
+</ol>
+</blockquote>
+<p>由于这个EnvironmentPostProcessor的执行时机是在nacos执行之前，所以在nacos加载的时候可以做到侵入式的添加metadata = {tag}。  </p>
+<p>需要服务器能访问本机IP, 否则请求会报错, 如:<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>io.netty.channel.ConnectTimeoutException: connection timed out after 30000 ms: /198.18.0.1:48087  
+</code></pre></div></div></p>
+<h4 id="_9">负载均衡</h4>
+<p>com.virgo.gateway.filter.grey.GrayLoadBalancer 灰度负载均衡, 支持按version, tag调用请求<br />
+1. 服务发布时设置version, 自动设置到Nacos的元数据metadata中, 如version:1.0.0, 需在本地application.yaml中配置<br />
+2. 可以同时发布同一服务不同版本<br />
+3. 请求时未带version, 所有实例中选择<br />
+4. 请求时带了version, 根据version匹配实例进行选择<br />
+5. version未匹配到实例, 兜底在所有实例中选择<br />
+6. tag一般用于本地开发调试, 所以请求未带tag时，过滤所有tag实例, 以免打到本地环境.  </p>
+<h2 id="saas">SaaS多租户</h2>
+<h3 id="_10">技术组件</h3>
+<h4 id="db">多租户DB实现</h4>
+<p>实现方案：  </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>方案一: 分库</th>
+<th>方案二: 同库分表</th>
+<th>方案三: 同库同表字段区分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>维护成本</td>
+<td>高</td>
+<td>中</td>
+<td>低</td>
+</tr>
+<tr>
+<td>隔离性</td>
+<td>高</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>强</td>
+<td>中</td>
+<td>低</td>
+</tr>
+<tr>
+<td>硬件成本</td>
+<td>高</td>
+<td>中</td>
+<td>低</td>
+</tr>
+<tr>
+<td>备份/还原</td>
+<td>简单</td>
+<td>中</td>
+<td>困难</td>
+</tr>
+</tbody>
+</table>
+<p>方案一二: 采用Mycat, Sharding-Sphere分库分表<br />
+方案三: 基于MyBatis-Plus的<strong>tenant_id</strong>字段，自动进行过滤 <strong>WHERE tenant_id = ?</strong>。 <a href="https://baomidou.com/plugins/tenant/">Mybatis-plus插件</a>。  </p>
+<h5 id="_11">多租户实现</h5>
+<p>virgo-spring-boot-starter-biz-tenant  </p>
+<p><a href="https://gitee.com/baomidou/mybatis-plus-samples/tree/master/mybatis-plus-sample-tenant">MBP实例</a>  </p>
+<p>com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler<br />
+1. getTenantId（获取租户ID值的表达式）<br />
+2. getTenantIdColumn（获取租户的字段名，默认是：tenant_id）<br />
+3. ignoreTable（根据表名判断是否需要忽略拼接多租户条件）<br />
+4. ignoreInsert（忽略插入租户字段逻辑）  </p>
+<p>com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor  </p>
+<p>大概就是两种，一种是关于租户ID值的表达式，另一种是是否忽略掉一些表结构。  </p>
+<p>com.virgo.framework.tenant.config.TenantProperties<br />
+com.virgo.framework.tenant.config.VirgoTenantAutoConfiguration<br />
+com.virgo.framework.tenant.core.security.TenantSecurityWebFilter<br />
+com.virgo.framework.tenant.core.db.TenantDatabaseInterceptor<br />
+com.virgo.framework.tenant.core.web.TenantVisitContextInterceptor 跨租户访问<br />
+com.virgo.framework.tenant.core.redis.TenantRedisCacheManager  多租户缓存实现  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">virgo</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">tenant</span><span class="p">:</span><span class="w"> </span><span class="c1"># 多租户相关配置项  </span>
+<span class="w">    </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># 租户是否开启  </span>
+<span class="w">    </span><span class="nt">ignore-urls</span><span class="p">:</span><span class="w"> </span><span class="c1"># 忽略多租户的请求  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/jmreport/*</span><span class="w"> </span><span class="c1"># 积木报表，无法携带租户编号  </span>
+<span class="w">    </span><span class="nt">ignore-visit-urls</span><span class="p">:</span><span class="w"> </span><span class="c1"># 忽略跨租户的请求  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/admin-api/system/user/profile/**</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/admin-api/system/auth/**</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">ignore-tables</span><span class="p">:</span><span class="w"> </span><span class="c1"># 忽略多租户的表  </span>
+<span class="w">    </span><span class="nt">ignore-caches</span><span class="p">:</span><span class="w"> </span><span class="c1"># 忽略多租户的Spring Cache缓存  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user_role_ids</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">permission_menu_ids</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oauth_client</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_12">缓存扩展</h3>
+<p>使Spring Cache支持失效时间<br />
+com.virgo.framework.redis.core.TimeoutRedisCacheManager  </p>
+<p>@Cacheable(cacheNames = "name <a href="https://anaer.github.io/blog/post/1.html">0X1 苹果CMS接口说明以及采集源搜索</a> d", key = "key")。  </p>
+<p>cacheNames格式为 "key#ttl" 时，# 后面的 ttl 为过期时间。<br />
+单位为最后一个字母（支持的单位有：d 天，h 小时，m 分钟，s 秒），默认单位为 s 秒  </p>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
+
+</div><nav class="paginate-container" aria-label="Pagination">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/187.html" aria-label="Previous Page">pypiserver搭建自用PyPI仓库</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+</nav>
+
+<!-- 编辑按钮 -->
+<a href="https://github.com/anaer/blog/issues/188" target="_blank">
+    <button class="floating-button edit-post">🖋</button>
+</a>
+
+<!-- 新增按钮 -->
+<a href="https://github.com/anaer/blog/issues/new" target="_blank">
+    <button class="floating-button new-post">+</button>
+</a>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
+
+<script>
+if("2023-09-08"!=""){
+    var now=new Date();
+    var startSite=new Date("2023-09-08");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script></div>
+
+    <!-- oneko.js中用到document.body, 需要在body块中加载 否则提示为null -->
+    <script src="https://anaer.github.io/blog/assets/oneko.js/oneko.js"></script>
+</body>
+<script>
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
+var utterancesLoad=0;
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek v2.4 %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+
+<script>
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","anaer/blog");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+
+
+<script src="https://anaer.github.io/blog/assets/toc.js"></script>
+
+
+</html>
