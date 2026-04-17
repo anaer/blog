@@ -135,8 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2026-04-17 15:11:04</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-04-17 15:21:00</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了RBAC权限模型的基本结构，包括用户、角色和权限的关系，以及如何通过角色将用户与权限关联。权限类型分为功能权限、按钮权限、数据权限和租户权限，分别控制用户的菜单、按钮、数据访问和多租户隔离。权限校验流程涉及后端使用Spring Security和JWT进行用户角色权限的加载和校验，前端利用动态路由和权限指令控制界面元素的显示。双Token机制用于提高接口安全性和用户体验，Mock Token功能用于开发测试。框架还包括操作日志和访问日志的处理，支持本地开发调试，负载均衡策略以及多租户数据库实现方案。改进建议包括更详细的权限校验示例和多租户实现方案的具体应用场景，以帮助用户更好地理解和应用这些技术。
+    <strong>AI总结:</strong> 本文介绍了RBAC权限模型的基本概念，包括用户、角色和权限之间的关系，以及不同类型的权限（功能权限、按钮权限、数据权限和租户权限）的实现方式。还详细阐述了权限校验流程，包括后端和前端的具体实现步骤，并介绍了双Token机制用于接口安全和用户登录状态的保持。此外，文中提及了框架组件的操作日志、访问日志、负载均衡和多租户实现的技术方案，以及如何扩展缓存功能和使用分布式锁。改进建议包括简化某些技术细节的描述，以便更容易理解整体架构和实现流程。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -361,6 +363,13 @@ com.virgo.framework.redis.core.TimeoutRedisCacheManager  </p>
 <p>@Cacheable(cacheNames = "name <a href="https://anaer.github.io/blog/post/1.html">0X1 苹果CMS接口说明以及采集源搜索</a> d", key = "key")。  </p>
 <p>cacheNames格式为 "key#ttl" 时，# 后面的 ttl 为过期时间。<br />
 单位为最后一个字母（支持的单位有：d 天，h 小时，m 分钟，s 秒），默认单位为 s 秒  </p>
+<h3 id="lock4j">Lock4j 分布式锁/限流</h3>
+<p><a href="https://github.com/baomidou/lock4j/">Lock4j使用帮助</a>  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="w"> </span><span class="nd">@Lock4j</span><span class="w">  </span>
+<span class="w"> </span><span class="nd">@Lock4j</span><span class="p">(</span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;#user.id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#user.name&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60000</span><span class="p">,</span><span class="w"> </span><span class="n">acquireTimeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w">  </span>
+<span class="w"> </span><span class="nd">@Lock4j</span><span class="p">(</span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;#user.id&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">acquireTimeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="n">autoRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w">  </span>
+</code></pre></div></div>
   </article>
   
 <style>
