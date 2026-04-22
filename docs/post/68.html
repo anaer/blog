@@ -139,10 +139,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23 13:58:23</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-10 17:00:58</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-04-22 16:07:57</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了用于循环执行git命令的Windows批处理脚本，包括pull和push操作。脚本设置了在连接GitHub失败时，每5秒重试，最多可尝试100次。用户可以将这些脚本放在PATH目录下，直接在仓库目录中执行。脚本中检查当前目录是否为git仓库，并在失败时输出相应提示。文中还提到在Mac上可以通过添加alias来实现类似功能。需要注意的是，脚本中的循环次数设置为100次，如果需要永久循环，应调整为(0,0,1)。此外，chcp命令用于修改命令行窗口的编码格式。存在的错误观点是，脚本中提到的“如果需要永久循环设置为(0,0,1)”并不符合标准的循环控制语法，应明确说明如何实现这一点。
+    <strong>AI总结:</strong> 本文介绍了几个用于Git操作的批处理脚本，包括循环执行的git pull和git push命令，以应对GitHub连接不稳定的问题。主要内容包括：retry.cmd脚本用于循环执行命令，设置了最大重试次数和间隔时间；pull.cmd和push.cmd脚本在当前目录为Git仓库时，循环尝试执行相应的命令；apull.cmd脚本在执行pull之前会暂存本地变更，并在拉取完成后恢复变更。此外，还提供了Mac上设置alias的示例，以及cmd编码的修改方法。改进建议包括增加对错误处理的详细记录，便于排查问题，以及考虑将重试次数和间隔时间作为参数传入，以提高灵活性。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -151,7 +151,7 @@ pre {
     <h2 id="_1">循环执行脚本</h2>
 <p>判断参数命令执行结果, 如果失败则重复执行<br />
 <code>retry.cmd git push origin main</code>  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>@echo<span class="w"> </span>off<span class="w">  </span>
 chcp<span class="w"> </span><span class="m">65001</span><span class="w">  </span>
 <span class="nb">echo</span><span class="w"> </span>%*<span class="w">  </span>
@@ -165,7 +165,7 @@ chcp<span class="w"> </span><span class="m">65001</span><span class="w">  </span
 暂定间隔5秒循环执行, 一般10次以内能成功 这里设置了100次, 如果需要永久循环 设置为(0,0,1)  </p>
 <p>用法: 将pull.cmd, push.cmd脚本放到PATH目录下, 使用时直接在仓库目录, 执行pull, push即可  </p>
 <h3 id="pullcmd">pull.cmd</h3>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>@echo<span class="w"> </span>off<span class="w">  </span>
 chcp<span class="w"> </span><span class="m">65001</span><span class="w">  </span>
 rem<span class="w"> </span>因github容易连不上,<span class="w"> </span>所以间隔5秒循环执行,<span class="w"> </span>一般10次以内都能成功<span class="w"> </span>这里设置了100次,<span class="w"> </span>如果需要永久循环<span class="w"> </span>设置为<span class="o">(</span><span class="m">0</span>,0,1<span class="o">)</span><span class="w">  </span>
@@ -180,7 +180,7 @@ git<span class="w"> </span>rev-parse<span class="w"> </span>--is-inside-work-tre
 <span class="nb">echo</span><span class="w"> </span>-------------------------end<span class="w">  </span>
 </code></pre></div></div>
 <h3 id="pushcmd">push.cmd</h3>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>@echo<span class="w"> </span>off<span class="w">  </span>
 chcp<span class="w"> </span><span class="m">65001</span><span class="w">  </span>
 rem<span class="w"> </span>因github容易连不上,<span class="w"> </span>所以间隔5秒循环执行,<span class="w"> </span>一般10次以内都能成功<span class="w"> </span>这里设置了100次,<span class="w"> </span>如果需要永久循环<span class="w"> </span>设置为<span class="o">(</span><span class="m">0</span>,0,1<span class="o">)</span><span class="w">  </span>
@@ -195,28 +195,84 @@ git<span class="w"> </span>rev-parse<span class="w"> </span>--is-inside-work-tre
 :EOF<span class="w">  </span>
 <span class="nb">echo</span><span class="w"> </span>-------------------end<span class="w">  </span>
 </code></pre></div></div>
+<h3 id="apullcmd-pull">apull.cmd 先暂存本地变更, 再pull, 最后恢复变更</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>@echo<span class="w"> </span>off<span class="w">  </span>
+chcp<span class="w"> </span><span class="m">65001</span><span class="w"> </span>&gt;nul<span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span>正在检查本地变更...<span class="w">  </span>
+git<span class="w"> </span>update-index<span class="w"> </span>-q<span class="w"> </span>--refresh<span class="w">  </span>
+::<span class="w"> </span>判断是否有未暂存/未提交的修改<span class="w">  </span>
+git<span class="w"> </span>diff<span class="w"> </span>--quiet<span class="w"> </span>HEAD<span class="w"> </span>--<span class="w"> </span><span class="m">2</span>&gt;nul<span class="w">  </span>
+<span class="k">if</span><span class="w"> </span>%errorlevel%<span class="w"> </span>equ<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>█<span class="w"> </span>没有本地修改，直接拉取更新...<span class="w">  </span>
+<span class="o">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="o">(</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>█<span class="w"> </span>检测到未保存的修改，正在临时存储...<span class="w">  </span>
+<span class="w">    </span>git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;AutoStash_%DATE%_%TIME%&quot;</span><span class="w"> </span>--quiet<span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>█<span class="w"> </span>已暂存本地修改：<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>stash<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>findstr<span class="w"> </span><span class="s2">&quot;AutoStash&quot;</span><span class="w">  </span>
+<span class="o">)</span><span class="w">  </span>
+::<span class="w"> </span>执行拉取操作<span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span>█<span class="w"> </span>正在从远程仓库拉取更新...<span class="w">  </span>
+git<span class="w"> </span>pull<span class="w">  </span>
+::<span class="w"> </span>如果有暂存则恢复<span class="w">  </span>
+<span class="k">if</span><span class="w"> </span>%errorlevel%<span class="w"> </span>equ<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="k">if</span><span class="w"> </span>exist<span class="w"> </span>.git/refs/stash<span class="w"> </span><span class="o">(</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>█<span class="w"> </span>正在恢复暂存的修改...<span class="w">  </span>
+<span class="w">    </span>git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w"> </span>--index<span class="w"> </span>--quiet<span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>本地修改已恢复<span class="w"> </span>^!<span class="w">  </span>
+<span class="o">)</span><span class="w">  </span>
+<span class="nb">echo</span><span class="w"> </span>█<span class="w"> </span>操作完成<span class="w"> </span>^!<span class="w">  </span>
+</code></pre></div></div>
 <h2 id="macalias">Mac添加alias实现</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>pull=&#39;for i in `seq 1 100`; do echo $i &amp;&amp; git pull &amp;&amp; break; sleep 5; done&#39;  
 push=&#39;for i in `seq 1 100`; do echo $i &amp;&amp; git push &amp;&amp; break; done&#39;  
 </code></pre></div></div>
 <h2 id="chcp">chcp</h2>
 <p>修改cmd编码  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>chcp<span class="w"> </span><span class="m">936</span><span class="w">  </span><span class="c1">#GBK  </span>
 chcp<span class="w"> </span><span class="m">65001</span><span class="w"> </span><span class="c1">#UTF-8  </span>
 </code></pre></div></div>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -224,10 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
@@ -235,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/67.html" aria-label="Previous Page">0X43 Git删除大文件</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/69.html" aria-label="Next Page">0X45 Nginx日志配置</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/67.html" aria-label="Previous Page">Git删除大文件</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/69.html" aria-label="Next Page">0X45 Nginx日志配置</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
