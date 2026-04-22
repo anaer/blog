@@ -271,7 +271,9 @@ class GMEEK():
             if index < len(keys) - 1:
                 next_key = keys[index + 1]
             else:
-                next_key = keys[0]
+                # next_key = keys[0]
+                # 随机获取一个
+                next_key = random.choice(keys)
             return self.blogBase["postListJson"][next_key]
         except:
             return None
