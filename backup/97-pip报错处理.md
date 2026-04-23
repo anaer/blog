@@ -1,3 +1,18 @@
+## pip 修改源
+
+```sh
+python -m pip install --upgrade pip
+pip config set global.index-url https://mirrors.cernet.edu.cn/pypi/web/simple
+```
+
+默认配置: C:\Users\Administrator\AppData\Roaming\pip\pip.ini
+
+```ini
+[global]
+index-url = https://mirrors.cernet.edu.cn/pypi/web/simple
+```
+
+
 ## pip install时 报错提示"module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'"
 
 ```

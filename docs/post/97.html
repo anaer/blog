@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
     <script>
@@ -13,7 +15,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X61 pip报错处理</title>
+<title>pip报错处理</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +98,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X61 pip报错处理</a>
+    <a style="font-size:18px">pip报错处理</a>
 </h1>
 
 <div class="title-right">
@@ -133,33 +135,101 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-27 10:23:20</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在使用pip安装时出现的错误，提示“module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'”。该错误源于OpenSSL库中的crypto.py文件，导致无法正确导入相关模块。临时解决方法为重命名crypto.py文件。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-04-23 13:43:18</time></span>
 
-优化建议：
-1. 尝试更新OpenSSL库和相关依赖，确保使用的是最新版本。
-2. 检查Python环境的兼容性，确保与所使用的库版本匹配。
-3. 如果重命名文件作为临时解决方案，建议在项目文档中记录此更改，以便后续维护。
-4. 考虑使用虚拟环境来隔离依赖，避免与系统库产生冲突。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了如何修改pip源以及处理在使用pip安装时遇到的"module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'"错误。用户可以通过命令行设置pip的全局源为中国教育网镜像，并指出默认配置文件位置。同时，提供了临时解决方案，即重命名crypto.py文件以避免该错误。建议在解决此类问题时，查看相关文档或社区讨论，以获得更持久的解决方案。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">pip install时 报错提示"module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'"</h2><a id="user-content-pip-install时-报错提示module-lib-has-no-attribute-x509_v_flag_notify_policy" class="anchor" aria-label="Permalink: pip install时 报错提示&quot;module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'&quot;" href="#pip-install时-报错提示module-lib-has-no-attribute-x509_v_flag_notify_policy"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>  File "/usr/lib/python3/dist-packages/OpenSSL/__init__.py", line 8, in &lt;module&gt;
-    from OpenSSL import crypto, SSL
-  File "/usr/lib/python3/dist-packages/OpenSSL/crypto.py", line 1553, in &lt;module&gt;
-    class X509StoreFlags(object):
-  File "/usr/lib/python3/dist-packages/OpenSSL/crypto.py", line 1571, in X509StoreFlags
-    NOTIFY_POLICY = _lib.X509_V_FLAG_NOTIFY_POLICY
-AttributeError: module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'
-</code></pre>
-<p>临时解决: 重命名crypto.py可临时解决</p>
-<div class="highlight highlight-source-shell"><pre>mv <span class="pl-s"><span class="pl-pds">"</span>/usr/lib/python3/dist-packages/OpenSSL/crypto.py<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>/usr/lib/python3/dist-packages/OpenSSL/crypto.py.bak<span class="pl-pds">"</span></span></pre></div>
-<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a href="https://blog.csdn.net/weixin_40548182/article/details/141133991" rel="nofollow">ansible 问题处理 AttributeError: module ‘lib‘ has no attribute ‘X509_V_FLAG_NOTIFY_POLICY‘</a></p>
+
+  <article class="markdown-body">
+    <h2 id="pip">pip 修改源</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w">  </span>
+pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://mirrors.cernet.edu.cn/pypi/web/simple<span class="w">  </span>
+</code></pre></div></div>
+<p>默认配置: C:\Users\Administrator\AppData\Roaming\pip\pip.ini  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="k">[global]</span><span class="w">  </span>
+<span class="na">index-url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://mirrors.cernet.edu.cn/pypi/web/simple</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="pip-install-module-lib-has-no-attribute-x509_v_flag_notify_policy">pip install时 报错提示"module 'lib' has no attribute 'X509_V_FLAG_NOTIFY_POLICY'"</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>  File &quot;/usr/lib/python3/dist-packages/OpenSSL/__init__.py&quot;, line 8, in &lt;module&gt;  
+    from OpenSSL import crypto, SSL  
+  File &quot;/usr/lib/python3/dist-packages/OpenSSL/crypto.py&quot;, line 1553, in &lt;module&gt;  
+    class X509StoreFlags(object):  
+  File &quot;/usr/lib/python3/dist-packages/OpenSSL/crypto.py&quot;, line 1571, in X509StoreFlags  
+    NOTIFY_POLICY = _lib.X509_V_FLAG_NOTIFY_POLICY  
+AttributeError: module &#39;lib&#39; has no attribute &#39;X509_V_FLAG_NOTIFY_POLICY&#39;  
+</code></pre></div></div>
+<p>临时解决: 重命名crypto.py可临时解决<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>mv<span class="w"> </span><span class="s2">&quot;/usr/lib/python3/dist-packages/OpenSSL/crypto.py&quot;</span><span class="w"> </span><span class="s2">&quot;/usr/lib/python3/dist-packages/OpenSSL/crypto.py.bak&quot;</span><span class="w">  </span>
+</code></pre></div></div></p>
+<h2 id="_1">相关链接</h2>
+<p><a href="https://blog.csdn.net/weixin_40548182/article/details/141133991">ansible 问题处理 AttributeError: module ‘lib‘ has no attribute ‘X509_V_FLAG_NOTIFY_POLICY‘</a>  </p>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/98.html" aria-label="Previous Page">0X62 将 Nginx 替换为 OpenResty</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/96.html" aria-label="Next Page">0X60 Mac配置</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/96.html" aria-label="Previous Page">0X60 Mac配置</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/98.html" aria-label="Next Page">0X62 将 Nginx 替换为 OpenResty</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -241,8 +311,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);
