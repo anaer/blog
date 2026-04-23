@@ -1,5 +1,5 @@
 ## [goneovim](https://github.com/akiyosi/goneovim)
-单文件 刚安装 测试看看
+已停止开发
 
 ## [neovide](https://github.com/neovide/neovide)
 单文件 光标切换响应较慢 有残影 暂不考虑

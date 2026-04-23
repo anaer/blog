@@ -373,21 +373,21 @@
             "htmlDir": "docs/post/17.html",
             "markdown": "backup/17-neovim gui\u5ba2\u6237\u7aef.md",
             "labels": [
-                "\u5de5\u5177"
+                "Tool"
             ],
-            "postTitle": "0X11 neovim gui\u5ba2\u6237\u7aef",
+            "postTitle": "neovim gui\u5ba2\u6237\u7aef",
             "postUrl": "post/17.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/17",
             "commentNum": 0,
             "createdAt": 1722926223,
-            "updatedAt": 1737449709,
+            "updatedAt": 1776909187,
             "top": -1,
             "style": "",
             "script": "",
             "createdDate": "2024-08-06",
-            "dateLabelColor": "hsl(308, 42%, 13%)",
-            "description": "",
-            "buildedAt": 1737449709
+            "dateLabelColor": "hsl(44, 32%, 29%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u51e0\u4e2a\u5f00\u53d1\u5de5\u5177\u7684\u72b6\u6001\u548c\u7279\u70b9\uff1agoneovim\u5df2\u505c\u6b62\u5f00\u53d1\uff0cneovide\u5b58\u5728\u5149\u6807\u5207\u6362\u54cd\u5e94\u6162\u548c\u6b8b\u5f71\u95ee\u9898\uff0c\u56e0\u6b64\u6682\u4e0d\u8003\u8651\uff0cfvim\u5219\u7531\u4e8e\u5305\u542b\u8f83\u591adll\u5e93\u6587\u4ef6\uff0c\u6682\u65f6\u4e5f\u4e0d\u8003\u8651\u3002\u6539\u8fdb\u5efa\u8bae\u662f\u5bf9\u8fd9\u4e9b\u5de5\u5177\u8fdb\u884c\u66f4\u591a\u7684\u6027\u80fd\u8bc4\u4f30\u548c\u7528\u6237\u53cd\u9988\u6536\u96c6\uff0c\u4ee5\u4fbf\u66f4\u597d\u5730\u9009\u62e9\u5408\u9002\u7684\u5f00\u53d1\u5de5\u5177\u3002",
+            "buildedAt": 1776909187
         },
         "P18": {
             "number": "18",
