@@ -135,12 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2026-04-17 15:11:04</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-04-23 11:28:33</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-04-23 15:07:51</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了RBAC（基于角色的访问控制）权限模型的基本概念和实现细节，包括用户、角色和权限之间的关系，以及不同类型的权限（功能权限、按钮权限、数据权限和租户权限）的实现方式。还描述了权限校验流程、双Token机制的需求和实现、以及开发测试的Mock Token功能。此外，文中提到了一些框架组件的配置，如访问日志处理、本地开发调试、负载均衡策略和SaaS多租户的实现方案。最后，介绍了缓存扩展和分布式锁的使用方法。
-
-改进建议：可以进一步细化每个权限类型的具体实现示例，增加代码片段以便于读者理解，同时提供更详细的使用场景和最佳实践，以提升文档的实用性和可读性。
+    <strong>AI总结:</strong> 本文介绍了RBAC（基于角色的访问控制）权限模型的基本概念，包括用户、角色和权限之间的关系，以及权限类型的具体实现方式。权限校验流程涉及后端使用Spring Security和JWT进行用户角色和权限管理，前端通过动态路由和权限指令控制页面展示。此外，文中还提到双Token系统的设计，Mock Token的实现，访问日志和本地开发调试的配置方法，以及多租户的数据库实现方案和相关技术组件。最后，介绍了缓存扩展和分布式锁的使用。改进建议包括简化某些复杂的技术细节描述，使内容更易于理解，并提供更多实际应用示例以帮助读者更好地掌握RBAC模型的应用。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -372,6 +370,8 @@ com.virgo.framework.redis.core.TimeoutRedisCacheManager  </p>
 <span class="w"> </span><span class="nd">@Lock4j</span><span class="p">(</span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;#user.id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#user.name&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60000</span><span class="p">,</span><span class="w"> </span><span class="n">acquireTimeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w">  </span>
 <span class="w"> </span><span class="nd">@Lock4j</span><span class="p">(</span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;#user.id&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">acquireTimeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="n">autoRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w">  </span>
 </code></pre></div></div>
+<h3 id="_13">版本更新</h3>
+<p>v2026.01 -&gt; v2026.03  </p>
   </article>
   
 <style>
@@ -431,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/187.html" aria-label="Previous Page">pypiserver搭建自用PyPI仓库</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/9.html" aria-label="Next Page">Ubuntu安装fail2ban</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/187.html" aria-label="Previous Page">pypiserver搭建自用PyPI仓库</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/189.html" aria-label="Next Page">Winget修改源</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
