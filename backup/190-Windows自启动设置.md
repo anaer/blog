@@ -1,5 +1,7 @@
 ## 注册表
 
+可以使用Autoruns软件 可以方便的跳转注册表
+
 regedit 打开注册表, 定位以下路径
 `HKCU\Software\Microsoft\Windows\CurrentVersion\Run`
 
