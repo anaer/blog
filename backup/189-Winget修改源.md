@@ -26,6 +26,12 @@ winget upgrade --all --include-unknown
 winget export -o winget-pkg.config
 ```
 
+恢复装机
+
+```sh
+winget import -i winget-pkg.config
+```
+
 ## pin 添加包钉 阻止升级
 
 对于不想升级, 或者升级报错的, 可以添加包钉
@@ -35,6 +41,8 @@ winget pin add --id Microsoft.VisualStudioCode.Insiders
 winget pin add --id PremiumSoft.NavicatPremium
 winget pin add --id Microsoft.AppInstaller
 winget pin add --id Microsoft.WindowsTerminal
+
+winget pin remove --id Zoom.Zoom
 
 winget pin list
 winget pin -?
