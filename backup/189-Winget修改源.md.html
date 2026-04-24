@@ -19,6 +19,17 @@ chcp<span class="w"> </span><span class="m">65001</span><span class="w">  </span
 winget<span class="w"> </span>upgrade<span class="w"> </span>--all<span class="w"> </span>--include-unknown<span class="w">  </span>
 winget<span class="w"> </span><span class="nb">export</span><span class="w"> </span>-o<span class="w"> </span>winget-pkg.config<span class="w">  </span>
 </code></pre></div></div>
+<h2 id="pin">pin 添加包钉 阻止升级</h2>
+<p>对于不想升级, 或者升级报错的, 可以添加包钉  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>winget<span class="w"> </span>pin<span class="w"> </span>add<span class="w"> </span>--id<span class="w"> </span>Microsoft.VisualStudioCode.Insiders<span class="w">  </span>
+winget<span class="w"> </span>pin<span class="w"> </span>add<span class="w"> </span>--id<span class="w"> </span>PremiumSoft.NavicatPremium<span class="w">  </span>
+winget<span class="w"> </span>pin<span class="w"> </span>add<span class="w"> </span>--id<span class="w"> </span>Microsoft.AppInstaller<span class="w">  </span>
+winget<span class="w"> </span>pin<span class="w"> </span>add<span class="w"> </span>--id<span class="w"> </span>Microsoft.WindowsTerminal<span class="w">  </span>
+
+winget<span class="w"> </span>pin<span class="w"> </span>list<span class="w">  </span>
+winget<span class="w"> </span>pin<span class="w"> </span>-?<span class="w">  </span>
+</code></pre></div></div>
   </article>
   
 <style>
