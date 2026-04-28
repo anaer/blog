@@ -1,0 +1,135 @@
+
+  <article class="markdown-body">
+    <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># -*-coding:utf-8-*-  </span>
+<span class="c1"># chrome for testing: https://registry.npmmirror.com/binary.html?path=chrome-for-testing/114.0.5735.90/  </span>
+<span class="c1"># chromedrive: https://registry.npmmirror.com/binary.html?path=chromedriver/114.0.5735.90/  </span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium</span><span class="w"> </span><span class="kn">import</span> <span class="n">webdriver</span>  
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.chrome.options</span><span class="w"> </span><span class="kn">import</span> <span class="n">Options</span>  
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.common.by</span><span class="w"> </span><span class="kn">import</span> <span class="n">By</span>  
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.support.ui</span><span class="w"> </span><span class="kn">import</span> <span class="n">WebDriverWait</span>  
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.support</span><span class="w"> </span><span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>  
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.common.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeoutException</span>  
+
+<span class="n">chrome_options</span> <span class="o">=</span> <span class="n">Options</span><span class="p">()</span>  
+<span class="n">chrome_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--headless=new&quot;</span><span class="p">)</span>      <span class="c1"># 无头模式  </span>
+<span class="n">chrome_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--no-sandbox&quot;</span><span class="p">)</span>        <span class="c1"># 禁用沙箱  </span>
+<span class="n">chrome_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--disable-dev-shm-usage&quot;</span><span class="p">)</span> <span class="c1"># 解决共享内存问题  </span>
+<span class="n">chrome_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--disable-gpu&quot;</span><span class="p">)</span>       <span class="c1"># 禁用 GPU 加速  </span>
+<span class="n">chrome_options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span><span class="s2">&quot;excludeSwitches&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;enable-automation&quot;</span><span class="p">])</span> <span class="c1"># 移除 &quot;自动化控制&quot; 提示  </span>
+<span class="n">chrome_options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span><span class="s1">&#39;useAutomationExtension&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># 禁用自动化扩展  </span>
+
+<span class="c1"># from webdriver_manager.chrome import ChromeDriverManager  </span>
+<span class="c1"># from selenium.webdriver.chrome.service import Service  </span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_element_value</span><span class="p">():</span>  
+    <span class="c1"># 1. 初始化 Chrome 浏览器  </span>
+    <span class="c1"># 如果你没有配置环境变量，需要在括号内指定 chromedriver 的路径  </span>
+    <span class="c1">#driver = webdriver.Chrome()  </span>
+    <span class="c1">#driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)  </span>
+    <span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">chrome_options</span><span class="p">)</span>  
+
+    <span class="c1"># 3. 执行 CDP 命令，彻底隐藏 webdriver 属性 (关键步骤)  </span>
+    <span class="n">driver</span><span class="o">.</span><span class="n">execute_cdp_cmd</span><span class="p">(</span><span class="s2">&quot;Page.addScriptToEvaluateOnNewDocument&quot;</span><span class="p">,</span> <span class="p">{</span>  
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;  </span>
+<span class="s2">        Object.defineProperty(navigator, &#39;webdriver&#39;, {  </span>
+<span class="s2">        get: () =&gt; undefined  </span>
+<span class="s2">        })  </span>
+<span class="s2">    &quot;&quot;&quot;</span>  
+    <span class="p">})</span>  
+
+    <span class="k">try</span><span class="p">:</span>  
+        <span class="c1"># 2. 打开目标网页  </span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://quote.abc.com/q/123.html&quot;</span> <span class="c1"># 示例URL，请替换为你实际的目标网址  </span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;正在访问: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
+        <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>  
+
+        <span class="c1"># 3. 设置显式等待  </span>
+        <span class="c1"># 这一步非常关键，因为 Selenium 渲染页面需要时间  </span>
+        <span class="n">wait</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  
+        <span class="c1"># element = wait.until(  </span>
+        <span class="c1">#     EC.presence_of_element_located((By.CLASS_NAME, &quot;quote_quotenums&quot;))  </span>
+        <span class="c1"># )  </span>
+
+        <span class="n">css_selector</span> <span class="o">=</span> <span class="s2">&quot;div.quote_quotenums &gt; div.zxj &gt; span:nth-child(1) &gt; span&quot;</span>  
+
+        <span class="n">element</span> <span class="o">=</span> <span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span>  
+            <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="n">css_selector</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span>  
+        <span class="p">)</span>  
+
+        <span class="c1"># 4. 获取元素的值  </span>
+        <span class="c1"># 情况A: 如果 &quot;zxj&quot; 是输入框(input)，获取用户输入的值用 .get_attribute(&#39;value&#39;)  </span>
+        <span class="c1"># 情况B: 如果 &quot;zxj&quot; 是普通标签(如 span, div)，获取包裹的文本用 .text  </span>
+
+        <span class="n">element</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s2">&quot;quote_quotenums&quot;</span><span class="p">)</span>  
+        <span class="n">text_value</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">text</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;成功获取 class=&#39;quote_quotenums&#39; 的文本内容: </span><span class="si">{</span><span class="n">text_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
+
+    <span class="k">except</span> <span class="n">TimeoutException</span><span class="p">:</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;错误：在 10 秒内未找到目标元素，页面加载可能过慢或元素不存在。&quot;</span><span class="p">)</span>  
+    <span class="k">finally</span><span class="p">:</span>  
+        <span class="c1"># 5. 关闭浏览器，释放资源  </span>
+        <span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;浏览器已关闭。&quot;</span><span class="p">)</span>  
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  
+    <span class="n">get_element_value</span><span class="p">()</span>  
+</code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
