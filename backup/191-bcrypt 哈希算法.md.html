@@ -1,0 +1,125 @@
+
+  <article class="markdown-body">
+    <h2 id="bcrypt">bcrypt 哈希算法</h2>
+<p>一个完整的 bcrypt 哈希字符串通常长这样：<br />
+$2a$04$R2lJNvqOXoN.4Cnk/9oDQuUeH6w7E5M8F9G0H1J2K3L4P5O6I7U8i  </p>
+<p>将其拆解开来：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>$2a $ 04 $ R2lJNvqOXoN.4Cnk/9oDQ uUeH6w7E5M8F9G0H1J2K3L4P5O6I7U8i  
+|     |    |                     |  
+|     |    |                     哈希值(实际密码校验部分)  
+|     |    盐值(Salt,22个字符)  
+|     成本因子(Cost Factor,2的指数次方,这里=16轮)  
+bcrypt算法标识符  
+</code></pre></div></div></p>
+<h3 id="_1">算法标识符</h3>
+<p>$2a$ (有缺陷的早期标准)：这是使用最广泛的旧版本。它修复了最初版本 $2$ 中重复字符串哈希异常的严重漏洞。但它的主要缺陷在于对非ASCII字符（如中文、表情符号）处理不当，且存在密码长度溢出风险。  </p>
+<p>$2y$ (PHP专用修复版)：由 PHP 社区引入，修复了 $2a$ 在高位字符处理上的符号位缺陷。其算法与 $2b$ 等价，通常仅用于兼容老旧的 PHP 系统。  </p>
+<p>$2b$ (当前官方推荐标准)：自 2014 年起成为主流。它修复了超长密码（&gt;255字符）导致的长度环绕溢出问题。如果你现在要创建新密码，直接选用此版本最安全<br />
+$2b$ 版本的编码器 可以验证 已有的 $2a$ 格式密码  </p>
+<h3 id="_2">成本因子</h3>
+<table>
+<thead>
+<tr>
+<th>强度值</th>
+<th>迭代次数</th>
+<th>性能影响</th>
+<th>推荐场景</th>
+<th>大致耗时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>16 轮</td>
+<td>极快</td>
+<td>❌ 不安全，不推荐</td>
+<td>&lt;5ms</td>
+</tr>
+<tr>
+<td>8</td>
+<td>256 轮</td>
+<td>很快</td>
+<td>⚠️ 仅内部测试环境</td>
+<td>~10-20ms</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1024 轮</td>
+<td>中等</td>
+<td>✅ 生产环境默认值</td>
+<td>~50-100ms</td>
+</tr>
+<tr>
+<td>12</td>
+<td>4096 轮</td>
+<td>较慢</td>
+<td>✅ 高安全要求场景</td>
+<td>~200-400ms</td>
+</tr>
+<tr>
+<td>14</td>
+<td>16384 轮</td>
+<td>慢</td>
+<td>⚠️ 需评估性能影响</td>
+<td>~800ms-1.5s</td>
+</tr>
+</tbody>
+</table>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
