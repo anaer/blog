@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2026-04-17 15:11:04</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-04-29 15:17:47</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-04-29 15:20:24</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了RBAC（基于角色的访问控制）权限模型，阐述了用户、角色和权限之间的关系及其实现方式，包括功能权限、按钮权限、数据权限和租户权限。文章详细描述了权限校验流程，后端使用Spring Security和JWT进行用户角色权限管理，前端通过动态路由和指令控制界面展示。此外，介绍了双Token机制以增强接口安全性，Mock Token的开发测试方法，以及框架组件如访问日志和本地开发调试的实现。对于多租户的支持，提供了分库、同库分表和同库同表的方案，分析了各方案的维护成本和性能。最后，讨论了缓存扩展和分布式锁的实现。改进建议包括优化权限管理的文档结构，以便于快速查找和理解不同权限类型的实现细节。
+    <strong>AI总结:</strong> 本文介绍了RBAC权限模型的基本概念，包括用户、角色和权限之间的关系，以及如何通过角色来管理用户的权限。文中还详细阐述了不同的权限类型，如功能权限、按钮权限、数据权限和租户权限，并描述了权限校验的后端与前端流程。此外，介绍了双Token系统的实现方式以及Mock Token的开发测试方法。框架组件部分讨论了日志处理、环境配置和负载均衡的实现。最后，提到了多租户的实现方案及其维护成本、隔离性和性能等方面的比较，以及缓存扩展和分布式锁的使用。改进建议包括增加对各个组件的具体示例和使用场景，以便更好地理解其应用。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -374,8 +374,11 @@ com.virgo.framework.redis.core.TimeoutRedisCacheManager  </p>
 <span class="w">  </span><span class="nt">lock-key-prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lock4j</span><span class="w"> </span><span class="c1">#锁key前缀, 默认值lock4j，可不设置  </span>
 </code></pre></div></div>
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code><span class="w"> </span><span class="nd">@Lock4j</span><span class="w">  </span>
+<pre><span></span><code><span class="w"> </span><span class="c1">// 默认获取锁超时3秒，30秒锁过期  </span>
+<span class="w"> </span><span class="nd">@Lock4j</span><span class="w">  </span>
+<span class="w"> </span><span class="c1">// 指定获取锁超时1秒, 60秒锁过期  </span>
 <span class="w"> </span><span class="nd">@Lock4j</span><span class="p">(</span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;#user.id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#user.name&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60000</span><span class="p">,</span><span class="w"> </span><span class="n">acquireTimeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w">  </span>
+<span class="w"> </span><span class="c1">// 用户在5秒内只能访问1次  </span>
 <span class="w"> </span><span class="nd">@Lock4j</span><span class="p">(</span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;#user.id&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">acquireTimeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="n">autoRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w">  </span>
 </code></pre></div></div>
 <h3 id="_14">版本更新</h3>
