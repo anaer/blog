@@ -135,10 +135,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2026-04-17 15:11:04</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-04-23 15:07:51</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-04-29 15:17:47</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了RBAC（基于角色的访问控制）权限模型的基本概念，包括用户、角色和权限之间的关系，以及权限类型的具体实现方式。权限校验流程涉及后端使用Spring Security和JWT进行用户角色和权限管理，前端通过动态路由和权限指令控制页面展示。此外，文中还提到双Token系统的设计，Mock Token的实现，访问日志和本地开发调试的配置方法，以及多租户的数据库实现方案和相关技术组件。最后，介绍了缓存扩展和分布式锁的使用。改进建议包括简化某些复杂的技术细节描述，使内容更易于理解，并提供更多实际应用示例以帮助读者更好地掌握RBAC模型的应用。
+    <strong>AI总结:</strong> 本文介绍了RBAC（基于角色的访问控制）权限模型，阐述了用户、角色和权限之间的关系及其实现方式，包括功能权限、按钮权限、数据权限和租户权限。文章详细描述了权限校验流程，后端使用Spring Security和JWT进行用户角色权限管理，前端通过动态路由和指令控制界面展示。此外，介绍了双Token机制以增强接口安全性，Mock Token的开发测试方法，以及框架组件如访问日志和本地开发调试的实现。对于多租户的支持，提供了分库、同库分表和同库同表的方案，分析了各方案的维护成本和性能。最后，讨论了缓存扩展和分布式锁的实现。改进建议包括优化权限管理的文档结构，以便于快速查找和理解不同权限类型的实现细节。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -365,12 +365,20 @@ com.virgo.framework.redis.core.TimeoutRedisCacheManager  </p>
 单位为最后一个字母（支持的单位有：d 天，h 小时，m 分钟，s 秒），默认单位为 s 秒  </p>
 <h3 id="lock4j">Lock4j 分布式锁/限流</h3>
 <p><a href="https://github.com/baomidou/lock4j/">Lock4j使用帮助</a>  </p>
+<h4 id="_13">默认配置项</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">lock4j</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">acquire-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3000</span><span class="w"> </span><span class="c1">#默认值3s，可不设置  </span>
+<span class="w">  </span><span class="nt">expire</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30000</span><span class="w"> </span><span class="c1">#默认值30s，可不设置  </span>
+<span class="w">  </span><span class="nt">primary-executor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">com.baomidou.lock.executor.RedisTemplateLockExecutor</span><span class="w"> </span><span class="c1">#默认redisson&gt;redisTemplate&gt;zookeeper，可不设置  </span>
+<span class="w">  </span><span class="nt">lock-key-prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lock4j</span><span class="w"> </span><span class="c1">#锁key前缀, 默认值lock4j，可不设置  </span>
+</code></pre></div></div>
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="w"> </span><span class="nd">@Lock4j</span><span class="w">  </span>
 <span class="w"> </span><span class="nd">@Lock4j</span><span class="p">(</span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;#user.id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#user.name&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60000</span><span class="p">,</span><span class="w"> </span><span class="n">acquireTimeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w">  </span>
 <span class="w"> </span><span class="nd">@Lock4j</span><span class="p">(</span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;#user.id&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">acquireTimeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="n">autoRelease</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w">  </span>
 </code></pre></div></div>
-<h3 id="_13">版本更新</h3>
+<h3 id="_14">版本更新</h3>
 <p>v2026.01 -&gt; v2026.03  </p>
   </article>
   
