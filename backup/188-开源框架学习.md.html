@@ -297,13 +297,15 @@ https://github.com/baomidou/lock4j/blob/381551f5fe07f546addafff25f4e02cebe60bdc5
 <h3 id="idempotent">Idempotent 幂等控制</h3>
 <p>保证一次请求只生效一次（业务幂等）  </p>
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code><span class="nd">@Idempotent</span><span class="w">  </span>
+<pre><span></span><code><span class="c1">// &quot;idempotent:f89875e7eb300d1fc65ea9d6e439153b&quot;  </span>
+<span class="nd">@Idempotent</span><span class="w">  </span>
 
 <span class="nd">@Idempotent</span><span class="p">(</span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">keyResolver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UserIdempotentKeyResolver</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">  </span>
 </code></pre></div></div>
 <p>DefaultIdempotentKeyResolver 默认全局Key规则, 根据MD5(方法名+参数)生成Key<br />
 UserIdempotentKeyResolver 用户基本Key规则, 根据MD5(方法名+参数+userId+userType)生成Key<br />
 ExpressionIdempotentKeyResolver 自定义表达式, 结合 keyArg 参数使用  </p>
+<p>key前缀在IdempotentRedisDAO定义  </p>
 <h3 id="_14">版本更新</h3>
 <p>v2026.01 -&gt; v2026.03  </p>
   </article>
