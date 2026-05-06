@@ -1,0 +1,986 @@
+
+  <article class="markdown-body">
+    <h2 id="oom">OOM 常见类型</h2>
+<p>OOM (Out Of Memory) 是指应用程序在运行时内存不足，无法分配新的内存空间，导致程序崩溃或异常终止的现象。  </p>
+<table>
+<thead>
+<tr>
+<th>错误类型</th>
+<th>触发区域</th>
+<th>根本原因</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Java heap space</strong></td>
+<td>堆内存</td>
+<td>对象太多，堆放不下</td>
+<td>内存泄露、大对象、流量突增</td>
+</tr>
+<tr>
+<td><strong>GC overhead limit exceeded</strong></td>
+<td>堆内存</td>
+<td>GC效率低下</td>
+<td>内存泄露、堆太小、代码问题(循环创建对象、字符串处理)</td>
+</tr>
+<tr>
+<td><strong>Metaspace</strong></td>
+<td>元空间</td>
+<td>类加载太多</td>
+<td>动态代理、反射、热部署</td>
+</tr>
+<tr>
+<td><strong>Direct buffer memory</strong></td>
+<td>直接内存</td>
+<td>堆外内存不足</td>
+<td>NIO、Netty、MMAP</td>
+</tr>
+<tr>
+<td><strong>Unable to create new native thread</strong></td>
+<td>栈/系统</td>
+<td>线程太多</td>
+<td>线程池配置不当、递归过深</td>
+</tr>
+<tr>
+<td><strong>Requested array size exceeds VM limit</strong></td>
+<td>堆内存</td>
+<td>数组过大</td>
+<td>大数组创建</td>
+</tr>
+<tr>
+<td><strong>Kill process or sacrifice child</strong></td>
+<td>系统</td>
+<td>系统内存不足</td>
+<td>容器限制、物理内存不足</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-java-heap-space">🔍 1. Java heap space</h2>
+<h3 id="_1">错误信息：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>java.lang.OutOfMemoryError: Java heap space  
+</code></pre></div></div>
+<h3 id="_2">核心原因：</h3>
+<p><strong>对象实例占满了整个堆内存，且无法被GC回收</strong>  </p>
+<ul>
+<li>堆内存设置过小  </li>
+<li>内存泄漏（对象无法被 GC 回收）  </li>
+<li>一次性加载大量数据  </li>
+<li>对象生命周期过长  </li>
+</ul>
+<h3 id="_3">典型场景：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 场景1：内存泄露 - 静态集合类持有引用  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MemoryLeak</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">byte</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">LIST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addData</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="n">LIST</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="o">]</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1MB  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 场景2：大对象处理  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BigObject</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processLargeFile</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="c1">// 一次性读取大文件到内存  </span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">fileContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">readAllBytes</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;huge_file.bin&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// 10GB文件  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 场景3：缓存失控  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CacheOOM</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">loadDataToCache</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="c1">// 从数据库加载大量数据到内存  </span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userDao</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span><span class="w">  </span><span class="c1">// 百万条记录  </span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">users</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="n">cache</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">serialize</span><span class="p">());</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_4">排查步骤：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 1. 查看当前堆内存使用  </span>
+jmap<span class="w"> </span>-heap<span class="w"> </span>&lt;pid&gt;<span class="w">  </span>
+
+<span class="c1"># 2. 生成堆转储文件  </span>
+jmap<span class="w"> </span>-dump:format<span class="o">=</span>b,file<span class="o">=</span>heap.hprof<span class="w"> </span>&lt;pid&gt;<span class="w">  </span>
+
+<span class="c1"># 3. 实时监控GC  </span>
+jstat<span class="w"> </span>-gc<span class="w"> </span>&lt;pid&gt;<span class="w"> </span><span class="m">1000</span><span class="w">  </span><span class="c1"># 每秒打印一次  </span>
+
+<span class="c1"># 4. 使用jcmd  </span>
+jcmd<span class="w"> </span>&lt;pid&gt;<span class="w"> </span>GC.heap_info<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_5">解决方案：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 1. 合理设置JVM参数  </span>
+<span class="c1">// 生产环境示例  </span>
+<span class="o">-</span><span class="n">Xms4g</span><span class="w"> </span><span class="o">-</span><span class="n">Xmx4g</span><span class="w">  </span><span class="c1">// 堆内存4G，避免动态扩展  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="o">+</span><span class="n">UseG1GC</span><span class="w">   </span><span class="c1">// 使用G1垃圾收集器  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">MaxGCPauseMillis</span><span class="o">=</span><span class="mi">200</span><span class="w">  </span><span class="c1">// 目标暂停时间  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="o">+</span><span class="n">HeapDumpOnOutOfMemoryError</span><span class="w">  </span><span class="c1">// OOM时自动dump  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">HeapDumpPath</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">dumps</span><span class="w">  </span>
+
+<span class="c1">// 2. 修复内存泄露代码  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FixedMemoryLeak</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">// 使用弱引用或软引用  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">SoftReference</span><span class="o">&lt;</span><span class="n">BigObject</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">CACHE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WeakHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">// 或使用LRU缓存  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">BigObject</span><span class="o">&gt;</span><span class="w"> </span><span class="n">safeCache</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
+<span class="w">        </span><span class="n">Collections</span><span class="p">.</span><span class="na">synchronizedMap</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">BigObject</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75f</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="nd">@Override</span><span class="w">  </span>
+<span class="w">            </span><span class="kd">protected</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">removeEldestEntry</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="w"> </span><span class="n">eldest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w">  </span><span class="c1">// 限制大小  </span>
+<span class="w">            </span><span class="p">}</span><span class="w">  </span>
+<span class="w">        </span><span class="p">});</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 3. 分批处理大数据  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BatchProcessor</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processLargeData</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">batchSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w">  </span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span>
+
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Data</span><span class="o">&gt;</span><span class="w"> </span><span class="n">batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">.</span><span class="na">findBatch</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">batchSize</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">batch</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w">  </span>
+
+<span class="w">            </span><span class="n">processBatch</span><span class="p">(</span><span class="n">batch</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="n">offset</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">batchSize</span><span class="p">;</span><span class="w">  </span>
+
+<span class="w">            </span><span class="c1">// 提示GC，但不是强制  </span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">offset</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">gc</span><span class="p">();</span><span class="w">  </span>
+<span class="w">            </span><span class="p">}</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="2-gc-overhead-limit-exceeded">⏳ 2. GC overhead limit exceeded</h2>
+<h3 id="_6">错误信息：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>java.lang.OutOfMemoryError: GC overhead limit exceeded  
+</code></pre></div></div>
+<h3 id="_7">核心原因：</h3>
+<p><strong>JVM花费了98%以上的时间进行GC，但只回收了不到2%的堆内存</strong>  </p>
+<ul>
+<li>GC 花费了 98% 的时间，但只回收了不到 2% 的内存  </li>
+<li>通常是内存泄漏的前兆  </li>
+</ul>
+<h3 id="_8">典型场景：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 场景1：字符串拼接在循环中  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StringOOM</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">buildHugeString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;some data &quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// 每次创建新StringBuilder和String  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 场景2：频繁创建临时对象  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TempObjectOOM</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="c1">// 每次循环都创建新对象，快速进入老年代  </span>
+<span class="w">            </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span><span class="w">  </span><span class="c1">// 1MB  </span>
+<span class="w">            </span><span class="c1">// 但buffer很快失去引用，成为垃圾  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_9">排查方法：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 1. 查看GC详细日志  </span>
+java<span class="w"> </span>-Xlog:gc*,gc+heap<span class="o">=</span>debug:file<span class="o">=</span>gc.log<span class="w"> </span>-Xmx512m<span class="w"> </span>YourApp<span class="w">  </span>
+
+<span class="c1"># 2. 使用VisualGC或JConsole监控  </span>
+<span class="c1"># 3. 分析GC日志文件  </span>
+</code></pre></div></div>
+<h3 id="_10">解决方案：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 1. 优化JVM参数  </span>
+<span class="o">-</span><span class="n">Xmx2g</span><span class="w"> </span><span class="o">-</span><span class="n">Xms2g</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="o">+</span><span class="n">UseG1GC</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">MaxGCPauseMillis</span><span class="o">=</span><span class="mi">200</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">G1ReservePercent</span><span class="o">=</span><span class="mi">15</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">InitiatingHeapOccupancyPercent</span><span class="o">=</span><span class="mi">35</span><span class="w">  </span>
+
+<span class="c1">// 2. 代码优化  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OptimizedStringBuilder</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">buildHugeString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="mi">10000000</span><span class="p">);</span><span class="w">  </span><span class="c1">// 预分配容量  </span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;some data &quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 3. 对象复用  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ObjectPool</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">ByteBuffer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bufferPool</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
+<span class="w">        </span><span class="n">ThreadLocal</span><span class="p">.</span><span class="na">withInitial</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ByteBuffer</span><span class="p">.</span><span class="na">allocate</span><span class="p">(</span><span class="mi">8192</span><span class="p">));</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">ByteBuffer</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bufferPool</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="n">buffer</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="c1">// 使用buffer  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 4. 关闭GC overhead限制（不推荐，临时方案）  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="o">-</span><span class="n">UseGCOverheadLimit</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="3-metaspace-java-8">🧠 3. Metaspace (Java 8+)</h2>
+<h3 id="_11">错误信息：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>java.lang.OutOfMemoryError: Metaspace  
+</code></pre></div></div>
+<h3 id="_12">核心原因：</h3>
+<p><strong>加载的类太多，元空间不足</strong>  </p>
+<ul>
+<li>类加载过多（动态代理、反射）  </li>
+<li>类加载器泄漏  </li>
+<li>Metaspace 空间设置过小  </li>
+</ul>
+<h3 id="_13">典型场景：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 场景1：动态代理大量生成类  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DynamicProxyOOM</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createManyProxies</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="n">MyInterface</span><span class="w"> </span><span class="n">proxy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MyInterface</span><span class="p">)</span><span class="w"> </span><span class="n">Proxy</span><span class="p">.</span><span class="na">newProxyInstance</span><span class="p">(</span><span class="w">  </span>
+<span class="w">                </span><span class="n">getClass</span><span class="p">().</span><span class="na">getClassLoader</span><span class="p">(),</span><span class="w">  </span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">Class</span><span class="o">[]</span><span class="p">{</span><span class="n">MyInterface</span><span class="p">.</span><span class="na">class</span><span class="p">},</span><span class="w">  </span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">MyInvocationHandler</span><span class="p">()</span><span class="w">  </span>
+<span class="w">            </span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="c1">// 每个代理都会生成新类  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 场景2：热部署频繁  </span>
+<span class="c1">// 应用频繁重启，旧类未卸载  </span>
+
+<span class="c1">// 场景3：大量使用反射  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ReflectionOOM</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">loadManyClasses</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="s">&quot;com.example.Class&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="c1">// 每个类都加载到Metaspace  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_14">排查方法：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 1. 查看元空间使用情况  </span>
+jstat<span class="w"> </span>-gc<span class="w"> </span>&lt;pid&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>MC<span class="w">  </span>
+<span class="c1"># MC: 元空间容量  </span>
+<span class="c1"># MU: 元空间已使用  </span>
+
+<span class="c1"># 2. 查看加载的类  </span>
+jcmd<span class="w"> </span>&lt;pid&gt;<span class="w"> </span>GC.class_stats<span class="w">  </span>
+
+<span class="c1"># 3. dump类加载信息  </span>
+-XX:+TraceClassLoading<span class="w"> </span>-XX:+TraceClassUnloading<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_15">解决方案：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 1. 调整Metaspace参数  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">MetaspaceSize</span><span class="o">=</span><span class="mi">256</span><span class="n">m</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">MaxMetaspaceSize</span><span class="o">=</span><span class="mi">512</span><span class="n">m</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="o">+</span><span class="n">UseCompressedClassPointers</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="o">+</span><span class="n">UseCompressedOops</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">CompressedClassSpaceSize</span><span class="o">=</span><span class="mi">256</span><span class="n">m</span><span class="w">  </span>
+
+<span class="c1">// 2. 使用不同的ClassLoader  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomClassLoader</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">URLClassLoader</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">CustomClassLoader</span><span class="p">(</span><span class="n">URL</span><span class="o">[]</span><span class="w"> </span><span class="n">urls</span><span class="p">,</span><span class="w"> </span><span class="n">ClassLoader</span><span class="w"> </span><span class="n">parent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span><span class="w"> </span><span class="n">parent</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">// 需要时创建新的ClassLoader实例  </span>
+<span class="w">    </span><span class="c1">// 不需要时，整个ClassLoader可以被回收  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 3. 限制动态代理  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LimitedProxyCreator</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PROXY_CACHE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MyInterface</span><span class="w"> </span><span class="nf">getProxy</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">MyInterface</span><span class="p">)</span><span class="w"> </span><span class="n">PROXY_CACHE</span><span class="p">.</span><span class="na">computeIfAbsent</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span>
+<span class="w">            </span><span class="n">Proxy</span><span class="p">.</span><span class="na">newProxyInstance</span><span class="p">(</span><span class="w">  </span>
+<span class="w">                </span><span class="n">getClass</span><span class="p">().</span><span class="na">getClassLoader</span><span class="p">(),</span><span class="w">  </span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">Class</span><span class="o">[]</span><span class="p">{</span><span class="n">MyInterface</span><span class="p">.</span><span class="na">class</span><span class="p">},</span><span class="w">  </span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">MyInvocationHandler</span><span class="p">()</span><span class="w">  </span>
+<span class="w">            </span><span class="p">)</span><span class="w">  </span>
+<span class="w">        </span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="4-direct-buffer-memory">💾 4. Direct buffer memory</h2>
+<h3 id="_16">错误信息：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>java.lang.OutOfMemoryError: Direct buffer memory  
+</code></pre></div></div>
+<h3 id="_17">核心原因：</h3>
+<p><strong>堆外内存（Direct Buffer）耗尽</strong>  </p>
+<ul>
+<li>NIO 直接内存使用过多  </li>
+<li>未正确释放 DirectByteBuffer  </li>
+</ul>
+<h3 id="_18">典型场景：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 场景1：Netty使用不当  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">NettyOOM</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">startServer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="c1">// Netty默认使用堆外内存  </span>
+<span class="w">        </span><span class="n">ServerBootstrap</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServerBootstrap</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="na">group</span><span class="p">(</span><span class="n">bossGroup</span><span class="p">,</span><span class="w"> </span><span class="n">workerGroup</span><span class="p">)</span><span class="w">  </span>
+<span class="w">         </span><span class="p">.</span><span class="na">channel</span><span class="p">(</span><span class="n">NioServerSocketChannel</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">  </span>
+<span class="w">         </span><span class="p">.</span><span class="na">option</span><span class="p">(</span><span class="n">ChannelOption</span><span class="p">.</span><span class="na">ALLOCATOR</span><span class="p">,</span><span class="w"> </span><span class="n">PooledByteBufAllocator</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">)</span><span class="w">  </span>
+<span class="w">         </span><span class="p">.</span><span class="na">handler</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">LoggingHandler</span><span class="p">(</span><span class="n">LogLevel</span><span class="p">.</span><span class="na">INFO</span><span class="p">))</span><span class="w">  </span>
+<span class="w">         </span><span class="p">.</span><span class="na">childHandler</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">SocketChannel</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">             </span><span class="nd">@Override</span><span class="w">  </span>
+<span class="w">             </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initChannel</span><span class="p">(</span><span class="n">SocketChannel</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">                 </span><span class="c1">// 如果不释放ByteBuf，会导致堆外内存泄露  </span>
+<span class="w">                 </span><span class="n">ch</span><span class="p">.</span><span class="na">pipeline</span><span class="p">().</span><span class="na">addLast</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyHandler</span><span class="p">());</span><span class="w">  </span>
+<span class="w">             </span><span class="p">}</span><span class="w">  </span>
+<span class="w">         </span><span class="p">});</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 场景2：大量使用ByteBuffer.allocateDirect  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DirectBufferOOM</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">allocateBuffers</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ByteBuffer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buffers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="c1">// 每个Buffer 1MB，但不被GC管理  </span>
+<span class="w">            </span><span class="n">buffers</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">ByteBuffer</span><span class="p">.</span><span class="na">allocateDirect</span><span class="p">(</span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_19">排查方法：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 1. 查看直接内存使用  </span>
+jcmd<span class="w"> </span>&lt;pid&gt;<span class="w"> </span>VM.native_memory<span class="w"> </span>summary<span class="w"> </span><span class="nv">scale</span><span class="o">=</span>MB<span class="w">  </span>
+
+<span class="c1"># 2. 使用NMT（Native Memory Tracking）  </span>
+-XX:NativeMemoryTracking<span class="o">=</span>summary<span class="w">  </span>
+jcmd<span class="w"> </span>&lt;pid&gt;<span class="w"> </span>VM.native_memory<span class="w"> </span>detail<span class="w">  </span>
+
+<span class="c1"># 3. 查看BufferPool  </span>
+jcmd<span class="w"> </span>&lt;pid&gt;<span class="w"> </span>ManagementAgent.jmx_invoke<span class="w"> </span>sun.nio.ch.BufTracker<span class="w"> </span>getDirectBufferPoolCount<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_20">解决方案：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 1. 限制直接内存大小  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">MaxDirectMemorySize</span><span class="o">=</span><span class="mi">256</span><span class="n">m</span><span class="w">  </span>
+
+<span class="c1">// 2. Netty内存泄露检测  </span>
+<span class="c1">// 添加内存泄露检测  </span>
+<span class="p">.</span><span class="na">childOption</span><span class="p">(</span><span class="n">ChannelOption</span><span class="p">.</span><span class="na">ALLOCATOR</span><span class="p">,</span><span class="w"> </span><span class="n">PooledByteBufAllocator</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">)</span><span class="w">  </span>
+<span class="p">.</span><span class="na">childOption</span><span class="p">(</span><span class="n">ChannelOption</span><span class="p">.</span><span class="na">RCVBUF_ALLOCATOR</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AdaptiveRecvByteBufAllocator</span><span class="p">())</span><span class="w">  </span>
+
+<span class="c1">// 启用泄露检测  </span>
+<span class="n">ResourceLeakDetector</span><span class="p">.</span><span class="na">setLevel</span><span class="p">(</span><span class="n">ResourceLeakDetector</span><span class="p">.</span><span class="na">Level</span><span class="p">.</span><span class="na">PARANOID</span><span class="p">);</span><span class="w">  </span>
+
+<span class="c1">// 3. 正确释放资源  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SafeDirectBuffer</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">useDirectBuffer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">ByteBuffer</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ByteBuffer</span><span class="p">.</span><span class="na">allocateDirect</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="c1">// 使用buffer  </span>
+<span class="w">            </span><span class="n">buffer</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;data&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="c1">// 重要：手动清理  </span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="na">isDirect</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">                </span><span class="p">((</span><span class="n">DirectBuffer</span><span class="p">)</span><span class="w"> </span><span class="n">buffer</span><span class="p">).</span><span class="na">cleaner</span><span class="p">().</span><span class="na">clean</span><span class="p">();</span><span class="w">  </span>
+<span class="w">            </span><span class="p">}</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 4. 使用池化ByteBuf  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PooledBufferExample</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ByteBufPool</span><span class="w"> </span><span class="n">bufferPool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ByteBufPool</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">ByteBuf</span><span class="w"> </span><span class="n">buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bufferPool</span><span class="p">.</span><span class="na">borrowBuffer</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="c1">// 使用buf  </span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="n">bufferPool</span><span class="p">.</span><span class="na">returnBuffer</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="5-unable-to-create-new-native-thread">🧵 5. Unable to create new native thread</h2>
+<h3 id="_21">错误信息：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>java.lang.OutOfMemoryError: unable to create new native thread  
+</code></pre></div></div>
+<h3 id="_22">核心原因：</h3>
+<p><strong>创建的线程数超过系统限制</strong>  </p>
+<ul>
+<li>线程创建过多  </li>
+<li>操作系统线程数限制  </li>
+<li>每个线程占用的栈内存过大  </li>
+</ul>
+<h3 id="_23">典型场景：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 场景1：递归创建线程  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RecursiveThreadOOM</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createThreads</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">                </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">                    </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="n">Long</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">);</span><span class="w">  </span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">                    </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">interrupt</span><span class="p">();</span><span class="w">  </span>
+<span class="w">                </span><span class="p">}</span><span class="w">  </span>
+<span class="w">            </span><span class="p">}).</span><span class="na">start</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 场景2：线程池配置不当  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ThreadPoolOOM</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">misuseExecutor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="c1">// 错误：使用无界队列，线程数会一直增长  </span>
+<span class="w">        </span><span class="n">ThreadPoolExecutor</span><span class="w"> </span><span class="n">executor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="w">  </span>
+<span class="w">            </span><span class="mi">10</span><span class="p">,</span><span class="w">  </span><span class="c1">// corePoolSize  </span>
+<span class="w">            </span><span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">,</span><span class="w">  </span><span class="c1">// 最大线程数太大  </span>
+<span class="w">            </span><span class="mi">60L</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">,</span><span class="w">  </span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">SynchronousQueue</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="w">  </span><span class="c1">// 队列太小  </span>
+<span class="w">        </span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_24">排查方法：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 1. 查看系统线程限制  </span>
+<span class="nb">ulimit</span><span class="w"> </span>-u<span class="w">  </span>
+cat<span class="w"> </span>/proc/sys/kernel/threads-max<span class="w">  </span>
+
+<span class="c1"># 2. 查看Java进程线程数  </span>
+pstree<span class="w"> </span>-p<span class="w"> </span>&lt;pid&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w">  </span>
+jstack<span class="w"> </span>&lt;pid&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;java.lang.Thread.State&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w">  </span>
+
+<span class="c1"># 3. 查看每个线程的栈大小  </span>
+jinfo<span class="w"> </span>-flag<span class="w"> </span>ThreadStackSize<span class="w"> </span>&lt;pid&gt;<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_25">解决方案：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 1. 调整系统参数  </span>
+<span class="c1">// Linux系统  </span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">kernel</span><span class="o">/</span><span class="n">threads</span><span class="o">-</span><span class="n">max</span><span class="w">  </span>
+<span class="n">ulimit</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="mi">10000</span><span class="w">  </span>
+
+<span class="c1">// 2. 调整JVM参数  </span>
+<span class="o">-</span><span class="n">Xss256k</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">减小线程栈大小</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">VMThreadStackSize</span><span class="o">=</span><span class="mi">256</span><span class="w">  </span>
+
+<span class="c1">// 3. 合理使用线程池  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SafeThreadPool</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">executor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="w">  </span>
+<span class="w">        </span><span class="mi">10</span><span class="p">,</span><span class="w">  </span><span class="c1">// 核心线程  </span>
+<span class="w">        </span><span class="mi">100</span><span class="p">,</span><span class="w">  </span><span class="c1">// 最大线程  </span>
+<span class="w">        </span><span class="mi">60L</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedBlockingQueue</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span><span class="w">  </span><span class="c1">// 有界队列  </span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadFactoryBuilder</span><span class="p">()</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">setNameFormat</span><span class="p">(</span><span class="s">&quot;worker-%d&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">(),</span><span class="w">  </span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadPoolExecutor</span><span class="p">.</span><span class="na">CallerRunsPolicy</span><span class="p">()</span><span class="w">  </span><span class="c1">// 拒绝策略  </span>
+<span class="w">    </span><span class="p">);</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">// 4. 使用虚拟线程（Java 19+）  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">useVirtualThreads</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">executor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newVirtualThreadPerTaskExecutor</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">                </span><span class="n">executor</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">                    </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="n">Duration</span><span class="p">.</span><span class="na">ofSeconds</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span><span class="w">  </span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Done&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">                </span><span class="p">});</span><span class="w">  </span>
+<span class="w">            </span><span class="p">}</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="6-requested-array-size-exceeds-vm-limit">📈 6. Requested array size exceeds VM limit</h2>
+<h3 id="_26">错误信息：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>java.lang.OutOfMemoryError: Requested array size exceeds VM limit  
+</code></pre></div></div>
+<h3 id="_27">核心原因：</h3>
+<p><strong>尝试创建超过JVM限制的数组</strong>  </p>
+<h3 id="_28">最大限制：</h3>
+<ul>
+<li>32位JVM：约2^31-1 = 2,147,483,647 元素  </li>
+<li>64位JVM：约2^31-1（受堆大小限制）  </li>
+</ul>
+<h3 id="_29">典型场景：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 场景：创建超大数组  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HugeArrayOOM</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createHugeArray</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="c1">// 尝试创建20亿个元素的int数组  </span>
+<span class="w">        </span><span class="c1">// 20亿 * 4字节 ≈ 8GB  </span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">hugeArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">2_000_000_000</span><span class="o">]</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_30">解决方案：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 1. 分批处理  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BatchArrayProcessor</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processLargeData</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">totalSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">batchSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w">  </span><span class="c1">// 每批100万  </span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">batches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">ceil</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">totalSize</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">batchSize</span><span class="p">);</span><span class="w">  </span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">batches</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">currentSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">batchSize</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">totalSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">batchSize</span><span class="p">));</span><span class="w">  </span>
+<span class="w">            </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">currentSize</span><span class="o">]</span><span class="p">;</span><span class="w">  </span>
+<span class="w">            </span><span class="n">processBatch</span><span class="p">(</span><span class="n">batch</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 2. 使用稀疏数组  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SparseArrayExample</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sparseArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 只存储非零值  </span>
+<span class="w">            </span><span class="n">sparseArray</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sparseArray</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// 3. 使用内存映射文件  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MappedFileArray</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processLargeFile</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">filePath</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">arraySize</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">RandomAccessFile</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RandomAccessFile</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rw&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">             </span><span class="n">FileChannel</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="na">getChannel</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+
+<span class="w">            </span><span class="n">MappedByteBuffer</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="w">  </span>
+<span class="w">                </span><span class="n">FileChannel</span><span class="p">.</span><span class="na">MapMode</span><span class="p">.</span><span class="na">READ_WRITE</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">arraySize</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span>
+<span class="w">            </span><span class="p">);</span><span class="w">  </span>
+
+<span class="w">            </span><span class="n">IntBuffer</span><span class="w"> </span><span class="n">intBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="na">asIntBuffer</span><span class="p">();</span><span class="w">  </span>
+<span class="w">            </span><span class="c1">// 像操作数组一样操作intBuffer  </span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">arraySize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">                </span><span class="n">intBuffer</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="p">}</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="7-kill-process-or-sacrifice-child">🔧 7. Kill process or sacrifice child</h2>
+<h3 id="linux-oom-killer">错误信息（Linux OOM Killer）：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>Out of memory: Kill process [pid] (java) score [score] or sacrifice child  
+</code></pre></div></div>
+<h3 id="_31">核心原因：</h3>
+<p><strong>系统物理内存耗尽，Linux OOM Killer终止进程</strong>  </p>
+<h3 id="_32">排查方法：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 查看OOM Killer日志  </span>
+dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;out of memory&quot;</span><span class="w">  </span>
+dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;killed process&quot;</span><span class="w">  </span>
+
+<span class="c1"># 查看系统内存  </span>
+free<span class="w"> </span>-h<span class="w">  </span>
+cat<span class="w"> </span>/proc/meminfo<span class="w">  </span>
+
+<span class="c1"># 查看进程内存  </span>
+ps<span class="w"> </span>aux<span class="w"> </span>--sort<span class="o">=</span>-%mem<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="_33">解决方案：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 1. 调整JVM内存参数  </span>
+<span class="c1">// 不要设置过大，预留系统内存  </span>
+<span class="o">-</span><span class="n">Xmx8g</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="mi">8</span><span class="n">GB堆内存</span><span class="w">  </span>
+<span class="o">-</span><span class="n">Xms8g</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">MaxMetaspaceSize</span><span class="o">=</span><span class="mi">512</span><span class="n">m</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">MaxDirectMemorySize</span><span class="o">=</span><span class="mi">256</span><span class="n">m</span><span class="w">  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">ReservedCodeCacheSize</span><span class="o">=</span><span class="mi">256</span><span class="n">m</span><span class="w">  </span>
+
+<span class="c1">// 2. 使用容器时设置内存限制  </span>
+<span class="err">#</span><span class="w"> </span><span class="n">Docker示例</span><span class="w">  </span>
+<span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="mi">10</span><span class="n">g</span><span class="w"> </span><span class="o">--</span><span class="n">memory</span><span class="o">-</span><span class="n">reservation</span><span class="o">=</span><span class="mi">8</span><span class="n">g</span><span class="w"> </span><span class="n">your</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">app</span><span class="w">  </span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">Kubernetes示例</span><span class="w">  </span>
+<span class="nl">resources</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="n">limits</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="n">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10Gi&quot;</span><span class="w">  </span>
+<span class="w">  </span><span class="n">requests</span><span class="p">:</span><span class="w">  </span>
+<span class="w">    </span><span class="n">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8Gi&quot;</span><span class="w">  </span>
+
+<span class="c1">// 3. 使用Native Memory Tracking监控  </span>
+<span class="o">-</span><span class="n">XX</span><span class="p">:</span><span class="n">NativeMemoryTracking</span><span class="o">=</span><span class="n">detail</span><span class="w">  </span>
+<span class="n">jcmd</span><span class="w"> </span><span class="o">&lt;</span><span class="n">pid</span><span class="o">&gt;</span><span class="w"> </span><span class="n">VM</span><span class="p">.</span><span class="na">native_memory</span><span class="w"> </span><span class="n">baseline</span><span class="w">  </span>
+<span class="n">jcmd</span><span class="w"> </span><span class="o">&lt;</span><span class="n">pid</span><span class="o">&gt;</span><span class="w"> </span><span class="n">VM</span><span class="p">.</span><span class="na">native_memory</span><span class="w"> </span><span class="n">detail</span><span class="p">.</span><span class="na">diff</span><span class="w">  </span>
+
+<span class="c1">// 4. 调整系统OOM Killer参数  </span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">vm</span><span class="o">/</span><span class="n">overcommit_memory</span><span class="w">  </span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">vm</span><span class="o">/</span><span class="n">overcommit_ratio</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="oom_1">🛠 OOM 排查工具</h2>
+<h3 id="1-jvm">1. JVM 自带工具</h3>
+<h4 id="jps-java">jps - 查看 Java 进程</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 查看所有 Java 进程  </span>
+jps<span class="w"> </span>-l<span class="w">  </span>
+
+<span class="c1"># 查看进程及主类  </span>
+jps<span class="w"> </span>-lv<span class="w">  </span>
+</code></pre></div></div>
+<h4 id="jstat-gc">jstat - 查看 GC 统计信息</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 查看 GC 情况，每 1000ms 输出一次  </span>
+jstat<span class="w"> </span>-gc<span class="w"> </span>&lt;pid&gt;<span class="w"> </span><span class="m">1000</span><span class="w">  </span>
+
+<span class="c1"># 查看堆内存使用情况  </span>
+jstat<span class="w"> </span>-gccapacity<span class="w"> </span>&lt;pid&gt;<span class="w">  </span>
+
+<span class="c1"># 查看 GC 原因  </span>
+jstat<span class="w"> </span>-gccause<span class="w"> </span>&lt;pid&gt;<span class="w"> </span><span class="m">1000</span><span class="w">  </span>
+</code></pre></div></div>
+<h4 id="jmap-">jmap - 生成堆转储文件</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 生成堆转储文件  </span>
+jmap<span class="w"> </span>-dump:format<span class="o">=</span>b,file<span class="o">=</span>heap.hprof<span class="w"> </span>&lt;pid&gt;<span class="w">  </span>
+
+<span class="c1"># 查看堆内存使用情况  </span>
+jmap<span class="w"> </span>-heap<span class="w"> </span>&lt;pid&gt;<span class="w">  </span>
+
+<span class="c1"># 查看堆中对象统计信息  </span>
+jmap<span class="w"> </span>-histo<span class="w"> </span>&lt;pid&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w">  </span>
+</code></pre></div></div>
+<h4 id="jstack-">jstack - 查看线程堆栈</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 查看线程堆栈  </span>
+jstack<span class="w"> </span>&lt;pid&gt;<span class="w"> </span>&gt;<span class="w"> </span>thread.txt<span class="w">  </span>
+
+<span class="c1"># 查看死锁  </span>
+jstack<span class="w"> </span>-l<span class="w"> </span>&lt;pid&gt;<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="2">2. 可视化分析工具</h3>
+<h4 id="mat-memory-analyzer-tool">MAT (Memory Analyzer Tool)</h4>
+<ul>
+<li>分析堆转储文件  </li>
+<li>查找内存泄漏  </li>
+<li>对象引用链分析  </li>
+</ul>
+<h4 id="jprofiler">JProfiler</h4>
+<ul>
+<li>实时监控内存使用  </li>
+<li>CPU 性能分析  </li>
+<li>线程分析  </li>
+</ul>
+<h4 id="visualvm">VisualVM</h4>
+<ul>
+<li>JDK 自带的可视化工具  </li>
+<li>实时监控  </li>
+<li>堆转储分析  </li>
+</ul>
+<h4 id="arthas">Arthas</h4>
+<ul>
+<li>阿里开源的 Java 诊断工具  </li>
+<li>无需重启应用  </li>
+<li>实时查看内存、线程、GC 等信息  </li>
+</ul>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 启动 Arthas  </span>
+java<span class="w"> </span>-jar<span class="w"> </span>arthas-boot.jar<span class="w">  </span>
+
+<span class="c1"># 查看 JVM 信息  </span>
+dashboard<span class="w">  </span>
+
+<span class="c1"># 查看堆内存  </span>
+memory<span class="w">  </span>
+
+<span class="c1"># 生成堆转储  </span>
+heapdump<span class="w"> </span>/tmp/heap.hprof<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_34">🎯 实战排查流程</h2>
+<h3 id="oom_2">当发生OOM时，按此流程排查：</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 第一步：立即保存现场  </span>
+<span class="c1"># 1. 保存错误日志  </span>
+<span class="c1"># 2. 生成堆转储  </span>
+jmap<span class="w"> </span>-dump:live,format<span class="o">=</span>b,file<span class="o">=</span>heap.hprof<span class="w"> </span>&lt;pid&gt;<span class="w">  </span>
+
+<span class="c1"># 第二步：分析内存使用  </span>
+<span class="c1"># 1. 查看堆内存分布  </span>
+jmap<span class="w"> </span>-histo:live<span class="w"> </span>&lt;pid&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20<span class="w">  </span>
+
+<span class="c1"># 2. 查看GC情况  </span>
+jstat<span class="w"> </span>-gcutil<span class="w"> </span>&lt;pid&gt;<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="m">10</span><span class="w">  </span>
+
+<span class="c1"># 3. 查看线程状态  </span>
+jstack<span class="w"> </span>&lt;pid&gt;<span class="w"> </span>&gt;<span class="w"> </span>thread.dump<span class="w">  </span>
+
+<span class="c1"># 第三步：使用分析工具  </span>
+<span class="c1"># 1. Eclipse MAT  </span>
+<span class="c1"># 2. VisualVM  </span>
+<span class="c1"># 3. JProfiler  </span>
+<span class="c1"># 4. YourKit  </span>
+
+<span class="c1"># 第四步：复现和监控  </span>
+<span class="c1"># 1. 设置监控参数  </span>
+-XX:+HeapDumpOnOutOfMemoryError<span class="w">  </span>
+-XX:HeapDumpPath<span class="o">=</span>./java_pid&lt;pid&gt;.hprof<span class="w">  </span>
+-XX:OnOutOfMemoryError<span class="o">=</span><span class="s2">&quot;kill -3 %p&quot;</span><span class="w">  </span>
+-Xlog:gc*,gc+heap<span class="o">=</span>debug:file<span class="o">=</span>gc_%t.log<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_35">📊 预防策略</h2>
+<h3 id="1">1. 代码层面</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 使用内存敏感的数据结构  </span>
+<span class="c1">// 使用WeakHashMap、SoftReference  </span>
+<span class="c1">// 及时关闭资源  </span>
+<span class="c1">// 使用try-with-resources  </span>
+</code></pre></div></div>
+<h4 id="_36">✅ 使用对象池</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 使用 Apache Commons Pool  </span>
+<span class="n">GenericObjectPool</span><span class="o">&lt;</span><span class="n">ExpensiveObject</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GenericObjectPool</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="w">  </span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">ExpensiveObjectFactory</span><span class="p">(),</span><span class="w">  </span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">GenericObjectPoolConfig</span><span class="p">()</span><span class="w">  </span>
+<span class="p">);</span><span class="w">  </span>
+
+<span class="c1">// 使用对象  </span>
+<span class="n">ExpensiveObject</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">borrowObject</span><span class="p">();</span><span class="w">  </span>
+<span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">// 使用对象  </span>
+<span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="n">pool</span><span class="p">.</span><span class="na">returnObject</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span><span class="w"> </span><span class="c1">// 归还对象  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h4 id="_37">✅ 及时释放资源</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// 使用 try-with-resources  </span>
+<span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataSource</span><span class="p">.</span><span class="na">getConnection</span><span class="p">();</span><span class="w">  </span>
+<span class="w">     </span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span><span class="w">  </span>
+<span class="w">     </span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">// 处理结果  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h4 id="_38">✅ 避免创建不必要的对象</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1">// ❌ 错误：每次都创建新对象  </span>
+<span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">formatDate</span><span class="p">(</span><span class="n">Date</span><span class="w"> </span><span class="n">date</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="n">SimpleDateFormat</span><span class="w"> </span><span class="n">sdf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDateFormat</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sdf</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">date</span><span class="p">);</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// ✅ 正确：使用 ThreadLocal 复用对象  </span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">SimpleDateFormat</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DATE_FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
+<span class="w">    </span><span class="n">ThreadLocal</span><span class="p">.</span><span class="na">withInitial</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDateFormat</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd&quot;</span><span class="p">));</span><span class="w">  </span>
+
+<span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">formatDate</span><span class="p">(</span><span class="n">Date</span><span class="w"> </span><span class="n">date</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">DATE_FORMAT</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">format</span><span class="p">(</span><span class="n">date</span><span class="p">);</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+
+<span class="c1">// ✅ 更好：使用 Java 8 的 DateTimeFormatter（线程安全）  </span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">DateTimeFormatter</span><span class="w"> </span><span class="n">FORMATTER</span><span class="w"> </span><span class="o">=</span><span class="w">  </span>
+<span class="w">    </span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd&quot;</span><span class="p">);</span><span class="w">  </span>
+
+<span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">formatDate</span><span class="p">(</span><span class="n">LocalDate</span><span class="w"> </span><span class="n">date</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">date</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">FORMATTER</span><span class="p">);</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="2-jvm">2. JVM参数优化</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 基础内存设置  </span>
+-Xms4g<span class="w">                          </span><span class="c1"># 初始堆大小  </span>
+-Xmx4g<span class="w">                          </span><span class="c1"># 最大堆大小（建议与 Xms 相同，避免动态扩容）  </span>
+-Xmn2g<span class="w">                          </span><span class="c1"># 年轻代大小  </span>
+-Xss256k<span class="w">                        </span><span class="c1"># 每个线程的栈大小  </span>
+
+<span class="c1"># Metaspace 设置  </span>
+-XX:MetaspaceSize<span class="o">=</span>256m<span class="w">          </span><span class="c1"># Metaspace 初始大小  </span>
+-XX:MaxMetaspaceSize<span class="o">=</span>512m<span class="w">       </span><span class="c1"># Metaspace 最大大小  </span>
+
+<span class="c1"># GC 设置（G1 GC）  </span>
+-XX:+UseG1GC<span class="w">                    </span><span class="c1"># 使用 G1 垃圾收集器  </span>
+-XX:MaxGCPauseMillis<span class="o">=</span><span class="m">200</span><span class="w">        </span><span class="c1"># 最大 GC 停顿时间  </span>
+-XX:G1HeapRegionSize<span class="o">=</span>16m<span class="w">        </span><span class="c1"># G1 Region 大小  </span>
+
+<span class="c1"># OOM 时自动生成堆转储  </span>
+-XX:+HeapDumpOnOutOfMemoryError<span class="w">  </span>
+-XX:HeapDumpPath<span class="o">=</span>/var/logs/heapdump/<span class="w">  </span>
+
+<span class="c1"># GC 日志  </span>
+-Xlog:gc*:file<span class="o">=</span>/var/logs/gc.log:time,uptime,level,tags<span class="w">  </span>
+-XX:+PrintGCDetails<span class="w">  </span>
+-XX:+PrintGCDateStamps<span class="w">  </span>
+
+<span class="c1"># 其他优化  </span>
+-XX:+DisableExplicitGC<span class="w">          </span><span class="c1"># 禁用 System.gc()  </span>
+-XX:+UseStringDeduplication<span class="w">     </span><span class="c1"># 字符串去重（G1 GC）  </span>
+
+<span class="c1"># 生产环境推荐配置  </span>
+-Xms4g<span class="w"> </span>-Xmx4g<span class="w">  </span>
+-XX:MetaspaceSize<span class="o">=</span>256m<span class="w"> </span>-XX:MaxMetaspaceSize<span class="o">=</span>512m<span class="w">  </span>
+-XX:MaxDirectMemorySize<span class="o">=</span>256m<span class="w">  </span>
+-XX:+UseG1GC<span class="w">  </span>
+-XX:MaxGCPauseMillis<span class="o">=</span><span class="m">200</span><span class="w">  </span>
+-XX:InitiatingHeapOccupancyPercent<span class="o">=</span><span class="m">35</span><span class="w">  </span>
+-XX:+HeapDumpOnOutOfMemoryError<span class="w">  </span>
+-XX:HeapDumpPath<span class="o">=</span>/path/to/dumps<span class="w">  </span>
+-XX:+UseCompressedClassPointers<span class="w">  </span>
+-XX:+UseCompressedOops<span class="w">  </span>
+-Xlog:gc*,gc+heap<span class="o">=</span>debug:file<span class="o">=</span>gc.log<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="3">3. 监控告警</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 需要监控的指标：  </span>
+<span class="c1"># 1. 堆内存使用率 &gt; 80% 告警  </span>
+<span class="c1"># 2. GC时间占比 &gt; 20% 告警  </span>
+<span class="c1"># 3. 老年代增长速率  </span>
+<span class="c1"># 4. Metaspace使用率  </span>
+<span class="c1"># 5. 线程数增长  </span>
+<span class="c1"># 6. 直接内存使用  </span>
+</code></pre></div></div>
+<h4 id="prometheus-grafana">Prometheus + Grafana 监控</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># prometheus.yml  </span>
+<span class="nt">scrape_configs</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;java-app&#39;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">metrics_path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/actuator/prometheus&#39;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;localhost:8080&#39;</span><span class="p p-Indicator">]</span><span class="w">  </span>
+</code></pre></div></div>
+<h4 id="_39">关键指标监控</h4>
+<ul>
+<li><strong>堆内存使用率</strong>: <code>jvm_memory_used_bytes / jvm_memory_max_bytes</code>  </li>
+<li><strong>GC 频率</strong>: <code>rate(jvm_gc_pause_seconds_count[5m])</code>  </li>
+<li><strong>GC 耗时</strong>: <code>jvm_gc_pause_seconds_sum</code>  </li>
+<li><strong>线程数</strong>: <code>jvm_threads_live_threads</code>  </li>
+</ul>
+<h4 id="_40">告警规则</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">groups</span><span class="p">:</span><span class="w">  </span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jvm_alerts</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">rules</span><span class="p">:</span><span class="w">  </span>
+<span class="w">      </span><span class="c1"># 堆内存使用率超过 85%  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HighHeapMemoryUsage</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(jvm_memory_used_bytes{area=&quot;heap&quot;} / jvm_memory_max_bytes{area=&quot;heap&quot;}) &gt; 0.85</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5m</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;堆内存使用率过高&quot;</span><span class="w">  </span>
+
+<span class="w">      </span><span class="c1"># GC 耗时超过 1 秒  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HighGCTime</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate(jvm_gc_pause_seconds_sum[5m]) &gt; 1</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5m</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span><span class="w">  </span>
+<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GC</span><span class="nv"> </span><span class="s">耗时过长&quot;</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="4">4. 压力测试</h3>
+<p>使用 JMeter、Gatling 等工具进行压力测试：  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># JMeter 压力测试  </span>
+jmeter<span class="w"> </span>-n<span class="w"> </span>-t<span class="w"> </span>test-plan.jmx<span class="w"> </span>-l<span class="w"> </span>results.jtl<span class="w">  </span>
+
+<span class="c1"># 同时监控内存使用  </span>
+jstat<span class="w"> </span>-gc<span class="w"> </span>&lt;pid&gt;<span class="w"> </span><span class="m">1000</span><span class="w"> </span>&gt;<span class="w"> </span>gc-stats.log<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_41">🎃 总结</h2>
+<h3 id="oom_3">OOM 排查核心要点</h3>
+<ol>
+<li>✅ <strong>及时发现</strong>: 配置监控告警，第一时间发现问题  </li>
+<li>✅ <strong>保留现场</strong>: 配置 <code>-XX:+HeapDumpOnOutOfMemoryError</code>  </li>
+<li>✅ <strong>分析定位</strong>: 使用 MAT 等工具分析堆转储文件  </li>
+<li>✅ <strong>修复验证</strong>: 修改代码后进行压力测试验证  </li>
+<li>✅ <strong>预防为主</strong>: 代码规范、资源管理、容量规划  </li>
+</ol>
+<h3 id="_42">最佳实践清单</h3>
+<ul>
+<li>[ ] JVM 参数合理配置  </li>
+<li>[ ] 开启 OOM 时自动生成堆转储  </li>
+<li>[ ] 开启 GC 日志  </li>
+<li>[ ] 配置内存监控告警  </li>
+<li>[ ] 定期进行压力测试  </li>
+<li>[ ] 代码审查关注内存使用  </li>
+<li>[ ] 使用对象池复用对象  </li>
+<li>[ ] 及时释放资源（try-with-resources）  </li>
+<li>[ ] 避免大对象一次性加载  </li>
+<li>[ ] 合理使用缓存（设置过期时间和容量限制）  </li>
+</ul>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
