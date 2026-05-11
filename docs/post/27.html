@@ -127,9 +127,9 @@ pre {
 
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#351497">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#工具">工具</a></object>
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Tool">Tool</a></object>
         </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#774C51">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#数据库">数据库</a></object>
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Database">Database</a></object>
         </span>
 </div>
 <br>
@@ -137,24 +137,24 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-03 10:05:26</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-01 17:02:10</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-05-11 17:43:02</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了ip2region及其相关数据库的更新频率，包括ip2region-xdb的数据来自IP-API，GeoLite2数据库每三天更新，MaxMind的GeoLite2 Country、City和ASN数据库每月更新，geoip2-mirror每周更新，而GeoLite.mmdb则是每天更新。文中提供了一个Python示例，展示如何使用geoip2库从GeoLite2-Country.mmdb中获取IP地址的国家信息。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了ip2region及其相关数据库的更新频率，包括ip2region-xdb、GeoLite2数据库和maxmind-geoip的更新周期。提供了一个Python示例代码，展示如何使用geoip2库查询IP地址的国家信息，并处理可能出现的异常。改进建议包括增加对更多IP信息的查询支持，如城市和ASN信息，以及完善异常处理，以提高代码的健壮性。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
     <h2 id="ip2region"><a href="https://github.com/lionsoul2014/ip2region">ip2region</a></h2>
-<h2 id="ip2region-xdb-58m"><a href="https://github.com/alading89/ip2region-xdb/releases">ip2region-xdb</a>  58M</h2>
+<h2 id="ip2region-xdb-601m"><a href="https://github.com/alading89/ip2region-xdb/releases">ip2region-xdb</a>  60.1M</h2>
 <p>数据来自IP-API  </p>
 <h2 id="geolite2-database-3"><a href="https://github.com/mojolabs-id/GeoLite2-Database/releases/">GeoLite2-Database</a> 每3天更新</h2>
 <p>MaxMind's GeoLite2 Country, City, and ASN databases in csv and mmdb.  </p>
 <p><a href="https://github.com/Dreamacro/maxmind-geoip/releases">maxmind-geoip</a> 每月12号更新  </p>
 <p><a href="https://github.com/Skiddle-ID/geoip2-mirror/releases">geoip2-mirror</a>  每周二,五更新  </p>
 <p><a href="https://github.com/P3TERX/GeoLite.mmdb/releases">GeoLite.mmdb</a> 每天  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">geoip2.database</span>  
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_ip_info</span><span class="p">(</span><span class="n">ip_address</span><span class="p">,</span> <span class="n">db_path</span><span class="o">=</span><span class="s2">&quot;GeoLite2-Country.mmdb&quot;</span><span class="p">):</span>  
@@ -173,15 +173,45 @@ pre {
 </code></pre></div></div>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -189,10 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
@@ -200,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/26.html" aria-label="Previous Page">0X1A API接口测试工具</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/28.html" aria-label="Next Page">0X1C Git配置文件说明</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/26.html" aria-label="Previous Page">0X1A API接口测试工具</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/28.html" aria-label="Next Page">Git配置文件说明</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

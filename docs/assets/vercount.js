@@ -50,7 +50,7 @@ let visitorCountModule, eventHandler;
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "X-Browser-Token": browserToken
+                        // "X-Browser-Token": browserToken
                     },
                     body: JSON.stringify({
                         url: window.location.href,

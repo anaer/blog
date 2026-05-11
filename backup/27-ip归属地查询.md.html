@@ -1,14 +1,14 @@
 
   <article class="markdown-body">
     <h2 id="ip2region"><a href="https://github.com/lionsoul2014/ip2region">ip2region</a></h2>
-<h2 id="ip2region-xdb-58m"><a href="https://github.com/alading89/ip2region-xdb/releases">ip2region-xdb</a>  58M</h2>
+<h2 id="ip2region-xdb-601m"><a href="https://github.com/alading89/ip2region-xdb/releases">ip2region-xdb</a>  60.1M</h2>
 <p>数据来自IP-API  </p>
 <h2 id="geolite2-database-3"><a href="https://github.com/mojolabs-id/GeoLite2-Database/releases/">GeoLite2-Database</a> 每3天更新</h2>
 <p>MaxMind's GeoLite2 Country, City, and ASN databases in csv and mmdb.  </p>
 <p><a href="https://github.com/Dreamacro/maxmind-geoip/releases">maxmind-geoip</a> 每月12号更新  </p>
 <p><a href="https://github.com/Skiddle-ID/geoip2-mirror/releases">geoip2-mirror</a>  每周二,五更新  </p>
 <p><a href="https://github.com/P3TERX/GeoLite.mmdb/releases">GeoLite.mmdb</a> 每天  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">geoip2.database</span>  
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_ip_info</span><span class="p">(</span><span class="n">ip_address</span><span class="p">,</span> <span class="n">db_path</span><span class="o">=</span><span class="s2">&quot;GeoLite2-Country.mmdb&quot;</span><span class="p">):</span>  
@@ -27,15 +27,45 @@
 </code></pre></div></div>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -43,10 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
