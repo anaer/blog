@@ -8,7 +8,8 @@
     <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
     <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
-    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
+    <script defer src="https://events.vercount.one/js"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
@@ -126,7 +127,7 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#1d76db">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#关注">关注</a></object>
         </span>
 </div>
@@ -304,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/143.html" aria-label="Previous Page">0X8F flink定时脚本</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/145.html" aria-label="Previous Page">0X91 我关注的项目这周更新了什么-2025-09-05</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/143.html" aria-label="Next Page">flink定时脚本</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -386,8 +387,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

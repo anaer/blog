@@ -1,29 +1,90 @@
-<div class="markdown-heading"><h2 class="heading-element">服务端排序</h2><a id="user-content-服务端排序" class="anchor" aria-label="Permalink: 服务端排序" href="#服务端排序"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span><span class="pl-kos">(</span><span class="pl-s1">grid_selector</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">jqGrid</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
-    <span class="pl-c1">loadonce</span>: <span class="pl-c1">false</span><span class="pl-kos">,</span> <span class="pl-c">// 是否一次性加载数据到客户端，启用本地排序</span>
-    <span class="pl-c1">sortname</span>: <span class="pl-s">'name'</span><span class="pl-kos">,</span>
-    <span class="pl-c1">sortorder</span>: <span class="pl-s">'desc'</span><span class="pl-kos">,</span>
-    <span class="pl-c1">colNames</span>: <span class="pl-kos">[</span> <span class="pl-s">'id'</span><span class="pl-kos">,</span> <span class="pl-s">'name'</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
-    <span class="pl-c1">colModel</span>: <span class="pl-kos">[</span>
-    <span class="pl-kos">{</span>
-        <span class="pl-c1">index</span>: <span class="pl-s">'id'</span><span class="pl-kos">,</span>
-        <span class="pl-c1">name</span>: <span class="pl-s">'id'</span>
-    <span class="pl-kos">}</span><span class="pl-kos">,</span>
-    <span class="pl-kos">{</span>
-        <span class="pl-c1">index</span>: <span class="pl-s">'name'</span><span class="pl-kos">,</span>
-        <span class="pl-c1">name</span>: <span class="pl-s">'name'</span><span class="pl-kos">,</span>
-        <span class="pl-c1">width</span>: <span class="pl-c1">50</span><span class="pl-kos">,</span>
-        <span class="pl-c1">sortable</span>: <span class="pl-c1">true</span>
-    <span class="pl-kos">}</span><span class="pl-kos">,</span>
-    <span class="pl-s1">onSortCol</span>: <span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-s1">index</span><span class="pl-kos">,</span> <span class="pl-s1">columnIndex</span><span class="pl-kos">,</span> <span class="pl-s1">sortOrder</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-        <span class="pl-en">search</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-        <span class="pl-k">return</span> <span class="pl-s">'stop'</span><span class="pl-kos">;</span> <span class="pl-c">// 阻止客户端排序操作</span>
-    <span class="pl-kos">}</span><span class="pl-kos">,</span><span class="pl-kos"></span>
-<span class="pl-kos">}</span><span class="pl-kos">)</span>
 
-<span class="pl-k">function</span> <span class="pl-en">search</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-  <span class="pl-k">var</span> <span class="pl-s1">param</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span><span class="pl-kos">}</span><span class="pl-kos">;</span>
-  <span class="pl-s1">param</span><span class="pl-kos">.</span><span class="pl-c1">sortName</span> <span class="pl-c1">=</span> <span class="pl-en">$</span><span class="pl-kos">(</span><span class="pl-s1">grid_selector</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">getGridParam</span><span class="pl-kos">(</span><span class="pl-s">"sortname"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-  <span class="pl-s1">param</span><span class="pl-kos">.</span><span class="pl-c1">sortOrder</span> <span class="pl-c1">=</span> <span class="pl-en">$</span><span class="pl-kos">(</span><span class="pl-s1">grid_selector</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">getGridParam</span><span class="pl-kos">(</span><span class="pl-s">"sortorder"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-  ...
-<span class="pl-kos">}</span></pre></div>
+  <article class="markdown-body">
+    <h2 id="_1">服务端排序</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="nx">grid_selector</span><span class="p">).</span><span class="nx">jqGrid</span><span class="p">({</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">loadonce</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">// 是否一次性加载数据到客户端，启用本地排序  </span>
+<span class="w">    </span><span class="nx">sortname</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">sortorder</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;desc&#39;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">colNames</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="p">],</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">colModel</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">index</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;id&#39;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">index</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">sortable</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">onSortCol</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">columnIndex</span><span class="p">,</span><span class="w"> </span><span class="nx">sortOrder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">search</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;stop&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 阻止客户端排序操作  </span>
+<span class="w">    </span><span class="p">},</span><span class="w">  </span>
+<span class="p">})</span><span class="w">  </span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">search</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w">  </span>
+<span class="w">  </span><span class="nx">param</span><span class="p">.</span><span class="nx">sortName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">grid_selector</span><span class="p">).</span><span class="nx">getGridParam</span><span class="p">(</span><span class="s2">&quot;sortname&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">  </span><span class="nx">param</span><span class="p">.</span><span class="nx">sortOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">grid_selector</span><span class="p">).</span><span class="nx">getGridParam</span><span class="p">(</span><span class="s2">&quot;sortorder&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">  </span><span class="p">...</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+

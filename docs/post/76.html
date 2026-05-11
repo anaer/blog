@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
-    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
+    <script defer src="https://events.vercount.one/js"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X4C Jinja2模版语法</title>
+<title>Jinja2模版语法</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/dimmed.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +99,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X4C Jinja2模版语法</a>
+    <a style="font-size:18px">Jinja2模版语法</a>
 </h1>
 
 <div class="title-right">
@@ -124,164 +127,248 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#0e8056">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#FrontEnd">FrontEnd</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-02-25 17:19:08</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Jinja2模板语法的基础结构、模板继承、高级功能组件、安全控制机制、空白控制、注释语法以及文件包含与导入。主要内容包括变量输出、逻辑控制、循环结构、宏、过滤器、测试器、自动转义、沙箱模式、空白控制技巧和模块化组织方法。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 13:42:21</time></span>
 
-优化建议：
-1. 提供更多实际应用示例，帮助用户理解每个功能的实际用途。
-2. 增加常见错误及其解决方案的部分，提升用户的学习效率。
-3. 对于复杂的功能组件，提供更详细的解释和使用场景，帮助用户更好地掌握。
-4. 考虑添加对比其他模板引擎的优缺点，帮助用户做出选择。
-5. 在安全控制机制部分，增加具体的安全实践建议，提升用户的安全意识。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了Jinja2模板语法的基础结构，包括变量输出、逻辑控制和循环结构，模板继承系统的父模板和子模板扩展，宏、过滤器和测试器的高级功能组件，安全控制机制如自动转义和沙箱模式限制，空白控制的技巧，注释语法，以及文件的包含与导入方法。改进建议包括增加实际应用示例，以帮助用户更好地理解和运用这些语法和功能。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h3 class="heading-element">Jinja2模版语法</h3><a id="user-content-jinja2模版语法" class="anchor" aria-label="Permalink: Jinja2模版语法" href="#jinja2模版语法"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<hr>
-<div class="markdown-heading"><h4 class="heading-element">一、基础语法结构</h4><a id="user-content-一基础语法结构" class="anchor" aria-label="Permalink: 一、基础语法结构" href="#一基础语法结构"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  <article class="markdown-body">
+    <h3 id="jinja2">Jinja2模版语法</h3>
+<hr />
+<h4 id="_1">一、基础语法结构</h4>
 <ol>
 <li>
-<p><strong>变量输出</strong></p>
-<div class="highlight highlight-text-html-django"><pre>{{ variable }}                <span class="pl-c">{# 基础输出 #}</span>
-{{ variable|default("N/A") }} <span class="pl-c">{# 设置默认值 #}</span>
-{{ user.name|title }}         <span class="pl-c">{# 过滤器链式操作 #}</span></pre></div>
+<p><strong>变量输出</strong><br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{{ variable }}                {# 基础输出 #}  
+{{ variable|default(&quot;N/A&quot;) }} {# 设置默认值 #}  
+{{ user.name|title }}         {# 过滤器链式操作 #}  
+</code></pre></div></div></p>
 </li>
 <li>
-<p><strong>逻辑控制</strong></p>
-<div class="highlight highlight-text-html-django"><pre><span class="pl-e">{%</span> <span class="pl-k">if</span> <span class="pl-s">score</span> &gt; 90 <span class="pl-e">%}</span>
-  优秀
-<span class="pl-e">{%</span> <span class="pl-s">elif</span> <span class="pl-s">score</span> &gt; 60 <span class="pl-e">%}</span>
-  合格
-<span class="pl-e">{%</span> <span class="pl-k">else</span> <span class="pl-e">%}</span>
-  不合格
-<span class="pl-e">{%</span> <span class="pl-k">endif</span> <span class="pl-e">%}</span></pre></div>
+<p><strong>逻辑控制</strong><br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{% if score &gt; 90 %}  
+  优秀  
+{% elif score &gt; 60 %}  
+  合格  
+{% else %}  
+  不合格  
+{% endif %}  
+</code></pre></div></div></p>
 </li>
 <li>
-<p><strong>循环结构</strong></p>
-<div class="highlight highlight-text-html-django"><pre><span class="pl-e">{%</span> <span class="pl-k">for</span> <span class="pl-s">item</span> <span class="pl-k">in</span> <span class="pl-s">items</span> <span class="pl-e">%}</span>
-  &lt;<span class="pl-ent">li</span>&gt;{{ loop.index }}. {{ item.name }}&lt;/<span class="pl-ent">li</span>&gt;
-<span class="pl-e">{%</span> <span class="pl-k">else</span> <span class="pl-e">%}</span>
-  &lt;<span class="pl-ent">p</span>&gt;暂无数据&lt;/<span class="pl-ent">p</span>&gt;
-<span class="pl-e">{%</span> <span class="pl-k">endfor</span> <span class="pl-e">%}</span></pre></div>
+<p><strong>循环结构</strong><br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{% for item in items %}  
+  &lt;li&gt;{{ loop.index }}. {{ item.name }}&lt;/li&gt;  
+{% else %}  
+  &lt;p&gt;暂无数据&lt;/p&gt;  
+{% endfor %}  
+</code></pre></div></div></p>
 </li>
 </ol>
-<hr>
-<div class="markdown-heading"><h4 class="heading-element">二、模板继承系统</h4><a id="user-content-二模板继承系统" class="anchor" aria-label="Permalink: 二、模板继承系统" href="#二模板继承系统"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<hr />
+<h4 id="_2">二、模板继承系统</h4>
 <ol>
 <li>
-<p><strong>父模板定义</strong> (<code>base.html</code>)</p>
-<div class="highlight highlight-text-html-django"><pre>&lt;!DOCTYPE html&gt;
-&lt;<span class="pl-ent">html</span>&gt;
-&lt;<span class="pl-ent">head</span>&gt;
-  <span class="pl-e">{%</span> <span class="pl-k">block</span> <span class="pl-s">head</span> <span class="pl-e">%}</span>
-    &lt;<span class="pl-ent">title</span>&gt;<span class="pl-e">{%</span> <span class="pl-k">block</span> <span class="pl-s">title</span> <span class="pl-e">%}</span>默认标题<span class="pl-e">{%</span> <span class="pl-k">endblock</span> <span class="pl-e">%}</span>&lt;/<span class="pl-ent">title</span>&gt;
-  <span class="pl-e">{%</span> <span class="pl-k">endblock</span> <span class="pl-e">%}</span>
-&lt;/<span class="pl-ent">head</span>&gt;
-&lt;<span class="pl-ent">body</span>&gt;
-  <span class="pl-e">{%</span> <span class="pl-k">block</span> <span class="pl-s">content</span> <span class="pl-e">%}{%</span> <span class="pl-k">endblock</span> <span class="pl-e">%}</span>
-&lt;/<span class="pl-ent">body</span>&gt;
-&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+<p><strong>父模板定义</strong> (<code>base.html</code>)<br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>&lt;!DOCTYPE html&gt;  
+&lt;html&gt;  
+&lt;head&gt;  
+  {% block head %}  
+    &lt;title&gt;{% block title %}默认标题{% endblock %}&lt;/title&gt;  
+  {% endblock %}  
+&lt;/head&gt;  
+&lt;body&gt;  
+  {% block content %}{% endblock %}  
+&lt;/body&gt;  
+&lt;/html&gt;  
+</code></pre></div></div></p>
 </li>
 <li>
-<p><strong>子模板扩展</strong></p>
-<div class="highlight highlight-text-html-django"><pre><span class="pl-e">{%</span> <span class="pl-k">extends</span> <span class="pl-s">"base.html"</span> <span class="pl-e">%}</span>
+<p><strong>子模板扩展</strong><br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{% extends &quot;base.html&quot; %}  
 
-<span class="pl-e">{%</span> <span class="pl-k">block</span> <span class="pl-s">title</span> <span class="pl-e">%}</span>子页面标题<span class="pl-e">{%</span> <span class="pl-k">endblock</span> <span class="pl-e">%}</span>
+{% block title %}子页面标题{% endblock %}  
 
-<span class="pl-e">{%</span> <span class="pl-k">block</span> <span class="pl-s">content</span> <span class="pl-e">%}</span>
-  &lt;<span class="pl-ent">h1</span>&gt;{{ self.title() }}&lt;/<span class="pl-ent">h1</span>&gt;
-  <span class="pl-e">{%</span> <span class="pl-k">include</span> <span class="pl-s">"partials/nav.html"</span> <span class="pl-e">%}</span>
-<span class="pl-e">{%</span> <span class="pl-k">endblock</span> <span class="pl-e">%}</span></pre></div>
+{% block content %}  
+  &lt;h1&gt;{{ self.title() }}&lt;/h1&gt;  
+  {% include &quot;partials/nav.html&quot; %}  
+{% endblock %}  
+</code></pre></div></div></p>
 </li>
 </ol>
-<hr>
-<div class="markdown-heading"><h4 class="heading-element">三、高级功能组件</h4><a id="user-content-三高级功能组件" class="anchor" aria-label="Permalink: 三、高级功能组件" href="#三高级功能组件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<hr />
+<h4 id="_3">三、高级功能组件</h4>
 <ol>
 <li>
-<p><strong>宏（Macros）</strong></p>
-<div class="highlight highlight-text-html-django"><pre><span class="pl-e">{%</span> <span class="pl-s">macro</span> <span class="pl-s">input</span>(<span class="pl-s">name</span>, <span class="pl-s">value</span>=<span class="pl-s">''</span>, <span class="pl-s">type</span>=<span class="pl-s">'text'</span>) <span class="pl-e">%}</span>
-  &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ type }}<span class="pl-pds">"</span></span> 
-         <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ name }}<span class="pl-pds">"</span></span> 
-         <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ value|e }}<span class="pl-pds">"</span></span> 
-         <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>form-control<span class="pl-pds">"</span></span>&gt;
-<span class="pl-e">{%</span> <span class="pl-s">endmacro</span> <span class="pl-e">%}</span>
+<p><strong>宏（Macros）</strong><br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{% macro input(name, value=&#39;&#39;, type=&#39;text&#39;) %}  
+  &lt;input type=&quot;{{ type }}&quot;   
+         name=&quot;{{ name }}&quot;   
+         value=&quot;{{ value|e }}&quot;   
+         class=&quot;form-control&quot;&gt;  
+{% endmacro %}  
 
-{{ input('username') }}               <span class="pl-c">{# 调用宏 #}</span>
-{{ input('email', type='email') }}    <span class="pl-c">{# 带参数覆盖 #}</span></pre></div>
+{{ input(&#39;username&#39;) }}               {# 调用宏 #}  
+{{ input(&#39;email&#39;, type=&#39;email&#39;) }}    {# 带参数覆盖 #}  
+</code></pre></div></div></p>
 </li>
 <li>
-<p><strong>过滤器（Filters）</strong></p>
-<div class="highlight highlight-text-html-django"><pre>{{ text|trim|upper }}                  <span class="pl-c">{# 内置过滤器 #}</span>
-{{ list|join(', ') }}                  <span class="pl-c">{# 列表转字符串 #}</span>
-{{ date|datetime(format='%Y-%m-%d') }} <span class="pl-c">{# 自定义过滤器 #}</span></pre></div>
+<p><strong>过滤器（Filters）</strong><br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{{ text|trim|upper }}                  {# 内置过滤器 #}  
+{{ list|join(&#39;, &#39;) }}                  {# 列表转字符串 #}  
+{{ date|datetime(format=&#39;%Y-%m-%d&#39;) }} {# 自定义过滤器 #}  
+</code></pre></div></div></p>
 </li>
 <li>
-<p><strong>测试器（Tests）</strong></p>
-<div class="highlight highlight-text-html-django"><pre><span class="pl-e">{%</span> <span class="pl-k">if</span> <span class="pl-s">variable</span> <span class="pl-s">is</span> <span class="pl-s">defined</span> <span class="pl-e">%}</span>      <span class="pl-c">{# 检查变量存在性 #}</span>
-<span class="pl-e">{%</span> <span class="pl-k">if</span> <span class="pl-s">number</span> <span class="pl-s">is</span> <span class="pl-s">even</span> <span class="pl-e">%}</span>           <span class="pl-c">{# 数值类型测试 #}</span>
-<span class="pl-e">{%</span> <span class="pl-k">if</span> <span class="pl-s">string</span> <span class="pl-s">is</span> <span class="pl-s">sequence</span> <span class="pl-e">%}</span>       <span class="pl-c">{# 可迭代对象检测 #}</span></pre></div>
+<p><strong>测试器（Tests）</strong><br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{% if variable is defined %}      {# 检查变量存在性 #}  
+{% if number is even %}           {# 数值类型测试 #}  
+{% if string is sequence %}       {# 可迭代对象检测 #}  
+</code></pre></div></div></p>
 </li>
 </ol>
-<hr>
-<div class="markdown-heading"><h4 class="heading-element">四、安全控制机制</h4><a id="user-content-四安全控制机制" class="anchor" aria-label="Permalink: 四、安全控制机制" href="#四安全控制机制"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<hr />
+<h4 id="_4">四、安全控制机制</h4>
 <ol>
 <li>
-<p><strong>自动转义</strong></p>
-<div class="highlight highlight-text-html-django"><pre>{{ user_input }}                <span class="pl-c">{# 自动HTML转义 #}</span>
-{{ safe_html|safe }}            <span class="pl-c">{# 标记安全内容 #}</span>
-<span class="pl-e">{%</span> <span class="pl-k">autoescape</span> <span class="pl-s">false</span> <span class="pl-e">%}</span>          <span class="pl-c">{# 关闭局部转义 #}</span>
-  {{ raw_content }}
-<span class="pl-e">{%</span> <span class="pl-k">endautoescape</span> <span class="pl-e">%}</span></pre></div>
+<p><strong>自动转义</strong><br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{{ user_input }}                {# 自动HTML转义 #}  
+{{ safe_html|safe }}            {# 标记安全内容 #}  
+{% autoescape false %}          {# 关闭局部转义 #}  
+  {{ raw_content }}  
+{% endautoescape %}  
+</code></pre></div></div></p>
 </li>
 <li>
-<p><strong>沙箱模式限制</strong></p>
-<div class="highlight highlight-text-html-django"><pre><span class="pl-c">{# 在受限环境中禁止以下操作： #}</span>
-<span class="pl-e">{%</span> <span class="pl-s">forbidden_tag</span> <span class="pl-e">%}</span>             <span class="pl-c">{# 禁用危险标签 #}</span>
-{{ __import__('os') }}          <span class="pl-c">{# 禁止Python函数调用 #}</span></pre></div>
+<p><strong>沙箱模式限制</strong><br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{# 在受限环境中禁止以下操作： #}  
+{% forbidden_tag %}             {# 禁用危险标签 #}  
+{{ __import__(&#39;os&#39;) }}          {# 禁止Python函数调用 #}  
+</code></pre></div></div></p>
 </li>
 </ol>
-<hr>
-<div class="markdown-heading"><h4 class="heading-element">五、空白控制</h4><a id="user-content-五空白控制" class="anchor" aria-label="Permalink: 五、空白控制" href="#五空白控制"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-text-html-django"><pre><span class="pl-e">{%</span> <span class="pl-k">for</span> <span class="pl-s">item</span> <span class="pl-k">in</span> <span class="pl-s">list</span> -<span class="pl-e">%}</span>   <span class="pl-c">{# 移除行首空白 #}</span>
-  {{ item }}
-<span class="pl-e">{%</span>- <span class="pl-k">endfor</span> <span class="pl-e">%}</span>             <span class="pl-c">{# 移除行尾空白 #}</span>
+<hr />
+<h4 id="_5">五、空白控制</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{% for item in list -%}   {# 移除行首空白 #}  
+  {{ item }}  
+{%- endfor %}             {# 移除行尾空白 #}  
 
-<span class="pl-c">{# 输出结果无空行： #}</span>
-<span class="pl-e">{%</span> <span class="pl-k">if</span> <span class="pl-s">true</span> <span class="pl-e">%}</span>...<span class="pl-e">{%</span> <span class="pl-k">endif</span> <span class="pl-e">%}</span></pre></div>
-<hr>
-<div class="markdown-heading"><h4 class="heading-element">六、注释语法</h4><a id="user-content-六注释语法" class="anchor" aria-label="Permalink: 六、注释语法" href="#六注释语法"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-text-html-django"><pre><span class="pl-c">{# 单行注释 #}</span>
+{# 输出结果无空行： #}  
+{% if true %}...{% endif %}  
+</code></pre></div></div>
+<hr />
+<h4 id="_6">六、注释语法</h4>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{# 单行注释 #}  
 
-<span class="pl-c">{#</span>
-<span class="pl-c">  多行注释</span>
-<span class="pl-c">  模板调试时使用</span>
-<span class="pl-c">#}</span>
+{#  
+  多行注释  
+  模板调试时使用  
+#}  
 
-{{ "注释内容不会出现在输出中" }}</pre></div>
-<hr>
-<div class="markdown-heading"><h4 class="heading-element">七、包含与导入</h4><a id="user-content-七包含与导入" class="anchor" aria-label="Permalink: 七、包含与导入" href="#七包含与导入"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+{{ &quot;注释内容不会出现在输出中&quot; }}  
+</code></pre></div></div>
+<hr />
+<h4 id="_7">七、包含与导入</h4>
 <ol>
 <li>
-<p><strong>文件包含</strong></p>
-<div class="highlight highlight-text-html-django"><pre><span class="pl-e">{%</span> <span class="pl-k">include</span> <span class="pl-s">'header.html'</span> <span class="pl-s">ignore</span> <span class="pl-s">missing</span> <span class="pl-e">%}</span>  <span class="pl-c">{# 忽略缺失文件 #}</span></pre></div>
+<p><strong>文件包含</strong><br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{% include &#39;header.html&#39; ignore missing %}  {# 忽略缺失文件 #}  
+</code></pre></div></div></p>
 </li>
 <li>
-<p><strong>模块化组织</strong></p>
-<div class="highlight highlight-text-html-django"><pre><span class="pl-e">{%</span> <span class="pl-s">from</span> <span class="pl-s">'forms.html'</span> <span class="pl-s">import</span> <span class="pl-s">input</span> <span class="pl-k">as</span> <span class="pl-s">field</span> <span class="pl-e">%}</span>  <span class="pl-c">{# 导入单个宏 #}</span>
-<span class="pl-e">{%</span> <span class="pl-s">import</span> <span class="pl-s">'macros.html'</span> <span class="pl-k">as</span> <span class="pl-s">macros</span> <span class="pl-e">%}</span>           <span class="pl-c">{# 导入整个模块 #}</span></pre></div>
+<p><strong>模块化组织</strong><br />
+   <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>{% from &#39;forms.html&#39; import input as field %}  {# 导入单个宏 #}  
+{% import &#39;macros.html&#39; as macros %}           {# 导入整个模块 #}  
+</code></pre></div></div></p>
 </li>
 </ol>
-<hr>
+<hr />
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/77.html" aria-label="Previous Page">0X4D fastjson特性开关</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/74.html" aria-label="Next Page">0X4A Ubuntu安装Ollama, AnythingLLM部署Deepseek</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/77.html" aria-label="Previous Page">fastjson特性开关</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/74.html" aria-label="Next Page">Ubuntu安装Ollama, AnythingLLM部署Deepseek</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -363,8 +450,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

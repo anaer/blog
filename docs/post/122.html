@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
-    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
+    <script defer src="https://events.vercount.one/js"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X7A blog相关</title>
+<title>blog相关</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/light.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +99,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X7A blog相关</a>
+    <a style="font-size:18px">blog相关</a>
 </h1>
 
 <div class="title-right">
@@ -133,47 +136,103 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-05-23 11:02:48</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-06-30 16:39:58</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-02-27 23:12:03</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在网站上放置猫的实现方法，包括引入oneko.js脚本和配置完整路径以避免相对路径问题。此外，还提到在GitHub上设置API密钥和模型权限的步骤，以确保访问相关功能时不会出现权限错误。
-
-优化建议：
-1. 在引入oneko.js脚本时，确保路径正确且可访问，以避免加载失败。
-2. 在GitHub设置中，详细记录API_KEY和API_URL的创建步骤，方便后续操作。
-3. 确保GitHub Models权限设置为Read-only，以避免因权限不足导致的错误。
-4. 提供具体的错误处理方案，以便在出现权限错误时快速定位问题。
+    <strong>AI总结:</strong> 本文介绍了如何在网站上集成猫动画效果，具体通过引入oneko.js脚本并配置其路径。此外，还提到在GitHub上设置AI总结所需的变量信息，包括API_URL、API_KEY和API_MODEL，并指明API_KEY的创建方式以及Models权限的设置要求。改进建议是确保在设置API_KEY时，遵循GitHub的最新安全措施，并在文档中详细说明权限设置的步骤，以避免用户在使用时遇到权限错误。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h3 class="heading-element">网站上放置猫</h3><a id="user-content-网站上放置猫" class="anchor" aria-label="Permalink: 网站上放置猫" href="#网站上放置猫"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a href="https://github.com/adryd325/oneko.js">https://github.com/adryd325/oneko.js</a></p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/0594324c-9dab-4981-b8d9-4369caf5d2c7"><img src="https://github.com/user-attachments/assets/0594324c-9dab-4981-b8d9-4369caf5d2c7" alt="Image" style="max-width: 100%;"></a></p>
-<p>引入js, 默认取脚本目录下oneko.gif, 因为相对路径配置有些页面有问题, 所以调整js直接配置完整路径</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-c1">&lt;</span><span class="pl-s1">script</span> <span class="pl-c1">src</span><span class="pl-c1">=</span><span class="pl-s">"{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.js"</span> <span class="pl-c1">data-cat</span><span class="pl-c1">=</span><span class="pl-s">"{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.gif"</span><span class="pl-c1">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-s1">script</span><span class="pl-c1">&gt;</span></pre></div>
-<div class="markdown-heading"><h3 class="heading-element">AI总结</h3><a id="user-content-ai总结" class="anchor" aria-label="Permalink: AI总结" href="#ai总结"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  <article class="markdown-body">
+    <h3 id="_1">网站上放置猫</h3>
+<p>https://github.com/adryd325/oneko.js  </p>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/0594324c-9dab-4981-b8d9-4369caf5d2c7" />  </p>
+<p>引入js, 默认取脚本目录下oneko.gif, 因为相对路径配置有些页面有问题, 所以调整js直接配置完整路径<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;{{ blogBase[&#39;homeUrl&#39;] }}/assets/oneko.js/oneko.js&quot;</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">cat</span><span class="o">=</span><span class="s2">&quot;{{ blogBase[&#39;homeUrl&#39;] }}/assets/oneko.js/oneko.gif&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;  </span>
+</code></pre></div></div></p>
+<h3 id="ai">AI总结</h3>
 <ol>
-<li>AI总结需要在以下地址设置变量信息
-<a href="https://github.com/anaer/blog/settings/secrets/actions">https://github.com/anaer/blog/settings/secrets/actions</a>
-</li>
+<li>AI总结需要在以下地址设置变量信息<br />
+https://github.com/anaer/blog/settings/secrets/actions  </li>
 </ol>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/33a8b0a5-2b38-42bd-8526-e7e7075b6bd2"><img src="https://github.com/user-attachments/assets/33a8b0a5-2b38-42bd-8526-e7e7075b6bd2" alt="Image" style="max-width: 100%;"></a></p>
-<pre><code>API_URL = "https://models.inference.ai.azure.com/chat/completions"
-API_KEY = "github_pat_xxxxxxx"
-API_MODEL = "gpt-4o"
-</code></pre>
-<ol start="2">
-<li>API_KEY 需要在以下链接进行创建
-<a href="https://github.com/settings/personal-access-tokens">https://github.com/settings/personal-access-tokens</a>
-</li>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/33a8b0a5-2b38-42bd-8526-e7e7075b6bd2" />  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>API_URL = &quot;https://models.inference.ai.azure.com/chat/completions&quot;  
+API_KEY = &quot;github_pat_xxxxxxx&quot;  
+API_MODEL = &quot;gpt-4o&quot;  
+</code></pre></div></div>
+<ol>
+<li>API_KEY 需要在以下链接进行创建<br />
+https://github.com/settings/personal-access-tokens  </li>
 </ol>
-<p>GitHub Models key 需要设置Models权限为Read-only</p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/c1efd265-a865-4440-8b00-fe7d4a0b00cc"><img src="https://github.com/user-attachments/assets/c1efd265-a865-4440-8b00-fe7d4a0b00cc" alt="Image" style="max-width: 100%;"></a></p>
-<p>如果未设置权限 会报错</p>
-<div class="highlight highlight-source-json"><pre>{<span class="pl-ent">"error"</span>:{<span class="pl-ent">"code"</span>:<span class="pl-s"><span class="pl-pds">"</span>unauthorized<span class="pl-pds">"</span></span>,<span class="pl-ent">"message"</span>:<span class="pl-s"><span class="pl-pds">"</span>The `models` permission is required to access this endpoint<span class="pl-pds">"</span></span>,<span class="pl-ent">"details"</span>:<span class="pl-s"><span class="pl-pds">"</span>The `models` permission is required to access this endpoint<span class="pl-pds">"</span></span>}}</pre></div>
+<p>GitHub Models key 需要设置Models权限为Read-only  </p>
+<p><img alt="Image" src="https://github.com/user-attachments/assets/c1efd265-a865-4440-8b00-fe7d4a0b00cc" />  </p>
+<p>如果未设置权限 会报错<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="p">{</span><span class="nt">&quot;error&quot;</span><span class="p">:{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;unauthorized&quot;</span><span class="p">,</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;The `models` permission is required to access this endpoint&quot;</span><span class="p">,</span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="s2">&quot;The `models` permission is required to access this endpoint&quot;</span><span class="p">}}</span><span class="w">  </span>
+</code></pre></div></div></p>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/3.html" aria-label="Previous Page">0X3 循环叹息</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/75.html" aria-label="Next Page">0X4B 导航</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/3.html" aria-label="Previous Page">循环叹息</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/75.html" aria-label="Next Page">导航</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -255,8 +314,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

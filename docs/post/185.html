@@ -8,7 +8,8 @@
     <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
     <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
-    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
+    <script defer src="https://events.vercount.one/js"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
@@ -127,7 +128,9 @@ pre {
 
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#服务器">服务器</a></object>
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Server">Server</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#B60205">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#MQ">MQ</a></object>
         </span>
 </div>
 <br>
@@ -135,8 +138,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2026-03-25 13:32:28</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-04-14 16:53:41</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何在CentOS上配置NATS服务器，包括生成和使用本地证书的步骤。首先，创建了一个包含NATS配置和证书的目录，并通过docker-compose.yml文件设置NATS服务。接着，使用mkcert工具生成自签名证书并安装到系统信任存储中。然后，提供了两个Python脚本（sub.py和pub.py），分别用于订阅和发布消息，确保通过SSL/TLS安全连接到NATS服务器。改进建议包括在脚本中增加错误处理机制，以增强代码的健壮性，以及在文档中提供更详细的运行环境和依赖说明。
+    <strong>AI总结:</strong> 本文介绍了如何使用NATS消息队列，配置TLS安全连接，并生成本地证书。首先，通过docker-compose.yml文件设置NATS服务，指定配置文件和证书路径。nats.conf文件中配置了TLS相关的参数，确保安全连接。接着，介绍了在CentOS上安装mkcert工具以生成自签名证书，并将生成的证书用于NATS服务器和客户端。最后，提供了两个Python脚本（sub.py和pub.py），分别用于订阅和发布消息到NATS服务器。改进建议包括提供更详细的错误处理和日志记录，以便在连接或证书验证失败时进行调试。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -337,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/184.html" aria-label="Previous Page">使用 @ConfigurationProperties 获取map配置, key中的斜杆/丢失</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/186.html" aria-label="Previous Page">mysql递归删除子节点</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/184.html" aria-label="Next Page">使用 @ConfigurationProperties 获取map配置, key中的斜杆/丢失</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

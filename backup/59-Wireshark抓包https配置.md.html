@@ -1,22 +1,24 @@
-<div class="markdown-heading"><h2 class="heading-element">抓包https配置</h2><a id="user-content-抓包https配置" class="anchor" aria-label="Permalink: 抓包https配置" href="#抓包https配置"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  <article class="markdown-body">
+    <h2 id="https">抓包https配置</h2>
 <ol>
-<li>添加环境变量 SSLKEYLOGFILE</li>
+<li>添加环境变量 SSLKEYLOGFILE  </li>
 </ol>
-<p>SSLKEYLOGFILE = C:\sslkey.log</p>
-<ol start="2">
+<p>SSLKEYLOGFILE = C:\sslkey.log  </p>
+<ol>
 <li>
-<p>新打开 chrome 浏览器, 访问任意一个 https 网站, 检查 sslkey 文件生成情况</p>
+<p>新打开 chrome 浏览器, 访问任意一个 https 网站, 检查 sslkey 文件生成情况  </p>
 </li>
 <li>
-<p>Wireshark 配置</p>
+<p>Wireshark 配置  </p>
 </li>
 </ol>
-<p>编辑 -&gt; 首选项 -&gt; Protocols -&gt; TLS</p>
-<p>(Pre)-Master-Secret log filename -&gt; C:\sslkey.log</p>
-<ol start="4">
-<li>抓包验证</li>
+<p>编辑 -&gt; 首选项 -&gt; Protocols -&gt; TLS  </p>
+<p>(Pre)-Master-Secret log filename -&gt; C:\sslkey.log  </p>
+<ol>
+<li>抓包验证  </li>
 </ol>
-<div class="markdown-heading"><h2 class="heading-element">过滤器</h2><a id="user-content-过滤器" class="anchor" aria-label="Permalink: 过滤器" href="#过滤器"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<h2 id="_1">过滤器</h2>
 <table>
 <thead>
 <tr>
@@ -59,7 +61,7 @@
 </tr>
 <tr>
 <td><code>http.host == "www.google.cn"</code></td>
-<td>只显示访问指定域名（<a href="http://www.google.cn）的HTTP请求数据包。" rel="nofollow">www.google.cn）的HTTP请求数据包。</a></td>
+<td>只显示访问指定域名（www.google.cn）的HTTP请求数据包。</td>
 </tr>
 <tr>
 <td><code>http.host contains "google"</code></td>
@@ -67,8 +69,7 @@
 </tr>
 <tr>
 <td><code>http.referer == "http://www.google.cn/"</code></td>
-<td>只显示Referer头部内容为“<a href="http://www.google.cn/%E2%80%9D%E7%9A%84HTTP%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E5%8C%85%E3%80%82" rel="nofollow">http://www.google.cn/”的HTTP请求数据包。</a>
-</td>
+<td>只显示Referer头部内容为“http://www.google.cn/”的HTTP请求数据包。</td>
 </tr>
 <tr>
 <td><code>http.request and not http.request.method == GET</code></td>
@@ -132,10 +133,68 @@
 </tr>
 </tbody>
 </table>
-<div class="markdown-heading"><h2 class="heading-element">修改配置文件路径</h2><a id="user-content-修改配置文件路径" class="anchor" aria-label="Permalink: 修改配置文件路径" href="#修改配置文件路径"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>在环境变量中配置WIRESHARK_CONFIG_DIR 指定路径</p>
-<pre lang="conf"><code>export WIRESHARK_CONFIG_DIR="/path/to/your/custom/config"
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">参考链接</h2><a id="user-content-参考链接" class="anchor" aria-label="Permalink: 参考链接" href="#参考链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>过滤参数说明
-<a href="https://www.wireshark.org/docs/dfref/h/http.html" rel="nofollow">https://www.wireshark.org/docs/dfref/h/http.html</a></p>
+<h2 id="_2">修改配置文件路径</h2>
+<p>在环境变量中配置WIRESHARK_CONFIG_DIR 指定路径  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>export WIRESHARK_CONFIG_DIR=&quot;/path/to/your/custom/config&quot;  
+</code></pre></div></div>
+<h2 id="_3">参考链接</h2>
+<p>过滤参数说明<br />
+https://www.wireshark.org/docs/dfref/h/http.html  </p>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+

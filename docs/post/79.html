@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
-    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
+    <script defer src="https://events.vercount.one/js"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X4F Java集成LLM开发</title>
+<title>Java集成LLM开发</title>
 
 
 </head>
@@ -96,7 +99,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X4F Java集成LLM开发</a>
+    <a style="font-size:18px">Java集成LLM开发</a>
 </h1>
 
 <div class="title-right">
@@ -124,36 +127,92 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#0e8a16">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Java">Java</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-02-26 15:18:20</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-26 15:19:30</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 13:41:55</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了与多个Java库相关的链接，包括langchain4j和deepseek4j的仓库和文档，以及一个不再维护的openai4j仓库。
-
-优化建议：
-1. 提供每个库的简要介绍，说明其功能和用途，以帮助用户快速理解。
-2. 更新openai4j的状态，建议用户寻找替代方案或其他维护中的库。
-3. 考虑增加使用示例或教程链接，以便用户更好地上手使用这些库。
+    <strong>AI总结:</strong> 本文介绍了与langchain4j和deepseek4j相关的多个资源，包括各自的仓库和文档链接，以及一个不再维护的openai4j仓库。改进建议是提供每个链接的具体用途和功能说明，以便用户更好地理解其价值。
 </div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  <article class="markdown-body">
+    <h2 id="_1">相关链接</h2>
 <ol>
-<li><a href="https://github.com/langchain4j/langchain4j">langchain4j仓库</a></li>
-<li><a href="https://docs.langchain4j.dev/intro" rel="nofollow">langchain4j文档</a></li>
-<li><a href="https://github.com/pig-mesh/deepseek4j">deepseek4j仓库</a></li>
-<li><a href="https://javaai.pig4cloud.com/deepseek" rel="nofollow">deepseek4j文档</a></li>
-<li><a href="https://github.com/ai-for-java/openai4j">openai4j仓库(不再维护)</a></li>
+<li><a href="https://github.com/langchain4j/langchain4j">langchain4j仓库</a>  </li>
+<li><a href="https://docs.langchain4j.dev/intro">langchain4j文档</a>  </li>
+<li><a href="https://github.com/pig-mesh/deepseek4j">deepseek4j仓库</a>  </li>
+<li><a href="https://javaai.pig4cloud.com/deepseek">deepseek4j文档</a>  </li>
+<li><a href="https://github.com/ai-for-java/openai4j">openai4j仓库(不再维护)</a>  </li>
 </ol>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/80.html" aria-label="Previous Page">0X50 IOS应用</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/78.html" aria-label="Next Page">0X4E VSCode扩展离线下载</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/80.html" aria-label="Previous Page">IOS应用</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/78.html" aria-label="Next Page">VSCode扩展离线下载</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -235,8 +294,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

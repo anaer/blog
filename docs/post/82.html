@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
-    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
+    <script defer src="https://events.vercount.one/js"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X52 mysql-bin日志文件清理</title>
+<title>mysql-bin日志文件清理</title>
 <link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/tritanopia-light.css" rel="stylesheet" />
 
 </head>
@@ -96,7 +99,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X52 mysql-bin日志文件清理</a>
+    <a style="font-size:18px">mysql-bin日志文件清理</a>
 </h1>
 
 <div class="title-right">
@@ -124,71 +127,133 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#774C51">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Database">Database</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#D93F0B">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#MySQL">MySQL</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-03-10 13:38:27</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了MySQL中的二进制日志（mysql-bin），其用于记录数据库的所有更改操作，并提供了清理这些日志文件的步骤和注意事项，包括确认是否需要保留日志、查看当前日志、具体清理方法和配置自动过期策略。
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-04 17:16:27</time></span>
 
-优化建议：
-1. 在确认保留二进制日志时，建议详细记录每种场景的具体需求，以便于后续决策。
-2. 在查看当前二进制日志时，可以增加对日志文件大小和数量的监控，以便及时发现异常情况。
-3. 清理方法中，建议在执行PURGE命令前，先备份相关日志，以防误删造成数据丢失。
-4. 配置自动过期策略时，可以考虑结合业务需求，适当调整保留天数，以平衡磁盘空间和数据恢复能力。
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了 MySQL 中二进制日志（mysql-bin）的清理方法及注意事项。首先，需要确认是否保留二进制日志，依据是否启用主从复制或数据恢复需求。其次，用户可以通过 SHOW BINARY LOGS 命令查看当前的二进制日志文件。清理方法包括使用 PURGE BINARY LOGS 命令删除特定时间之前的日志或指定文件之前的日志。最后，建议在配置文件中设置自动过期策略以定期清理日志。改进建议包括在清理操作前进行充分备份，以防数据丢失，并确保清理策略符合业务需求。
 </div>
 
 <div class="markdown-body" id="postBody">
-<p>在 MySQL 中，<code>mysql-bin</code> 是二进制日志（Binary Log）文件，用于记录数据库的所有更改操作（如 DDL、DML 操作）。当这类文件积累过多时，可能会占用大量磁盘空间。以下是清理这些文件的步骤和注意事项：</p>
-<hr>
-<div class="markdown-heading"><h3 class="heading-element"><strong>1. 确认是否需要保留二进制日志</strong></h3><a id="user-content-1-确认是否需要保留二进制日志" class="anchor" aria-label="Permalink: 1. 确认是否需要保留二进制日志" href="#1-确认是否需要保留二进制日志"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  <article class="markdown-body">
+    <p>在 MySQL 中，<code>mysql-bin</code> 是二进制日志（Binary Log）文件，用于记录数据库的所有更改操作（如 DDL、DML 操作）。当这类文件积累过多时，可能会占用大量磁盘空间。以下是清理这些文件的步骤和注意事项：  </p>
+<hr />
+<h3 id="1"><strong>1. 确认是否需要保留二进制日志</strong></h3>
 <ul>
-<li>
-<strong>场景 1</strong>：如果 <strong>未启用主从复制</strong> 且 <strong>不需要通过二进制日志进行数据恢复</strong>，可以直接清理旧文件。</li>
-<li>
-<strong>场景 2</strong>：如果 <strong>有主从复制或定期备份需求</strong>，需确保清理操作不会影响主从同步或备份恢复。</li>
+<li><strong>场景 1</strong>：如果 <strong>未启用主从复制</strong> 且 <strong>不需要通过二进制日志进行数据恢复</strong>，可以直接清理旧文件。  </li>
+<li><strong>场景 2</strong>：如果 <strong>有主从复制或定期备份需求</strong>，需确保清理操作不会影响主从同步或备份恢复。  </li>
 </ul>
-<hr>
-<div class="markdown-heading"><h3 class="heading-element"><strong>2. 查看当前二进制日志</strong></h3><a id="user-content-2-查看当前二进制日志" class="anchor" aria-label="Permalink: 2. 查看当前二进制日志" href="#2-查看当前二进制日志"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>登录 MySQL 并执行以下命令查看所有二进制日志文件：</p>
-<div class="highlight highlight-source-sql"><pre>SHOW BINARY LOGS;</pre></div>
-<p>输出示例如下：</p>
-<pre><code>| Log_name          | File_size |
-|-------------------|-----------|
-| mysql-bin.000964  | 10738456  |
-| mysql-bin.000965  | 20487654  |
-| mysql-bin.000966  | 15678901  |
-</code></pre>
-<hr>
-<div class="markdown-heading"><h3 class="heading-element"><strong>3. 清理方法</strong></h3><a id="user-content-3-清理方法" class="anchor" aria-label="Permalink: 3. 清理方法" href="#3-清理方法"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h4 class="heading-element"><strong>方法 1：删除特定时间之前的日志（推荐）</strong></h4><a id="user-content-方法-1删除特定时间之前的日志推荐" class="anchor" aria-label="Permalink: 方法 1：删除特定时间之前的日志（推荐）" href="#方法-1删除特定时间之前的日志推荐"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>通过 <code>PURGE BINARY LOGS</code> 命令删除指定时间之前的所有日志：</p>
-<div class="highlight highlight-source-sql"><pre>PURGE BINARY LOGS BEFORE <span class="pl-s"><span class="pl-pds">'</span>2024-10-01 00:00:00<span class="pl-pds">'</span></span>;</pre></div>
-<p><strong>注意</strong>：</p>
-<ul>
-<li>替换 <code>2024-10-01</code> 为实际日期，确保此时间点之后的日志未被从服务器（slave）完全复制。</li>
-<li>如果启用了主从复制，需确保从服务器的 <code>Relay Log</code> 已同步到主服务器的最新日志。</li>
-</ul>
-<div class="markdown-heading"><h4 class="heading-element"><strong>方法 2：删除指定文件之前的日志</strong></h4><a id="user-content-方法-2删除指定文件之前的日志" class="anchor" aria-label="Permalink: 方法 2：删除指定文件之前的日志" href="#方法-2删除指定文件之前的日志"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>删除某个日志文件（如 <code>mysql-bin.000964</code>）之前的所有日志：</p>
-<div class="highlight highlight-source-sql"><pre>PURGE BINARY LOGS TO <span class="pl-s"><span class="pl-pds">'</span>mysql-bin.000964<span class="pl-pds">'</span></span>;</pre></div>
-<p><strong>注意</strong>：</p>
-<ul>
-<li>此命令会删除 <code>mysql-bin.000964</code> 之前的日志，但保留该文件及之后的日志。</li>
-</ul>
-<div class="markdown-heading"><h3 class="heading-element"><strong>4. 配置自动过期策略</strong></h3><a id="user-content-4-配置自动过期策略" class="anchor" aria-label="Permalink: 4. 配置自动过期策略" href="#4-配置自动过期策略"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>在 <code>my.cnf</code>（或 <code>my.ini</code>）中设置二进制日志的自动清理策略：</p>
-<div class="highlight highlight-source-ini"><pre><span class="pl-en">[mysqld]</span>
-<span class="pl-c"><span class="pl-c">#</span> 保留 7 天的日志（单位：天）</span>
-<span class="pl-k">expire_logs_days</span> = 7</pre></div>
-<p>重启 MySQL 生效。</p>
-<hr>
+<hr />
+<h3 id="2"><strong>2. 查看当前二进制日志</strong></h3>
+<p>登录 MySQL 并执行以下命令查看所有二进制日志文件：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="k">SHOW</span><span class="w"> </span><span class="nb">BINARY</span><span class="w"> </span><span class="n">LOGS</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+输出示例如下：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>| Log_name          | File_size |  
+|-------------------|-----------|  
+| mysql-bin.000964  | 10738456  |  
+| mysql-bin.000965  | 20487654  |  
+| mysql-bin.000966  | 15678901  |  
+</code></pre></div></div></p>
+<hr />
+<h3 id="3"><strong>3. 清理方法</strong></h3>
+<h4 id="1_1"><strong>方法 1：删除特定时间之前的日志（推荐）</strong></h4>
+<p>通过 <code>PURGE BINARY LOGS</code> 命令删除指定时间之前的所有日志：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="n">PURGE</span><span class="w"> </span><span class="nb">BINARY</span><span class="w"> </span><span class="n">LOGS</span><span class="w"> </span><span class="k">BEFORE</span><span class="w"> </span><span class="s1">&#39;2024-10-01 00:00:00&#39;</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<strong>注意</strong>：<br />
+- 替换 <code>2024-10-01</code> 为实际日期，确保此时间点之后的日志未被从服务器（slave）完全复制。<br />
+- 如果启用了主从复制，需确保从服务器的 <code>Relay Log</code> 已同步到主服务器的最新日志。  </p>
+<h4 id="2_1"><strong>方法 2：删除指定文件之前的日志</strong></h4>
+<p>删除某个日志文件（如 <code>mysql-bin.000964</code>）之前的所有日志：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="n">PURGE</span><span class="w"> </span><span class="nb">BINARY</span><span class="w"> </span><span class="n">LOGS</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;mysql-bin.000964&#39;</span><span class="p">;</span><span class="w">  </span>
+</code></pre></div></div>
+<strong>注意</strong>：<br />
+- 此命令会删除 <code>mysql-bin.000964</code> 之前的日志，但保留该文件及之后的日志。  </p>
+<h3 id="4"><strong>4. 配置自动过期策略</strong></h3>
+<p>在 <code>my.cnf</code>（或 <code>my.ini</code>）中设置二进制日志的自动清理策略：<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="k">[mysqld]</span><span class="w">  </span>
+<span class="c1"># 保留 7 天的日志（单位：天）  </span>
+<span class="na">expire_logs_days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">7</span><span class="w">  </span>
+</code></pre></div></div>
+重启 MySQL 生效。  </p>
+<hr />
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/83.html" aria-label="Previous Page">0X53 dnsmasq使用记录</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/81.html" aria-label="Next Page">0X51 oh my zsh</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/83.html" aria-label="Previous Page">dnsmasq使用记录</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/81.html" aria-label="Next Page">oh my zsh</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -270,8 +335,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

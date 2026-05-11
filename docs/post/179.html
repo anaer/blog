@@ -8,7 +8,8 @@
     <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
     <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
-    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
+    <script defer src="https://events.vercount.one/js"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
@@ -126,15 +127,19 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#0E8A16">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Redis">Redis</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-12-02 10:47:15</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-12-11 16:31:55</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了Redis慢日志的使用与配置，旨在帮助用户记录和分析命令执行时间，以便识别性能瓶颈。用户可以通过修改redis.conf配置文件或使用CONFIG SET命令动态配置慢日志。主要参数包括slowlog-log-slower-than和slowlog-max-len，分别用于设置记录的执行时间阈值和最大日志条数。可以通过CONFIG GET命令验证配置是否生效，使用SLOWLOG GET查询慢日志，SLOWLOG LEN查询日志数量，以及SLOWLOG RESET清空记录。改进建议包括提供更多示例和使用场景，以帮助用户更好地理解和应用慢日志功能。
+    <strong>AI总结:</strong> 本文介绍了Redis慢日志的使用与配置，包括如何通过redis.conf文件或使用CONFIG SET命令动态配置慢日志。慢日志记录执行时间超过设定阈值的命令，帮助定位性能瓶颈。主要配置参数有slowlog-log-slower-than（设置记录的时间阈值）和slowlog-max-len（设置最大保存的慢日志条数）。可以通过CONFIG GET命令查询当前配置，使用SLOWLOG GET命令获取慢日志记录，并通过SLOWLOG LEN命令查询当前慢日志数量，最后可以使用SLOWLOG RESET命令清空所有慢日志记录。改进建议包括增加对慢日志分析工具的介绍，以便用户更有效地利用慢日志数据进行性能优化。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -261,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/178.html" aria-label="Previous Page">Ansible 安装配置以及使用</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/180.html" aria-label="Previous Page">IP地址证书</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/178.html" aria-label="Next Page">Ansible 安装配置以及使用</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

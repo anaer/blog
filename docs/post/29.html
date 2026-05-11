@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
-    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
+    <script defer src="https://events.vercount.one/js"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>0X1D whistle抓包工具</title>
-
+<title>whistle抓包工具</title>
+<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/colorblind-dark.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -96,7 +99,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">0X1D whistle抓包工具</a>
+    <a style="font-size:18px">whistle抓包工具</a>
 </h1>
 
 <div class="title-right">
@@ -124,16 +127,16 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#351497">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#工具">工具</a></object>
-        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#682650">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Win10">Win10</a></object>
-        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#F81B5F">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
         </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#5319e7">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Mac">Mac</a></object>
         </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#软件">软件</a></object>
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Software">Software</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#1606df">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Wins">Wins</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#f63e62">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Catch">Catch</a></object>
         </span>
 </div>
 <br>
@@ -141,23 +144,85 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-03 14:19:08</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-01-21 11:14:38</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 15:35:42</time></span>
 
-<p>
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了whistle客户端的功能和插件支持。whistle客户端可在Mac和Windows上使用，Linux用户可以通过命令行版本访问。用户可以安装whistle.inspect插件，并通过设置和启用Rules规则来刷新页面以使其生效。此外，该插件支持vconsole、eruda和mdebug等功能。改进建议包括提供更详细的安装和使用指南，以帮助用户更好地利用这些功能。
+</div>
 
 <div class="markdown-body" id="postBody">
-<div class="markdown-heading"><h2 class="heading-element"><a href="https://github.com/avwo/whistle-client">whistle客户端</a></h2><a id="user-content-whistle客户端" class="anchor" aria-label="Permalink: whistle客户端" href="#whistle客户端"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>支持Mac和Windows, Linux可以使用命令行版本</p>
-<div class="markdown-heading"><h2 class="heading-element">插件</h2><a id="user-content-插件" class="anchor" aria-label="Permalink: 插件" href="#插件"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><a href="https://github.com/orgs/whistle-plugins/repositories?language=&amp;q=&amp;sort=&amp;type=all">插件列表</a></p>
-<div class="markdown-heading"><h3 class="heading-element"><a href="https://github.com/whistle-plugins/whistle.inspect">whistle.inspect</a></h3><a id="user-content-whistleinspect" class="anchor" aria-label="Permalink: whistle.inspect" href="#whistleinspect"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>安装插件后, 设置并启用Rules规则, 刷新页面生效
-支持: vconsole, eruda, mdebug</p>
-<pre lang="conf"><code>www.baidu.com whistle.inspect://eruda
-</code></pre>
+
+  <article class="markdown-body">
+    <h2 id="whistle"><a href="https://github.com/avwo/whistle-client">whistle客户端</a></h2>
+<p>支持Mac和Windows, Linux可以使用命令行版本  </p>
+<h2 id="_1">插件</h2>
+<p><a href="https://github.com/orgs/whistle-plugins/repositories?language=&amp;q=&amp;sort=&amp;type=all">插件列表</a>  </p>
+<h3 id="whistleinspect"><a href="https://github.com/whistle-plugins/whistle.inspect">whistle.inspect</a></h3>
+<p>安装插件后, 设置并启用Rules规则, 刷新页面生效<br />
+支持: vconsole, eruda, mdebug  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>www.baidu.com whistle.inspect://eruda  
+</code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/30.html" aria-label="Previous Page">0X1E Python读取Markdown文件的元数据</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/28.html" aria-label="Next Page">0X1C Git配置文件说明</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/30.html" aria-label="Previous Page">Python读取Markdown文件的元数据</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/28.html" aria-label="Next Page">Git配置文件说明</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -239,8 +304,11 @@ function openComments(){
     script.setAttribute("src","https://utteranc.es/client.js");
     script.setAttribute("repo","anaer/blog");
     script.setAttribute("issue-term","title");
-    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else{script.setAttribute("theme","github-light");}
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
     cm.appendChild(script);

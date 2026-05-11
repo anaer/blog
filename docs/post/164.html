@@ -8,7 +8,8 @@
     <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
     <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
-    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><script src="https://anaer.github.io/blog/assets/vercount.js"></script>
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
+    <script defer src="https://events.vercount.one/js"></script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
@@ -126,15 +127,19 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#D93F0B">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#MySQL">MySQL</a></object>
+        </span>
 </div>
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-10-30 10:35:10</time></span>
 
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-11-04 17:16:08</time></span>
+
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了在CentOS 7上安装MySQL 5.7.33的步骤，包括下载、解压、配置、初始化、启动、设置密码以及设置开机启动等过程。具体步骤包括创建mysql用户和组，配置my.cnf文件，初始化数据库并记录初始密码，启动MySQL服务并修改root用户密码，最后配置环境变量和处理常见错误。需要注意的是，文中提到的"mysql.sock"路径可能会因配置不当而导致连接问题，用户应检查该路径是否正确。此外，设置root用户的host为'%'可能会引发安全隐患，建议根据实际需要进行限制。
+    <strong>AI总结:</strong> 本文介绍了在CentOS 7上安装MySQL 5.7.33的步骤，包括下载、解压、配置、初始化、启动、密码更改和设置开机启动等过程。主要要点包括创建MySQL用户和组、配置my.cnf文件、初始化数据库、启动和停止服务、修改root用户密码以及设置环境变量。改进建议包括在配置过程中提供更详细的命令解释，以及在FAQ部分增加常见错误的解决方案和预防措施。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -147,13 +152,13 @@ pre {
 <p>解压到/data/mysql/mysql-5.7.33<br />
 创建mysq数据目录 /data/mysql/mysql-data  </p>
 <h2 id="mysql">创建mysql组和用户</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>groupadd<span class="w"> </span>mysql<span class="w">  </span>
 useradd<span class="w"> </span>-r<span class="w"> </span>-g<span class="w"> </span>mysql<span class="w"> </span>mysql<span class="w">  </span>
 </code></pre></div></div>
 <h2 id="_3">参数配置</h2>
 <p>vim /etc/my.cnf  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>[mysqld]  
 bind-address=0.0.0.0  
 port=3306  
@@ -179,32 +184,32 @@ pid-file=/data/mysql/mysql-data/mysql.pid
 !includedir /etc/my.cnf.d  
 </code></pre></div></div>
 <h2 id="mysql_1">初始化mysql</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/data/mysql/mysql-5.7.33/bin/<span class="w">  </span>
 ./mysqld<span class="w"> </span>--defaults-file<span class="o">=</span>/etc/my.cnf<span class="w"> </span>--basedir<span class="o">=</span>/data/mysql/mysql-5.7.33/<span class="w"> </span>--datadir<span class="o">=</span>/data/mysql/mysql-data/<span class="w"> </span>--user<span class="o">=</span>mysql<span class="w"> </span>--initialize<span class="w">  </span>
 </code></pre></div></div>
 <p>执行完有打印初始密码, 或者查看日志文件/data/mysql/mysql-data/mysql.err  </p>
 <h2 id="mysqlroot">启动mysql，并更改root 密码</h2>
 <p>拷贝服务文件<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>cp<span class="w"> </span>/data/mysql/mysql-5.7.33/support-files/mysql.server<span class="w"> </span>/etc/init.d/mysqld<span class="w">  </span>
 </code></pre></div></div></p>
 <p>启动：<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>service<span class="w"> </span>mysqld<span class="w"> </span>start<span class="w">  </span>
 </code></pre></div></div></p>
 <p>停止：<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>service<span class="w"> </span>mysqld<span class="w"> </span>stop<span class="w">  </span>
 </code></pre></div></div></p>
 <p>更改密码：  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/data/mysql/mysql-5.7.33/bin<span class="w">  </span>
 ./mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p<span class="w">  </span>
 </code></pre></div></div>
 <p>提示输入密码，把刚才复制的密码粘过来  </p>
 <p>然后执行修改，并刷新：  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>SET<span class="w"> </span><span class="nv">PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>PASSWORD<span class="o">(</span><span class="s1">&#39;newpassword&#39;</span><span class="o">)</span><span class="p">;</span><span class="w">  </span>
 
 ALTER<span class="w"> </span>USER<span class="w"> </span><span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="w"> </span>PASSWORD<span class="w"> </span>EXPIRE<span class="w"> </span>NEVER<span class="p">;</span><span class="w">  </span>
@@ -217,13 +222,13 @@ FLUSH<span class="w"> </span>PRIVILEGES<span class="p">;</span><span class="w"> 
 chkconfig --list  </p>
 <h2 id="_5">配置环境变量</h2>
 <p>vim /etc/profile<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MYSQL_HOME</span><span class="o">=</span>/data/mysql/mysql-5.7.33<span class="w">  </span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$MYSQL_HOME</span>/bin<span class="w">  </span>
 </code></pre></div></div></p>
 <h2 id="faq">FAQ</h2>
 <h3 id="host-xxxxxxxxxxxx-is-not-allowed-to-connect-to-this-mysql-server">Host 'xxx.xxx.xxx.xxx' is not allowed to connect to this MySQL server</h3>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">user</span><span class="p">,</span><span class="w"> </span><span class="k">host</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">  </span>
 <span class="k">UPDATE</span><span class="w"> </span><span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="k">host</span><span class="o">=</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">  </span>
 <span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">  </span>
@@ -232,15 +237,45 @@ chkconfig --list  </p>
 <p>检查mysql.sock路径  </p>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: #eee;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -248,10 +283,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
@@ -259,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/163.html" aria-label="Previous Page">jenkins数据迁移</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/1.html" aria-label="Next Page">0X1 苹果CMS接口说明以及采集源搜索</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/165.html" aria-label="Previous Page">我关注的项目这周更新了什么-2025-10-31</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/163.html" aria-label="Next Page">jenkins数据迁移</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
