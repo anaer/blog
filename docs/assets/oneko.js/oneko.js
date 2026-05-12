@@ -130,7 +130,7 @@
     if (!lastFrameTimestamp) {
       lastFrameTimestamp = timestamp;
     }
-    if (timestamp - lastFrameTimestamp > 100) {
+    if (timestamp - lastFrameTimestamp > 3000) {
       lastFrameTimestamp = timestamp
       frame()
     }
@@ -222,6 +222,11 @@
       // 懒猫多发呆几秒再追
       idleTime = Math.min(idleTime, 18);
       idleTime -= 1;
+      return;
+    }
+
+    // 懒猫判定：只有10%概率真的去追
+    if (Math.random() > 0.1) {
       return;
     }
 

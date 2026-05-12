@@ -11,6 +11,39 @@
 <pre><span></span><code>C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup  
 </code></pre></div></div>
 <p>添加需要自启动的快捷方式  </p>
+<h2 id="_3">同步配置</h2>
+<p>添加到注册表 每天自动执行  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c"># 执行: powershell D:\\sync.ps1  </span>
+<span class="c"># 定义文件到目录的映射  </span>
+<span class="nv">$mappings</span> <span class="p">=</span> <span class="p">@{</span>  
+    <span class="c"># Git配置  </span>
+    <span class="s2">&quot;C:\Users\Administrator\.gitconfig&quot;</span> <span class="p">=</span> <span class="s2">&quot;D:\Config\Git\_gitconfig&quot;</span>  
+<span class="p">}</span>  
+
+<span class="c"># 延迟3分钟执行  </span>
+<span class="nb">Start-Sleep</span> <span class="n">-Seconds</span> <span class="n">180</span>  
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$src</span> <span class="k">in</span> <span class="nv">$mappings</span><span class="p">.</span><span class="n">Keys</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nv">$dst</span> <span class="p">=</span> <span class="nv">$mappings</span><span class="p">[</span><span class="nv">$src</span><span class="p">]</span>  
+
+    <span class="k">if</span> <span class="p">(</span><span class="nb">Test-Path</span> <span class="nv">$src</span> <span class="n">-PathType</span> <span class="n">Leaf</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="c"># 确保目标目录存在  </span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">-not</span> <span class="p">(</span><span class="nb">Test-Path</span> <span class="nv">$dst</span><span class="p">))</span> <span class="p">{</span>  
+            <span class="nb">New-Item</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Path</span> <span class="nv">$dst</span> <span class="n">-Force</span> <span class="p">|</span> <span class="nb">Out-Null</span>  
+        <span class="p">}</span>  
+
+        <span class="k">try</span> <span class="p">{</span>  
+            <span class="nb">Copy-Item</span> <span class="n">-Path</span> <span class="nv">$src</span> <span class="n">-Destination</span> <span class="nv">$dst</span> <span class="n">-Force</span> <span class="n">-ErrorAction</span> <span class="n">Stop</span>  
+            <span class="nb">Write-Host</span> <span class="s2">&quot;Copied: $src -&gt; $dst&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Green</span>  
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>  
+            <span class="nb">Write-Host</span> <span class="s2">&quot;Copy Fail: $src - $_&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Red</span>  
+        <span class="p">}</span>  
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>  
+        <span class="nb">Write-Host</span> <span class="s2">&quot;Skip(Not Exist): $src&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Yellow</span>  
+    <span class="p">}</span>  
+<span class="p">}</span>  
+</code></pre></div></div>
   </article>
   
 <style>
@@ -38,7 +71,7 @@
   transition: background 0.2s;
 }
 .fold-btn:hover, .copy-btn:hover {
-  background: #eee;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
 }
 </style>
 <script>

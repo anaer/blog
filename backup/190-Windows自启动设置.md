@@ -16,3 +16,41 @@ C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Sta
 ```
 
 添加需要自启动的快捷方式
+
+
+## 同步配置
+
+添加到注册表 每天自动执行
+
+```ps1
+# 执行: powershell D:\\sync.ps1
+# 定义文件到目录的映射
+$mappings = @{
+    # Git配置
+    "C:\Users\Administrator\.gitconfig" = "D:\Config\Git\_gitconfig"
+}
+
+# 延迟3分钟执行
+Start-Sleep -Seconds 180
+
+foreach ($src in $mappings.Keys) {
+    $dst = $mappings[$src]
+
+    if (Test-Path $src -PathType Leaf) {
+        # 确保目标目录存在
+        if (-not (Test-Path $dst)) {
+            New-Item -ItemType Directory -Path $dst -Force | Out-Null
+        }
+
+        try {
+            Copy-Item -Path $src -Destination $dst -Force -ErrorAction Stop
+            Write-Host "Copied: $src -> $dst" -ForegroundColor Green
+        } catch {
+            Write-Host "Copy Fail: $src - $_" -ForegroundColor Red
+        }
+    } else {
+        Write-Host "Skip(Not Exist): $src" -ForegroundColor Yellow
+    }
+}
+
+```
