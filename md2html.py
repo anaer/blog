@@ -42,7 +42,7 @@ class Markdown2GithubHtml:
   transition: background 0.2s;
 }
 .fold-btn:hover, .copy-btn:hover {
-  background: #eee;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
 }
 </style>
 <script>
