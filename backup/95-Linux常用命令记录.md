@@ -1,3 +1,15 @@
+## 查看DNS服务器
+
+```sh
+cat /etc/resolv.conf
+```
+
+## 查看默认DNS
+
+```sh
+nslookup google.com 2>&1 | grep Server
+```
+
 ## 查询系统版本
 
 ```sh

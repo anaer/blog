@@ -1,6 +1,14 @@
 
   <article class="markdown-body">
-    <h2 id="_1">查询系统版本</h2>
+    <h2 id="dns">查看DNS服务器</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>cat<span class="w"> </span>/etc/resolv.conf<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="dns_1">查看默认DNS</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>nslookup<span class="w"> </span>google.com<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Server<span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_1">查询系统版本</h2>
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="c1"># 查 Linux 系统版本  </span>
 cat<span class="w"> </span>/etc/os-release；<span class="w">  </span>
@@ -51,7 +59,7 @@ fdupes<span class="w"> </span>-dN<span class="w"> </span>.<span class="w"> </spa
   transition: background 0.2s;
 }
 .fold-btn:hover, .copy-btn:hover {
-  background: #eee;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
 }
 </style>
 <script>
