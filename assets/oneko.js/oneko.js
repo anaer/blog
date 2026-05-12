@@ -20,7 +20,9 @@
   let idleAnimation = null;
   let idleAnimationFrame = 0;
 
-  const nekoSpeed = 10;
+  const nekoSpeed = 6;
+  const STORAGE_KEY = "onekoPos";
+
   const spriteSets = {
     idle: [[-3, -3]],
     alert: [[-7, -3]],
@@ -85,6 +87,18 @@
   };
 
   function init() {
+    // 尝试从 localStorage 恢复位置
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const [x, y] = JSON.parse(saved);
+        if (typeof x === "number" && typeof y === "number") {
+          nekoPosX = Math.min(Math.max(16, x), window.innerWidth - 16);
+          nekoPosY = Math.min(Math.max(16, y), window.innerHeight - 16);
+        }
+      }
+    } catch (e) {}
+
     nekoEl.id = "oneko";
     nekoEl.ariaHidden = true;
     nekoEl.style.width = "32px";
@@ -195,7 +209,7 @@
     const diffY = nekoPosY - mousePosY;
     const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
-    if (distance < nekoSpeed || distance < 48) {
+    if (distance < nekoSpeed || distance < 80) {
       idle();
       return;
     }
@@ -205,8 +219,8 @@
 
     if (idleTime > 1) {
       setSprite("alert", 0);
-      // count down after being alerted before moving
-      idleTime = Math.min(idleTime, 7);
+      // 懒猫多发呆几秒再追
+      idleTime = Math.min(idleTime, 18);
       idleTime -= 1;
       return;
     }
@@ -226,6 +240,11 @@
 
     nekoEl.style.left = `${nekoPosX - 16}px`;
     nekoEl.style.top = `${nekoPosY - 16}px`;
+
+    // 存位置到 localStorage，切换页面时可恢复
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([nekoPosX, nekoPosY]));
+    } catch (e) {}
   }
 
   document.addEventListener('DOMContentLoaded', init);
