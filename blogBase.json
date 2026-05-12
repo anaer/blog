@@ -960,14 +960,14 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/44",
             "commentNum": 0,
             "createdAt": 1737004313,
-            "updatedAt": 1739246668,
+            "updatedAt": 1778568535,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2025-01-16",
-            "dateLabelColor": "hsl(165, 65%, 12%)",
-            "description": "",
-            "buildedAt": 1739246668
+            "dateLabelColor": "hsl(261, 59%, 22%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u591a\u4e2aCDN\u8d44\u6e90\u7684\u94fe\u63a5\u548c\u4f7f\u7528\u5efa\u8bae\uff0c\u5305\u62ec\u6700\u65b0\u7248\u672c\u7684Primer\u548cVue\u5e93\u7684\u8bbf\u95ee\u5730\u5740\uff0c\u4ee5\u53ca\u56fd\u5185\u52a0\u901f\u7684\u66ff\u4ee3\u65b9\u6848\u3002\u6b64\u5916\uff0c\u63d0\u5230\u5b57\u8282\u8df3\u52a8\u7684\u9759\u6001\u8d44\u6e90\u516c\u5171\u5e93\u5df2\u4e0b\u7ebf\uff0c\u5e76\u63d0\u4f9b\u4e86\u6e05\u9664jsDelivr CDN\u7f13\u5b58\u7684\u670d\u52a1\u8bf4\u660e\u3002\u5efa\u8bae\u7528\u6237\u5173\u6ce8CDN\u7684\u5b89\u5168\u6027\uff0c\u907f\u514d\u4f7f\u7528\u53ef\u80fd\u88ab\u6295\u6bd2\u7684\u670d\u52a1\uff0c\u5e76\u8003\u8651\u4f7f\u7528\u53ef\u9760\u7684\u56fd\u5185\u955c\u50cf\u4ee5\u63d0\u9ad8\u8bbf\u95ee\u901f\u5ea6\u3002\u6539\u8fdb\u5efa\u8bae\u5305\u62ec\u5b9a\u671f\u68c0\u67e5\u548c\u66f4\u65b0\u6240\u4f7f\u7528\u7684CDN\u8d44\u6e90\uff0c\u786e\u4fdd\u5176\u5b89\u5168\u53ef\u9760\u3002",
+            "buildedAt": 1778568535
         },
         "P45": {
             "number": "45",
