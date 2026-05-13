@@ -352,21 +352,22 @@
             "htmlDir": "docs/post/16.html",
             "markdown": "backup/16-Deeplx \u7ffb\u8bd1.md",
             "labels": [
-                "Tool"
+                "Tool",
+                "Browser"
             ],
             "postTitle": "Deeplx \u7ffb\u8bd1",
             "postUrl": "post/16.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/16",
             "commentNum": 0,
             "createdAt": 1722499149,
-            "updatedAt": 1754037881,
+            "updatedAt": 1778649928,
             "top": 0,
             "style": "",
             "script": "",
             "createdDate": "2024-08-01",
-            "dateLabelColor": "hsl(145, 50%, 25%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u652f\u6301deeplx\u7684\u8f6f\u4ef6\u548c\u6269\u5c55\u63d2\u4ef6\uff0c\u5305\u62ec\u6c89\u6d78\u5f0f\u7ffb\u8bd1\u3001\u8bed\u8a00\u5b66\u5bb6\u7f51\u9875\u7ffb\u8bd1\u5668\u3001\u7b80\u7ea6\u7ffb\u8bd1\u7b49\uff0c\u9002\u7528\u4e8eEdge\u548cChrome\u6d4f\u89c8\u5668\u3002\u6b64\u5916\uff0c\u8fd8\u63d0\u5230\u4e86pot\u7684\u5b98\u65b9\u7f51\u7ad9\u3002\u6ca1\u6709\u660e\u663e\u7684\u9519\u8bef\u89c2\u70b9\u3002",
-            "buildedAt": 1754037881
+            "dateLabelColor": "hsl(69, 55%, 29%)",
+            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u652f\u6301deeplx\u7684\u8f6f\u4ef6\u548c\u6269\u5c55\u63d2\u4ef6\uff0c\u5305\u62ec\u5f00\u6e90\u7684Read Frog\u3001\u6c89\u6d78\u5f0f\u7ffb\u8bd1Edge\u3001\u8bed\u8a00\u5b66\u5bb6\u7f51\u9875\u7ffb\u8bd1\u5668Chrome\u3001\u7b80\u7ea6\u7ffb\u8bd1Edge\u4ee5\u53capot\u5b98\u7f51\u3002\u6539\u8fdb\u5efa\u8bae\u662f\u63d0\u4f9b\u6bcf\u4e2a\u63d2\u4ef6\u7684\u5177\u4f53\u529f\u80fd\u548c\u4f7f\u7528\u573a\u666f\uff0c\u4ee5\u4fbf\u7528\u6237\u66f4\u597d\u5730\u9009\u62e9\u9002\u5408\u81ea\u5df1\u7684\u5de5\u5177\u3002",
+            "buildedAt": 1778649928
         },
         "P17": {
             "number": "17",

@@ -129,6 +129,8 @@ pre {
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#351497">
             <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Tool">Tool</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#C11E79">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Browser">Browser</a></object>
         </span>
 </div>
 <br>
@@ -136,31 +138,62 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2024-08-01 15:59:09</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-08-01 16:44:41</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-05-13 13:25:28</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了支持deeplx的软件和扩展插件，包括沉浸式翻译、语言学家网页翻译器、简约翻译等，适用于Edge和Chrome浏览器。此外，还提到了pot的官方网站。没有明显的错误观点。
+    <strong>AI总结:</strong> 本文介绍了支持deeplx的软件和扩展插件，包括开源的Read Frog、沉浸式翻译Edge、语言学家网页翻译器Chrome、简约翻译Edge以及pot官网。改进建议是提供每个插件的具体功能和使用场景，以便用户更好地选择适合自己的工具。
 </div>
 
 <div class="markdown-body" id="postBody">
 
   <article class="markdown-body">
     <h2 id="deeplx">支持deeplx的软件和扩展插件</h2>
+<p>Read Frog - Open Source Immersive Translate <a href="https://chromewebstore.google.com/detail/read-frog-open-source-imm/modkelfkcfjpgbfmnbnllalkiogfofhb">Chrome</a>  </p>
 <p>沉浸式翻译 <a href="https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg">Edge</a>  </p>
 <p>语言学家 - 网页翻译器 <a href="https://chrome.google.com/webstore/detail/gbefmodhlophhakmoecijeppjblibmie">Chrome</a>  </p>
 <p>简约翻译 <a href="https://microsoftedge.microsoft.com/addons/detail/jemckldkclkinpjighnoilpbldbdmmlh">Edge</a>  </p>
 <p>pot <a href="https://pot-app.com/">官网</a>  </p>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -168,10 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
@@ -179,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/20.html" aria-label="Previous Page">Python telegram消息发送</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/13.html" aria-label="Next Page">Python生成requirements.txt</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/15.html" aria-label="Previous Page">aidoku漫画源</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/17.html" aria-label="Next Page">neovim gui客户端</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
