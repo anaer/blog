@@ -209,7 +209,9 @@
     const diffY = nekoPosY - mousePosY;
     const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
-    if (distance < nekoSpeed || distance < 80) {
+    const dynamic = Math.floor(Math.random() * 1000) + 40;
+
+    if (distance < nekoSpeed || distance < dynamic) {
       idle();
       return;
     }
@@ -222,11 +224,6 @@
       // 懒猫多发呆几秒再追
       idleTime = Math.min(idleTime, 18);
       idleTime -= 1;
-      return;
-    }
-
-    // 懒猫判定：只有10%概率真的去追
-    if (Math.random() > 0.1) {
       return;
     }
 
