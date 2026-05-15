@@ -1,0 +1,134 @@
+
+  <article class="markdown-body">
+    <h2 id="datetimeformat-jsonformat"><code>@DateTimeFormat</code> 与 <code>@JsonFormat</code> 的区别</h2>
+<h2 id="_1">一、核心区别</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th><code>@DateTimeFormat</code></th>
+<th><code>@JsonFormat</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>所属框架</strong></td>
+<td>Spring Framework</td>
+<td>Jackson (JSON 处理库)</td>
+</tr>
+<tr>
+<td><strong>主要用途</strong></td>
+<td>参数绑定、表单提交的日期转换</td>
+<td>JSON 序列化/反序列化</td>
+</tr>
+<tr>
+<td><strong>作用场景</strong></td>
+<td>Spring MVC 控制器参数、表单提交</td>
+<td>REST API 的 JSON 请求/响应</td>
+</tr>
+<tr>
+<td><strong>触发时机</strong></td>
+<td>Spring 数据绑定时</td>
+<td>Jackson 处理 JSON 时</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">二、场景对比</h2>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐注解</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>REST API JSON 接口</strong></td>
+<td><code>@JsonFormat</code></td>
+<td>请求/响应体是 JSON</td>
+</tr>
+<tr>
+<td><strong>表单提交（<code>application/x-www-form-urlencoded</code>）</strong></td>
+<td><code>@DateTimeFormat</code></td>
+<td>参数在 query string 或 form data 中</td>
+</tr>
+<tr>
+<td><strong><code>@RequestParam</code> 日期参数</strong></td>
+<td><code>@DateTimeFormat</code></td>
+<td>如 <code>?date=2025-12-19</code></td>
+</tr>
+<tr>
+<td><strong>文件上传（<code>multipart/form-data</code>）中的日期字段</strong></td>
+<td><code>@DateTimeFormat</code></td>
+<td>Spring 自动绑定</td>
+</tr>
+<tr>
+<td><strong>Feign 客户端日期参数</strong></td>
+<td><code>@DateTimeFormat</code></td>
+<td>Feign 默认使用 Spring 的转换器</td>
+</tr>
+<tr>
+<td><strong>普通 Java 对象转 JSON</strong></td>
+<td><code>@JsonFormat</code></td>
+<td><code>ObjectMapper.writeValueAsString(obj)</code></td>
+</tr>
+</tbody>
+</table>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
