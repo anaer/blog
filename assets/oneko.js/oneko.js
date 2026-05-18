@@ -130,7 +130,7 @@
     if (!lastFrameTimestamp) {
       lastFrameTimestamp = timestamp;
     }
-    if (timestamp - lastFrameTimestamp > 3000) {
+    if (timestamp - lastFrameTimestamp > 100) {
       lastFrameTimestamp = timestamp
       frame()
     }
@@ -209,9 +209,7 @@
     const diffY = nekoPosY - mousePosY;
     const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
-    const dynamic = Math.floor(Math.random() * 1000) + 40;
-
-    if (distance < nekoSpeed || distance < dynamic) {
+    if (distance < nekoSpeed || distance < 100) {
       idle();
       return;
     }
@@ -221,8 +219,8 @@
 
     if (idleTime > 1) {
       setSprite("alert", 0);
-      // 懒猫多发呆几秒再追
-      idleTime = Math.min(idleTime, 18);
+      // count down after being alerted before moving
+      idleTime = Math.min(idleTime, 7);
       idleTime -= 1;
       return;
     }
