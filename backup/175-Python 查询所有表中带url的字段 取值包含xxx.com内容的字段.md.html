@@ -1,6 +1,9 @@
 
   <article class="markdown-body">
-    <div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+    <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="n">python</span> <span class="n">test</span><span class="o">.</span><span class="n">py</span> <span class="o">&gt;</span> <span class="n">test</span><span class="o">.</span><span class="n">csv</span>  
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="sd">&quot;&quot;&quot;  </span>
 <span class="sd">查询所有表中带url的字段 取值包含xxx.com内容的字段  </span>
 <span class="sd">&quot;&quot;&quot;</span>  
@@ -62,17 +65,82 @@
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  
     <span class="n">main</span><span class="p">()</span>  
 </code></pre></div></div>
+<h3 id="_1">批量替换</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="ch">#!/usr/bin/bash  </span>
+<span class="c1"># 设置当前脚本使用的编码  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>zh_CN.UTF-8<span class="w">  </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span>zh_CN.UTF-8<span class="w">  </span>
+
+<span class="c1"># 数据库连接配置  </span>
+<span class="nv">DB_HOST</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w">  </span>
+<span class="nv">DB_PORT</span><span class="o">=</span><span class="s2">&quot;3306&quot;</span><span class="w">  </span>
+<span class="nv">DB_USER</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="w">  </span>
+<span class="nv">DB_PASSWORD</span><span class="o">=</span><span class="s2">&quot;123456&quot;</span><span class="w">  </span>
+<span class="c1"># 输入文件路径  </span>
+<span class="nv">INPUT_FILE</span><span class="o">=</span><span class="s2">&quot;/root/test.csv&quot;</span><span class="w">  </span>
+
+<span class="c1"># 检查输入文件是否存在  </span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$INPUT_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;文件 </span><span class="nv">$INPUT_FILE</span><span class="s2"> 不存在。&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="w">  </span>
+<span class="k">fi</span><span class="w">  </span>
+<span class="c1"># 逐行读取文件内容  </span>
+<span class="k">while</span><span class="w"> </span><span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;,&#39;</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>DB_NAME<span class="w"> </span>TABLE_NAME<span class="w"> </span>COLUMN_NAME<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w">  </span>
+<span class="w">    </span><span class="c1"># 构建SQL更新语句  </span>
+<span class="w">    </span><span class="nv">SQL</span><span class="o">=</span><span class="s2">&quot;USE </span><span class="nv">$DB_NAME</span><span class="s2">; UPDATE </span><span class="nv">$DB_NAME</span><span class="s2">.</span><span class="nv">$TABLE_NAME</span><span class="s2"> SET </span><span class="nv">$COLUMN_NAME</span><span class="s2"> = REPLACE(</span><span class="nv">$COLUMN_NAME</span><span class="s2">, &#39;aaa&#39;, &#39;bbb&#39;) WHERE </span><span class="nv">$COLUMN_NAME</span><span class="s2"> LIKE &#39;%aaa%&#39;;&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="c1"># 使用mysql客户端执行SQL语句  </span>
+<span class="w">    </span>mysql<span class="w"> </span>-u<span class="s2">&quot;</span><span class="nv">$DB_USER</span><span class="s2">&quot;</span><span class="w"> </span>-p<span class="s2">&quot;</span><span class="nv">$DB_PASSWORD</span><span class="s2">&quot;</span><span class="w"> </span>-h<span class="s2">&quot;</span><span class="nv">$DB_HOST</span><span class="s2">&quot;</span><span class="w"> </span>-P<span class="s2">&quot;</span><span class="nv">$DB_PORT</span><span class="s2">&quot;</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SQL</span><span class="s2">&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w">  </span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;在 </span><span class="nv">$DB_NAME</span><span class="s2">.</span><span class="nv">$TABLE_NAME</span><span class="s2"> 的 </span><span class="nv">$COLUMN_NAME</span><span class="s2"> 列中替换成功&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">else</span><span class="w">  </span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;在 </span><span class="nv">$DB_NAME</span><span class="s2">.</span><span class="nv">$TABLE_NAME</span><span class="s2"> 的 </span><span class="nv">$COLUMN_NAME</span><span class="s2"> 列中替换失败&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">fi</span><span class="w">  </span>
+<span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$INPUT_FILE</span><span class="s2">&quot;</span><span class="w">  </span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;替换完成&quot;</span><span class="w">  </span>
+</code></pre></div></div>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -80,10 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });

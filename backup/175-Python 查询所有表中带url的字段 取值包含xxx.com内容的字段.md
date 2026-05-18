@@ -1,3 +1,8 @@
+```py
+python test.py > test.csv
+```
+
+
 ```python
 """
 查询所有表中带url的字段 取值包含xxx.com内容的字段
@@ -60,4 +65,41 @@ def main():
 if __name__ == "__main__":
     main()
 
+```
+
+### 批量替换
+
+```sh
+#!/usr/bin/bash
+# 设置当前脚本使用的编码
+export LANG=zh_CN.UTF-8
+export LC_ALL=zh_CN.UTF-8
+
+# 数据库连接配置
+DB_HOST="127.0.0.1"
+DB_PORT="3306"
+DB_USER="root"
+DB_PASSWORD="123456"
+# 输入文件路径
+INPUT_FILE="/root/test.csv"
+
+# 检查输入文件是否存在
+if [ ! -f "$INPUT_FILE" ]; then
+    echo "文件 $INPUT_FILE 不存在。"
+    exit 1
+fi
+# 逐行读取文件内容
+while IFS=$',' read -r DB_NAME TABLE_NAME COLUMN_NAME; do
+    # 构建SQL更新语句
+    SQL="USE $DB_NAME; UPDATE $DB_NAME.$TABLE_NAME SET $COLUMN_NAME = REPLACE($COLUMN_NAME, 'aaa', 'bbb') WHERE $COLUMN_NAME LIKE '%aaa%';"
+    # 使用mysql客户端执行SQL语句
+    mysql -u"$DB_USER" -p"$DB_PASSWORD" -h"$DB_HOST" -P"$DB_PORT" -e "$SQL"
+    if [ $? -eq 0 ]; then
+        echo "在 $DB_NAME.$TABLE_NAME 的 $COLUMN_NAME 列中替换成功"
+    else
+        echo "在 $DB_NAME.$TABLE_NAME 的 $COLUMN_NAME 列中替换失败"
+    fi
+done < "$INPUT_FILE"
+
+echo "替换完成"
 ```
