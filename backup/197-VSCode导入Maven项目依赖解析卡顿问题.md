@@ -1,0 +1,119 @@
+## VSCode导入Maven项目依赖解析卡顿问题
+
+---
+
+## 一、问题分析
+
+| 现象 | 根因 |
+|------|------|
+| Importing projects 长时间转圈 | VS Code Java Language Server 首次下载所有依赖 |
+| pom.xml 依赖飘红 | 依赖下载超时或私服网速慢 |
+| SpringApplication 找不到引用 | Language Server 解析未完成 |
+
+---
+
+## 二、解决方案
+
+### 2.1 提前下载依赖
+
+```bash
+mvn dependency:resolve -U
+
+# 同时下载源码和文档（可选）
+mvn dependency:resolve -Dclassifier=sources
+mvn dependency:resolve -Dclassifier=javadoc
+```
+
+### 2.2 配置 Language Server JVM 内存
+
+在 VS Code 的 `settings.json` 中添加：
+
+```json
+{
+    // 给 Java Language Server 分配更多内存（4GB）
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms1G -XX:MaxMetaspaceSize=512m",
+    
+    // 限制同时构建的项目数
+    "java.maxConcurrentBuilds": 2,
+    
+    // 设置 Maven 本地仓库路径（可选）
+    "java.configuration.maven.userSettings": "C:\\Users\\你的用户名\\.m2\\settings.xml"
+}
+```
+
+### 2.3 禁用自动构建，改为手动触发
+
+```json
+{
+    // 关闭自动构建
+    "java.autobuild.enabled": false,
+    
+    // 构建配置改为交互式模式
+    "java.configuration.updateBuildConfiguration": "interactive",
+    
+    // 禁用 Maven 自动下载源码
+    "java.maven.downloadSources": false,
+    
+    // 禁用 Gradle 自动下载源码
+    "java.import.gradle.offline": true
+}
+```
+
+### 2.4 排除不需要索引的目录
+
+```json
+{
+    "java.import.exclusions": [
+        "**/node_modules/**",
+        "**/.metadata/**",
+        "**/target/**",
+        "**/build/**",
+        "**/dist/**",
+        "**/logs/**"
+    ],
+    "files.exclude": {
+        "**/target": true,
+        "**/.git": true
+    }
+}
+```
+
+## 三、日常操作小技巧
+
+### 3.1 切换分支后清理 Language Server
+
+```bash
+# CMD + Shift + P 执行
+Java: Clean Java Language Server Workspace
+```
+
+### 3.2 强制刷新项目配置
+
+```bash
+# CMD + Shift + P 执行
+Java: Force Java Compilation
+
+# 或使用命令
+mvn clean compile -DskipTests
+```
+
+### 3.3 查看 Language Server 日志
+
+```json
+{
+    // 开启详细日志
+    "java.trace.server": "verbose",
+    "java.progressReports.enabled": true
+}
+```
+
+
+### 3.4 跳过测试加速编译
+
+```bash
+# 编译时跳过测试
+mvn clean compile -DskipTests
+
+# 打包时跳过测试
+mvn clean package -Dmaven.test.skip=true
+```

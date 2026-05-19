@@ -1,0 +1,171 @@
+
+  <article class="markdown-body">
+    <h2 id="vscodemaven">VSCode导入Maven项目依赖解析卡顿问题</h2>
+<hr />
+<h2 id="_1">一、问题分析</h2>
+<table>
+<thead>
+<tr>
+<th>现象</th>
+<th>根因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Importing projects 长时间转圈</td>
+<td>VS Code Java Language Server 首次下载所有依赖</td>
+</tr>
+<tr>
+<td>pom.xml 依赖飘红</td>
+<td>依赖下载超时或私服网速慢</td>
+</tr>
+<tr>
+<td>SpringApplication 找不到引用</td>
+<td>Language Server 解析未完成</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_2">二、解决方案</h2>
+<h3 id="21">2.1 提前下载依赖</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>mvn<span class="w"> </span>dependency:resolve<span class="w"> </span>-U<span class="w">  </span>
+
+<span class="c1"># 同时下载源码和文档（可选）  </span>
+mvn<span class="w"> </span>dependency:resolve<span class="w"> </span>-Dclassifier<span class="o">=</span>sources<span class="w">  </span>
+mvn<span class="w"> </span>dependency:resolve<span class="w"> </span>-Dclassifier<span class="o">=</span>javadoc<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="22-language-server-jvm">2.2 配置 Language Server JVM 内存</h3>
+<p>在 VS Code 的 <code>settings.json</code> 中添加：  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">// 给 Java Language Server 分配更多内存（4GB）  </span>
+<span class="w">    </span><span class="nt">&quot;java.jdt.ls.vmargs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms1G -XX:MaxMetaspaceSize=512m&quot;</span><span class="p">,</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">// 限制同时构建的项目数  </span>
+<span class="w">    </span><span class="nt">&quot;java.maxConcurrentBuilds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">// 设置 Maven 本地仓库路径（可选）  </span>
+<span class="w">    </span><span class="nt">&quot;java.configuration.maven.userSettings&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\Users\\你的用户名\\.m2\\settings.xml&quot;</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="23">2.3 禁用自动构建，改为手动触发</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">// 关闭自动构建  </span>
+<span class="w">    </span><span class="nt">&quot;java.autobuild.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">// 构建配置改为交互式模式  </span>
+<span class="w">    </span><span class="nt">&quot;java.configuration.updateBuildConfiguration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;interactive&quot;</span><span class="p">,</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">// 禁用 Maven 自动下载源码  </span>
+<span class="w">    </span><span class="nt">&quot;java.maven.downloadSources&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">  </span>
+
+<span class="w">    </span><span class="c1">// 禁用 Gradle 自动下载源码  </span>
+<span class="w">    </span><span class="nt">&quot;java.import.gradle.offline&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="24">2.4 排除不需要索引的目录</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;java.import.exclusions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
+<span class="w">        </span><span class="s2">&quot;**/node_modules/**&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="s2">&quot;**/.metadata/**&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="s2">&quot;**/target/**&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="s2">&quot;**/build/**&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="s2">&quot;**/dist/**&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="s2">&quot;**/logs/**&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">],</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;files.exclude&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">&quot;**/target&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">&quot;**/.git&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h2 id="_3">三、日常操作小技巧</h2>
+<h3 id="31-language-server">3.1 切换分支后清理 Language Server</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># CMD + Shift + P 执行  </span>
+Java:<span class="w"> </span>Clean<span class="w"> </span>Java<span class="w"> </span>Language<span class="w"> </span>Server<span class="w"> </span>Workspace<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="32">3.2 强制刷新项目配置</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># CMD + Shift + P 执行  </span>
+Java:<span class="w"> </span>Force<span class="w"> </span>Java<span class="w"> </span>Compilation<span class="w">  </span>
+
+<span class="c1"># 或使用命令  </span>
+mvn<span class="w"> </span>clean<span class="w"> </span>compile<span class="w"> </span>-DskipTests<span class="w">  </span>
+</code></pre></div></div>
+<h3 id="33-language-server">3.3 查看 Language Server 日志</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="c1">// 开启详细日志  </span>
+<span class="w">    </span><span class="nt">&quot;java.trace.server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;java.progressReports.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></div>
+<h3 id="34">3.4 跳过测试加速编译</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="c1"># 编译时跳过测试  </span>
+mvn<span class="w"> </span>clean<span class="w"> </span>compile<span class="w"> </span>-DskipTests<span class="w">  </span>
+
+<span class="c1"># 打包时跳过测试  </span>
+mvn<span class="w"> </span>clean<span class="w"> </span>package<span class="w"> </span>-Dmaven.test.skip<span class="o">=</span><span class="nb">true</span><span class="w">  </span>
+</code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 复制功能
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('fold-btn')) {
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
+    }
+  });
+});
+</script>
+
