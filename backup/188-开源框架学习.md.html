@@ -355,7 +355,32 @@ ExpressionIdempotentKeyResolver 自定义表达式，通过 {@link #keyArg()} �
 </code></pre></div></div></li>
 </ol>
 <p>PS: 不建议使用  </p>
-<h3 id="_14">版本更新</h3>
+<h3 id="_14">多数据源</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">&lt;dependency&gt;</span><span class="w">      </span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span><span class="w">      </span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>dynamic-datasource-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span><span class="w">      </span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>3.4.1<span class="nt">&lt;/version&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/dependency&gt;</span><span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="nt">spring</span><span class="p">:</span><span class="w">    </span>
+<span class="w">    </span><span class="nt">datasource</span><span class="p">:</span><span class="w">      </span>
+<span class="w">        </span><span class="nt">druid</span><span class="p">:</span><span class="w">        </span>
+<span class="w">            </span><span class="nt">primary</span><span class="p">:</span><span class="w">          </span>
+<span class="w">                </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xxx</span><span class="w">          </span>
+<span class="w">                </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xxx</span><span class="w">       </span>
+<span class="w">                </span><span class="nt">driver-class-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">com.mysql.jdbc.Driver</span><span class="w">          </span>
+<span class="w">                </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">com.alibaba.druid.pool.DruidDataSource</span><span class="w">        </span>
+<span class="w">            </span><span class="nt">slave</span><span class="p">:</span><span class="w">         </span>
+<span class="w">                </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xxx</span><span class="w">          </span>
+<span class="w">                </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xxx</span><span class="w">  </span>
+<span class="w">                </span><span class="nt">driver-class-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">com.mysql.jdbc.Driver</span><span class="w">          </span>
+<span class="w">                </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">com.alibaba.druid.pool.DruidDataSource</span><span class="w">  </span>
+</code></pre></div></div>
+<p>需要使用哪个数据库，在对应的方法上加上@DS("数据库名")注解就可以了，<br />
+在类上加@DS("数据库名")，那么整个类下的所有方法都会使用到这个数据源  </p>
+<h3 id="_15">版本更新</h3>
 <p>v2026.01 -&gt; v2026.03  </p>
   </article>
   
