@@ -136,10 +136,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2026-04-17 15:11:04</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-05-26 13:31:19</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-05-26 13:32:31</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了RBAC（基于角色的访问控制）权限模型的基本概念及其实现方式，包括用户、角色和权限之间的关系，以及权限校验流程。文本详细阐述了功能权限、按钮权限、数据权限和租户权限的类型和实现方式，并介绍了双Token机制用于提高安全性和用户体验。此外，文中还涉及了操作日志、访问日志、错误日志处理、负载均衡策略、多租户实现、缓存扩展、分布式锁、幂等控制和流控等技术组件的配置和使用方法。改进建议包括对各部分内容进行进一步的细化和示例化，以增强可理解性和实用性。
+    <strong>AI总结:</strong> 本文介绍了RBAC（基于角色的访问控制）权限模型的结构和实现，包括用户、角色和权限之间的关系，以及不同类型的权限（功能权限、按钮权限、数据权限和租户权限）的实现方式。权限校验流程分为后端和前端两部分，后端使用Spring Security和JWT进行权限管理，前端通过动态路由和指令控制按钮显示。此外，文中还介绍了双Token机制、Mock Token的开发测试、日志处理、负载均衡、多租户实现、缓存扩展、分布式锁、幂等控制、流控和数据翻译等技术组件。建议在实现过程中关注权限的细粒度控制和安全性，确保系统的可扩展性和维护性。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -501,6 +501,7 @@ ExpressionIdempotentKeyResolver 自定义表达式，通过 {@link #keyArg()} �
 </ol>
 <p>PS: 不建议使用  </p>
 <h3 id="_14">多数据源</h3>
+<p>https://baomidou.com/en/guides/dynamic-datasource/#conventions  </p>
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="nt">&lt;dependency&gt;</span><span class="w">      </span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span><span class="w">      </span>
