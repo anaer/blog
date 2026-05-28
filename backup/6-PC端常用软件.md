@@ -42,6 +42,7 @@
 
 ### 压缩
 1. 7zip [官网](https://www.7-zip.org/)  [GitHub](https://github.com/ip7z/7zip/releases)
+2. NanaZip [GitHub](https://github.com/M2Team/NanaZip/releases)
 
 ### 密码
 1. ~~MyKeyFinder~~ [下载](https://www.computerbild.de/download/MyKeyFinder-Plus-Kostenlose-Vollversion-31122673.html) ana已注册
