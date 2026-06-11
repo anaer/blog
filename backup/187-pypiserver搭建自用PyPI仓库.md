@@ -25,6 +25,7 @@ services:
       - "--passwords"
       - "/data/auth/.htpasswd"                   # 如果启用认证
       - "/data/packages"
+      - "--overwrite"                            # 允许覆盖同版本包
     restart: always
 ```
 
@@ -87,4 +88,14 @@ pip index versions some_package
 
 ```sh
 pip install -U some_package
+```
+
+### 上传包
+
+```sh
+pip install twine
+```
+
+```sh
+twine upload --repository-url http://你的服务器IP:8080 --username user123 --password pass123 some_package.whl
 ```

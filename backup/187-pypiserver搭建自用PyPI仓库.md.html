@@ -25,6 +25,7 @@ services:
       - &quot;--passwords&quot;  
       - &quot;/data/auth/.htpasswd&quot;                   # 如果启用认证  
       - &quot;/data/packages&quot;  
+      - &quot;--overwrite&quot;                            # 允许覆盖同版本包  
     restart: always  
 </code></pre></div></div>
 <ol>
@@ -94,6 +95,13 @@ pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</s
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>some_package<span class="w">  </span>
 </code></pre></div></div>
+<h3 id="_2">上传包</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>twine<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>twine<span class="w"> </span>upload<span class="w"> </span>--repository-url<span class="w"> </span>http://你的服务器IP:8080<span class="w"> </span>--username<span class="w"> </span>user123<span class="w"> </span>--password<span class="w"> </span>pass123<span class="w"> </span>some_package.whl<span class="w">  </span>
+</code></pre></div></div>
   </article>
   
 <style>
@@ -121,7 +129,7 @@ pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</s
   transition: background 0.2s;
 }
 .fold-btn:hover, .copy-btn:hover {
-  background: #eee;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
 }
 </style>
 <script>

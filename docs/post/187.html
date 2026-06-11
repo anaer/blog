@@ -138,10 +138,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2026-04-14 11:11:53</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-04-14 16:52:32</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-06-11 16:33:00</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了如何自建一个PyPI仓库，使用pypiserver作为工具，适合个人或小团队。首先，通过Docker部署pypiserver，并提供了docker-compose.yml的示例配置，包括端口映射、数据持久化和认证设置。接着，指导用户创建存放包和认证信息的目录，并安装htpasswd工具来添加用户认证。启动服务后，用户可以通过特定的IP地址访问仓库并上传包。此外，文中还介绍了如何配置客户端pip以便于下载包，以及查询和升级包的命令。改进建议包括提供更多关于Docker和pypiserver的具体配置细节，以及如何处理可能出现的错误和问题的解决方案。
+    <strong>AI总结:</strong> 本文介绍了如何自建一个PyPI仓库，使用pypiserver作为实现工具，适合个人或小团队。用户可以通过Docker部署，配置docker-compose.yml文件来设置服务，包括指定端口、存储包的目录和认证方式。创建必要的目录后，通过htpasswd工具添加用户认证。启动服务后，可以通过指定的IP地址访问PyPI仓库，并上传包到指定目录。客户端可以通过pip安装包，并可配置pip以简化操作。用户还可以查询包版本和升级包，同时使用twine工具上传新包。改进建议包括提供更详细的步骤说明和常见问题解答，以帮助新手用户更顺利地完成设置和使用。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -172,6 +172,7 @@ services:
       - &quot;--passwords&quot;  
       - &quot;/data/auth/.htpasswd&quot;                   # 如果启用认证  
       - &quot;/data/packages&quot;  
+      - &quot;--overwrite&quot;                            # 允许覆盖同版本包  
     restart: always  
 </code></pre></div></div>
 <ol>
@@ -241,6 +242,13 @@ pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</s
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>some_package<span class="w">  </span>
 </code></pre></div></div>
+<h3 id="_2">上传包</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>twine<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>twine<span class="w"> </span>upload<span class="w"> </span>--repository-url<span class="w"> </span>http://你的服务器IP:8080<span class="w"> </span>--username<span class="w"> </span>user123<span class="w"> </span>--password<span class="w"> </span>pass123<span class="w"> </span>some_package.whl<span class="w">  </span>
+</code></pre></div></div>
   </article>
   
 <style>
@@ -268,7 +276,7 @@ pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</s
   transition: background 0.2s;
 }
 .fold-btn:hover, .copy-btn:hover {
-  background: #eee;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
 }
 </style>
 <script>
@@ -300,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/188.html" aria-label="Previous Page">开源框架学习</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/186.html" aria-label="Next Page">mysql递归删除子节点</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/186.html" aria-label="Previous Page">mysql递归删除子节点</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/188.html" aria-label="Next Page">开源框架学习</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
