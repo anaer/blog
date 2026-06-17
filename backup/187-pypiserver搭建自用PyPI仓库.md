@@ -72,6 +72,8 @@ http://你的服务器IP:8080/simple
 pip install some_package --index-url http://你的服务器IP:8080/simple/ --trusted-host 你的服务器IP
 ```
 
+如果服务器使用了https域名, 一般不需要配置--trusted-host
+
 2. 配置pip
 配置后, 下载时无需指定index-url
 ```sh
