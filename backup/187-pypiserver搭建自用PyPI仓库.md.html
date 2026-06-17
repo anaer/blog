@@ -75,14 +75,15 @@ http://你的服务器IP:8080/simple  </p>
 </code></pre></div></div>
 <p>如果服务器使用了https域名, 一般不需要配置--trusted-host  </p>
 <ol>
-<li>
-<p>配置pip<br />
+<li>配置pip<br />
 配置后, 下载时无需指定index-url<br />
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.extra-index-url<span class="w"> </span>http://你的服务器IP:8080/simple/<span class="w">  </span>
 pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.trusted-host<span class="w"> </span>你的服务器IP<span class="w">  </span>
-</code></pre></div></div></p>
-</li>
+</code></pre></div></div></li>
+</ol>
+<p>Windows下配置文件路径如: <code>C:\Users\Administrator\AppData\Roaming\pip\pip.ini</code>  </p>
+<ol>
 <li>
 <p>查询服务器包版本<br />
 <div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>

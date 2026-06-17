@@ -81,6 +81,8 @@ pip config set global.extra-index-url http://你的服务器IP:8080/simple/
 pip config set global.trusted-host 你的服务器IP
 ```
 
+Windows下配置文件路径如: `C:\Users\Administrator\AppData\Roaming\pip\pip.ini`
+
 3. 查询服务器包版本
 ```sh
 pip index versions some_package
