@@ -117,7 +117,7 @@
 1. ~~flink~~ [阿里云镜像](https://mirrors.aliyun.com/apache/flink/)
 
 ### 抓包
-1. mitmproxy [GitHub](https://github.com/mitmproxy/mitmproxy/) [官网下载](https://www.mitmproxy.org/downloads/)
+1. mitmproxy [GitHub](https://github.com/mitmproxy/mitmproxy/) [官网](https://www.mitmproxy.org/downloads/)
 2. ~~ProxyPin~~ [GitHub](https://github.com/wanghongenpin/proxypin)
 3. ~~Charles~~ [官网](https://www.charlesproxy.com/latest-release) [注册](https://inused.github.io/pages/file/tool/CharlesKeygen.html)
 4. ~~Proxifier~~ [官网](http://www.proxifier.com/) [GitHub 中文包](https://github.com/1564307973/Proxifier-CN)  [序列号](https://gist.github.com/montasim/11e313f82dc6c2aea28298941158429f) 代理工具 指定软件走代理
@@ -146,7 +146,7 @@
 5. ~~notepad4~~   [GitHub](https://github.com/zufuliu/notepad4)   替换默认notepad    
 
 ### 证书
-1. ~~certimate~~ [GitHub](https://github.com/usual2970/certimate)  开源的SSL证书管理工具 
+1. ~~certimate~~ [GitHub](https://github.com/certimate-go/certimate)  开源的SSL证书管理工具 
 
 ### 网盘
 1. ~~NetMount~~ [GitHub](https://github.com/VirtualHotBar/NetMount) 统一管理和挂载云存储设施
