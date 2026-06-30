@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         # 匹配 <pre> 标签，允许 <pre> 内 <code> 前存在 <span> 等标签
         # 例如 <pre><span ...></span><code>...</code></pre>
         return re.sub(
-            r'<pre[^>]*>(?:<span[^>]*>.*?</span>\s*)*<code[^>]*>.*?</code></pre>',
+            r'<pre[^>]*>(?:<[^>]*>)*<code[^>]*>.*?</code>(?:<[^>]*>)*</pre>',
             _repl, html, flags=re.DOTALL
         )
 
@@ -148,7 +148,20 @@ document.addEventListener('DOMContentLoaded', () => {
 # 简易 CLI，可直接 `python md2html.py file.md out.html`
 if __name__ == "__main__":
     import sys
-    tool = Markdown2GithubHtml()
-    md_path = Path(sys.argv[1])
-    md_text = md_path.read_text(encoding='utf-8')
-    Path(sys.argv[2]).write_text(tool.convert(md_text), encoding='utf-8')
+    if len(sys.argv) != 3:
+        print("Usage: python md2html.py <input.md> <output.html>")
+        sys.exit(1)
+    
+    try:
+        tool = Markdown2GithubHtml()
+        md_path = Path(sys.argv[1])
+        if not md_path.exists():
+            print(f"Error: Input file '{sys.argv[1]}' not found")
+            sys.exit(1)
+        md_text = md_path.read_text(encoding='utf-8')
+        output_path = Path(sys.argv[2])
+        output_path.write_text(tool.convert(md_text), encoding='utf-8')
+        print(f"Successfully converted '{sys.argv[1]}' to '{sys.argv[2]}'")
+    except Exception as e:
+        print(f"Error: {e}")
+        sys.exit(1)

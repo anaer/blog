@@ -49,10 +49,10 @@ class GMEEK():
 
         # 获取Github仓库信息
         user = Github(self.options.github_token)
-        self.repo = user.get_repo(options.repo_name)
+        self.repo = user.get_repo(self.options.repo_name)
 
         # 读取仓库的labels标签颜色
-        self.labelColorDict=json.loads('{}')
+        self.labelColorDict = {}
         for label in self.repo.get_labels():
             self.labelColorDict[label.name]='#'+label.color
 
@@ -64,21 +64,23 @@ class GMEEK():
         runOne 因为有重新赋值, 没用到
         '''
         if os.path.exists("blogBase.json"):
-            dconfig = json.loads(open('blogBase.json', 'r', encoding='utf-8').read())
+            with open('blogBase.json', 'r', encoding='utf-8') as f:
+                dconfig = json.loads(f.read())
         else:
             dconfig={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","i18n":"CN","dayTheme":"light","nightTheme":"dark"}
 
         if os.path.exists("config.json"):
-            config=json.loads(open('config.json', 'r', encoding='utf-8').read())
+            with open('config.json', 'r', encoding='utf-8') as f:
+                config = json.loads(f.read())
         else:
-            config=json.loads('{}')
+            config = {}
 
         self.blogBase={**dconfig,**config}.copy()
 
         if "postListJson" not in self.blogBase:
-            self.blogBase["postListJson"]=json.loads('{}')
+            self.blogBase["postListJson"] = {}
         if "singeListJson" not in self.blogBase:
-            self.blogBase["singeListJson"]=json.loads('{}')
+            self.blogBase["singeListJson"] = {}
 
         self.i18n=i18nCN if self.blogBase["i18n"]=="CN" else i18n
         self.blogBase["labelColorDict"]=self.labelColorDict
@@ -111,11 +113,15 @@ class GMEEK():
         payload = {"text": mdstr, "mode": "markdown"}
         headers = {"Authorization": "token {}".format(self.options.github_token)}
         for attempt in range(retries):
-            ret = requests.post("https://api.github.com/markdown", json=payload, headers=headers)
-            if ret.status_code == 200:
-                return ret.text
-            else:
-                print(f"Attempt {attempt + 1} failed with status code {ret.status_code}")
+            try:
+                ret = requests.post("https://api.github.com/markdown", json=payload, headers=headers, timeout=10)
+                if ret.status_code == 200:
+                    return ret.text
+                else:
+                    print(f"Attempt {attempt + 1} failed with status code {ret.status_code}")
+            except requests.exceptions.RequestException as e:
+                print(f"Attempt {attempt + 1} failed with error: {e}")
+            if attempt < retries - 1:
                 time.sleep(1)  # Wait for 1 second before retrying
         raise Exception("markdown2html error after {} retries, status_code={}".format(retries, ret.status_code))
 
@@ -127,14 +133,12 @@ class GMEEK():
         env = Environment(loader=file_loader)
         template = env.get_template(template)
         output = template.render(blogBase=blogBase,postListJson=postListJson,i18n=self.i18n,IconList=IconList)
-        f = open(htmlDir, 'w', encoding='UTF-8')
-        f.write(output)
-        f.close()
+        with open(htmlDir, 'w', encoding='UTF-8') as f:
+            f.write(output)
 
     def createPostHtml(self, post):
-        f = open(post["markdown"]+".html", 'r', encoding='UTF-8')
-        post_body=f.read()
-        f.close()
+        with open(post["markdown"]+".html", 'r', encoding='UTF-8') as f:
+            post_body=f.read()
 
         postBase=self.blogBase.copy()
         postBase["postTitle"]=post["postTitle"]
@@ -144,7 +148,7 @@ class GMEEK():
         postBase["script"]=post["script"]
         postBase["top"]=post["top"]
         postBase["postSourceUrl"]=post["postSourceUrl"]
-        postBase["repoName"]=options.repo_name
+        postBase["repoName"]=self.options.repo_name
         postBase["description"]=post["description"] if "description" in post else ""
         postBase["postBody"]=post_body
         postBase["createdAt"] = (datetime.utcfromtimestamp(post["createdAt"]) + timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
@@ -261,7 +265,8 @@ class GMEEK():
             else:
                 prev_key = keys[len(keys) - 1]
             return self.blogBase["postListJson"][prev_key]
-        except:
+        except (ValueError, KeyError) as e:
+            print(f"Error getting previous post: {e}")
             return None
 
     def get_next_post(self, issuenumber):
@@ -275,7 +280,8 @@ class GMEEK():
                 # 随机获取一个
                 next_key = random.choice(keys)
             return self.blogBase["postListJson"][next_key]
-        except:
+        except (ValueError, KeyError) as e:
+            print(f"Error getting next post: {e}")
             return None
 
     def decimal_to_hex(self, decimal_value):
@@ -309,7 +315,7 @@ class GMEEK():
         labels = [label.name for label in issue.labels]
 
         postNum="P"+str(issue.number)
-        post=json.loads('{}')
+        post = {}
         post["number"]=str(issue.number)
         post["htmlDir"]=gen_Html
         post["markdown"]=mdPath
@@ -317,7 +323,7 @@ class GMEEK():
         # post["postTitle"]="%s %s" % (self.decimal_to_hex(issue.number), issue.title)
         post["postTitle"]=issue.title # 评论需要根据标题搜索, 所以简单的就不修改标题了
         post["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(issue.number))
-        post["postSourceUrl"]="https://github.com/"+options.repo_name+"/issues/"+str(issue.number)
+        post["postSourceUrl"]="https://github.com/"+self.options.repo_name+"/issues/"+str(issue.number)
         post["commentNum"]=issue.get_comments().totalCount
         post["createdAt"]=int(time.mktime(issue.created_at.timetuple()))
         post["updatedAt"]=int(time.mktime(issue.updated_at.timetuple()))
@@ -349,7 +355,8 @@ class GMEEK():
 
             if "script" in postConfig:
                 post["script"]=str(postConfig["script"])
-        except:
+        except (IndexError, json.JSONDecodeError, KeyError) as e:
+            print(f"Error parsing post config: {e}")
             postConfig={}
 
         createdAt=datetime.fromtimestamp(post["createdAt"])
@@ -375,9 +382,8 @@ class GMEEK():
                 content = content.replace("#"+match, " ["+self.blogBase[listJsonName][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.blogBase[listJsonName][matchPostNum]["postUrl"]+") ")
                 # print(content)
 
-        f = open(mdPath, 'w', encoding='UTF-8')
-        f.write(content)
-        f.close()
+        with open(mdPath, 'w', encoding='UTF-8') as f:
+            f.write(content)
 
         mdHtmlPath = mdPath + ".html"
         # 需要使用缓存的buildedAt与当前的updatedAt进行比较
@@ -387,9 +393,8 @@ class GMEEK():
             # 2. python markdown转换
             tool = Markdown2GithubHtml()
             mdHtml = tool.convert(content)
-            fp = open(mdHtmlPath, 'w', encoding='UTF-8')
-            fp.write(mdHtml)
-            fp.close()
+            with open(mdHtmlPath, 'w', encoding='UTF-8') as fp:
+                fp.write(mdHtml)
 
             soup = BeautifulSoup(mdHtml, "html.parser")
             plain_text = soup.get_text()
@@ -407,7 +412,8 @@ class GMEEK():
         self.cleanFile()
 
         issues=self.repo.get_issues(state="all")
-        print("issue count:%d"%(len(list(issues))))
+        issue_list = list(issues)
+        print("issue count:%d"%(len(issue_list)))
         for issue in issues:
             self.addOnePostJson(issue)
 
@@ -466,7 +472,6 @@ else:
     print(f"runOne {options.issue_number}")
     blog.runOne(options.issue_number)
 
-listFile=open("blogBase.json","w")
-listFile.write(json.dumps(blog.blogBase, indent=4))
-listFile.close()
+with open("blogBase.json","w") as listFile:
+    listFile.write(json.dumps(blog.blogBase, indent=4))
 #########################################################################

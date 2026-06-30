@@ -10,6 +10,10 @@ def generate_summary(text):
     api_url = os.environ.get("API_URL")
     api_key = os.environ.get("API_KEY")
     api_model = os.environ.get("API_MODEL")
+    
+    if not api_url or not api_model:
+        print("缺少必要的API配置：API_URL 或 API_MODEL 未设置")
+        return ""
 
     # api_url = "https://models.inference.ai.azure.com/chat/completions"
     # api_key = ""
@@ -48,19 +52,24 @@ def generate_summary(text):
         response = requests.post(
             url=api_url,
             headers=headers,
-            data=json.dumps(payload),
-            timeout=10
+            json=payload,
+            timeout=30
         )
 
         if response.status_code == 200:
-            # print(response.json())
             return response.json()['choices'][0]['message']['content']
         else:
-            print(f"请求失败：{response.status_code} - {response.text}")
+            print(f"API请求失败：{response.status_code} - {response.text}")
             return ""
 
-    except Exception as e:
-        print(f"发生异常：{str(e)}")
+    except requests.exceptions.Timeout:
+        print("API请求超时")
+        return ""
+    except requests.exceptions.RequestException as e:
+        print(f"API请求异常：{e}")
+        return ""
+    except (KeyError, IndexError) as e:
+        print(f"API响应解析错误：{e}")
         return ""
 
 # 使用示例
