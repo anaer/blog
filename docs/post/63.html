@@ -136,12 +136,10 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-23 13:27:13</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-10-09 11:13:53</time></span>
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2026-07-06 16:21:48</time></span>
 
 <p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> 本文介绍了多个手机推送服务的鉴权、消息体限制、消息量限制及错误码，包括华为、小米、OPPO、VIVO、魅族、苹果和个推等。每个服务的鉴权方式、消息体内容限制和每日消息发送量都有不同的规定。例如，华为的Access Token流控阈值为1000个/5分钟，而小米的APP_SECRET是长期有效的，OPPO和VIVO则有24小时的有效期限制。消息体的大小和内容限制也各有不同，如华为的消息体默认限制为4096Bytes，小米的payload最大为4KB，VIVO的title最大为20个汉字等。
-
-存在的错误观点包括对苹果推送服务的描述，提到“无限制”的消息量限制，这并不准确，因为尽管APNs的消息量限制没有明确规定，但实际上仍然可能受到其他因素的影响。此外，个推的错误码示例中提到的“AppidError”并未详细说明其原因和解决方案。整体来看，各个平台的推送服务在实现上有各自的特点和限制，开发者需根据具体需求选择合适的服务。
+    <strong>AI总结:</strong> 本文介绍了不同推送服务平台（华为、小米、OPPO、VIVO、魅族、苹果和个推）的消息推送机制、鉴权方式、消息体限制、消息量限制及错误码。各平台在消息体的格式、大小及数量限制上存在差异，同时也对鉴权凭证的有效期和请求频率有具体要求。建议在开发过程中，开发者应仔细阅读各平台的开发文档，以确保符合其规定的参数限制和鉴权流程，避免因参数不当导致的推送失败或流控问题。
 </div>
 
 <div class="markdown-body" id="postBody">
@@ -182,7 +180,7 @@ title, body 无明确限制  <br />
 APP_SECRET 是从开发者网站申请得到。  </p>
 <p>APP_SECRET 固定的, 没有失效期, 长期有效  </p>
 <p>消息体限制:<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>title:设置在通知栏展示的通知的标题, 不允许全是空白字符, 长度小于 50, 一个中英文字符均计算为 1(通知栏消息必填)  
 description:设置在通知栏展示的通知描述, 不允许全是空白字符, 长度小于 128, 一个中英文字符均计算为 1(通知栏消息必填)  
 payload:设置要发送的消息内容 payload, 不允许全是空白字符, 长度小于 4KB, 一个中英文字符均计算为 1(透传消息回传给 APP, 为必填字段, 非透传消息可选)  
@@ -195,7 +193,7 @@ callback.param: 第三方自定义回执参数, 最大长度 64 字节
 (运营)重要消息    </p>
 <p>回执: 只有单推有回执  </p>
 <h2 id="_4">错误码</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>[ messageId=tdm587XXX errorCode=0 data={&quot;day_acked&quot;:&quot;979&quot;,&quot;id&quot;:&quot;tdm587XXX&quot;,&quot;day_quota&quot;:&quot;50000&quot;} trace_id=Xdm587XXX ]  
 [ messageId=Xcm609XXX errorCode=10008 reason=Title or Description exceeds the maximum number of characters! data={&quot;day_acked&quot;:&quot;3159&quot;,&quot;day_quota&quot;:&quot;50000&quot;} trace_id=Xcm609XXX ]  
 [ messageId=Xdm575XXX errorCode=65015 reason=Extra total length is too long, must less than 2048. data={&quot;day_acked&quot;:&quot;3130&quot;,&quot;day_quota&quot;:&quot;50000&quot;} trace_id=Xdm575XXX ]  
@@ -218,7 +216,7 @@ alias 对应的 regId 已经失效  <br />
 <p>回执: 当消息到达设备之后, oppo 才会发送回执, 因此瞎填的 regId 就没有回执了.  <br />
 只有单推 有回执  </p>
 <p>消息体限制:<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>title:设置在通知栏展示的通知栏标题, 【字数串长度限制在 50 个字符内，中英文字符及特殊符号（如 emoji）均视为一个字符】  
 content:设置在通知栏展示的通知的正文内容  
 1）当选择标准样式（style 设置为 1）时，内容字符串长度限制在 200 以内；  
@@ -233,7 +231,7 @@ call_back_parameter:参数字符串长度限制在 100 以内，OPPO PUSH 将这
 <p>消息量限制:  <br />
 公信消息限制 100000 条/天    </p>
 <h2 id="_5">错误码</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid RegistrationId&quot;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span>
 <span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">33</span><span class="p">,</span><span class="nt">&quot;data&quot;</span><span class="p">:{</span><span class="nt">&quot;permits&quot;</span><span class="p">:</span><span class="mi">100000</span><span class="p">,</span><span class="nt">&quot;pushed&quot;</span><span class="p">:</span><span class="mi">105207</span><span class="p">},</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;The number of messages exceeds the daily limit&quot;</span><span class="p">}</span><span class="w">  </span>
 </code></pre></div></div>
@@ -241,23 +239,24 @@ call_back_parameter:参数字符串长度限制在 100 以内，OPPO PUSH 将这
 <p>regId<br />
 alias 与 regId 一一对应, 同一 alias 不能对应多个 regId, alias 对应的 regId 以最后一次为准  </p>
 <p>alias 失效:<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>主动调用 unsetalias  
 alias 对应的 regId 已经失效  
 </code></pre></div></div></p>
 <p><a href="https://dev.vivo.com.cn/home">官方网站</a>  </p>
 <p><a href="https://dev.vivo.com.cn/documentCenter/doc/366">隐私政策</a>  </p>
 <p><a href="https://dev.vivo.com.cn/documentCenter/doc/180">开发文档</a>  </p>
+<p><a href="https://dev.vivo.com.cn/documentCenter/doc/681">消息回执</a>  </p>
 <p>鉴权说明: 一个 appId 可对应多个 token，24 小时过期，业务方做中心缓存，1-2 小时更新一次。  <br />
 限制：一天限制调用不超过 10000 次。  </p>
 <p>消息分级:  <br />
 系统消息:    </p>
 <p>运营消息:    </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>频控管控：单用户单应用每天收到的消息条数上限 5 条  
 </code></pre></div></div>
 <p>消息体限制:<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>title:通知标题（用于通知栏消息） 最大 20 个汉字（一个汉字等于两个英文字符，即最大不超过 40 个英文字符）  
 content:通知内容（用于通知栏消息） 最大 50 个汉字（一个汉字等于两个英文字符，即最大不超过 100 个英文字符）  
 skipContent:跳转内容 跳转类型为 2 时，跳转内容最大 1000 个字符，跳转类型为 3 或 4 时，跳转内容最大 1024 个字符  
@@ -266,12 +265,12 @@ callback: 第三方接收回执的 http 接口，最大长度 128 个字符
 callback.param:第三方自定义回执参数，最大长度 64 个字符  
 </code></pre></div></div></p>
 <p>消息量限制:<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>系统消息 限制 10000 条/天 &gt;&gt; 100000 条/天    
 运营消息 频控 单用户 5 条/天    
 </code></pre></div></div></p>
 <h2 id="_6">错误码</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>{&quot;result&quot;:0,&quot;desc&quot;:&quot;请求成功&quot;,&quot;taskId&quot;:&quot;xxx&quot;}  
 {&quot;result&quot;:10058,&quot;desc&quot;:&quot;content长度不能超过100个字符&quot;}  
 {&quot;result&quot;:10069,&quot;desc&quot;:&quot;skipType = 4, skipContent超过长度限制&quot;}  
@@ -280,7 +279,7 @@ callback.param:第三方自定义回执参数，最大长度 64 个字符
 {&quot;result&quot;:10070,&quot;desc&quot;:&quot;运营消息发送量总量超出限制&quot;}  
 </code></pre></div></div>
 <h1 id="_7">魅族</h1>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>同个 pushId 只有一个别名, pushId 对应的别名以最后一次订阅为准    
 多个 pushId 可以绑定同一别名    
 
@@ -300,7 +299,7 @@ For regular remote notifications, the maximum size is 4KB (4096 bytes)  </p>
 无限制  </p>
 <p><a href="https://stackoverflow.com/questions/42511476/what-are-the-possible-reasons-to-get-apns-responses-baddevicetoken-or-unregister">What are the possible reasons to get APNs responses BadDeviceToken or Unregistered?</a>  </p>
 <p><a href="https://developer.apple.com/forums/thread/670868?answerId=655652022#655652022">APNS Push Token Management</a>  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>How this works though, is, when an app is deleted from a device, the device token is not invalidated immediately.  
 To avoid developers from detecting and tracking user behavior around installations and uninstallations, APNs invalidates tokens on a sliding schedule. This schedule is not documented, and can change at any time. This is for protecting the users’ privacy, and is by design.  
 
@@ -308,7 +307,7 @@ To avoid developers from detecting and tracking user behavior around installatio
 为了避免开发人员检测和跟踪安装和卸载的用户行为，APNs 会按滑动计划使令牌失效。此时间表未记录在案，并且可能随时更改。这是为了保护用户的隐私，并且是设计使然。  
 </code></pre></div></div>
 <p><a href="https://developer.apple.com/forums/thread/109376?answerId=669256022#669256022">Apple push feedback service with new token based http2 requests</a>  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code>Unfortunately, it even returns &quot;200&quot; or success for a device token from a device that uninstalled the app 2 years ago. So basically there is no way to know if the user uninstalled the app or not  
 </code></pre></div></div>
 <h1 id="_9">个推</h1>
@@ -319,15 +318,45 @@ To avoid developers from detecting and tracking user behavior around installatio
 <p><a href="https://blog.csdn.net/java_newbie2/article/details/102315019">问题相关链接</a>  </p>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+.fold-btn, .copy-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // 复制功能
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
@@ -335,10 +364,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 折叠功能
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+      const code = e.target.parentElement.parentElement.querySelector('pre code');
+      const collapsed = code.style.display === 'none';
+      code.style.display = collapsed ? 'block' : 'none';
+      e.target.textContent = collapsed ? '▲' : '▼';
     }
   });
 });
@@ -346,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/64.html" aria-label="Previous Page">微信公众号错误码</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/62.html" aria-label="Next Page">CIDR表示法</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/62.html" aria-label="Previous Page">CIDR表示法</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/64.html" aria-label="Next Page">微信公众号错误码</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
