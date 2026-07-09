@@ -41,3 +41,15 @@ find /data/app_log -type f -name "*.log" -size +1G -exec truncate -s 0 {} \;
 apt install fdupes
 fdupes -dN . # 删除重复内容的文件, 只保留一个
 ```
+
+## 路径带空格处理
+
+```sh
+find . -name "*.php" -print0 | xargs -0 grep getxxx
+-print0：让 find 用空字符（\0）分隔文件名
+-0：让 xargs 也以空字符作为分隔符
+
+find . -name "*.php" -exec grep getxxx {} +
+-exec ... + 会将所有匹配的文件路径一次性传给 grep，且自动处理空格和特殊字符。效率与 xargs 相当，且不需要额外管道。
+```
+

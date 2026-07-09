@@ -32,6 +32,15 @@ lsb_release<span class="w"> </span>-a；<span class="w">  </span>
 <pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>fdupes<span class="w">  </span>
 fdupes<span class="w"> </span>-dN<span class="w"> </span>.<span class="w"> </span><span class="c1"># 删除重复内容的文件, 只保留一个  </span>
 </code></pre></div></div>
+<h2 id="_2">路径带空格处理</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.php&quot;</span><span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-0<span class="w"> </span>grep<span class="w"> </span>getxxx<span class="w">  </span>
+-print0：让<span class="w"> </span>find<span class="w"> </span>用空字符（<span class="se">\0</span>）分隔文件名<span class="w">  </span>
+-0：让<span class="w"> </span>xargs<span class="w"> </span>也以空字符作为分隔符<span class="w">  </span>
+
+find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.php&quot;</span><span class="w"> </span>-exec<span class="w"> </span>grep<span class="w"> </span>getxxx<span class="w"> </span><span class="o">{}</span><span class="w"> </span>+<span class="w">  </span>
+-exec<span class="w"> </span>...<span class="w"> </span>+<span class="w"> </span>会将所有匹配的文件路径一次性传给<span class="w"> </span>grep，且自动处理空格和特殊字符。效率与<span class="w"> </span>xargs<span class="w"> </span>相当，且不需要额外管道。<span class="w">  </span>
+</code></pre></div></div>
   </article>
   
 <style>
