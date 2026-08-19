@@ -4226,6 +4226,27 @@
             "dateLabelColor": "hsl(140, 36%, 12%)",
             "description": "\u672c\u6587\u4ecb\u7ecd\u4e86Spring Cache\u6ce8\u89e3\u7684\u4f7f\u7528\uff0c\u5305\u62ec\u56db\u4e2a\u4e3b\u8981\u6ce8\u89e3\uff1a@Cacheable\u3001@CacheEvict\u3001@CachePut\u548c@Caching\u3002@Cacheable\u7528\u4e8e\u5b58\u5165\u7f13\u5b58\uff0c@CacheEvict\u7528\u4e8e\u5220\u9664\u7f13\u5b58\uff0c@CachePut\u7528\u4e8e\u66f4\u65b0\u7f13\u5b58\uff0c@Caching\u7528\u4e8e\u7ec4\u5408\u591a\u4e2a\u7f13\u5b58\u64cd\u4f5c\u3002\u5177\u4f53\u793a\u4f8b\u5c55\u793a\u4e86\u5982\u4f55\u4f7f\u7528\u8fd9\u4e9b\u6ce8\u89e3\u6765\u5b9e\u73b0\u7f13\u5b58\u7684\u589e\u5220\u6539\u67e5\uff0c\u5305\u62ec\u6761\u4ef6\u7f13\u5b58\u548c\u540c\u6b65\u7f13\u5b58\u7b49\u9ad8\u7ea7\u7528\u6cd5\u3002\u6b64\u5916\uff0c\u63d0\u4f9b\u4e86\u5e38\u7528\u7684SpEL\u8868\u8fbe\u5f0f\u793a\u4f8b\uff0c\u5e2e\u52a9\u5f00\u53d1\u8005\u7075\u6d3b\u5730\u5b9a\u4e49\u7f13\u5b58\u952e\u3002\u6539\u8fdb\u5efa\u8bae\u5305\u62ec\u589e\u52a0\u5bf9\u6bcf\u4e2a\u6ce8\u89e3\u7684\u6027\u80fd\u5f71\u54cd\u5206\u6790\uff0c\u4ee5\u53ca\u5728\u5b9e\u9645\u9879\u76ee\u4e2d\u7684\u6700\u4f73\u5b9e\u8df5\u793a\u4f8b\uff0c\u4ee5\u5e2e\u52a9\u5f00\u53d1\u8005\u66f4\u597d\u5730\u7406\u89e3\u548c\u5e94\u7528\u8fd9\u4e9b\u7f13\u5b58\u7b56\u7565\u3002",
             "buildedAt": 1781168616
+        },
+        "P199": {
+            "number": "199",
+            "htmlDir": "docs/post/199.html",
+            "markdown": "backup/199-RabbitMQ\u8de8\u673a\u623f\u5355\u5411\u540c\u6b65.md",
+            "labels": [
+                "MQ"
+            ],
+            "postTitle": "RabbitMQ\u8de8\u673a\u623f\u5355\u5411\u540c\u6b65",
+            "postUrl": "post/199.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/199",
+            "commentNum": 0,
+            "createdAt": 1787119421,
+            "updatedAt": 1787119421,
+            "top": 0,
+            "style": "",
+            "script": "",
+            "createdDate": "2026-08-19",
+            "dateLabelColor": "hsl(140, 56%, 20%)",
+            "description": "",
+            "buildedAt": 1787119421
         }
     },
     "singeListJson": {},
