@@ -191,6 +191,14 @@
 <span class="c1"># 执行批量检测  </span>
 check_all_registries<span class="w">  </span>
 </code></pre></div></div>
+<h2 id="_1">定时清理</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code>crontab<span class="w"> </span>-e<span class="w">  </span>
+</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="m">0</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>/usr/bin/docker<span class="w"> </span>volume<span class="w"> </span>prune<span class="w"> </span>-f<span class="w"> </span>&gt;&gt;<span class="w"> </span>/var/log/docker-volume-prune.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w">  </span>
+</code></pre></div></div>
+<p>/var/lib/docker/overlay2 是 Docker 用来存储镜像层和容器可写层的核心数据目录。它不能直接删除，否则会破坏 Docker 中所有的镜像和容器数据, 不清理的话 该目录容易满  </p>
   </article>
   
 <style>
@@ -218,7 +226,7 @@ check_all_registries<span class="w">  </span>
   transition: background 0.2s;
 }
 .fold-btn:hover, .copy-btn:hover {
-  background: #eee;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
 }
 </style>
 <script>

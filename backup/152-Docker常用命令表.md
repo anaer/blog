@@ -81,3 +81,15 @@ function check_all_registries() {
 check_all_registries
 
 ```
+
+## 定时清理
+
+```sh
+crontab -e
+```
+
+```sh
+0 3 * * * /usr/bin/docker volume prune -f >> /var/log/docker-volume-prune.log 2>&1
+```
+
+/var/lib/docker/overlay2 是 Docker 用来存储镜像层和容器可写层的核心数据目录。它不能直接删除，否则会破坏 Docker 中所有的镜像和容器数据, 不清理的话 该目录容易满
