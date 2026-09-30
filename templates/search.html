@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>{{ i18n['Search'] }} - {{ blogBase['title'] }}</title>
+<meta name="description" content="{{ blogBase['title'] }} {{ i18n['Search'] }}">
+<link href="{{ blogBase['homeUrl'] }}/pagefind/pagefind-ui.css" rel="stylesheet" />
+{% endblock %}
+
+{% block style %}
+<style>
+/* 检索界面跟随站点主题: 变量命名与取值沿用 Primer 的两级回退 */
+#search{
+    --pagefind-ui-primary: var(--fgColor-accent, var(--color-accent-fg));
+    --pagefind-ui-text: var(--fgColor-default, var(--color-fg-default));
+    --pagefind-ui-background: var(--bgColor-default, var(--color-canvas-default));
+    --pagefind-ui-border: var(--borderColor-default, var(--color-border-default));
+    --pagefind-ui-font: inherit;
+}
+#search .pagefind-ui__search-input{height:40px;font-size:16px;}
+#search .pagefind-ui__result-title{font-size:16px;}
+
+#searchTitle{margin:auto 0;font-size:35px;font-weight:bold;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding:14px 16px;margin-right:8px;}
+
+@media (max-width: 600px) {
+    body { padding: 8px;}
+    #searchTitle{display:none;}
+}
+</style>
+{% endblock %}
+
+{% block header %}
+<span id="searchTitle">{{ i18n['Search'] }}</span>
+<div class="title-right">
+    <a href="{{ blogBase['homeUrl'] }}" id="buttonHome" class="btn btn-invisible circle" title="{{ i18n['home'] }}">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    <a class="btn btn-invisible circle" onclick="modeSwitch()" title="{{ i18n['switchTheme'] }}">
+        <svg class="octicon" width="16" height="16">
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="search"></div>
+{% endblock %}
+
+{% block script %}
+<script src="{{ blogBase['homeUrl'] }}/pagefind/pagefind-ui.js"></script>
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+
+window.addEventListener("DOMContentLoaded", function () {
+    var ui = new PagefindUI({
+        element: "#search",
+        // 索引内的链接为站点根相对路径, 需按实际部署前缀补全
+        baseUrl: "{{ blogBase['searchBaseUrl'] }}",
+        showSubResults: true,
+        showImages: false,
+        pageSize: 10
+    });
+    // 承接列表页搜索框提交的 ?q=
+    var term = new URLSearchParams(window.location.search).get("q");
+    if (term) { ui.triggerSearch(term); }
+});
+</script>
+{% endblock %}

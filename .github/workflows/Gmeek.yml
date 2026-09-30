@@ -61,6 +61,10 @@ jobs:
           cp -a /opt/Gmeek/backup ${{ github.workspace }}
           cp /opt/Gmeek/blogBase.json ${{ github.workspace }}
 
+      - name: Build search index
+        # 必须在合并后的完整站点上建索引: 增量构建时 /opt/Gmeek/docs 只含本次重渲染的文章
+        run: npx -y pagefind@1.5.2 --site docs
+
       - name: Update html
         run: |
           git config user.name "$GITHUB_ACTOR"

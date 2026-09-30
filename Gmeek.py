@@ -92,6 +92,18 @@ def tag_data(postListJson):
     return {num: {k: post[k] for k in fields} for num, post in postListJson.items()}
 
 
+def search_settings(i18n_name, home_url=None):
+    """检索相关派生配置: 站点语言标记, 以及结果链接前缀。
+
+    索引内的链接是站点根相对路径, 站点托管在子路径时需按 homeUrl 补全;
+    未配置 homeUrl 时退回根路径。
+    """
+    return {
+        "lang": "zh-CN" if i18n_name == "CN" else "en",
+        "searchBaseUrl": str(home_url or "").rstrip("/") + "/",
+    }
+
+
 # 展示用固定时区: UTC+8
 TZ8 = timezone(timedelta(hours=8))
 
@@ -216,6 +228,7 @@ class GMEEK():
         self.i18n=i18nCN if self.blogBase["i18n"]=="CN" else i18n
         self.blogBase["labelColorDict"]=self.labelColorDict
         self.blogBase["issuesUrl"]="https://github.com/"+self.repo.full_name+"/issues"
+        self.blogBase.update(search_settings(self.blogBase["i18n"], self.blogBase.get("homeUrl")))
 
     def cleanFile(self):
         if os.path.exists(self.root_dir):
@@ -377,6 +390,11 @@ class GMEEK():
             })
         with open(self.root_dir + "nav.json", "w", encoding="UTF-8") as f:
             f.write(json.dumps(nav, ensure_ascii=False))
+
+    def createSearchHtml(self):
+        """生成站内搜索页; 检索数据由构建期索引步骤产出, 页面本身不含数据。"""
+        self.renderHtml('search.html',self.blogBase,{},self.root_dir+"search.html")
+        print("create search.html")
 
     def build_desc(self, content):
         return generate_summary(content)
@@ -557,6 +575,7 @@ class GMEEK():
         self.createPlistHtml()
         self.createFeedXml()
         self.createNavJson()
+        self.createSearchHtml()
         print("====== create static html end ======")
 
     def runOne(self,number_str):
@@ -581,6 +600,7 @@ class GMEEK():
             self.createPlistHtml()
             self.createFeedXml()
             self.createNavJson()
+            self.createSearchHtml()
         print("====== create static html end ======")
 
     def runLatest(self):
@@ -595,6 +615,7 @@ class GMEEK():
                 self.createPlistHtml()
                 self.createFeedXml()
                 self.createNavJson()
+                self.createSearchHtml()
             break
         print("====== create static html end ======")
 

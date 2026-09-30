@@ -1,0 +1,45 @@
+# ADR-0007：站内检索——构建期生成索引 + 静态检索页
+
+**状态：** 已接受
+**创建时间：** 2026-09-30
+
+> **当前状态 / 核心结论：** 首页搜索框不再跳转 GitHub Issue 搜索，改为提交到站内检索页 `/search.html`（`?q=`）；检索数据由构建期 Pagefind 扫描生成产物目录得到，只索引文章页正文容器。站点语言经 `<html lang>` 交给索引分词与界面本地化，结果链接按 `homeUrl` 补全子路径。下一步为合并后跑一次构建，确认线上检索可用。
+
+---
+
+## 背景
+
+列表页搜索框原为 `action="{{ blogBase['issuesUrl'] }}"` + `target="_blank"`，提交后在新标签页打开 GitHub Issue 列表的搜索——用户离开了站点，且检索范围是 issue 而非渲染后的文章。站内虽已有客户端筛选（`templates/tag.html` 的标题子串匹配），但它只有标题维度、且入口只在标签页。
+
+静态站点没有服务端，检索只能在「构建期预建索引 + 浏览器端查询」之间取平衡。
+
+## 决策
+
+1. **检索入口本地化**：`templates/plist.html` 的表单改为 GET 提交到 `{{ blogBase['homeUrl'] }}/search.html`，保留 `name="q"`，去掉新标签页跳转。
+2. **索引在构建期生成，且必须建在合并后的完整站点上**：CI 在生成产物合并进工作区后执行 `npx -y pagefind@1.5.2 --site docs`，输出 `docs/pagefind/`。**不能建在生成目录上**——增量构建时该目录只含本次重渲染的文章，在其上建索引会丢掉其余全部文章。
+3. **索引范围限定文章正文**：`templates/post.html#postBody` 标记 `data-pagefind-body`；列表页、标签页、检索页无该标记，整体不进索引。文章标题经 `<title>` 入索引（已实测可检索）。
+4. **子路径部署由 `homeUrl` 补全**：`Gmeek.py#search_settings` 派生两个键——`lang`（`i18n` 为 CN 时 `zh-CN`，否则 `en`）写入 `<html lang>`，`searchBaseUrl`（`homeUrl` 去尾斜杠 + `/`）作为检索界面的 `baseUrl`。索引内记录的是站点根相对路径，站点托管在 `/blog` 这类子路径下时必须补全。
+5. **检索界面复用 Pagefind 自带 UI**：`templates/search.html` 加载 `pagefind-ui.js`，用 `triggerSearch` 承接 `?q=` 深链；配色变量按 Primer 的两级回退映射，随站点明暗模式切换。
+   - 不做什么：不自建倒排索引与查询逻辑；不在查询侧做中文分词补偿（实测无效，见「未解决风险」）。
+
+## 后果
+
+- **收益：** 检索完全静态、无服务端与运行时依赖；索引仅在检索页按需加载，普通页面零额外开销；不向仓库新增依赖（Pagefind 由 CI 临时下载并锁定版本）。
+- **代价 / 权衡：** 构建链多一个 Node 步骤，其失败会阻断本次发布（检索页资源缺失时整站检索不可用，宁可失败可见）；索引体积随文章数增长。
+- **未解决风险：** Pagefind 的 zh 索引是**词级切分**，与浏览器端查询侧分词并不一致，**短中文查询可能漏检**。实测：完整标题、多字词、正文内容命中正常；标题中确实存在的两字词（如「导航」）漏检，且强制 `--force-language zh` 不改变结果。若此影响明显，需另立方案（例如自建 n-gram 索引）。
+
+## 实施位置
+
+- 生成：`Gmeek.py#search_settings`、`Gmeek.py#GMEEK.createSearchHtml`、`Gmeek.py#GMEEK.runAll`、`Gmeek.py#GMEEK.runOne`、`Gmeek.py#GMEEK.runLatest`
+- 模板：`templates/search.html`、`templates/base.html`（`lang`）、`templates/post.html`（`data-pagefind-body`）、`templates/plist.html`（检索入口）
+- 构建：`.github/workflows/Gmeek.yml`（`Build search index`）
+- 测试：`tests/test_pipeline.py`
+
+## 验证
+
+- `pytest` 96 passed（含语言与结果前缀派生、检索页接线、索引范围标记、入口不再指向 issue、CI 步骤顺序）。
+- 本地端到端：用真实模板渲染 2 篇文章 + 列表页 + 检索页，Pagefind 在 4 个 HTML 中只索引 2 个文章页；结果链接按 `baseUrl` 补全为 `https://example.com/blog/post/N.html`，`meta.title` 取到文章标题。
+
+## 下一步
+
+合并后跑一次构建（`workflow_dispatch`），确认线上 `/search.html` 可检索、`/pagefind/` 资源可加载。

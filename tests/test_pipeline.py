@@ -13,7 +13,7 @@ from Gmeek import (
     GMEEK, IconList, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
     resolve_regen_mode, slim_state, nav_order, nav_neighbors, neighbor_keys,
     format_datetime_utc8, format_date_utc8,
-    deterministic_color, replace_issue_refs, tag_data, is_html_stale,
+    deterministic_color, replace_issue_refs, tag_data, is_html_stale, search_settings,
 )
 from md2html import Markdown2GithubHtml
 
@@ -213,6 +213,7 @@ class TestRunOneRefreshesNeighbors:
         fake.createPlistHtml = lambda: None
         fake.createFeedXml = lambda: None
         fake.createNavJson = lambda: None
+        fake.createSearchHtml = lambda: None
         fake.repo = SimpleNamespace(get_issue=lambda n: object())
         return fake, rendered
 
@@ -387,6 +388,11 @@ class TestTemplateSmoke:
         assert 'data-post-number="166"' in html
         assert "assets/nav.js" in html
 
+    def test_post_body_is_search_indexed(self):
+        # 只索引正文容器: 列表页/标签页/搜索页不含该属性, 因此不进索引
+        html = self._render("post.html", self._post_base())
+        assert 'id="postBody" data-pagefind-body' in html
+
     def test_plist_single_page_link_uses_home_url(self):
         base = {
             "title": "T", "homeUrl": "https://example.com/blog", "nightTheme": "dark", "dayTheme": "light",
@@ -548,3 +554,102 @@ class TestDefaultConfig:
         GMEEK.defaultConfig(fake)
         assert fake.blogBase["i18n"] == "EN"
         assert fake.i18n is i18n
+
+    def test_derives_search_settings(self, tmp_path, monkeypatch):
+        (tmp_path / "config.json").write_text(
+            json.dumps({"homeUrl": "https://example.com/blog/"}), encoding="utf-8")
+        monkeypatch.chdir(tmp_path)
+        fake = self._fake()
+        GMEEK.defaultConfig(fake)
+        assert fake.blogBase["lang"] == "zh-CN"
+        assert fake.blogBase["searchBaseUrl"] == "https://example.com/blog/"
+
+
+class TestSearchSettings:
+    def test_cn_maps_to_zh_cn(self):
+        assert search_settings("CN", "https://example.com/blog")["lang"] == "zh-CN"
+
+    def test_non_cn_maps_to_en(self):
+        assert search_settings("EN", "https://example.com/blog")["lang"] == "en"
+
+    def test_base_url_gets_trailing_slash(self):
+        assert search_settings("CN", "https://example.com/blog")["searchBaseUrl"] == "https://example.com/blog/"
+
+    def test_base_url_does_not_double_slash(self):
+        # 负向控制: homeUrl 已带尾斜杠时不得拼出 "//"
+        assert search_settings("CN", "https://example.com/blog/")["searchBaseUrl"] == "https://example.com/blog/"
+
+    def test_missing_home_url_falls_back_to_root(self):
+        assert search_settings("CN", None)["searchBaseUrl"] == "/"
+
+
+class TestSearchPageSmoke:
+    @staticmethod
+    def _render(template, blog_base):
+        env = Environment(loader=FileSystemLoader("templates"))
+        return env.get_template(template).render(blogBase=blog_base, postListJson={}, i18n=i18nCN, IconList=IconList)
+
+    @staticmethod
+    def _plist_base(**overrides):
+        base = {
+            "title": "T", "homeUrl": "https://example.com/blog", "nightTheme": "dark", "dayTheme": "light",
+            "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
+            "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
+            "lang": "zh-CN", "searchBaseUrl": "https://example.com/blog/",
+            "singeListJson": {}, "labelColorDict": {}, "commentLabelColor": "#006b75",
+            "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
+        }
+        base.update(overrides)
+        return base
+
+    def test_html_lang_comes_from_config(self):
+        html = self._render("plist.html", self._plist_base())
+        assert '<html lang="zh-CN"' in html
+
+    def test_search_page_loads_bundle_and_prefills_term(self):
+        html = self._render("search.html", self._plist_base())
+        assert "pagefind/pagefind-ui.css" in html
+        assert "pagefind/pagefind-ui.js" in html
+        # 子路径部署: 结果链接必须按 homeUrl 补全
+        assert 'baseUrl: "https://example.com/blog/"' in html
+        assert "triggerSearch" in html
+
+    def test_plist_search_targets_local_page(self):
+        html = self._render("plist.html", self._plist_base())
+        form = re.search(r"<form[^>]*>", html).group(0)
+        assert 'action="https://example.com/blog/search.html"' in form
+        # 负向控制: 不得再跳转到 GitHub issue 搜索
+        assert "issuesUrl" not in form
+        assert "target=" not in form
+
+
+class TestCreateSearchHtml:
+    def test_writes_search_page(self, tmp_path):
+        fake = SimpleNamespace()
+        fake.root_dir = str(tmp_path) + os.sep
+        fake.i18n = i18nCN
+        fake.renderHtml = lambda *a: GMEEK.renderHtml(fake, *a)
+        fake.blogBase = {
+            "title": "T", "homeUrl": "https://example.com/blog", "nightTheme": "dark", "dayTheme": "light",
+            "faviconUrl": "", "GMEEK_VERSION": "v2.4", "lang": "zh-CN",
+            "searchBaseUrl": "https://example.com/blog/",
+        }
+        GMEEK.createSearchHtml(fake)
+        html = (tmp_path / "search.html").read_text(encoding="utf-8")
+        assert "pagefind/pagefind-ui.js" in html
+        assert 'baseUrl: "https://example.com/blog/"' in html
+
+
+class TestSearchIndexWorkflow:
+    @staticmethod
+    def _workflow():
+        with open(os.path.join(".github", "workflows", "Gmeek.yml"), encoding="utf-8") as f:
+            return f.read()
+
+    def test_index_built_on_merged_site(self):
+        content = self._workflow()
+        assert "pagefind" in content
+        # 索引必须建在合并后的完整站点上: 增量构建时 /opt/Gmeek/docs 只含本次重渲染的文章
+        assert content.index("cp -a /opt/Gmeek/docs") < content.index("pagefind")
+        # 非站点内容(ADR 等)先移除, 避免被索引
+        assert content.index("rm -rf ${{ github.workspace }}/docs/adr") < content.index("pagefind")
