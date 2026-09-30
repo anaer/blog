@@ -423,6 +423,12 @@ class TestWrapCodeLines:
         html = self._tool().convert("```python\nprint(1)\nprint(2)\n```")
         assert html.count('<span class="cl">') == 2
 
+    def test_convert_includes_toggle_controls(self):
+        html = self._tool().convert("```\nx\n```")
+        assert "wrap-toggle" in html and "lines-toggle" in html
+        assert "classList.toggle('nowrap')" in html
+        assert "classList.toggle('nolines')" in html
+
 
 class TestDefaultConfig:
     @staticmethod

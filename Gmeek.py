@@ -35,7 +35,7 @@ IconList={
 }
 
 # 渲染器版本: md2html/模板渲染逻辑变更时递增, 触发全站帖子 HTML 重转
-RENDER_VERSION = 2
+RENDER_VERSION = 3
 
 # 摘要补重试的每构建上限, 防 API 故障时超时叠加拖死构建
 MAX_DESC_RETRY = 10

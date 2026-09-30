@@ -37,7 +37,7 @@ class Markdown2GithubHtml:
 .code-block-wrapper:focus-within .code-block-controls {
   opacity: 1;
 }
-.fold-btn, .copy-btn {
+.fold-btn, .copy-btn, .code-toggle {
   border: none;
   background: transparent;
   cursor: pointer;
@@ -47,14 +47,21 @@ class Markdown2GithubHtml:
   box-shadow: none;
   transition: background 0.2s;
 }
-.fold-btn:hover, .copy-btn:hover {
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
   background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
 }
-.fold-btn {
+.fold-btn, .code-toggle {
   color: #6e7681;
 }
-[data-color-mode="dark"] .fold-btn {
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
   color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
 }
 .highlight code {
   counter-reset: cl;
@@ -81,15 +88,37 @@ class Markdown2GithubHtml:
 .code-block-wrapper.folded .cl ~ .cl {
   display: none;
 }
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // 单行代码块无需折叠
   document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
     if (w.querySelectorAll('.cl').length < 2) {
       const fb = w.querySelector('.fold-btn');
       if (fb) fb.style.display = 'none';
     }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
   });
 
   // 复制功能(取 textContent, 折叠态也复制全文)
@@ -161,8 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
                            + pre_tag[code_close:])
             controls = (
                 '<div class="code-block-controls">'
-                '<button class="fold-btn">▲</button>'
-                '<button class="copy-btn">'
+                '<button class="code-toggle wrap-toggle" title="自动换行">↵</button>'
+                '<button class="code-toggle lines-toggle" title="行号">#</button>'
+                '<button class="fold-btn" title="折叠">▲</button>'
+                '<button class="copy-btn" title="复制">'
                 '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle">'
                 '<rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/>'
                 '<rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/>'
