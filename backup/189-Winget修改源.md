@@ -47,3 +47,6 @@ winget pin remove --id Zoom.Zoom
 winget pin list
 winget pin -?
 ```
+
+## 相关链接
+ [Windows自启动设置](https://anaer.github.io/blog/post/190.html)  
