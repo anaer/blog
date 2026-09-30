@@ -1,9 +1,9 @@
 # ADR-0005：代码块展示——行号、自动换行与高亮清理
 
-**状态：** 提议中
+**状态：** 已接受
 **创建时间：** 2026-09-30
 
-> **当前状态 / 核心结论：** 定为「行 span + CSS 计数器」行号方案（兼容自动换行）、保留自动换行、折叠按钮低调化、移除实测零作用的 starry-night 加载；并引入 `RENDER_VERSION` 使渲染变更全站生效；下一步进入 SPARC 实施。
+> **当前状态 / 核心结论：** 「行 span + CSS 计数器」行号方案、自动换行、折叠首行预览、starry-night 清理、`RENDER_VERSION` 均已落地；并据反馈精炼：控件图标全改用内联 SVG（跟随主题色）、代码块行距收紧至 `line-height:1.45`、折叠态强制单行（`nowrap` + 横向滚动）。下一步无需后续动作。
 
 ---
 
@@ -19,6 +19,8 @@
 4. **移除 starry-night 加载**：删除文章页的条件加载与生成器中的随机样式选择逻辑（实测零作用，省 2–6KB/页）；资产目录暂留，无引用后可再清理。
 5. **渲染缓存版本标记**：新增 `RENDER_VERSION` 并纳入 HTML 缓存校验（`buildedAt` + 版本）；渲染逻辑变更时递增 → 下次全量构建全站自动重转（本次同时让图片懒加载在全站生效）。扩展 ADR-0001 决策 1 的缓存字段。
    - 不做什么：不改高亮配色（`highlight.css` 双主题保留）；不启用 pygments 表格行号。
+6. **控件图标 SVG 化与折叠态单行（反馈精炼）**：块控件 `wrap-toggle`/`lines-toggle`/`fold-btn` 全部改用内联 SVG（`fill="currentColor"` 跟随按钮主题灰），替换原文本字符 ↵/#/▲/▼；折叠箭头经 CSS 旋转（`.folded` 时 `rotate(180deg)`）不再用 JS 改 `textContent`；`.highlight .cl` 设 `line-height:1.45` 收紧行距（原继承正文 ~1.5–1.6）；折叠态 `.code-block-wrapper.folded` 内 `pre`/`.cl` 强制 `white-space:nowrap` + 横向滚动，保证首行预览严格为一行（长首行不再换行撑高）；折叠点击监听改 `e.target.closest('.fold-btn')`（原 `classList.contains` 在按钮含 SVG 后失效）。
+   - 不做什么：不引入外部图标字体（bootstrap-icons/font-awesome）只为代码块控件；复制按钮的 SVG 双态（复制/已复制）保持不变。
 
 ## 后果
 
@@ -43,4 +45,4 @@
 
 ## 下一步
 
-进入 SPARC 实施（行号 + 换行 + 按钮低调化 + starry-night 清理 + 渲染版本标记）。
+无需后续动作（全部已落地，含 D6 三项精炼）。

@@ -43,6 +43,7 @@ class Markdown2GithubHtml:
   cursor: pointer;
   padding: 2px 6px;
   font-size: 16px;
+  line-height: 1;
   outline: none;
   box-shadow: none;
   transition: background 0.2s;
@@ -50,6 +51,9 @@ class Markdown2GithubHtml:
 .fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
   background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
 }
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
 .fold-btn, .code-toggle {
   color: #6e7681;
 }
@@ -71,6 +75,7 @@ class Markdown2GithubHtml:
   counter-increment: cl;
   padding-left: 3.2em;
   position: relative;
+  line-height: 1.45;
   overflow-wrap: anywhere;
 }
 .highlight .cl::before {
@@ -87,6 +92,15 @@ class Markdown2GithubHtml:
 }
 .code-block-wrapper.folded .cl ~ .cl {
   display: none;
+}
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
 }
 .code-block-wrapper.nowrap pre {
   white-space: pre;
@@ -134,12 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 折叠功能: 折叠时保留首行预览
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
   document.addEventListener('click', e => {
-    if (e.target.classList.contains('fold-btn')) {
-      const wrapper = e.target.closest('.code-block-wrapper');
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
       wrapper.classList.toggle('folded');
-      e.target.textContent = wrapper.classList.contains('folded') ? '▼' : '▲';
     }
   });
 });
@@ -190,10 +204,19 @@ document.addEventListener('DOMContentLoaded', () => {
                            + pre_tag[code_close:])
             controls = (
                 '<div class="code-block-controls">'
-                '<button class="code-toggle wrap-toggle" title="自动换行">↵</button>'
-                '<button class="code-toggle lines-toggle" title="行号">#</button>'
-                '<button class="fold-btn" title="折叠">▲</button>'
-                '<button class="copy-btn" title="复制">'
+                '<button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行">'
+                '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">'
+                '<path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg>'
+                '</button>'
+                '<button class="code-toggle lines-toggle" title="行号" aria-label="行号">'
+                '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">'
+                '<path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg>'
+                '</button>'
+                '<button class="fold-btn" title="折叠" aria-label="折叠">'
+                '<svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">'
+                '<path fill="currentColor" d="M8 5 3.5 10h9z"/></svg>'
+                '</button>'
+                '<button class="copy-btn" title="复制" aria-label="复制">'
                 '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle">'
                 '<rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/>'
                 '<rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/>'
