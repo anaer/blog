@@ -95,7 +95,7 @@ pre {
 <div class="listLabels">
     {% for label in blogBase['labels'] -%}
         <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:{{ blogBase['labelColorDict'][label] }}">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="{{ blogBase['homeUrl'] }}/tag.html#{{ label }}">{{ label }}</a></object>
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="{{ blogBase['homeUrl'] }}/tag.html#{{ label|urlencode }}">{{ label }}</a></object>
         </span>
     {%- endfor %}
 </div>
@@ -110,7 +110,7 @@ pre {
 
 {%- if blogBase['description'] and blogBase['description'] != '' -%}
 <div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
-    <strong>AI总结:</strong> {{ blogBase['description'] }}
+    <strong>AI总结:</strong> {{ blogBase['description']|e }}
 </div>
 {%- endif %}
 

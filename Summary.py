@@ -5,7 +5,13 @@ import random
 """
 在仓库的 Settings > Secrets and variables > Actions 中添加密钥：
 """
+def summary_configured():
+    """摘要 API 是否已配置。"""
+    return bool(os.environ.get("API_URL") and os.environ.get("API_MODEL"))
+
+
 def generate_summary(text):
+    """生成摘要; 未配置返回 None, 请求失败/空结果返回空串。"""
     # 配置参数
     api_url = os.environ.get("API_URL")
     api_key = os.environ.get("API_KEY")
@@ -13,14 +19,7 @@ def generate_summary(text):
     
     if not api_url or not api_model:
         print("缺少必要的API配置：API_URL 或 API_MODEL 未设置")
-        return ""
-
-    # api_url = "https://models.inference.ai.azure.com/chat/completions"
-    # api_key = ""
-    # api_model = "gpt-4o"
-
-    if not api_url or not api_model:
-        return ""
+        return None
 
     # 支持配置多个api_key和api_model
     if api_key and ',' in api_key:

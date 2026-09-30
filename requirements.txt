@@ -1,8 +1,0 @@
-PyGithub
-requests
-feedgen
-Jinja2
-beautifulsoup4
-markdown
-pygments
-pymdown-extensions

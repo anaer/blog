@@ -1,19 +1,20 @@
 # -*- coding: utf-8 -*-
 import os
-import random
 import re
 import json
 import time
+import calendar
+import hashlib
 import shutil
 import urllib
 import requests
 import argparse
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from github import Github
 from feedgen.feed import FeedGenerator
 from jinja2 import Environment, FileSystemLoader
 from bs4 import BeautifulSoup
-from Summary import generate_summary
+from Summary import generate_summary, summary_configured
 from md2html import Markdown2GithubHtml
 
 ######################################################################################
@@ -36,6 +37,106 @@ IconList={
 # starry-night支持的样式
 starryNightStyles = ["both", "colorblind-dark", "colorblind-light", "colorblind", "dark", "dimmed-dark", "dimmed", "high-contrast-dark", "high-contrast-light", "high-contrast", "light", "tritanopia-dark", "tritanopia-light", "tritanopia"]
 
+# 摘要补重试的每构建上限, 防 API 故障时超时叠加拖死构建
+MAX_DESC_RETRY = 10
+
+
+def should_include_issue(issue, owner_name):
+    """仅收录仓库主创建、且非 PR 的 issue。"""
+    return issue.pull_request is None and issue.user is not None and issue.user.name == owner_name
+
+
+def resolve_top(state, events):
+    """置顶状态: 1=置顶 0=普通 -1=已关闭; 按最新一条 pin/unpin 事件判定。"""
+    if state == "closed":
+        return -1
+    pin_events = [e for e in events if e.event in ("pinned", "unpinned")]
+    if not pin_events:
+        return 0
+    latest = max(pin_events, key=lambda e: e.created_at)
+    return 1 if latest.event == "pinned" else 0
+
+
+def carry_cache(post, old_entry):
+    """更新时间未变时携带摘要与构建缓存, 避免重复转换与摘要调用。"""
+    if not old_entry or old_entry.get("updatedAt") != post["updatedAt"]:
+        return post
+    for key in ("description", "buildedAt"):
+        if key in old_entry:
+            post[key] = old_entry[key]
+    return post
+
+
+def resolve_regen_mode(html_stale, description, api_configured, retry_budget):
+    """决定重建方式: rebuild=重转HTML(顺带补摘要) summary=仅补空摘要 None=复用缓存。"""
+    if html_stale:
+        return "rebuild"
+    if (not description) and api_configured and retry_budget > 0:
+        return "summary"
+    return None
+
+
+def slim_state(blogBase):
+    """落盘只保留内容索引, 不落展示态。"""
+    return {"postListJson": blogBase["postListJson"], "singeListJson": blogBase["singeListJson"]}
+
+
+# 展示用固定时区: UTC+8
+TZ8 = timezone(timedelta(hours=8))
+
+
+def nav_order(postListJson):
+    """导航序列: 全部文章按 (createdAt, number) 升序, 不受置顶/关闭影响。"""
+    return sorted(postListJson, key=lambda k: (postListJson[k]["createdAt"], int(postListJson[k]["number"])))
+
+
+def nav_neighbors(nav_keys, postListJson, number):
+    """按导航序列取相邻文章: (上一篇=更早, 下一篇=更晚), 端点返回 None。"""
+    postNum = "P" + str(number)
+    if postNum not in nav_keys:
+        return None, None
+    index = nav_keys.index(postNum)
+    prev_key = nav_keys[index - 1] if index > 0 else None
+    next_key = nav_keys[index + 1] if index < len(nav_keys) - 1 else None
+    return (postListJson[prev_key] if prev_key else None, postListJson[next_key] if next_key else None)
+
+
+def format_datetime_utc8(epoch):
+    return datetime.fromtimestamp(epoch, tz=TZ8).strftime("%Y-%m-%d %H:%M:%S")
+
+
+def format_date_utc8(epoch):
+    return datetime.fromtimestamp(epoch, tz=TZ8).strftime("%Y-%m-%d")
+
+
+def deterministic_color(seed):
+    """按种子确定性派生日期标签颜色, hsl 区间与历史一致。"""
+    digest = hashlib.md5(str(seed).encode("utf-8")).digest()
+    hue = int.from_bytes(digest[0:2], "big") % 360
+    saturation = 30 + int.from_bytes(digest[2:4], "big") % 41
+    lightness = 10 + int.from_bytes(digest[4:6], "big") % 31
+    return f"hsl({hue}, {saturation}%, {lightness}%)"
+
+
+def replace_issue_refs(content, resolve):
+    """替换正文中的 #数字 引用(跳过围栏代码块与行内代码); resolve 返回 None 时保持原样。"""
+    in_fence = False
+    out_lines = []
+    for line in content.split("\n"):
+        stripped = line.lstrip()
+        if stripped.startswith("```") or stripped.startswith("~~~"):
+            in_fence = not in_fence
+            out_lines.append(line)
+            continue
+        if in_fence:
+            out_lines.append(line)
+            continue
+        parts = line.split("`")
+        for i in range(0, len(parts), 2):
+            parts[i] = re.sub(r"#(\d+)", lambda m: resolve(m.group(1)) or m.group(0), parts[i])
+        out_lines.append("`".join(parts))
+    return "\n".join(out_lines)
+
 ######################################################################################
 class GMEEK():
     def __init__(self,options):
@@ -55,6 +156,11 @@ class GMEEK():
         self.labelColorDict = {}
         for label in self.repo.get_labels():
             self.labelColorDict[label.name]='#'+label.color
+
+        # 全量构建的重建快照(None=增量)与摘要补重试预算
+        self.rebuild_cache = None
+        self.desc_retry_budget = MAX_DESC_RETRY
+        self._nav_keys = None
 
         self.defaultConfig()
 
@@ -151,22 +257,23 @@ class GMEEK():
         postBase["repoName"]=self.options.repo_name
         postBase["description"]=post["description"] if "description" in post else ""
         postBase["postBody"]=post_body
-        postBase["createdAt"] = (datetime.utcfromtimestamp(post["createdAt"]) + timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
-        postBase["updatedAt"] = (datetime.utcfromtimestamp(post["updatedAt"]) + timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
+        postBase["createdAt"] = format_datetime_utc8(post["createdAt"])
+        postBase["updatedAt"] = format_datetime_utc8(post["updatedAt"])
 
-        prevPost = self.get_prev_post(post["number"])
+        for key in ("prevUrl", "prevTitle", "nextUrl", "nextTitle"):
+            postBase.pop(key, None)
+
+        prevPost, nextPost = nav_neighbors(self.get_nav_keys(), self.blogBase["postListJson"], post["number"])
         if prevPost:
             postBase["prevUrl"]=self.blogBase["homeUrl"] + "/" + prevPost["postUrl"]
             postBase["prevTitle"]=prevPost["postTitle"]
 
-        nextPost = self.get_next_post(post["number"])
         if nextPost:
             postBase["nextUrl"]=self.blogBase["homeUrl"] + "/" + nextPost["postUrl"]
             postBase["nextTitle"]=nextPost["postTitle"]
 
-        if "highlight" in post_body:
+        if 'class="highlight"' in post_body:
             postBase["highlight"]=1
-            # 随机使用高亮样式
             index = int(post["number"]) % len(starryNightStyles)
             postBase["starryNight"] = starryNightStyles[index]
         else:
@@ -241,48 +348,27 @@ class GMEEK():
     def build_desc(self, content):
         return generate_summary(content)
 
-    def get_background_color(self, createdAt, updatedAt):
-        # 色相：0 到 360
-        hue = (140 + (updatedAt - createdAt).days) % 360
-        # 饱和度：30% 到 70%
-        saturation = random.randint(30, 70)
-        # 明度：10% 到 40%
-        lightness = random.randint(10, 40)
-        return f"hsl({hue}, {saturation}%, {lightness}%)"
+    def get_cached(self, postNum):
+        """旧条目缓存: 全量构建用重建前快照, 增量构建用当前索引。"""
+        if self.rebuild_cache is not None:
+            return self.rebuild_cache.get(postNum)
+        for listJsonName in ("postListJson", "singeListJson"):
+            entry = self.blogBase[listJsonName].get(postNum)
+            if entry:
+                return entry
+        return None
+
+    def get_nav_keys(self):
+        """导航序列(按时间升序), 一次渲染批次内只计算一次。"""
+        if self._nav_keys is None:
+            self._nav_keys = nav_order(self.blogBase["postListJson"])
+        return self._nav_keys
 
     def normalize_title(self, title):
         """
         定义方法 规范标题, 替换文件名不支持的符号为_
         """
         return re.sub(r'[\\/*?:"<>|]', '_', title)
-
-    def get_prev_post(self, issuenumber):
-        keys = list(self.blogBase["postListJson"])
-        try:
-            index = keys.index("P" + str(issuenumber))
-            if index > 0:
-                prev_key = keys[index - 1]
-            else:
-                prev_key = keys[len(keys) - 1]
-            return self.blogBase["postListJson"][prev_key]
-        except (ValueError, KeyError) as e:
-            print(f"Error getting previous post: {e}")
-            return None
-
-    def get_next_post(self, issuenumber):
-        keys = list(self.blogBase["postListJson"])
-        try:
-            index = keys.index("P" + str(issuenumber))
-            if index < len(keys) - 1:
-                next_key = keys[index + 1]
-            else:
-                # next_key = keys[0]
-                # 随机获取一个
-                next_key = random.choice(keys)
-            return self.blogBase["postListJson"][next_key]
-        except (ValueError, KeyError) as e:
-            print(f"Error getting next post: {e}")
-            return None
 
     def decimal_to_hex(self, decimal_value):
         if not isinstance(decimal_value, int) or decimal_value < 0:
@@ -297,9 +383,9 @@ class GMEEK():
         return hex_value
 
     def addOnePostJson(self,issue):
-        if self.repo.owner.name != issue.user.name:
+        if not should_include_issue(issue, self.repo.owner.name):
             # 有需要可以设置白名单
-            print("非仓库主创建的issue, 不进行生成")
+            print("非仓库主创建或 PR 的 issue, 不进行生成")
             return
 
         # 因为当前没用单页, 暂不处理这块逻辑
@@ -322,26 +408,24 @@ class GMEEK():
         post["labels"]=labels
         # post["postTitle"]="%s %s" % (self.decimal_to_hex(issue.number), issue.title)
         post["postTitle"]=issue.title # 评论需要根据标题搜索, 所以简单的就不修改标题了
-        post["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(issue.number))
+        if listJsonName=='singeListJson':
+            post["postUrl"]=urllib.parse.quote('{}.html'.format(issue.labels[0].name))
+        else:
+            post["postUrl"]=urllib.parse.quote(self.post_folder+'{}.html'.format(issue.number))
         post["postSourceUrl"]="https://github.com/"+self.options.repo_name+"/issues/"+str(issue.number)
         post["commentNum"]=issue.get_comments().totalCount
-        post["createdAt"]=int(time.mktime(issue.created_at.timetuple()))
-        post["updatedAt"]=int(time.mktime(issue.updated_at.timetuple()))
+        post["createdAt"]=int(calendar.timegm(issue.created_at.utctimetuple()))
+        post["updatedAt"]=int(calendar.timegm(issue.updated_at.utctimetuple()))
 
-        post["top"]=0
         # 如果issue为关闭状态, 显示在最后
         if issue.state=="closed":
             post["top"]=-1
         else:
-            for event in issue.get_events():
-                if event.event=="pinned":
-                    post["top"]=1
-                    break
-                elif event.event=="unpinned":
-                    break
+            post["top"] = resolve_top(issue.state, issue.get_events())
 
         post["style"]=""
         post["script"]=""
+        post["description"]=""
         # 读取postConfig配置, 暂时没有这块 先不处理
         try:
             postConfig=json.loads(issue.body.split("\r\n")[-1:][0].split("##")[1])
@@ -359,50 +443,52 @@ class GMEEK():
             print(f"Error parsing post config: {e}")
             postConfig={}
 
-        createdAt=datetime.fromtimestamp(post["createdAt"])
-        updatedAt=datetime.fromtimestamp(post["updatedAt"])
-        dateLabelColor = self.get_background_color(createdAt, updatedAt)
-        post["createdDate"]=createdAt.strftime("%Y-%m-%d")
-        post["dateLabelColor"]= dateLabelColor
-
-        # print(f"日期标签颜色: {issue.title} {createdAt} {updatedAt} {dateLabelColor}")
+        post["createdDate"]=format_date_utc8(post["createdAt"])
+        post["dateLabelColor"]=deterministic_color(post["number"])
 
         content = issue.body
         # 如果没有正文, 直接返回
         if not content:
             return
-        # 处理正文中的#数字链接
-        regex = r"\s*#(\d+)\s*"
-        matches = re.findall(regex, content)
-        for match in matches:
-            # print(f"Found number: {issue.title} {match}")
-            matchPostNum = "P"+str(match)
-            # 因为postListJson每次执行会先清空, 所以使用缓存处理, 与最新数据可能有差异, 但不太影响
+        # 处理正文中的#数字链接(跳过围栏代码块与行内代码)
+        def resolve_ref(number_str):
+            matchPostNum = "P"+str(number_str)
+            # 全量重建时索引逐步填充, 目标尚未收录则不替换, 与最新数据可能有差异
             if matchPostNum in self.blogBase[listJsonName]:
-                content = content.replace("#"+match, " ["+self.blogBase[listJsonName][matchPostNum]["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+self.blogBase[listJsonName][matchPostNum]["postUrl"]+") ")
-                # print(content)
+                entry = self.blogBase[listJsonName][matchPostNum]
+                return " ["+entry["postTitle"]+"]("+self.blogBase["homeUrl"]+"/"+entry["postUrl"]+") "
+            return None
+
+        content = replace_issue_refs(content, resolve_ref)
 
         with open(mdPath, 'w', encoding='UTF-8') as f:
             f.write(content)
 
         mdHtmlPath = mdPath + ".html"
-        # 需要使用缓存的buildedAt与当前的updatedAt进行比较
-        if (not os.path.isfile(mdHtmlPath) or postNum not in self.blogBase[listJsonName] or "buildedAt" not in self.blogBase[listJsonName][postNum] or self.blogBase[listJsonName][postNum]["buildedAt"] != post["updatedAt"]):
-            # 1. Github api转换
-            # mdHtml = self.markdown2html(content)
-            # 2. python markdown转换
-            tool = Markdown2GithubHtml()
-            mdHtml = tool.convert(content)
-            with open(mdHtmlPath, 'w', encoding='UTF-8') as fp:
-                fp.write(mdHtml)
+        # 未变更的帖子携带旧摘要与构建缓存, 按需重建
+        cached = self.get_cached(postNum)
+        if cached:
+            carry_cache(post, cached)
 
-            soup = BeautifulSoup(mdHtml, "html.parser")
-            plain_text = soup.get_text()
-            post["description"] = self.build_desc(plain_text)
-        else:
-            post["description"] = self.blogBase[listJsonName][postNum]["description"] if "description" in self.blogBase[listJsonName][postNum] else ""
+        api_configured = summary_configured()
+        html_stale = (not os.path.isfile(mdHtmlPath)) or post.get("buildedAt") != post["updatedAt"]
+        mode = resolve_regen_mode(html_stale, post["description"], api_configured, self.desc_retry_budget)
+        if mode:
+            if mode == "rebuild":
+                tool = Markdown2GithubHtml()
+                mdHtml = tool.convert(content)
+                with open(mdHtmlPath, 'w', encoding='UTF-8') as fp:
+                    fp.write(mdHtml)
+                post["buildedAt"] = post["updatedAt"]
 
-        post["buildedAt"]=post["updatedAt"]
+            if not post["description"] and api_configured:
+                if mode == "summary":
+                    # 仅为补历史空摘要的重试, 计入预算
+                    self.desc_retry_budget -= 1
+                with open(mdHtmlPath, 'r', encoding='UTF-8') as fp:
+                    mdHtml = fp.read()
+                soup = BeautifulSoup(mdHtml, "html.parser")
+                post["description"] = self.build_desc(soup.get_text()) or ""
 
         self.blogBase[listJsonName][postNum] = post
         return post
@@ -410,6 +496,11 @@ class GMEEK():
     def runAll(self):
         print("====== start create static html ======")
         self.cleanFile()
+
+        # 全量重建索引: 快照旧索引供缓存携带, 已删除/改判的条目随重建清除
+        self.rebuild_cache = {**self.blogBase["postListJson"], **self.blogBase["singeListJson"]}
+        self.blogBase["postListJson"] = {}
+        self.blogBase["singeListJson"] = {}
 
         issues=self.repo.get_issues(state="all")
         issue_list = list(issues)
@@ -457,21 +548,26 @@ class GMEEK():
         print("====== create static html end ======")
 
 #########################################################################
-parser = argparse.ArgumentParser()
-parser.add_argument("github_token", help="github_token")
-parser.add_argument("repo_name", help="repo_name")
-parser.add_argument("--issue_number", help="issue_number", default=0, required=False)
-options = parser.parse_args()
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("github_token", help="github_token")
+    parser.add_argument("repo_name", help="repo_name")
+    parser.add_argument("--issue_number", help="issue_number", default=0, required=False)
+    options = parser.parse_args()
 
-blog=GMEEK(options)
+    blog=GMEEK(options)
 
-if options.issue_number=="0" or options.issue_number=="":
-    print("runAll")
-    blog.runAll()
-else:
-    print(f"runOne {options.issue_number}")
-    blog.runOne(options.issue_number)
+    if options.issue_number=="0" or options.issue_number=="":
+        print("runAll")
+        blog.runAll()
+    else:
+        print(f"runOne {options.issue_number}")
+        blog.runOne(options.issue_number)
 
-with open("blogBase.json","w") as listFile:
-    listFile.write(json.dumps(blog.blogBase, indent=4))
+    with open("blogBase.json","w",encoding='utf-8') as listFile:
+        listFile.write(json.dumps(slim_state(blog.blogBase), indent=4))
+
+
+if __name__ == "__main__":
+    main()
 #########################################################################

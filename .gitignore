@@ -1,6 +1,8 @@
 __pycache__
+.pytest_cache
 nohup.out
 .git-credentials
+.venv/
 venv/
 .vscode/
 demo.html

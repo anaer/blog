@@ -72,7 +72,7 @@ labelColors={{ blogBase['labelColorDict'] }}
 jsonData={{ blogBase["postListJson"] }}
 
 showList(labelsCount);
-setClassDisplay(decodeURI(window.location.hash.slice(1)));
+setClassDisplay(decodeURIComponent(window.location.hash.slice(1)));
 
 function showList(labelsCount){
     let SideNav=document.getElementsByClassName("SideNav")[0];
@@ -152,8 +152,8 @@ function showList(labelsCount){
 }
 
 function updateShowTag(label){
-    if(window.location.hash.slice(1)!=encodeURI(label)){
-        window.location.hash="#"+(label);
+    if(window.location.hash.slice(1)!=encodeURIComponent(label)){
+        window.location.hash="#"+(encodeURIComponent(label));
         setClassDisplay(label);
     }
 }
@@ -193,7 +193,7 @@ function searchShow(){
     if(searchInput==''){document.title="Search - {{ blogBase['title'] }}";}
     else{document.title=searchInput+" - {{ blogBase['title'] }}";}
     let a=0;
-    window.location.hash="#"+(searchInput);
+    window.location.hash="#"+(encodeURIComponent(searchInput));
     for(let i = 0; i < lists.length; i++){
         if(lists[i].childNodes[0].childNodes[0].childNodes[1].innerHTML.toUpperCase().indexOf(searchInput.toUpperCase())==-1){lists[i].style.display='none';}
         else{lists[i].style.display='block';a=a+1;}
