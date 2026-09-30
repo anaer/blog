@@ -3946,14 +3946,15 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/186",
             "commentNum": 0,
             "createdAt": 1775033622,
-            "updatedAt": 1775033634,
+            "updatedAt": 1790756183,
             "top": 0,
             "style": "",
             "script": "",
+            "description": "",
             "createdDate": "2026-04-01",
-            "dateLabelColor": "hsl(140, 55%, 28%)",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u4e00\u4e2a\u540d\u4e3a`DeleteChildren`\u7684\u5b58\u50a8\u8fc7\u7a0b\uff0c\u8be5\u8fc7\u7a0b\u7528\u4e8e\u9012\u5f52\u5220\u9664\u7ed9\u5b9a\u6839\u8282\u70b9ID\u7684\u6240\u6709\u5b50\u8282\u70b9\u53ca\u5176\u76f8\u5173\u8bb0\u5f55\u3002\u8fc7\u7a0b\u901a\u8fc7\u6e38\u6807\u904d\u5386\u6240\u6709\u5b50\u8282\u70b9\uff0c\u5e76\u5728\u5220\u9664\u6bcf\u4e2a\u5b50\u8282\u70b9\u4e4b\u524d\u9012\u5f52\u8c03\u7528\u81ea\u8eab\u3002\u4e3a\u4e86\u9632\u6b62\u9012\u5f52\u6df1\u5ea6\u8d85\u9650\uff0c\u9700\u8981\u8c03\u6574\u4f1a\u8bdd\u7684`max_sp_recursion_depth`\u8bbe\u7f6e\u3002\u6539\u8fdb\u5efa\u8bae\u5305\u62ec\u5728\u5220\u9664\u64cd\u4f5c\u4e4b\u524d\u589e\u52a0\u5bf9`max_sp_recursion_depth`\u7684\u68c0\u67e5\uff0c\u4ee5\u907f\u514d\u5728\u6df1\u5ea6\u9012\u5f52\u65f6\u51fa\u73b0\u9519\u8bef\uff0c\u5e76\u5728\u64cd\u4f5c\u5b8c\u6210\u540e\u5c06\u5176\u91cd\u7f6e\u4e3a\u9ed8\u8ba4\u503c\u3002",
-            "buildedAt": 1775033634
+            "dateLabelColor": "hsl(146, 58%, 28%)",
+            "buildedAt": 1790756183,
+            "renderVersion": 3
         },
         "P187": {
             "number": "187",

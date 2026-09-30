@@ -1,3 +1,5 @@
+## 添加存储过程
+
 ```sql
 CREATE DEFINER=`root`@`%` PROCEDURE `DeleteChildren`(IN rootId INT)
 BEGIN
@@ -23,11 +25,15 @@ BEGIN
 END
 ```
 
+## 调用执行
+
 ```sql
 SET SESSION max_sp_recursion_depth = 255; 
 CALL DeleteChildren(4000);
 SET SESSION max_sp_recursion_depth = 0; 
 ```
+
+## FAQ
 
 `SET SESSION max_sp_recursion_depth = 255; ` 解决以下报错
 Recursive limit 0 (as set by the max_sp_recursion_depth variable) was exceeded for routine DeleteChildren
