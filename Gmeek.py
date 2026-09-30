@@ -10,7 +10,7 @@ import urllib
 import requests
 import argparse
 from datetime import datetime, timedelta, timezone
-from github import Github
+from github import Github, Auth
 from feedgen.feed import FeedGenerator
 from jinja2 import Environment, FileSystemLoader
 from bs4 import BeautifulSoup
@@ -160,7 +160,7 @@ class GMEEK():
         self.backup_dir='backup/'
 
         # 获取Github仓库信息
-        user = Github(self.options.github_token)
+        user = Github(auth=Auth.Token(self.options.github_token))
         self.repo = user.get_repo(self.options.repo_name)
 
         # 读取仓库的labels标签颜色
@@ -433,22 +433,25 @@ class GMEEK():
         post["style"]=""
         post["script"]=""
         post["description"]=""
-        # 读取postConfig配置, 暂时没有这块 先不处理
-        try:
-            postConfig=json.loads(issue.body.split("\r\n")[-1:][0].split("##")[1])
-            print("Has Custom JSON parameters")
-            print(postConfig)
-            if "timestamp" in postConfig:
-                post["createdAt"]=postConfig["timestamp"]
+        # 读取postConfig: 约定正文最后一行以 ## 前缀跟 JSON(如 ##{"timestamp":...}); 无此约定则跳过
+        postConfig={}
+        last_line = issue.body.splitlines()[-1] if issue.body else ""
+        if "##" in last_line:
+            try:
+                postConfig=json.loads(last_line.split("##", 1)[1])
+                print("Has Custom JSON parameters")
+                print(postConfig)
+                if "timestamp" in postConfig:
+                    post["createdAt"]=postConfig["timestamp"]
 
-            if "style" in postConfig:
-                post["style"]=str(postConfig["style"])
+                if "style" in postConfig:
+                    post["style"]=str(postConfig["style"])
 
-            if "script" in postConfig:
-                post["script"]=str(postConfig["script"])
-        except (IndexError, json.JSONDecodeError, KeyError) as e:
-            print(f"Error parsing post config: {e}")
-            postConfig={}
+                if "script" in postConfig:
+                    post["script"]=str(postConfig["script"])
+            except (json.JSONDecodeError, KeyError) as e:
+                print(f"Error parsing post config: {e}")
+                postConfig={}
 
         post["createdDate"]=format_date_utc8(post["createdAt"])
         post["dateLabelColor"]=deterministic_color(post["number"])
