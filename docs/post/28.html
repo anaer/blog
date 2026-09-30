@@ -4,12 +4,18 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
-    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
-    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/primer-subset.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
-    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        // 访问统计在 DOM 就绪后注入, 不占用首屏关键路径
+        document.addEventListener("DOMContentLoaded", function () {
+            var s = document.createElement("script");
+            s.src = "https://events.vercount.one/js";
+            s.async = true;
+            document.head.appendChild(s);
+        });
+    </script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
@@ -17,7 +23,8 @@
     </script>
     
 <title>Git配置文件说明</title>
-<link href="https://anaer.github.io/blog/assets/starry-night@3.6.0/style/both.css" rel="stylesheet" />
+<link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+<link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -89,8 +96,12 @@ pre {
     background-color: #0056b3; /* 悬停时改变背景颜色 */
 }
 
-.previous_page {text-align: left;}
-.next_page {text-align: right;}
+/* 上一页靠左、下一页靠右: 用 flex 自动两端对齐 */
+.paginate-container .pagination {display: flex; align-items: center;}
+.paginate-container .previous_page {margin-right: auto;}
+.paginate-container .next_page {margin-left: auto;}
+/* 无相邻文章时收起分页区 */
+.paginate-container:not(:has(a)) {display: none;}
 </style>
 
 
@@ -367,8 +378,12 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 
-</div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/29.html" aria-label="Previous Page">whistle抓包工具</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/27.html" aria-label="Next Page">ip归属地查询</a></div>
+</div>
+
+<nav class="paginate-container" aria-label="Pagination"
+     data-nav-url="https://anaer.github.io/blog/nav.json"
+     data-post-number="28">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/27.html" aria-label="Previous Page">ip归属地查询</a><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/29.html" aria-label="Next Page">whistle抓包工具</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -479,6 +494,7 @@ function iFrameLoading(){
 
 
 <script src="https://anaer.github.io/blog/assets/toc.js"></script>
+<script src="https://anaer.github.io/blog/assets/nav.js"></script>
 
 
 </html>
