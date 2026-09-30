@@ -57,8 +57,12 @@ pre {
     background-color: #0056b3; /* 悬停时改变背景颜色 */
 }
 
-.previous_page {text-align: left;}
-.next_page {text-align: right;}
+/* 上一页靠左、下一页靠右: 用 flex 自动两端对齐 */
+.paginate-container .pagination {display: flex; align-items: center;}
+.paginate-container .previous_page {margin-right: auto;}
+.paginate-container .next_page {margin-left: auto;}
+/* 无相邻文章时收起分页区 */
+.paginate-container:not(:has(a)) {display: none;}
 </style>
 {{ blogBase['style'] }}
 
@@ -119,19 +123,18 @@ pre {
 {{ blogBase['postBody'] }}
 </div>
 
-{%- if blogBase['prevUrl'] or blogBase['nextUrl'] -%}
-<nav class="paginate-container" aria-label="Pagination">
+<nav class="paginate-container" aria-label="Pagination"
+     data-nav-url="{{ blogBase['homeUrl'] }}/nav.json"
+     data-post-number="{{ blogBase['postNumber'] }}">
     <div class="pagination">
         {%- if blogBase['prevTitle'] -%}
         <a class="previous_page" rel="previous" href="{{ blogBase['prevUrl'] }}" aria-label="Previous Page">{{ blogBase['prevTitle'] }}</a>
         {%- endif -%}
-        <!-- <span style="width:200px" aria-disabled="true"></span> -->
         {%- if blogBase['nextTitle'] -%}
         <a class="next_page" rel="next" href="{{ blogBase['nextUrl'] }}" aria-label="Next Page">{{ blogBase['nextTitle'] }}</a>
         {%- endif -%}
     </div>
 </nav>
-{%- endif %}
 
 <!-- 编辑按钮 -->
 <a href="{{ blogBase['postSourceUrl'] }}" target="_blank">
@@ -206,5 +209,6 @@ function iFrameLoading(){
 {{ blogBase['script'] }}
 
 <script src="{{ blogBase['homeUrl'] }}/assets/toc.js"></script>
+<script src="{{ blogBase['homeUrl'] }}/assets/nav.js"></script>
 
 {% endblock %}

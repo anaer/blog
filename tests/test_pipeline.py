@@ -11,7 +11,8 @@ from jinja2 import Environment, FileSystemLoader
 
 from Gmeek import (
     GMEEK, IconList, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
-    resolve_regen_mode, slim_state, nav_order, nav_neighbors, format_datetime_utc8, format_date_utc8,
+    resolve_regen_mode, slim_state, nav_order, nav_neighbors, neighbor_keys,
+    format_datetime_utc8, format_date_utc8,
     deterministic_color, replace_issue_refs, tag_data, is_html_stale,
 )
 from md2html import Markdown2GithubHtml
@@ -179,6 +180,70 @@ class TestNavNeighbors:
         assert nav_neighbors(nav_order(pj), pj, "99") == (None, None)
 
 
+class TestNeighborKeys:
+    def test_new_post_refreshes_previous_newest(self):
+        # 新增文章到末尾: 旧序无该文, 只需刷新新序中的前邻
+        assert neighbor_keys(["P1", "P2"], ["P1", "P2", "P3"], "P3") == ["P2"]
+
+    def test_middle_change_refreshes_both_sides(self):
+        keys = ["P1", "P2", "P3"]
+        assert neighbor_keys(keys, keys, "P2") == ["P1", "P3"]
+
+    def test_reorder_covers_old_and_new_neighbors(self):
+        # 负向控制: 位置变化时旧邻(P1)与新邻(P3)都要刷新且去重
+        assert set(neighbor_keys(["P1", "P2", "P3"], ["P1", "P3", "P2"], "P2")) == {"P1", "P3"}
+
+    def test_endpoint_has_single_neighbor(self):
+        assert neighbor_keys([], ["P1", "P2"], "P1") == ["P2"]
+
+    def test_absent_target_is_empty(self):
+        assert neighbor_keys([], [], "P9") == []
+
+
+class TestRunOneRefreshesNeighbors:
+    @staticmethod
+    def _fake(post_list):
+        fake = SimpleNamespace()
+        fake.blogBase = {"postListJson": post_list, "singeListJson": {}}
+        fake._nav_keys = None
+        fake.checkDir = lambda: None
+        fake.get_nav_keys = lambda: GMEEK.get_nav_keys(fake)
+        rendered = []
+        fake.createPostHtml = lambda post: rendered.append(post["number"])
+        fake.createPlistHtml = lambda: None
+        fake.createFeedXml = lambda: None
+        fake.createNavJson = lambda: None
+        fake.repo = SimpleNamespace(get_issue=lambda n: object())
+        return fake, rendered
+
+    @staticmethod
+    def _install(fake, number, post):
+        def add(issue):
+            fake.blogBase["postListJson"]["P" + str(number)] = post
+            return post
+        fake.addOnePostJson = add
+
+    def test_new_post_rerenders_previous_newest(self):
+        fake, rendered = self._fake({"P1": mk_post(1, 100), "P2": mk_post(2, 200)})
+        self._install(fake, 3, mk_post(3, 300))
+        GMEEK.runOne(fake, "3")
+        # 新文章本身 + 旧最新(P2) 必须重渲染; P1 不受影响
+        assert set(rendered) == {"3", "2"}
+
+    def test_reorder_rerenders_old_neighbors_too(self):
+        fake, rendered = self._fake({"P1": mk_post(1, 100), "P2": mk_post(2, 200), "P3": mk_post(3, 300)})
+        # 编辑 P2 使其 createdAt 变为最新 -> 导航序变为 P1,P3,P2, 旧邻 P1 也需刷新
+        self._install(fake, 2, mk_post(2, 400))
+        GMEEK.runOne(fake, "2")
+        assert set(rendered) == {"1", "2", "3"}
+
+    def test_first_post_has_no_neighbors(self):
+        fake, rendered = self._fake({})
+        self._install(fake, 1, mk_post(1, 100))
+        GMEEK.runOne(fake, "1")
+        assert rendered == ["1"]
+
+
 class TestUtc8Format:
     def test_known_epoch_datetime(self):
         assert format_datetime_utc8(1694176150) == "2023-09-08 20:29:10"
@@ -316,6 +381,12 @@ class TestTemplateSmoke:
         html = self._render("post.html", self._post_base(labels=["C++"], labelColorDict={"C++": "#123456"}))
         assert "tag.html#C%2B%2B" in html
 
+    def test_post_nav_exposes_runtime_hooks(self):
+        html = self._render("post.html", self._post_base(postNumber="166"))
+        assert 'data-nav-url="https://example.com/blog/nav.json"' in html
+        assert 'data-post-number="166"' in html
+        assert "assets/nav.js" in html
+
     def test_plist_single_page_link_uses_home_url(self):
         base = {
             "title": "T", "homeUrl": "https://example.com/blog", "nightTheme": "dark", "dayTheme": "light",
@@ -344,6 +415,29 @@ class TestCreateFeedXmlSmoke:
         rss = (tmp_path / "rss.xml").read_text(encoding="utf-8")
         assert "about.html" in rss
         assert "post/1.html" in rss
+
+
+class TestCreateNavJson:
+    def test_writes_nav_in_time_order(self, tmp_path):
+        fake = SimpleNamespace()
+        fake.root_dir = str(tmp_path) + os.sep
+        fake.blogBase = {
+            "homeUrl": "https://example.com/blog",
+            "postListJson": {"P2": mk_post(2, 200), "P1": mk_post(1, 100)},
+        }
+        GMEEK.createNavJson(fake)
+        data = json.loads((tmp_path / "nav.json").read_text(encoding="utf-8"))
+        # 按 createdAt 升序, 与 nav_order 一致
+        assert [p["number"] for p in data] == ["1", "2"]
+        assert data[0]["title"] == "T1"
+        assert data[0]["url"] == "https://example.com/blog/post/1.html"
+
+    def test_empty_posts(self, tmp_path):
+        fake = SimpleNamespace()
+        fake.root_dir = str(tmp_path) + os.sep
+        fake.blogBase = {"homeUrl": "https://example.com/blog", "postListJson": {}}
+        GMEEK.createNavJson(fake)
+        assert json.loads((tmp_path / "nav.json").read_text(encoding="utf-8")) == []
 
 
 class TestTagData:

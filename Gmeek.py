@@ -112,6 +112,18 @@ def nav_neighbors(nav_keys, postListJson, number):
     return (postListJson[prev_key] if prev_key else None, postListJson[next_key] if next_key else None)
 
 
+def neighbor_keys(old_keys, new_keys, target):
+    """变更文章在旧/新导航序中的相邻项(去重、排除自身、保持先后)。"""
+    result = []
+    for keys in (old_keys, new_keys):
+        if target in keys:
+            index = keys.index(target)
+            for j in (index - 1, index + 1):
+                if 0 <= j < len(keys) and keys[j] != target and keys[j] not in result:
+                    result.append(keys[j])
+    return result
+
+
 def format_datetime_utc8(epoch):
     return datetime.fromtimestamp(epoch, tz=TZ8).strftime("%Y-%m-%d %H:%M:%S")
 
@@ -261,6 +273,7 @@ class GMEEK():
 
         postBase=self.blogBase.copy()
         postBase["postTitle"]=post["postTitle"]
+        postBase["postNumber"]=post["number"]
         postBase["labels"]=post["labels"]
         postBase["commentNum"]=post["commentNum"]
         postBase["style"]=post["style"]
@@ -351,6 +364,19 @@ class GMEEK():
                 item.pubDate(time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime(self.blogBase[listJsonName][num]["createdAt"])))
 
         feed.rss_file(self.root_dir+'rss.xml')
+
+    def createNavJson(self):
+        """生成全站导航数据(按导航序), 供文章页运行时计算上一页/下一页。"""
+        nav = []
+        for key in nav_order(self.blogBase["postListJson"]):
+            post = self.blogBase["postListJson"][key]
+            nav.append({
+                "number": post["number"],
+                "title": post["postTitle"],
+                "url": self.blogBase["homeUrl"] + "/" + post["postUrl"],
+            })
+        with open(self.root_dir + "nav.json", "w", encoding="UTF-8") as f:
+            f.write(json.dumps(nav, ensure_ascii=False))
 
     def build_desc(self, content):
         return generate_summary(content)
@@ -530,18 +556,31 @@ class GMEEK():
 
         self.createPlistHtml()
         self.createFeedXml()
+        self.createNavJson()
         print("====== create static html end ======")
 
     def runOne(self,number_str):
         print("====== start create static html ======")
         self.checkDir()
 
+        # 变更前的导航序快照: 用于定位「旧相邻」文章
+        old_keys = list(self.get_nav_keys())
+
         issue=self.repo.get_issue(int(number_str))
         post = self.addOnePostJson(issue)
         if post:
+            # 索引已更新, 导航序缓存失效需重算(必须在渲染前失效, 否则沿用旧序)
+            self._nav_keys = None
+            new_keys = self.get_nav_keys()
             self.createPostHtml(post)
+            # 新增/编辑会改变导航序, 相邻文章的上一页/下一页需一并重渲染
+            for key in neighbor_keys(old_keys, new_keys, "P"+str(post["number"])):
+                neighbor = self.blogBase["postListJson"].get(key)
+                if neighbor:
+                    self.createPostHtml(neighbor)
             self.createPlistHtml()
             self.createFeedXml()
+            self.createNavJson()
         print("====== create static html end ======")
 
     def runLatest(self):
@@ -555,6 +594,7 @@ class GMEEK():
                 self.createPostHtml(post)
                 self.createPlistHtml()
                 self.createFeedXml()
+                self.createNavJson()
             break
         print("====== create static html end ======")
 
