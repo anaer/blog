@@ -324,7 +324,7 @@ dependencies = [
     { name = "requests" },
 ]
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 dev = [
     { name = "pytest" },
 ]
@@ -338,10 +338,11 @@ requires-dist = [
     { name = "pygithub", specifier = ">=2.10.0" },
     { name = "pygments", specifier = ">=2.21.0" },
     { name = "pymdown-extensions", specifier = ">=12.1" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.1.1" },
     { name = "requests", specifier = ">=2.34.2" },
 ]
-provides-extras = ["dev"]
+
+[package.metadata.requires-dev]
+dev = [{ name = "pytest", specifier = ">=9.1.1" }]
 
 [[package]]
 name = "idna"

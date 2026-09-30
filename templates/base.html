@@ -4,16 +4,22 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="{{ blogBase['homeUrl'] }}/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
-    <link href="{{ blogBase['homeUrl'] }}/assets/highlight.css" rel="stylesheet" />
-    <link href="{{ blogBase['homeUrl'] }}/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
+    <link href="{{ blogBase['homeUrl'] }}/assets/primer-subset.css" rel="stylesheet" />
     <!-- <link href="{{ blogBase['homeUrl'] }}/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="{{ blogBase['homeUrl'] }}/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> -->
     {%- if blogBase['faviconUrl'] -%}
     <link rel="icon" href="{{ blogBase['faviconUrl'] }}">
     {%- endif -%}
     <!-- <script src="{{ blogBase['homeUrl'] }}/assets/vercount.js"></script> -->
-    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        // 访问统计在 DOM 就绪后注入, 不占用首屏关键路径
+        document.addEventListener("DOMContentLoaded", function () {
+            var s = document.createElement("script");
+            s.src = "https://events.vercount.one/js";
+            s.async = true;
+            document.head.appendChild(s);
+        });
+    </script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}

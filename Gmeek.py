@@ -81,6 +81,12 @@ def slim_state(blogBase):
     return {"postListJson": blogBase["postListJson"], "singeListJson": blogBase["singeListJson"]}
 
 
+def tag_data(postListJson):
+    """tag 页内联数据投影: 仅保留客户端筛选与展示所需字段。"""
+    fields = ("labels", "postUrl", "postTitle", "dateLabelColor", "createdDate")
+    return {num: {k: post[k] for k in fields} for num, post in postListJson.items()}
+
+
 # 展示用固定时区: UTC+8
 TZ8 = timezone(timedelta(hours=8))
 
@@ -312,7 +318,8 @@ class GMEEK():
             postNum -= self.blogBase["onePageListNum"]
             pageFlag += 1
 
-        # 生成标签页面
+        # 生成标签页面(内联数据只保留客户端所需字段)
+        self.blogBase["tagListJson"] = tag_data(self.blogBase["postListJson"])
         self.renderHtml('tag.html',self.blogBase,onePageList,self.root_dir+"tag.html")
         print("create tag.html")
 

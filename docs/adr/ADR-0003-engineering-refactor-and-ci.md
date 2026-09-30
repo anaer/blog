@@ -17,7 +17,7 @@
 2. **测试与检查**：对纯函数（标题规范化、导航相邻计算、时间换算、文章尾配置解析、缓存携带规则）建 pytest 用例；CI 增加检查 job（编译 + 单测），在 main 分支 push 时运行。
 3. **版本与依赖**：使用 uv 管理——`pyproject.toml` 声明（含版本下限）为唯一来源、`uv.lock` 锁定全部传递依赖；CI 以 `uv sync --frozen` 安装、`uv run --frozen` 运行；Python 3.12（`requires-python >=3.12` + `.python-version`）；依赖升级后先本地跑通单测与全量构建再合入。
 4. **workflow 硬化**：补齐 issues 事件类型（labeled/unlabeled/closed/reopened/deleted/pinned/unpinned）并处理删除触发的清理；加 concurrency（同组串行、不互相取消）；push 产物前先 rebase 重试；三方 action 固定到不可变版本；权限收紧到最小集。
-5. **文档与仓库卫生**：README/CONFIG 重写为本仓库真实架构（分支职责、事件流、secrets、本地开发方式）；`.gitignore` 忽略生成产物（`docs/` 下生成内容、`backup/`、`blogBase.json`，按目录白名单保留 `docs/adr/`、`docs/glossary/` 与 `docs/review/`）；生成器的清理逻辑（`Gmeek.py#GMEEK.cleanFile`）同步改为只清理生成产物、保留这三个目录；清理死代码（`markdown2html`、`runLatest`、摘要模块演示代码）并收拢摘要 prompt 与输入截断。
+5. **文档与仓库卫生**：README/CONFIG 重写为本仓库真实架构（分支职责、事件流、secrets、本地开发方式）；`.gitignore` 忽略生成产物（`docs/` 下生成内容、`backup/`、`blogBase.json`，按目录白名单保留 `docs/adr/`、`docs/glossary/` 与 `docs/review/`）；生成器的清理逻辑（`Gmeek.py#GMEEK.cleanFile`）改为只清理生成产物、保留这三个目录（仅用于保护本地源码侧）；CI 把生成产物复制到 blog 分支时显式排除这三个目录——blog 分支只保留站点产物、`backup/` 与 `blogBase.json`；清理死代码（`markdown2html`、`runLatest`、摘要模块演示代码）并收拢摘要 prompt 与输入截断。
    - 不做什么：不换静态托管方案、不改模板体系、不引入数据库或服务端。
 
 ## 后果
@@ -35,7 +35,7 @@
 
 ## 验证
 
-- 待实施后：main push 触发检查 job 且全绿；模拟连续两次 issue 事件验证 concurrency 无覆盖；Python 3.12 下本地跑通全量构建。
+- 待实施后：main push 触发检查 job 且全绿；模拟连续两次 issue 事件验证 concurrency 无覆盖；Python 3.12 下本地跑通全量构建；blog 分支提交产物中不含 `docs/adr`、`docs/glossary`、`docs/review`。
 
 ## 下一步
 

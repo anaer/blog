@@ -129,12 +129,17 @@ document.addEventListener('DOMContentLoaded', () => {
             _repl, html, flags=re.DOTALL
         )
 
+    def _add_lazy_loading(self, html: str) -> str:
+        """为正文图片注入懒加载属性(已有 loading 标记的不重复注入)。"""
+        return re.sub(r'<img (?![^>]*loading=)', '<img loading="lazy" decoding="async" ', html)
+
     def convert(self, md_text: str) -> str:
         """把 markdown 文本渲染成完整 HTML"""
         # 每一行末 增加两个空格 以自动换行
         md_text = '\n'.join(line + '  ' for line in md_text.splitlines())
         body_html = self.md.convert(md_text)
         body_html = self._add_controls(body_html)
+        body_html = self._add_lazy_loading(body_html)
 
         full_html = f"""
   <article class="{self.WRAPPER_CSS}">

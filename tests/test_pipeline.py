@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""批次 A/B 纯函数单测: 收录过滤 / 置顶判定 / 缓存与重建 / 导航 / 时间 / 引用替换 / 色标 / 模板冒烟。"""
+"""批次 A/B 纯函数单测: 收录过滤 / 置顶判定 / 缓存与重建 / 导航 / 时间 / 引用替换 / 色标 / tag 数据投影 / 图片懒加载 / 模板冒烟。"""
 import calendar
 import os
 import re
@@ -11,7 +11,9 @@ from jinja2 import Environment, FileSystemLoader
 from Gmeek import (
     GMEEK, IconList, i18nCN, resolve_top, carry_cache, should_include_issue, resolve_regen_mode, slim_state,
     nav_order, nav_neighbors, format_datetime_utc8, format_date_utc8, deterministic_color, replace_issue_refs,
+    tag_data,
 )
+from md2html import Markdown2GithubHtml
 
 UTC = timezone.utc
 T0 = datetime(2025, 1, 1, tzinfo=UTC)
@@ -335,3 +337,26 @@ class TestCreateFeedXmlSmoke:
         rss = (tmp_path / "rss.xml").read_text(encoding="utf-8")
         assert "about.html" in rss
         assert "post/1.html" in rss
+
+
+class TestTagData:
+    def test_projects_only_needed_fields(self):
+        full = {"labels": ["Life"], "postUrl": "post/1.html", "postTitle": "T1",
+                "dateLabelColor": "hsl(1, 30%, 10%)", "createdDate": "2023-09-08",
+                "description": "长摘要" * 100, "style": "", "script": "", "markdown": "m.md", "buildedAt": 1}
+        out = tag_data({"P1": full})
+        assert set(out["P1"].keys()) == {"labels", "postUrl", "postTitle", "dateLabelColor", "createdDate"}
+
+    def test_empty_input(self):
+        assert tag_data({}) == {}
+
+
+class TestImageLazyLoading:
+    def test_image_gets_lazy_attributes(self):
+        html = Markdown2GithubHtml().convert("![alt](https://example.com/a.png)")
+        assert html.count('loading="lazy" decoding="async"') == 1
+        assert '<img loading="lazy" decoding="async"' in html
+
+    def test_existing_loading_attribute_not_duplicated(self):
+        tool = Markdown2GithubHtml()
+        assert tool._add_lazy_loading('<img loading="eager" src="a.png">') == '<img loading="eager" src="a.png">'

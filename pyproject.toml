@@ -20,7 +20,7 @@ dependencies = [
     "feedgen>=1.0.0",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
     "pytest>=9.1.1",
 ]
