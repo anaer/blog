@@ -34,8 +34,8 @@ IconList={
     "subway":"M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z"
 }
 
-# starry-night支持的样式
-starryNightStyles = ["both", "colorblind-dark", "colorblind-light", "colorblind", "dark", "dimmed-dark", "dimmed", "high-contrast-dark", "high-contrast-light", "high-contrast", "light", "tritanopia-dark", "tritanopia-light", "tritanopia"]
+# 渲染器版本: md2html/模板渲染逻辑变更时递增, 触发全站帖子 HTML 重转
+RENDER_VERSION = 2
 
 # 摘要补重试的每构建上限, 防 API 故障时超时叠加拖死构建
 MAX_DESC_RETRY = 10
@@ -61,10 +61,15 @@ def carry_cache(post, old_entry):
     """更新时间未变时携带摘要与构建缓存, 避免重复转换与摘要调用。"""
     if not old_entry or old_entry.get("updatedAt") != post["updatedAt"]:
         return post
-    for key in ("description", "buildedAt"):
+    for key in ("description", "buildedAt", "renderVersion"):
         if key in old_entry:
             post[key] = old_entry[key]
     return post
+
+
+def is_html_stale(md_file_exists, post):
+    """帖子 HTML 缓存是否失效: 文件缺失 / 内容更新 / 渲染器版本变更。"""
+    return (not md_file_exists) or post.get("buildedAt") != post["updatedAt"] or post.get("renderVersion") != RENDER_VERSION
 
 
 def resolve_regen_mode(html_stale, description, api_configured, retry_budget):
@@ -278,13 +283,6 @@ class GMEEK():
             postBase["nextUrl"]=self.blogBase["homeUrl"] + "/" + nextPost["postUrl"]
             postBase["nextTitle"]=nextPost["postTitle"]
 
-        if 'class="highlight"' in post_body:
-            postBase["highlight"]=1
-            index = int(post["number"]) % len(starryNightStyles)
-            postBase["starryNight"] = starryNightStyles[index]
-        else:
-            postBase["highlight"]=0
-
         self.renderHtml('post.html',postBase,{},post["htmlDir"])
 
     def createPlistHtml(self):
@@ -478,7 +476,7 @@ class GMEEK():
             carry_cache(post, cached)
 
         api_configured = summary_configured()
-        html_stale = (not os.path.isfile(mdHtmlPath)) or post.get("buildedAt") != post["updatedAt"]
+        html_stale = is_html_stale(os.path.isfile(mdHtmlPath), post)
         mode = resolve_regen_mode(html_stale, post["description"], api_configured, self.desc_retry_budget)
         if mode:
             if mode == "rebuild":
@@ -487,6 +485,7 @@ class GMEEK():
                 with open(mdHtmlPath, 'w', encoding='UTF-8') as fp:
                     fp.write(mdHtml)
                 post["buildedAt"] = post["updatedAt"]
+                post["renderVersion"] = RENDER_VERSION
 
             if not post["description"] and api_configured:
                 if mode == "summary":

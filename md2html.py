@@ -30,6 +30,12 @@ class Markdown2GithubHtml:
   z-index: 2;
   display: flex;
   gap: 2px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.code-block-wrapper:hover .code-block-controls,
+.code-block-wrapper:focus-within .code-block-controls {
+  opacity: 1;
 }
 .fold-btn, .copy-btn {
   border: none;
@@ -44,13 +50,52 @@ class Markdown2GithubHtml:
 .fold-btn:hover, .copy-btn:hover {
   background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
 }
+.fold-btn {
+  color: #6e7681;
+}
+[data-color-mode="dark"] .fold-btn {
+  color: #8b949e;
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  overflow-wrap: anywhere;
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+[data-color-mode="dark"] .highlight .cl::before {
+  color: #8b949e;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // 复制功能
+  // 单行代码块无需折叠
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.parentElement.parentElement.querySelector('pre code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
       navigator.clipboard.writeText(code).then(() => {
         btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
         setTimeout(() => {
@@ -60,13 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 折叠功能
+  // 折叠功能: 折叠时保留首行预览
   document.addEventListener('click', e => {
     if (e.target.classList.contains('fold-btn')) {
-      const code = e.target.parentElement.parentElement.querySelector('pre code');
-      const collapsed = code.style.display === 'none';
-      code.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '▲' : '▼';
+      const wrapper = e.target.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
+      e.target.textContent = wrapper.classList.contains('folded') ? '▼' : '▲';
     }
   });
 });
@@ -109,6 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
         """
         def _repl(m):
             pre_tag = m.group(0)
+            code_open = re.search(r"<code[^>]*>", pre_tag)
+            code_close = pre_tag.rfind("</code>")
+            if code_open and code_close != -1:
+                pre_tag = (pre_tag[:code_open.end()]
+                           + self._wrap_code_lines(pre_tag[code_open.end():code_close])
+                           + pre_tag[code_close:])
             controls = (
                 '<div class="code-block-controls">'
                 '<button class="fold-btn">▲</button>'
@@ -128,6 +178,37 @@ document.addEventListener('DOMContentLoaded', () => {
             r'<pre[^>]*>(?:<[^>]*>)*<code[^>]*>.*?</code>(?:<[^>]*>)*</pre>',
             _repl, html, flags=re.DOTALL
         )
+
+    def _wrap_code_lines(self, inner: str) -> str:
+        """把 <code> 内每个逻辑行包成 <span class="cl">, 供 CSS 计数器显示行号。"""
+        tokens = re.split(r"(<[^>]+>)", inner)
+        lines, current, stack = [], [], []
+
+        def close_line():
+            closers = "".join("</" + re.match(r"<(\w+)", t).group(1) + ">" for t in stack)
+            return '<span class="cl">' + "".join(current) + closers + "</span>"
+
+        for tok in tokens:
+            if not tok:
+                continue
+            if tok.startswith("</"):
+                if stack:
+                    stack.pop()
+                current.append(tok)
+            elif tok.startswith("<"):
+                stack.append(tok)
+                current.append(tok)
+            else:
+                parts = tok.split("\n")
+                for i, part in enumerate(parts):
+                    if i > 0:
+                        lines.append(close_line())
+                        current = list(stack)
+                    current.append(part)
+        lines.append(close_line())
+        if len(lines) > 1 and not re.sub(r"<[^>]+>", "", lines[-1]).strip():
+            lines.pop()
+        return "\n".join(lines)
 
     def _add_lazy_loading(self, html: str) -> str:
         """为正文图片注入懒加载属性(已有 loading 标记的不重复注入)。"""

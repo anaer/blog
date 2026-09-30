@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""批次 A/B 纯函数单测: 收录过滤 / 置顶判定 / 缓存与重建 / 导航 / 时间 / 引用替换 / 色标 / tag 数据投影 / 图片懒加载 / 模板冒烟。"""
+"""批次 A/B 纯函数单测: 收录过滤 / 置顶判定 / 缓存与重建 / 导航 / 时间 / 引用替换 / 色标 / tag 数据投影 / 图片懒加载 / 行号包裹 / 渲染版本 / 模板冒烟。"""
 import calendar
 import os
 import re
@@ -9,9 +9,9 @@ from types import SimpleNamespace
 from jinja2 import Environment, FileSystemLoader
 
 from Gmeek import (
-    GMEEK, IconList, i18nCN, resolve_top, carry_cache, should_include_issue, resolve_regen_mode, slim_state,
-    nav_order, nav_neighbors, format_datetime_utc8, format_date_utc8, deterministic_color, replace_issue_refs,
-    tag_data,
+    GMEEK, IconList, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue, resolve_regen_mode,
+    slim_state, nav_order, nav_neighbors, format_datetime_utc8, format_date_utc8, deterministic_color,
+    replace_issue_refs, tag_data, is_html_stale,
 )
 from md2html import Markdown2GithubHtml
 
@@ -86,6 +86,12 @@ class TestCarryCache:
         post = {"updatedAt": 5}
         carry_cache(post, None)
         assert "description" not in post
+
+    def test_carries_render_version(self):
+        post = {"updatedAt": 5}
+        old = {"updatedAt": 5, "buildedAt": 5, "renderVersion": RENDER_VERSION}
+        carry_cache(post, old)
+        assert post["renderVersion"] == RENDER_VERSION
 
 
 class TestResolveRegenMode:
@@ -360,3 +366,58 @@ class TestImageLazyLoading:
     def test_existing_loading_attribute_not_duplicated(self):
         tool = Markdown2GithubHtml()
         assert tool._add_lazy_loading('<img loading="eager" src="a.png">') == '<img loading="eager" src="a.png">'
+
+
+class TestHtmlStale:
+    @staticmethod
+    def _post(**overrides):
+        post = {"updatedAt": 100, "buildedAt": 100, "renderVersion": RENDER_VERSION}
+        post.update(overrides)
+        return post
+
+    def test_fresh_cache_not_stale(self):
+        assert not is_html_stale(True, self._post())
+
+    def test_missing_render_version_regenerates(self):
+        # 负向控制: 老帖子(无版本标记)必须重转
+        assert is_html_stale(True, {"updatedAt": 100, "buildedAt": 100})
+
+    def test_version_mismatch_regenerates(self):
+        assert is_html_stale(True, self._post(renderVersion=RENDER_VERSION + 1))
+
+    def test_updated_content_regenerates(self):
+        assert is_html_stale(True, self._post(buildedAt=99))
+
+    def test_missing_file_regenerates(self):
+        assert is_html_stale(False, self._post())
+
+
+class TestWrapCodeLines:
+    @staticmethod
+    def _tool():
+        return Markdown2GithubHtml()
+
+    def test_single_line(self):
+        assert self._tool()._wrap_code_lines("single") == '<span class="cl">single</span>'
+
+    def test_lines_counted(self):
+        out = self._tool()._wrap_code_lines("a\nb\nc")
+        assert out.count('class="cl"') == 3
+
+    def test_multiline_token_closed_and_reopened(self):
+        # 负向控制: 跨行 span 必须在行内闭合并重开
+        out = self._tool()._wrap_code_lines('<span class="s">"a\nb"</span>')
+        assert out == ('<span class="cl"><span class="s">"a</span></span>\n'
+                       '<span class="cl"><span class="s">b"</span></span>')
+
+    def test_trailing_newline_not_numbered(self):
+        out = self._tool()._wrap_code_lines("x\ny\n")
+        assert out.count('class="cl"') == 2
+
+    def test_blank_line_counted(self):
+        out = self._tool()._wrap_code_lines("a\n\nb")
+        assert out.count('class="cl"') == 3
+
+    def test_convert_produces_line_spans(self):
+        html = self._tool().convert("```python\nprint(1)\nprint(2)\n```")
+        assert html.count('<span class="cl">') == 2
