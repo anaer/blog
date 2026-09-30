@@ -114,6 +114,29 @@ class Markdown2GithubHtml:
 .code-block-wrapper.nolines .cl::before {
   display: none;
 }
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -188,12 +211,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         self.md = markdown.Markdown(extensions=extensions, extension_configs=extension_configs)
 
-    def _add_controls(self, html: str) -> str:
+    def _extract_fence_langs(self, md_text):
+        """按出现顺序提取围栏代码块的语言(无语言记空串), 供标签对齐。"""
+        langs = []
+        fence = None
+        for line in md_text.split('\n'):
+            stripped = line.lstrip()
+            m = re.match(r'^(`{3,}|~{3,})', stripped)
+            if not m:
+                continue
+            ticks = m.group(1)[0]
+            if fence is None:
+                fence = ticks
+                info = stripped[len(m.group(1)):].strip()
+                langs.append(info.split()[0] if info else '')
+            elif m.group(1)[0] == fence:
+                fence = None
+        return langs
+
+    def _add_controls(self, html: str, langs=None) -> str:
         """
-        为每个 <pre><code>...</code></pre> 插入控制元素：
-          <button class='fold-btn'>▲</button>
-          <button class='copy-btn'>复制</button>
+        为每个 <pre><code>...</code></pre> 插入控制元素与(可选)语言标签。
+        langs 为围栏语言的有序列表, 按 <pre> 出现顺序对齐; 缺失或不匹配时记空串。
         """
+        if langs is None:
+            langs = []
+        cursor = {"i": 0}
+
         def _repl(m):
             pre_tag = m.group(0)
             code_open = re.search(r"<code[^>]*>", pre_tag)
@@ -202,6 +246,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 pre_tag = (pre_tag[:code_open.end()]
                            + self._wrap_code_lines(pre_tag[code_open.end():code_close])
                            + pre_tag[code_close:])
+            lang = ''
+            if cursor["i"] < len(langs):
+                lang = langs[cursor["i"]] or ''
+            cursor["i"] += 1
+            label = f'<span class="code-lang" aria-hidden="true">{lang}</span>' if lang else ''
+            wrapper_cls = 'code-block-wrapper has-lang' if lang else 'code-block-wrapper'
             controls = (
                 '<div class="code-block-controls">'
                 '<button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行">'
@@ -224,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 '</button>'
                 '</div>'
             )
-            return f'<div class="code-block-wrapper">{controls}\n{pre_tag}</div>'
+            return f'<div class="{wrapper_cls}">{label}{controls}\n{pre_tag}</div>'
 
         # 匹配 <pre> 标签，允许 <pre> 内 <code> 前存在 <span> 等标签
         # 例如 <pre><span ...></span><code>...</code></pre>
@@ -273,7 +323,9 @@ document.addEventListener('DOMContentLoaded', () => {
         # 每一行末 增加两个空格 以自动换行
         md_text = '\n'.join(line + '  ' for line in md_text.splitlines())
         body_html = self.md.convert(md_text)
-        body_html = self._add_controls(body_html)
+        # 高亮器会丢弃围栏语言, 转换前按出现顺序预扫描, 转换后回填标签
+        langs = self._extract_fence_langs(md_text)
+        body_html = self._add_controls(body_html, langs)
         body_html = self._add_lazy_loading(body_html)
 
         full_html = f"""

@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from types import SimpleNamespace
 
 from jinja2 import Environment, FileSystemLoader
+from github import GithubException
 
 from Gmeek import (
     GMEEK, IconList, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
@@ -16,6 +17,8 @@ from Gmeek import (
     deterministic_color, replace_issue_refs, tag_data, is_html_stale, search_settings,
 )
 from md2html import Markdown2GithubHtml
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 UTC = timezone.utc
 T0 = datetime(2025, 1, 1, tzinfo=UTC)
@@ -653,3 +656,129 @@ class TestSearchIndexWorkflow:
         assert content.index("cp -a /opt/Gmeek/docs") < content.index("pagefind")
         # 非站点内容(ADR 等)先移除, 避免被索引
         assert content.index("rm -rf ${{ github.workspace }}/docs/adr") < content.index("pagefind")
+
+
+class TestDeletedPruning:
+    def test_prune_one_removes_entry_and_html(self, tmp_path):
+        html = tmp_path / "docs" / "post" / "1.html"
+        html.parent.mkdir(parents=True)
+        html.write_text("<p>x</p>", encoding="utf-8")
+        fake = SimpleNamespace()
+        fake.blogBase = {"postListJson": {"P1": {"htmlDir": str(html)}}, "singeListJson": {}}
+        fake._nav_keys = ["P1"]
+        GMEEK.prune_one(fake, "1")
+        assert "P1" not in fake.blogBase["postListJson"]
+        assert not html.exists()
+        assert fake._nav_keys is None
+
+    def test_runOne_handles_deleted_404(self, tmp_path):
+        html = tmp_path / "docs" / "post" / "5.html"
+        html.parent.mkdir(parents=True)
+        html.write_text("x", encoding="utf-8")
+        fake = SimpleNamespace()
+        fake.blogBase = {"postListJson": {"P5": {"htmlDir": str(html)}}, "singeListJson": {}}
+        fake._nav_keys = ["P5"]
+        fake.checkDir = lambda: None
+        fake.get_nav_keys = lambda: GMEEK.get_nav_keys(fake)
+        rendered = []
+        fake.createPlistHtml = lambda: rendered.append("plist")
+        fake.createFeedXml = lambda: rendered.append("feed")
+        fake.createNavJson = lambda: rendered.append("nav")
+        fake.createSearchHtml = lambda: rendered.append("search")
+        fake.prune_one = lambda n: GMEEK.prune_one(fake, n)
+
+        def _raise(*_a):
+            raise GithubException(404, {"message": "Not Found"})
+
+        fake.repo = SimpleNamespace(get_issue=_raise)
+        # 404 必须被当作删除处理, 不得向上抛异常
+        GMEEK.runOne(fake, "5")
+        assert "P5" not in fake.blogBase["postListJson"]
+        assert not html.exists()
+        assert set(rendered) == {"plist", "feed", "nav", "search"}
+
+    def test_prune_stale_removes_deleted(self, tmp_path):
+        p1 = tmp_path / "docs" / "post" / "1.html"
+        p2 = tmp_path / "docs" / "post" / "2.html"
+        p1.parent.mkdir(parents=True)
+        p1.write_text("x", encoding="utf-8")
+        p2.write_text("x", encoding="utf-8")
+        fake = SimpleNamespace()
+        fake.blogBase = {
+            "postListJson": {"P1": {"htmlDir": str(p1)}, "P2": {"htmlDir": str(p2)}},
+            "singeListJson": {},
+        }
+        # 实况仅含 #1, #2 视为已删除
+        live = SimpleNamespace(number=1, pull_request=None, user=SimpleNamespace(name="anaer"))
+        fake.repo = SimpleNamespace(
+            owner=SimpleNamespace(name="anaer"),
+            get_issues=lambda state: iter([live]),
+        )
+        removed = GMEEK.prune_stale(fake)
+        assert removed == ["2"]
+        assert "P1" in fake.blogBase["postListJson"]
+        assert "P2" not in fake.blogBase["postListJson"]
+        assert p1.exists() and not p2.exists()
+
+
+class TestCodeLangLabel:
+    def test_extract_fence_langs(self):
+        md = "前言\n\n```python\nx\n```\n\n```\nplain\n```\n\n~~~bash\necho\n~~~\n"
+        assert Markdown2GithubHtml()._extract_fence_langs(md) == ["python", "", "bash"]
+
+    def test_convert_adds_language_label(self):
+        html = Markdown2GithubHtml().convert("```python\nprint(1)\n```")
+        assert '<div class="code-block-wrapper has-lang">' in html
+        assert ">python<" in html
+
+    def test_convert_no_label_for_plain(self):
+        html = Markdown2GithubHtml().convert("```\nplain\n```")
+        assert '<div class="code-block-wrapper has-lang">' not in html
+
+    def test_convert_label_alignment_two_fences(self):
+        html = Markdown2GithubHtml().convert("```python\na\n```\n\n```bash\nb\n```")
+        assert html.count('code-block-wrapper has-lang') == 2
+        assert html.find(">python<") < html.find(">bash<")
+
+
+class TestTocIndicators:
+    @staticmethod
+    def _js():
+        with open(os.path.join(ROOT, "assets", "toc.js"), encoding="utf-8") as f:
+            return f.read()
+
+    def test_toggle_button_created(self):
+        js = self._js()
+        assert "toc-toggle" in js
+        assert "itemByWrapper" in js
+
+    def test_open_class_drives_collapse(self):
+        js = self._js()
+        assert ".toc-item:not(.open) > .toc-children" in js
+        assert "classList.toggle('open'" in js
+
+
+class TestSectionsFold:
+    @staticmethod
+    def _js():
+        with open(os.path.join(ROOT, "assets", "sections.js"), encoding="utf-8") as f:
+            return f.read()
+
+    def test_section_wrap_and_toggle_present(self):
+        js = self._js()
+        assert "heading-section" in js
+        assert "section-toggle" in js
+        assert "classList.toggle('collapsed')" in js
+
+    def test_sections_script_loaded_in_post(self):
+        with open(os.path.join(ROOT, "templates", "post.html"), encoding="utf-8") as f:
+            assert "assets/sections.js" in f.read()
+
+
+class TestPostSearchBox:
+    def test_post_header_has_search_form(self):
+        html = TestTemplateSmoke._render("post.html", TestTemplateSmoke._post_base())
+        assert 'class="post-search"' in html
+        assert 'name="q"' in html
+        # 提交到站内检索页(读取 ?q= 触发), 而非跳转 GitHub
+        assert "https://example.com/blog/search.html" in html

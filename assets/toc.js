@@ -61,9 +61,27 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /* 子节点默认折叠, 滚动到所在小节时由脚本展开 */
-    .toc-children.collapsed {
+    .toc-item {
+        position: relative;
+    }
+    .toc-item:not(.open) > .toc-children {
         display: none;
     }
+    .toc-toggle {
+        position: absolute;
+        left: 0;
+        top: 6px;
+        padding: 0 2px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-diff-blob-addition-num-text);
+        line-height: 1;
+        outline: none;
+    }
+    .toc-toggle .ic-minus { display: none; }
+    .toc-item.open .toc-toggle .ic-plus { display: none; }
+    .toc-item.open .toc-toggle .ic-minus { display: inline-block; }
 `;
 
     let contentContainer = document.getElementById('content');
@@ -90,10 +108,12 @@ document.addEventListener("DOMContentLoaded", function() {
             children: [],
             link: null,
             childrenEl: null,
+            wrapper: null,
             expanded: false
         };
     });
     const itemByHeading = new Map();
+    const itemByWrapper = new Map();
     const stack = [];
     items.forEach(function(item) {
         if (!item.heading.id) {
@@ -110,24 +130,37 @@ document.addEventListener("DOMContentLoaded", function() {
         itemByHeading.set(item.heading, item);
     });
 
-    // 渲染: 每个节点 = 链接 + 子节点容器(默认折叠)
+    // 渲染: 每个节点 = 切换按钮(有子节点时) + 链接 + 子节点容器(默认折叠)
     items.forEach(function(item) {
         const wrapper = document.createElement('div');
         wrapper.className = 'toc-item';
+
+        if (item.children.length > 0) {
+            wrapper.classList.add('has-children');
+            const toggle = document.createElement('button');
+            toggle.className = 'toc-toggle';
+            toggle.setAttribute('aria-label', '折叠/展开');
+            toggle.innerHTML = '<svg class="ic-plus" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M8 3.5v9M3.5 8h9"/></svg>'
+                + '<svg class="ic-minus" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M3.5 8h9"/></svg>';
+            wrapper.appendChild(toggle);
+        }
 
         const link = document.createElement('a');
         link.href = '#' + item.heading.id;
         link.textContent = item.heading.textContent;
         link.className = 'toc-link';
-        link.style.paddingLeft = `${(item.level - 1) * 10}px`;
+        const padBase = (item.level - 1) * 10;
+        link.style.paddingLeft = `${padBase + (item.children.length > 0 ? 16 : 0)}px`;
         wrapper.appendChild(link);
 
         const childrenEl = document.createElement('div');
-        childrenEl.className = 'toc-children collapsed';
+        childrenEl.className = 'toc-children';
         wrapper.appendChild(childrenEl);
 
         item.link = link;
         item.childrenEl = childrenEl;
+        item.wrapper = wrapper;
+        itemByWrapper.set(wrapper, item);
 
         if (item.parent) {
             item.parent.childrenEl.appendChild(wrapper);
@@ -193,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const shouldExpand = expanded.has(it) && it.children.length > 0;
             if (shouldExpand !== it.expanded) {
                 it.expanded = shouldExpand;
-                it.childrenEl.classList.toggle('collapsed', !shouldExpand);
+                it.wrapper.classList.toggle('open', shouldExpand);
                 expandedChanged = true;
             }
         });
@@ -251,6 +284,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (item) {
                     applyState(item);
                 }
+            }
+        });
+    });
+
+    // 点击 +/− 切换: 手动展开/折叠该节点的子目录(独立于滚动自动跟随)
+    tocElement.querySelectorAll('button.toc-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const wrapper = btn.closest('.toc-item');
+            const item = itemByWrapper.get(wrapper);
+            if (item) {
+                item.wrapper.classList.toggle('open');
             }
         });
     });

@@ -40,6 +40,10 @@
 - `pytest` 96 passed（含语言与结果前缀派生、检索页接线、索引范围标记、入口不再指向 issue、CI 步骤顺序）。
 - 本地端到端：用真实模板渲染 2 篇文章 + 列表页 + 检索页，Pagefind 在 4 个 HTML 中只索引 2 个文章页；结果链接按 `baseUrl` 补全为 `https://example.com/blog/post/N.html`，`meta.title` 取到文章标题。
 
+## 关联文档
+
+- 检索入口扩展至文章页：[ADR-0012 文章页搜索框](ADR-0012-post-page-search-box.md)
+
 ## 下一步
 
 合并后跑一次构建（`workflow_dispatch`），确认线上 `/search.html` 可检索、`/pagefind/` 资源可加载。

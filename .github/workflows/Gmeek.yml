@@ -3,7 +3,7 @@ name: build Gmeek
 on:
   workflow_dispatch:
   issues:
-    types: [opened, edited]
+    types: [opened, edited, deleted]
   # push:
     # branches: [main]
 
@@ -53,7 +53,20 @@ jobs:
               cp -a backup /opt/Gmeek/backup
           fi
           cd /opt/Gmeek/
-          uv run --frozen python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
+          ACTION="${{ github.event.action }}"
+          EVENT="${{ github.event_name }}"
+          if [ "$EVENT" = "issues" ] && [ "$ACTION" = "deleted" ]; then
+              # 删除事件: runOne 捕获 404 自动清理单条索引, 并移除已发布 HTML
+              uv run --frozen python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
+              rm -f ${{ github.workspace }}/docs/post/${{ github.event.issue.number }}.html
+          elif [ "$EVENT" = "workflow_dispatch" ]; then
+              # 手动触发: 全量重建并整体覆盖(顺带清理残留的已删帖子 HTML)
+              uv run --frozen python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }}
+              rm -rf ${{ github.workspace }}/docs
+              cp -a /opt/Gmeek/docs ${{ github.workspace }}
+          else
+              uv run --frozen python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
+          fi
           cp -a /opt/Gmeek/assets /opt/Gmeek/docs/assets
           cp -a /opt/Gmeek/docs ${{ github.workspace }}
           # docs/adr、glossary、review 仅存于 main, 不进 blog 分支

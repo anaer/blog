@@ -10,7 +10,7 @@ import urllib
 import requests
 import argparse
 from datetime import datetime, timedelta, timezone
-from github import Github, Auth
+from github import Github, Auth, GithubException
 from feedgen.feed import FeedGenerator
 from jinja2 import Environment, FileSystemLoader
 from bs4 import BeautifulSoup
@@ -585,7 +585,20 @@ class GMEEK():
         # 变更前的导航序快照: 用于定位「旧相邻」文章
         old_keys = list(self.get_nav_keys())
 
-        issue=self.repo.get_issue(int(number_str))
+        try:
+            issue=self.repo.get_issue(int(number_str))
+        except GithubException as e:
+            # 404 表示 issue 已被删除: 清理残留索引并重渲染列表页, 不中断构建
+            if getattr(e, "status", None) == 404:
+                print(f"issue #{number_str} 不存在(可能已删除), 清理残留索引并重渲染列表")
+                self.prune_one(number_str)
+                self.createPlistHtml()
+                self.createFeedXml()
+                self.createNavJson()
+                self.createSearchHtml()
+                print("====== create static html end ======")
+                return
+            raise
         post = self.addOnePostJson(issue)
         if post:
             # 索引已更新, 导航序缓存失效需重算(必须在渲染前失效, 否则沿用旧序)
@@ -619,17 +632,60 @@ class GMEEK():
             break
         print("====== create static html end ======")
 
+    def prune_one(self, number_str):
+        """移除单个 issue 的索引条目与 HTML(供 runOne 处理 404 删除事件)。"""
+        postNum = "P" + str(number_str)
+        for listJsonName in ("postListJson", "singeListJson"):
+            entry = self.blogBase[listJsonName].pop(postNum, None)
+            if entry:
+                html_path = entry.get("htmlDir")
+                if html_path and os.path.isfile(html_path):
+                    try:
+                        os.remove(html_path)
+                    except OSError:
+                        pass
+        self._nav_keys = None
+
+    def prune_stale(self):
+        """对账索引与仓库实况: 删除索引中存在但仓库已不存在(被删)的条目及其 HTML; 返回被移除的文章编号列表。"""
+        live = set()
+        for issue in self.repo.get_issues(state="all"):
+            if should_include_issue(issue, self.repo.owner.name):
+                live.add(str(issue.number))
+        removed = []
+        for listJsonName in ("postListJson", "singeListJson"):
+            for key in list(self.blogBase[listJsonName].keys()):
+                num = key[1:]  # 单页与普通文章均用 'P' 前缀
+                if num not in live:
+                    entry = self.blogBase[listJsonName].pop(key)
+                    html_path = entry.get("htmlDir")
+                    if html_path and os.path.isfile(html_path):
+                        try:
+                            os.remove(html_path)
+                        except OSError:
+                            pass
+                    removed.append(num)
+        return removed
+
 #########################################################################
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("github_token", help="github_token")
     parser.add_argument("repo_name", help="repo_name")
     parser.add_argument("--issue_number", help="issue_number", default=0, required=False)
+    parser.add_argument("--prune", action="store_true", help="reconcile index with repo and drop deleted issues", default=False)
     options = parser.parse_args()
 
     blog=GMEEK(options)
 
-    if options.issue_number=="0" or options.issue_number=="":
+    if options.prune:
+        print("prune stale")
+        blog.prune_stale()
+        blog.createPlistHtml()
+        blog.createFeedXml()
+        blog.createNavJson()
+        blog.createSearchHtml()
+    elif options.issue_number=="0" or options.issue_number=="":
         print("runAll")
         blog.runAll()
     else:
