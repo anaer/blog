@@ -1,0 +1,33 @@
+name: Check external links
+
+on:
+  schedule:
+    # 每日 01:00 UTC = 北京时间 09:00
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-links:
+    name: Check article external links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source (checker script + config)
+        uses: actions/checkout@v4
+
+      - name: Checkout built site (blog branch)
+        uses: actions/checkout@v4
+        with:
+          ref: blog
+          path: site
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 结果仅输出到运行日志(不创建 issue、不改动仓库)
+      - name: Check external links
+        run: python scripts/check_links.py --dir site/docs/post
