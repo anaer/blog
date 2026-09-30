@@ -62,7 +62,7 @@ DELIMITER ;
 
 ```
 
-查询事件执行情况:
+## 查询事件执行情况:
 
 ```sql
 SELECT EVENT_NAME, LAST_EXECUTED
@@ -71,7 +71,7 @@ WHERE EVENT_NAME = 'ev_drop_daily_table';
 ```
 
 
-定时删除历史数据:
+## 定时删除历史数据:
 
 ```sql
 CREATE EVENT IF NOT EXISTS `ev_delete_history` 
