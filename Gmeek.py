@@ -180,11 +180,13 @@ class GMEEK():
         初始化配置, 主要用于runAll
         runOne 因为有重新赋值, 没用到
         '''
+        # 内置默认值始终参与合并(状态文件瘦身后不再携带这些键)
+        defaults={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","i18n":"CN","dayTheme":"light","nightTheme":"dark"}
         if os.path.exists("blogBase.json"):
             with open('blogBase.json', 'r', encoding='utf-8') as f:
                 dconfig = json.loads(f.read())
         else:
-            dconfig={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","i18n":"CN","dayTheme":"light","nightTheme":"dark"}
+            dconfig = {}
 
         if os.path.exists("config.json"):
             with open('config.json', 'r', encoding='utf-8') as f:
@@ -192,7 +194,7 @@ class GMEEK():
         else:
             config = {}
 
-        self.blogBase={**dconfig,**config}.copy()
+        self.blogBase={**defaults,**dconfig,**config}.copy()
 
         if "postListJson" not in self.blogBase:
             self.blogBase["postListJson"] = {}

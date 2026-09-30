@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """批次 A/B 纯函数单测: 收录过滤 / 置顶判定 / 缓存与重建 / 导航 / 时间 / 引用替换 / 色标 / tag 数据投影 / 图片懒加载 / 行号包裹 / 渲染版本 / 模板冒烟。"""
 import calendar
+import json
 import os
 import re
 from datetime import datetime, timezone
@@ -9,9 +10,9 @@ from types import SimpleNamespace
 from jinja2 import Environment, FileSystemLoader
 
 from Gmeek import (
-    GMEEK, IconList, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue, resolve_regen_mode,
-    slim_state, nav_order, nav_neighbors, format_datetime_utc8, format_date_utc8, deterministic_color,
-    replace_issue_refs, tag_data, is_html_stale,
+    GMEEK, IconList, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
+    resolve_regen_mode, slim_state, nav_order, nav_neighbors, format_datetime_utc8, format_date_utc8,
+    deterministic_color, replace_issue_refs, tag_data, is_html_stale,
 )
 from md2html import Markdown2GithubHtml
 
@@ -421,3 +422,29 @@ class TestWrapCodeLines:
     def test_convert_produces_line_spans(self):
         html = self._tool().convert("```python\nprint(1)\nprint(2)\n```")
         assert html.count('<span class="cl">') == 2
+
+
+class TestDefaultConfig:
+    @staticmethod
+    def _fake():
+        return SimpleNamespace(repo=SimpleNamespace(full_name="x/y"), labelColorDict={})
+
+    def test_slim_state_falls_back_to_defaults(self, tmp_path, monkeypatch):
+        # 负向控制: 瘦身后的 blogBase.json(无 i18n 等键) 必须回落内置默认值, 而不是 KeyError
+        (tmp_path / "blogBase.json").write_text(json.dumps({"postListJson": {}, "singeListJson": {}}), encoding="utf-8")
+        (tmp_path / "config.json").write_text(json.dumps({"title": "T"}), encoding="utf-8")
+        monkeypatch.chdir(tmp_path)
+        fake = self._fake()
+        GMEEK.defaultConfig(fake)
+        assert fake.blogBase["i18n"] == "CN"
+        assert fake.blogBase["onePageListNum"] == 15
+        assert fake.blogBase["title"] == "T"
+        assert fake.i18n is i18nCN
+
+    def test_config_overrides_defaults(self, tmp_path, monkeypatch):
+        (tmp_path / "config.json").write_text(json.dumps({"i18n": "EN"}), encoding="utf-8")
+        monkeypatch.chdir(tmp_path)
+        fake = self._fake()
+        GMEEK.defaultConfig(fake)
+        assert fake.blogBase["i18n"] == "EN"
+        assert fake.i18n is i18n
