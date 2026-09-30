@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<html lang="zh-CN" data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://anaer.github.io/blog/assets/Primer@21.1.1/primer.css" rel="stylesheet" />
-    <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
-    <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
+    <link href="https://anaer.github.io/blog/assets/primer-subset.css" rel="stylesheet" />
     <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
     <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
-    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        // 访问统计在 DOM 就绪后注入, 不占用首屏关键路径
+        document.addEventListener("DOMContentLoaded", function () {
+            var s = document.createElement("script");
+            s.src = "https://events.vercount.one/js";
+            s.async = true;
+            document.head.appendChild(s);
+        });
+    </script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
@@ -17,7 +23,8 @@
     </script>
     
 <title>我关注的项目这周更新了什么-2025-11-07</title>
-
+<link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+<link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -89,8 +96,12 @@ pre {
     background-color: #0056b3; /* 悬停时改变背景颜色 */
 }
 
-.previous_page {text-align: left;}
-.next_page {text-align: right;}
+/* 上一页靠左、下一页靠右: 用 flex 自动两端对齐 */
+.paginate-container .pagination {display: flex; align-items: center;}
+.paginate-container .previous_page {margin-right: auto;}
+.paginate-container .next_page {margin-left: auto;}
+/* 无相邻文章时收起分页区 */
+.paginate-container:not(:has(a)) {display: none;}
 </style>
 
 
@@ -128,7 +139,7 @@ pre {
 
 <div class="listLabels">
     <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#关注">关注</a></object>
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#%E5%85%B3%E6%B3%A8">关注</a></object>
         </span>
 </div>
 <br>
@@ -140,7 +151,7 @@ pre {
     <strong>AI总结:</strong> 本文介绍了多个软件的更新和修复情况，包括Cherry Studio v1.6.7的错误修复和稳定性提升，subs-check v1.4.4的功能增强和流量统计修复，mihomo v1.19.16的多项修复和支持新功能，fit-framework v3.5.5的安全问题修复和功能增强，Folo desktop v1.1.0的用户体验改进和问题修复，ssh-action v1.2.3的脚本执行改进和文档更新，以及ExplorerPatcher 26100.4946.69.6_7384790对Windows环境的增强和多项修复。文本中没有明显的错误观点。
 </div>
 
-<div class="markdown-body" id="postBody">
+<div class="markdown-body" id="postBody" data-pagefind-body>
 
   <article class="markdown-body">
     <h1 id="1-cherry-studio-v167">1. <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.6.7">cherry-studio v1.6.7</a></h1>
@@ -308,8 +319,12 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 
-</div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/169.html" aria-label="Previous Page">elasticsearch-7.6.2安装</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/167.html" aria-label="Next Page">mysql事件调度</a></div>
+</div>
+
+<nav class="paginate-container" aria-label="Pagination"
+     data-nav-url="https://anaer.github.io/blog/nav.json"
+     data-post-number="168">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/167.html" aria-label="Previous Page">MySQL事件调度</a><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/169.html" aria-label="Next Page">elasticsearch-7.6.2安装</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -420,6 +435,7 @@ function iFrameLoading(){
 
 
 <script src="https://anaer.github.io/blog/assets/toc.js"></script>
+<script src="https://anaer.github.io/blog/assets/nav.js"></script>
 
 
 </html>

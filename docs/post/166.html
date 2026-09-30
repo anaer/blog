@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<html lang="zh-CN" data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -96,8 +96,12 @@ pre {
     background-color: #0056b3; /* 悬停时改变背景颜色 */
 }
 
-.previous_page {text-align: left;}
-.next_page {text-align: right;}
+/* 上一页靠左、下一页靠右: 用 flex 自动两端对齐 */
+.paginate-container .pagination {display: flex; align-items: center;}
+.paginate-container .previous_page {margin-right: auto;}
+.paginate-container .next_page {margin-left: auto;}
+/* 无相邻文章时收起分页区 */
+.paginate-container:not(:has(a)) {display: none;}
 </style>
 
 
@@ -145,7 +149,7 @@ pre {
 
 <p>
 
-<div class="markdown-body" id="postBody">
+<div class="markdown-body" id="postBody" data-pagefind-body>
 
   <article class="markdown-body">
     <h2 id="http">Http状态码</h2>
@@ -480,8 +484,12 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 
-</div><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/165.html" aria-label="Previous Page">我关注的项目这周更新了什么-2025-10-31</a><!-- <span style="width:200px" aria-disabled="true"></span> --><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/167.html" aria-label="Next Page">mysql事件调度</a></div>
+</div>
+
+<nav class="paginate-container" aria-label="Pagination"
+     data-nav-url="https://anaer.github.io/blog/nav.json"
+     data-post-number="166">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/165.html" aria-label="Previous Page">我关注的项目这周更新了什么-2025-10-31</a><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/167.html" aria-label="Next Page">MySQL事件调度</a></div>
 </nav>
 
 <!-- 编辑按钮 -->
@@ -592,6 +600,7 @@ function iFrameLoading(){
 
 
 <script src="https://anaer.github.io/blog/assets/toc.js"></script>
+<script src="https://anaer.github.io/blog/assets/nav.js"></script>
 
 
 </html>
