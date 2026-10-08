@@ -14,18 +14,24 @@ document.addEventListener("DOMContentLoaded", function () {
 .heading-section { position: relative; }
 .heading-section > .section-toggle {
     display: inline-flex;
-    vertical-align: middle;
-    margin-right: 6px;
+    /* 图标定尺(14px + 上下内边距 = 18px 盒高): 用「0.35em(半字高) - 9px(半盒高)」把盒底定到基线,
+       使图标中心落在字高中心; 直接用 middle 会对齐到 x-height 中线, 视觉偏低约 0.1em */
+    vertical-align: calc(0.35em - 9px);
+    margin-right: 2px;
     border: none;
     background: transparent;
     cursor: pointer;
-    color: inherit;
-    opacity: .55;
-    padding: 0;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: var(--fgColor-muted, var(--color-fg-muted));
+    opacity: .6;
     line-height: 1;
-    transition: opacity .2s;
+    transition: opacity .2s, background .2s;
 }
-.heading-section > .section-toggle:hover { opacity: 1; }
+.heading-section > .section-toggle:hover {
+    opacity: 1;
+    background: var(--bgColor-muted, var(--color-canvas-subtle));
+}
 .heading-section > .section-toggle .ic-chevron {
     transition: transform .2s ease;
 }

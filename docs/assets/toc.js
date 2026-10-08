@@ -70,15 +70,23 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     .toc-toggle {
         position: absolute;
-        left: 0;
-        top: 6px;
-        padding: 0 2px;
+        /* left/top 为内边距的负补偿: 使图标落点与目录项文字左对齐 */
+        left: -2px;
+        top: 4px;
+        display: inline-flex;
+        padding: 2px 4px;
         border: none;
         background: transparent;
         cursor: pointer;
-        color: var(--color-diff-blob-addition-num-text);
+        border-radius: 4px;
+        color: var(--fgColor-muted, var(--color-fg-muted));
+        opacity: .6;
         line-height: 1;
-        outline: none;
+        transition: opacity .2s, background .2s;
+    }
+    .toc-toggle:hover {
+        opacity: 1;
+        background: var(--bgColor-muted, var(--color-canvas-subtle));
     }
     .toc-toggle .ic-minus { display: none; }
     .toc-item.open .toc-toggle .ic-plus { display: none; }

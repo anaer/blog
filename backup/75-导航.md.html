@@ -54,7 +54,6 @@
 <li><a href="https://www.yikm.net/">小霸王</a>  </li>
 <li><a href="https://wangchujiang.com/free-font/">免费字体</a>  </li>
 <li><a href="http://mc.alger.fun/#/">在线音乐🎵</a>  </li>
-<li><a href="https://dabmusic.xyz/">DAB Music Player 无损音乐下载</a>  </li>
 </ul>
 <h2 id="_6">软件服务</h2>
 <ul>
@@ -162,50 +161,34 @@
   z-index: 2;
   display: flex;
   gap: 2px;
-  opacity: 0.45;
-  transition: opacity 0.2s;
 }
-.code-block-wrapper:hover .code-block-controls,
-.code-block-wrapper:focus-within .code-block-controls {
-  opacity: 1;
-}
+/* 内容区图标按钮统一语言: 常态半透明 + 主题 muted 色, hover 转不透明并加主题背景 */
 .fold-btn, .copy-btn, .code-toggle {
   border: none;
   background: transparent;
   cursor: pointer;
-  padding: 2px 6px;
+  padding: 2px 4px;
   font-size: 16px;
   line-height: 1;
-  outline: none;
-  box-shadow: none;
-  transition: background 0.2s;
+  border-radius: 4px;
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  opacity: .6;
+  transition: opacity 0.2s, background 0.2s;
 }
 .fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+  opacity: 1;
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
 }
 .fold-btn svg { display: block; }
 .fold-btn .ic-fold { transition: transform 0.2s ease; }
 .code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
-.fold-btn, .code-toggle, .copy-btn {
-  color: #6e7681;
-}
-[data-color-mode="dark"] .fold-btn,
-[data-color-mode="dark"] .code-toggle,
-[data-color-mode="dark"] .copy-btn {
-  color: #8b949e;
-}
 /* 复制成功反馈: 图标切换为 check 并短暂转为绿色 */
 .copy-btn.copied {
-  color: #1a7f37;
-}
-[data-color-mode="dark"] .copy-btn.copied {
-  color: #3fb950;
+  color: var(--color-success-fg);
+  opacity: 1;
 }
 .code-toggle.off {
-  color: #c6cbd1;
-}
-[data-color-mode="dark"] .code-toggle.off {
-  color: #484f58;
+  color: var(--color-primer-fg-disabled);
 }
 .highlight code {
   counter-reset: cl;
@@ -228,11 +211,8 @@
   left: 0;
   width: 2.4em;
   text-align: right;
-  color: #6e7681;
+  color: var(--fgColor-muted, var(--color-fg-muted));
   user-select: none;
-}
-[data-color-mode="dark"] .highlight .cl::before {
-  color: #8b949e;
 }
 .code-block-wrapper.folded .cl ~ .cl {
   display: none;
@@ -271,16 +251,12 @@
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 12px;
   letter-spacing: .5px;
-  color: #6e7681;
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
   padding: 0 6px;
   border-radius: 4px;
   user-select: none;
   opacity: .85;
-}
-[data-color-mode="dark"] .code-lang {
-  color: #8b949e;
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
 }
 /* 移动端 / 触屏(hover: none): 控件常显并加大点按区域;
    同时为控件预留顶部空间, 避免绝对定位的按钮遮挡代码首行 */
@@ -289,7 +265,6 @@
     top: 2px;
     right: 2px;
     gap: 0;
-    opacity: 1;
   }
   .code-block-wrapper,
   .code-block-wrapper.has-lang {
@@ -302,6 +277,7 @@
   }
   .fold-btn, .copy-btn, .code-toggle {
     padding: 5px 8px;
+    opacity: 1;   /* 触屏无 hover, 常显 */
   }
   .code-lang {
     top: 7px;
