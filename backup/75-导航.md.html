@@ -6,7 +6,7 @@
 <li><a href="https://www.toolkitpub.com/zh">开发者必备工具箱</a> 字母图标设计器  </li>
 <li><a href="https://github.com/dashboard-feed">Github</a>  </li>
 <li><a href="https://wannianli.tianqi.com/">万年历</a>  </li>
-<li><a href="https://whatshub.top/quantumultx">qx规则配置</a>  </li>
+<li><a href="https://yfamilys.com/">qx规则配置</a>  </li>
 <li><a href="https://mvnrepository.com/">Mvn Repository</a>  </li>
 <li><a href="https://central.sonatype.com/">Maven 仓库搜索</a>  </li>
 <li><a href="https://en.wikipedia.org/wiki/Z-Library">Z-Library 维基百科</a>  </li>
@@ -186,12 +186,20 @@
 .fold-btn svg { display: block; }
 .fold-btn .ic-fold { transition: transform 0.2s ease; }
 .code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
-.fold-btn, .code-toggle {
+.fold-btn, .code-toggle, .copy-btn {
   color: #6e7681;
 }
 [data-color-mode="dark"] .fold-btn,
-[data-color-mode="dark"] .code-toggle {
+[data-color-mode="dark"] .code-toggle,
+[data-color-mode="dark"] .copy-btn {
   color: #8b949e;
+}
+/* 复制成功反馈: 图标切换为 check 并短暂转为绿色 */
+.copy-btn.copied {
+  color: #1a7f37;
+}
+[data-color-mode="dark"] .copy-btn.copied {
+  color: #3fb950;
 }
 .code-toggle.off {
   color: #c6cbd1;
@@ -208,7 +216,11 @@
   padding-left: 3.2em;
   position: relative;
   line-height: 1.45;
+  /* 关键: .markdown-body pre>code 设了 white-space:pre, .cl 会继承它而无法换行;
+     显式声明 pre-wrap 才能保留缩进并允许自动换行 */
+  white-space: pre-wrap;
   overflow-wrap: anywhere;
+  word-break: normal;
 }
 .highlight .cl::before {
   content: counter(cl);
@@ -225,20 +237,21 @@
 .code-block-wrapper.folded .cl ~ .cl {
   display: none;
 }
-/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+/* 折叠态仅保留首行: 禁止换行但保留缩进(用 pre 而非 nowrap, 后者会吞掉空格), 长行横向滚动 */
 .code-block-wrapper.folded {
   overflow-x: auto;
 }
 .code-block-wrapper.folded pre,
 .code-block-wrapper.folded .highlight .cl {
-  white-space: nowrap;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap .cl {
+  white-space: pre;
   overflow-wrap: normal;
 }
 .code-block-wrapper.nowrap pre {
   white-space: pre;
-}
-.code-block-wrapper.nowrap .cl {
-  overflow-wrap: normal;
 }
 .code-block-wrapper.nolines .cl {
   padding-left: 0;
@@ -269,6 +282,39 @@
   color: #8b949e;
   background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
 }
+/* 移动端 / 触屏(hover: none): 控件常显并加大点按区域;
+   同时为控件预留顶部空间, 避免绝对定位的按钮遮挡代码首行 */
+@media (hover: none), (max-width: 767px) {
+  .code-block-controls {
+    top: 2px;
+    right: 2px;
+    gap: 0;
+    opacity: 1;
+  }
+  .code-block-wrapper,
+  .code-block-wrapper.has-lang {
+    padding-top: 30px;
+  }
+  /* 提高特异性以覆盖 .markdown-body .highlight pre{padding:16px} */
+  .code-block-wrapper pre,
+  .code-block-wrapper .highlight pre {
+    padding-top: 10px;
+  }
+  .fold-btn, .copy-btn, .code-toggle {
+    padding: 5px 8px;
+  }
+  .code-lang {
+    top: 7px;
+    left: 8px;
+  }
+  /* 窄屏行号槽收窄, 给代码留出更多宽度 */
+  .highlight .cl {
+    padding-left: 2.8em;
+  }
+  .highlight .cl::before {
+    width: 2em;
+  }
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -295,9 +341,11 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
       navigator.clipboard.writeText(code).then(() => {
-        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
         setTimeout(() => {
-          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+          btn.classList.remove('copied');
+          btn.innerHTML = '<svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
         }, 1500);
       });
     });

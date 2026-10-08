@@ -44,6 +44,34 @@ body{
 #header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
 #footer {margin-top:64px; text-align: center;font-size: small;}
 
+/* 图标统一为线性描边(icons.py 单一数据源): 覆盖 primer 的 .octicon{fill:currentColor}, 否则填充会破坏描边风格 */
+svg.octicon{fill:none;stroke:currentColor}
+
+/* 站内搜索框: 列表页 / 标签页 / 文章页共用同一组件(圆角输入框 + 图标提交按钮)。
+   配色走主题变量, 明暗自适应; 窄屏保留但收窄, 不整块隐藏 */
+.site-search{display:inline-flex;align-items:center;gap:4px;margin-right:8px;}
+.site-search input[type="search"]{
+    width:160px;max-width:40vw;padding:4px 8px;font-size:14px;
+    border:1px solid var(--borderColor-default, var(--color-border-default));
+    border-radius:6px;
+    background:var(--bgColor-default, var(--color-canvas-default));
+    color:var(--fgColor-default, var(--color-fg-default));
+    outline:none;
+}
+.site-search input[type="search"]:focus{
+    border-color:var(--fgColor-accent, var(--color-accent-fg));
+    width:200px;
+}
+.site-search button{
+    border:none;background:transparent;cursor:pointer;padding:4px;
+    color:var(--fgColor-muted, var(--color-fg-muted));display:inline-flex;
+}
+@media (max-width: 767px) {
+    .site-search{margin-right:4px;}
+    .site-search input[type="search"]{width:104px;}
+    .site-search input[type="search"]:focus{width:132px;}
+}
+
 </style>
 
 <style>
@@ -52,6 +80,32 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 .title-right .circle{padding: 14px 16px;margin-right:8px;}
 #postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
 #postBody hr{height:2px;}
+
+/* github-markdown-css 只按 prefers-color-scheme 切换正文配色, 与站点手动开关(data-color-mode)不同步:
+   当「系统浅色 + 站点切到深色」时, 正文会保留深色文字压在深色页面上 → 不可见。
+   这里按站点开关重新绑定它消费的 token(取值同 github-markdown-css@5.2.0 的明/暗两块), 使正文跟随站点开关。 */
+[data-color-mode="light"] .markdown-body{
+    --color-fg-default:#24292f; --color-fg-muted:#57606a; --color-fg-subtle:#6e7781;
+    --color-canvas-default:#ffffff; --color-canvas-subtle:#f6f8fa;
+    --color-border-default:#d0d7de; --color-border-muted:hsla(210,18%,87%,1);
+    --color-neutral-muted:rgba(175,184,193,0.2);
+    --color-accent-fg:#0969da; --color-accent-emphasis:#0969da;
+    --color-attention-subtle:#fff8c5; --color-danger-fg:#cf222e;
+}
+[data-color-mode="dark"] .markdown-body{
+    --color-fg-default:#c9d1d9; --color-fg-muted:#8b949e; --color-fg-subtle:#6e7681;
+    --color-canvas-default:#0d1117; --color-canvas-subtle:#161b22;
+    --color-border-default:#30363d; --color-border-muted:#21262d;
+    --color-neutral-muted:rgba(110,118,129,0.4);
+    --color-accent-fg:#58a6ff; --color-accent-emphasis:#1f6feb;
+    --color-attention-subtle:rgba(187,128,9,0.15); --color-danger-fg:#f85149;
+}
+
+/* 文章元信息(发布于/更新于): 取主题变量, 保证深色底上仍可读 */
+.post-meta{font-size:14px;color:var(--color-fg-muted);}
+.post-meta time{font-weight:bold;color:var(--color-fg-default);}
+/* AI 总结框: 边框随主题 */
+.post-summary{border:1px dashed var(--color-border-default);background:var(--color-canvas-subtle);padding:10px;margin-bottom:20px;border-radius:6px;}
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
 .g-emoji{font-size:24px;}
@@ -103,35 +157,7 @@ pre {
 /* 无相邻文章时收起分页区 */
 .paginate-container:not(:has(a)) {display: none;}
 
-/* 文章页搜索框: 复用站内检索页(search.html 读取 ?q= 并触发) */
-.post-search { display: inline-flex; align-items: center; margin-right: 8px; gap: 4px; }
-.post-search input[type="search"] {
-    width: 120px;
-    max-width: 40vw;
-    padding: 4px 8px;
-    font-size: 14px;
-    border: 1px solid var(--borderColor-muted, var(--color-border-muted));
-    border-radius: 6px;
-    background: var(--bgColor-default, var(--color-canvas-default, #fff));
-    color: var(--fgColor-default, var(--color-fg-default, #1f2328));
-    outline: none;
-}
-[data-color-mode="dark"] .post-search input[type="search"] {
-    background: var(--bgColor-muted, #161b22);
-    color: #e6edf3;
-}
-.post-search input[type="search"]:focus {
-    border-color: var(--fgColor-accent, var(--color-accent-fg));
-    width: 170px;
-}
-.post-search button {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    padding: 4px;
-    color: #6e7681;
-    display: inline-flex;
-}
+/* 文章页搜索框: 复用 base.html 的共享 .site-search 组件, 提交到站内检索页(search.html 读取 ?q= 触发) */
 </style>
 
 
@@ -146,27 +172,21 @@ pre {
 <div class="title-right">
 
     <a href="https://anaer.github.io/blog"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
-        </svg>
+        <svg class="octicon" id="pathHome" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
     </button></a>
 
     <a href="https://github.com/anaer/blog/issues/74" target="_blank"><button class="btn btn-invisible circle" title="Issue">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
-        </svg>
+        <svg class="octicon" id="pathIssue" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
     </button></a>
 
     <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
-        <svg class="octicon" width="16" height="16" >
-            <path id="themeSwitch" fill-rule="evenodd"></path>
-        </svg>
+        <svg class="octicon" id="themeSwitch" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
     </button>
 
-    <form class="post-search" action="https://anaer.github.io/blog/search.html" method="get" role="search">
+    <form class="site-search" action="https://anaer.github.io/blog/search.html" method="get" role="search">
         <input type="search" name="q" placeholder="搜索" aria-label="搜索" />
         <button type="submit" title="搜索" aria-label="搜索">
-            <svg class="octicon" width="16" height="16"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
+            <svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         </button>
     </form>
 
@@ -184,11 +204,11 @@ pre {
 <br>
 
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
-<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-02-10 14:16:14</time></span>
+<span class="post-meta post-publish" id="postPublish">发布于 <time>2025-02-10 14:16:14</time></span>
 
-<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-02-26 16:41:16</time></span>
+<span class="post-meta post-update">更新于 <time>2025-02-26 16:41:16</time></span>
 
-<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+<p><div class="post-summary">
     <strong>AI总结:</strong> 本文介绍了在Linux系统上安装和配置Ollama的步骤，包括使用安装脚本、解压缩包、启动服务、查询和拉取模型的命令，以及如何将Ollama与Nginx和客户端Cherry Studio集成。此外，还讨论了RAG技术和AnythingLLM的安装与配置，提供了相关的Docker和Nginx配置示例。
 
 优化建议：
@@ -642,7 +662,19 @@ if("2023-09-08"!=""){
     <script src="https://anaer.github.io/blog/assets/oneko.js/oneko.js"></script>
 </body>
 <script>
-var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
+var IconList={'post': '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/>', 'link': '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>', 'about': '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>', 'sun': '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>', 'moon': '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>', 'search': '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>', 'rss': '<path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1" fill="currentColor" stroke="none"/>', 'upload': '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/>', 'github': '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>', 'home': '<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>', 'subway': '<rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m16 19 2 3"/><path d="M8 15h.01"/><path d="M16 15h.01"/>', 'plus': '<path d="M12 5v14"/><path d="M5 12h14"/>', 'minus': '<path d="M5 12h14"/>', 'chevron': '<path d="m6 9 6 6 6-6"/>', 'copy': '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>', 'check': '<path d="M20 6 9 17l-5-5"/>', 'wrap': '<path d="M3 6h18"/><path d="M3 12h15a3 3 0 1 1 0 6h-4"/><path d="m16 16-2 2 2 2"/><path d="M3 18h5"/>', 'lines': '<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>', 'fold': '<path d="m18 15-6-6-6 6"/>'};
+var IconViewBox="0 0 24 24";
+var IconStrokeWidth="1.5";
+// 统一图标渲染: 与 icons.py / macro.html 保持同一风格(24x24 线性描边), 供 toc.js、sections.js、tag.html 等复用
+function renderIcon(name, size, cls){
+    size = size || 16;
+    cls = (cls === undefined) ? "octicon" : cls;
+    var inner = (window.IconList && IconList[name]) || "";
+    var clsAttr = cls ? ' class="' + cls + '"' : "";
+    return '<svg' + clsAttr + ' width="' + size + '" height="' + size + '" viewBox="' + IconViewBox + '"'
+        + ' fill="none" stroke="currentColor" stroke-width="' + IconStrokeWidth + '"'
+        + ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+}
 var utterancesLoad=0;
 if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
 else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
@@ -650,18 +682,20 @@ else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
 
 function changeDark(){
     document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
-    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
-    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    document.getElementById("themeSwitch").innerHTML=IconList["moon"];
+    document.getElementById("themeSwitch").style.color="#00f0ff";
     if(utterancesLoad==1){utterancesTheme("dark-blue");}
 }
 function changeLight(){
     document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
-    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
-    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    document.getElementById("themeSwitch").innerHTML=IconList["sun"];
+    document.getElementById("themeSwitch").style.color="#ff5000";
     if(utterancesLoad==1){utterancesTheme("github-light");}
 }
 function modeSwitch(){
-    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    // 明暗状态取自 data-color-mode; 不可按下标取属性——<html> 的首个属性是 lang
+    var root=document.getElementsByTagName("html")[0];
+    if(root.getAttribute("data-color-mode")=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
     else{changeLight();localStorage.setItem("meek_theme","light");}
 }
 function utterancesTheme(theme){
