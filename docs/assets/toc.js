@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
         left:50%;
         transform: translateX(50%) translateX(320px);
         width:200px;
-        border: 1px solid #e1e4e8;
+        border: 1px solid var(--color-border-default);
         border-radius: 6px;
         padding: 10px;
         overflow-y: auto;
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .toc-title{
         font-weight: bold;
         text-align: center;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid var(--color-border-muted);
         padding-bottom: 8px;
     }
     .toc-end{
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
         padding: 5px 0;
         font-size: 14px;
         line-height: 1.5;
-        border-bottom: 1px solid #e1e4e8;
+        border-bottom: 1px solid var(--color-border-muted);
     }
     .toc a:last-child {
         border-bottom: none;
@@ -55,9 +55,10 @@ document.addEventListener("DOMContentLoaded", function() {
         background-color: var(--color-select-menu-tap-focus-bg);
     }
 
+    /* 高亮背景须随主题, 否则深色下与浅色文字同色, 当前项不可见 */
     .toc-link.active {
         font-weight: bold;
-        background-color: #b6e3ff;
+        background-color: var(--color-accent-subtle);
     }
 
     /* 子节点默认折叠, 滚动到所在小节时由脚本展开 */
