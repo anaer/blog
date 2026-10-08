@@ -45,6 +45,7 @@
 ## 关联文档
 
 - 检索入口扩展至文章页：[ADR-0012 文章页搜索框](ADR-0012-post-page-search-box.md)
+- [ADR-0021](ADR-0021-search-result-meta.md)：在其检索页与索引范围之上扩展结果的展示内容（标签 + issue 入口）。
 
 ## 下一步
 

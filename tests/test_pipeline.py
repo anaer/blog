@@ -811,6 +811,39 @@ class TestSearchBoxSizing:
         assert clear_top + clear_h <= input_h + 0.01
 
 
+class TestSearchResultMeta:
+    """检索结果展示标签与 issue 入口: 依赖文章页输出的 Pagefind meta。"""
+
+    @staticmethod
+    def _post(**over):
+        return TestTemplateSmoke._render("post.html", TestTemplateSmoke._post_base(**over))
+
+    def test_post_emits_pagefind_meta(self):
+        html = self._post(labels=["前端", "blog"], postSourceUrl="https://github.com/x/y/issues/7")
+        # 必须写成 [content] 形式: 默认取元素 textContent, 而 <meta> 的 textContent 为空
+        assert 'data-pagefind-meta="labels[content]"' in html
+        assert 'data-pagefind-meta="source[content]"' in html
+        assert "https://github.com/x/y/issues/7" in html
+
+    def test_labels_merged_into_single_json_value(self):
+        # 同名 meta 出现多个元素时只保留最后一个, 故标签必须合并成一个值
+        html = self._post(labels=["前端", "blog"])
+        m = re.search(r'data-pagefind-meta="labels\[content\]" content=\'([^\']*)\'', html)
+        assert m, "标签 meta 缺失"
+        assert json.loads(m.group(1)) == ["前端", "blog"]
+        assert html.count('data-pagefind-meta="labels[content]"') == 1
+
+    def test_search_page_decorates_results(self):
+        html = TestSearchPageSmoke._render("search.html", TestSearchPageSmoke._plist_base())
+        assert "processResult" in html
+        assert "pagefind-ui__result-meta" in html
+        assert "pagefind-ui__result-labels" in html
+        # 元信息挂在标题元素内, 使其紧随标题同排(标题行已改为 flex)
+        assert 'card.querySelector(".pagefind-ui__result-title")' in html
+        # 图标与文章页 Issue 按钮同款(icons.py 单一数据源)
+        assert 'renderIcon("github"' in html
+
+
 class TestThemeSwitch:
     """主题切换: modeSwitch 必须按名读取 data-color-mode。
 

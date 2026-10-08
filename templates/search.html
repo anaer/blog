@@ -23,7 +23,25 @@
 }
 /* 清除按钮文字会随 scale 缩到 10.5px, 单独提回可读字号(不影响其高度与垂直居中) */
 #search .pagefind-ui__search-clear{font-size:12px;}
-#search .pagefind-ui__result-title{font-size:16px;}
+
+/* 结果标题行: 标题 + 标签 + issue 入口 同排, 空间不足时整体换行 */
+#search .pagefind-ui__result-title{
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    font-size:16px;
+}
+/* 标题后的元信息: 文章标签 + issue 入口(由脚本按索引 meta 注入, 见 block script) */
+#search .pagefind-ui__result-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+#search .pagefind-ui__result-labels{display:flex;gap:6px;flex-wrap:wrap;margin:0;padding:0;list-style:none;}
+#search .pagefind-ui__result-labels li{
+    font-size:12px;line-height:1.7;padding:0 8px;border-radius:10px;
+    background:var(--bgColor-muted, var(--color-canvas-subtle));
+    color:var(--fgColor-muted, var(--color-fg-muted));
+}
+#search .pagefind-ui__result-source{
+    display:inline-flex;color:var(--fgColor-muted, var(--color-fg-muted));
+    opacity:.7;transition:opacity .2s;
+}
+#search .pagefind-ui__result-source:hover{opacity:1;}
 
 #searchTitle{margin:auto 0;font-size:35px;font-weight:bold;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 .title-right{display:flex;margin:auto 0 0 auto;}
@@ -56,14 +74,96 @@
 <script src="{{ blogBase['homeUrl'] }}/pagefind/pagefind-ui.js"></script>
 <script>
 window.addEventListener("DOMContentLoaded", function () {
+    // 索引内每篇文章的 meta(labels/source) 按 url 收集, 供结果渲染后补挂页脚
+    var metaByUrl = {};
+
+    function absUrl(u) {
+        try { return new URL(u, window.location.href).href; } catch (e) { return u; }
+    }
+    // 同时按完整 URL 与路径索引, 免去 Pagefind 与 DOM 在编码/前缀上的细微差异
+    function urlKeys(u) {
+        var abs = absUrl(u);
+        try { return [abs, new URL(abs).pathname]; } catch (e) { return [abs]; }
+    }
+    function lookup(u) {
+        var keys = urlKeys(u);
+        for (var i = 0; i < keys.length; i++) {
+            if (metaByUrl[keys[i]]) { return metaByUrl[keys[i]]; }
+        }
+        return null;
+    }
+    function parseLabels(raw) {
+        try {
+            var v = JSON.parse(raw || "[]");
+            return Array.isArray(v) ? v : [];
+        } catch (e) { return []; }
+    }
+
+    // Pagefind 组件 UI 不提供结果模板, 故在其结果渲染后补挂页脚。
+    // data 标记保证幂等: 补挂自身会再次触发观察器, 无此标记会陷入循环。
+    function decorate(scope) {
+        scope.querySelectorAll(".pagefind-ui__result").forEach(function (card) {
+            if (card.dataset.gmDecorated) { return; }
+            var link = card.querySelector(".pagefind-ui__result-link");
+            var info = link && lookup(link.getAttribute("href"));
+            if (!info) { return; }
+            card.dataset.gmDecorated = "1";
+
+            var meta = document.createElement("div");
+            meta.className = "pagefind-ui__result-meta";
+
+            if (info.labels.length) {
+                var ul = document.createElement("ul");
+                ul.className = "pagefind-ui__result-labels";
+                info.labels.forEach(function (name) {
+                    var li = document.createElement("li");
+                    li.textContent = name;
+                    ul.appendChild(li);
+                });
+                meta.appendChild(ul);
+            }
+            if (info.source) {
+                var a = document.createElement("a");
+                a.className = "pagefind-ui__result-source";
+                a.href = info.source;
+                a.target = "_blank";
+                a.rel = "noopener";
+                a.title = "Issue";
+                a.setAttribute("aria-label", "Issue");
+                // 图标取自 base.html 的 renderIcon(单一数据源 icons.py), 与文章页 Issue 按钮同款
+                a.innerHTML = (typeof renderIcon === "function") ? renderIcon("github", 16, "octicon") : "";
+                meta.appendChild(a);
+            }
+            // 挂在标题元素内, 使其紧随标题同排; 标题行已是 flex, 空间不足时整体换行
+            if (meta.childNodes.length) {
+                var title = card.querySelector(".pagefind-ui__result-title");
+                (title || card.querySelector(".pagefind-ui__result-inner") || card).appendChild(meta);
+            }
+        });
+    }
+
     var ui = new PagefindUI({
         element: "#search",
         // 索引内的链接为站点根相对路径, 需按实际部署前缀补全
         baseUrl: "{{ blogBase['searchBaseUrl'] }}",
         showSubResults: true,
         showImages: false,
-        pageSize: 10
+        pageSize: 10,
+        processResult: function (result) {
+            var m = result.meta || {};
+            var info = { labels: parseLabels(m.labels), source: m.source || "" };
+            urlKeys(result.url).forEach(function (k) { metaByUrl[k] = info; });
+            return result;
+        }
     });
+
+    var host = document.getElementById("search");
+    if (host) {
+        decorate(host);
+        new MutationObserver(function () { decorate(host); })
+            .observe(host, { childList: true, subtree: true });
+    }
+
     // 承接列表页搜索框提交的 ?q=
     var term = new URLSearchParams(window.location.search).get("q");
     if (term) { ui.triggerSearch(term); }

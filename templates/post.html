@@ -3,6 +3,10 @@
 
 {% block head %}
 <title>{{ blogBase['postTitle'] }}</title>
+{# 检索结果展示用 meta: Pagefind 读取 data-pagefind-meta, 需写成 [content] 形式(默认取 textContent, <meta> 为空)。
+   同名多个元素只保留最后一个, 故标签合并成一个 JSON 值。 #}
+<meta data-pagefind-meta="labels[content]" content='{{ blogBase['labels']|tojson }}' />
+<meta data-pagefind-meta="source[content]" content="{{ blogBase['postSourceUrl'] }}" />
 <link href="{{ blogBase['homeUrl'] }}/assets/highlight.css" rel="stylesheet" />
 <link href="{{ blogBase['homeUrl'] }}/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
 {% endblock %}
