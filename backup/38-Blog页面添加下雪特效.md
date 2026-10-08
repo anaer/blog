@@ -7,7 +7,7 @@
     <script src="{{ blogBase['homeUrl'] }}/assets/snowfall@1.7/snowfall.js"></script>
 ```
 
-在<script>块添加
+在`<script>`块添加
 ```js
 snowFall.snow(document.body, {round : true, shadow : true, minSize: 5, maxSize:8});
 ```

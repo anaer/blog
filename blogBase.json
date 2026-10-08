@@ -887,16 +887,15 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/38",
             "commentNum": 0,
             "createdAt": 1736835568,
-            "updatedAt": 1737538758,
+            "updatedAt": 1791450133,
             "top": -1,
             "style": "",
             "script": "",
             "description": "",
             "createdDate": "2025-01-14",
-            "dateLabelColor": "hsl(239, 55%, 17%)",
-            "buildedAt": 1737538758,
-            "renderVersion": 3,
-            "dateLabelHue": 239
+            "dateLabelHue": 239,
+            "buildedAt": 1791450133,
+            "renderVersion": 13
         },
         "P39": {
             "number": "39",
