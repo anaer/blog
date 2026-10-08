@@ -1,39 +1,24 @@
-// 运行时按全站导航数据(nav.json)计算并填充上一页/下一页,
-// 使链接始终与最新文章顺序一致, 不依赖该页自身何时被构建。
-// nav.json 拉取失败时保留服务端渲染的静态兜底链接。
+// 运行时按全站标签数据(nav.json)计算并渲染「关联文章」:
+// 关联度 = 与当前文章共享的标签数; 同分沿用 nav.json 的列表序(置顶优先、更新时间降序)。
+// nav.json 每次构建全量重写, 因此新增或改标签都不必回刷旧文章页。
+var RELATED_LIMIT = 5;
+
 document.addEventListener("DOMContentLoaded", function () {
-    var nav = document.querySelector(".paginate-container[data-nav-url]");
-    if (!nav) {
-        return;
-    }
-    var navUrl = nav.getAttribute("data-nav-url");
-    var current = (nav.getAttribute("data-post-number") || "").trim();
-    var container = nav.querySelector(".pagination");
-    if (!navUrl || !current || !container) {
+    var box = document.querySelector(".related-posts[data-nav-url]");
+    if (!box) {
         return;
     }
 
-    function setLink(className, rel, label, item, isPrev) {
-        var a = container.querySelector("." + className);
-        if (!item) {
-            if (a) {
-                a.remove();
-            }
-            return;
-        }
-        if (!a) {
-            a = document.createElement("a");
-            a.className = className;
-            a.setAttribute("rel", rel);
-            a.setAttribute("aria-label", label);
-            if (isPrev) {
-                container.insertBefore(a, container.firstChild);
-            } else {
-                container.appendChild(a);
-            }
-        }
-        a.href = item.url;
-        a.textContent = item.title;
+    function hide() {
+        box.remove();
+    }
+
+    var navUrl = box.getAttribute("data-nav-url");
+    var current = (box.getAttribute("data-post-number") || "").trim();
+    var labels = readLabels(box.getAttribute("data-labels"));
+    if (!navUrl || !current || !labels.length) {
+        hide();
+        return;
     }
 
     fetch(navUrl)
@@ -42,22 +27,78 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(function (list) {
             if (!Array.isArray(list)) {
+                hide();
                 return;
             }
-            var index = -1;
+            var hits = [];
             for (var i = 0; i < list.length; i++) {
-                if (String(list[i].number) === current) {
-                    index = i;
-                    break;
+                var item = list[i];
+                if (String(item.number) === current || !Array.isArray(item.labels)) {
+                    continue;
+                }
+                var score = sharedCount(labels, item.labels);
+                if (score > 0) {
+                    hits.push({item: item, score: score});
                 }
             }
-            if (index < 0) {
+            // Array.prototype.sort 稳定: 同分条目保持 nav.json 的列表序
+            hits.sort(function (a, b) {
+                return b.score - a.score;
+            });
+            if (!hits.length) {
+                hide();
                 return;
             }
-            setLink("previous_page", "previous", "Previous Page", index > 0 ? list[index - 1] : null, true);
-            setLink("next_page", "next", "Next Page", index < list.length - 1 ? list[index + 1] : null, false);
+            render(box, hits.slice(0, RELATED_LIMIT));
         })
-        .catch(function () {
-            // 静默失败: 保留静态兜底
-        });
+        .catch(hide);
 });
+
+function readLabels(raw) {
+    if (!raw) {
+        return [];
+    }
+    try {
+        var parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function sharedCount(a, b) {
+    var score = 0;
+    for (var i = 0; i < a.length; i++) {
+        if (b.indexOf(a[i]) !== -1) {
+            score++;
+        }
+    }
+    return score;
+}
+
+function render(box, hits) {
+    var heading = document.createElement("div");
+    heading.className = "related-heading";
+    heading.textContent = box.getAttribute("data-heading");
+    box.appendChild(heading);
+
+    for (var i = 0; i < hits.length; i++) {
+        var item = hits[i].item;
+        var link = document.createElement("a");
+        link.className = "SideNav-item d-flex flex-items-center";
+        link.href = item.url;
+
+        var icon = document.createElement("span");
+        // 图标走单一数据源(base.html 的 renderIcon, 由 icons.py 注入)
+        icon.innerHTML = typeof renderIcon === "function"
+            ? renderIcon("post", 16, "SideNav-icon octicon") : "";
+        link.appendChild(icon);
+
+        var title = document.createElement("span");
+        title.className = "related-item-title";
+        title.textContent = item.title;
+        link.appendChild(title);
+
+        box.appendChild(link);
+    }
+}

@@ -22,4 +22,4 @@ http://myecs/.well-known/pki-validation/xxx.txt
 
 ## 相关链接
 
-[Nginx常见问题处理](https://gixy.getpagespeed.com/zh/)
+[Gixy: NGINX 安全与配置加固扫描器](https://gixy.getpagespeed.com/zh/)
