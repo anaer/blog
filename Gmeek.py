@@ -215,6 +215,9 @@ class GMEEK():
         self.desc_retry_budget = MAX_DESC_RETRY
         self._nav_keys = None
 
+        # 占位默认值, 供 defaultConfig 引用; 具体值在 defaultConfig 之后按 GitHub 标签重算后覆盖
+        self.labelHueDict = {}
+
         self.defaultConfig()
 
         # 标签色相来源由 labelColorMode 决定: derived=按名称派生(默认), github=取 GitHub 标签色的色相。

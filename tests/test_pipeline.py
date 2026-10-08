@@ -373,6 +373,19 @@ class TestLabelHueTheme:
         html = self._render("post.html", TestTemplateSmoke._post_base(labels=["未登记"], labelHueDict={}))
         assert "--label-hue:210" in html
 
+    def test_init_initialises_labelHueDict_before_defaultConfig(self):
+        # 回归: __init__ 调用 defaultConfig() 时, self.labelHueDict 必须先有占位值,
+        # 否则 defaultConfig 第 255 行 self.blogBase["labelHueDict"]=self.labelHueDict 会 AttributeError。
+        # 测试不实际实例化 GMEEK(GitHub 网络), 直接审计源码行序。
+        import inspect
+        src, start = inspect.getsourcelines(GMEEK.__init__)
+        body = "".join(src)
+        idx_init = body.find("self.labelHueDict =")
+        idx_default = body.find("self.defaultConfig(")
+        assert idx_init != -1,  "GMEEK.__init__ 必须先对 self.labelHueDict 赋值"
+        assert idx_default != -1
+        assert idx_init < idx_default, "self.labelHueDict 的占位值必须在 defaultConfig 调用之前"
+
 
 class TestReplaceIssueRefs:
     @staticmethod
