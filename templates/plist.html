@@ -10,10 +10,6 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 .title-right{display:flex;margin:auto 0 0 auto;}
 .title-right button{margin-right:8px;padding:16px;}
 
-.subnav-search{margin-top:8px;margin-right:8px;}
-.subnav-search-input{width:160px;border-top-right-radius:0px;border-bottom-right-radius:0px;}
-.subnav-search button{padding:5px 8px;border-top-left-radius:0px;border-bottom-left-radius:0px;}
-
 .title-right .circle{padding: 14px 16px;}
 
 .SideNav{min-width: 360px;}
@@ -22,8 +18,6 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 @media (max-width: 767px) {
     body { padding: 8px;}
     h1 a:not([href]){font-size:24px;}
-    .subnav-search form{display:none;}
-    .subnav-search svg{display:none;}
     #buttonRSS{display:none;}
     .SideNav-item .listLabels{display:none;}
 }
@@ -38,13 +32,12 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <a>{{ blogBase['displayTitle'] }}</a>
 </h1>
 <div class="title-right">
-    <div class="subnav-search">
-        <form action="{{ blogBase['homeUrl'] }}/search.html" method="get">
-            <input type="search" name="q" class="form-control subnav-search-input float-left" aria-label="Search site" value="">
-            <button class="btn float-left" type="submit">{{ i18n['Search'] }}</button>
-        </form>
-        {{ icons.icon('search', cls='subnav-search-icon octicon') }}
-    </div>
+    <form class="site-search" action="{{ blogBase['homeUrl'] }}/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="{{ i18n['Search'] }}" aria-label="{{ i18n['Search'] }}" />
+        <button type="submit" title="{{ i18n['Search'] }}" aria-label="{{ i18n['Search'] }}">
+            {{ icons.icon('search') }}
+        </button>
+    </form>
     {% for num in blogBase['singeListJson'] -%}
     <a href="{{ blogBase['homeUrl'] }}/{{ blogBase['singeListJson'][num]['label'] }}.html"><button class="btn btn-invisible circle" title="{{ blogBase['singeListJson'][num]['postTitle'] }}">
         {{ icons.icon(blogBase['singeListJson'][num]['label'], id=blogBase['singeListJson'][num]['postTitle']) }}

@@ -11,10 +11,6 @@
 .title-right{display:flex;margin:auto 0 0 auto;}
 .title-right .circle{padding: 14px 16px;margin-right:8px;}
 
-.subnav-search{width:222px;margin-top:8px;margin-right:8px;}
-.subnav-search-input{width:160px;border-top-right-radius:0px;border-bottom-right-radius:0px;}
-.subnav-search button{padding:5px 8px;border-top-left-radius:0px;border-bottom-left-radius:0px;}
-
 .SideNav-icon{margin-right:16px}
 .Label{color: #fff;margin-left:4px;}
 #taglabel .Label {margin-bottom:8px;}
@@ -36,10 +32,11 @@
 {% block header %}
 <span class="tagTitle"><span>Loading</span><span class="AnimatedEllipsis"></span></span>
 <div class="title-right">
-    <div class="subnav-search">
-        <input type="search" class="form-control subnav-search-input float-left" aria-label="Search site" value="" style="height:32px;">
-        <button class="btn float-left" type="submit" onclick="javascript:searchShow()">{{ i18n['Search'] }}</button>
-        {{ icons.icon('search', cls='subnav-search-icon octicon', id='searchSVG') }}
+    <div class="site-search">
+        <input type="search" class="site-search-input" placeholder="{{ i18n['Search'] }}" aria-label="{{ i18n['Search'] }}" />
+        <button type="button" title="{{ i18n['Search'] }}" aria-label="{{ i18n['Search'] }}" onclick="searchShow()">
+            {{ icons.icon('search') }}
+        </button>
     </div>
     <a href="{{ blogBase['homeUrl'] }}" id="buttonHome" class="btn btn-invisible circle" title="{{ i18n['home'] }}">
         {{ icons.icon('home', id='pathHome') }}
@@ -151,7 +148,7 @@ function setClassDisplay(label){
     let tagTitle = document.getElementsByClassName("tagTitle")[0];
     tagTitle.innerHTML="Tag #"+label;
     document.title=label+" - {{ blogBase['title'] }}";
-    document.getElementsByClassName("subnav-search-input")[0].value='';
+    document.querySelector(".site-search-input").value='';
     if(label=="All"){
         for(let i = 0; i < lists.length; i++){lists[i].style.display='block';}
         document.getElementsByClassName("notFind")[0].style.display='none';
@@ -168,7 +165,7 @@ function setClassDisplay(label){
         document.getElementsByClassName("notFind")[0].style.display='none';
     }
     else{
-        document.getElementsByClassName("subnav-search-input")[0].value=label;
+        document.querySelector(".site-search-input").value=label;
         searchShow();
     }
 }
@@ -176,7 +173,7 @@ function setClassDisplay(label){
 function searchShow(){
     let lists = document.getElementsByClassName("lists");
     let tagTitle = document.getElementsByClassName("tagTitle")[0];
-    let searchInput = document.getElementsByClassName("subnav-search-input")[0].value;
+    let searchInput = document.querySelector(".site-search-input").value;
     tagTitle.innerHTML="Search #"+searchInput;
     if(searchInput==''){document.title="Search - {{ blogBase['title'] }}";}
     else{document.title=searchInput+" - {{ blogBase['title'] }}";}

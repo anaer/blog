@@ -91,35 +91,7 @@ pre {
 /* 无相邻文章时收起分页区 */
 .paginate-container:not(:has(a)) {display: none;}
 
-/* 文章页搜索框: 复用站内检索页(search.html 读取 ?q= 并触发) */
-.post-search { display: inline-flex; align-items: center; margin-right: 8px; gap: 4px; }
-.post-search input[type="search"] {
-    width: 120px;
-    max-width: 40vw;
-    padding: 4px 8px;
-    font-size: 14px;
-    border: 1px solid var(--borderColor-muted, var(--color-border-muted));
-    border-radius: 6px;
-    background: var(--bgColor-default, var(--color-canvas-default, #fff));
-    color: var(--fgColor-default, var(--color-fg-default, #1f2328));
-    outline: none;
-}
-[data-color-mode="dark"] .post-search input[type="search"] {
-    background: var(--bgColor-muted, #161b22);
-    color: #e6edf3;
-}
-.post-search input[type="search"]:focus {
-    border-color: var(--fgColor-accent, var(--color-accent-fg));
-    width: 170px;
-}
-.post-search button {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    padding: 4px;
-    color: var(--color-fg-muted);
-    display: inline-flex;
-}
+/* 文章页搜索框: 复用 base.html 的共享 .site-search 组件, 提交到站内检索页(search.html 读取 ?q= 触发) */
 </style>
 {{ blogBase['style'] }}
 
@@ -143,7 +115,7 @@ pre {
         {{ icons.icon('sun', id='themeSwitch') }}
     </button>
 
-    <form class="post-search" action="{{ blogBase['homeUrl'] }}/search.html" method="get" role="search">
+    <form class="site-search" action="{{ blogBase['homeUrl'] }}/search.html" method="get" role="search">
         <input type="search" name="q" placeholder="{{ i18n['Search'] }}" aria-label="{{ i18n['Search'] }}" />
         <button type="submit" title="{{ i18n['Search'] }}" aria-label="{{ i18n['Search'] }}">
             {{ icons.icon('search') }}

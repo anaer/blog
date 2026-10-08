@@ -13,8 +13,8 @@
 
 ## 决策
 
-1. **复用既有检索页**：`templates/post.html` 头部新增 `form.post-search`，`action="{{ blogBase['homeUrl'] }}/search.html"`、`method="get"`、输入 `name="q"`；提交后落到 ADR-0007 的检索页，`?q=` 由 Pagefind UI 的 `triggerSearch` 承接。
-2. **内联样式、明暗自适应**：输入框 + 图标提交按钮，宽度聚焦时展开；配色走 Primer 变量两级回退（`templates/post.html` 的 style 块）。
+1. **复用既有检索页**：`templates/post.html` 头部新增搜索表单，`action="{{ blogBase['homeUrl'] }}/search.html"`、`method="get"`、输入 `name="q"`；提交后落到 ADR-0007 的检索页，`?q=` 由 Pagefind UI 的 `triggerSearch` 承接。
+2. **样式复用共享组件**：表单用 `templates/base.html` 的 `.site-search`（圆角输入框 + 图标提交按钮，配色随主题），文章页不再自带搜索框样式。
    - 不做什么：不在文章页内嵌独立检索结果（避免重复加载 Pagefind 与结果 UI）；不跳转 GitHub。
 
 ## 后果
@@ -24,15 +24,16 @@
 
 ## 实施位置
 
-- `templates/post.html`（header 表单、`{% block style %}` 的 `.post-search` 样式）
+- `templates/post.html`（header 的 `.site-search` 表单）
 
 ## 关联文档
 
 - 复用检索页与索引逻辑：[ADR-0007 站内检索](ADR-0007-on-site-search-pagefind.md)
+- [ADR-0018](ADR-0018-unified-search-box.md)：本 ADR 引入的 `form.post-search` 与内联样式已并入共享 `.site-search` 组件。
 
 ## 验证
 
-- `tests/test_pipeline.py` 断言：post.html 含 `class="post-search"`、表单 `action` 指向 `search.html`、输入 `name="q"`。
+- `tests/test_pipeline.py` 断言：post.html 含 `class="site-search"`、表单 `action` 指向 `search.html`、输入 `name="q"`。
 
 ## 下一步
 

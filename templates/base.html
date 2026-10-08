@@ -47,6 +47,31 @@ body{
 /* 图标统一为线性描边(icons.py 单一数据源): 覆盖 primer 的 .octicon{fill:currentColor}, 否则填充会破坏描边风格 */
 svg.octicon{fill:none;stroke:currentColor}
 
+/* 站内搜索框: 列表页 / 标签页 / 文章页共用同一组件(圆角输入框 + 图标提交按钮)。
+   配色走主题变量, 明暗自适应; 窄屏保留但收窄, 不整块隐藏 */
+.site-search{display:inline-flex;align-items:center;gap:4px;margin-right:8px;}
+.site-search input[type="search"]{
+    width:160px;max-width:40vw;padding:4px 8px;font-size:14px;
+    border:1px solid var(--borderColor-default, var(--color-border-default));
+    border-radius:6px;
+    background:var(--bgColor-default, var(--color-canvas-default));
+    color:var(--fgColor-default, var(--color-fg-default));
+    outline:none;
+}
+.site-search input[type="search"]:focus{
+    border-color:var(--fgColor-accent, var(--color-accent-fg));
+    width:200px;
+}
+.site-search button{
+    border:none;background:transparent;cursor:pointer;padding:4px;
+    color:var(--fgColor-muted, var(--color-fg-muted));display:inline-flex;
+}
+@media (max-width: 767px) {
+    .site-search{margin-right:4px;}
+    .site-search input[type="search"]{width:104px;}
+    .site-search input[type="search"]:focus{width:132px;}
+}
+
 </style>
 {% block style %}{% endblock %}
 

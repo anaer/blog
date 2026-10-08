@@ -1071,10 +1071,67 @@ class TestSectionsFold:
 class TestPostSearchBox:
     def test_post_header_has_search_form(self):
         html = TestTemplateSmoke._render("post.html", TestTemplateSmoke._post_base())
-        assert 'class="post-search"' in html
+        assert 'class="site-search"' in html
         assert 'name="q"' in html
         # 提交到站内检索页(读取 ?q= 触发), 而非跳转 GitHub
         assert "https://example.com/blog/search.html" in html
+
+
+class TestSearchBoxUnification:
+    """三处搜索框(列表页 / 标签页 / 文章页)共用 base.html 的 .site-search 组件。"""
+
+    @staticmethod
+    def _plist_base(**overrides):
+        base = {
+            "title": "T", "homeUrl": "https://example.com/blog", "nightTheme": "dark", "dayTheme": "light",
+            "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
+            "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
+            "lang": "zh-CN", "searchBaseUrl": "https://example.com/blog/",
+            "singeListJson": {}, "labelColorDict": {}, "commentLabelColor": "#006b75",
+            "tagListJson": {}, "themeMode": "auto",
+            "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
+        }
+        base.update(overrides)
+        return base
+
+    def _render(self, tpl, base):
+        return TestTemplateSmoke._render(tpl, base)
+
+    def test_all_three_pages_use_shared_component(self):
+        for tpl in ("plist.html", "tag.html", "post.html"):
+            base = TestTemplateSmoke._post_base(postNumber="1") if tpl == "post.html" else self._plist_base()
+            html = self._render(tpl, base)
+            assert 'class="site-search' in html, tpl
+
+    def test_component_defined_once_in_base(self):
+        # 样式只在 base.html 定义一次, 各页不得再自带搜索框样式
+        base_html = self._render("plist.html", self._plist_base())
+        assert ".site-search input[type=\"search\"]" in base_html
+        for tpl in ("plist.html", "tag.html", "post.html"):
+            base = TestTemplateSmoke._post_base(postNumber="1") if tpl == "post.html" else self._plist_base()
+            html = self._render(tpl, base)
+            assert ".post-search" not in html, tpl
+            assert ".subnav-search" not in html, tpl
+
+    def test_legacy_hooks_removed(self):
+        # 旧类名与死图标(searchSVG 无任何 JS 引用)不得残留
+        for tpl in ("plist.html", "tag.html"):
+            html = self._render(tpl, self._plist_base())
+            assert "subnav-search" not in html, tpl
+            assert "searchSVG" not in html, tpl
+
+    def test_search_kept_on_narrow_screens(self):
+        # 窄屏保留搜索框(不再整块隐藏), 仅收窄
+        compact = self._render("plist.html", self._plist_base()).replace(" ", "")
+        assert ".site-search{display:none}" not in compact
+        assert "site-searchform{display:none" not in compact
+        assert "width:104px" in compact
+
+    def test_tag_js_uses_new_hook(self):
+        html = self._render("tag.html", self._plist_base())
+        assert 'class="site-search-input"' in html
+        assert 'querySelector(".site-search-input")' in html
+        assert "subnav-search-input" not in html
 
 
 class TestIconRegistry:
