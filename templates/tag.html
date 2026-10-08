@@ -45,7 +45,7 @@
         {{ icons.icon('home', id='pathHome') }}
     </a>
     <a class="btn btn-invisible circle" onclick="modeSwitch()" title="{{ i18n['switchTheme'] }}" {%- if blogBase['themeMode']=='fix' -%}style="display:none;"{%- endif -%}>
-        {{ icons.icon('sun', id='themeSwitch', d='') }}
+        {{ icons.icon('sun', id='themeSwitch') }}
     </a>
 </div>
 {% endblock %}

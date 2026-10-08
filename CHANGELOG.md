@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## 26.1008.1028
+
+1. 图标风格统一为 24x24 线性描边(简洁现代, Lucide 风): icons.py 的 ICONS 改为内部标记并统一 viewBox/stroke-width, 宏 macro.html、前端 renderIcon()、代码块控件同步; 新增 svg.octicon 覆盖 primer 的填充规则; 主题切换图标改由 innerHTML 回填(见 ADR-0014 修订, RENDER_VERSION 5)
+
 ## 26.1008.0930
 
-1. 图标统一: 新增 icons.py 单一数据源, 模板经 macro.html 统一渲染, 代码块控件与前端 JS(toc/sections)复用同一套 16x16 填充式图标(见 ADR-0014)
+1. 图标统一: 新增 icons.py 单一数据源, 模板经 macro.html 统一渲染, 代码块控件与前端 JS(toc/sections)复用同一套图标(见 ADR-0014)
 2. 修复 runAll 分页迭代与命令行路由缺陷(手动触发误入 runOne(0)), 并增加 CI 发布安全闸门, 避免清空线上帖子(见 ADR-0013)
 
 ## 25.219.1731

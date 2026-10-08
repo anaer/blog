@@ -13,5 +13,5 @@
 | **单页（singlePage）** | 以单一专属标签（如 link、about）标识的独立页面，生成到站点根路径而非文章列表（见 ADR-0002） |
 | **检索索引** | 构建期由 Pagefind 扫描生成产物目录得到的静态检索数据，输出到 `pagefind/`，仅在检索页按需加载（见 ADR-0007） |
 | **删除清理（prune）** | 构建时将持久化索引与仓库实况（issue 是否存在）对账，剔除已删除 issue 的索引条目与 HTML 的机制（runOne 捕获 404 或 `--prune` 全量对账）（见 ADR-0008） |
-| **图标注册表（icons.py）** | 站点图标的单一数据源，统一为 16×16 填充式路径（`fill=currentColor`），供模板宏 `macro.html`、代码块控件与前端 `renderIcon()` 三方复用（见 ADR-0014） |
-| **renderIcon()** | `base.html` 暴露的前端图标渲染函数，按 `IconList`/`IconViewBox` 生成统一 `<svg>`，供 toc.js、sections.js 等复用（见 ADR-0014） |
+| **图标注册表（icons.py）** | 站点图标的单一数据源，统一为 24×24 线性描边（`fill=none stroke=currentColor stroke-width=1.5`，Lucide 风），供模板宏 `macro.html`、代码块控件与前端 `renderIcon()` 三方复用（见 ADR-0014） |
+| **renderIcon()** | `base.html` 暴露的前端图标渲染函数，按 `IconList`/`IconViewBox`/`IconStrokeWidth` 生成统一线性描边 `<svg>`，供 toc.js、sections.js 等复用（见 ADR-0014） |

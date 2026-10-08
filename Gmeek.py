@@ -16,14 +16,15 @@ from jinja2 import Environment, FileSystemLoader
 from bs4 import BeautifulSoup
 from Summary import generate_summary, summary_configured
 from md2html import Markdown2GithubHtml
-from icons import ICONS as IconList, ICON_VIEWBOX
+from icons import ICONS as IconList, VIEWBOX as IconViewBox, STROKE_WIDTH as IconStrokeWidth
 
 ######################################################################################
 i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home","comments":"comments","run":"run ","days":" days","Previous":"Previous","Next":"Next", "First": "First", "Last": "Last"}
 i18nCN={"Search":"搜索","switchTheme":"切换主题","link":"友情链接","home":"首页","comments":"评论","run":"网站运行","days":"天","Previous":"上一页","Next":"下一页", "First": "首页", "Last":"末页"}
 
 # 渲染器版本: md2html/模板渲染逻辑变更时递增, 触发全站帖子 HTML 重转
-RENDER_VERSION = 4
+# 5: 图标统一为 24x24 线性描边(Lucide 风), 见 icons.py / ADR-0014
+RENDER_VERSION = 5
 
 # 摘要补重试的每构建上限, 防 API 故障时超时叠加拖死构建
 MAX_DESC_RETRY = 10
@@ -261,7 +262,7 @@ class GMEEK():
         file_loader = FileSystemLoader('templates')
         env = Environment(loader=file_loader)
         template = env.get_template(template)
-        output = template.render(blogBase=blogBase,postListJson=postListJson,i18n=self.i18n,IconList=IconList,IconViewBox=ICON_VIEWBOX)
+        output = template.render(blogBase=blogBase,postListJson=postListJson,i18n=self.i18n,IconList=IconList,IconViewBox=IconViewBox,IconStrokeWidth=IconStrokeWidth)
         with open(htmlDir, 'w', encoding='UTF-8') as f:
             f.write(output)
 

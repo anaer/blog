@@ -53,7 +53,7 @@
 7. 如果在评论里面登录后评论报错，可直接按照提示安装`utteranc app`即可
 > Error: utterances is not installed on xxx/xxx.github.io. If you own this repo, install the app. Read more about this change in the PR.
 
-8. IconList 内置图标在Gmeek.py中定义
+8. 内置图标统一定义在 icons.py(24×24 线性描边, Lucide 风), 经模板宏 macro.html、代码块控件与前端 renderIcon() 复用
 
 9. Google Icon图标下载
   https://fonts.google.com/icons?selected=Material+Icons:subway:&icon.query=subway&icon.size=16&icon.color=%235f6368&icon.platform=web
