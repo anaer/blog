@@ -70,8 +70,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     .toc-toggle {
         position: absolute;
-        /* left/top 为内边距的负补偿: 使图标落点与目录项文字左对齐 */
-        left: -2px;
+        /* right-align: 切换按钮贴在每行右内侧, 与右侧面板内边距 2px 齐;
+           左侧不再预留槽位, 链接文字可直接从缩进位起 */
+        right: 2px;
         top: 4px;
         display: inline-flex;
         padding: 2px 4px;
@@ -93,8 +94,9 @@ document.addEventListener("DOMContentLoaded", function() {
     .toc-item.open .toc-toggle .ic-minus { display: inline-block; }
 `;
 
-    // +/− 槽位宽度(px): 与 .toc-toggle 的图标落点对齐(图标 12px + 左右内边距 4px + 间隙)
-    const TOGGLE_SLOT = 16;
+    // 切换按钮占位(右对齐): 按钮 12px 图标 + 左右 4px 内边距 + 4px 缓冲, 共 22px
+    // 左侧不再预留槽位, 缩进只由 (level - 1) * 10 决定
+    const TOGGLE_SLOT = 22;
 
     let contentContainer = document.getElementById('content');
     if (!contentContainer) {
@@ -163,10 +165,11 @@ document.addEventListener("DOMContentLoaded", function() {
         link.href = '#' + item.heading.id;
         link.textContent = item.heading.textContent;
         link.className = 'toc-link';
-        // 每级缩进 10px, 另**无条件**预留 TOGGLE_SLOT 给 +/− 槽位:
-        // 若只给带子节点的项预留, 同级里有子节点与叶子节点的文字会差一个槽位、无法对齐
+        // 缩进 = 每级 10px, 左侧无切换按钮占位(按钮已挪到右侧);
+        // 右侧预留 TOGGLE_SLOT 防止长标题与按钮重叠
         const padBase = (item.level - 1) * 10;
-        link.style.paddingLeft = `${padBase + TOGGLE_SLOT}px`;
+        link.style.paddingLeft = `${padBase}px`;
+        link.style.paddingRight = `${TOGGLE_SLOT}px`;
         wrapper.appendChild(link);
 
         const childrenEl = document.createElement('div');

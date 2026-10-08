@@ -117,11 +117,15 @@ svg.octicon{fill:none;stroke:currentColor}
 /* 标题后的元信息: 文章标签 + issue 入口(由脚本按索引 meta 注入, 见 block script) */
 #search .pagefind-ui__result-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 #search .pagefind-ui__result-labels{display:flex;gap:6px;flex-wrap:wrap;margin:0;padding:0;list-style:none;}
-#search .pagefind-ui__result-labels li{
+#search .pagefind-ui__result-labels li{list-style:none;margin:0;padding:0;}
+/* 标签 chip 配色由 base.html 的 .Label 提供(--label-hue 由脚本按索引 meta 注入);
+   这里只控尺寸/边距, 让 chip 与 post.html / plist.html 上的标签视觉一致 */
+#search .pagefind-ui__result-labels a.Label{
     font-size:12px;line-height:1.7;padding:0 8px;border-radius:10px;
-    background:var(--bgColor-muted, var(--color-canvas-subtle));
-    color:var(--fgColor-muted, var(--color-fg-muted));
+    text-decoration:none;
+    transition:filter .15s ease;
 }
+#search .pagefind-ui__result-labels a.Label:hover{filter:brightness(1.08);}
 #search .pagefind-ui__result-source{
     display:inline-flex;color:var(--fgColor-muted, var(--color-fg-muted));
     opacity:.7;transition:opacity .2s;
@@ -221,6 +225,9 @@ console.log("\n %c Gmeek v2.4 %c https://github.com/Meekdai/Gmeek \n\n", "color:
 <script src="https://anaer.github.io/blog/pagefind/pagefind-ui.js"></script>
 <script>
 window.addEventListener("DOMContentLoaded", function () {
+    // 与 tag.html 同步的色相来源: 名称 -> 整数(0-359)。缺失时回退默认 210, 与 .Label 共享
+    var labelHues = {"AI": 104, "API": 55, "All": 153, "Android": 70, "Blog": 181, "Browser": 5, "CDN": 49, "Catch": 245, "CentOS": 351, "Config": 3, "Database": 159, "ElasticSearch": 179, "Extension": 12, "FAQ": 249, "FrontEnd": 164, "Git": 140, "Help": 174, "Install": 144, "Java": 203, "Jenkins": 340, "LLM": 148, "Life": 117, "Linux": 33, "MQ": 101, "Mac": 200, "Markdown": 298, "Maven": 61, "Monkey": 118, "Movie": 14, "MySQL": 48, "Nacos": 356, "Nats": 150, "Nginx": 112, "NodeJS": 37, "OpenResty": 203, "Python": 157, "RabbitMQ": 26, "Redis": 17, "Script": 31, "Secure": 316, "Server": 345, "Service": 170, "Software": 285, "Spotify": 51, "Spring": 296, "Spring Cloud": 213, "Tool": 305, "TvBox": 252, "Ubuntu": 284, "VSCode": 142, "Vim": 152, "WeChat": 121, "Win10": 181, "Win11": 63, "Wins": 56, "flink": 176, "http": 129, "iOS": 295, "iPhone": 230, "minio": 227, "\u65e5\u5fd7": 133, "\u7b97\u6cd5": 50, "\u82f9\u679cCMS": 281, "\u8f93\u5165\u6cd5": 248};
+
     // 索引内每篇文章的 meta(labels/source) 按 url 收集, 供结果渲染后补挂页脚
     var metaByUrl = {};
 
@@ -264,7 +271,15 @@ window.addEventListener("DOMContentLoaded", function () {
                 ul.className = "pagefind-ui__result-labels";
                 info.labels.forEach(function (name) {
                     var li = document.createElement("li");
-                    li.textContent = name;
+                    // 配色由 base.html 的 .Label 提供; --label-hue 按 labelHues 派生, 缺失回退 210(与 .Label 默认一致)
+                    var hue = (labelHues && labelHues[name] !== undefined) ? labelHues[name] : 210;
+                    var a = document.createElement("a");
+                    a.className = "Label";
+                    a.style.setProperty("--label-hue", hue);
+                    // 跳转到 tag.html 的 hash 锚点; URL 编码与 tag.html 的 setClassDisplay(decodeURIComponent(...)) 闭环
+                    a.href = "https://anaer.github.io/blog/tag.html#" + encodeURIComponent(name);
+                    a.textContent = name;
+                    li.appendChild(a);
                     ul.appendChild(li);
                 });
                 meta.appendChild(ul);
