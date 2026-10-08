@@ -386,6 +386,23 @@ class TestLabelHueTheme:
         assert idx_default != -1
         assert idx_init < idx_default, "self.labelHueDict 的占位值必须在 defaultConfig 调用之前"
 
+    def test_init_resyncs_blogBase_labelHueDict_after_recompute(self):
+        # 回归: 占位空 dict 进了 defaultConfig 后, __init__ 末尾按 GitHub 标签重算 labelHueDict,
+        # 必须把重算结果同步写回 self.blogBase["labelHueDict"], 否则模板读到的仍是占位空 dict。
+        # 测试不实例化 GMEEK(避免真实 GitHub 网络), 走「审计源码行序」+ 校验博客基础映射最终值已重算。
+        import inspect
+        body = "".join(inspect.getsourcelines(GMEEK.__init__)[0])
+        # 找到占位赋值之后, 重算语句之后, 必须存在把 labelHueDict 写回 blogBase 的行
+        assert 'self.blogBase["labelHueDict"] = self.labelHueDict' in body, (
+            "__init__ 末尾必须把重算后的 labelHueDict 写回 blogBase, 供模板消费")
+        # 写回必须在重算之后, 不能放在占位之后(否则仍是空 dict)
+        idx_recompute = body.find("self.repo.get_labels()")
+        idx_resync = body.find('self.blogBase["labelHueDict"] = self.labelHueDict')
+        idx_default = body.find("self.defaultConfig(")
+        assert idx_recompute != -1 and idx_resync != -1 and idx_default != -1
+        assert idx_recompute < idx_resync, "回写必须在重算之后"
+        assert idx_default < idx_resync, "回写必须在 defaultConfig 之后(否则覆盖的就是占位)"
+
 
 class TestReplaceIssueRefs:
     @staticmethod
@@ -503,6 +520,29 @@ class TestTemplateSmoke:
         # 只索引正文容器: 列表页/标签页/搜索页不含该属性, 因此不进索引
         html = self._render("post.html", self._post_base())
         assert 'id="postBody" data-pagefind-body' in html
+
+    def test_post_del_uses_muted_tokens_for_text_and_line(self):
+        # 旧文本视觉退到 muted/subtle, 不抢当前文本权重; 走主题变量, 明暗自适应
+        html = self._render("post.html", self._post_base(postBody='<del>旧实现</del><s>原生</s>'))
+        m = re.search(r'\.markdown-body\s+del\s*\{[^}]+\}', html)
+        assert m, "post.html 必须包含 .markdown-body del 样式"
+        css = m.group(0)
+        assert "color:var(--color-fg-muted)" in css
+        assert "text-decoration:line-through" in css
+        assert "text-decoration-color:var(--color-fg-subtle)" in css
+        # 不应硬编码 hex/rgb, 否则明暗自适应失效
+        assert "#[0-9a-f]" not in css.replace("var(--color-fg-muted)", "").replace("var(--color-fg-subtle)", "")
+        assert "rgb(" not in css
+
+    def test_post_theme_tokens_cover_del_dependencies(self):
+        # data-color-mode=light/dark 的 token 块必须同时给出 fg-muted 与 fg-subtle,
+        # 否则 del 会在某一主题下回落到继承默认色, 等同未生效
+        html = self._render("post.html", self._post_base())
+        for mode in ('light', 'dark'):
+            block = re.search(rf'\[data-color-mode="{mode}"\]\s*\.markdown-body\s*\{{([^}}]+)\}}', html)
+            assert block, f"缺少 {mode} 主题的 .markdown-body token 块"
+            assert "--color-fg-muted:" in block.group(1)
+            assert "--color-fg-subtle:" in block.group(1)
 
     def test_plist_single_page_link_uses_home_url(self):
         base = {

@@ -35,7 +35,10 @@
 
 - **收益：** 配色完全由站点控制且确定可复现；新增标签零配置；明暗两版同一色相自动协调；`tag.html` 内联的 `labelHueDict` 由「名称 → 十六进制」变为「名称 → 整数」，体积更小。
 - **代价 / 权衡：** 标签颜色不再与 GitHub 上的一致（属预期，也是本次目的）；`.Counter` 计数徽标的字色由硬编码白字改为 `inherit`，以适配新的浅底标签。
-- **未解决风险：** 色相由 `md5` 派生，不同标签理论上可能落到同一色相（概率约 `1/360`）；标签数量很大时可考虑拉开色相间距。**2026-10-08 修订**：发现 `GMEEK.__init__` 初始把 `labelHueDict = {…}` 放在 `defaultConfig()` 之后, 而 `defaultConfig` 已先读 `self.labelHueDict`, 真实实例化会 `AttributeError`（单测用 `SimpleNamespace(labelHueDict={})` 占位逃过）。修正：`__init__` 先以空 dict 占位再调 `defaultConfig`, GitHub 标签的实际色相在 `defaultConfig` 之后重算覆盖；新增 `TestLabelHueTheme::test_init_initialises_labelHueDict_before_defaultConfig` 用 `inspect` 审计源码行序, 防止再次错位。
+- **未解决风险：** 色相由 `md5` 派生，不同标签理论上可能落到同一色相（概率约 `1/360`）；标签数量很大时可考虑拉开色相间距。**2026-10-08 修订**：发现两处与初始化顺序相关的隐藏 bug —
+  - **(1) `AttributeError`**：`GMEEK.__init__` 把 `labelHueDict = {…}` 放在 `defaultConfig()` 之后，而 `defaultConfig` 已先读 `self.labelHueDict`，真实实例化会崩。修正：`__init__` 先以空 dict 占位再调 `defaultConfig`，真实色相在之后重算覆盖；新增 `test_init_initialises_labelHueDict_before_defaultConfig` 用 `inspect` 审计行序。
+  - **(2) 模板拿到空 dict**：第 (1) 步加了占位后，`defaultConfig` 把空 dict 写进了 `blogBase["labelHueDict"]`。`__init__` 末尾重算仅覆盖 `self.labelHueDict` 不够——`plist.html` / `post.html` / `tag.html` 模板读的是 `blogBase["labelHueDict"]`，仍会拿到空 dict，标签全回退默认色相 210。修正：在重算之后加一行 `self.blogBase["labelHueDict"] = self.labelHueDict`；新增 `test_init_resyncs_blogBase_labelHueDict_after_recompute` 钉死重算 / 回写 / 行序三条 invariant。
+  - 两处均未被既有单测发现：既有 `TestDefaultConfig` 用 `SimpleNamespace(labelHueDict={})` 直接调用 `defaultConfig`，既绕过了 `__init__` 路径、也未断言 `blogBase` 被回写。教训：跨方法（含 `__init__` ↔ 其他实例方法）的初始化交互，要么走真实的 `GMEEK(options)` 实例化（mock 网络），要么单测明确声明「不覆盖此路径」并在 ADR / 注释里给出原因。
 
 ## 实施位置
 

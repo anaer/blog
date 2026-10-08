@@ -227,6 +227,9 @@ class GMEEK():
             label.name: label_hue(label.name, label.color, mode)
             for label in self.repo.get_labels()
         }
+        # 同步回 blogBase: 模板(plist/post/tag)读取 blogBase['labelHueDict'];
+        # defaultConfig 早些时候已拿占位空 dict 写过一次, 这里用真值覆盖, 否则模板全回退到默认色相
+        self.blogBase["labelHueDict"] = self.labelHueDict
 
     def defaultConfig(self):
         '''
