@@ -85,7 +85,11 @@ class Markdown2GithubHtml:
   padding-left: 3.2em;
   position: relative;
   line-height: 1.45;
+  /* 关键: .markdown-body pre>code 设了 white-space:pre, .cl 会继承它而无法换行;
+     显式声明 pre-wrap 才能保留缩进并允许自动换行 */
+  white-space: pre-wrap;
   overflow-wrap: anywhere;
+  word-break: normal;
 }
 .highlight .cl::before {
   content: counter(cl);
@@ -102,20 +106,21 @@ class Markdown2GithubHtml:
 .code-block-wrapper.folded .cl ~ .cl {
   display: none;
 }
-/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+/* 折叠态仅保留首行: 禁止换行但保留缩进(用 pre 而非 nowrap, 后者会吞掉空格), 长行横向滚动 */
 .code-block-wrapper.folded {
   overflow-x: auto;
 }
 .code-block-wrapper.folded pre,
 .code-block-wrapper.folded .highlight .cl {
-  white-space: nowrap;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap .cl {
+  white-space: pre;
   overflow-wrap: normal;
 }
 .code-block-wrapper.nowrap pre {
   white-space: pre;
-}
-.code-block-wrapper.nowrap .cl {
-  overflow-wrap: normal;
 }
 .code-block-wrapper.nolines .cl {
   padding-left: 0;
@@ -145,6 +150,39 @@ class Markdown2GithubHtml:
 [data-color-mode="dark"] .code-lang {
   color: #8b949e;
   background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
+/* 移动端 / 触屏(hover: none): 控件常显并加大点按区域;
+   同时为控件预留顶部空间, 避免绝对定位的按钮遮挡代码首行 */
+@media (hover: none), (max-width: 767px) {
+  .code-block-controls {
+    top: 2px;
+    right: 2px;
+    gap: 0;
+    opacity: 1;
+  }
+  .code-block-wrapper,
+  .code-block-wrapper.has-lang {
+    padding-top: 30px;
+  }
+  /* 提高特异性以覆盖 .markdown-body .highlight pre{padding:16px} */
+  .code-block-wrapper pre,
+  .code-block-wrapper .highlight pre {
+    padding-top: 10px;
+  }
+  .fold-btn, .copy-btn, .code-toggle {
+    padding: 5px 8px;
+  }
+  .code-lang {
+    top: 7px;
+    left: 8px;
+  }
+  /* 窄屏行号槽收窄, 给代码留出更多宽度 */
+  .highlight .cl {
+    padding-left: 2.8em;
+  }
+  .highlight .cl::before {
+    width: 2em;
+  }
 }
 </style>
 <script>
@@ -317,16 +355,40 @@ document.addEventListener('DOMContentLoaded', () => {
         lines.append(close_line())
         if len(lines) > 1 and not re.sub(r"<[^>]+>", "", lines[-1]).strip():
             lines.pop()
-        return "\n".join(lines)
+        # 用空串连接: .cl 为 display:block, 各自成行; 若用 "\n" 连接, 在 pre(white-space:pre)
+        # 下会额外渲染出空行, 导致行间距翻倍
+        return "".join(lines)
 
     def _add_lazy_loading(self, html: str) -> str:
         """为正文图片注入懒加载属性(已有 loading 标记的不重复注入)。"""
         return re.sub(r'<img (?![^>]*loading=)', '<img loading="lazy" decoding="async" ', html)
 
+    @staticmethod
+    def _add_hard_breaks(md_text: str) -> str:
+        """给围栏代码块之外的每行末尾追加两个空格, 使 Markdown 的单换行渲染为 <br>。
+
+        代码块内保持原样: 否则每行会被塞入两个尾随空格, 污染代码内容
+        (复制时带上、并影响自动换行的断点)。
+        """
+        out = []
+        fence = None
+        for line in md_text.splitlines():
+            m = re.match(r'^\s*(`{3,}|~{3,})', line)
+            if m:
+                ticks = m.group(1)[0]
+                if fence is None:
+                    fence = ticks
+                elif ticks == fence:
+                    fence = None
+                out.append(line)
+                continue
+            out.append(line + '  ' if fence is None else line)
+        return '\n'.join(out)
+
     def convert(self, md_text: str) -> str:
         """把 markdown 文本渲染成完整 HTML"""
-        # 每一行末 增加两个空格 以自动换行
-        md_text = '\n'.join(line + '  ' for line in md_text.splitlines())
+        # 围栏外每行末补两个空格以自动换行(硬换行); 代码块内不加, 避免污染代码
+        md_text = self._add_hard_breaks(md_text)
         body_html = self.md.convert(md_text)
         # 高亮器会丢弃围栏语言, 转换前按出现顺序预扫描, 转换后回填标签
         langs = self._extract_fence_langs(md_text)

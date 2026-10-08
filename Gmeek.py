@@ -24,7 +24,8 @@ i18nCN={"Search":"搜索","switchTheme":"切换主题","link":"友情链接","ho
 
 # 渲染器版本: md2html/模板渲染逻辑变更时递增, 触发全站帖子 HTML 重转
 # 5: 图标统一为 24x24 线性描边(Lucide 风), 见 icons.py / ADR-0014
-RENDER_VERSION = 5
+# 6: 修复代码块行距翻倍、自动换行失效, 并补充移动端样式(见 ADR-0015)
+RENDER_VERSION = 6
 
 # 摘要补重试的每构建上限, 防 API 故障时超时叠加拖死构建
 MAX_DESC_RETRY = 10

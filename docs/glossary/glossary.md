@@ -15,3 +15,5 @@
 | **删除清理（prune）** | 构建时将持久化索引与仓库实况（issue 是否存在）对账，剔除已删除 issue 的索引条目与 HTML 的机制（runOne 捕获 404 或 `--prune` 全量对账）（见 ADR-0008） |
 | **图标注册表（icons.py）** | 站点图标的单一数据源，统一为 24×24 线性描边（`fill=none stroke=currentColor stroke-width=1.5`，Lucide 风），供模板宏 `macro.html`、代码块控件与前端 `renderIcon()` 三方复用（见 ADR-0014） |
 | **renderIcon()** | `base.html` 暴露的前端图标渲染函数，按 `IconList`/`IconViewBox`/`IconStrokeWidth` 生成统一线性描边 `<svg>`，供 toc.js、sections.js 等复用（见 ADR-0014） |
+| **行 span（.cl）** | 代码块内每个逻辑行包裹的 `<span class="cl">`，行号由 CSS 计数器生成；因 `pre>code` 的 `white-space:pre` 会经继承压制换行，须在 `.cl` 上显式 `white-space:pre-wrap` 才能自动换行（见 ADR-0005 / ADR-0015） |
+| **硬换行注入（_add_hard_breaks）** | 渲染前给围栏代码块之外的每行末尾追加两个空格，使 Markdown 单换行渲染为 `<br>`；代码块内跳过，避免污染代码内容（见 ADR-0015） |

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 26.1008.1042
+
+1. 修复代码块行距翻倍(.cl 之间裸换行)与自动换行失效(.cl 继承 pre>code 的 white-space:pre); 硬换行只作用于围栏外, 代码不再被塞尾随空格; 补充移动端/触屏样式(控件常显、加大点按、顶部留白不遮代码)(见 ADR-0015, RENDER_VERSION 6)
+
 ## 26.1008.1028
 
 1. 图标风格统一为 24x24 线性描边(简洁现代, Lucide 风): icons.py 的 ICONS 改为内部标记并统一 viewBox/stroke-width, 宏 macro.html、前端 renderIcon()、代码块控件同步; 新增 svg.octicon 覆盖 primer 的填充规则; 主题切换图标改由 innerHTML 回填(见 ADR-0014 修订, RENDER_VERSION 5)

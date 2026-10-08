@@ -512,8 +512,14 @@ class TestWrapCodeLines:
     def test_multiline_token_closed_and_reopened(self):
         # 负向控制: 跨行 span 必须在行内闭合并重开
         out = self._tool()._wrap_code_lines('<span class="s">"a\nb"</span>')
-        assert out == ('<span class="cl"><span class="s">"a</span></span>\n'
+        assert out == ('<span class="cl"><span class="s">"a</span></span>'
                        '<span class="cl"><span class="s">b"</span></span>')
+
+    def test_no_stray_newline_between_line_spans(self):
+        # 回归: .cl 之间不得出现裸换行, 否则 pre(white-space:pre) 下会多出空行, 行距翻倍
+        out = self._tool()._wrap_code_lines("a\nb\nc")
+        assert "</span>\n<span" not in out
+        assert out.count("\n") == 0
 
     def test_trailing_newline_not_numbered(self):
         out = self._tool()._wrap_code_lines("x\ny\n")
@@ -532,6 +538,54 @@ class TestWrapCodeLines:
         assert "wrap-toggle" in html and "lines-toggle" in html
         assert "classList.toggle('nowrap')" in html
         assert "classList.toggle('nolines')" in html
+
+
+class TestHardBreaks:
+    # 硬换行(行末两空格)只作用于围栏代码块之外
+    def test_breaks_added_outside_fence(self):
+        out = Markdown2GithubHtml._add_hard_breaks("line1\nline2")
+        assert out == "line1  \nline2  "
+
+    def test_code_block_content_untouched(self):
+        md = "text\n```python\nx = 1\nprint(x)\n```\nafter"
+        out = Markdown2GithubHtml._add_hard_breaks(md)
+        assert "x = 1\n" in out and "x = 1  " not in out
+        assert "print(x)\n" in out and "print(x)  " not in out
+        # 围栏外仍补空格
+        assert "text  " in out and "after  " in out
+
+    def test_tilde_fence_supported(self):
+        out = Markdown2GithubHtml._add_hard_breaks("~~~\ncode\n~~~\nend")
+        assert "code\n" in out and "code  " not in out
+        assert "end  " in out
+
+    def test_convert_code_has_no_trailing_spaces(self):
+        html = Markdown2GithubHtml().convert("```python\nx = 1\n```")
+        code = re.search(r"<pre.*?</pre>", html, re.S).group(0)
+        assert "x = 1  " not in code
+
+
+class TestCodeBlockResponsiveCss:
+    # 代码块: 换行开关须真正生效, 且移动端有常显控件样式
+    @staticmethod
+    def _html():
+        return Markdown2GithubHtml().convert("```python\nx = 1\ny = 2\n```")
+
+    def test_line_span_allows_wrapping(self):
+        html = self._html()
+        # .cl 必须显式 pre-wrap, 才能覆盖 .markdown-body pre>code 的 white-space:pre
+        assert "white-space: pre-wrap" in html
+
+    def test_nowrap_switch_forces_pre(self):
+        html = self._html()
+        assert ".code-block-wrapper.nowrap .cl" in html
+        assert "white-space: pre;" in html
+
+    def test_touch_media_query_present(self):
+        html = self._html()
+        assert "@media (hover: none), (max-width: 767px)" in html
+        assert "opacity: 1" in html          # 触屏下控件常显
+        assert "padding-top: 30px" in html   # 为控件预留空间, 不遮挡代码
 
 
 class TestDefaultConfig:
