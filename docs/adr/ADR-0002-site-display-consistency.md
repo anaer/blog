@@ -27,7 +27,7 @@
 
 ## 实施位置
 
-- 导航：`Gmeek.py#nav_order`、`Gmeek.py#nav_neighbors`、`Gmeek.py#GMEEK.get_nav_keys`、`Gmeek.py#GMEEK.createPostHtml`
+- 列表序单一来源：`Gmeek.py#list_order`、`Gmeek.py#nav_order`、`Gmeek.py#GMEEK.createNavJson`（文章页关联数据；相邻导航相关的 `nav_neighbors`/`get_nav_keys` 已删除）
 - 时间换算：`Gmeek.py#format_datetime_utc8`、`Gmeek.py#format_date_utc8`、`Gmeek.py#GMEEK.addOnePostJson`
 - 引用替换：`Gmeek.py#replace_issue_refs`
 - 色标：`Gmeek.py#deterministic_hue`

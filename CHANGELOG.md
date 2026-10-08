@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 26.1008.2000
+
+1. 文章页底部由「上一页/下一页」改为「按标签关联文章」: `nav.json` 每条新增 `labels` 字段, `assets/nav.js` 在运行时按「与当前文章共享的标签数」降序取最多 5 条并渲染, 同分沿用 `nav.json` 的列表序(稳定排序, 无需下发时间戳)
+2. 静态相邻链接彻底移除(纯运行时方案): `createPostHtml` 不再写 prev/next, 只输出 `data-nav-url`/`data-post-number`/`data-labels`/`data-heading` 四个钩子; `data-labels` 用 `|tojson` 做 HTML 安全转义, 标签名含引号/尖括号也能被 `JSON.parse` 还原
+3. 增量构建成本归零: 删除 `nav_neighbors`、`neighbor_keys`、`GMEEK.get_nav_keys`、`GMEEK._nav_keys`, `runOne` 不再连带重渲染相邻文章(每篇变更少渲染 1~2 个页面); `nav.json` 每次构建全量重写, 故新增文章/改标签不必回刷旧文章页
+4. 空结果一律收起: 当前文章无标签、无共享标签候选、数据拉取失败或格式异常都由脚本 `box.remove()` 移除整块, 不留空壳; 旧模板残留页面(未全量重建)找不到容器同样静默返回
+5. 视觉沿用列表页语言: 容器复用 Primer `SideNav` + `border`, 条目用 `SideNav-item` + `renderIcon('post')`, 标题单行省略; 撤掉 `.paginate-container` 的两端对齐与 `:not(:has(a))` 收起规则
+6. 新增文案 `i18n['relatedPosts']`(相关文章 / Related posts), 标题走 `data-heading` 注入, 不在 JS 里硬编码
+7. 测试: 删除 `TestNavNeighbors`/`TestNeighborKeys`/`TestRunOneRefreshesNeighbors`, 新增 `TestRelatedOrder`、`TestRunOneRendersOnlyChangedPost`(负向控制: 只渲染变更那一篇)、`TestCreatePostHtmlRelated`(负向控制: prev/next 字段不得出现在文章页数据)、`TestCreateNavJson` 补 labels 导出与缺失兜底、`TestTemplateSmoke` 补关联钩子/转义/无分页残留、`TestRelatedArticlesContract`(模板与 JS 的属性名与类名契约); Node + DOM 桩逐条验证 `nav.js` 行为(11 项全过); 共 201 passed
+8. 文档: 新增 ADR-0022, ADR-0006 标记为已被取代, ADR-0002 实施位置指针与 glossary 同步
+9. 待办: 部署后需触发一次全量构建(`workflow_dispatch`), 让所有文章页拿到新模板; 无 JS 环境与搜索引擎爬虫不再能看到关联链接, Pagefind 也不索引运行时注入的这些链接(选 B 方案的已知代价)
+
 ## 26.1008.1900
 
 1. 深色主题调色板由 GitHub 冷蓝深改为 WorkBuddy AI 客户端的暖灰中性方向: `.markdown-body` 暗色 token 中 canvas-default 从 `#0d1117` 升到 `#1a1c20`、canvas-subtle 升到 `#22262c`、border 升到 `#383d45 / #2b2f37`、fg-default 升到 `#dde2e8`、accent-fg 降到 `#7ab8ff`、accent-emphasis 降到 `#5a8fe6`、neutral-muted 改为 `rgba(180,188,200,0.16)`、danger-fg 升到 `#ff7a73`

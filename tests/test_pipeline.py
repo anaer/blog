@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""批次 A/B 纯函数单测: 收录过滤 / 置顶判定 / 缓存与重建 / 导航 / 时间 / 引用替换 / 色标 / tag 数据投影 / 图片懒加载 / 行号包裹 / 渲染版本 / 模板冒烟。"""
+"""批次 A/B 纯函数单测: 收录过滤 / 置顶判定 / 缓存与重建 / 关联数据 / 时间 / 引用替换 / 色标 / tag 数据投影 / 图片懒加载 / 行号包裹 / 渲染版本 / 模板冒烟。"""
 import calendar
 import glob
 import json
@@ -13,7 +13,7 @@ from github import GithubException
 
 from Gmeek import (
     GMEEK, IconList, IconViewBox, IconStrokeWidth, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
-    resolve_regen_mode, resolve_run_mode, slim_state, list_order, nav_order, nav_neighbors, neighbor_keys,
+    resolve_regen_mode, resolve_run_mode, slim_state, list_order, nav_order,
     format_datetime_utc8, format_date_utc8,
     deterministic_hue, hex_to_hue, label_hue, resolve_label_color_mode, replace_issue_refs, tag_data, is_html_stale, search_settings,
     migrate_state,
@@ -144,56 +144,14 @@ class TestSlimState:
         assert state["postListJson"] == {"P1": {}}
 
 
-def mk_post(number, created, updated=None):
+def mk_post(number, created, updated=None, labels=None):
     return {"number": str(number), "createdAt": created, "updatedAt": updated if updated else created,
-            "top": 0, "postTitle": "T%d" % number, "postUrl": "post/%d.html" % number}
+            "top": 0, "postTitle": "T%d" % number, "postUrl": "post/%d.html" % number,
+            "labels": labels if labels else []}
 
 
-class TestNavNeighbors:
-    def _fixture(self):
-        return {"P1": mk_post(1, 100), "P2": mk_post(2, 200), "P3": mk_post(3, 300)}
-
-    def test_middle_ok(self):
-        # 列表序为 P3, P2, P1 → P2 的上一条是 P3、下一条是 P1
-        pj = self._fixture()
-        prev, nxt = nav_neighbors(nav_order(pj), pj, "2")
-        assert prev["number"] == "3" and nxt["number"] == "1"
-
-    def test_last_in_list_hides_next(self):
-        pj = self._fixture()
-        prev, nxt = nav_neighbors(nav_order(pj), pj, "1")
-        assert prev["number"] == "2" and nxt is None
-
-    def test_first_in_list_hides_prev(self):
-        pj = self._fixture()
-        prev, nxt = nav_neighbors(nav_order(pj), pj, "3")
-        assert prev is None and nxt["number"] == "2"
-
-    def test_pinning_changes_adjacency(self):
-        # 置顶会重排列表, 相邻关系随之改变(与列表保持一致)
-        pj = self._fixture()
-        pj["P2"]["top"] = 1
-        assert nav_order(pj)[0] == "P2"
-        prev, nxt = nav_neighbors(nav_order(pj), pj, "2")
-        assert prev is None and nxt["number"] == "3"
-
-    def test_closed_sinks_to_last(self):
-        pj = self._fixture()
-        pj["P2"]["top"] = -1
-        assert nav_order(pj)[-1] == "P2"
-
-    def test_tie_break_by_number(self):
-        pj = {"P2": mk_post(2, 100), "P1": mk_post(1, 100)}
-        prev, nxt = nav_neighbors(nav_order(pj), pj, "1")
-        assert prev["number"] == "2" and nxt is None
-
-    def test_missing_number_returns_none(self):
-        pj = self._fixture()
-        assert nav_neighbors(nav_order(pj), pj, "99") == (None, None)
-
-
-class TestListNavOrderConsistency:
-    """列表顺序与导航顺序必须出自同一序列, 否则文章页的上一篇/下一篇与列表上下相邻对不上。"""
+class TestRelatedOrder:
+    """关联数据的顺序必须与列表页同序: 前端只在「共享标签数」相同的条目之间依赖该先后作次级排序。"""
 
     def test_same_sequence(self):
         pj = {"P1": mk_post(1, 100), "P2": mk_post(2, 300), "P3": mk_post(3, 200)}
@@ -206,34 +164,14 @@ class TestListNavOrderConsistency:
         assert nav_order(pj) == ["P2", "P1"]
 
 
-class TestNeighborKeys:
-    def test_new_post_refreshes_previous_newest(self):
-        # 新增文章到末尾: 旧序无该文, 只需刷新新序中的前邻
-        assert neighbor_keys(["P1", "P2"], ["P1", "P2", "P3"], "P3") == ["P2"]
+class TestRunOneRendersOnlyChangedPost:
+    """关联文章在运行时按 nav.json 计算, 增量构建无需回刷其他文章页。"""
 
-    def test_middle_change_refreshes_both_sides(self):
-        keys = ["P1", "P2", "P3"]
-        assert neighbor_keys(keys, keys, "P2") == ["P1", "P3"]
-
-    def test_reorder_covers_old_and_new_neighbors(self):
-        # 负向控制: 位置变化时旧邻(P1)与新邻(P3)都要刷新且去重
-        assert set(neighbor_keys(["P1", "P2", "P3"], ["P1", "P3", "P2"], "P2")) == {"P1", "P3"}
-
-    def test_endpoint_has_single_neighbor(self):
-        assert neighbor_keys([], ["P1", "P2"], "P1") == ["P2"]
-
-    def test_absent_target_is_empty(self):
-        assert neighbor_keys([], [], "P9") == []
-
-
-class TestRunOneRefreshesNeighbors:
     @staticmethod
     def _fake(post_list):
         fake = SimpleNamespace()
         fake.blogBase = {"postListJson": post_list, "singeListJson": {}}
-        fake._nav_keys = None
         fake.checkDir = lambda: None
-        fake.get_nav_keys = lambda: GMEEK.get_nav_keys(fake)
         rendered = []
         fake.createPostHtml = lambda post: rendered.append(post["number"])
         fake.createPlistHtml = lambda: None
@@ -250,25 +188,18 @@ class TestRunOneRefreshesNeighbors:
             return post
         fake.addOnePostJson = add
 
-    def test_new_post_rerenders_previous_newest(self):
+    def test_new_post_does_not_rerender_others(self):
         fake, rendered = self._fake({"P1": mk_post(1, 100), "P2": mk_post(2, 200)})
         self._install(fake, 3, mk_post(3, 300))
         GMEEK.runOne(fake, "3")
-        # 新文章本身 + 旧最新(P2) 必须重渲染; P1 不受影响
-        assert set(rendered) == {"3", "2"}
+        # 负向控制: 旧实现会连带重渲染相邻文章; 关联方案下只应渲染变更这一篇
+        assert rendered == ["3"]
 
-    def test_reorder_rerenders_old_neighbors_too(self):
+    def test_reorder_does_not_rerender_others(self):
         fake, rendered = self._fake({"P1": mk_post(1, 100), "P2": mk_post(2, 200), "P3": mk_post(3, 300)})
-        # 编辑 P2 使其 createdAt 变为最新 -> 导航序变为 P1,P3,P2, 旧邻 P1 也需刷新
         self._install(fake, 2, mk_post(2, 400))
         GMEEK.runOne(fake, "2")
-        assert set(rendered) == {"1", "2", "3"}
-
-    def test_first_post_has_no_neighbors(self):
-        fake, rendered = self._fake({})
-        self._install(fake, 1, mk_post(1, 100))
-        GMEEK.runOne(fake, "1")
-        assert rendered == ["1"]
+        assert rendered == ["2"]
 
 
 class TestUtc8Format:
@@ -432,13 +363,12 @@ class TestReplaceIssueRefs:
         assert replace_issue_refs("见 #9", self.resolver({})) == "见 #9"
 
 
-class TestCreatePostHtmlNav:
+class TestCreatePostHtmlRelated:
     @staticmethod
     def _fake(blog_base):
         fake = SimpleNamespace()
         fake.blogBase = blog_base
         fake.options = SimpleNamespace(repo_name="x/y")
-        fake.get_nav_keys = lambda: nav_order(blog_base["postListJson"])
         captured = {}
         fake.renderHtml = lambda template, postBase, postListJson, htmlDir: captured.update(postBase)
         return fake, captured
@@ -449,7 +379,7 @@ class TestCreatePostHtmlNav:
         md.write_text("body", encoding="utf-8")
         (tmp_path / ("%d.md.html" % number)).write_text("<p>body</p>", encoding="utf-8")
         return {"number": str(number), "markdown": str(md), "postTitle": "T%d" % number,
-                "labels": [], "commentNum": 0, "style": "", "script": "", "top": 0,
+                "labels": ["py"], "commentNum": 0, "style": "", "script": "", "top": 0,
                 "postSourceUrl": "u", "description": "", "createdAt": 100 * number, "updatedAt": 100 * number,
                 "htmlDir": "docs/post/%d.html" % number}
 
@@ -458,30 +388,29 @@ class TestCreatePostHtmlNav:
         return {"homeUrl": "https://example.com/blog",
                 "postListJson": {"P1": mk_post(1, 100), "P2": mk_post(2, 200), "P3": mk_post(3, 300)}}
 
-    def test_middle_wires_both_neighbors(self, tmp_path):
-        # 列表序为 P3, P2, P1 → P2 的上一篇是 P3、下一篇是 P1
+    def test_exposes_current_labels_and_number(self, tmp_path):
+        # 关联文章由 nav.js 用这两个入口在运行时算出, 构建期不再写死任何链接
         fake, captured = self._fake(self._base())
         GMEEK.createPostHtml(fake, self._post(tmp_path, 2))
-        assert captured["prevTitle"] == "T3"
-        assert captured["nextTitle"] == "T1"
-        assert captured["prevUrl"] == "https://example.com/blog/post/3.html"
-        assert captured["nextUrl"] == "https://example.com/blog/post/1.html"
+        assert captured["postNumber"] == "2"
+        assert captured["labels"] == ["py"]
 
-    def test_last_in_list_clears_next_fields(self, tmp_path):
-        # 负向控制: 旧状态文件可能带入的残留 next 字段必须被清除(P1 是列表末位)
+    def test_no_neighbor_fields_written(self, tmp_path):
+        # 负向控制: 上一篇/下一篇字段不得出现在文章页数据里
+        fake, captured = self._fake(self._base())
+        GMEEK.createPostHtml(fake, self._post(tmp_path, 2))
+        for key in ("prevUrl", "prevTitle", "nextUrl", "nextTitle"):
+            assert key not in captured
+
+    def test_list_pagination_fields_are_not_leaked(self, tmp_path):
+        # 负向控制: createPlistHtml 会把分页 prevUrl/nextUrl 写在 blogBase 上,
+        # postBase 是它的副本, 残留字段必须清除, 否则旧链接会漏进文章页
         base = self._base()
+        base["prevUrl"] = "stale"
         base["nextUrl"] = "stale"
-        base["nextTitle"] = "stale"
         fake, captured = self._fake(base)
         GMEEK.createPostHtml(fake, self._post(tmp_path, 1))
-        assert "nextUrl" not in captured and "nextTitle" not in captured
-        assert captured["prevTitle"] == "T2"
-
-    def test_first_in_list_clears_prev_fields(self, tmp_path):
-        fake, captured = self._fake(self._base())
-        GMEEK.createPostHtml(fake, self._post(tmp_path, 3))
-        assert "prevUrl" not in captured and "prevTitle" not in captured
-        assert captured["nextTitle"] == "T2"
+        assert "prevUrl" not in captured and "nextUrl" not in captured
 
 
 class TestTemplateSmoke:
@@ -512,11 +441,30 @@ class TestTemplateSmoke:
         html = self._render("post.html", self._post_base(labels=["C++"], labelHueDict={"C++": 210}))
         assert "tag.html#C%2B%2B" in html
 
-    def test_post_nav_exposes_runtime_hooks(self):
-        html = self._render("post.html", self._post_base(postNumber="166"))
+    def test_post_related_exposes_runtime_hooks(self):
+        html = self._render("post.html", self._post_base(postNumber="166", labels=["Python", "C++"]))
+        assert 'class="SideNav related-posts border"' in html
         assert 'data-nav-url="https://example.com/blog/nav.json"' in html
         assert 'data-post-number="166"' in html
+        assert 'data-heading="相关文章"' in html
+        assert 'data-labels=\'["Python", "C++"]\'' in html
         assert "assets/nav.js" in html
+
+    def test_post_related_labels_survive_quotes(self):
+        # 标签名含引号/尖括号时不得破坏 data-labels 属性: tojson 需做 HTML 安全转义, 且仍是合法 JSON
+        labels = ['a"b', "<c>", "it's"]
+        html = self._render("post.html", self._post_base(labels=labels))
+        raw = re.search(r"data-labels='([^']*)'", html).group(1)
+        assert "<c>" not in raw
+        assert json.loads(raw) == labels
+
+    def test_post_has_no_prev_next_markup(self):
+        # 负向控制: 上一页/下一页区块已被关联文章取代
+        html = self._render("post.html", self._post_base(postNumber="1", prevTitle="相邻旧标题", nextTitle="相邻旧标题"))
+        assert "paginate-container" not in html
+        assert "previous_page" not in html
+        assert "相邻旧标题" not in html
+        assert "rel=\"previous\"" not in html
 
     def test_post_body_is_search_indexed(self):
         # 只索引正文容器: 列表页/标签页/搜索页不含该属性, 因此不进索引
@@ -582,7 +530,7 @@ class TestCreateNavJson:
         fake.root_dir = str(tmp_path) + os.sep
         fake.blogBase = {
             "homeUrl": "https://example.com/blog",
-            "postListJson": {"P2": mk_post(2, 200), "P1": mk_post(1, 100)},
+            "postListJson": {"P2": mk_post(2, 200, labels=["py"]), "P1": mk_post(1, 100, labels=["go"])},
         }
         GMEEK.createNavJson(fake)
         data = json.loads((tmp_path / "nav.json").read_text(encoding="utf-8"))
@@ -590,6 +538,29 @@ class TestCreateNavJson:
         assert [p["number"] for p in data] == ["2", "1"]
         assert data[0]["title"] == "T2"
         assert data[0]["url"] == "https://example.com/blog/post/2.html"
+
+    def test_exports_labels_for_relation_scoring(self, tmp_path):
+        # 关联度只能在客户端由「当前文章标签 × 各文章标签」算出, 故 labels 必须随数据导出
+        fake = SimpleNamespace()
+        fake.root_dir = str(tmp_path) + os.sep
+        fake.blogBase = {
+            "homeUrl": "https://example.com/blog",
+            "postListJson": {"P1": mk_post(1, 100, labels=["py", "工具"])},
+        }
+        GMEEK.createNavJson(fake)
+        data = json.loads((tmp_path / "nav.json").read_text(encoding="utf-8"))
+        assert data[0]["labels"] == ["py", "工具"]
+
+    def test_missing_labels_default_empty(self, tmp_path):
+        # 负向控制: 老状态文件条目可能没有 labels, 不得让整份数据构建崩溃
+        fake = SimpleNamespace()
+        fake.root_dir = str(tmp_path) + os.sep
+        fake.blogBase = {"homeUrl": "https://example.com/blog",
+                         "postListJson": {"P1": mk_post(1, 100)}}
+        fake.blogBase["postListJson"]["P1"].pop("labels")
+        GMEEK.createNavJson(fake)
+        data = json.loads((tmp_path / "nav.json").read_text(encoding="utf-8"))
+        assert data[0]["labels"] == []
 
     def test_empty_posts(self, tmp_path):
         fake = SimpleNamespace()
@@ -1317,11 +1288,9 @@ class TestDeletedPruning:
         html.write_text("<p>x</p>", encoding="utf-8")
         fake = SimpleNamespace()
         fake.blogBase = {"postListJson": {"P1": {"htmlDir": str(html)}}, "singeListJson": {}}
-        fake._nav_keys = ["P1"]
         GMEEK.prune_one(fake, "1")
         assert "P1" not in fake.blogBase["postListJson"]
         assert not html.exists()
-        assert fake._nav_keys is None
 
     def test_runOne_handles_deleted_404(self, tmp_path):
         html = tmp_path / "docs" / "post" / "5.html"
@@ -1329,9 +1298,7 @@ class TestDeletedPruning:
         html.write_text("x", encoding="utf-8")
         fake = SimpleNamespace()
         fake.blogBase = {"postListJson": {"P5": {"htmlDir": str(html)}}, "singeListJson": {}}
-        fake._nav_keys = ["P5"]
         fake.checkDir = lambda: None
-        fake.get_nav_keys = lambda: GMEEK.get_nav_keys(fake)
         rendered = []
         fake.createPlistHtml = lambda: rendered.append("plist")
         fake.createFeedXml = lambda: rendered.append("feed")
@@ -1396,7 +1363,6 @@ def _build_runall_fake(issues):
     fake.backup_dir = "backup/"
     fake.desc_retry_budget = 10
     fake.rebuild_cache = None
-    fake._nav_keys = None
     fake.options = SimpleNamespace(repo_name="anaer/blog")
     fake.i18n = i18nCN
     fake.blogBase = {
@@ -1414,7 +1380,7 @@ def _build_runall_fake(issues):
         get_issues=lambda state: one_shot,
     )
     for m in ("addOnePostJson", "cleanFile", "checkDir", "renderHtml",
-              "get_cached", "get_nav_keys", "prune_one", "normalize_title", "decimal_to_hex"):
+              "get_cached", "prune_one", "normalize_title", "decimal_to_hex"):
         setattr(fake, m, (lambda *a, _m=m, **k: getattr(GMEEK, _m)(fake, *a, **k)))
     fake.createPostHtml = lambda post: None
     fake.createPlistHtml = lambda: None
@@ -1725,6 +1691,49 @@ class TestCodeCopyFeedback:
         assert ".copy-btn.copied" in html and "var(--color-success-fg)" in html
         assert "classList.add('copied')" in html
         assert "classList.remove('copied')" in html
+
+
+class TestRelatedArticlesContract:
+    """关联文章由 assets/nav.js 在运行时填充: 模板提供的属性名必须与脚本读取的一致。"""
+
+    @staticmethod
+    def _sources():
+        with open(os.path.join(ROOT, "assets", "nav.js"), encoding="utf-8") as fh:
+            js = fh.read()
+        with open(os.path.join(ROOT, "templates", "post.html"), encoding="utf-8") as fh:
+            tpl = fh.read()
+        return js, tpl
+
+    def test_attribute_names_match_template(self):
+        js, tpl = self._sources()
+        for attr in ("data-nav-url", "data-post-number", "data-labels", "data-heading"):
+            assert 'getAttribute("%s")' % attr in js, attr
+            assert "%s=" % attr in tpl, attr
+
+    def test_selector_targets_related_container(self):
+        js, tpl = self._sources()
+        assert 'querySelector(".related-posts[data-nav-url]")' in js
+        assert 'class="SideNav related-posts border"' in tpl
+
+    def test_no_prev_next_leftover(self):
+        # 负向控制: 上一页/下一页的实现痕迹不得残留在脚本或模板里
+        js, tpl = self._sources()
+        for name in ("previous_page", "next_page", "paginate-container", "rel=\"previous\""):
+            assert name not in js, name
+            assert name not in tpl, name
+
+    def test_empty_result_removes_block(self):
+        # 无标签 / 无命中 / 数据非数组 / 拉取失败都不应留下空壳区块
+        js, _ = self._sources()
+        assert "box.remove()" in js
+        assert js.count("hide();") == 3
+        assert ".catch(hide)" in js
+
+    def test_heading_comes_from_i18n(self):
+        js, tpl = self._sources()
+        assert "i18n['relatedPosts']" in tpl
+        assert "相关文章" in i18nCN["relatedPosts"]
+        assert i18n["relatedPosts"] == "Related posts"
 
 
 class TestIconButtonUnification:

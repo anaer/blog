@@ -111,12 +111,16 @@ pre {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* 上一页靠左、下一页靠右: 用 flex 自动两端对齐 */
-.paginate-container .pagination {display: flex; align-items: center;}
-.paginate-container .previous_page {margin-right: auto;}
-.paginate-container .next_page {margin-left: auto;}
-/* 无相邻文章时收起分页区 */
-.paginate-container:not(:has(a)) {display: none;}
+/* 关联文章(按标签): 由 assets/nav.js 拉取 nav.json 在运行时填充; 无命中时整块由脚本移除 */
+.related-posts{margin-top:32px;border-radius:6px;}
+.related-posts .related-heading{padding:12px 16px 4px;font-size:14px;font-weight:600;color:var(--color-fg-muted);}
+.related-posts .SideNav-item{min-width:0;}
+.related-posts .SideNav-icon{margin-right:16px;}
+.related-posts .related-item-title{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+@media (max-width: 767px){
+    /* 窄屏去掉行两端留白, 让标题有更多可读宽度 */
+    .related-posts .SideNav-item{padding:10px 12px;}
+}
 
 /* 文章页搜索框: 复用 base.html 的共享 .site-search 组件, 提交到站内检索页(search.html 读取 ?q= 触发) */
 </style>
@@ -180,18 +184,11 @@ pre {
 {{ blogBase['postBody'] }}
 </div>
 
-<nav class="paginate-container" aria-label="Pagination"
+<nav class="SideNav related-posts border" aria-label="{{ i18n['relatedPosts'] }}"
      data-nav-url="{{ blogBase['homeUrl'] }}/nav.json"
-     data-post-number="{{ blogBase['postNumber'] }}">
-    <div class="pagination">
-        {%- if blogBase['prevTitle'] -%}
-        <a class="previous_page" rel="previous" href="{{ blogBase['prevUrl'] }}" aria-label="Previous Page">{{ blogBase['prevTitle'] }}</a>
-        {%- endif -%}
-        {%- if blogBase['nextTitle'] -%}
-        <a class="next_page" rel="next" href="{{ blogBase['nextUrl'] }}" aria-label="Next Page">{{ blogBase['nextTitle'] }}</a>
-        {%- endif -%}
-    </div>
-</nav>
+     data-post-number="{{ blogBase['postNumber'] }}"
+     data-heading="{{ i18n['relatedPosts'] }}"
+     data-labels='{{ blogBase["labels"]|tojson }}'></nav>
 
 <!-- 编辑按钮 -->
 <a href="{{ blogBase['postSourceUrl'] }}" target="_blank">

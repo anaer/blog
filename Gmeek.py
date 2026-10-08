@@ -19,8 +19,8 @@ from md2html import Markdown2GithubHtml
 from icons import ICONS as IconList, VIEWBOX as IconViewBox, STROKE_WIDTH as IconStrokeWidth
 
 ######################################################################################
-i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home","comments":"comments","run":"run ","days":" days","Previous":"Previous","Next":"Next", "First": "First", "Last": "Last"}
-i18nCN={"Search":"搜索","switchTheme":"切换主题","link":"友情链接","home":"首页","comments":"评论","run":"网站运行","days":"天","Previous":"上一页","Next":"下一页", "First": "首页", "Last":"末页"}
+i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home","comments":"comments","run":"run ","days":" days","Previous":"Previous","Next":"Next", "First": "First", "Last": "Last","relatedPosts":"Related posts"}
+i18nCN={"Search":"搜索","switchTheme":"切换主题","link":"友情链接","home":"首页","comments":"评论","run":"网站运行","days":"天","Previous":"上一页","Next":"下一页", "First": "首页", "Last":"末页","relatedPosts":"相关文章"}
 
 # 渲染器版本: 渲染逻辑变更时递增, 使全站帖子 HTML 缓存失效并重转
 RENDER_VERSION = 13
@@ -133,36 +133,15 @@ TZ8 = timezone(timedelta(hours=8))
 def list_order(postListJson):
     """列表顺序: 置顶优先, 再按更新时间降序, 同刻按编号兜底(已关闭 top=-1 排最后)。
 
-    列表页、文章页导航(nav.json 与静态兜底)、runAll 预排共用此序列, 三处不得各写一套。
+    列表页、文章页关联数据(nav.json)、runAll 预排共用此序列, 三处不得各写一套。
     """
     return dict(sorted(postListJson.items(),
                        key=lambda x: (x[1]["top"], x[1]["updatedAt"], int(x[1]["number"])),
                        reverse=True))
 
 def nav_order(postListJson):
-    """导航序列: 与列表页同序, 使文章页的上一篇/下一篇与列表中的上下相邻一致。"""
+    """关联数据序: 与列表页同序, 使 nav.json 的先后即列表先后, 前端按标签命中打分后天然保留时间序。"""
     return list(list_order(postListJson))
-
-def nav_neighbors(nav_keys, postListJson, number):
-    """按导航序列取相邻文章: (上一篇=列表中的上一条, 下一篇=下一条), 端点返回 None。"""
-    postNum = "P" + str(number)
-    if postNum not in nav_keys:
-        return None, None
-    index = nav_keys.index(postNum)
-    prev_key = nav_keys[index - 1] if index > 0 else None
-    next_key = nav_keys[index + 1] if index < len(nav_keys) - 1 else None
-    return (postListJson[prev_key] if prev_key else None, postListJson[next_key] if next_key else None)
-
-def neighbor_keys(old_keys, new_keys, target):
-    """变更文章在旧/新导航序中的相邻项(去重、排除自身、保持先后)。"""
-    result = []
-    for keys in (old_keys, new_keys):
-        if target in keys:
-            index = keys.index(target)
-            for j in (index - 1, index + 1):
-                if 0 <= j < len(keys) and keys[j] != target and keys[j] not in result:
-                    result.append(keys[j])
-    return result
 
 def format_datetime_utc8(epoch):
     return datetime.fromtimestamp(epoch, tz=TZ8).strftime("%Y-%m-%d %H:%M:%S")
@@ -244,7 +223,6 @@ class GMEEK():
         # 全量构建的重建快照(None=增量)与摘要补重试预算
         self.rebuild_cache = None
         self.desc_retry_budget = MAX_DESC_RETRY
-        self._nav_keys = None
 
         # 占位默认值, 供 defaultConfig 引用; 具体值在 defaultConfig 之后按 GitHub 标签重算后覆盖
         self.labelHueDict = {}
@@ -366,17 +344,9 @@ class GMEEK():
         postBase["createdAt"] = format_datetime_utc8(post["createdAt"])
         postBase["updatedAt"] = format_datetime_utc8(post["updatedAt"])
 
+        # prevUrl/nextUrl 是列表页分页写在 blogBase 上的字段, 与文章页无关; 复制而来需清除, 避免泄漏进模板
         for key in ("prevUrl", "prevTitle", "nextUrl", "nextTitle"):
             postBase.pop(key, None)
-
-        prevPost, nextPost = nav_neighbors(self.get_nav_keys(), self.blogBase["postListJson"], post["number"])
-        if prevPost:
-            postBase["prevUrl"]=self.blogBase["homeUrl"] + "/" + prevPost["postUrl"]
-            postBase["prevTitle"]=prevPost["postTitle"]
-
-        if nextPost:
-            postBase["nextUrl"]=self.blogBase["homeUrl"] + "/" + nextPost["postUrl"]
-            postBase["nextTitle"]=nextPost["postTitle"]
 
         self.renderHtml('post.html',postBase,{},post["htmlDir"])
 
@@ -446,7 +416,11 @@ class GMEEK():
         feed.rss_file(self.root_dir+'rss.xml')
 
     def createNavJson(self):
-        """生成全站导航数据(按导航序), 供文章页运行时计算上一页/下一页。"""
+        """生成全站关联数据(按列表序), 供文章页运行时按标签计算关联文章。
+
+        labels 随条目一起输出: 关联度(共享标签数)只能在客户端由「当前文章标签 × 各文章标签」算出,
+        而 nav.json 每次构建全量重写, 因此新增文章无需回刷旧文章页。
+        """
         nav = []
         for key in nav_order(self.blogBase["postListJson"]):
             post = self.blogBase["postListJson"][key]
@@ -454,6 +428,7 @@ class GMEEK():
                 "number": post["number"],
                 "title": post["postTitle"],
                 "url": self.blogBase["homeUrl"] + "/" + post["postUrl"],
+                "labels": post.get("labels", []),
             })
         with open(self.root_dir + "nav.json", "w", encoding="UTF-8") as f:
             f.write(json.dumps(nav, ensure_ascii=False))
@@ -475,12 +450,6 @@ class GMEEK():
             if entry:
                 return entry
         return None
-
-    def get_nav_keys(self):
-        """导航序列(按时间升序), 一次渲染批次内只计算一次。"""
-        if self._nav_keys is None:
-            self._nav_keys = nav_order(self.blogBase["postListJson"])
-        return self._nav_keys
 
     def normalize_title(self, title):
         """
@@ -657,9 +626,6 @@ class GMEEK():
         print("====== start create static html ======")
         self.checkDir()
 
-        # 变更前的导航序快照: 用于定位「旧相邻」文章
-        old_keys = list(self.get_nav_keys())
-
         try:
             issue=self.repo.get_issue(int(number_str))
         except GithubException as e:
@@ -676,15 +642,8 @@ class GMEEK():
             raise
         post = self.addOnePostJson(issue)
         if post:
-            # 索引已更新, 导航序缓存失效需重算(必须在渲染前失效, 否则沿用旧序)
-            self._nav_keys = None
-            new_keys = self.get_nav_keys()
+            # 关联文章由运行时按 nav.json 计算, 本条变更只影响数据文件, 无需回刷其他文章页
             self.createPostHtml(post)
-            # 新增/编辑会改变导航序, 相邻文章的上一页/下一页需一并重渲染
-            for key in neighbor_keys(old_keys, new_keys, "P"+str(post["number"])):
-                neighbor = self.blogBase["postListJson"].get(key)
-                if neighbor:
-                    self.createPostHtml(neighbor)
             self.createPlistHtml()
             self.createFeedXml()
             self.createNavJson()
@@ -719,7 +678,6 @@ class GMEEK():
                         os.remove(html_path)
                     except OSError:
                         pass
-        self._nav_keys = None
 
     def prune_stale(self):
         """对账索引与仓库实况: 删除索引中存在但仓库已不存在(被删)的条目及其 HTML; 返回被移除的文章编号列表。"""
