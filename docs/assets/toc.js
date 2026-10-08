@@ -140,8 +140,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const toggle = document.createElement('button');
             toggle.className = 'toc-toggle';
             toggle.setAttribute('aria-label', '折叠/展开');
-            toggle.innerHTML = '<svg class="ic-plus" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M8 3.5v9M3.5 8h9"/></svg>'
-                + '<svg class="ic-minus" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M3.5 8h9"/></svg>';
+            // 图标统一取自 base.html 的 renderIcon(单一数据源 icons.py)
+            if (typeof renderIcon === 'function') {
+                toggle.innerHTML = renderIcon('plus', 12, 'ic-plus') + renderIcon('minus', 12, 'ic-minus');
+            }
             wrapper.appendChild(toggle);
         }
 

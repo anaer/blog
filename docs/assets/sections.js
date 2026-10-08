@@ -49,7 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const toggle = document.createElement('button');
         toggle.className = 'section-toggle';
         toggle.setAttribute('aria-label', '折叠/展开');
-        toggle.innerHTML = '<svg class="ic-chevron" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 5l4 4 4-4z"/></svg>';
+        // 图标统一取自 base.html 的 renderIcon(单一数据源 icons.py)
+        toggle.innerHTML = (typeof renderIcon === 'function') ? renderIcon('chevron', 14, 'ic-chevron') : '';
 
         h.parentNode.insertBefore(section, h);
         section.appendChild(h);
