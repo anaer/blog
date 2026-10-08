@@ -23,7 +23,7 @@ i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home"
 i18nCN={"Search":"搜索","switchTheme":"切换主题","link":"友情链接","home":"首页","comments":"评论","run":"网站运行","days":"天","Previous":"上一页","Next":"下一页", "First": "首页", "Last":"末页"}
 
 # 渲染器版本: 渲染逻辑变更时递增, 使全站帖子 HTML 缓存失效并重转
-RENDER_VERSION = 10
+RENDER_VERSION = 11
 
 # 摘要补重试的每构建上限, 防 API 故障时超时叠加拖死构建
 MAX_DESC_RETRY = 10
@@ -82,7 +82,7 @@ def slim_state(blogBase):
 
 def tag_data(postListJson):
     """tag 页内联数据投影: 仅保留客户端筛选与展示所需字段。"""
-    fields = ("labels", "postUrl", "postTitle", "dateLabelColor", "createdDate")
+    fields = ("labels", "postUrl", "postTitle", "dateLabelHue", "createdDate")
     return {num: {k: post[k] for k in fields} for num, post in postListJson.items()}
 
 def search_settings(i18n_name, home_url=None):
@@ -130,13 +130,42 @@ def format_datetime_utc8(epoch):
 def format_date_utc8(epoch):
     return datetime.fromtimestamp(epoch, tz=TZ8).strftime("%Y-%m-%d")
 
-def deterministic_color(seed):
-    """按种子确定性派生日期标签颜色, hsl 区间与历史一致。"""
+def deterministic_hue(seed):
+    """按种子确定性派生色相(0-359), 供标签与日期标签配色使用。"""
     digest = hashlib.md5(str(seed).encode("utf-8")).digest()
-    hue = int.from_bytes(digest[0:2], "big") % 360
-    saturation = 30 + int.from_bytes(digest[2:4], "big") % 41
-    lightness = 10 + int.from_bytes(digest[4:6], "big") % 31
-    return f"hsl({hue}, {saturation}%, {lightness}%)"
+    return int.from_bytes(digest[0:2], "big") % 360
+
+def hex_to_hue(value):
+    """十六进制颜色 → HSL 色相(0-359); 无法解析时返回 None。"""
+    h = str(value).strip().lstrip("#")
+    if len(h) == 3:
+        h = "".join(c * 2 for c in h)
+    if not re.fullmatch(r"[0-9a-fA-F]{6}", h):
+        return None
+    r, g, b = (int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+    mx, mn = max(r, g, b), min(r, g, b)
+    if mx == mn:
+        return 0
+    d = mx - mn
+    if mx == r:
+        hue = ((g - b) / d) % 6
+    elif mx == g:
+        hue = (b - r) / d + 2
+    else:
+        hue = (r - g) / d + 4
+    return round(hue * 60) % 360
+
+def label_hue(name, color=None, mode="derived"):
+    """标签色相来源: derived 按名称派生; github 取 GitHub 标签色的色相(无法解析则回退派生)。"""
+    if mode == "github" and color:
+        hue = hex_to_hue(color)
+        if hue is not None:
+            return hue
+    return deterministic_hue(name)
+
+def resolve_label_color_mode(value):
+    """标签色相来源归一化: 仅 "github" 走 GitHub 标签色, 其余(缺省/非法)一律名称派生。"""
+    return "github" if value == "github" else "derived"
 
 def replace_issue_refs(content, resolve):
     """替换正文中的 #数字 引用(跳过围栏代码块与行内代码); resolve 返回 None 时保持原样。"""
@@ -172,11 +201,6 @@ class GMEEK():
         user = Github(auth=Auth.Token(self.options.github_token))
         self.repo = user.get_repo(self.options.repo_name)
 
-        # 读取仓库的labels标签颜色
-        self.labelColorDict = {}
-        for label in self.repo.get_labels():
-            self.labelColorDict[label.name]='#'+label.color
-
         # 全量构建的重建快照(None=增量)与摘要补重试预算
         self.rebuild_cache = None
         self.desc_retry_budget = MAX_DESC_RETRY
@@ -184,13 +208,21 @@ class GMEEK():
 
         self.defaultConfig()
 
+        # 标签色相来源由 labelColorMode 决定: derived=按名称派生(默认), github=取 GitHub 标签色的色相。
+        # 两种模式共用同一套主题自适应渲染, 故都兼容明暗
+        mode = resolve_label_color_mode(self.blogBase.get("labelColorMode"))
+        self.labelHueDict = {
+            label.name: label_hue(label.name, label.color, mode)
+            for label in self.repo.get_labels()
+        }
+
     def defaultConfig(self):
         '''
         初始化配置, 主要用于runAll
         runOne 因为有重新赋值, 没用到
         '''
         # 内置默认值始终参与合并(状态文件瘦身后不再携带这些键)
-        defaults={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","i18n":"CN","dayTheme":"light","nightTheme":"dark"}
+        defaults={"startSite":"","filingNum":"","onePageListNum":15,"commentLabelColor":"#006b75","i18n":"CN","dayTheme":"light","nightTheme":"dark","labelColorMode":"derived"}
         if os.path.exists("blogBase.json"):
             with open('blogBase.json', 'r', encoding='utf-8') as f:
                 dconfig = json.loads(f.read())
@@ -211,7 +243,7 @@ class GMEEK():
             self.blogBase["singeListJson"] = {}
 
         self.i18n=i18nCN if self.blogBase["i18n"]=="CN" else i18n
-        self.blogBase["labelColorDict"]=self.labelColorDict
+        self.blogBase["labelHueDict"]=self.labelHueDict
         self.blogBase["issuesUrl"]="https://github.com/"+self.repo.full_name+"/issues"
         self.blogBase.update(search_settings(self.blogBase["i18n"], self.blogBase.get("homeUrl")))
 
@@ -485,7 +517,7 @@ class GMEEK():
                 postConfig={}
 
         post["createdDate"]=format_date_utc8(post["createdAt"])
-        post["dateLabelColor"]=deterministic_color(post["number"])
+        post["dateLabelHue"]=deterministic_hue(post["number"])
 
         content = issue.body
         # 如果没有正文, 直接返回

@@ -14,7 +14,7 @@
 ## 决策
 
 1. **Primer 子集化（P0）**：以生成页与模板为内容源 PurgeCSS 裁剪出 `assets/primer-subset.css`（实测 gzip 75.2→27.1KB，-64%），`templates/base.html` 改引子集；`scripts/build_primer_subset.sh` 固化再生成流程（含「关键类保留」校验）；原 `primer.css` 留档兜底。
-2. **tag 页数据瘦身（P1）**：内联 JSON 仅投影 `labels/postUrl/postTitle/dateLabelColor/createdDate` 五字段（`Gmeek.py#tag_data` 纯函数 + 单测）；`templates/tag.html` 改引 `tagListJson`；客户端筛选逻辑不变。
+2. **tag 页数据瘦身（P1）**：内联 JSON 仅投影 `labels/postUrl/postTitle/dateLabelHue/createdDate` 五字段（`Gmeek.py#tag_data` 纯函数 + 单测）；`templates/tag.html` 改引 `tagListJson`；客户端筛选逻辑不变。
 3. **第三方收敛（P2）**：vercount 改为 DOMContentLoaded 后动态注入（不占用首屏关键路径与带宽；其脚本自身已处理 DOM 就绪检查）；头像自托管至 `assets/`（`config.json#avatarUrl` 改本地路径）。
 4. **post-only 样式拆分（P2）**：`highlight.css` 与 `github-markdown-css` 从 base 移入 `templates/post.html`（列表/标签页不再加载）。
    - **样式交付通则：站点样式保持内联，不整体外提**。外提为独立 CSS 值得做，需**同时**满足三条——① 该块跨多页共享（非单页专用）；② 体量足够大（经验阈值 ≥5KB gzip）；③ 已有内容哈希（cache-busting）机制。依据：实测各页内联样式仅 1.1–3.8KB gzip（占同页外链 CSS 的 4%–12%），而平台 `max-age=600` 下固定 URL 的外链会产生最长 10 分钟的「新 HTML + 旧 CSS」错版窗口；内联与 HTML 原子更新，且不增 render-blocking 请求。现状对照：现有内联三条均不满足；`md2html.py#Markdown2GithubHtml.EXTRA_JS`（2.2KB gzip、逐篇内联）仅满足第 1 条，体量未达阈值且外提会使单篇访问多两次请求，故一并维持内联。

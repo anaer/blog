@@ -25,10 +25,13 @@
 "i18n":"CN",
 "dayTheme":"light",
 "nightTheme":"dark",
+"labelColorMode":"derived",
 ```
 另有不清楚的也可以参考 https://github.com/Meekdai/meekdai.github.io/blob/main/config.json
 
 `dayTheme` / `nightTheme` 取值为 `light` / `dark`——随附的 Primer 子集只定义这两个主题，填其它值（如 `dark_colorblind`）会落回 `:root` 默认（浅色）。
+
+`labelColorMode` 决定标签的**色相来源**：`derived`（默认）由标签名派生，`github` 取 GitHub 标签色的色相。两种模式共用同一套主题自适应渲染（浅色浅底深字 / 深色深底浅字），因此都兼容明暗；填其它值等同 `derived`。
 
 
 ### `.github/workflows/Gmeek.yml` 文件

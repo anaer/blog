@@ -3,7 +3,7 @@
 **状态：** 已接受
 **创建时间：** 2026-10-08
 
-> **当前状态 / 核心结论：** 正文标题折叠、目录 +/−、代码块控件三族图标按钮统一为同一套交互与配色语言——常态 `opacity:.6` + 主题 muted 色，hover 转不透明并加主题背景，`border-radius:4px`；图标尺寸按上下文保留 12/14/16。原两级硬编码灰（`#6e7681` / `#8b949e`）全部改走主题变量。下一步无需后续动作。
+> **当前状态 / 核心结论：** 正文标题折叠、目录 +/−、代码块控件三族图标按钮统一为同一套交互与配色语言——常态 `opacity:.6` + 主题 muted 色，hover 转不透明（目录与代码块控件另加主题背景，标题折叠为具名豁免）；图标尺寸按上下文保留 12/14/16。原两级硬编码灰（`#6e7681` / `#8b949e`）全部改走主题变量。下一步无需后续动作。
 
 ---
 
@@ -24,19 +24,20 @@
 
 ## 决策
 
-1. **统一交互与配色**：三族共用——常态 `opacity:.6` + `color:var(--fgColor-muted, var(--color-fg-muted))`；hover `opacity:1` + `background:var(--bgColor-muted, var(--color-canvas-subtle))`；`border-radius:4px`；`transition:opacity .2s, background .2s`；`padding:2px 4px`。
+1. **统一交互与配色（含一处具名豁免）**：三族共用——常态 `opacity:.6` + `color:var(--fgColor-muted, var(--color-fg-muted))`，hover 转 `opacity:1`，`transition:opacity .2s, background .2s`。目录 +/− 与代码块控件另加 hover 背景 `var(--bgColor-muted, var(--color-canvas-subtle))`、`border-radius:4px`、`padding:2px 4px`。
+   - **具名豁免：标题折叠 `.section-toggle` 不设 hover 背景**——它是标题行内的流内文本控件，圆角背景块会像一枚误入行中的 chip；其反馈只靠 `opacity`。相应地该控件 `padding:0`、`margin-right:6px`、无 `border-radius`，`vertical-align` 的半盒高常量按 14px 盒高取 7。
 2. **图标尺寸保留差异**：12px（目录侧栏）/ 14px（标题行内）/ 16px（代码块工具栏），分别适配三种信息密度。
 3. **去掉容器级透明度**：`.code-block-controls` 的 `opacity:.45` 移除，改由按钮自身承担——否则会与按钮级 `.6` 叠加成 `.27`。触屏（`hover:none`）下按钮设 `opacity:1` 常显。
 4. **配色全部走主题变量**：移除 `#6e7681` / `#8b949e` 两级硬编码灰，连带复制成功态改用 `--color-success-fg`、开关关闭态改用 `--color-primer-fg-disabled`；相应 `[data-color-mode="dark"]` 覆盖随之删除。
-5. **修正标题 chevron 的垂直对齐**：改用 `vertical-align: calc(0.35em - 9px)`——以半字高减去半盒高，把盒底定位到基线，使图标中心落在字高中心；该式随标题字号线性生效，h1–h6 通用。
+5. **修正标题 chevron 的垂直对齐**：改用 `vertical-align: calc(0.35em - 7px)`——以半字高减去半盒高，把盒底定位到基线，使图标中心落在字高中心；该式随标题字号线性生效，h1–h6 通用。
 
    - 不做什么：不改三族的交互行为与事件绑定（折叠/展开逻辑、事件委托均不动）。
 
 ## 后果
 
 - **收益：** 三族控件观感与交互一致；配色无硬编码色，深色模式无需逐处覆盖；目录 +/− 与标题 chevron 补齐 hover 反馈；键盘焦点环恢复（移除 `outline:none`）。
-- **代价 / 权衡：** 代码块工具栏由「容器整体淡入」改为「逐按钮淡入」，静止时更可见（`.45`→`.6`）；`.code-toggle.off` 的浅色值由 `#c6cbd1` 变为 `--color-primer-fg-disabled`（`#8c959f`），关闭态比原先更显眼。
-- **未解决风险：** `vertical-align: calc(0.35em - 9px)` 假设 cap-height ≈ 0.7em，更换字体族后需目视复核。
+- **代价 / 权衡：** 标题折叠的 hover 背景属具名豁免，三族因此非逐项完全一致（刻意——行内文本控件与工具栏 / 列表控件的常规 affordance 本就不同）；代码块工具栏由「容器整体淡入」改为「逐按钮淡入」，静止时更可见（`.45`→`.6`）；`.code-toggle.off` 的浅色值由 `#c6cbd1` 变为 `--color-primer-fg-disabled`（`#8c959f`），关闭态比原先更显眼。
+- **未解决风险：** `vertical-align: calc(0.35em - 7px)` 假设 cap-height ≈ 0.7em，更换字体族后需目视复核。
 
 ## 实施位置
 
@@ -44,7 +45,7 @@
 
 ## 验证
 
-- `pytest` 157 passed（新增 `TestIconButtonUnification` 4 例：三族无硬编码灰、共用同一组取值、hover 规则齐备、工具栏无容器级透明度）。
+- `pytest` 160 passed（新增 `TestIconButtonUnification` 6 例，以及 `TestSectionsFold` 中守护「插入位置 ↔ 选择器」耦合的用例）。
 - `node --check` 校验 `toc.js` / `sections.js` 通过。
 
 ## 关联文档

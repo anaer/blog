@@ -15,7 +15,7 @@ from Gmeek import (
     GMEEK, IconList, IconViewBox, IconStrokeWidth, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
     resolve_regen_mode, resolve_run_mode, slim_state, nav_order, nav_neighbors, neighbor_keys,
     format_datetime_utc8, format_date_utc8,
-    deterministic_color, replace_issue_refs, tag_data, is_html_stale, search_settings,
+    deterministic_hue, hex_to_hue, label_hue, resolve_label_color_mode, replace_issue_refs, tag_data, is_html_stale, search_settings,
 )
 from md2html import Markdown2GithubHtml
 from icons import ICONS, render as render_icon, viewbox
@@ -264,22 +264,94 @@ class TestUtc8Format:
         assert format_date_utc8(epoch) == "2023-09-09"
 
 
-class TestDeterministicColor:
+class TestDeterministicHue:
     def test_stable_for_same_seed(self):
-        assert deterministic_color("7") == deterministic_color("7")
+        assert deterministic_hue("7") == deterministic_hue("7")
 
     def test_varies_across_seeds(self):
-        colors = {deterministic_color(str(i)) for i in range(1, 20)}
-        assert len(colors) > 1
+        hues = {deterministic_hue(str(i)) for i in range(1, 20)}
+        assert len(hues) > 1
 
-    def test_hsl_ranges(self):
-        for i in range(1, 40):
-            m = re.fullmatch(r"hsl\((\d+), (\d+)%, (\d+)%\)", deterministic_color(str(i)))
-            assert m
-            hue, sat, light = (int(x) for x in m.groups())
+    def test_hue_range(self):
+        for i in range(1, 60):
+            hue = deterministic_hue(str(i))
+            assert isinstance(hue, int)
             assert 0 <= hue < 360
-            assert 30 <= sat <= 70
-            assert 10 <= light <= 40
+
+
+class TestLabelColorMode:
+    """labelColorMode: derived(默认) 按名称派生色相; github 取 GitHub 标签色的色相。"""
+
+    def test_hex_to_hue_known_values(self):
+        assert hex_to_hue("ff0000") == 0        # 红
+        assert hex_to_hue("#00ff00") == 120     # 绿
+        assert hex_to_hue("0000ff") == 240      # 蓝
+        assert hex_to_hue("fff") == 0           # 三位简写(灰色)
+
+    def test_hex_to_hue_unparsable(self):
+        for bad in ("", "xyz", "12345", None):
+            assert hex_to_hue(bad) is None
+
+    def test_derived_mode_ignores_github_color(self):
+        assert label_hue("blog", "ff0000", "derived") == deterministic_hue("blog")
+        assert label_hue("blog", None, "derived") == deterministic_hue("blog")
+
+    def test_github_mode_uses_github_color(self):
+        assert label_hue("blog", "ff0000", "github") == 0
+
+    def test_github_mode_falls_back_when_unparsable(self):
+        # 色值缺失或非法时退回名称派生, 不产生空色相
+        assert label_hue("blog", "", "github") == deterministic_hue("blog")
+        assert label_hue("blog", "zzz", "github") == deterministic_hue("blog")
+
+    def test_config_default_is_derived(self):
+        with open(os.path.join(ROOT, "Gmeek.py"), encoding="utf-8") as f:
+            assert '"labelColorMode":"derived"' in f.read()
+
+    def test_mode_normalisation(self):
+        assert resolve_label_color_mode("github") == "github"
+        for other in ("derived", "", None, "GITHUB", "github "):
+            assert resolve_label_color_mode(other) == "derived"
+
+
+class TestLabelHueTheme:
+    """标签配色: 色相由标签名确定性派生, 底色/字色在 CSS 里按主题从 --label-hue 推导。"""
+
+    @staticmethod
+    def _render(tpl, blog_base, post_list=None):
+        env = Environment(loader=FileSystemLoader("templates"))
+        return env.get_template(tpl).render(
+            blogBase=blog_base, postListJson=post_list or {}, i18n=i18nCN,
+            IconList=IconList, IconViewBox=IconViewBox, IconStrokeWidth=IconStrokeWidth)
+
+    def test_css_derives_both_colors_per_theme(self):
+        html = self._render("post.html", TestTemplateSmoke._post_base())
+        # 浅色: 浅底 + 深字; 深色: 深底 + 浅字 —— 同一色相, 明度反转
+        assert "hsl(var(--label-hue, 210), 70%, 92%)" in html
+        assert "hsl(var(--label-hue, 210), 80%, 26%)" in html
+        assert "hsl(var(--label-hue, 210), 45%, 22%)" in html
+        assert "hsl(var(--label-hue, 210), 85%, 80%)" in html
+
+    def test_tag_label_carries_hue_not_hex(self):
+        html = self._render("post.html", TestTemplateSmoke._post_base(labels=["X"], labelHueDict={"X": 42}))
+        span = re.search(r'<span class="Label"[^>]*--label-hue:42[^>]*>', html)
+        assert span, "标签应带 --label-hue"
+        # 不再输出 GitHub 十六进制底色, 也不再硬编码白字
+        assert "background-color" not in span.group(0)
+        assert "#fff" not in span.group(0)
+
+    def test_plist_hue_driven_and_comment_badge_solid(self):
+        post = {"labels": ["X"], "postUrl": "post/1.html", "postTitle": "T1",
+                "dateLabelHue": 123, "createdDate": "2023-09-08", "commentNum": 3, "buildedAt": 1}
+        html = self._render("plist.html", TestSearchPageSmoke._plist_base(labelHueDict={"X": 42}), {"1": post})
+        assert "--label-hue:42" in html                 # 标签
+        assert "--label-hue:123" in html                # 日期标签
+        assert 'class="Label Label--solid"' in html     # 评论数徽标维持配置色
+        assert "background-color:hsl(" not in html.replace(" ", "")
+
+    def test_unknown_label_falls_back_to_default_hue(self):
+        html = self._render("post.html", TestTemplateSmoke._post_base(labels=["未登记"], labelHueDict={}))
+        assert "--label-hue:210" in html
 
 
 class TestReplaceIssueRefs:
@@ -370,7 +442,7 @@ class TestTemplateSmoke:
         base = {
             "title": "T", "homeUrl": "https://example.com/blog", "nightTheme": "dark", "dayTheme": "light",
             "faviconUrl": "", "GMEEK_VERSION": "v2.4", "issuesUrl": "https://github.com/x/y/issues",
-            "postTitle": "标题", "labels": [], "labelColorDict": {}, "commentNum": 0, "style": "", "script": "",
+            "postTitle": "标题", "labels": [], "labelHueDict": {}, "commentNum": 0, "style": "", "script": "",
             "top": 0, "postSourceUrl": "https://github.com/x/y/issues/1", "repoName": "x/y",
             "description": "", "postBody": "<p>正文</p>",
             "createdAt": "2023-09-08 20:29:10", "updatedAt": "2023-09-08 20:29:10", "highlight": 0,
@@ -384,7 +456,7 @@ class TestTemplateSmoke:
         assert "<img src=x" not in html
 
     def test_post_label_link_encoded(self):
-        html = self._render("post.html", self._post_base(labels=["C++"], labelColorDict={"C++": "#123456"}))
+        html = self._render("post.html", self._post_base(labels=["C++"], labelHueDict={"C++": 210}))
         assert "tag.html#C%2B%2B" in html
 
     def test_post_nav_exposes_runtime_hooks(self):
@@ -404,7 +476,7 @@ class TestTemplateSmoke:
             "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
             "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
             "singeListJson": {"S1": {"label": "about", "postTitle": "About"}},
-            "labelColorDict": {}, "commentLabelColor": "#006b75",
+            "labelHueDict": {}, "commentLabelColor": "#006b75",
             "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
         }
         html = self._render("plist.html", base)
@@ -454,10 +526,10 @@ class TestCreateNavJson:
 class TestTagData:
     def test_projects_only_needed_fields(self):
         full = {"labels": ["Life"], "postUrl": "post/1.html", "postTitle": "T1",
-                "dateLabelColor": "hsl(1, 30%, 10%)", "createdDate": "2023-09-08",
+                "dateLabelHue": 123, "createdDate": "2023-09-08",
                 "description": "长摘要" * 100, "style": "", "script": "", "markdown": "m.md", "buildedAt": 1}
         out = tag_data({"P1": full})
-        assert set(out["P1"].keys()) == {"labels", "postUrl", "postTitle", "dateLabelColor", "createdDate"}
+        assert set(out["P1"].keys()) == {"labels", "postUrl", "postTitle", "dateLabelHue", "createdDate"}
 
     def test_empty_input(self):
         assert tag_data({}) == {}
@@ -592,7 +664,7 @@ class TestCodeBlockResponsiveCss:
 class TestDefaultConfig:
     @staticmethod
     def _fake():
-        return SimpleNamespace(repo=SimpleNamespace(full_name="x/y"), labelColorDict={})
+        return SimpleNamespace(repo=SimpleNamespace(full_name="x/y"), labelHueDict={})
 
     def test_slim_state_falls_back_to_defaults(self, tmp_path, monkeypatch):
         # 负向控制: 瘦身后的 blogBase.json(无 i18n 等键) 必须回落内置默认值, 而不是 KeyError
@@ -655,7 +727,7 @@ class TestSearchPageSmoke:
             "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
             "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
             "lang": "zh-CN", "searchBaseUrl": "https://example.com/blog/",
-            "singeListJson": {}, "labelColorDict": {}, "commentLabelColor": "#006b75",
+            "singeListJson": {}, "labelHueDict": {}, "commentLabelColor": "#006b75",
             "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
         }
         base.update(overrides)
@@ -957,9 +1029,9 @@ def _build_runall_fake(issues):
         "postListJson": {}, "singeListJson": {},
         "singlePage": ["link", "about"], "homeUrl": "http://x",
         "i18n": "CN", "onePageListNum": 15, "title": "T", "subTitle": "S",
-        "avatarUrl": "", "labelColorDict": {},
+        "avatarUrl": "", "labelHueDict": {},
     }
-    fake.labelColorDict = {}
+    fake.labelHueDict = {}
     one_shot = (_ for _ in issues)  # 一次性生成器
     fake.repo = SimpleNamespace(
         owner=SimpleNamespace(name="anaer", login="anaer"),
@@ -1067,6 +1139,16 @@ class TestSectionsFold:
         with open(os.path.join(ROOT, "templates", "post.html"), encoding="utf-8") as f:
             assert "assets/sections.js" in f.read()
 
+    def test_toggle_selector_matches_insertion_point(self):
+        # 按钮插在标题内部(h > .section-toggle), 选择器必须跨过标题层级;
+        # 若写成直系子代则一条都不匹配, 按钮退回浏览器原生样式
+        js = self._js()
+        css = re.sub(r"/\*[\s\S]*?\*/", "", js)   # 去掉注释, 只看实际样式
+        assert "h.insertBefore(toggle, h.firstChild)" in js
+        assert ":is(h1,h2,h3,h4,h5,h6) > .section-toggle" in css
+        assert ".heading-section > .section-toggle" not in css
+        assert ".heading-section.collapsed > .section-toggle" not in css
+
 
 class TestPostSearchBox:
     def test_post_header_has_search_form(self):
@@ -1087,7 +1169,7 @@ class TestSearchBoxUnification:
             "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
             "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
             "lang": "zh-CN", "searchBaseUrl": "https://example.com/blog/",
-            "singeListJson": {}, "labelColorDict": {}, "commentLabelColor": "#006b75",
+            "singeListJson": {}, "labelHueDict": {}, "commentLabelColor": "#006b75",
             "tagListJson": {}, "themeMode": "auto",
             "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
         }
@@ -1195,7 +1277,7 @@ class TestIconTemplates:
         base = {
             "title": "T", "homeUrl": "https://example.com/blog", "displayTitle": "T", "subTitle": "s",
             "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
-            "issuesUrl": "https://github.com/x/y/issues", "labelColorDict": {}, "commentLabelColor": "#006b75",
+            "issuesUrl": "https://github.com/x/y/issues", "labelHueDict": {}, "commentLabelColor": "#006b75",
             "singeListJson": {"S1": {"label": "about", "postTitle": "About"}},
             "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
         }
@@ -1208,7 +1290,7 @@ class TestIconTemplates:
         base = {
             "title": "T", "homeUrl": "https://example.com/blog", "displayTitle": "T",
             "faviconUrl": "", "GMEEK_VERSION": "v2.4", "issuesUrl": "https://github.com/x/y/issues",
-            "labelColorDict": {}, "tagListJson": {}, "themeMode": "auto",
+            "labelHueDict": {}, "tagListJson": {}, "themeMode": "auto",
             "searchBaseUrl": "https://example.com/blog/",
         }
         for tpl in ("search.html", "tag.html"):
@@ -1275,14 +1357,28 @@ class TestIconButtonUnification:
         src = self._sources()
         for name in ("sections.js", "toc.js", "md2html"):
             assert "var(--fgColor-muted, var(--color-fg-muted))" in src[name], name
-            assert "var(--bgColor-muted, var(--color-canvas-subtle))" in src[name], name
             assert "opacity: .6" in src[name], name
 
-    def test_hover_reveals_with_themed_background(self):
+    def test_hover_background_exempts_section_toggle(self):
+        # hover 背景为具名豁免: 标题折叠是行内文本控件, 不设背景
+        src = self._sources()
+        for name in ("toc.js", "md2html"):
+            assert "var(--bgColor-muted, var(--color-canvas-subtle))" in src[name], name
+        assert "var(--bgColor-muted, var(--color-canvas-subtle))" not in src["sections.js"]
+
+    def test_hover_reveals_opacity(self):
         src = self._sources()
         assert ".section-toggle:hover" in src["sections.js"]
         assert ".toc-toggle:hover" in src["toc.js"]
         assert ".code-toggle:hover" in src["md2html"]
+
+    def test_section_toggle_has_no_box(self):
+        # 无背景框 → 不需要内边距与圆角(否则 chevron 会无理由缩进标题)
+        css = re.search(r"\.heading-section > :is\(h1,h2,h3,h4,h5,h6\) > \.section-toggle\s*\{[^}]*\}",
+                        self._sources()["sections.js"]).group(0)
+        assert "padding: 0" in css
+        assert "border-radius" not in css
+        assert "background: transparent" in css
 
     def test_code_toolbar_has_no_container_opacity(self):
         # 容器级透明度会与按钮级 .6 叠加成 .27; 统一后由按钮自身承担

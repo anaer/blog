@@ -129,8 +129,8 @@ pre {
 
 <div class="listLabels">
     {% for label in blogBase['labels'] -%}
-        <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:{{ blogBase['labelColorDict'][label] }}">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="{{ blogBase['homeUrl'] }}/tag.html#{{ label|urlencode }}">{{ label }}</a></object>
+        <span class="Label" style="max-width: 100px; height: 24px; padding: 4px 8px; margin-right: 8px; --label-hue:{{ blogBase['labelHueDict'].get(label, 210) }}">
+            <object><a style="font-size: 14px;" href="{{ blogBase['homeUrl'] }}/tag.html#{{ label|urlencode }}">{{ label }}</a></object>
         </span>
     {%- endfor %}
 </div>

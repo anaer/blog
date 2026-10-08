@@ -12,30 +12,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const style = document.createElement('style');
     style.textContent = `
 .heading-section { position: relative; }
-.heading-section > .section-toggle {
+/* 按钮插在标题内部(见下方 h.insertBefore), 故选择器须跨过标题层级;
+   若写成直系子代 .heading-section > .section-toggle 则一条都不会匹配 */
+.heading-section > :is(h1,h2,h3,h4,h5,h6) > .section-toggle {
     display: inline-flex;
-    /* 图标定尺(14px + 上下内边距 = 18px 盒高): 用「0.35em(半字高) - 9px(半盒高)」把盒底定到基线,
-       使图标中心落在字高中心; 直接用 middle 会对齐到 x-height 中线, 视觉偏低约 0.1em */
-    vertical-align: calc(0.35em - 9px);
-    margin-right: 2px;
+    /* 图标定尺 14px: 用「0.35em(半字高) - 7px(半盒高)」把盒底定到基线, 使图标中心落在字高中心;
+       直接用 middle 会对齐到 x-height 中线, 视觉偏低约 0.1em */
+    vertical-align: calc(0.35em - 7px);
+    margin-right: 6px;
     border: none;
     background: transparent;
     cursor: pointer;
-    padding: 2px 4px;
-    border-radius: 4px;
+    padding: 0;
     color: var(--fgColor-muted, var(--color-fg-muted));
     opacity: .6;
     line-height: 1;
-    transition: opacity .2s, background .2s;
+    transition: opacity .2s;
 }
-.heading-section > .section-toggle:hover {
+/* 行内文本控件不设 hover 背景(标题行中会像一枚误入的方块), 反馈只靠透明度 */
+.heading-section > :is(h1,h2,h3,h4,h5,h6) > .section-toggle:hover {
     opacity: 1;
-    background: var(--bgColor-muted, var(--color-canvas-subtle));
 }
-.heading-section > .section-toggle .ic-chevron {
+.heading-section > :is(h1,h2,h3,h4,h5,h6) > .section-toggle .ic-chevron {
     transition: transform .2s ease;
 }
-.heading-section.collapsed > .section-toggle .ic-chevron {
+.heading-section.collapsed > :is(h1,h2,h3,h4,h5,h6) > .section-toggle .ic-chevron {
     transform: rotate(-90deg);
 }
 /* 折叠态仅保留标题, 隐藏其余直接子内容(含嵌套 section) */

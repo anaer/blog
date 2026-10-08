@@ -30,7 +30,7 @@
 - 导航：`Gmeek.py#nav_order`、`Gmeek.py#nav_neighbors`、`Gmeek.py#GMEEK.get_nav_keys`、`Gmeek.py#GMEEK.createPostHtml`
 - 时间换算：`Gmeek.py#format_datetime_utc8`、`Gmeek.py#format_date_utc8`、`Gmeek.py#GMEEK.addOnePostJson`
 - 引用替换：`Gmeek.py#replace_issue_refs`
-- 色标：`Gmeek.py#deterministic_color`
+- 色标：`Gmeek.py#deterministic_hue`
 - 列表与 RSS：`Gmeek.py#GMEEK.createPlistHtml`、`Gmeek.py#GMEEK.createFeedXml`
 - 模板：`templates/plist.html`（单页入口链接）、`templates/post.html`（摘要转义、高亮判定）、`templates/tag.html`（hash 编码）
 

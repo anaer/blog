@@ -12,9 +12,9 @@
 .title-right .circle{padding: 14px 16px;margin-right:8px;}
 
 .SideNav-icon{margin-right:16px}
-.Label{color: #fff;margin-left:4px;}
+.Label{margin-left:4px;}
 #taglabel .Label {margin-bottom:8px;}
-.Counter{color:#fff;background-color:rgba(234, 238, 242, 0.5)}
+.Counter{color:inherit;background-color:rgba(127, 127, 127, 0.2)}
 
 .genTime{float: right;}
 .d-flex{min-width:0;}
@@ -57,7 +57,7 @@
 <script>
 tagList=[];
 labelsCount={};
-labelColors={{ blogBase['labelColorDict'] }}
+labelHues={{ blogBase['labelHueDict'] }}
 jsonData={{ blogBase["tagListJson"] }}
 
 showList(labelsCount);
@@ -82,7 +82,8 @@ function showList(labelsCount){
         tagList.push(label);
         let showLabels = document.createElement("button");
         showLabels.setAttribute("class", "Label");
-        showLabels.setAttribute("style", "background-color: " + labelColors[label] + ";padding:4px;");
+        showLabels.setAttribute("style", "padding:4px;");
+        if (labelHues[label] !== undefined) { showLabels.style.setProperty("--label-hue", labelHues[label]); }
         showLabels.innerHTML="&nbsp;&nbsp;"+label+" ";
         showLabels.setAttribute("onclick", "javascript:updateShowTag('" + label + "');");
 
@@ -119,13 +120,13 @@ function showList(labelsCount){
         for(label of jsonData[i]['labels']){
             let LabelName=document.createElement("span");
             LabelName.setAttribute("class","Label LabelName");
-            LabelName.setAttribute("style","background-color:"+labelColors[label]);
+            if (labelHues[label] !== undefined) { LabelName.style.setProperty("--label-hue", labelHues[label]); }
             LabelName.innerHTML=label;
             listLabels.appendChild(LabelName);
         }
         let LabelTime=document.createElement("span");
         LabelTime.setAttribute("class","Label LabelTime");
-        LabelTime.setAttribute("style","background-color:"+jsonData[i]['dateLabelColor']);
+        LabelTime.style.setProperty("--label-hue", jsonData[i]['dateLabelHue']);
         LabelTime.innerHTML=jsonData[i]['createdDate'];
         listLabels.appendChild(LabelTime);
 
