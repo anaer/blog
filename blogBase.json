@@ -3507,25 +3507,24 @@
         "P186": {
             "number": "186",
             "htmlDir": "docs/post/186.html",
-            "markdown": "backup/186-mysql\u9012\u5f52\u5220\u9664\u5b50\u8282\u70b9.md",
+            "markdown": "backup/186-MySQL\u9012\u5f52\u5220\u9664\u5b50\u8282\u70b9.md",
             "labels": [
                 "MySQL"
             ],
-            "postTitle": "mysql\u9012\u5f52\u5220\u9664\u5b50\u8282\u70b9",
+            "postTitle": "MySQL\u9012\u5f52\u5220\u9664\u5b50\u8282\u70b9",
             "postUrl": "post/186.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/186",
             "commentNum": 0,
             "createdAt": 1775033622,
-            "updatedAt": 1790756183,
+            "updatedAt": 1791446881,
             "top": 0,
             "style": "",
             "script": "",
             "description": "",
             "createdDate": "2026-04-01",
-            "dateLabelColor": "hsl(146, 58%, 28%)",
-            "buildedAt": 1790756183,
-            "renderVersion": 3,
-            "dateLabelHue": 146
+            "dateLabelHue": 146,
+            "buildedAt": 1791446881,
+            "renderVersion": 13
         },
         "P187": {
             "number": "187",
