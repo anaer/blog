@@ -66,7 +66,7 @@ class Markdown2GithubHtml:
 .highlight .cl {
   display: block;
   counter-increment: cl;
-  padding-left: 3.2em;
+  padding-left: 2.8em;
   position: relative;
   line-height: 1.45;
   /* 关键: .markdown-body pre>code 设了 white-space:pre, .cl 会继承它而无法换行;
@@ -77,15 +77,16 @@ class Markdown2GithubHtml:
   /* 空行占位: 空 .cl 标签无 in-flow content, 默认 height:0, 会让空行「消失」
      并与下一行挤在一起. min-height 锁定到一行高度, 保留视觉空行 */
   min-height: 1.45em;
-  /* 行号槽位底色: 左侧 2.4em 染成低饱和度底色, 与代码区做视觉区分;
-     linear-gradient 只覆盖 padding 内的行号槽, 不侵入代码区; 收尾处 1px 边框强化列分隔 */
+  /* 行号槽位底色: 左侧 2em 染成低饱和度底色, 与代码区做视觉区分;
+     linear-gradient 只覆盖 padding 内的行号槽, 不侵入代码区; 收尾处 1px 边框强化列分隔
+     槽宽取 2em(与行号数字本身宽度贴合): 更宽会让行号整体偏右、离代码区的空档也变大 */
   background-image:
     linear-gradient(to right,
       var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
-      var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2.4em - 1px),
-      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2.4em - 1px),
-      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2.4em,
-      transparent 2.4em);
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2em,
+      transparent 2em);
 }
 /* 深色主题(WorkBuddy 风): 行号槽位底色用中性白色微染(冷暖皆可), 不再带蓝灰调;
    槽位 rgba(255,255,255,0.045) 在 #1a1c20 的底上呈现"略亮一档"的色块,
@@ -94,17 +95,17 @@ html[data-color-mode="dark"] .highlight .cl {
   background-image:
     linear-gradient(to right,
       rgba(255, 255, 255, 0.045) 0,
-      rgba(255, 255, 255, 0.045) calc(2.4em - 1px),
-      rgba(255, 255, 255, 0.10) calc(2.4em - 1px),
-      rgba(255, 255, 255, 0.10) 2.4em,
-      transparent 2.4em);
+      rgba(255, 255, 255, 0.045) calc(2em - 1px),
+      rgba(255, 255, 255, 0.10) calc(2em - 1px),
+      rgba(255, 255, 255, 0.10) 2em,
+      transparent 2em);
 }
 .highlight .cl::before {
   content: counter(cl);
   position: absolute;
   left: 0;
-  width: 2.4em;
-  text-align: right;
+  width: 2em;
+  text-align: center;
   color: var(--fgColor-muted, var(--color-fg-muted));
   user-select: none;
 }
@@ -178,30 +179,6 @@ html[data-color-mode="dark"] .highlight .cl {
   .code-lang {
     top: 7px;
     left: 8px;
-  }
-  /* 窄屏行号槽收窄, 给代码留出更多宽度 */
-  .highlight .cl {
-    padding-left: 2.8em;
-    /* 同步收窄行号槽底色(2em)与 1px 分隔线, 避免窄屏下底色超出实际行号宽度 */
-    background-image:
-      linear-gradient(to right,
-        var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
-        var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2em - 1px),
-        var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2em - 1px),
-        var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2em,
-        transparent 2em);
-  }
-  html[data-color-mode="dark"] .highlight .cl {
-    background-image:
-      linear-gradient(to right,
-        rgba(255, 255, 255, 0.045) 0,
-        rgba(255, 255, 255, 0.045) calc(2em - 1px),
-        rgba(255, 255, 255, 0.10) calc(2em - 1px),
-        rgba(255, 255, 255, 0.10) 2em,
-        transparent 2em);
-  }
-  .highlight .cl::before {
-    width: 2em;
   }
 }
 </style>
@@ -435,7 +412,7 @@ if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: python md2html.py <input.md> <output.html>")
         sys.exit(1)
-    
+
     try:
         tool = Markdown2GithubHtml()
         md_path = Path(sys.argv[1])

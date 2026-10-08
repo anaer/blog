@@ -831,14 +831,14 @@ class TestCodeBlockResponsiveCss:
         assert "padding-top: 30px" in html   # 为控件预留空间, 不遮挡代码
 
     def test_gutter_background_light_theme(self):
-        # 行号槽位底色: 浅主题用 rgba(175,184,193,0.28) 染左 2.4em, 收尾 1px 分隔线
+        # 行号槽位底色: 浅主题用 rgba(175,184,193,0.28) 染左 2em, 收尾 1px 分隔线
         html = self._html()
         # 必须出现 linear-gradient 与浅色 rgba, 避免行号与代码区同色难以分辨
         assert "linear-gradient(to right" in html
         assert "rgba(175, 184, 193, 0.28)" in html
         assert "rgba(175, 184, 193, 0.55)" in html   # 1px 分隔线更深
-        # 槽位宽 2.4em(桌面)
-        assert "calc(2.4em - 1px)" in html
+        # 槽位宽 2em
+        assert "calc(2em - 1px)" in html
 
     def test_gutter_background_dark_theme(self):
         # 深主题(WorkBuddy 风): 槽位与分隔线都用中性白色微染, 不带蓝灰调
@@ -861,13 +861,20 @@ class TestCodeBlockResponsiveCss:
         assert m, "缺少 nolines .cl 规则"
         assert "background-image: none" in m.group(1)
 
-    def test_gutter_background_narrowed_on_touch(self):
-        # 窄屏行号槽收窄(2em)与桌面(2.4em)分开, 否则窄屏下底色会超出实际行号宽度
+    def test_gutter_single_width_across_viewports(self):
+        # 行号槽宽与代码缩进在桌面/窄屏统一为 2em / 2.8em: 槽位贴合行号数字宽度, 行号不再整体偏右
         html = self._html()
-        assert "calc(2em - 1px)" in html
-        # 同时含桌面与窄屏两套 width 标注, 钉死「窄屏不只改 ::before, 也要改底色」
-        assert "width: 2em" in html    # 触屏下 ::before 宽 2em
-        assert "width: 2.4em" in html  # 桌面 ::before 宽 2.4em
+        m = re.search(r"\.highlight \.cl\s*\{([^}]*)\}", html, re.DOTALL)
+        assert m, "缺少 .highlight .cl 基础规则"
+        assert "padding-left: 2.8em" in m.group(1)
+        assert "width: 2em" in html    # ::before 行号槽宽
+        # 负向控制: 旧的更宽槽位(2.4em)与更宽缩进(3.2em)不得残留, 视口内也不应再有第二套行号槽宽度
+        for stale in ("2.4em", "3.2em"):
+            assert stale not in html, stale
+        # 深浅两套主题的槽宽必须一致
+        dark = re.search(r'html\[data-color-mode="dark"\] \.highlight \.cl\s*\{([^}]*)\}', html, re.DOTALL).group(1)
+        assert "calc(2em - 1px)" in dark
+        assert "transparent 2em" in dark
 
 
 class TestDefaultConfig:

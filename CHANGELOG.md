@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 26.1008.2030
+
+1. 代码块行号左移: 行号槽宽由「桌面 2.4em / 触屏 2em」两套统一为 2em(贴合行号数字自身宽度), 代码缩进 `padding-left` 由 3.2em 降到 2.8em, 行号与代码之间保留 0.8em(≈11px)空档; 深浅两主题的分隔线渐变终点同步改为 2em
+2. 冗余清理: 窄屏 `@media (hover: none), (max-width: 767px)` 内针对 `.highlight .cl` 的 padding/底色/`::before` 宽覆盖整套删除(基线已等于原窄屏值), 移动端不再需要第二套行号槽宽度
+3. `RENDER_VERSION` 13 → 14: 这段 CSS 内联在 `md2html` 转换后的正文 HTML 里并随 `backup/` 缓存, 不升版本则旧文章页的行号槽会冻结在上一版取值
+4. 实测几何(浏览器 computed style): `padding-left` 43.52px → 38.08px、`::before` 宽 32.64px → 27.19px, 即行号右缘左移约 5.4px; 数值经计算样式核对, 截图通道不可用未做视觉比对
+5. 测试: `test_gutter_background_light_theme` 改钉 2em; `test_gutter_background_narrowed_on_touch` 重写为 `test_gutter_single_width_across_viewports`, 钉死基线 2.8em/2em、明暗主题同宽, 并把 2.4em / 3.2em 作为负向控制禁止复现; 共 201 passed
+6. 文档: ADR-0015 决策 6 与状态摘要同步
+
 ## 26.1008.2000
 
 1. 文章页底部由「上一页/下一页」改为「按标签关联文章」: `nav.json` 每条新增 `labels` 字段, `assets/nav.js` 在运行时按「与当前文章共享的标签数」降序取最多 5 条并渲染, 同分沿用 `nav.json` 的列表序(稳定排序, 无需下发时间戳)

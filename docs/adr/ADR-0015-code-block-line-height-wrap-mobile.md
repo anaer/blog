@@ -2,9 +2,9 @@
 
 **状态：** 已接受
 **创建时间：** 2026-10-08
-**最近更新：** 2026-10-08（空行加 min-height 保留视觉空隙; 行号槽加底色与 1px 分隔线, 桌面/触屏/深色主题/nolines 各自适配）
+**最近更新：** 2026-10-08（行号槽宽统一为 2em、代码缩进 2.8em, 行号左移; 视口内的行号槽覆盖规则删除）
 
-> **当前状态 / 核心结论：** 修复 ADR-0005 行号 / 换行方案的三处缺陷——`.cl` 之间的裸换行导致行距翻倍、`.cl` 继承 `pre>code` 的 `white-space:pre` 使自动换行失效、代码块内被塞入硬换行尾随空格；并补齐移动端 / 触屏样式。**后续 1**：行号槽加低饱和度底色 + 1px 分隔线, 桌面 2.4em / 触屏 2em / 深色主题 / `nolines` 各自适配. **后续 2**：空 `<span class="cl"></span>` 无 in-flow content 会让 height:0, 空行坍缩与下一行挤在一起, 加 `min-height: 1.45em` 锁定到一行高度. 下一步无需后续动作。
+> **当前状态 / 核心结论：** 修复 ADR-0005 行号 / 换行方案的三处缺陷——`.cl` 之间的裸换行导致行距翻倍、`.cl` 继承 `pre>code` 的 `white-space:pre` 使自动换行失效、代码块内被塞入硬换行尾随空格；并补齐移动端 / 触屏样式。**后续 1**：行号槽加低饱和度底色 + 1px 分隔线, 深色主题 / `nolines` 各自适配; 槽宽经一轮「行号偏右」反馈统一为 2em（全视口单值, `padding-left` 2.8em）. **后续 2**：空 `<span class="cl"></span>` 无 in-flow content 会让 height:0, 空行坍缩与下一行挤在一起, 加 `min-height: 1.45em` 锁定到一行高度. 下一步无需后续动作。
 
 ---
 
@@ -32,10 +32,10 @@ ADR-0005 落地「行 span + CSS 计数器」方案后，线上反馈三个问�
 
 6. **行号槽加底色与 1px 分隔线**（`md2html.py` 的 `EXTRA_JS`）：
    - **目的**：用户反馈行号与代码区底色完全一致, 视觉上挤在一起难以分辨, 给行号槽加低饱和度底色与列分隔线.
-   - **做法**：在 `.highlight .cl` 上加 `background-image: linear-gradient(to right, <gutter> 0, <gutter> calc(W - 1px), <edge> calc(W - 1px), <edge> W, transparent W)`, 其中 W = 2.4em（桌面）/ 2em（触屏）; 1px 收尾分隔线用更深一档 rgba.
+   - **做法**：在 `.highlight .cl` 上加 `background-image: linear-gradient(to right, <gutter> 0, <gutter> calc(W - 1px), <edge> calc(W - 1px), <edge> W, transparent W)`, 其中 W = 2em（全视口统一, 见下「触屏联动」的后续调整）; 1px 收尾分隔线用更深一档 rgba.
    - **主题**：`html[data-color-mode="dark"] .highlight .cl` 用同结构但深色 rgba 覆盖, 不引入新变量.
    - **`nolines` 联动**：行号关闭时 `.code-block-wrapper.nolines .cl { background-image: none; }`, 否则左侧会留一道与代码区不连贯的色块.
-   - **触屏联动**：窄屏（`@media (hover: none), (max-width: 767px)`）下同步收窄到 2em, 钉死「窄屏不只改 ::before, 也要改底色」.
+   - **触屏联动（后续调整）**：原为「桌面 2.4em / 触屏 2em」两套宽度。用户反馈行号整体偏右, 遂把桌面也收到 2em（`padding-left` 由 3.2em 同步降到 2.8em, 行号与代码之间保留 0.8em≈11px 的空档）, 槽宽贴合行号数字本身宽度; 视口内的行号槽覆盖规则因此冗余, 一并删除, 改为全视口单值.
    - **不做什么**：不在每条 `.cl` 单独用 div 包裹行号（会破坏 ADR-0005 的 CSS 计数器方案）；不动行号文本颜色（仍走 `var(--fgColor-muted, var(--color-fg-muted))`）；不引入 JS.
 
 7. **空行保留视觉高度**（`md2html.py` 的 `.highlight .cl`）：
