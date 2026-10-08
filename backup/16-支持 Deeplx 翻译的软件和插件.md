@@ -8,4 +8,4 @@ Read Frog - Open Source Immersive Translate [Chrome](https://chromewebstore.goog
 
 简约翻译 [Edge](https://microsoftedge.microsoft.com/addons/detail/jemckldkclkinpjighnoilpbldbdmmlh)
 
-pot [官网](https://pot-app.com/)
+pot [官网](https://pot-app.com/) 已停止维护, 新版增加商业功能
