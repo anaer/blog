@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://anaer.github.io/blog/assets/primer-subset.css" rel="stylesheet" />
+    <!-- <link href="https://anaer.github.io/blog/assets/font-awesome@6.5.1/css/all.min.css" rel="stylesheet" /> -->
+    <!-- <link href="https://anaer.github.io/blog/assets/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" /> --><link rel="icon" href="https://anaer.github.io/blog/assets/favicon.ico"><!-- <script src="https://anaer.github.io/blog/assets/vercount.js"></script> -->
+    <script>
+        // 访问统计在 DOM 就绪后注入, 不占用首屏关键路径
+        document.addEventListener("DOMContentLoaded", function () {
+            var s = document.createElement("script");
+            s.src = "https://events.vercount.one/js";
+            s.async = true;
+            document.head.appendChild(s);
+        });
+    </script>
+    <script>
+        if(localStorage.getItem("meek_theme")==null){}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
+    </script>
+    
+<title>aira2命令参数</title>
+<link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
+<link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
+
+</head>
+<style>
+body{
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 45px;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.25;
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:35px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 767px) {body {padding: 8px;}}
+
+pre {
+    white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
+    word-wrap: break-word; /* 允许长单词或 URL 换行 */
+    overflow-x: auto; /* 如果内容仍然溢出，显示水平滚动条 */
+}
+
+.new-post {
+    bottom: 20px; /* 距离底部 20px */
+}
+
+.edit-post {
+    bottom: 60px; /* 距离底部60px */
+}
+
+/* 悬浮按钮样式 */
+.floating-button {
+    position: fixed; /* 固定位置 */
+    right: 5%; /* 距离右侧 5% */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 32px; /* 宽度 */
+    height: 32px; /* 高度 */
+    font-size: 16px; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    z-index: 1000; /* 确保按钮在最上层 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* 添加悬停效果 */
+}
+
+/* 按钮悬停效果 */
+.floating-button:hover {
+    background-color: #0056b3; /* 悬停时改变背景颜色 */
+}
+
+/* 上一页靠左、下一页靠右: 用 flex 自动两端对齐 */
+.paginate-container .pagination {display: flex; align-items: center;}
+.paginate-container .previous_page {margin-right: auto;}
+.paginate-container .next_page {margin-left: auto;}
+/* 无相邻文章时收起分页区 */
+.paginate-container:not(:has(a)) {display: none;}
+
+/* 文章页搜索框: 复用站内检索页(search.html 读取 ?q= 并触发) */
+.post-search { display: inline-flex; align-items: center; margin-right: 8px; gap: 4px; }
+.post-search input[type="search"] {
+    width: 120px;
+    max-width: 40vw;
+    padding: 4px 8px;
+    font-size: 14px;
+    border: 1px solid var(--borderColor-muted, var(--color-border-muted));
+    border-radius: 6px;
+    background: var(--bgColor-default, var(--color-canvas-default, #fff));
+    color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+    outline: none;
+}
+[data-color-mode="dark"] .post-search input[type="search"] {
+    background: var(--bgColor-muted, #161b22);
+    color: #e6edf3;
+}
+.post-search input[type="search"]:focus {
+    border-color: var(--fgColor-accent, var(--color-accent-fg));
+    width: 170px;
+}
+.post-search button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 4px;
+    color: #6e7681;
+    display: inline-flex;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1>
+    <a style="font-size:18px">aira2命令参数</a>
+</h1>
+
+<div class="title-right">
+
+    <a href="https://anaer.github.io/blog"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    <a href="https://github.com/anaer/blog/issues/56" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+    <form class="post-search" action="https://anaer.github.io/blog/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="搜索" aria-label="搜索" />
+        <button type="submit" title="搜索" aria-label="搜索">
+            <svg class="octicon" width="16" height="16"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
+        </button>
+    </form>
+
+</div>
+</div>
+    <div id="content">
+
+<div class="listLabels">
+    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
+            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Software">Software</a></object>
+        </span>
+</div>
+<br>
+
+<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
+<span class="post-publish" id="postPublish" style="font-size: 14px; color: #666;">发布于 <time style="font-weight: bold; color: #333;">2025-01-22 16:16:09</time></span>
+
+<span class="post-update" style="font-size: 14px; color: #666;">更新于 <time style="font-weight: bold; color: #333;">2025-12-23 17:38:59</time></span>
+
+<p><div style="border: 1px dashed #ccc; padding: 10px; margin-bottom: 20px;">
+    <strong>AI总结:</strong> 本文介绍了aria2c命令行工具的各种参数及其配置选项，包括断点续传、输出文件、下载路径、日志文件、并发下载数等。还提供了Windows和Linux系统下的配置文件示例，涵盖了全局设置、HTTP/FTP/SFTP设置、BitTorrent设置、RPC设置等多个方面。建议用户在修改配置时注意注释内容，确保理解每个选项的功能，避免不必要的错误。
+</div>
+
+<div class="markdown-body" id="postBody" data-pagefind-body>
+
+  <article class="markdown-body">
+    <p><code>aria2c --help=#all</code>  </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c, --continue[=true, false]</td>
+<td>断点续传</td>
+</tr>
+<tr>
+<td>-o, --out=FILE</td>
+<td>输出文件</td>
+</tr>
+<tr>
+<td>-d, --dir=DIR</td>
+<td>保存文件路径，绝对路径</td>
+</tr>
+<tr>
+<td>-l, --log=LOG</td>
+<td>日志文件</td>
+</tr>
+<tr>
+<td>-s, --split=N</td>
+<td>并发下载数</td>
+</tr>
+<tr>
+<td>-j, --max-concurrent-downloads=N</td>
+<td>一个 URL 的最大并发下载数</td>
+</tr>
+<tr>
+<td>-k, --min-split-size</td>
+<td>每个 split 最小 size,源文件按这个拆分成多个</td>
+</tr>
+<tr>
+<td>-x, --max-connection-per-server=NUM</td>
+<td>一个 server 的最大并发下载数</td>
+</tr>
+<tr>
+<td>--no-conf</td>
+<td>Disable loading aria2.conf file.</td>
+</tr>
+<tr>
+<td>-t, --timeout=SEC</td>
+<td>设置超时时间为SEC秒, 默认值:60</td>
+</tr>
+<tr>
+<td>--connect-time=SEC</td>
+<td>设置建立连接超时时间为SEC秒, 默认值:60</td>
+</tr>
+<tr>
+<td>--max-tries</td>
+<td>超时后尝试次数</td>
+</tr>
+<tr>
+<td>--stop=SEC</td>
+<td>SEC 秒后自动结束</td>
+</tr>
+<tr>
+<td>--allow-overwrite=true</td>
+<td>覆盖</td>
+</tr>
+<tr>
+<td>--enable-http-keep-alive</td>
+<td>http 长连接</td>
+</tr>
+<tr>
+<td>--log-level</td>
+<td>日志级别</td>
+</tr>
+<tr>
+<td>-u, --max-upload-limit=SPEED</td>
+<td>限速</td>
+</tr>
+</tbody>
+</table>
+<p>aria2.conf配置文件  </p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">conf</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">## `#`开头为注释内容, 选项都有相应的注释说明, 根据需要修改  </span>
+<span class="cl">## 被注释的选项填写的是默认值, 建议在需要修改时再取消注释  </span>
+<span class="cl">## 如果出现`Initializing EpollEventPoll failed.`之类的错误提示, 可以取消event-poll选项的注释  </span>
+<span class="cl"></span>
+<span class="cl">###### Windows路径设置  </span>
+<span class="cl"># 日志文件  </span>
+<span class="cl">log=D:\Desktop\logs\aria2.log  </span>
+<span class="cl"># 下载路径(可使用绝对路径或相对路径) 不设置默认当前路径  </span>
+<span class="cl"># dir=D:\Downloads  </span>
+<span class="cl"># .netrc文件路径  </span>
+<span class="cl">netrc-path=C:\Users\Administrator\.aria2\.netrc  </span>
+<span class="cl"># DHT(IPv4)文件路径  </span>
+<span class="cl">dht-file-path=C:\Users\Administrator\.aria2\dht.dat  </span>
+<span class="cl"># DHT(IPv6)文件路径  </span>
+<span class="cl">dht-file-path6=C:\Users\Administrator\.aria2\dht6.dat  </span>
+<span class="cl"># 状态保存文件  </span>
+<span class="cl">save-session=C:\Users\Administrator\.aria2\aria2.session  </span>
+<span class="cl"></span>
+<span class="cl">###### Linux路径设置  </span>
+<span class="cl"># 日志文件  </span>
+<span class="cl">#log=/root/.aria2/aria2.log  </span>
+<span class="cl"># 下载路径(可使用绝对路径或相对路径)  </span>
+<span class="cl">#dir=/root/download  </span>
+<span class="cl"># .netrc文件路径  </span>
+<span class="cl">#netrc-path=/root/.aria2/.netrc  </span>
+<span class="cl"># DHT(IPv4)文件路径  </span>
+<span class="cl">#dht-file-path=/root/.aria2/dht.dat  </span>
+<span class="cl"># DHT(IPv6)文件路径  </span>
+<span class="cl">#dht-file-path6=/root/.aria2/dht6.dat  </span>
+<span class="cl"># 状态保存文件  </span>
+<span class="cl">#save-session=/root/.aria2/aria2.session  </span>
+<span class="cl"></span>
+<span class="cl">###### 全局设置  </span>
+<span class="cl"># 最大同时下载任务数  </span>
+<span class="cl">max-concurrent-downloads=5  </span>
+<span class="cl"># 全局最大下载速度 0:不限速  </span>
+<span class="cl">max-overall-download-limit=0  </span>
+<span class="cl"># 检查完整性  </span>
+<span class="cl">check-integrity=false  </span>
+<span class="cl"># 断点续传  </span>
+<span class="cl">continue=true  </span>
+<span class="cl"></span>
+<span class="cl">###### HTTP/FTP/SFTP设置  </span>
+<span class="cl"># 代理服务器  </span>
+<span class="cl">all-proxy=  </span>
+<span class="cl"># 代理服务器用户名  </span>
+<span class="cl"># all-proxy-user=  </span>
+<span class="cl"># 代理服务器密码  </span>
+<span class="cl"># all-proxy-passwd=  </span>
+<span class="cl"># 连接超时时间  </span>
+<span class="cl">connect-timeout=60  </span>
+<span class="cl"># 模拟运行 # true 仅检查远程文件是否存在, 不下载文件  </span>
+<span class="cl">dry-run=false  </span>
+<span class="cl"># 最小速度限制  </span>
+<span class="cl">lowest-speed-limit=0  </span>
+<span class="cl"># 单服务器最大连接数  </span>
+<span class="cl">max-connection-per-server=16  </span>
+<span class="cl"># 文件未找到重试次数  </span>
+<span class="cl">max-file-not-found=3  </span>
+<span class="cl"># 最大下载速度  </span>
+<span class="cl">max-download-limit=0  </span>
+<span class="cl"># 最大上传速度  </span>
+<span class="cl">max-upload-limit=0  </span>
+<span class="cl"># 最大尝试次数  </span>
+<span class="cl">max-tries=0  </span>
+<span class="cl"># 最小文件分片大小, 添加时可指定, 取值范围1M -1024M, 默认:20M  </span>
+<span class="cl"># 假定size=10M, 文件为20MiB 则使用两个来源下载# 文件为15MiB 则使用一个来源下载  </span>
+<span class="cl">min-split-size=1M  </span>
+<span class="cl"># .netrc文件路径  </span>
+<span class="cl">no-netrc=false  </span>
+<span class="cl"># 不使用代理服务器列表  </span>
+<span class="cl"># no-proxy=  </span>
+<span class="cl"># 代理服务器请求方法 取值:[get, tunnel]  </span>
+<span class="cl">proxy-method=get  </span>
+<span class="cl"># 获取服务器文件时间  </span>
+<span class="cl">remote-time=false  </span>
+<span class="cl"># URI 服用  </span>
+<span class="cl">reuse-uri=false  </span>
+<span class="cl"># 重试等待时间 单位:秒  </span>
+<span class="cl">retry-wait=5  </span>
+<span class="cl"># 服务器状态保存文件  </span>
+<span class="cl">server-stat-of=  </span>
+<span class="cl"># 服务器状态超时 单位:秒  </span>
+<span class="cl">server-stat-timeout=86400  </span>
+<span class="cl"># 单任务连接数 默认:5 需&lt;=max-connection-per-server  </span>
+<span class="cl">split=10  </span>
+<span class="cl"># 分片选择算法 取值:[default, inorder, random, geom]  </span>
+<span class="cl">stream-piece-selector=default  </span>
+<span class="cl"># 超时时间 单位:秒  </span>
+<span class="cl">timeout=60  </span>
+<span class="cl"># URI选择算法 取值:[inorder, feedback, adaptive]  </span>
+<span class="cl">uri-selector=feedback  </span>
+<span class="cl"></span>
+<span class="cl">###### HTTP设置  </span>
+<span class="cl"># 检查证书, 默认:true  </span>
+<span class="cl">check-certificate=false  </span>
+<span class="cl"># 支持GZip  </span>
+<span class="cl">http-accept-gzip=true  </span>
+<span class="cl"># 认证质询  </span>
+<span class="cl">http-auth-challenge=true  </span>
+<span class="cl"># 禁用缓存  </span>
+<span class="cl"># http-no-cache=true  </span>
+<span class="cl"># HTTP 默认用户名  </span>
+<span class="cl"># http-user=  </span>
+<span class="cl"># HTTP 默认密码  </span>
+<span class="cl"># http-passwd=  </span>
+<span class="cl"># HTTP 代理服务器  </span>
+<span class="cl"># http-proxy=  </span>
+<span class="cl"># HTTP 代理服务器用户名  </span>
+<span class="cl"># http-proxy-user=  </span>
+<span class="cl"># HTTP 代理服务器密码  </span>
+<span class="cl"># http-proxy-passwd=  </span>
+<span class="cl"># HTTPS 代理服务器  </span>
+<span class="cl"># https-proxy=  </span>
+<span class="cl"># HTTPS 代理服务器用户名  </span>
+<span class="cl"># https-proxy-user=  </span>
+<span class="cl"># HTTPS 代理服务器密码  </span>
+<span class="cl"># https-proxy-passwd=  </span>
+<span class="cl"># 请求来源  </span>
+<span class="cl">referer=  </span>
+<span class="cl"># 启用持久连接  </span>
+<span class="cl">enable-http-keep-alive=true  </span>
+<span class="cl"># 启用HTTP管线化  </span>
+<span class="cl">enable-http-pipelining=false  </span>
+<span class="cl"># 自定义请求头  </span>
+<span class="cl"># header=  </span>
+<span class="cl"># Cookies保存路径  </span>
+<span class="cl"># save-cookies=  </span>
+<span class="cl"># 启用HEAD方法  </span>
+<span class="cl">use-head=  </span>
+<span class="cl"># 自定义User Agent PT需要  </span>
+<span class="cl">user-agent=Transmission/2.77  </span>
+<span class="cl"></span>
+<span class="cl">###### FTP设置  </span>
+<span class="cl"># FTP默认用户名  </span>
+<span class="cl"># ftp-user=  </span>
+<span class="cl"># FTP默认密码  </span>
+<span class="cl"># ftp-passwd=  </span>
+<span class="cl">#被动模式  </span>
+<span class="cl">ftp-pasv=true  </span>
+<span class="cl"># FTP代理服务器  </span>
+<span class="cl"># ftp-proxy=  </span>
+<span class="cl"># FTP代理服务器用户名  </span>
+<span class="cl"># ftp-proxy-user=  </span>
+<span class="cl"># FTP代理服务器密码  </span>
+<span class="cl"># ftp-proxy-passwd=  </span>
+<span class="cl"># 传输类型  </span>
+<span class="cl"># ftp-type=ascii  </span>
+<span class="cl"># 连接复用  </span>
+<span class="cl">ftp-reuse-connection=true  </span>
+<span class="cl"># SSH公钥校验和 取值:[sha-1, md5]  </span>
+<span class="cl"># ssh-host-key-md=  </span>
+<span class="cl"></span>
+<span class="cl">###### BitTorrent设置  </span>
+<span class="cl"># 分离仅做种任务  </span>
+<span class="cl">bt-detach-seed-only=true  </span>
+<span class="cl"># 启用哈希检查完成时间  </span>
+<span class="cl"># bt-enable-hook-after-hash-check=true  </span>
+<span class="cl"># 启用本地节点发现(LPD) PT需要禁用, 默认:false  </span>
+<span class="cl">bt-enable-lpd=false  </span>
+<span class="cl"># BT排除服务器地址  </span>
+<span class="cl">bt-exclude-tracker=  </span>
+<span class="cl"># 外部IP地址  </span>
+<span class="cl">bt-external-ip=  </span>
+<span class="cl"># 强制加密  </span>
+<span class="cl"># bt-force-encryption=false  </span>
+<span class="cl"># 做种前检查文件哈希 默认:true  </span>
+<span class="cl">bt-hash-check-seed=true  </span>
+<span class="cl"># 加载已保存的元数据文件  </span>
+<span class="cl">bt-load-saved-metadata=false  </span>
+<span class="cl"># 最多打开文件数  </span>
+<span class="cl">bt-max-open-files=100  </span>
+<span class="cl"># 最大连接节点数 默认:55  </span>
+<span class="cl">bt-max-peers=55  </span>
+<span class="cl"># 仅下载种子文件  </span>
+<span class="cl">bt-metadata-only=false  </span>
+<span class="cl"># 优先下载  </span>
+<span class="cl"># bt-prioritize-piece=  </span>
+<span class="cl"># 删除未选择的文件  </span>
+<span class="cl">bt-remove-unselected-file=false  </span>
+<span class="cl"># 需要加密  </span>
+<span class="cl"># bt-require-crypto=false  </span>
+<span class="cl"># 期望下载速度 默认:50K  </span>
+<span class="cl">bt-request-peer-speed-limit=100K  </span>
+<span class="cl"># 保存种子文件 默认:false  </span>
+<span class="cl">bt-save-metadata=false  </span>
+<span class="cl"># 不检查已经下载的文件 默认:false  </span>
+<span class="cl">bt-seed-unverified=true  </span>
+<span class="cl"># 无速度时自动停止时间  </span>
+<span class="cl">bt-stop-timeout=0  </span>
+<span class="cl"># BT 服务器地址, 多个地址用逗号分隔  </span>
+<span class="cl">bt-tracker=http://1337.abcvg.info:80/announce,http://207.241.226.111:6969/announce,http://207.241.231.226:6969/announce,http://[2a04:ac00:1:3dd8::1:2710]:2710/announce,http://bittorrent-tracker.e-n-c-r-y-p-t.net:1337/announce,http://bt.okmp3.ru:2710/announce,http://buny.uk:6969/announce,http://finbytes.org:80/announce.php,http://fleira.no:6969/announce,http://ipv4.rer.lol:2710/announce,http://ipv4announce.sktorrent.eu:6969/announce,http://nyaa.tracker.wf:7777/announce,http://p4p.arenabg.com:1337/announce,http://public.tracker.vraphim.com:6969/announce,http://retracker.hotplug.ru:2710/announce,http://t.overflow.biz:6969/announce,http://taciturn-shadow.spb.ru:6969/announce,http://tk.greedland.net:80/announce,http://torrentsmd.com:8080/announce,http://tr.nyacat.pw:80/announce,http://tr1.aag.moe:2095/announce,http://tracker-zhuqiy.dgj055.icu:80/announce,http://tracker.beeimg.com:6969/announce,http://tracker.bt4g.com:2095/announce,http://tracker.corpscorp.online:80/announce,http://tracker.dler.com:6969/announce,http://tracker.dler.org:6969/announce,http://tracker.edkj.club:6969/announce,http://tracker.ipv6tracker.org:80/announce,http://tracker.mywaifu.best:6969/announce,http://tracker.qu.ax:6969/announce,http://tracker.renfei.net:8080/announce,http://tracker.sbsub.com:2710/announce,http://tracker.srv00.com:6969/announce,http://tracker.vraphim.com:6969/announce,http://tracker2.dler.org:80/announce,http://tracker2.itzmx.com:6961/announce,http://tracker3.itzmx.com:6961/announce,http://tracker4.itzmx.com:2710/announce,http://wepzone.net:6969/announce,http://www.all4nothin.net:80/announce.php,http://www.wareztorrent.com:80/announce,https://1337.abcvg.info:443/announce,https://api.ipv4online.uk:443/announce,https://mathkangaroo.jp:443/announce,https://retracker.x2k.ru:443/announce,https://sparkle.ghostchu-services.top:443/announce,https://t.213891.xyz:443/announce,https://tr.burnabyhighstar.com:443/announce,https://tr.nyacat.pw:443/announce,https://tr.zukizuki.org:443/announce,https://tracker-zhuqiy.dgj055.icu:443/announce,https://tracker.bjut.jp:443/announce,https://tracker.bt4g.com:443/announce,https://tracker.cloudit.top:443/announce,https://tracker.gcrenwp.top:443/announce,https://tracker.ipfsscan.io:443/announce,https://tracker.kuroy.me:443/announce,https://tracker.leechshield.link:443/announce,https://tracker.lilithraws.org:443/announce,https://tracker.moeking.me:443/announce,https://tracker.pmman.tech:443/announce,https://tracker.yemekyedim.com:443/announce,https://tracker1.520.jp:443/announce,https://trackers.mlsub.net:443/announce,udp://207.241.226.111:6969/announce,udp://207.241.231.226:6969/announce,udp://52.58.128.163:6969/announce,udp://[2a03:7220:8083:cd00::1]:451/announce,udp://[2a04:ac00:1:3dd8::1:2710]:2710/announce,udp://[2a0f:e586:f:f::81]:6969/announce,udp://amigacity.xyz:6969/announce,udp://bandito.byterunner.io:6969/announce,udp://bittorrent-tracker.e-n-c-r-y-p-t.net:1337/announce,udp://bt.ktrackers.com:6666/announce,udp://bt.rer.lol:2710/announce,udp://bt.rer.lol:6969/announce,udp://concen.org:6969/announce,udp://d40969.acod.regrucolo.ru:6969/announce,udp://discord.heihachi.pw:6969/announce,udp://ec2-18-191-163-220.us-east-2.compute.amazonaws.com:6969/announce,udp://evan.im:6969/announce,udp://exodus.desync.com:6969/announce,udp://ipv4.rer.lol:2710/announce,udp://ipv4announce.sktorrent.eu:6969/announce,udp://ismaarino.com:1234/announce,udp://jutone.com:6969/announce,udp://martin-gebhardt.eu:25/announce,udp://ns1.monolithindustries.com:6969/announce,udp://odd-hd.fr:6969/announce,udp://open.demonii.com:1337/announce,udp://open.dstud.io:6969/announce,udp://open.stealth.si:80/announce,udp://open.tracker.ink:6969/announce,udp://opentor.org:2710/announce,udp://opentracker.io:6969/announce,udp://p2p.publictracker.xyz:6969/announce,udp://p4p.arenabg.com:1337/announce,udp://public.tracker.vraphim.com:6969/announce,udp://retracker.hotplug.ru:2710/announce,udp://retracker.lanta.me:2710/announce,udp://retracker01-msk-virt.corbina.net:80/announce,udp://rt.tace.ru:6969/announce,udp://seedpeer.net:6969/announce,udp://serpb.vpsburti.com:6969/announce,udp://t.overflow.biz:6969/announce,udp://tr4ck3r.duckdns.org:6969/announce,udp://trackarr.org:6969/announce,udp://tracker-udp.gbitt.info:80/announce,udp://tracker.0x7c0.com:6969/announce,udp://tracker.birkenwald.de:6969/announce,udp://tracker.breizh.pm:6969/announce,udp://tracker.cyberia.is:6969/announce,udp://tracker.darkness.services:6969/announce,udp://tracker.deadorbit.nl:6969/announce,udp://tracker.dler.com:6969/announce,udp://tracker.dler.org:6969/announce,udp://tracker.dump.cl:6969/announce,udp://tracker.edkj.club:6969/announce,udp://tracker.filemail.com:6969/announce,udp://tracker.fnix.net:6969/announce,udp://tracker.gigantino.net:6969/announce,udp://tracker.gmi.gd:6969/announce,udp://tracker.kmzs123.tk:17272/announce,udp://tracker.opentrackr.org:1337/announce,udp://tracker.qu.ax:6969/announce,udp://tracker.skynetcloud.site:6969/announce,udp://tracker.skyts.net:6969/announce,udp://tracker.srv00.com:6969/announce,udp://tracker.theoks.net:6969/announce,udp://tracker.tiny-vps.com:6969/announce,udp://tracker.torrent.eu.org:451/announce,udp://tracker.torrust-demo.com:6969/announce,udp://tracker.tryhackx.org:6969/announce,udp://tracker.yume-hatsuyuki.moe:6969/announce,udp://tracker1.myporn.club:9337/announce,udp://tracker2.dler.org:80/announce,udp://tracker2.itzmx.com:6961/announce,udp://tracker3.itzmx.com:6961/announce,udp://tracker4.itzmx.com:2710/announce,udp://ttk2.nbaonlineservice.com:6969/announce,udp://u4.trakx.crim.ist:1337/announce,udp://u6.trakx.crim.ist:1337/announce,udp://wepzone.net:6969/announce,udp://www.torrent.eu.org:451/announce,udp://z.mercax.com:53/announce,wss://tracker.openwebtorrent.com:443/announce  </span>
+<span class="cl"># BT 服务器连接超时时间  </span>
+<span class="cl">bt-tracker-connect-timeout=60  </span>
+<span class="cl"># BT 服务器连接间隔时间  </span>
+<span class="cl">bt-tracker-interval=0  </span>
+<span class="cl"># DHT 监听端口 默认:6881-6999  </span>
+<span class="cl">dht-listen-port=6881-6999  </span>
+<span class="cl"># DHT 消息超时时间  </span>
+<span class="cl">dht-message-timeout=10  </span>
+<span class="cl"># 启用DHT(IPv4) PT需要禁用, 默认:true  </span>
+<span class="cl">enable-dht=false  </span>
+<span class="cl"># 启用DHT(IPv6) PT需要禁用  </span>
+<span class="cl">enable-dht6=false  </span>
+<span class="cl"># 启用节点交换 PT需要禁用, 默认:true  </span>
+<span class="cl">enable-peer-exchange=false  </span>
+<span class="cl"># 跟随下载种子文件内容, 下载种子文件后, 自动开始BT任务, 默认:true  </span>
+<span class="cl">follow-torrent=true  </span>
+<span class="cl"># BT 服务器超时时间  </span>
+<span class="cl">bt-tracker-timeout=60  </span>
+<span class="cl"># BT 监听端口 默认:6881-6999  </span>
+<span class="cl">listen-port=51413  </span>
+<span class="cl"># 启用Upnp端口映射  </span>
+<span class="cl"># enable-pmap=false 提示Unknown option  </span>
+<span class="cl"># 全局最大上传速度 默认:0  </span>
+<span class="cl"># max-overall-upload-limit=0  </span>
+<span class="cl"># 节点 ID 前缀 客户端伪装, PT需要  </span>
+<span class="cl">peer-id-prefix=-TR2770-  </span>
+<span class="cl"># Peer Agent  aira2/1.37.0  </span>
+<span class="cl">peer-agent=Transmission/2.94 (1707050)  </span>
+<span class="cl"># 最小分享率 当分享率到达该值时, 自动停止做种 0:一直做种, 默认:1.0  </span>
+<span class="cl">seed-ratio=1.0  </span>
+<span class="cl"># 最小做种时间  </span>
+<span class="cl">seed-time=1  </span>
+<span class="cl"></span>
+<span class="cl">###### Metalink设置  </span>
+<span class="cl"># 下载Metalink中的文件  </span>
+<span class="cl">follow-metalink=true  </span>
+<span class="cl"># 基础URL, 默认:空  </span>
+<span class="cl"># metalink-base-uri=  </span>
+<span class="cl"># 语言  </span>
+<span class="cl"># metalink-language=  </span>
+<span class="cl"># 首选服务器位置  </span>
+<span class="cl"># metalink-location=  </span>
+<span class="cl"># 操作系统  </span>
+<span class="cl"># metalink-os=  </span>
+<span class="cl"># 版本号  </span>
+<span class="cl"># metalink-version=  </span>
+<span class="cl"># 首选使用协议 取值:[http,https,ftp,none]  </span>
+<span class="cl">metalink-preferred-protocol=none  </span>
+<span class="cl"># 仅使用唯一协议, 默认:false  </span>
+<span class="cl">metalink-enable-unique-protocol=true  </span>
+<span class="cl"></span>
+<span class="cl">###### RPC设置  </span>
+<span class="cl"># 启用JSON-RPC/XML-RPC服务器 默认:false  </span>
+<span class="cl">enable-rpc=false  </span>
+<span class="cl"># 种子文件下载完后暂停  </span>
+<span class="cl">pause-metadata=false  </span>
+<span class="cl"># 接受所有远程请求 默认:false  </span>
+<span class="cl">rpc-allow-origin-all=true  </span>
+<span class="cl"># 在所有网卡上监听 默认:false  </span>
+<span class="cl">rpc-listen-all=true  </span>
+<span class="cl"># 监听端口 默认:6800  </span>
+<span class="cl">rpc-listen-port=6800  </span>
+<span class="cl"># 最大请求大小  </span>
+<span class="cl">rpc-max-request-size=20M  </span>
+<span class="cl"># 保存上传的种子文件  </span>
+<span class="cl">rpc-save-upload-metadata=true  </span>
+<span class="cl"># 启用SSL/TLS, 默认:false  </span>
+<span class="cl">rpc-secure=false  </span>
+<span class="cl"></span>
+<span class="cl">###### 高级设置  </span>
+<span class="cl"># 允许覆盖  </span>
+<span class="cl">allow-overwrite=true  </span>
+<span class="cl"># 允许分片大小变化  </span>
+<span class="cl"># allow-piece-length-change=false  </span>
+<span class="cl"># 始终断点续传  </span>
+<span class="cl">always-resume=true  </span>
+<span class="cl"># 异步DNS  </span>
+<span class="cl">async-dns=true  </span>
+<span class="cl"># 文件自动重命名  </span>
+<span class="cl">auto-file-renaming=true  </span>
+<span class="cl"># 自动保存间隔 单位:秒  </span>
+<span class="cl">auto-save-interval=60  </span>
+<span class="cl"># 条件下载  </span>
+<span class="cl">conf-path=aria2.conf  </span>
+<span class="cl"># 控制台日志级别  </span>
+<span class="cl">console-log-level=error  </span>
+<span class="cl"># 使用UTF-8处理Content-Disposition, 默认:false  </span>
+<span class="cl">content-disposition-default-utf8=true  </span>
+<span class="cl"># 启用后台进程  </span>
+<span class="cl">daemon=false  </span>
+<span class="cl"># 延迟加载  </span>
+<span class="cl">deferred-input=false  </span>
+<span class="cl"># 禁用IPv6  </span>
+<span class="cl">disable-ipv6=false  </span>
+<span class="cl"># 磁盘缓存 0:禁用缓存, 需1.16以上版本, 默认:16M  </span>
+<span class="cl">disk-cache=64M  </span>
+<span class="cl"># 下载结果 取值:[default,full,hide]  </span>
+<span class="cl">download-result=default  </span>
+<span class="cl"># DSCP  </span>
+<span class="cl">dscp=0  </span>
+<span class="cl"># 最多打开的文件描述符  </span>
+<span class="cl"># rlimit-nofile=1024 提示Unknown option  </span>
+<span class="cl"># 终端输出使用颜色  </span>
+<span class="cl">enable-color=true  </span>
+<span class="cl"># 启用MMap  </span>
+<span class="cl">enable-mmap=true  </span>
+<span class="cl"># 事件轮询方式, 取值:[epoll, kqueue, port, poll, select], 不同系统默认值不同, 建议使用默认值  </span>
+<span class="cl">event-poll=select  </span>
+<span class="cl"># 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc  </span>
+<span class="cl"># 预分配所需时间: none &lt; falloc ? trunc &lt; prealloc  </span>
+<span class="cl"># falloc 和 trunc 则需要文件系统和内核支持, NTFS 建议使用 falloc, EXT3/4建议trunc  </span>
+<span class="cl">file-allocation=falloc  </span>
+<span class="cl"># 保存下载记录.aria2 默认:false  </span>
+<span class="cl">force-save=false  </span>
+<span class="cl"># 保存未找到的文件  </span>
+<span class="cl">save-not-found=true  </span>
+<span class="cl"># 仅哈希检查  </span>
+<span class="cl">hash-check-only=false  </span>
+<span class="cl"># 控制台可读输出  </span>
+<span class="cl">human-readable=true  </span>
+<span class="cl"># 保留未完成的任务, 默认:false  </span>
+<span class="cl">keep-unfinished-download-result=true  </span>
+<span class="cl"># 最多下载结果  </span>
+<span class="cl">max-download-result=1000  </span>
+<span class="cl"># MMap最大限制  </span>
+<span class="cl">max-mmap-limit=0  </span>
+<span class="cl"># 最大断点续传尝试次数  </span>
+<span class="cl">max-resume-failure-tries=0  </span>
+<span class="cl"># 最低TLS版本  </span>
+<span class="cl">min-tls-version=TLSv1.2  </span>
+<span class="cl"># 日志级别  </span>
+<span class="cl">log-level=info  </span>
+<span class="cl"># 优化并发下载  </span>
+<span class="cl">optimize-concurrent-downloads=true  </span>
+<span class="cl"># 文件分片大小, 默认:1M  </span>
+<span class="cl"># piece-length=1M  </span>
+<span class="cl"># 禁用配置文件  </span>
+<span class="cl">no-conf=false  </span>
+<span class="cl"># 文件分配限制  </span>
+<span class="cl">no-file-allocation-limit=0  </span>
+<span class="cl"># 启用参数化URI支持  </span>
+<span class="cl">parameterized-uri=false  </span>
+<span class="cl"># 禁用控制台输出  </span>
+<span class="cl">quiet=false  </span>
+<span class="cl"># 实时数据块验证, 默认:false  </span>
+<span class="cl">realtime-chunk-checksum=false  </span>
+<span class="cl"># 删除控制文件  </span>
+<span class="cl"># 删除控制文件  </span>
+<span class="cl">remove-control-file=true  </span>
+<span class="cl"># 状态保存间隔 0:退出时保存, 需1.16.1以上版本 默认:0  </span>
+<span class="cl"># save-session-interval=0  </span>
+<span class="cl"># Socket 接收缓冲区大小  </span>
+<span class="cl">socket-recv-buffer-size=0  </span>
+<span class="cl"># 自动关闭时间  </span>
+<span class="cl">stop=0  </span>
+<span class="cl"># 显示控制台输出  </span>
+<span class="cl">show-console-readout=true  </span>
+<span class="cl"># 缩短控制台输出内容  </span>
+<span class="cl">truncate-console-readout=true  </span></code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.code-block-wrapper:hover .code-block-controls,
+.code-block-wrapper:focus-within .code-block-controls {
+  opacity: 1;
+}
+.fold-btn, .copy-btn, .code-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+.fold-btn, .code-toggle {
+  color: #6e7681;
+}
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
+  color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+[data-color-mode="dark"] .highlight .cl::before {
+  color: #8b949e;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
+  document.addEventListener('click', e => {
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
+    }
+  });
+});
+</script>
+
+
+</div>
+
+<nav class="paginate-container" aria-label="Pagination"
+     data-nav-url="https://anaer.github.io/blog/nav.json"
+     data-post-number="56">
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/55.html" aria-label="Previous Page">prompt相关</a><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/57.html" aria-label="Next Page">curl统计耗时</a></div>
+</nav>
+
+<!-- 编辑按钮 -->
+<a href="https://github.com/anaer/blog/issues/56" target="_blank">
+    <button class="floating-button edit-post">🖋</button>
+</a>
+
+<!-- 新增按钮 -->
+<a href="https://github.com/anaer/blog/issues/new" target="_blank">
+    <button class="floating-button new-post">+</button>
+</a>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
+
+<script>
+if("2023-09-08"!=""){
+    var now=new Date();
+    var startSite=new Date("2023-09-08");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script></div>
+
+    <!-- oneko.js中用到document.body, 需要在body块中加载 否则提示为null -->
+    <script src="https://anaer.github.io/blog/assets/oneko.js/oneko.js"></script>
+</body>
+<script>
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'subway': 'M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z'};
+var utterancesLoad=0;
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek v2.4 %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+
+<script>
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","anaer/blog");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){
+        script.setAttribute("theme","dark-blue");
+    }else{
+        script.setAttribute("theme","github-light");
+    }
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+
+
+<script src="https://anaer.github.io/blog/assets/toc.js"></script>
+<script src="https://anaer.github.io/blog/assets/sections.js"></script>
+<script src="https://anaer.github.io/blog/assets/nav.js"></script>
+
+
+</html>

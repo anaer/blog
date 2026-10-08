@@ -1,96 +1,268 @@
-<div class="markdown-heading"><h2 class="heading-element">下载一帧图片</h2><a id="user-content-下载一帧图片" class="anchor" aria-label="Permalink: 下载一帧图片" href="#下载一帧图片"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>ffmpeg -i http://117.148.179.136/PLTV/88888888/224/3221231567/index.m3u8 -ss 1 -frames:v 1 aaaa.jpg</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">下载视频</h2><a id="user-content-下载视频" class="anchor" aria-label="Permalink: 下载视频" href="#下载视频"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>ffmpeg -i <span class="pl-s"><span class="pl-pds">"</span>https://example.com/path/to/your/video.m3u8<span class="pl-pds">"</span></span> -c copy output.mp4
-ffmpeg -i <span class="pl-s"><span class="pl-pds">"</span>https://example.com/path/to/your/video.m3u8<span class="pl-pds">"</span></span> -c copy output.mkv
 
-<span class="pl-c"><span class="pl-c">#</span> 重新编码</span>
-ffmpeg -i <span class="pl-s"><span class="pl-pds">"</span>https://example.com/path/to/your/video.m3u8<span class="pl-pds">"</span></span> -c:v libx264 -c:a aac output.mp4
-
-<span class="pl-c"><span class="pl-c">#</span> 指定分辨率</span>
-ffmpeg -i <span class="pl-s"><span class="pl-pds">"</span>https://example.com/path/to/your/video.m3u8<span class="pl-pds">"</span></span> -vf <span class="pl-s"><span class="pl-pds">"</span>scale=1280:720<span class="pl-pds">"</span></span> -c:a copy output.mp4</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">获取直播流分辨率</h2><a id="user-content-获取直播流分辨率" class="anchor" aria-label="Permalink: 获取直播流分辨率" href="#获取直播流分辨率"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> 查询流信息, 指定输出字段</span>
-ffprobe -v quiet -of json -show_entries stream=width,height http://play-live.ifeng.com/live/06OLEGEGM4G.m3u8
-
-<span class="pl-c"><span class="pl-c">#</span> 查询流信息并输出json格式</span>
-ffprobe -v quiet -of json -show_streams -rw_timeout 3000 -stimeout 3000 http://play-live.ifeng.com/live/06OLEGEGM4G.m3u8</pre></div>
-<div class="markdown-heading"><h2 class="heading-element">参数说明</h2><a id="user-content-参数说明" class="anchor" aria-label="Permalink: 参数说明" href="#参数说明"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>-rw_timeout 读写超时时间, 单位微秒, 1秒=1000000微秒
--stimeout socket读写超时时间, 单位微秒, 1秒=1000000微秒
-</code></pre>
-<pre lang="log"><code>usage: ffprobe [OPTIONS] [INPUT_FILE]
-
-Main options:
--L                  show license
--h topic            show help
--? topic            show help
--help topic         show help
---help topic        show help
--version            show version
--buildconf          show build configuration
--formats            show available formats
--muxers             show available muxers
--demuxers           show available demuxers
--devices            show available devices
--codecs             show available codecs
--decoders           show available decoders
--encoders           show available encoders
--bsfs               show available bit stream filters
--protocols          show available protocols
--filters            show available filters
--pix_fmts           show available pixel formats
--layouts            show standard channel layouts
--sample_fmts        show available audio sample formats
--colors             show available color names
--loglevel loglevel  set logging level
--v loglevel         set logging level
--report             generate a report
--max_alloc bytes    set maximum size of a single allocated block
--cpuflags flags     force specific cpu flags
--hide_banner hide_banner  do not show program banner
--sources device     list sources of the input device
--sinks device       list sinks of the output device
--f format           force format
--unit               show unit of the displayed values
--prefix             use SI prefixes for the displayed values
--byte_binary_prefix  use binary prefixes for byte units
--sexagesimal        use sexagesimal format HOURS:MM:SS.MICROSECONDS for time units
--pretty             prettify the format of displayed values, make it more human readable
--print_format format  set the output printing format (available formats are: default, compact, csv, flat, ini, json, xml)
--of format          alias for -print_format
--select_streams stream_specifier  select the specified streams
--sections           print sections structure and section information, and exit
--show_data          show packets data
--show_data_hash     show packets data hash
--show_error         show probing error
--show_format        show format/container info
--show_frames        show frames info
--show_format_entry entry  show a particular entry from the format/container info
--show_entries entry_list  show a set of specified entries
--show_log           show log
--show_packets       show packets info
--show_programs      show programs info
--show_streams       show streams info
--show_chapters      show chapters info
--count_frames       count the number of frames per stream
--count_packets      count the number of packets per stream
--show_program_version  show ffprobe version
--show_library_versions  show library versions
--show_versions      show program and library versions
--show_pixel_formats  show pixel format descriptions
--show_private_data  show private data
--private            same as show_private_data
--bitexact           force bitexact output
--read_intervals read_intervals  set read intervals
--default            generic catch all option
--i input_file       read specified file
--find_stream_info   read and decode the streams to fill missing information with heuristics
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+  <article class="markdown-body">
+    <h2 id="_1">下载一帧图片</h2>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">ffmpeg<span class="w"> </span>-i<span class="w"> </span>http://117.148.179.136/PLTV/88888888/224/3221231567/index.m3u8<span class="w"> </span>-ss<span class="w"> </span><span class="m">1</span><span class="w"> </span>-frames:v<span class="w"> </span><span class="m">1</span><span class="w"> </span>aaaa.jpg<span class="w">  </span></span></code></pre></div></div>
+<h2 id="_2">下载视频</h2>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="s2">"https://example.com/path/to/your/video.m3u8"</span><span class="w"> </span>-c<span class="w"> </span>copy<span class="w"> </span>output.mp4<span class="w">  </span></span>
+<span class="cl">ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="s2">"https://example.com/path/to/your/video.m3u8"</span><span class="w"> </span>-c<span class="w"> </span>copy<span class="w"> </span>output.mkv<span class="w">  </span></span>
+<span class="cl"></span>
+<span class="cl"><span class="c1"># 重新编码  </span></span>
+<span class="cl">ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="s2">"https://example.com/path/to/your/video.m3u8"</span><span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-c:a<span class="w"> </span>aac<span class="w"> </span>output.mp4<span class="w">  </span></span>
+<span class="cl"></span>
+<span class="cl"><span class="c1"># 指定分辨率  </span></span>
+<span class="cl">ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="s2">"https://example.com/path/to/your/video.m3u8"</span><span class="w"> </span>-vf<span class="w"> </span><span class="s2">"scale=1280:720"</span><span class="w"> </span>-c:a<span class="w"> </span>copy<span class="w"> </span>output.mp4<span class="w">  </span></span></code></pre></div></div>
+<h2 id="_3">获取直播流分辨率</h2>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="c1"># 查询流信息, 指定输出字段  </span></span>
+<span class="cl">ffprobe<span class="w"> </span>-v<span class="w"> </span>quiet<span class="w"> </span>-of<span class="w"> </span>json<span class="w"> </span>-show_entries<span class="w"> </span><span class="nv">stream</span><span class="o">=</span>width,height<span class="w"> </span>http://play-live.ifeng.com/live/06OLEGEGM4G.m3u8<span class="w">  </span></span>
+<span class="cl"></span>
+<span class="cl"><span class="c1"># 查询流信息并输出json格式  </span></span>
+<span class="cl">ffprobe<span class="w"> </span>-v<span class="w"> </span>quiet<span class="w"> </span>-of<span class="w"> </span>json<span class="w"> </span>-show_streams<span class="w"> </span>-rw_timeout<span class="w"> </span><span class="m">3000</span><span class="w"> </span>-stimeout<span class="w"> </span><span class="m">3000</span><span class="w"> </span>http://play-live.ifeng.com/live/06OLEGEGM4G.m3u8<span class="w">  </span></span></code></pre></div></div>
+<h2 id="_4">参数说明</h2>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">-rw_timeout 读写超时时间, 单位微秒, 1秒=1000000微秒  </span>
+<span class="cl">-stimeout socket读写超时时间, 单位微秒, 1秒=1000000微秒  </span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">log</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">usage: ffprobe [OPTIONS] [INPUT_FILE]  </span>
+<span class="cl"></span>
+<span class="cl">Main options:  </span>
+<span class="cl">-L                  show license  </span>
+<span class="cl">-h topic            show help  </span>
+<span class="cl">-? topic            show help  </span>
+<span class="cl">-help topic         show help  </span>
+<span class="cl">--help topic        show help  </span>
+<span class="cl">-version            show version  </span>
+<span class="cl">-buildconf          show build configuration  </span>
+<span class="cl">-formats            show available formats  </span>
+<span class="cl">-muxers             show available muxers  </span>
+<span class="cl">-demuxers           show available demuxers  </span>
+<span class="cl">-devices            show available devices  </span>
+<span class="cl">-codecs             show available codecs  </span>
+<span class="cl">-decoders           show available decoders  </span>
+<span class="cl">-encoders           show available encoders  </span>
+<span class="cl">-bsfs               show available bit stream filters  </span>
+<span class="cl">-protocols          show available protocols  </span>
+<span class="cl">-filters            show available filters  </span>
+<span class="cl">-pix_fmts           show available pixel formats  </span>
+<span class="cl">-layouts            show standard channel layouts  </span>
+<span class="cl">-sample_fmts        show available audio sample formats  </span>
+<span class="cl">-colors             show available color names  </span>
+<span class="cl">-loglevel loglevel  set logging level  </span>
+<span class="cl">-v loglevel         set logging level  </span>
+<span class="cl">-report             generate a report  </span>
+<span class="cl">-max_alloc bytes    set maximum size of a single allocated block  </span>
+<span class="cl">-cpuflags flags     force specific cpu flags  </span>
+<span class="cl">-hide_banner hide_banner  do not show program banner  </span>
+<span class="cl">-sources device     list sources of the input device  </span>
+<span class="cl">-sinks device       list sinks of the output device  </span>
+<span class="cl">-f format           force format  </span>
+<span class="cl">-unit               show unit of the displayed values  </span>
+<span class="cl">-prefix             use SI prefixes for the displayed values  </span>
+<span class="cl">-byte_binary_prefix  use binary prefixes for byte units  </span>
+<span class="cl">-sexagesimal        use sexagesimal format HOURS:MM:SS.MICROSECONDS for time units  </span>
+<span class="cl">-pretty             prettify the format of displayed values, make it more human readable  </span>
+<span class="cl">-print_format format  set the output printing format (available formats are: default, compact, csv, flat, ini, json, xml)  </span>
+<span class="cl">-of format          alias for -print_format  </span>
+<span class="cl">-select_streams stream_specifier  select the specified streams  </span>
+<span class="cl">-sections           print sections structure and section information, and exit  </span>
+<span class="cl">-show_data          show packets data  </span>
+<span class="cl">-show_data_hash     show packets data hash  </span>
+<span class="cl">-show_error         show probing error  </span>
+<span class="cl">-show_format        show format/container info  </span>
+<span class="cl">-show_frames        show frames info  </span>
+<span class="cl">-show_format_entry entry  show a particular entry from the format/container info  </span>
+<span class="cl">-show_entries entry_list  show a set of specified entries  </span>
+<span class="cl">-show_log           show log  </span>
+<span class="cl">-show_packets       show packets info  </span>
+<span class="cl">-show_programs      show programs info  </span>
+<span class="cl">-show_streams       show streams info  </span>
+<span class="cl">-show_chapters      show chapters info  </span>
+<span class="cl">-count_frames       count the number of frames per stream  </span>
+<span class="cl">-count_packets      count the number of packets per stream  </span>
+<span class="cl">-show_program_version  show ffprobe version  </span>
+<span class="cl">-show_library_versions  show library versions  </span>
+<span class="cl">-show_versions      show program and library versions  </span>
+<span class="cl">-show_pixel_formats  show pixel format descriptions  </span>
+<span class="cl">-show_private_data  show private data  </span>
+<span class="cl">-private            same as show_private_data  </span>
+<span class="cl">-bitexact           force bitexact output  </span>
+<span class="cl">-read_intervals read_intervals  set read intervals  </span>
+<span class="cl">-default            generic catch all option  </span>
+<span class="cl">-i input_file       read specified file  </span>
+<span class="cl">-find_stream_info   read and decode the streams to fill missing information with heuristics  </span></code></pre></div></div>
+<h2 id="_5">相关链接</h2>
 <ol>
-<li>#47</li>
-<li><a href="https://commandnotfound.cn/linux/1/171/ffmpeg-%E5%91%BD%E4%BB%A4" rel="nofollow">ffmpeg-命令</a></li>
-<li><a href="https://beandrewang.github.io/2017-01-22-ffmpeg-manual-chinese/" rel="nofollow">ffmpeg中文手册</a></li>
-<li><a href="https://github.com/mobinsheng/books">ffmpeg相关电子书</a></li>
+<li><a href="https://anaer.github.io/blog/post/47.html">Python查询m3u8视频信息</a>      </li>
+<li><a href="https://commandnotfound.cn/linux/1/171/ffmpeg-%E5%91%BD%E4%BB%A4">ffmpeg-命令</a>    </li>
+<li><a href="https://beandrewang.github.io/2017-01-22-ffmpeg-manual-chinese/">ffmpeg中文手册</a>    </li>
+<li><a href="https://github.com/mobinsheng/books">ffmpeg相关电子书</a>    </li>
 </ol>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.code-block-wrapper:hover .code-block-controls,
+.code-block-wrapper:focus-within .code-block-controls {
+  opacity: 1;
+}
+.fold-btn, .copy-btn, .code-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+.fold-btn, .code-toggle {
+  color: #6e7681;
+}
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
+  color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+[data-color-mode="dark"] .highlight .cl::before {
+  color: #8b949e;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
+  document.addEventListener('click', e => {
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
+    }
+  });
+});
+</script>
+

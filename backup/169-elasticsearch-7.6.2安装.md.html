@@ -2,151 +2,274 @@
   <article class="markdown-body">
     <h1 id="elasticsearch-762">elasticsearch-7.6.2安装</h1>
 <p>CentOS 7.9  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>xvf<span class="w"> </span>elasticsearch-7.6.2.tar.gz<span class="w"> </span>-C<span class="w"> </span>/data/elasticsearch-7.6.2<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>tar<span class="w"> </span>xvf<span class="w"> </span>elasticsearch-7.6.2.tar.gz<span class="w"> </span>-C<span class="w"> </span>/data/elasticsearch-7.6.2<span class="w">  </span></span></code></pre></div></div>
 <h2 id="configelasticsearchyaml">修改config/elasticsearch.yaml文件</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="nt">cluster.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-es</span><span class="w">  </span>
-<span class="nt">node.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node-1</span><span class="w">  </span>
-<span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0</span><span class="w">  </span>
-<span class="nt">http.port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9200</span><span class="w">  </span>
-<span class="nt">discovery.seed_hosts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;[::1]&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span>
-<span class="nt">cluster.initial_master_nodes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;node-1&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">yaml</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="nt">cluster.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-es</span><span class="w">  </span></span>
+<span class="cl"><span class="nt">node.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node-1</span><span class="w">  </span></span>
+<span class="cl"><span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0</span><span class="w">  </span></span>
+<span class="cl"><span class="nt">http.port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9200</span><span class="w">  </span></span>
+<span class="cl"><span class="nt">discovery.seed_hosts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"0.0.0.0"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"[::1]"</span><span class="p p-Indicator">]</span><span class="w">  </span></span>
+<span class="cl"><span class="nt">cluster.initial_master_nodes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"node-1"</span><span class="p p-Indicator">]</span><span class="w">  </span></span></code></pre></div></div>
 <h2 id="etcsysctlconf">修改/etc/sysctl.conf文件配置</h2>
 <p>不修改的话 启动会提示 <code>max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</code>  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>vim<span class="w"> </span>/etc/sysctl.conf<span class="w">  </span>
-</code></pre></div></div>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>vm.max_map_count = 262144  
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>vim<span class="w"> </span>/etc/sysctl.conf<span class="w">  </span></span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">conf</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">vm.max_map_count = 262144  </span></code></pre></div></div>
 <h2 id="sysctl">启动sysctl配置</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>sysctl<span class="w"> </span>-p<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>sysctl<span class="w"> </span>-p<span class="w">  </span></span></code></pre></div></div>
 <h2 id="_1">设置环境变量</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="c1">####### elasticsearch ######  </span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">ES_HOME</span><span class="o">=</span>/data/elasticsearch-7.6.2<span class="w">  </span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ES_HOME</span>/bin<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="c1">####### elasticsearch ######  </span></span>
+<span class="cl"><span class="nb">export</span><span class="w"> </span><span class="nv">ES_HOME</span><span class="o">=</span>/data/elasticsearch-7.6.2<span class="w">  </span></span>
+<span class="cl"><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ES_HOME</span>/bin<span class="w">  </span></span></code></pre></div></div>
 <h2 id="_2">切换用户</h2>
 <p>es不能使用root启动 data目录授权  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>groupadd<span class="w">  </span>es<span class="w">  </span>
-$<span class="w"> </span>useradd<span class="w"> </span>-g<span class="w"> </span>es<span class="w"> </span>es<span class="w">  </span>
-$<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>es:es<span class="w"> </span>/data/elasticsearch-7.6.2<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>groupadd<span class="w">  </span>es<span class="w">  </span></span>
+<span class="cl">$<span class="w"> </span>useradd<span class="w"> </span>-g<span class="w"> </span>es<span class="w"> </span>es<span class="w">  </span></span>
+<span class="cl">$<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>es:es<span class="w"> </span>/data/elasticsearch-7.6.2<span class="w">  </span></span></code></pre></div></div>
 <h2 id="elasticsearch">创建elasticsearch服务</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>vim<span class="w"> </span>/usr/lib/systemd/system/elasticsearch.service<span class="w">  </span>
-</code></pre></div></div>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>[Unit]  
-Description=elasticsearch  
-After=network.target  
-
-[Service]  
-Type=forking  
-User=es  
-Group=es  
-ExecStart=/data/elasticsearch-7.6.2/bin/elasticsearch -d  
-PrivateTmp=true  
-
-
-# 指定此进程可以打开的最大文件数  
-LimitNOFILE=65535  
-# 指定此进程可以打开的最大进程数  
-LimitNPROC=65535  
-# 最大虚拟内存  
-LimitAS=infinity  
-# 最大文件大小  
-LimitFSIZE=infinity  
-# 超时设置 0-永不超时  
-TimeoutStopSec=0  
-# SIGTERM是停止java进程的信号  
-KillSignal=SIGTERM  
-# 信号只发送给给JVM  
-KillMode=process  
-# java进程不会被杀掉  
-SendSIGKILL=no  
-# 正常退出状态  
-SuccessExitStatus=143  
-
-[Install]  
-WantedBy=multi-user.target  
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>vim<span class="w"> </span>/usr/lib/systemd/system/elasticsearch.service<span class="w">  </span></span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">conf</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">[Unit]  </span>
+<span class="cl">Description=elasticsearch  </span>
+<span class="cl">After=network.target  </span>
+<span class="cl"></span>
+<span class="cl">[Service]  </span>
+<span class="cl">Type=forking  </span>
+<span class="cl">User=es  </span>
+<span class="cl">Group=es  </span>
+<span class="cl">ExecStart=/data/elasticsearch-7.6.2/bin/elasticsearch -d  </span>
+<span class="cl">PrivateTmp=true  </span>
+<span class="cl"></span>
+<span class="cl"></span>
+<span class="cl"># 指定此进程可以打开的最大文件数  </span>
+<span class="cl">LimitNOFILE=65535  </span>
+<span class="cl"># 指定此进程可以打开的最大进程数  </span>
+<span class="cl">LimitNPROC=65535  </span>
+<span class="cl"># 最大虚拟内存  </span>
+<span class="cl">LimitAS=infinity  </span>
+<span class="cl"># 最大文件大小  </span>
+<span class="cl">LimitFSIZE=infinity  </span>
+<span class="cl"># 超时设置 0-永不超时  </span>
+<span class="cl">TimeoutStopSec=0  </span>
+<span class="cl"># SIGTERM是停止java进程的信号  </span>
+<span class="cl">KillSignal=SIGTERM  </span>
+<span class="cl"># 信号只发送给给JVM  </span>
+<span class="cl">KillMode=process  </span>
+<span class="cl"># java进程不会被杀掉  </span>
+<span class="cl">SendSIGKILL=no  </span>
+<span class="cl"># 正常退出状态  </span>
+<span class="cl">SuccessExitStatus=143  </span>
+<span class="cl"></span>
+<span class="cl">[Install]  </span>
+<span class="cl">WantedBy=multi-user.target  </span></code></pre></div></div>
 <p>给脚本赋权限：  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/lib/systemd/system/elasticsearch.service<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/lib/systemd/system/elasticsearch.service<span class="w">  </span></span></code></pre></div></div>
 <p>重新加载systemd的守护线程  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload<span class="w">  </span></span></code></pre></div></div>
 <p>开机启动生效  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>elasticsearch.service<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>elasticsearch.service<span class="w">  </span></span></code></pre></div></div>
 <p>启动elasticsearch.service  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>elasticsearch.service<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>elasticsearch.service<span class="w">  </span></span></code></pre></div></div>
 <p>查看elasticsearch.serivce状态  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>elasticsearch.service<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>elasticsearch.service<span class="w">  </span></span></code></pre></div></div>
 <p>如果出现错误可以使用如下命令查看日志  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>elaticsearch.service<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>elaticsearch.service<span class="w">  </span></span></code></pre></div></div>
 <h2 id="es">测试es</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span>http://127.0.0.1:9200<span class="w">  </span>
-</code></pre></div></div>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node-1&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;cluster_name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-es&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;cluster_uuid&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dDwggAe9RfqyVRAp5s1Wzg&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="nt">&quot;number&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7.6.2&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">    </span><span class="nt">&quot;build_flavor&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">    </span><span class="nt">&quot;build_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tar&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">    </span><span class="nt">&quot;build_hash&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ef48eb35cf30adf4db14086e8aabd07ef6fb113f&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">    </span><span class="nt">&quot;build_date&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-03-26T06:34:37.794943Z&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">    </span><span class="nt">&quot;build_snapshot&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">  </span>
-<span class="w">    </span><span class="nt">&quot;lucene_version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8.4.0&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">    </span><span class="nt">&quot;minimum_wire_compatibility_version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6.8.0&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">    </span><span class="nt">&quot;minimum_index_compatibility_version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6.0.0-beta1&quot;</span><span class="w">  </span>
-<span class="w">  </span><span class="p">},</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;tagline&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You Know, for Search&quot;</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>curl<span class="w"> </span>http://127.0.0.1:9200<span class="w">  </span></span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"node-1"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"cluster_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"my-es"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"cluster_uuid"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"dDwggAe9RfqyVRAp5s1Wzg"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"version"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="nt">"number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"7.6.2"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="nt">"build_flavor"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="nt">"build_type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"tar"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="nt">"build_hash"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ef48eb35cf30adf4db14086e8aabd07ef6fb113f"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="nt">"build_date"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-26T06:34:37.794943Z"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="nt">"build_snapshot"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="nt">"lucene_version"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"8.4.0"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="nt">"minimum_wire_compatibility_version"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"6.8.0"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="nt">"minimum_index_compatibility_version"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"6.0.0-beta1"</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"tagline"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"You Know, for Search"</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.code-block-wrapper:hover .code-block-controls,
+.code-block-wrapper:focus-within .code-block-controls {
+  opacity: 1;
+}
+.fold-btn, .copy-btn, .code-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+.fold-btn, .code-toggle {
+  color: #6e7681;
+}
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
+  color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+[data-color-mode="dark"] .highlight .cl::before {
+  color: #8b949e;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // 复制功能
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
 
-  // 折叠功能
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
   document.addEventListener('click', e => {
-    if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
     }
   });
 });

@@ -3,38 +3,37 @@
     <h2 id="_1">索引管理</h2>
 <h3 id="_2">新增索引</h3>
 <p>可以在新增索引时, 自定义分词器custom_pattern  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>PUT {{myes}}/my_index  
-{  
-  &quot;settings&quot;: {  
-    &quot;number_of_shards&quot;: 1,  
-    &quot;number_of_replicas&quot;: 1,  
-    &quot;analysis&quot;: {  
-      &quot;analyzer&quot;: {  
-        &quot;custom_pattern&quot;: {  
-          &quot;type&quot;: &quot;pattern&quot;,  
-          &quot;pattern&quot;: &quot;\\|&quot;  
-        }  
-      }  
-    }  
-  },  
-  &quot;mappings&quot;: {  
-    &quot;properties&quot;: {  
-      &quot;title&quot;: {  
-        &quot;type&quot;: &quot;text&quot;,  
-        &quot;analyzer&quot;: &quot;standard&quot;  
-      },  
-      &quot;content&quot;: {  
-        &quot;type&quot;: &quot;text&quot;,  
-        &quot;analyzer&quot;: &quot;standard&quot;  
-      },  
-      &quot;timestamp&quot;: {  
-        &quot;type&quot;: &quot;date&quot;  
-      }  
-    }  
-  }  
-}  
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">rest</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">PUT {{myes}}/my_index  </span>
+<span class="cl">{  </span>
+<span class="cl">  "settings": {  </span>
+<span class="cl">    "number_of_shards": 1,  </span>
+<span class="cl">    "number_of_replicas": 1,  </span>
+<span class="cl">    "analysis": {  </span>
+<span class="cl">      "analyzer": {  </span>
+<span class="cl">        "custom_pattern": {  </span>
+<span class="cl">          "type": "pattern",  </span>
+<span class="cl">          "pattern": "\\|"  </span>
+<span class="cl">        }  </span>
+<span class="cl">      }  </span>
+<span class="cl">    }  </span>
+<span class="cl">  },  </span>
+<span class="cl">  "mappings": {  </span>
+<span class="cl">    "properties": {  </span>
+<span class="cl">      "title": {  </span>
+<span class="cl">        "type": "text",  </span>
+<span class="cl">        "analyzer": "standard"  </span>
+<span class="cl">      },  </span>
+<span class="cl">      "content": {  </span>
+<span class="cl">        "type": "text",  </span>
+<span class="cl">        "analyzer": "standard"  </span>
+<span class="cl">      },  </span>
+<span class="cl">      "timestamp": {  </span>
+<span class="cl">        "type": "date"  </span>
+<span class="cl">      }  </span>
+<span class="cl">    }  </span>
+<span class="cl">  }  </span>
+<span class="cl">}  </span></code></pre></div></div>
 <h2 id="elasticsearch">Elasticsearch 常见分词器及其主要用途：</h2>
 <table>
 <thead>
@@ -79,356 +78,481 @@
 </tbody>
 </table>
 <p>请求链接:<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>GET {{myes}}/my_index/_analyze  
-</code></pre></div></div></p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">rest</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">GET {{myes}}/my_index/_analyze  </span></code></pre></div></div></p>
 <h3 id="standard-tokenizer"><strong>Standard Tokenizer</strong></h3>
 <p><strong>描述</strong>：标准分词器，对文本进行基本的分词处理。<br />
 <strong>示例</strong>：<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, this is a document to be analyzed.&quot;</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;this&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;is&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;document&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;to&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;be&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;analyzed&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">  </span>
-<span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">  </span><span class="p">]</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"analyzer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello, this is a document to be analyzed."</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div></p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"tokens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ALPHANUM&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ALPHANUM&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ALPHANUM&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ALPHANUM&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ALPHANUM&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ALPHANUM&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"be"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ALPHANUM&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"analyzed"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ALPHANUM&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="p">]</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div>
 <p><strong>示例2</strong><br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aaa|bbb|ccc&quot;</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bbb&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ccc&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span>
-<span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">  </span><span class="p">]</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"analyzer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaa|bbb|ccc"</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div></p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"tokens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaa"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ALPHANUM&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bbb"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ALPHANUM&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ccc"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ALPHANUM&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="p">]</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div>
 <p><strong>示例3</strong><br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;中文|汉字|测试&quot;</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;中&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;IDEOGRAPHIC&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;文&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;IDEOGRAPHIC&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;汉&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;IDEOGRAPHIC&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;字&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;IDEOGRAPHIC&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;测&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;IDEOGRAPHIC&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;试&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;IDEOGRAPHIC&gt;&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">  </span>
-<span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">  </span><span class="p">]</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"analyzer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"中文|汉字|测试"</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div></p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"tokens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"中"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;IDEOGRAPHIC&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"文"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;IDEOGRAPHIC&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"汉"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;IDEOGRAPHIC&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"字"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;IDEOGRAPHIC&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"测"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;IDEOGRAPHIC&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"试"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;IDEOGRAPHIC&gt;"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="p">]</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div>
 <h3 id="simple-tokenizer"><strong>Simple Tokenizer</strong></h3>
 <p><strong>描述</strong>：简单分词器，根据非字母数字字符进行分词，适用于多语言文本。主要特点是根据短横线、中横线、下划线、逗号、冒号、分号等常见符号进行分词。它不进行任何大小写转换或其他复杂处理。<br />
 <strong>示例</strong><br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;simple&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;中文|汉字|测试&quot;</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;中文&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;汉字&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;测试&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span>
-<span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">  </span><span class="p">]</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"analyzer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"simple"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"中文|汉字|测试"</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div></p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"tokens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"中文"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"汉字"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"测试"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="p">]</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div>
 <h3 id="whitespace-tokenizer"><strong>Whitespace Tokenizer</strong></h3>
 <p><strong>描述</strong>：根据空格进行分词，忽略标点符号。<br />
 <strong>示例</strong>：<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;whitespace&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, this is a document to be analyzed.&quot;</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello,&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;this&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;is&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;document&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;to&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;be&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;analyzed.&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">  </span>
-<span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">  </span><span class="p">]</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"analyzer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whitespace"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello, this is a document to be analyzed."</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div></p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"tokens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello,"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"is"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"to"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"be"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"analyzed."</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="p">]</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div>
 <h3 id="keyword-tokenizer"><strong>Keyword Tokenizer</strong></h3>
 <p><strong>描述</strong>：保持输入的文本作为单个分词。<br />
 <strong>示例</strong>：<br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;keyword&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, this is a document to be analyzed.&quot;</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, this is a document to be analyzed.&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span>
-<span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">  </span><span class="p">]</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"analyzer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"keyword"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello, this is a document to be analyzed."</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div></p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"tokens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello, this is a document to be analyzed."</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="p">]</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div>
 <h3 id="pattern-tokenizer"><strong>Pattern Tokenizer</strong></h3>
 <p><strong>描述</strong>: 正则分词器, 创建索引时创建分词器<br />
 <strong>示例</strong><br />
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;custom_pattern&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;中文|汉字|测试&quot;</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div></p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="p">{</span><span class="w">  </span>
-<span class="w">  </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;中文&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;汉字&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span>
-<span class="w">    </span><span class="p">},</span><span class="w">  </span>
-<span class="w">    </span><span class="p">{</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;测试&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;start_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;end_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;word&quot;</span><span class="p">,</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span>
-<span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">  </span><span class="p">]</span><span class="w">  </span>
-<span class="p">}</span><span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"analyzer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_pattern"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"中文|汉字|测试"</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div></p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">json</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nt">"tokens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"中文"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"汉字"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">},</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"测试"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"start_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"end_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"word"</span><span class="p">,</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="p">]</span><span class="w">  </span></span>
+<span class="cl"><span class="p">}</span><span class="w">  </span></span></code></pre></div></div>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.code-block-wrapper:hover .code-block-controls,
+.code-block-wrapper:focus-within .code-block-controls {
+  opacity: 1;
+}
+.fold-btn, .copy-btn, .code-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+.fold-btn, .code-toggle {
+  color: #6e7681;
+}
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
+  color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+[data-color-mode="dark"] .highlight .cl::before {
+  color: #8b949e;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // 复制功能
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
 
-  // 折叠功能
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
   document.addEventListener('click', e => {
-    if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
     }
   });
 });

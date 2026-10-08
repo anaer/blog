@@ -1,13 +1,185 @@
-<div class="markdown-heading"><h2 class="heading-element">中文分词API</h2><a id="user-content-中文分词api" class="anchor" aria-label="Permalink: 中文分词API" href="#中文分词api"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h3 class="heading-element"><a href="http://api.pullword.com/" rel="nofollow">http://api.pullword.com/</a></h3><a id="user-content-httpapipullwordcom" class="anchor" aria-label="Permalink: http://api.pullword.com/" href="#httpapipullwordcom"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>// param1 出词概率阈值(0-1之间的小数)，1表示只有100%有把握的词才出
-// param2 模式 0: 正常模式 1: 调试模式(显示概率)
-// json=1 返回json格式
-http://api.pullword.com/get.php<span class="pl-k">?</span>source=<span class="pl-s"><span class="pl-pds">"</span> + URLEncoder.encode(searchTitle) + <span class="pl-pds">"</span></span><span class="pl-k">&amp;</span>param1=0<span class="pl-k">&amp;</span>param2=0<span class="pl-k">&amp;</span>json=1</pre></div>
-<div class="markdown-heading"><h3 class="heading-element">哈工大 php 中文分词 api</h3><a id="user-content-哈工大-php-中文分词-api" class="anchor" aria-label="Permalink: 哈工大 php 中文分词 api" href="#哈工大-php-中文分词-api"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>curl -X POST http://39.96.43.154:8080/api -H <span class="pl-s"><span class="pl-pds">'</span>Content-Type: application/json<span class="pl-pds">'</span></span> -d <span class="pl-s"><span class="pl-pds">'</span>{"text":"待分词的文本，1024个字或256个词以内"}<span class="pl-pds">'</span></span></pre></div>
-<p><strong>相关链接</strong>
-<a href="http://39.96.43.154:8080/demo.html" rel="nofollow">demo页</a></p>
-<p><a href="https://blog.csdn.net/Deng_Xian_Sheng/article/details/118575782" rel="nofollow">介绍文章</a></p>
-<div class="markdown-heading"><h3 class="heading-element">在线分词</h3><a id="user-content-在线分词" class="anchor" aria-label="Permalink: 在线分词" href="#在线分词"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="highlight highlight-source-shell"><pre>curl <span class="pl-s"><span class="pl-pds">'</span>https://tl.beer/api/v1/fenci<span class="pl-pds">'</span></span> -H <span class="pl-s"><span class="pl-pds">'</span>content-type: application/x-www-form-urlencoded<span class="pl-pds">'</span></span> --data-raw <span class="pl-s"><span class="pl-pds">'</span>cont=%E4%B8%AD%E6%96%87%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8%E5%AF%B9%E7%85%A7%E8%A1%A8&amp;cixin=false&amp;model=false<span class="pl-pds">'</span></span></pre></div>
+
+  <article class="markdown-body">
+    <h2 id="api">中文分词API</h2>
+<h3 id="httpapipullwordcom">http://api.pullword.com/</h3>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">//<span class="w"> </span>param1<span class="w"> </span>出词概率阈值<span class="o">(</span><span class="m">0</span>-1之间的小数<span class="o">)</span>，1表示只有100%有把握的词才出<span class="w">  </span></span>
+<span class="cl">//<span class="w"> </span>param2<span class="w"> </span>模式<span class="w"> </span><span class="m">0</span>:<span class="w"> </span>正常模式<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>调试模式<span class="o">(</span>显示概率<span class="o">)</span><span class="w">  </span></span>
+<span class="cl">//<span class="w"> </span><span class="nv">json</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>返回json格式<span class="w">  </span></span>
+<span class="cl">http://api.pullword.com/get.php?source<span class="o">=</span><span class="s2">" + URLEncoder.encode(searchTitle) + "</span><span class="p">&amp;</span><span class="nv">param1</span><span class="o">=</span><span class="m">0</span><span class="p">&amp;</span><span class="nv">param2</span><span class="o">=</span><span class="m">0</span><span class="p">&amp;</span><span class="nv">json</span><span class="o">=</span><span class="m">1</span><span class="w">  </span></span></code></pre></div></div>
+<h3 id="php-api">哈工大 php 中文分词 api</h3>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://39.96.43.154:8080/api<span class="w"> </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"text":"待分词的文本，1024个字或256个词以内"}'</span><span class="w">  </span></span></code></pre></div></div>
+<p><strong>相关链接</strong><br />
+<a href="http://39.96.43.154:8080/demo.html">demo页</a>  </p>
+<p><a href="https://blog.csdn.net/Deng_Xian_Sheng/article/details/118575782">介绍文章</a>  </p>
+<h3 id="_1">在线分词</h3>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">curl<span class="w"> </span><span class="s1">'https://tl.beer/api/v1/fenci'</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">'content-type: application/x-www-form-urlencoded'</span><span class="w"> </span>--data-raw<span class="w"> </span><span class="s1">'cont=%E4%B8%AD%E6%96%87%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8%E5%AF%B9%E7%85%A7%E8%A1%A8&amp;cixin=false&amp;model=false'</span><span class="w">  </span></span></code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.code-block-wrapper:hover .code-block-controls,
+.code-block-wrapper:focus-within .code-block-controls {
+  opacity: 1;
+}
+.fold-btn, .copy-btn, .code-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+.fold-btn, .code-toggle {
+  color: #6e7681;
+}
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
+  color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+[data-color-mode="dark"] .highlight .cl::before {
+  color: #8b949e;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
+  document.addEventListener('click', e => {
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
+    }
+  });
+});
+</script>
+

@@ -2,26 +2,26 @@
   <article class="markdown-body">
     <h2 id="_1">修改源</h2>
 <p>remove可能需要多执行一次, 偶尔remove完 直接add 会提示winget已存在  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="cl">winget<span class="w"> </span><span class="nb">source</span><span class="w"> </span>remove<span class="w"> </span>winget<span class="w">  </span></span>
 <span class="cl">winget<span class="w"> </span><span class="nb">source</span><span class="w"> </span>add<span class="w"> </span>winget<span class="w"> </span>https://mirrors.cernet.edu.cn/winget-source<span class="w"> </span>--trust-level<span class="w"> </span>trusted<span class="w">  </span></span></code></pre></div></div>
 <h2 id="_2">重置源</h2>
 <p>重置为官方源  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="cl">winget<span class="w"> </span><span class="nb">source</span><span class="w"> </span>reset<span class="w"> </span>winget<span class="w">  </span></span></code></pre></div></div>
 <h2 id="_3">自动更新备份</h2>
 <p>winget_upgrade.bat 添加到自启动  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="cl">@REM<span class="w"> </span>应用更新并备份版本信息<span class="w">  </span></span>
 <span class="cl">chcp<span class="w"> </span><span class="m">65001</span><span class="w">  </span></span>
 <span class="cl">winget<span class="w"> </span>upgrade<span class="w"> </span>--all<span class="w"> </span>--include-unknown<span class="w">  </span></span>
 <span class="cl">winget<span class="w"> </span><span class="nb">export</span><span class="w"> </span>-o<span class="w"> </span>winget-pkg.config<span class="w">  </span></span></code></pre></div></div>
 <p>恢复装机  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="cl">winget<span class="w"> </span>import<span class="w"> </span>-i<span class="w"> </span>winget-pkg.config<span class="w">  </span></span></code></pre></div></div>
 <h2 id="pin">pin 添加包钉 阻止升级</h2>
 <p>对于不想升级, 或者升级报错的, 可以添加包钉  </p>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
 <pre><span></span><code><span class="cl">winget<span class="w"> </span>pin<span class="w"> </span>add<span class="w"> </span>--id<span class="w"> </span>Microsoft.VisualStudioCode.Insiders<span class="w">  </span></span>
 <span class="cl">winget<span class="w"> </span>pin<span class="w"> </span>add<span class="w"> </span>--id<span class="w"> </span>PremiumSoft.NavicatPremium<span class="w">  </span></span>
 <span class="cl">winget<span class="w"> </span>pin<span class="w"> </span>add<span class="w"> </span>--id<span class="w"> </span>Microsoft.AppInstaller<span class="w">  </span></span>
@@ -55,24 +55,35 @@
 .code-block-wrapper:focus-within .code-block-controls {
   opacity: 1;
 }
-.fold-btn, .copy-btn {
+.fold-btn, .copy-btn, .code-toggle {
   border: none;
   background: transparent;
   cursor: pointer;
   padding: 2px 6px;
   font-size: 16px;
+  line-height: 1;
   outline: none;
   box-shadow: none;
   transition: background 0.2s;
 }
-.fold-btn:hover, .copy-btn:hover {
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
   background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
 }
-.fold-btn {
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+.fold-btn, .code-toggle {
   color: #6e7681;
 }
-[data-color-mode="dark"] .fold-btn {
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
   color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
 }
 .highlight code {
   counter-reset: cl;
@@ -82,6 +93,7 @@
   counter-increment: cl;
   padding-left: 3.2em;
   position: relative;
+  line-height: 1.45;
   overflow-wrap: anywhere;
 }
 .highlight .cl::before {
@@ -99,15 +111,69 @@
 .code-block-wrapper.folded .cl ~ .cl {
   display: none;
 }
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // 单行代码块无需折叠
   document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
     if (w.querySelectorAll('.cl').length < 2) {
       const fb = w.querySelector('.fold-btn');
       if (fb) fb.style.display = 'none';
     }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
   });
 
   // 复制功能(取 textContent, 折叠态也复制全文)
@@ -123,12 +189,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 折叠功能: 折叠时保留首行预览
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
   document.addEventListener('click', e => {
-    if (e.target.classList.contains('fold-btn')) {
-      const wrapper = e.target.closest('.code-block-wrapper');
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
       wrapper.classList.toggle('folded');
-      e.target.textContent = wrapper.classList.contains('folded') ? '▼' : '▲';
     }
   });
 });

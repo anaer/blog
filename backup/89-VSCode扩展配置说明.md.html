@@ -1,25 +1,196 @@
-<div class="markdown-heading"><h2 class="heading-element"><a href="https://marketplace.visualstudio.com/items?itemName=Freaxys.better-cron-tasks" rel="nofollow">Better Cron Tasks</a></h2><a id="user-content-better-cron-tasks" class="anchor" aria-label="Permalink: Better Cron Tasks" href="#better-cron-tasks"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>在workspace的.vscode添加tasks.json任务</p>
-<div class="highlight highlight-source-json-comments"><pre>{
-    <span class="pl-c"><span class="pl-c">//</span> See https://go.microsoft.com/fwlink/?LinkId=733558</span>
-    <span class="pl-c"><span class="pl-c">//</span> for the documentation about the tasks.json format</span>
-    <span class="pl-s">"version"</span>: <span class="pl-s"><span class="pl-pds">"</span>2.0.0<span class="pl-pds">"</span></span>,
-    <span class="pl-s">"tasks"</span>: [
-      {
-        <span class="pl-s">"label"</span>: <span class="pl-s"><span class="pl-pds">"</span>Auto Sync<span class="pl-pds">"</span></span>,
-        <span class="pl-s">"type"</span>: <span class="pl-s"><span class="pl-pds">"</span>shell<span class="pl-pds">"</span></span>,
-        <span class="pl-s">"command"</span>: <span class="pl-s"><span class="pl-pds">"</span>D:<span class="pl-cce">\\</span>demo<span class="pl-cce">\\</span>sync.bat<span class="pl-pds">"</span></span>,
-        <span class="pl-s">"problemMatcher"</span>: []
-      }
-    ]
-}</pre></div>
-<p>在workspace的settings.json配置中添加定时任务配置, 任务跟workspace</p>
-<div class="highlight highlight-source-json-comments"><pre><span class="pl-s"><span class="pl-pds">"</span>cronTasks.tasks<span class="pl-pds">"</span></span>: [
-    {
-        <span class="pl-s">"at"</span>: <span class="pl-s"><span class="pl-pds">"</span>*/5 * * * *<span class="pl-pds">"</span></span>, <span class="pl-c"><span class="pl-c">//</span> 每5分钟执行</span>
-        <span class="pl-s">"run"</span>: <span class="pl-s"><span class="pl-pds">"</span>workbench.action.tasks.runTask<span class="pl-pds">"</span></span>,
-        <span class="pl-s">"args"</span>: [<span class="pl-s"><span class="pl-pds">"</span>Auto Sync<span class="pl-pds">"</span></span>]  <span class="pl-c"><span class="pl-c">//</span> 对应tasks中的任务label</span>
-    },
-],
-<span class="pl-s"><span class="pl-pds">"</span>cronTasks.debug<span class="pl-pds">"</span></span>: <span class="pl-c1">false</span> <span class="pl-c"><span class="pl-c">//</span> debug模式, 在OUTPUT输出日志</span></pre></div>
-<p>需要修改终端的默认Profile为Command Prompt, 选其它可能会有问题</p>
+
+  <article class="markdown-body">
+    <h2 id="better-cron-tasks"><a href="https://marketplace.visualstudio.com/items?itemName=Freaxys.better-cron-tasks">Better Cron Tasks</a></h2>
+<p>在workspace的.vscode添加tasks.json任务  </p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">jsonc</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">{  </span>
+<span class="cl">    // See https://go.microsoft.com/fwlink/?LinkId=733558  </span>
+<span class="cl">    // for the documentation about the tasks.json format  </span>
+<span class="cl">    "version": "2.0.0",  </span>
+<span class="cl">    "tasks": [  </span>
+<span class="cl">      {  </span>
+<span class="cl">        "label": "Auto Sync",  </span>
+<span class="cl">        "type": "shell",  </span>
+<span class="cl">        "command": "D:\\demo\\sync.bat",  </span>
+<span class="cl">        "problemMatcher": []  </span>
+<span class="cl">      }  </span>
+<span class="cl">    ]  </span>
+<span class="cl">}  </span></code></pre></div></div>
+<p>在workspace的settings.json配置中添加定时任务配置, 任务跟workspace  </p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">jsonc</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">"cronTasks.tasks": [  </span>
+<span class="cl">    {  </span>
+<span class="cl">        "at": "*/5 * * * *", // 每5分钟执行  </span>
+<span class="cl">        "run": "workbench.action.tasks.runTask",  </span>
+<span class="cl">        "args": ["Auto Sync"]  // 对应tasks中的任务label  </span>
+<span class="cl">    },  </span>
+<span class="cl">],  </span>
+<span class="cl">"cronTasks.debug": false // debug模式, 在OUTPUT输出日志  </span></code></pre></div></div>
+<p>需要修改终端的默认Profile为Command Prompt, 选其它可能会有问题  </p>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.code-block-wrapper:hover .code-block-controls,
+.code-block-wrapper:focus-within .code-block-controls {
+  opacity: 1;
+}
+.fold-btn, .copy-btn, .code-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+.fold-btn, .code-toggle {
+  color: #6e7681;
+}
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
+  color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+[data-color-mode="dark"] .highlight .cl::before {
+  color: #8b949e;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
+  document.addEventListener('click', e => {
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
+    }
+  });
+});
+</script>
+

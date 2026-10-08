@@ -1,154 +1,325 @@
-<div class="highlight highlight-source-shell"><pre>λ smartdns --help                                                                                                       
-A cross platform <span class="pl-k">local</span> DNS server written <span class="pl-k">in</span> rust to obtain the fastest website IP <span class="pl-k">for</span> the best Internet experience, sup
-port DoT, DoQ, DoH, DoH3.                                                                                                                                                                                                  
-Usage: smartdns [OPTIONS] <span class="pl-k">&lt;</span>COMMAND<span class="pl-k">&gt;</span>                                                                                     
-                                                                                                                        
-Commands:                                                                                                               
-  run      Run the Smart-DNS server                                                                                     
-  update   Download and install new version                                                                             
-  service  Manage the Smart-DNS service (install, uninstall, start, stop, restart)                                      
-  resolve  Perform DNS resolution                                                                                       
-  symlink  Create a symbolic link to the Smart-DNS binary (drop-in replacement <span class="pl-k">for</span> <span class="pl-s"><span class="pl-pds">`</span>dig<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>nslookup<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>resolve<span class="pl-pds">`</span></span> etc.)   
-  <span class="pl-c1">test</span>     Test configuration and <span class="pl-c1">exit</span>                                                                                  
-  <span class="pl-c1">help</span>     Print this message or the <span class="pl-c1">help</span> of the given subcommand(s)                                                    
-                                                                                                                        
-Options:                                                                                                                
-  -v, --verbose...  Increase logging verbosity                                                                          
-  -q, --quiet...    Decrease logging verbosity                                                                          
-  -h, --help        Print <span class="pl-c1">help</span>                                                                                          
-  -V, --version     Print version                                                                                       </pre></div>
-<div class="highlight highlight-source-shell"><pre>λ smartdns service --help
-Manage the Smart-DNS service (install, uninstall, start, stop, restart)
 
-Usage: smartdns service [OPTIONS] <span class="pl-k">&lt;</span>COMMAND<span class="pl-k">&gt;</span>
-
-Commands:
-  install    Install the Smart-DNS as service
-  uninstall  Uninstall the Smart-DNS service
-  start      Start the Smart-DNS service
-  stop       Stop the Smart-DNS service
-  restart    Restart the Smart-DNS service
-  status     Print the service status of Smart-DNS
-  <span class="pl-c1">help</span>       Print this message or the <span class="pl-c1">help</span> of the given subcommand(s)
-
-Options:
-  -v, --verbose...  Increase logging verbosity
-  -q, --quiet...    Decrease logging verbosity
-  -h, --help        Print <span class="pl-c1">help</span></pre></div>
-<div class="markdown-heading"><h2 class="heading-element">配置示例</h2><a id="user-content-配置示例" class="anchor" aria-label="Permalink: 配置示例" href="#配置示例"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre lang="conf"><code>#region 配置说明
-  # https://github.com/pymumu/smartdns/blob/doc/docs/configuration.md
-#endregion
-
-# 在本地 53 端口监听
-bind 127.0.0.1:53
-
-#### 上游DNS服务 ####
-#指定上游服务器解析DOH，搭配下面的nameserver避免各方打架，不参与默认解析
-server 8.8.8.8 -group google -exclude-default-group
-server 8.8.4.4 -group google -exclude-default-group
-server 1.1.1.1 -group cloudflare -exclude-default-group
-server 1.0.0.1 -group cloudflare -exclude-default-group
-server 9.9.9.9 -group quad9 -exclude-default-group
-server 208.67.222.222 -group opendns -exclude-default-group
-server 223.6.6.6 -group alidns -exclude-default-group
-server 223.5.5.5 -group alidns -exclude-default-group
-server 119.29.29.29 -group dnspod -exclude-default-group
-server 119.28.28.28 -group dnspod -exclude-default-group
-server 101.101.101.101 -group twnic -exclude-default-group
-
-#CN组服务器，用于解析中国域名列表，不参与默认解析，防止泄露
-server-https https://dns.alidns.com/dns-query -group cn -exclude-default-group
-server-https https://doh.pub/dns-query -group cn -exclude-default-group
-server 114.114.114.114 -group cn -exclude-default-group
-server 1.2.4.8 -group cn -exclude-default-group
-
-#默认组
-server-https https://dns.google/dns-query
-server-https https://dns.quad9.net/dns-query
-server-https https://doh.opendns.com/dns-query
-server-https https://cloudflare-dns.com/dns-query
-server-https https://dns.twnic.tw/dns-query
-
-#指定上游解析DOH服务器
-nameserver /alidns.com/alidns
-nameserver /doh.pub/dnspod
-nameserver /dns.google/google
-nameserver /quad9.net/quad9
-nameserver /opendns.com/opendns
-nameserver /cloudflare-dns.com/cloudflare
-nameserver /twnic.tw/twnic
-
-#### 日志 ####
-# 设置日志级别 off、fatal、error、warn、notice、info 或 debug
-log-level debug
-
-# 日志文件路径
-log-file C:/Users/Administrator/smartdns/smartdns.log
-
-# 日志大小
-log-size 1M
-
-# 日志归档个数
-log-num 3
-
-# 设置审计启用
-audit-enable yes
-
-# 审计日志文件路径
-audit-file C:/Users/Administrator/smartdns/smartdns-audit.log
-
-# 审计日志大小
-audit-size 1M
-
-# 审计日志归档个数
-audit-num 3
-
-#### 缓存 ####
-# 域名结果缓存个数，1 条缓存占内存 512 字节。
-# 0 关闭缓存，不配置为系统自动设置
-#（系统内存 128 M，自动缓存 32768 条占内存 16 M；
-#  系统内存 256 M，自动缓存 65536 条占内存 32 M；
-#  系统内存 512 M，自动缓存 131072 条占内存 64 M；
-#  系统内存大于 512 M，自动缓存 262144 条占内存 128 M）。
-#cache-size 65536
-# 是否持久化缓存。自动，当 cache-file 所在的位置有超过 128 MB 的可用空间时启用，否则禁用
-cache-persist yes
-# 缓存持久化文件路径
-cache-file C:/Users/Administrator/smartdns/cache.dump
-
-#缓存预获取（域名TTL即将超时时，再次发送查询请求）
-prefetch-domain yes
-#过期缓存（即乐观缓存）
-serve-expired no
-#关于预获取和过期缓存，有四种情况，需要分别讨论。
-#情况1：开启预获取，开启过期缓存：缓存过期一定时间后，再次发送查询请求，缓存新结果。（与情况3相比，缓解开启预获取导致的CPU压力）
-#情况2：关闭预获取，开启过期缓存：客户端查询时，即使该域名缓存已过期（TTL为0），仍然返回已缓存IP，同时向上查询并缓存最新结果。若5s（默认值，可改）后客户端再此查询，则返回新结果。（与开启乐观缓存的AGH效果相同）
-#情况3：开启预获取，关闭过期缓存：域名缓存即将过期（TTL即将为0）时，再次发送查询请求，缓存新结果。（本配置使用的情况，效果最好，但请求频率较高）
-#情况4：关闭预获取，关闭过期缓存：客户端查询时，若该域名缓存已过期（TTL为0），则向上查询，返回结果并缓存。
-
-#### IPV6 #####
-# 双栈 IP 优选。关闭
-dualstack-ip-selection no
-# 强制 AAAA 地址返回 SOA。禁用ipv6
-force-AAAA-SOA yes
-
-#### 测速 ####
-# 测速模式
-speed-check-mode ping,tcp:80,tcp:443
-# 首次查询响应模式。模式：
-#[first-ping]: 最快ping响应地址模式，DNS上游最快查询时延+ping时延最短，查询等待与链接体验最佳;
-#[fastest-ip]: 最快IP地址模式，查询到的所有IP地址中ping最短的IP。需等待IP测速;
-#[fastest-response]: 最快响应的DNS结果，DNS查询等待时间最短，返回的IP地址可能不是最快。
-response-mode first-ping
-
-#### 其它 ####
-# 强制指定 qtype 返回 SOA。禁用 SOA 65
-force-qtype-SOA 65
-# TCP 链接空闲超时时间
-tcp-idle-time 120
-</code></pre>
-<div class="markdown-heading"><h2 class="heading-element">相关链接</h2><a id="user-content-相关链接" class="anchor" aria-label="Permalink: 相关链接" href="#相关链接"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+  <article class="markdown-body">
+    <div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">λ<span class="w"> </span>smartdns<span class="w"> </span>--help<span class="w">                                                                                                         </span></span>
+<span class="cl">A<span class="w"> </span>cross<span class="w"> </span>platform<span class="w"> </span><span class="nb">local</span><span class="w"> </span>DNS<span class="w"> </span>server<span class="w"> </span>written<span class="w"> </span><span class="k">in</span><span class="w"> </span>rust<span class="w"> </span>to<span class="w"> </span>obtain<span class="w"> </span>the<span class="w"> </span>fastest<span class="w"> </span>website<span class="w"> </span>IP<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>best<span class="w"> </span>Internet<span class="w"> </span>experience,<span class="w"> </span>sup<span class="w">  </span></span>
+<span class="cl">port<span class="w"> </span>DoT,<span class="w"> </span>DoQ,<span class="w"> </span>DoH,<span class="w"> </span>DoH3.<span class="w">                                                                                                                                                                                                    </span></span>
+<span class="cl">Usage:<span class="w"> </span>smartdns<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>&lt;COMMAND&gt;<span class="w">                                                                                       </span></span>
+<span class="cl"></span>
+<span class="cl">Commands:<span class="w">                                                                                                                 </span></span>
+<span class="cl"><span class="w">  </span>run<span class="w">      </span>Run<span class="w"> </span>the<span class="w"> </span>Smart-DNS<span class="w"> </span>server<span class="w">                                                                                       </span></span>
+<span class="cl"><span class="w">  </span>update<span class="w">   </span>Download<span class="w"> </span>and<span class="w"> </span>install<span class="w"> </span>new<span class="w"> </span>version<span class="w">                                                                               </span></span>
+<span class="cl"><span class="w">  </span>service<span class="w">  </span>Manage<span class="w"> </span>the<span class="w"> </span>Smart-DNS<span class="w"> </span>service<span class="w"> </span><span class="o">(</span>install,<span class="w"> </span>uninstall,<span class="w"> </span>start,<span class="w"> </span>stop,<span class="w"> </span>restart<span class="o">)</span><span class="w">                                        </span></span>
+<span class="cl"><span class="w">  </span>resolve<span class="w">  </span>Perform<span class="w"> </span>DNS<span class="w"> </span>resolution<span class="w">                                                                                         </span></span>
+<span class="cl"><span class="w">  </span>symlink<span class="w">  </span>Create<span class="w"> </span>a<span class="w"> </span>symbolic<span class="w"> </span>link<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>Smart-DNS<span class="w"> </span>binary<span class="w"> </span><span class="o">(</span>drop-in<span class="w"> </span>replacement<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="sb">`</span>dig<span class="sb">`</span>,<span class="w"> </span><span class="sb">`</span>nslookup<span class="sb">`</span>,<span class="w"> </span><span class="sb">`</span>resolve<span class="sb">`</span><span class="w"> </span>etc.<span class="o">)</span><span class="w">     </span></span>
+<span class="cl"><span class="w">  </span><span class="nb">test</span><span class="w">     </span>Test<span class="w"> </span>configuration<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span><span class="w">                                                                                    </span></span>
+<span class="cl"><span class="w">  </span><span class="nb">help</span><span class="w">     </span>Print<span class="w"> </span>this<span class="w"> </span>message<span class="w"> </span>or<span class="w"> </span>the<span class="w"> </span><span class="nb">help</span><span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span>subcommand<span class="o">(</span>s<span class="o">)</span><span class="w">                                                      </span></span>
+<span class="cl"></span>
+<span class="cl">Options:<span class="w">                                                                                                                  </span></span>
+<span class="cl"><span class="w">  </span>-v,<span class="w"> </span>--verbose...<span class="w">  </span>Increase<span class="w"> </span>logging<span class="w"> </span>verbosity<span class="w">                                                                            </span></span>
+<span class="cl"><span class="w">  </span>-q,<span class="w"> </span>--quiet...<span class="w">    </span>Decrease<span class="w"> </span>logging<span class="w"> </span>verbosity<span class="w">                                                                            </span></span>
+<span class="cl"><span class="w">  </span>-h,<span class="w"> </span>--help<span class="w">        </span>Print<span class="w"> </span><span class="nb">help</span><span class="w">                                                                                            </span></span>
+<span class="cl"><span class="w">  </span>-V,<span class="w"> </span>--version<span class="w">     </span>Print<span class="w"> </span>version<span class="w">                                                                                         </span></span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">λ<span class="w"> </span>smartdns<span class="w"> </span>service<span class="w"> </span>--help<span class="w">  </span></span>
+<span class="cl">Manage<span class="w"> </span>the<span class="w"> </span>Smart-DNS<span class="w"> </span>service<span class="w"> </span><span class="o">(</span>install,<span class="w"> </span>uninstall,<span class="w"> </span>start,<span class="w"> </span>stop,<span class="w"> </span>restart<span class="o">)</span><span class="w">  </span></span>
+<span class="cl"></span>
+<span class="cl">Usage:<span class="w"> </span>smartdns<span class="w"> </span>service<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>&lt;COMMAND&gt;<span class="w">  </span></span>
+<span class="cl"></span>
+<span class="cl">Commands:<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span>install<span class="w">    </span>Install<span class="w"> </span>the<span class="w"> </span>Smart-DNS<span class="w"> </span>as<span class="w"> </span>service<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span>uninstall<span class="w">  </span>Uninstall<span class="w"> </span>the<span class="w"> </span>Smart-DNS<span class="w"> </span>service<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span>start<span class="w">      </span>Start<span class="w"> </span>the<span class="w"> </span>Smart-DNS<span class="w"> </span>service<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span>stop<span class="w">       </span>Stop<span class="w"> </span>the<span class="w"> </span>Smart-DNS<span class="w"> </span>service<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span>restart<span class="w">    </span>Restart<span class="w"> </span>the<span class="w"> </span>Smart-DNS<span class="w"> </span>service<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span>status<span class="w">     </span>Print<span class="w"> </span>the<span class="w"> </span>service<span class="w"> </span>status<span class="w"> </span>of<span class="w"> </span>Smart-DNS<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="nb">help</span><span class="w">       </span>Print<span class="w"> </span>this<span class="w"> </span>message<span class="w"> </span>or<span class="w"> </span>the<span class="w"> </span><span class="nb">help</span><span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span>subcommand<span class="o">(</span>s<span class="o">)</span><span class="w">  </span></span>
+<span class="cl"></span>
+<span class="cl">Options:<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span>-v,<span class="w"> </span>--verbose...<span class="w">  </span>Increase<span class="w"> </span>logging<span class="w"> </span>verbosity<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span>-q,<span class="w"> </span>--quiet...<span class="w">    </span>Decrease<span class="w"> </span>logging<span class="w"> </span>verbosity<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span>-h,<span class="w"> </span>--help<span class="w">        </span>Print<span class="w"> </span><span class="nb">help</span><span class="w">  </span></span></code></pre></div></div>
+<h2 id="_1">配置示例</h2>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">conf</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">#region 配置说明  </span>
+<span class="cl">  # https://github.com/pymumu/smartdns/blob/doc/docs/configuration.md  </span>
+<span class="cl">#endregion  </span>
+<span class="cl"></span>
+<span class="cl"># 在本地 53 端口监听  </span>
+<span class="cl">bind 127.0.0.1:53  </span>
+<span class="cl"></span>
+<span class="cl">#### 上游DNS服务 ####  </span>
+<span class="cl">#指定上游服务器解析DOH，搭配下面的nameserver避免各方打架，不参与默认解析  </span>
+<span class="cl">server 8.8.8.8 -group google -exclude-default-group  </span>
+<span class="cl">server 8.8.4.4 -group google -exclude-default-group  </span>
+<span class="cl">server 1.1.1.1 -group cloudflare -exclude-default-group  </span>
+<span class="cl">server 1.0.0.1 -group cloudflare -exclude-default-group  </span>
+<span class="cl">server 9.9.9.9 -group quad9 -exclude-default-group  </span>
+<span class="cl">server 208.67.222.222 -group opendns -exclude-default-group  </span>
+<span class="cl">server 223.6.6.6 -group alidns -exclude-default-group  </span>
+<span class="cl">server 223.5.5.5 -group alidns -exclude-default-group  </span>
+<span class="cl">server 119.29.29.29 -group dnspod -exclude-default-group  </span>
+<span class="cl">server 119.28.28.28 -group dnspod -exclude-default-group  </span>
+<span class="cl">server 101.101.101.101 -group twnic -exclude-default-group  </span>
+<span class="cl"></span>
+<span class="cl">#CN组服务器，用于解析中国域名列表，不参与默认解析，防止泄露  </span>
+<span class="cl">server-https https://dns.alidns.com/dns-query -group cn -exclude-default-group  </span>
+<span class="cl">server-https https://doh.pub/dns-query -group cn -exclude-default-group  </span>
+<span class="cl">server 114.114.114.114 -group cn -exclude-default-group  </span>
+<span class="cl">server 1.2.4.8 -group cn -exclude-default-group  </span>
+<span class="cl"></span>
+<span class="cl">#默认组  </span>
+<span class="cl">server-https https://dns.google/dns-query  </span>
+<span class="cl">server-https https://dns.quad9.net/dns-query  </span>
+<span class="cl">server-https https://doh.opendns.com/dns-query  </span>
+<span class="cl">server-https https://cloudflare-dns.com/dns-query  </span>
+<span class="cl">server-https https://dns.twnic.tw/dns-query  </span>
+<span class="cl"></span>
+<span class="cl">#指定上游解析DOH服务器  </span>
+<span class="cl">nameserver /alidns.com/alidns  </span>
+<span class="cl">nameserver /doh.pub/dnspod  </span>
+<span class="cl">nameserver /dns.google/google  </span>
+<span class="cl">nameserver /quad9.net/quad9  </span>
+<span class="cl">nameserver /opendns.com/opendns  </span>
+<span class="cl">nameserver /cloudflare-dns.com/cloudflare  </span>
+<span class="cl">nameserver /twnic.tw/twnic  </span>
+<span class="cl"></span>
+<span class="cl">#### 日志 ####  </span>
+<span class="cl"># 设置日志级别 off、fatal、error、warn、notice、info 或 debug  </span>
+<span class="cl">log-level debug  </span>
+<span class="cl"></span>
+<span class="cl"># 日志文件路径  </span>
+<span class="cl">log-file C:/Users/Administrator/smartdns/smartdns.log  </span>
+<span class="cl"></span>
+<span class="cl"># 日志大小  </span>
+<span class="cl">log-size 1M  </span>
+<span class="cl"></span>
+<span class="cl"># 日志归档个数  </span>
+<span class="cl">log-num 3  </span>
+<span class="cl"></span>
+<span class="cl"># 设置审计启用  </span>
+<span class="cl">audit-enable yes  </span>
+<span class="cl"></span>
+<span class="cl"># 审计日志文件路径  </span>
+<span class="cl">audit-file C:/Users/Administrator/smartdns/smartdns-audit.log  </span>
+<span class="cl"></span>
+<span class="cl"># 审计日志大小  </span>
+<span class="cl">audit-size 1M  </span>
+<span class="cl"></span>
+<span class="cl"># 审计日志归档个数  </span>
+<span class="cl">audit-num 3  </span>
+<span class="cl"></span>
+<span class="cl">#### 缓存 ####  </span>
+<span class="cl"># 域名结果缓存个数，1 条缓存占内存 512 字节。  </span>
+<span class="cl"># 0 关闭缓存，不配置为系统自动设置  </span>
+<span class="cl">#（系统内存 128 M，自动缓存 32768 条占内存 16 M；  </span>
+<span class="cl">#  系统内存 256 M，自动缓存 65536 条占内存 32 M；  </span>
+<span class="cl">#  系统内存 512 M，自动缓存 131072 条占内存 64 M；  </span>
+<span class="cl">#  系统内存大于 512 M，自动缓存 262144 条占内存 128 M）。  </span>
+<span class="cl">#cache-size 65536  </span>
+<span class="cl"># 是否持久化缓存。自动，当 cache-file 所在的位置有超过 128 MB 的可用空间时启用，否则禁用  </span>
+<span class="cl">cache-persist yes  </span>
+<span class="cl"># 缓存持久化文件路径  </span>
+<span class="cl">cache-file C:/Users/Administrator/smartdns/cache.dump  </span>
+<span class="cl"></span>
+<span class="cl">#缓存预获取（域名TTL即将超时时，再次发送查询请求）  </span>
+<span class="cl">prefetch-domain yes  </span>
+<span class="cl">#过期缓存（即乐观缓存）  </span>
+<span class="cl">serve-expired no  </span>
+<span class="cl">#关于预获取和过期缓存，有四种情况，需要分别讨论。  </span>
+<span class="cl">#情况1：开启预获取，开启过期缓存：缓存过期一定时间后，再次发送查询请求，缓存新结果。（与情况3相比，缓解开启预获取导致的CPU压力）  </span>
+<span class="cl">#情况2：关闭预获取，开启过期缓存：客户端查询时，即使该域名缓存已过期（TTL为0），仍然返回已缓存IP，同时向上查询并缓存最新结果。若5s（默认值，可改）后客户端再此查询，则返回新结果。（与开启乐观缓存的AGH效果相同）  </span>
+<span class="cl">#情况3：开启预获取，关闭过期缓存：域名缓存即将过期（TTL即将为0）时，再次发送查询请求，缓存新结果。（本配置使用的情况，效果最好，但请求频率较高）  </span>
+<span class="cl">#情况4：关闭预获取，关闭过期缓存：客户端查询时，若该域名缓存已过期（TTL为0），则向上查询，返回结果并缓存。  </span>
+<span class="cl"></span>
+<span class="cl">#### IPV6 #####  </span>
+<span class="cl"># 双栈 IP 优选。关闭  </span>
+<span class="cl">dualstack-ip-selection no  </span>
+<span class="cl"># 强制 AAAA 地址返回 SOA。禁用ipv6  </span>
+<span class="cl">force-AAAA-SOA yes  </span>
+<span class="cl"></span>
+<span class="cl">#### 测速 ####  </span>
+<span class="cl"># 测速模式  </span>
+<span class="cl">speed-check-mode ping,tcp:80,tcp:443  </span>
+<span class="cl"># 首次查询响应模式。模式：  </span>
+<span class="cl">#[first-ping]: 最快ping响应地址模式，DNS上游最快查询时延+ping时延最短，查询等待与链接体验最佳;  </span>
+<span class="cl">#[fastest-ip]: 最快IP地址模式，查询到的所有IP地址中ping最短的IP。需等待IP测速;  </span>
+<span class="cl">#[fastest-response]: 最快响应的DNS结果，DNS查询等待时间最短，返回的IP地址可能不是最快。  </span>
+<span class="cl">response-mode first-ping  </span>
+<span class="cl"></span>
+<span class="cl">#### 其它 ####  </span>
+<span class="cl"># 强制指定 qtype 返回 SOA。禁用 SOA 65  </span>
+<span class="cl">force-qtype-SOA 65  </span>
+<span class="cl"># TCP 链接空闲超时时间  </span>
+<span class="cl">tcp-idle-time 120  </span></code></pre></div></div>
+<h2 id="_2">相关链接</h2>
 <ol>
-<li><a href="https://github.com/pymumu/smartdns/blob/doc/docs/configuration.md">配置参数说明</a></li>
+<li><a href="https://github.com/pymumu/smartdns/blob/doc/docs/configuration.md">配置参数说明</a>  </li>
 </ol>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.code-block-wrapper:hover .code-block-controls,
+.code-block-wrapper:focus-within .code-block-controls {
+  opacity: 1;
+}
+.fold-btn, .copy-btn, .code-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+.fold-btn, .code-toggle {
+  color: #6e7681;
+}
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
+  color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+[data-color-mode="dark"] .highlight .cl::before {
+  color: #8b949e;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
+  document.addEventListener('click', e => {
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
+    }
+  });
+});
+</script>
+

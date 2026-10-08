@@ -1,21 +1,192 @@
-<p>生成 Python 项目的 requirements.txt 文件</p>
-<div class="markdown-heading"><h2 class="heading-element">1. 使用 <code>pip freeze</code> 命令。</h2><a id="user-content-1-使用-pip-freeze-命令" class="anchor" aria-label="Permalink: 1. 使用 pip freeze 命令。" href="#1-使用-pip-freeze-命令"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>在项目的根目录下，打开终端或命令提示符，执行以下命令：</p>
-<div class="highlight highlight-source-shell"><pre>pip freeze <span class="pl-k">&gt;</span> requirements.txt</pre></div>
-<p>这个命令会将当前环境中已安装的所有第三方库及其版本信息写入到 requirements.txt 文件中。</p>
-<div class="markdown-heading"><h2 class="heading-element">2. 使用 <code>pipreqs</code> 工具</h2><a id="user-content-2-使用-pipreqs-工具" class="anchor" aria-label="Permalink: 2. 使用 pipreqs 工具" href="#2-使用-pipreqs-工具"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><code>pipreqs</code> 是一个用于生成项目依赖的 requirements.txt 文件的工具。它可以分析项目中的 Python 代码，自动检测项目所使用的第三方库，并生成相应的 requirements.txt 文件。
-在项目的根目录下，打开终端或命令提示符，执行以下命令：</p>
-<div class="highlight highlight-source-shell"><pre>pip install pipreqs
-pipreqs <span class="pl-c1">.</span> --encoding=utf8 --force</pre></div>
-<p>这个命令会在当前目录下生成 requirements.txt 文件，其中包含了当前项目所依赖的所有 Python 包及其版本号。</p>
-<div class="markdown-heading"><h2 class="heading-element">检测requirements.txt 文件中的版本更新</h2><a id="user-content-检测requirementstxt-文件中的版本更新" class="anchor" aria-label="Permalink: 检测requirements.txt 文件中的版本更新" href="#检测requirementstxt-文件中的版本更新"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<div class="markdown-heading"><h3 class="heading-element">pip自带命令</h3><a id="user-content-pip自带命令" class="anchor" aria-label="Permalink: pip自带命令" href="#pip自带命令"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>列出 requirements.txt 中已安装依赖包的更新版本</p>
-<pre><code>pip list --outdated
-</code></pre>
-<div class="markdown-heading"><h3 class="heading-element">pip-review</h3><a id="user-content-pip-review" class="anchor" aria-label="Permalink: pip-review" href="#pip-review"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<pre><code>pip install pip-review
 
-pip-review
-</code></pre>
+  <article class="markdown-body">
+    <p>生成 Python 项目的 requirements.txt 文件  </p>
+<h2 id="1-pip-freeze">1. 使用 <code>pip freeze</code> 命令。</h2>
+<p>在项目的根目录下，打开终端或命令提示符，执行以下命令：  </p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt<span class="w">  </span></span></code></pre></div></div>
+<p>这个命令会将当前环境中已安装的所有第三方库及其版本信息写入到 requirements.txt 文件中。  </p>
+<h2 id="2-pipreqs">2. 使用 <code>pipreqs</code> 工具</h2>
+<p><code>pipreqs</code> 是一个用于生成项目依赖的 requirements.txt 文件的工具。它可以分析项目中的 Python 代码，自动检测项目所使用的第三方库，并生成相应的 requirements.txt 文件。<br />
+在项目的根目录下，打开终端或命令提示符，执行以下命令：  </p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">pip<span class="w"> </span>install<span class="w"> </span>pipreqs<span class="w">  </span></span>
+<span class="cl">pipreqs<span class="w"> </span>.<span class="w"> </span>--encoding<span class="o">=</span>utf8<span class="w"> </span>--force<span class="w">  </span></span></code></pre></div></div>
+<p>这个命令会在当前目录下生成 requirements.txt 文件，其中包含了当前项目所依赖的所有 Python 包及其版本号。  </p>
+<h2 id="requirementstxt">检测requirements.txt 文件中的版本更新</h2>
+<h3 id="pip">pip自带命令</h3>
+<p>列出 requirements.txt 中已安装依赖包的更新版本<br />
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">pip list --outdated  </span></code></pre></div></div></p>
+<h3 id="pip-review">pip-review</h3>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">pip install pip-review  </span>
+<span class="cl"></span>
+<span class="cl">pip-review  </span></code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.code-block-wrapper:hover .code-block-controls,
+.code-block-wrapper:focus-within .code-block-controls {
+  opacity: 1;
+}
+.fold-btn, .copy-btn, .code-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+.fold-btn, .code-toggle {
+  color: #6e7681;
+}
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
+  color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+[data-color-mode="dark"] .highlight .cl::before {
+  color: #8b949e;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
+  document.addEventListener('click', e => {
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
+    }
+  });
+});
+</script>
+

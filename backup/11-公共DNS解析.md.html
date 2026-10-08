@@ -150,77 +150,73 @@
 </tbody>
 </table>
 <h2 id="_1">请求说明</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>https://dns.adguard.com/dns-query?dns<span class="o">=</span>&lt;base64url<span class="w"> </span>encoded<span class="w"> </span>data&gt;<span class="w">  </span>
-https://dns.adguard.com/resolve?name<span class="o">=</span>&lt;domain&gt;<span class="p">&amp;</span><span class="nv">type</span><span class="o">=</span>&lt;DNS<span class="w"> </span>Q/A<span class="w"> </span>type&gt;<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">https://dns.adguard.com/dns-query?dns<span class="o">=</span>&lt;base64url<span class="w"> </span>encoded<span class="w"> </span>data&gt;<span class="w">  </span></span>
+<span class="cl">https://dns.adguard.com/resolve?name<span class="o">=</span>&lt;domain&gt;<span class="p">&amp;</span><span class="nv">type</span><span class="o">=</span>&lt;DNS<span class="w"> </span>Q/A<span class="w"> </span>type&gt;<span class="w">  </span></span></code></pre></div></div>
 <h3 id="curl">curl 请求方式</h3>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span><span class="s1">&#39;https://dns.adguard.com/resolve?name=www.baidu.com&amp;type=A&#39;</span><span class="w">  </span>
-<span class="o">{</span><span class="w">  </span>
-<span class="w">  </span><span class="s2">&quot;Question&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="w">  </span>
-<span class="w">    </span><span class="o">{</span><span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;www.baidu.com.&quot;</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span>
-<span class="w">    </span><span class="o">}</span><span class="w">  </span>
-<span class="w">  </span><span class="o">]</span>,<span class="w">  </span>
-<span class="w">  </span><span class="s2">&quot;Answer&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="w">  </span>
-<span class="w">    </span><span class="o">{</span><span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;www.baidu.com.&quot;</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;data&quot;</span>:<span class="w"> </span><span class="s2">&quot;www.a.shifen.com.&quot;</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;TTL&quot;</span>:<span class="w"> </span><span class="m">12</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">5</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;class&quot;</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span>
-<span class="w">    </span><span class="o">}</span>,<span class="w">  </span>
-<span class="w">    </span><span class="o">{</span><span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;www.a.shifen.com.&quot;</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;data&quot;</span>:<span class="w"> </span><span class="s2">&quot;14.119.104.189&quot;</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;TTL&quot;</span>:<span class="w"> </span><span class="m">12</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">1</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;class&quot;</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span>
-<span class="w">    </span><span class="o">}</span>,<span class="w">  </span>
-<span class="w">    </span><span class="o">{</span><span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;www.a.shifen.com.&quot;</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;data&quot;</span>:<span class="w"> </span><span class="s2">&quot;14.119.104.254&quot;</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;TTL&quot;</span>:<span class="w"> </span><span class="m">12</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">1</span>,<span class="w">  </span>
-<span class="w">      </span><span class="s2">&quot;class&quot;</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span>
-<span class="w">    </span><span class="o">}</span><span class="w">  </span>
-<span class="w">  </span><span class="o">]</span>,<span class="w">  </span>
-<span class="w">  </span><span class="s2">&quot;Extra&quot;</span>:<span class="w"> </span>null,<span class="w">  </span>
-<span class="w">  </span><span class="s2">&quot;TC&quot;</span>:<span class="w"> </span>false,<span class="w">  </span>
-<span class="w">  </span><span class="s2">&quot;RD&quot;</span>:<span class="w"> </span>true,<span class="w">  </span>
-<span class="w">  </span><span class="s2">&quot;RA&quot;</span>:<span class="w"> </span>true,<span class="w">  </span>
-<span class="w">  </span><span class="s2">&quot;AD&quot;</span>:<span class="w"> </span>false,<span class="w">  </span>
-<span class="w">  </span><span class="s2">&quot;CD&quot;</span>:<span class="w"> </span>false,<span class="w">  </span>
-<span class="w">  </span><span class="s2">&quot;Status&quot;</span>:<span class="w"> </span><span class="m">0</span><span class="w">  </span>
-<span class="o">}</span><span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>curl<span class="w"> </span><span class="s1">'https://dns.adguard.com/resolve?name=www.baidu.com&amp;type=A'</span><span class="w">  </span></span>
+<span class="cl"><span class="o">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="s2">"Question"</span>:<span class="w"> </span><span class="o">[</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="o">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"name"</span>:<span class="w"> </span><span class="s2">"www.baidu.com."</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"type"</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="o">}</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="o">]</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="s2">"Answer"</span>:<span class="w"> </span><span class="o">[</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="o">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"name"</span>:<span class="w"> </span><span class="s2">"www.baidu.com."</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"data"</span>:<span class="w"> </span><span class="s2">"www.a.shifen.com."</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"TTL"</span>:<span class="w"> </span><span class="m">12</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"type"</span>:<span class="w"> </span><span class="m">5</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"class"</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="o">}</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="o">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"name"</span>:<span class="w"> </span><span class="s2">"www.a.shifen.com."</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"data"</span>:<span class="w"> </span><span class="s2">"14.119.104.189"</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"TTL"</span>:<span class="w"> </span><span class="m">12</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"type"</span>:<span class="w"> </span><span class="m">1</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"class"</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="o">}</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="o">{</span><span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"name"</span>:<span class="w"> </span><span class="s2">"www.a.shifen.com."</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"data"</span>:<span class="w"> </span><span class="s2">"14.119.104.254"</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"TTL"</span>:<span class="w"> </span><span class="m">12</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"type"</span>:<span class="w"> </span><span class="m">1</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">      </span><span class="s2">"class"</span>:<span class="w"> </span><span class="m">1</span><span class="w">  </span></span>
+<span class="cl"><span class="w">    </span><span class="o">}</span><span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="o">]</span>,<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="s2">"Extra"</span>:<span class="w"> </span>null,<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="s2">"TC"</span>:<span class="w"> </span>false,<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="s2">"RD"</span>:<span class="w"> </span>true,<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="s2">"RA"</span>:<span class="w"> </span>true,<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="s2">"AD"</span>:<span class="w"> </span>false,<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="s2">"CD"</span>:<span class="w"> </span>false,<span class="w">  </span></span>
+<span class="cl"><span class="w">  </span><span class="s2">"Status"</span>:<span class="w"> </span><span class="m">0</span><span class="w">  </span></span>
+<span class="cl"><span class="o">}</span><span class="w">  </span></span></code></pre></div></div>
 <h2 id="python">python 调用示例</h2>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">dns.message</span>  
-<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>  
-<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>  
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>  
-
-<span class="n">doh_url</span> <span class="o">=</span> <span class="s2">&quot;https://dns.alidns.com/dns-query&quot;</span>  
-<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;alibaba.com&quot;</span>  
-<span class="n">rr</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span>  
-<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>  
-
-<span class="n">message</span> <span class="o">=</span> <span class="n">dns</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">make_query</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">rr</span><span class="p">)</span>  
-<span class="n">dns_req</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">to_wire</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;UTF8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>  
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">doh_url</span> <span class="o">+</span> <span class="s2">&quot;?dns=&quot;</span> <span class="o">+</span> <span class="n">dns_req</span><span class="p">,</span>  
-                 <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/dns-message&quot;</span><span class="p">})</span>  
-<span class="k">for</span> <span class="n">answer</span> <span class="ow">in</span> <span class="n">dns</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">from_wire</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">answer</span><span class="p">:</span>  
-    <span class="n">dns</span> <span class="o">=</span> <span class="n">answer</span><span class="o">.</span><span class="n">to_text</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>  
-    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;Query&quot;</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;TTL&quot;</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;RR&quot;</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;Answer&quot;</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">4</span><span class="p">]})</span>  
-    <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>  
-</code></pre></div></div>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>test_doh.py<span class="w">  </span>
-<span class="o">[{</span><span class="s2">&quot;Answer&quot;</span>:<span class="w"> </span><span class="s2">&quot;106.11.223.101&quot;</span>,<span class="w"> </span><span class="s2">&quot;Query&quot;</span>:<span class="w"> </span><span class="s2">&quot;alibaba.com.&quot;</span>,<span class="w"> </span><span class="s2">&quot;RR&quot;</span>:<span class="w"> </span><span class="s2">&quot;A&quot;</span>,<span class="w"> </span><span class="s2">&quot;TTL&quot;</span>:<span class="w"> </span><span class="s2">&quot;133&quot;</span><span class="o">}]</span><span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">py</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">dns.message</span>  </span>
+<span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>  </span>
+<span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>  </span>
+<span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>  </span>
+<span class="cl"></span>
+<span class="cl"><span class="n">doh_url</span> <span class="o">=</span> <span class="s2">"https://dns.alidns.com/dns-query"</span>  </span>
+<span class="cl"><span class="n">domain</span> <span class="o">=</span> <span class="s2">"alibaba.com"</span>  </span>
+<span class="cl"><span class="n">rr</span> <span class="o">=</span> <span class="s2">"A"</span>  </span>
+<span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>  </span>
+<span class="cl"></span>
+<span class="cl"><span class="n">message</span> <span class="o">=</span> <span class="n">dns</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">make_query</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">rr</span><span class="p">)</span>  </span>
+<span class="cl"><span class="n">dns_req</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">to_wire</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"UTF8"</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"="</span><span class="p">)</span>  </span>
+<span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">doh_url</span> <span class="o">+</span> <span class="s2">"?dns="</span> <span class="o">+</span> <span class="n">dns_req</span><span class="p">,</span>  </span>
+<span class="cl">                 <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Content-type"</span><span class="p">:</span> <span class="s2">"application/dns-message"</span><span class="p">})</span>  </span>
+<span class="cl"><span class="k">for</span> <span class="n">answer</span> <span class="ow">in</span> <span class="n">dns</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">from_wire</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">answer</span><span class="p">:</span>  </span>
+<span class="cl">    <span class="n">dns</span> <span class="o">=</span> <span class="n">answer</span><span class="o">.</span><span class="n">to_text</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>  </span>
+<span class="cl">    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"Query"</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"TTL"</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"RR"</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s2">"Answer"</span><span class="p">:</span> <span class="n">dns</span><span class="p">[</span><span class="mi">4</span><span class="p">]})</span>  </span>
+<span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>  </span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">$<span class="w"> </span>python<span class="w"> </span>test_doh.py<span class="w">  </span></span>
+<span class="cl"><span class="o">[{</span><span class="s2">"Answer"</span>:<span class="w"> </span><span class="s2">"106.11.223.101"</span>,<span class="w"> </span><span class="s2">"Query"</span>:<span class="w"> </span><span class="s2">"alibaba.com."</span>,<span class="w"> </span><span class="s2">"RR"</span>:<span class="w"> </span><span class="s2">"A"</span>,<span class="w"> </span><span class="s2">"TTL"</span>:<span class="w"> </span><span class="s2">"133"</span><span class="o">}]</span><span class="w">  </span></span></code></pre></div></div>
 <h2 id="dns_1">DNS 污染</h2>
 <p>DNS 污染大致与以下内容为同义词：  </p>
 <p>DNS 缓存服务器污染：运营商的 DNS 服务器被污染，使用默认 DNS，网络就会被干扰。  </p>
@@ -233,15 +229,13 @@ https://dns.adguard.com/resolve?name<span class="o">=</span>&lt;domain&gt;<span 
 <h2 id="dns_2">DNS刷新</h2>
 <p>修改hosts文件后 刷新DNS缓存  </p>
 <p>Windows:  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>ipconfig<span class="w"> </span>/flushdns<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">ipconfig<span class="w"> </span>/flushdns<span class="w">  </span></span></code></pre></div></div>
 <p>Mac: 两种方式  </p>
-<div class="highlight"><div><button class="fold-btn">收起</button><button class="copy-btn">复制</button>
-<pre><span></span><code>sudo<span class="w"> </span>killall<span class="w"> </span>-HUP<span class="w"> </span>mDNSResponder<span class="w">  </span>
-
-sudo<span class="w"> </span>dscacheutil<span class="w"> </span>-flushcache<span class="w">  </span>
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">sh</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">sudo<span class="w"> </span>killall<span class="w"> </span>-HUP<span class="w"> </span>mDNSResponder<span class="w">  </span></span>
+<span class="cl"></span>
+<span class="cl">sudo<span class="w"> </span>dscacheutil<span class="w"> </span>-flushcache<span class="w">  </span></span></code></pre></div></div>
 <h2 id="dns_3">DNS泄漏检测</h2>
 <p><a href="https://dnsleaktest.org/dns-leak-test">DNS Leak Test</a>  </p>
 <p><a href="https://www.browserscan.net/dns-leak">BrowserScan - DNS Leak</a>  </p>
@@ -254,26 +248,166 @@ sudo<span class="w"> </span>dscacheutil<span class="w"> </span>-flushcache<span 
 <p><a href="https://adguard-dns.io/zh_cn/welcome.html">AdGuard</a>  </p>
   </article>
   
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.code-block-wrapper:hover .code-block-controls,
+.code-block-wrapper:focus-within .code-block-controls {
+  opacity: 1;
+}
+.fold-btn, .copy-btn, .code-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 16px;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+.fold-btn, .code-toggle {
+  color: #6e7681;
+}
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
+  color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+[data-color-mode="dark"] .highlight .cl::before {
+  color: #8b949e;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // 复制功能
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = '已复制';
-        setTimeout(() => btn.textContent = '复制', 1500);
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+        }, 1500);
       });
     });
   });
 
-  // 折叠功能
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
   document.addEventListener('click', e => {
-    if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '收起' : '展开';
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
     }
   });
 });

@@ -2,112 +2,231 @@
   <article class="markdown-body">
     <h2 id="vimrc">通用.vimrc配置</h2>
 <p>主要用来解决服务器上vim中文乱码, 以及tab转空格问题  </p>
-<div class="highlight"><div><button class="fold-btn">▲</button><button class="copy-btn"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button>
-<pre><span></span><code>&quot; 基本设置  
-set nocompatible              &quot; 关闭 Vi 兼容模式，使用 Vim 增强功能  
-filetype on                   &quot; 启用文件类型检测  
-filetype plugin on            &quot; 启用文件类型插件  
-filetype indent on            &quot; 启用文件类型缩进  
-syn on                        &quot; 开启语法高亮功能  
-
-&quot; 编码设置（支持中文）  
-set encoding=utf-8            &quot; Vim 内部使用 UTF-8  
-set fileencoding=utf-8        &quot; 默认保存为 UTF-8  
-set fileencodings=utf-8,gbk,gb2312,cp936  &quot; 自动识别编码  
-set termencoding=utf-8        &quot; 终端编码  
-
-&quot; Tab 和缩进设置  
-set tabstop=4                 &quot; Tab 显示为 4 个空格宽度  
-set shiftwidth=4              &quot; 自动缩进宽度为 4 个空格  
-set expandtab                 &quot; 将 Tab 转换为空格  
-set smarttab                  &quot; 根据 shiftwidth 插入空格  
-set softtabstop=4             &quot; 按 Tab 键时插入 4 个空格  
-set autoindent                &quot; 自动缩进  
-set smartindent               &quot; 智能缩进  
-
-&quot; 显示设置  
-set number                    &quot; 显示行号  
-&quot; set relativenumber            &quot; 显示相对行号  
-&quot; set cursorline                &quot; 高亮当前行  
-set showcmd                   &quot; 显示输入的命令  
-set ruler                     &quot; 显示光标位置  
-set wrap                      &quot; 自动换行  
-set linebreak                 &quot; 在单词边界换行  
-
-autocmd InsertLeave * se nocul  &quot; 用浅色高亮当前行  
-autocmd InsertEnter * se cul    &quot; 用浅色高亮当前行  
-
-&quot; 搜索设置  
-set hlsearch                  &quot; 高亮搜索结果  
-set incsearch                 &quot; 增量搜索  
-set ignorecase                &quot; 搜索时忽略大小写  
-set smartcase                 &quot; 智能大小写（配合 ignorecase）  
-
-&quot; 其他实用设置  
-set backspace=indent,eol,start &quot; 允许退格键删除缩进、换行符等  
-set wildmenu                  &quot; 命令补全增强 按TAB键时命令行自动补全  
-&quot; set mouse=a                   &quot; 启用鼠标支持  
-set clipboard=unnamedplus     &quot; 使用系统剪贴板（需 Vim 支持 +clipboard）  
-
-&quot; 键映射  
-nnoremap &lt;Tab&gt; &gt;&gt;             &quot; Normal 模式下 Tab 增加缩进  
-nnoremap &lt;S-Tab&gt; &lt;&lt;           &quot; Normal 模式下 Shift+Tab 减少缩进  
-inoremap &lt;S-Tab&gt; &lt;C-d&gt;        &quot; Insert 模式下 Shift+Tab 减少缩进  
-
-map &lt;silent&gt; &lt;C-A&gt; gg v G $   &quot; Ctrl+A 选中所有内容  
-
-&quot; 取消高亮搜索结果  
-nnoremap &lt;leader&gt;/ :nohlsearch&lt;CR&gt;  
-
-&quot; 默认 leader 键是 &#39;\&#39;, 可根据需要调整  
-let mapleader = &quot;,&quot;           &quot; 将 leader 键改为 &#39;,&#39;  
-
-&quot; 保存和退出  
-nnoremap &lt;leader&gt;w :w&lt;CR&gt;     &quot; 快速保存  
-nnoremap &lt;leader&gt;q :q&lt;CR&gt;     &quot; 快速退出  
-</code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
+<pre><span></span><code><span class="cl">" 基本设置  </span>
+<span class="cl">set nocompatible              " 关闭 Vi 兼容模式，使用 Vim 增强功能  </span>
+<span class="cl">filetype on                   " 启用文件类型检测  </span>
+<span class="cl">filetype plugin on            " 启用文件类型插件  </span>
+<span class="cl">filetype indent on            " 启用文件类型缩进  </span>
+<span class="cl">syn on                        " 开启语法高亮功能  </span>
+<span class="cl"></span>
+<span class="cl">" 编码设置（支持中文）  </span>
+<span class="cl">set encoding=utf-8            " Vim 内部使用 UTF-8  </span>
+<span class="cl">set fileencoding=utf-8        " 默认保存为 UTF-8  </span>
+<span class="cl">set fileencodings=utf-8,gbk,gb2312,cp936  " 自动识别编码  </span>
+<span class="cl">set termencoding=utf-8        " 终端编码  </span>
+<span class="cl"></span>
+<span class="cl">" Tab 和缩进设置  </span>
+<span class="cl">set tabstop=4                 " Tab 显示为 4 个空格宽度  </span>
+<span class="cl">set shiftwidth=4              " 自动缩进宽度为 4 个空格  </span>
+<span class="cl">set expandtab                 " 将 Tab 转换为空格  </span>
+<span class="cl">set smarttab                  " 根据 shiftwidth 插入空格  </span>
+<span class="cl">set softtabstop=4             " 按 Tab 键时插入 4 个空格  </span>
+<span class="cl">set autoindent                " 自动缩进  </span>
+<span class="cl">set smartindent               " 智能缩进  </span>
+<span class="cl"></span>
+<span class="cl">" 显示设置  </span>
+<span class="cl">set number                    " 显示行号  </span>
+<span class="cl">" set relativenumber            " 显示相对行号  </span>
+<span class="cl">" set cursorline                " 高亮当前行  </span>
+<span class="cl">set showcmd                   " 显示输入的命令  </span>
+<span class="cl">set ruler                     " 显示光标位置  </span>
+<span class="cl">set wrap                      " 自动换行  </span>
+<span class="cl">set linebreak                 " 在单词边界换行  </span>
+<span class="cl"></span>
+<span class="cl">autocmd InsertLeave * se nocul  " 用浅色高亮当前行  </span>
+<span class="cl">autocmd InsertEnter * se cul    " 用浅色高亮当前行  </span>
+<span class="cl"></span>
+<span class="cl">" 搜索设置  </span>
+<span class="cl">set hlsearch                  " 高亮搜索结果  </span>
+<span class="cl">set incsearch                 " 增量搜索  </span>
+<span class="cl">set ignorecase                " 搜索时忽略大小写  </span>
+<span class="cl">set smartcase                 " 智能大小写（配合 ignorecase）  </span>
+<span class="cl"></span>
+<span class="cl">" 其他实用设置  </span>
+<span class="cl">set backspace=indent,eol,start " 允许退格键删除缩进、换行符等  </span>
+<span class="cl">set wildmenu                  " 命令补全增强 按TAB键时命令行自动补全  </span>
+<span class="cl">" set mouse=a                   " 启用鼠标支持  </span>
+<span class="cl">set clipboard=unnamedplus     " 使用系统剪贴板（需 Vim 支持 +clipboard）  </span>
+<span class="cl"></span>
+<span class="cl">" 键映射  </span>
+<span class="cl">nnoremap &lt;Tab&gt; &gt;&gt;             " Normal 模式下 Tab 增加缩进  </span>
+<span class="cl">nnoremap &lt;S-Tab&gt; &lt;&lt;           " Normal 模式下 Shift+Tab 减少缩进  </span>
+<span class="cl">inoremap &lt;S-Tab&gt; &lt;C-d&gt;        " Insert 模式下 Shift+Tab 减少缩进  </span>
+<span class="cl"></span>
+<span class="cl">map &lt;silent&gt; &lt;C-A&gt; gg v G $   " Ctrl+A 选中所有内容  </span>
+<span class="cl"></span>
+<span class="cl">" 取消高亮搜索结果  </span>
+<span class="cl">nnoremap &lt;leader&gt;/ :nohlsearch&lt;CR&gt;  </span>
+<span class="cl"></span>
+<span class="cl">" 默认 leader 键是 '\', 可根据需要调整  </span>
+<span class="cl">let mapleader = ","           " 将 leader 键改为 ','  </span>
+<span class="cl"></span>
+<span class="cl">" 保存和退出  </span>
+<span class="cl">nnoremap &lt;leader&gt;w :w&lt;CR&gt;     " 快速保存  </span>
+<span class="cl">nnoremap &lt;leader&gt;q :q&lt;CR&gt;     " 快速退出  </span></code></pre></div></div>
   </article>
   
 <style>
-.fold-btn, .copy-btn {
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.code-block-wrapper:hover .code-block-controls,
+.code-block-wrapper:focus-within .code-block-controls {
+  opacity: 1;
+}
+.fold-btn, .copy-btn, .code-toggle {
   border: none;
   background: transparent;
   cursor: pointer;
   padding: 2px 6px;
-  margin-right: 4px;
   font-size: 16px;
+  line-height: 1;
   outline: none;
   box-shadow: none;
   transition: background 0.2s;
 }
-.fold-btn:hover, .copy-btn:hover {
-  background: #eee;
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+.fold-btn, .code-toggle {
+  color: #6e7681;
+}
+[data-color-mode="dark"] .fold-btn,
+[data-color-mode="dark"] .code-toggle {
+  color: #8b949e;
+}
+.code-toggle.off {
+  color: #c6cbd1;
+}
+[data-color-mode="dark"] .code-toggle.off {
+  color: #484f58;
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+[data-color-mode="dark"] .highlight .cl::before {
+  color: #8b949e;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nowrap .cl {
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: #6e7681;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+[data-color-mode="dark"] .code-lang {
+  color: #8b949e;
+  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
 }
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // 复制功能
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const code = btn.nextElementSibling.querySelector('code').innerText;
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
       navigator.clipboard.writeText(code).then(() => {
-        // 切换为已复制图标
         btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
         setTimeout(() => {
-          // 恢复为复制图标
           btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
         }, 1500);
       });
     });
   });
 
-  // 折叠功能
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
   document.addEventListener('click', e => {
-    if (e.target.classList.contains('fold-btn')) {
-      const pre = e.target.parentElement.querySelector('pre');
-      const collapsed = pre.style.display === 'none';
-      pre.style.display = collapsed ? 'block' : 'none';
-      e.target.textContent = collapsed ? '▲' : '▼';
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
     }
   });
 });
