@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 26.1008.1730
+
+1. 目录 +/− 切换按钮由左侧改为右侧（`right: 2px` 绝对定位），左侧不再预留槽位，链接缩进只由 `(level-1) * 10` 决定，视觉重心回到标题本身
+2. 槽位（`TOGGLE_SLOT` = 22px）从 `paddingLeft` 改为 `paddingRight`，防止长标题与右侧按钮重叠
+3. 新增测试 `test_toggle_anchored_to_right`：钉死 `.toc-toggle` 用 `right: 2px` 定位，旧 `left: -2px` 不得再出现
+4. 重写 `test_toggle_slot_reserved_for_all_items`：钉死槽位**右侧**预留（`paddingRight` 含 `TOGGLE_SLOT` 且不得依赖 `children.length`），左侧 `paddingLeft` 不含 `TOGGLE_SLOT`
+5. 同步 ADR-0009 决策 1：+/− 改为右对齐放置，槽位原则（无条件预留、不依赖 `children.length`）保留
+
+## 26.1008.1700
+
+1. 检索结果里的标签同时高亮 + 可点击跳到 tag.html: 渲染为 `<a class="Label" style="--label-hue:N" href="<homeUrl>/tag.html#<encoded>">`, 视觉与 post.html / plist.html / tag.html 的标签同源(都走 base.html 的 .Label 类), 点击后 tag.html 的 setClassDisplay(decodeURIComponent(...)) 自动定位并高亮对应标签
+2. 色相字典注入: search.html 把 `{{ blogBase['labelHueDict']|tojson }}` 注入 JS 端为 `var labelHues`, 构造 `<a>` 时按名查表, 缺失回退默认 210(与 .Label 默认一致)
+3. URL 编码: 标签名经 `encodeURIComponent` 写入 href, 中英 / ASCII / 含 `?` 等特殊字符的标签名都能正确还原
+4. 新增 `TestSearchResultLabelLink` 6 条回归测试: 色相字典注入 / 空字典兜底 / 装饰器创建 `<a class="Label">` / `.Label` 类复用 / URL 编码结构 / 元信息整块仍挂标题行内
+5. 同步更新 ADR-0021 决策 5 与验证清单(新增端到端标签 href / --label-hue / .Label 类的 Node 桩断言)
+
 ## 26.1008.1605
 
 1. 加 state 迁移步骤 `migrate_state`: 构建入口(默认 defaultConfig)就地补全老 blogBase.json 里的派生字段 dateLabelHue / createdDate, 由 baseline 字段确定性重算, 一次构建后落盘, 后续消费者(plist/tag_data/...)统一走真值路径

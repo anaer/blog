@@ -1000,6 +1000,71 @@ class TestSearchResultMeta:
         assert 'renderIcon("github"' in html
 
 
+class TestSearchResultLabelLink:
+    """检索结果的标签 chip 必须同时高亮 + 可点击跳到 tag.html。
+
+    视觉与交互契约(详见 docs/adr/ 下检索结果 meta 相关 ADR):
+      - 每个标签渲染为 <a class="Label">, 复用 base.html 的主题化色相样式
+      - <a> 的 --label-hue 自定义属性由 blogBase['labelHueDict'] 派生, 缺失回退 210
+      - href 形如 <homeUrl>/tag.html#<encodeURIComponent(name)>, 与 tag.html
+        的 setClassDisplay(decodeURIComponent(...)) 闭环
+    """
+
+    @staticmethod
+    def _html(label_hues=None):
+        # 显式 None/没传 → 用非空示例字典; 显式传 dict(即使空)→ 直接用, 验证空字典注入场景
+        hues = {"前端": 17, "blog": 42, "Tech?": 7} if label_hues is None else label_hues
+        base = TestSearchPageSmoke._plist_base(labelHueDict=hues)
+        return TestSearchPageSmoke._render("search.html", base)
+
+    def test_labelHues_injected_from_blogBase(self):
+        html = self._html({"前端": 17, "blog": 42})
+        # 整段字典经 |tojson 注入, JS 端按名查表
+        # 注意: |tojson 会把非 ASCII 字符转义成 \uXXXX, 这是 JSON 序列化规范, JS 端可正常解析
+        m = re.search(r'var labelHues = (\{[^;]*\});', html)
+        assert m, "未注入 labelHues 字典"
+        import json as _json
+        parsed = _json.loads(m.group(1))
+        assert parsed == {"前端": 17, "blog": 42}
+
+    def test_labelHues_missing_falls_back_to_empty_dict(self):
+        # 旧状态文件无 labelHueDict: 模板应注入空字典, 由 JS 端统一回退默认色相 210
+        html = self._html({})
+        assert "var labelHues = {};" in html
+
+    def test_decorator_creates_label_anchors(self):
+        html = self._html()
+        # 标签渲染为 <a class="Label">, 不再是纯 <span>; 这是高亮 + 跳转的前置
+        assert 'a.className = "Label";' in html
+        # --label-hue 走 setProperty 而不是 style.cssText, 便于与其它样式规则叠加
+        assert 'setProperty("--label-hue"' in html
+        # href 指向 tag.html 的 hash 锚点, URL 编码由 encodeURIComponent 负责
+        # (homeUrl 由 Jinja 渲染期替换, 这里断言渲染后的绝对 URL 拼接)
+        assert '"https://example.com/blog/tag.html#" + encodeURIComponent(name)' in html
+
+    def test_anchor_reuses_Label_class_for_hue_styling(self):
+        # 与 post.html / plist.html 的标签样式同源: base.html 的 .Label 已提供
+        # 背景/字色/边框/主题色相; search.html 只补 hover 与尺寸, 不重写底色
+        html = self._html()
+        assert ".Label" in html   # CSS 出现 .Label 选择器, 走 base.html 的色相主题
+        assert ":hover" in html   # 仅补一个 hover 反馈, 不替换底色
+
+    def test_chinese_label_urlencoded_in_href(self):
+        # 中文字符经 encodeURIComponent 后是 %E5%89%8D%E7%AB%AF; 真正端到端
+        # URI 编码由浏览器/Node 在运行时执行, 这里只验模板渲染后的字面拼接结构
+        html = self._html()
+        assert '"https://example.com/blog/tag.html#" + encodeURIComponent(name)' in html
+        assert "encodeURIComponent(name)" in html
+
+    def test_meta_still_attaches_alongside_label_anchor(self):
+        # 决策 2 的约定: 元信息(标签 + issue 入口)整块挂在标题行内
+        # 这里钉死装饰函数仍会把整块 meta 挂到 title 元素
+        html = self._html()
+        assert 'card.querySelector(".pagefind-ui__result-title")' in html
+        assert 'pagefind-ui__result-labels' in html
+        assert 'pagefind-ui__result-source' in html
+
+
 class TestThemeSwitch:
     """主题切换: modeSwitch 必须按名读取 data-color-mode。
 
@@ -1124,6 +1189,7 @@ class TestCreateSearchHtml:
             "title": "T", "homeUrl": "https://example.com/blog", "nightTheme": "dark", "dayTheme": "light",
             "faviconUrl": "", "GMEEK_VERSION": "v2.4", "lang": "zh-CN",
             "searchBaseUrl": "https://example.com/blog/",
+            "labelHueDict": {},   # search.html 注入色相字典用, 旧测试夹具漏了
         }
         GMEEK.createSearchHtml(fake)
         html = (tmp_path / "search.html").read_text(encoding="utf-8")
@@ -1333,12 +1399,25 @@ class TestTocIndicators:
         assert "classList.toggle('open'" in js
 
     def test_toggle_slot_reserved_for_all_items(self):
-        # 同级对齐: +/− 槽位必须无条件预留, 不能只给带子节点的项(否则同级文字差一个槽位)
+        # 切换按钮已右对齐; 槽位必须**无条件**预留, 不能只给带子节点的项
+        # (否则同级里有/无子节点的项文字会差一个槽位、无法对齐).
+        # 注意: 现在槽位挪到右侧(paddingRight), 左侧不再预留
         js = self._js()
         line = [l for l in js.splitlines() if "paddingLeft" in l][0]
-        assert "TOGGLE_SLOT" in line
-        assert "children.length" not in line
+        # 左侧只放缩进, 不含 TOGGLE_SLOT
+        assert "TOGGLE_SLOT" not in line
+        # 同时钉死「不带子节点也预留槽位」— 搜索 paddingRight 那行
+        right_line = [l for l in js.splitlines() if "paddingRight" in l][0]
+        assert "TOGGLE_SLOT" in right_line
+        assert "children.length" not in right_line
         assert js.count("const TOGGLE_SLOT") == 1
+
+    def test_toggle_anchored_to_right(self):
+        # 切换按钮绝对定位到右侧 (right: 2px), 左侧不再有 left: -2px 锚点
+        js = self._js()
+        assert "right: 2px;" in js
+        # 旧版的 left: -2px 不得再出现(若用 left, 改 right 也行; 但为了清晰统一用 right)
+        assert "left: -2px;" not in js
 
 
 class TestSectionsFold:

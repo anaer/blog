@@ -32,11 +32,15 @@
 /* 标题后的元信息: 文章标签 + issue 入口(由脚本按索引 meta 注入, 见 block script) */
 #search .pagefind-ui__result-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 #search .pagefind-ui__result-labels{display:flex;gap:6px;flex-wrap:wrap;margin:0;padding:0;list-style:none;}
-#search .pagefind-ui__result-labels li{
+#search .pagefind-ui__result-labels li{list-style:none;margin:0;padding:0;}
+/* 标签 chip 配色由 base.html 的 .Label 提供(--label-hue 由脚本按索引 meta 注入);
+   这里只控尺寸/边距, 让 chip 与 post.html / plist.html 上的标签视觉一致 */
+#search .pagefind-ui__result-labels a.Label{
     font-size:12px;line-height:1.7;padding:0 8px;border-radius:10px;
-    background:var(--bgColor-muted, var(--color-canvas-subtle));
-    color:var(--fgColor-muted, var(--color-fg-muted));
+    text-decoration:none;
+    transition:filter .15s ease;
 }
+#search .pagefind-ui__result-labels a.Label:hover{filter:brightness(1.08);}
 #search .pagefind-ui__result-source{
     display:inline-flex;color:var(--fgColor-muted, var(--color-fg-muted));
     opacity:.7;transition:opacity .2s;
@@ -74,6 +78,9 @@
 <script src="{{ blogBase['homeUrl'] }}/pagefind/pagefind-ui.js"></script>
 <script>
 window.addEventListener("DOMContentLoaded", function () {
+    // 与 tag.html 同步的色相来源: 名称 -> 整数(0-359)。缺失时回退默认 210, 与 .Label 共享
+    var labelHues = {{ blogBase['labelHueDict']|tojson }};
+
     // 索引内每篇文章的 meta(labels/source) 按 url 收集, 供结果渲染后补挂页脚
     var metaByUrl = {};
 
@@ -117,7 +124,15 @@ window.addEventListener("DOMContentLoaded", function () {
                 ul.className = "pagefind-ui__result-labels";
                 info.labels.forEach(function (name) {
                     var li = document.createElement("li");
-                    li.textContent = name;
+                    // 配色由 base.html 的 .Label 提供; --label-hue 按 labelHues 派生, 缺失回退 210(与 .Label 默认一致)
+                    var hue = (labelHues && labelHues[name] !== undefined) ? labelHues[name] : 210;
+                    var a = document.createElement("a");
+                    a.className = "Label";
+                    a.style.setProperty("--label-hue", hue);
+                    // 跳转到 tag.html 的 hash 锚点; URL 编码与 tag.html 的 setClassDisplay(decodeURIComponent(...)) 闭环
+                    a.href = "{{ blogBase['homeUrl'] }}/tag.html#" + encodeURIComponent(name);
+                    a.textContent = name;
+                    li.appendChild(a);
                     ul.appendChild(li);
                 });
                 meta.appendChild(ul);
