@@ -21,13 +21,6 @@ PS: 按照个人使用排序
 
 [Grok 3 越狱提示词](https://baoyu.io/blog/grok-3-jailbreak-prompts-cn)
 
-## [GitHub Models](https://github.com/marketplace/models) 
-
-1. 支持gpt-4o, deepseek-r1等
-2. api调用 有流控, 像deepseek-r1 每分钟1次
-
-[流控规则](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits)
-
 ## [deepseek 深度求索](https://chat.deepseek.com/) 
 
 1. 单会话存在长度限制, 超限时需要开启新会话

@@ -727,16 +727,15 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/31",
             "commentNum": 0,
             "createdAt": 1736402933,
-            "updatedAt": 1740449527,
+            "updatedAt": 1791446433,
             "top": 0,
             "style": "",
             "script": "",
             "description": "",
             "createdDate": "2025-01-09",
-            "dateLabelColor": "hsl(194, 31%, 35%)",
-            "buildedAt": 1740449527,
-            "renderVersion": 3,
-            "dateLabelHue": 194
+            "dateLabelHue": 194,
+            "buildedAt": 1791446433,
+            "renderVersion": 13
         },
         "P32": {
             "number": "32",
