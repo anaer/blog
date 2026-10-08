@@ -3,7 +3,7 @@
 **状态：** 已接受
 **创建时间：** 2026-09-30
 
-> **当前状态 / 核心结论：** 「行 span + CSS 计数器」行号方案、自动换行、折叠首行预览、starry-night 清理、`RENDER_VERSION` 均已落地；并据反馈精炼：控件图标全改用内联 SVG（跟随主题色）、代码块行距收紧至 `line-height:1.45`、折叠态强制单行（`nowrap` + 横向滚动）。下一步无需后续动作。
+> **当前状态 / 核心结论：** 「行 span + CSS 计数器」行号方案、自动换行、折叠首行预览、starry-night 清理、`RENDER_VERSION` 均已落地；控件图标为内联 SVG（跟随主题色）、代码块行距 `line-height:1.45`、折叠态强制单行（`pre` + 横向滚动）。下一步无需后续动作。
 
 ---
 
@@ -14,12 +14,12 @@
 ## 决策
 
 1. **行号方案（行 span + CSS 计数器）**：`md2html` 生成期把每个逻辑行包成 `<span class="cl">`（跨行标签闭合/重开），行号由 CSS 计数器在左侧槽位生成；自动换行时续行不带号、文本对齐（编辑器软换行观感）；复制内容不含行号（CSS 生成）。不采用 pygments 表格列行号（代码换行后行号列错位）。
-2. **自动换行保持**：`pre-wrap` 保留，补充 `overflow-wrap: anywhere` 保证长 token（URL 等）断行。
+2. **自动换行**：`.highlight .cl` 显式声明 `white-space: pre-wrap`（`pre>code` 的 `white-space:pre` 会经继承压制换行，须在元素自身覆盖），配合 `overflow-wrap: anywhere` 保证长 token（URL 等）断行；开关关闭时以 `.code-block-wrapper.nowrap .cl{white-space:pre}` 真正禁止换行。
 3. **块控件：低调化、首行预览与开关**：黑色 ▲ 改主题灰（浅色 #6e7681 / 深色 #8b949e），块控件默认半透明、悬停清晰；折叠行为改为**保留首行预览**（隐藏 `.cl ~ .cl`，不再整块隐藏），单行代码块隐藏折叠按钮；复制按钮改用 `textContent`，折叠态复制仍为全文；右上角新增「自动换行」「行号」两个开关（**默认开启**，关闭时分别以 `nowrap`/`nolines` 类纯 CSS 生效）。
 4. **移除 starry-night 加载**：删除文章页的条件加载与生成器中的随机样式选择逻辑（实测零作用，省 2–6KB/页）；资产目录暂留，无引用后可再清理。
 5. **渲染缓存版本标记**：新增 `RENDER_VERSION` 并纳入 HTML 缓存校验（`buildedAt` + 版本）；渲染逻辑变更时递增 → 下次全量构建全站自动重转（本次同时让图片懒加载在全站生效）。扩展 ADR-0001 决策 1 的缓存字段。
    - 不做什么：不改高亮配色（`highlight.css` 双主题保留）；不启用 pygments 表格行号。
-6. **控件图标 SVG 化与折叠态单行（反馈精炼）**：块控件 `wrap-toggle`/`lines-toggle`/`fold-btn` 全部改用内联 SVG（`fill="currentColor"` 跟随按钮主题灰），替换原文本字符 ↵/#/▲/▼；折叠箭头经 CSS 旋转（`.folded` 时 `rotate(180deg)`）不再用 JS 改 `textContent`；`.highlight .cl` 设 `line-height:1.45` 收紧行距（原继承正文 ~1.5–1.6）；折叠态 `.code-block-wrapper.folded` 内 `pre`/`.cl` 强制 `white-space:nowrap` + 横向滚动，保证首行预览严格为一行（长首行不再换行撑高）；折叠点击监听改 `e.target.closest('.fold-btn')`（原 `classList.contains` 在按钮含 SVG 后失效）。
+6. **控件图标 SVG 化与折叠态单行**：块控件 `wrap-toggle`/`lines-toggle`/`fold-btn` 用内联 SVG（`stroke="currentColor"` 跟随按钮主题灰），不使用文本字符 ↵/#/▲/▼；折叠箭头经 CSS 旋转（`.folded` 时 `rotate(180deg)`）；`.highlight .cl` 设 `line-height:1.45` 收紧行距；折叠态 `.code-block-wrapper.folded` 内 `pre`/`.cl` 用 `white-space:pre` + 横向滚动，保证首行预览严格为一行（长首行不再换行撑高）；折叠点击监听用 `e.target.closest('.fold-btn')`（按钮含 SVG 后 `classList.contains` 不再可靠）。
    - 不做什么：不引入外部图标字体（bootstrap-icons/font-awesome）只为代码块控件；复制按钮的 SVG 双态（复制/已复制）保持不变。
 
 ## 后果
@@ -37,11 +37,12 @@
 
 ## 验证
 
-- 待实施后：`pytest` 全绿（含跨行 span 闭合/重开、末尾空行不编号、老帖子无版本必须重转的负向控制）；本地渲染抽查行号/换行结构；部署全量构建后抽查历史文章已带行号。
+- `pytest` 全绿（含跨行 span 闭合/重开、末尾空行不编号、老帖子无版本必须重转的负向控制）；本地渲染抽查行号/换行结构。
 
 ## 关联文档
 
 - [ADR-0001](ADR-0001-generation-pipeline-correctness.md)：本 ADR 决策 5 扩展其决策 1 的缓存字段与校验。
+- [ADR-0015](ADR-0015-code-block-line-height-wrap-mobile.md)：修复本 ADR 行号 / 自动换行方案的三处缺陷（行距翻倍、换行失效、移动端）。
 
 ## 下一步
 

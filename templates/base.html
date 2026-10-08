@@ -90,7 +90,9 @@ function changeLight(){
     if(utterancesLoad==1){utterancesTheme("github-light");}
 }
 function modeSwitch(){
-    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    // 明暗状态取自 data-color-mode; 不可按下标取属性——<html> 的首个属性是 lang
+    var root=document.getElementsByTagName("html")[0];
+    if(root.getAttribute("data-color-mode")=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
     else{changeLight();localStorage.setItem("meek_theme","light");}
 }
 function utterancesTheme(theme){

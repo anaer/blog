@@ -1,9 +1,11 @@
 # ADR-0015：代码块行距 / 自动换行修复与移动端适配
 
-- **状态**: 已接受
-- **日期**: 2026-10-08
-- **相关**: `md2html.py#Markdown2GithubHtml._wrap_code_lines`、`md2html.py#Markdown2GithubHtml.convert`、`md2html.py#Markdown2GithubHtml._add_hard_breaks`、`Gmeek.py#RENDER_VERSION`
-- **修订自**: [ADR-0005](ADR-0005-code-block-line-numbers.md)（行号 / 换行 / 折叠方案的后续缺陷修复）
+**状态：** 已接受
+**创建时间：** 2026-10-08
+
+> **当前状态 / 核心结论：** 修复 ADR-0005 行号 / 换行方案的三处缺陷——`.cl` 之间的裸换行导致行距翻倍、`.cl` 继承 `pre>code` 的 `white-space:pre` 使自动换行失效、代码块内被塞入硬换行尾随空格；并补齐移动端 / 触屏样式。下一步无需后续动作。
+
+---
 
 ## 背景
 
@@ -49,3 +51,7 @@ ADR-0005 落地「行 span + CSS 计数器」方案后，线上反馈三个问�
 
 - [ADR-0005](ADR-0005-code-block-line-numbers.md)：本 ADR 修复其行号/换行方案的三个缺陷。
 - [ADR-0011](ADR-0011-code-block-language-label.md)：语言标签与控件同处顶部条，移动端预留空间一并覆盖。
+
+## 下一步
+
+无需后续动作。

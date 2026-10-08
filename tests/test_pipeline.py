@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """批次 A/B 纯函数单测: 收录过滤 / 置顶判定 / 缓存与重建 / 导航 / 时间 / 引用替换 / 色标 / tag 数据投影 / 图片懒加载 / 行号包裹 / 渲染版本 / 模板冒烟。"""
 import calendar
+import glob
 import json
 import os
 import re
@@ -715,6 +716,120 @@ class TestSearchBoxSizing:
         assert abs((clear_top + clear_h / 2) - input_h / 2) < 0.01
         # 清除按钮不得溢出输入框
         assert clear_top + clear_h <= input_h + 0.01
+
+
+class TestThemeSwitch:
+    """主题切换: modeSwitch 必须按名读取 data-color-mode。
+
+    约束: <html> 首个属性是 lang, 按下标取属性读不到明暗值, 切换会只能单向生效。
+    """
+
+    @staticmethod
+    def _html():
+        return TestSearchPageSmoke._render("plist.html", TestSearchPageSmoke._plist_base())
+
+    def test_mode_switch_reads_attribute_by_name(self):
+        html = self._html()
+        m = re.search(r"function modeSwitch\(\)\s*\{(.*?)\n\}", html, re.S)
+        assert m, "modeSwitch 未找到"
+        body = re.sub(r"//[^\n]*", "", m.group(1))   # 去掉注释, 只看实际代码
+        assert 'getAttribute("data-color-mode")' in body
+        # 负向控制: 不得再按下标取属性
+        assert "attributes[0]" not in body
+
+    def test_index_lookup_would_miss_color_mode(self):
+        # 记录「为何不能用下标」: <html> 首个属性不是明暗开关, 取 attributes[0] 拿不到 light/dark
+        html = self._html()
+        tag = re.search(r"<html\s+([^>]*)>", html).group(1)
+        names = re.findall(r"([\w-]+)=", tag)
+        assert "data-color-mode" in names
+        assert names[0] != "data-color-mode"
+
+    def test_toggle_can_reach_dark(self):
+        # changeDark 必须存在且被 modeSwitch 分支引用, 否则无法切到深色
+        html = self._html()
+        assert "function changeDark()" in html and "function changeLight()" in html
+        m = re.search(r"function modeSwitch\(\)\s*\{(.*?)\n\}", html, re.S).group(1)
+        assert "changeDark()" in m and "changeLight()" in m
+
+
+class TestDarkModeContrast:
+    """深色模式兼容: 不得残留只在浅色底上可读的硬编码颜色。"""
+
+    @staticmethod
+    def _post(**over):
+        return TestTemplateSmoke._render("post.html", TestTemplateSmoke._post_base(postNumber="1", **over))
+
+    def test_post_meta_uses_theme_vars(self):
+        html = self._post()
+        # 元信息取主题变量, 深色底上仍可读(不得回落为固定深色字)
+        for bad in ("color: #333", "color:#333", "color: #666", "color:#666"):
+            assert bad not in html, bad
+        assert "post-meta" in html
+        assert "var(--color-fg-muted)" in html
+        assert "var(--color-fg-default)" in html
+
+    def test_summary_box_border_is_themed(self):
+        html = self._post(description="摘要内容")
+        assert "post-summary" in html
+        assert "1px dashed #ccc" not in html
+        assert "var(--color-border-default)" in html
+
+    def test_markdown_body_tokens_follow_site_toggle(self):
+        # github-markdown-css 只按 prefers-color-scheme 切换, 必须按 data-color-mode 重绑,
+        # 否则「系统浅色 + 站点深色」时正文黑字压黑底
+        html = self._post()
+        assert '[data-color-mode="dark"] .markdown-body' in html
+        assert '[data-color-mode="light"] .markdown-body' in html
+        for tok in ("--color-fg-default", "--color-canvas-default",
+                    "--color-canvas-subtle", "--color-border-default"):
+            assert tok in html, tok
+
+    def test_hardcoded_tokens_match_vendored_source(self):
+        # 防止 github-markdown-css 升级后 token 值漂移(取值须逐字来自该文件)
+        css = open(os.path.join(ROOT, "assets", "github-markdown-css@5.2.0",
+                                "github-markdown.min.css"), encoding="utf-8").read()
+        for v in ("#c9d1d9", "#8b949e", "#6e7681", "#0d1117", "#161b22", "#30363d", "#21262d",
+                  "rgba(110,118,129,0.4)", "#58a6ff", "#1f6feb", "rgba(187,128,9,0.15)", "#f85149",
+                  "#24292f", "#57606a", "#ffffff", "#f6f8fa", "#d0d7de", "hsla(210,18%,87%,1)",
+                  "rgba(175,184,193,0.2)", "#0969da", "#fff8c5", "#cf222e"):
+            assert v in css, v
+
+    def test_toc_uses_theme_vars(self):
+        src = open(os.path.join(ROOT, "assets", "toc.js"), encoding="utf-8").read()
+        code = re.sub(r"/\*[\s\S]*?\*/", "", src)   # 去掉注释, 只看实际样式
+        for bad in ("#e1e4e8", "#ddd", "#b6e3ff"):
+            assert bad not in code, bad
+        assert "var(--color-border-default)" in code
+        assert "var(--color-border-muted)" in code
+        assert "var(--color-accent-subtle)" in code
+
+
+class TestAdrBoundary:
+    """架构决策记录的编号与文档链接只在 docs/ 内流转, 代码侧用自描述文本表达设计意图。"""
+
+    # 本用例守护「代码中不得出现该编号前缀」, 自身遂由片段拼出, 避免自指误报
+    _PREFIX = "A" + "DR"
+    _REF = re.compile(_PREFIX + r"-\d{4}")
+
+    @staticmethod
+    def _code_files():
+        pats = ["templates/**/*.py", "templates/**/*.html", "assets/**/*.js",
+                "tests/**/*.py", "*.py"]
+        files = []
+        for pat in pats:
+            files += [p for p in glob.glob(os.path.join(ROOT, pat), recursive=True)
+                      if os.path.isfile(p)]
+        return files
+
+    def test_no_decision_record_number_in_code(self):
+        hits = []
+        for path in self._code_files():
+            with open(path, encoding="utf-8") as fh:
+                for lineno, line in enumerate(fh, 1):
+                    if self._REF.search(line):
+                        hits.append(f"{os.path.relpath(path, ROOT)}:{lineno}")
+        assert not hits, hits
 
 
 class TestCreateSearchHtml:

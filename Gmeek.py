@@ -22,10 +22,8 @@ from icons import ICONS as IconList, VIEWBOX as IconViewBox, STROKE_WIDTH as Ico
 i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home","comments":"comments","run":"run ","days":" days","Previous":"Previous","Next":"Next", "First": "First", "Last": "Last"}
 i18nCN={"Search":"搜索","switchTheme":"切换主题","link":"友情链接","home":"首页","comments":"评论","run":"网站运行","days":"天","Previous":"上一页","Next":"下一页", "First": "首页", "Last":"末页"}
 
-# 渲染器版本: md2html/模板渲染逻辑变更时递增, 触发全站帖子 HTML 重转
-# 5: 图标统一为 24x24 线性描边(Lucide 风), 见 icons.py / ADR-0014
-# 6: 修复代码块行距翻倍、自动换行失效, 并补充移动端样式(见 ADR-0015)
-RENDER_VERSION = 6
+# 渲染器版本: 渲染逻辑变更时递增, 使全站帖子 HTML 缓存失效并重转
+RENDER_VERSION = 8
 
 # 摘要补重试的每构建上限, 防 API 故障时超时叠加拖死构建
 MAX_DESC_RETRY = 10

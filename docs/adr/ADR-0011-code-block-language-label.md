@@ -31,6 +31,10 @@
 
 - `tests/test_pipeline.py` 断言：围栏语言提取顺序、转换后含 `class="code-lang"` 与语言文本、纯围栏无标签、双围栏标签顺序正确。
 
+## 关联文档
+
+- [ADR-0015](ADR-0015-code-block-line-height-wrap-mobile.md)：修订本 ADR 决策 2 的 `has-lang` 顶部留白（移动端间距随之调整）。
+
 ## 下一步
 
 无需后续动作。

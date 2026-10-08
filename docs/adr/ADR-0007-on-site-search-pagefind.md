@@ -20,7 +20,7 @@
 3. **索引范围限定文章正文**：`templates/post.html#postBody` 标记 `data-pagefind-body`；列表页、标签页、检索页无该标记，整体不进索引。文章标题经 `<title>` 入索引（已实测可检索）。
 4. **子路径部署由 `homeUrl` 补全**：`Gmeek.py#search_settings` 派生两个键——`lang`（`i18n` 为 CN 时 `zh-CN`，否则 `en`）写入 `<html lang>`，`searchBaseUrl`（`homeUrl` 去尾斜杠 + `/`）作为检索界面的 `baseUrl`。索引内记录的是站点根相对路径，站点托管在 `/blog` 这类子路径下时必须补全。
 5. **检索界面复用 Pagefind 自带 UI**：`templates/search.html` 加载 `pagefind-ui.js`，用 `triggerSearch` 承接 `?q=` 深链；配色变量按 Primer 的两级回退映射，随站点明暗模式切换。
-   - **尺寸只经 `--pagefind-ui-scale` 调整**（见文末「修订」）：输入框高度、放大镜图标位置、清除按钮尺寸全部以该变量为基准，不得单独覆盖输入框的 `height`/`font-size`。
+   - **尺寸只经 `--pagefind-ui-scale` 调整**：Pagefind 的输入框高度（`64*scale`）、放大镜图标（`18*scale` 见方、`top:23*scale`）、清除按钮（`top:3*scale`、`height:58*scale`）是**联动**的，单独覆盖输入框 `height`/`font-size` 会让图标与按钮偏出垂直中心甚至溢出输入框。取 `scale: 0.75`（输入框 48px、字号 `21*0.75≈16px`），三者中心同为 `24px`；清除按钮文字随缩放变小，单独提回 `12px`（不影响其高度与居中）。
    - 不做什么：不自建倒排索引与查询逻辑；不在查询侧做中文分词补偿（实测无效，见「未解决风险」）。
 
 ## 后果
@@ -40,20 +40,7 @@
 
 - `pytest` 96 passed（含语言与结果前缀派生、检索页接线、索引范围标记、入口不再指向 issue、CI 步骤顺序）。
 - 本地端到端：用真实模板渲染 2 篇文章 + 列表页 + 检索页，Pagefind 在 4 个 HTML 中只索引 2 个文章页；结果链接按 `baseUrl` 补全为 `https://example.com/blog/post/N.html`，`meta.title` 取到文章标题。
-
-## 修订：搜索框尺寸改用 `--pagefind-ui-scale`（2026-10-08）
-
-`templates/search.html` 曾用 `#search .pagefind-ui__search-input{height:40px;font-size:16px}` 把输入框压矮，结果放大镜图标偏下、清除按钮溢出——因为 Pagefind 的内部几何是**联动**的：
-
-| 元素 | 公式（`scale` = `--pagefind-ui-scale`，默认 0.8） |
-|------|------|
-| `.pagefind-ui__search-input` | `height: 64*scale`、`font-size: 21*scale`、`padding: 0 70*scale 0 54*scale` |
-| `.pagefind-ui__form::before`（放大镜） | `width/height: 18*scale`、`top: 23*scale`、`left: 20*scale` |
-| `.pagefind-ui__search-clear`（清除按钮） | `top: 3*scale`、`height: 58*scale` |
-
-只改 `height` 时，图标仍停在 `top:18.4px`（应为 `20px`），清除按钮仍高 `46.4px` → 溢出输入框 `8.8px`。
-
-**改为** `--pagefind-ui-scale: 0.75`：输入框 `48px`、字号 `21*0.75≈16px`（与头部按钮高度相称）；放大镜 `13.5px@17.25px`、清除按钮 `43.5px@2.25px`，中心均为 `24px = 48/2`，全部垂直居中。清除按钮文字随缩放降到 `10.5px`，单独提回 `12px`（不影响其高度与居中）。
+- 检索页尺寸：`tests/test_pipeline.py#TestSearchBoxSizing` 按 Pagefind 几何公式校验放大镜与清除按钮垂直居中、且不溢出输入框。
 
 ## 关联文档
 

@@ -18,106 +18,25 @@
 以上是必须的字段，修改为自己的信息即可，下面是可以自定义字段的描述，可以选择加入到`config.json`中。
 
 ```javascript
-"email":"meekdai@163.com",
 "startSite":"02/16/2015",
 "filingNum":"浙ICP备20023628号",
 "onePageListNum":15,
 "commentLabelColor":"#006b75",
-"yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
 "i18n":"CN",
 "dayTheme":"light",
-"nightTheme":"dark_colorblind",
+"nightTheme":"dark",
 ```
 另有不清楚的也可以参考 https://github.com/Meekdai/meekdai.github.io/blob/main/config.json
 
+`dayTheme` / `nightTheme` 取值为 `light` / `dark`——随附的 Primer 子集只定义这两个主题，填其它值（如 `dark_colorblind`）会落回 `:root` 默认（浅色）。
 
-### `.github/workflows/Gmeek.yml` 文件 
 
-此文件保存到指定目录即可，无需修改。
+### `.github/workflows/Gmeek.yml` 文件
 
-```yml
-name: build Gmeek
+以仓库内的 `.github/workflows/Gmeek.yml` 为准（唯一事实来源，此处不复制内容）。与本仓库定制相关的要点：
 
-on:
-  workflow_dispatch:
-  issues:
-    types: [opened, edited]
-
-jobs:
-  build:
-    name: Generate blog
-    runs-on: ubuntu-20.04
-    if: github.event.repository.owner.id == github.event.sender.id
-    permissions: write-all
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v3
-
-      - name: Get config.json
-        run: |
-          echo "====== check config.josn file ======"
-          cat config.json
-          echo "====== check config.josn end  ======"
-          sudo apt-get install jq
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.8
-
-      - name: Clone source code
-        run: |
-          git clone -b $(jq -r ".GMEEK_VERSION" config.json) https://github.com/Meekdai/Gmeek.git /opt/Gmeek
-
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r /opt/Gmeek/requirements.txt
-
-      - name: Generate new html
-        run: |
-          cp -r ./* /opt/Gmeek/
-          cd /opt/Gmeek/
-          python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
-          cp -a /opt/Gmeek/docs ${{ github.workspace }} 
-          cp -a /opt/Gmeek/backup ${{ github.workspace }} 
-          cp /opt/Gmeek/blogBase.json ${{ github.workspace }} 
-          
-      - name: update html
-        run: |
-          git config --local user.email "$(jq -r ".email" config.json)"
-          git config --local user.name "${{ github.repository_owner }}"
-          git add .
-          git commit -a -m '🎉auto update by Gmeek action' || echo "nothing to commit"
-          git push || echo "nothing to push"
-          sleep 3
-          
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: 'docs/.'
-          
-  deploy:
-    name: Deploy blog
-    runs-on: ubuntu-20.04
-    needs: build
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
-    concurrency:
-      group: "pages"
-      cancel-in-progress: false
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
-
-```
+- **触发**：`workflow_dispatch` 与 `issues: [opened, edited, deleted]`。
+- **源码**：构建从 `blog` 分支取源码到 `/opt/Gmeek`；`docs/adr`、`docs/glossary`、`docs/review` 只存在于 `main`，发布时从产物中剔除。
+- **发布安全闸门**：`workflow_dispatch` 走全量重建，覆盖线上前校验——构建退出码非 0，或重建未产出任何帖子，即中止发布。
+- **检索索引**：在合并后的完整站点上执行 `npx pagefind`，输出 `docs/pagefind/`。
+- **AI 摘要**：由 `API_URL` / `API_KEY` / `API_MODEL` 三个 secret 提供。
