@@ -53,3 +53,4 @@ patch:
 [RIME仓库](https://github.com/rime)
 [oh-my-rime](https://github.com/Mintimate/oh-my-rime)
 [万象拼音](https://github.com/amzxyz/rime_wanxiang)
+[雾凇拼音](https://github.com/iDvel/rime-ice/)
