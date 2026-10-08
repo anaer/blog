@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import 'macro.html' as icons with context %}
 {% block head %}
 <title>{{ i18n['Search'] }} - {{ blogBase['title'] }}</title>
 <meta name="description" content="{{ blogBase['title'] }} {{ i18n['Search'] }}">
@@ -33,14 +34,10 @@
 <span id="searchTitle">{{ i18n['Search'] }}</span>
 <div class="title-right">
     <a href="{{ blogBase['homeUrl'] }}" id="buttonHome" class="btn btn-invisible circle" title="{{ i18n['home'] }}">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathHome" fill-rule="evenodd"></path>
-        </svg>
+        {{ icons.icon('home', id='pathHome') }}
     </a>
     <a class="btn btn-invisible circle" onclick="modeSwitch()" title="{{ i18n['switchTheme'] }}">
-        <svg class="octicon" width="16" height="16">
-            <path id="themeSwitch" fill-rule="evenodd"></path>
-        </svg>
+        {{ icons.icon('sun', id='themeSwitch', d='') }}
     </a>
 </div>
 {% endblock %}
@@ -52,8 +49,6 @@
 {% block script %}
 <script src="{{ blogBase['homeUrl'] }}/pagefind/pagefind-ui.js"></script>
 <script>
-document.getElementById("pathHome").setAttribute("d",IconList["home"]);
-
 window.addEventListener("DOMContentLoaded", function () {
     var ui = new PagefindUI({
         element: "#search",

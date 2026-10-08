@@ -57,6 +57,16 @@ body{
 </body>
 <script>
 var IconList={{ IconList }};
+var IconViewBox={{ IconViewBox }};
+// 统一图标渲染: 与 icons.py / macro.html 保持同一风格, 供 toc.js、sections.js、tag.html 等复用
+function renderIcon(name, size, cls){
+    size = size || 16;
+    cls = (cls === undefined) ? "octicon" : cls;
+    var d = (window.IconList && IconList[name]) || "";
+    var vb = (window.IconViewBox && IconViewBox[name]) || "0 0 16 16";
+    var clsAttr = cls ? ' class="' + cls + '"' : "";
+    return '<svg' + clsAttr + ' width="' + size + '" height="' + size + '" viewBox="' + vb + '" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="' + d + '"/></svg>';
+}
 var utterancesLoad=0;
 if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
 else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}

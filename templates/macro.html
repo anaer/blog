@@ -1,0 +1,11 @@
+{#- 统一图标渲染宏: 与 icons.py / 前端 renderIcon 保持同一风格(16x16 填充式 octicon)。
+    用法: 在模板顶部 import with context, 然后调用 icons.icon(name, size, cls, id, d, path_cls)。
+      - id: 需要 JS 定位时给 path 加 id。
+      - d='': 先占位、由前端回填(如主题切换图标)。
+    注意: Jinja 注释不可嵌套, 本注释内不再书写花括号井号标记。
+-#}
+{% macro icon(name, size=16, cls='octicon', id=None, d=None, path_cls=None) -%}
+{%- set vb = (IconViewBox | default({})).get(name, '0 0 16 16') -%}
+{%- set pd = d if d is not none else IconList[name] -%}
+<svg class="{{ cls }}" width="{{ size }}" height="{{ size }}" viewBox="{{ vb }}" aria-hidden="true"><path{% if id %} id="{{ id }}"{% endif %}{% if path_cls %} class="{{ path_cls }}"{% endif %} fill="currentColor" fill-rule="evenodd" d="{{ pd }}"/></svg>
+{%- endmacro %}

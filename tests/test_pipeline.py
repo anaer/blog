@@ -11,12 +11,13 @@ from jinja2 import Environment, FileSystemLoader
 from github import GithubException
 
 from Gmeek import (
-    GMEEK, IconList, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
+    GMEEK, IconList, ICON_VIEWBOX, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
     resolve_regen_mode, resolve_run_mode, slim_state, nav_order, nav_neighbors, neighbor_keys,
     format_datetime_utc8, format_date_utc8,
     deterministic_color, replace_issue_refs, tag_data, is_html_stale, search_settings,
 )
 from md2html import Markdown2GithubHtml
+from icons import ICONS, render as render_icon, viewbox
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -869,3 +870,108 @@ class TestPostSearchBox:
         assert 'name="q"' in html
         # 提交到站内检索页(读取 ?q= 触发), 而非跳转 GitHub
         assert "https://example.com/blog/search.html" in html
+
+
+class TestIconRegistry:
+    # 模板 / 代码块 / 前端引用的图标名必须全部登记在单一数据源 icons.py 中
+    REQUIRED = {
+        "post", "link", "about", "sun", "moon", "search", "rss", "upload", "github", "home", "subway",
+        "plus", "minus", "chevron", "copy", "check", "wrap", "lines", "fold",
+    }
+
+    def test_all_referenced_icons_registered(self):
+        assert self.REQUIRED <= set(ICONS)
+
+    def test_render_shape(self):
+        svg = render_icon("home", cls="octicon", icon_id="pathHome")
+        assert svg.startswith('<svg class="octicon" width="16" height="16" viewBox="0 0 16 16"')
+        assert 'id="pathHome"' in svg
+        assert 'fill="currentColor"' in svg
+        assert svg.endswith("</svg>")
+
+    def test_render_has_no_single_quotes(self):
+        # 需可安全嵌入 JS 单引号字符串(复制/成功图标在 EXTRA_JS 中回填)
+        for name in self.REQUIRED:
+            assert "'" not in render_icon(name)
+
+    def test_subway_uses_24_viewbox(self):
+        assert viewbox("subway") == "0 0 24 24"
+        assert 'viewBox="0 0 24 24"' in render_icon("subway")
+
+    def test_placeholder_allows_empty_path(self):
+        assert 'd=""' in render_icon("sun", icon_id="themeSwitch", d="")
+
+    def test_render_without_class(self):
+        assert render_icon("plus", cls="").startswith("<svg width=")
+
+
+class TestIconTemplates:
+    # 模板必须经统一宏渲染: 不得残留 Jinja 标记, 图标在服务端填充
+    def _render(self, template, blog_base, post_list=None):
+        env = Environment(loader=FileSystemLoader("templates"))
+        return env.get_template(template).render(
+            blogBase=blog_base, postListJson=post_list or {}, i18n=i18nCN,
+            IconList=IconList, IconViewBox=ICON_VIEWBOX,
+        )
+
+    def test_post_no_raw_jinja_and_icons_filled(self):
+        html = self._render("post.html", TestTemplateSmoke._post_base(postNumber="1"))
+        assert "{{" not in html and "{%" not in html
+        assert 'id="pathHome"' in html and 'd="M6.906' in html  # home 已服务端填充
+        assert 'id="themeSwitch"' in html
+
+    def test_plist_subway_and_single_page_icons(self):
+        base = {
+            "title": "T", "homeUrl": "https://example.com/blog", "displayTitle": "T", "subTitle": "s",
+            "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
+            "issuesUrl": "https://github.com/x/y/issues", "labelColorDict": {}, "commentLabelColor": "#006b75",
+            "singeListJson": {"S1": {"label": "about", "postTitle": "About"}},
+            "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
+        }
+        html = self._render("plist.html", base)
+        assert "{{" not in html and "{%" not in html
+        assert 'viewBox="0 0 24 24"' in html                 # subway 采用 24 画布
+        assert 'id="About"' in html and 'd="M10.561' in html  # 单页 about 图标服务端填充
+
+    def test_search_and_tag_no_raw_jinja(self):
+        base = {
+            "title": "T", "homeUrl": "https://example.com/blog", "displayTitle": "T",
+            "faviconUrl": "", "GMEEK_VERSION": "v2.4", "issuesUrl": "https://github.com/x/y/issues",
+            "labelColorDict": {}, "tagListJson": {}, "themeMode": "auto",
+            "searchBaseUrl": "https://example.com/blog/",
+        }
+        for tpl in ("search.html", "tag.html"):
+            html = self._render(tpl, base)
+            assert "{{" not in html and "{%" not in html, tpl
+            assert 'id="pathHome"' in html and 'id="themeSwitch"' in html
+
+    def test_code_block_controls_use_registry(self):
+        html = Markdown2GithubHtml().convert("```python\nprint(1)\n```")
+        assert "__ICON_CHECK__" not in html and "__ICON_COPY__" not in html
+        assert "M13.78 4.22" in html          # check 图标
+        assert "M0 6.75C0 5.784" in html      # copy 图标
+        assert 'viewBox="0 0 20 20"' not in html  # 旧 20x20 复制图标已移除
+
+
+class TestSinglePageLabel:
+    def test_single_page_entry_has_label(self, tmp_path, monkeypatch):
+        # 回归: singeListJson 条目必须带 label, 否则 plist 的 href 与图标取值落空
+        monkeypatch.chdir(tmp_path)
+        fake = _build_runall_fake([])
+        GMEEK.checkDir(fake)
+        issue = _make_issue(7, "About", "content", labels=["about"])
+        post = GMEEK.addOnePostJson(fake, issue)
+        assert post is not None
+        assert post["label"] == "about"
+        assert post["postUrl"] == "about.html"
+        assert "P7" in fake.blogBase["singeListJson"]
+
+
+class TestCodeCopyFeedback:
+    def test_copy_button_color_matches_controls_and_feedback(self):
+        html = Markdown2GithubHtml().convert("```python\nx\n```")
+        # 复制按钮与其他控件同色, 成功时短暂转绿
+        assert ".fold-btn, .code-toggle, .copy-btn" in html
+        assert ".copy-btn.copied" in html and "color: #1a7f37" in html
+        assert "classList.add('copied')" in html
+        assert "classList.remove('copied')" in html

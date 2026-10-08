@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import 'macro.html' as icons with context %}
 {% block head %}
 <meta name="description" content="{{ blogBase['title'] }} search page">
 <title>{{ blogBase['title'] }} - Tag</title>
@@ -38,19 +39,13 @@
     <div class="subnav-search">
         <input type="search" class="form-control subnav-search-input float-left" aria-label="Search site" value="" style="height:32px;">
         <button class="btn float-left" type="submit" onclick="javascript:searchShow()">{{ i18n['Search'] }}</button>
-        <svg class="subnav-search-icon octicon octicon-search" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-            <path id="searchSVG" fill-rule="evenodd"></path>
-        </svg>
+        {{ icons.icon('search', cls='subnav-search-icon octicon', id='searchSVG') }}
     </div>
     <a href="{{ blogBase['homeUrl'] }}" id="buttonHome" class="btn btn-invisible circle" title="{{ i18n['home'] }}">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathHome" fill-rule="evenodd"></path>
-        </svg>
+        {{ icons.icon('home', id='pathHome') }}
     </a>
     <a class="btn btn-invisible circle" onclick="modeSwitch()" title="{{ i18n['switchTheme'] }}" {%- if blogBase['themeMode']=='fix' -%}style="display:none;"{%- endif -%}>
-        <svg class="octicon" width="16" height="16" >
-            <path id="themeSwitch" fill-rule="evenodd"></path>
-        </svg>
+        {{ icons.icon('sun', id='themeSwitch', d='') }}
     </a>
 </div>
 {% endblock %}
@@ -63,9 +58,6 @@
 
 {% block script %}
 <script>
-document.getElementById("pathHome").setAttribute("d",IconList["home"]);
-document.getElementById("searchSVG").setAttribute("d",IconList["search"]);
-
 tagList=[];
 labelsCount={};
 labelColors={{ blogBase['labelColorDict'] }}
@@ -114,18 +106,14 @@ function showList(labelsCount){
         let center=document.createElement("div");
         center.setAttribute("class","d-flex flex-items-center");
 
-        svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-        path=document.createElementNS("http://www.w3.org/2000/svg","path");
-        span=document.createElement("span");
-        svg.setAttributeNS(null,"class","SideNav-icon octicon");
-        svg.setAttributeNS(null,"style","width:16px;height:16px");
-        path.setAttributeNS(null, "d", IconList["post"]);
-        svg.appendChild(path);
+        // 图标统一经 renderIcon 生成(单一数据源 icons.py)
+        if(typeof renderIcon === 'function'){
+            center.insertAdjacentHTML('beforeend', renderIcon('post', 16, 'SideNav-icon octicon'));
+        }
 
         let title=document.createElement("span");
         title.setAttribute("class","listTitle");
         title.innerHTML=jsonData[i]['postTitle'];
-        center.appendChild(svg);
         center.appendChild(title);
 
         let listLabels=document.createElement("div");

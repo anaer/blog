@@ -1,6 +1,7 @@
 import markdown
 import re
 from pathlib import Path
+from icons import render as icon_svg
 
 class Markdown2GithubHtml:
     """
@@ -54,12 +55,20 @@ class Markdown2GithubHtml:
 .fold-btn svg { display: block; }
 .fold-btn .ic-fold { transition: transform 0.2s ease; }
 .code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
-.fold-btn, .code-toggle {
+.fold-btn, .code-toggle, .copy-btn {
   color: #6e7681;
 }
 [data-color-mode="dark"] .fold-btn,
-[data-color-mode="dark"] .code-toggle {
+[data-color-mode="dark"] .code-toggle,
+[data-color-mode="dark"] .copy-btn {
   color: #8b949e;
+}
+/* 复制成功反馈: 图标切换为 check 并短暂转为绿色 */
+.copy-btn.copied {
+  color: #1a7f37;
+}
+[data-color-mode="dark"] .copy-btn.copied {
+  color: #3fb950;
 }
 .code-toggle.off {
   color: #c6cbd1;
@@ -163,9 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
       navigator.clipboard.writeText(code).then(() => {
-        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        btn.classList.add('copied');
+        btn.innerHTML = '__ICON_CHECK__';
         setTimeout(() => {
-          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+          btn.classList.remove('copied');
+          btn.innerHTML = '__ICON_COPY__';
         }, 1500);
       });
     });
@@ -255,22 +266,16 @@ document.addEventListener('DOMContentLoaded', () => {
             controls = (
                 '<div class="code-block-controls">'
                 '<button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行">'
-                '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">'
-                '<path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg>'
+                f'{icon_svg("wrap", cls="octicon")}'
                 '</button>'
                 '<button class="code-toggle lines-toggle" title="行号" aria-label="行号">'
-                '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">'
-                '<path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg>'
+                f'{icon_svg("lines", cls="octicon")}'
                 '</button>'
                 '<button class="fold-btn" title="折叠" aria-label="折叠">'
-                '<svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">'
-                '<path fill="currentColor" d="M8 5 3.5 10h9z"/></svg>'
+                f'{icon_svg("fold", cls="octicon ic-fold")}'
                 '</button>'
                 '<button class="copy-btn" title="复制" aria-label="复制">'
-                '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle">'
-                '<rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/>'
-                '<rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/>'
-                '</svg>'
+                f'{icon_svg("copy", cls="octicon")}'
                 '</button>'
                 '</div>'
             )
@@ -328,11 +333,16 @@ document.addEventListener('DOMContentLoaded', () => {
         body_html = self._add_controls(body_html, langs)
         body_html = self._add_lazy_loading(body_html)
 
+        # 复制/成功图标同样取自集中式注册表, 与按钮、模板保持同一风格
+        extra_js = (self.EXTRA_JS
+                    .replace("__ICON_CHECK__", icon_svg("check", cls="octicon"))
+                    .replace("__ICON_COPY__", icon_svg("copy", cls="octicon")))
+
         full_html = f"""
   <article class="{self.WRAPPER_CSS}">
     {body_html}
   </article>
-  {self.EXTRA_JS}
+  {extra_js}
 """
         return full_html
 
