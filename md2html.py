@@ -87,14 +87,16 @@ class Markdown2GithubHtml:
       var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2.4em,
       transparent 2.4em);
 }
-/* 深色主题: 行号槽位底色用低饱和深灰, 1px 分隔线同步变深 */
+/* 深色主题(WorkBuddy 风): 行号槽位底色用中性白色微染(冷暖皆可), 不再带蓝灰调;
+   槽位 rgba(255,255,255,0.045) 在 #1a1c20 的底上呈现"略亮一档"的色块,
+   1px 分隔线 rgba(255,255,255,0.10) 同步提一档, 整体克制不抢代码区 */
 html[data-color-mode="dark"] .highlight .cl {
   background-image:
     linear-gradient(to right,
-      rgba(110, 118, 129, 0.22) 0,
-      rgba(110, 118, 129, 0.22) calc(2.4em - 1px),
-      rgba(110, 118, 129, 0.45) calc(2.4em - 1px),
-      rgba(110, 118, 129, 0.45) 2.4em,
+      rgba(255, 255, 255, 0.045) 0,
+      rgba(255, 255, 255, 0.045) calc(2.4em - 1px),
+      rgba(255, 255, 255, 0.10) calc(2.4em - 1px),
+      rgba(255, 255, 255, 0.10) 2.4em,
       transparent 2.4em);
 }
 .highlight .cl::before {
@@ -192,10 +194,10 @@ html[data-color-mode="dark"] .highlight .cl {
   html[data-color-mode="dark"] .highlight .cl {
     background-image:
       linear-gradient(to right,
-        rgba(110, 118, 129, 0.22) 0,
-        rgba(110, 118, 129, 0.22) calc(2em - 1px),
-        rgba(110, 118, 129, 0.45) calc(2em - 1px),
-        rgba(110, 118, 129, 0.45) 2em,
+        rgba(255, 255, 255, 0.045) 0,
+        rgba(255, 255, 255, 0.045) calc(2em - 1px),
+        rgba(255, 255, 255, 0.10) calc(2em - 1px),
+        rgba(255, 255, 255, 0.10) 2em,
         transparent 2em);
   }
   .highlight .cl::before {

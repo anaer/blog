@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 26.1008.1900
+
+1. 深色主题调色板由 GitHub 冷蓝深改为 WorkBuddy AI 客户端的暖灰中性方向: `.markdown-body` 暗色 token 中 canvas-default 从 `#0d1117` 升到 `#1a1c20`、canvas-subtle 升到 `#22262c`、border 升到 `#383d45 / #2b2f37`、fg-default 升到 `#dde2e8`、accent-fg 降到 `#7ab8ff`、accent-emphasis 降到 `#5a8fe6`、neutral-muted 改为 `rgba(180,188,200,0.16)`、danger-fg 升到 `#ff7a73`
+2. 代码块行号槽底色同步改为中性白色微染(`rgba(255,255,255,0.045)` 槽 + `rgba(255,255,255,0.10)` 分隔), 取代之前的蓝灰色 `rgba(110,118,129,…)`, 暗色下不再带冷色感
+3. 标签暗色饱和度从 45% 降到 30%, 底色从 22% 降到 18%, 文字从 85% 降到 78%, 与 WorkBuddy 暖灰底更融合
+4. 悬浮按钮配色改主题驱动: `#007bff / #0056b3` 改为 `var(--color-accent-fg) / var(--color-accent-emphasis)`, 暗色下加 1px 柔光描边 `rgba(255,255,255,0.12)` 模拟按钮浮起
+5. 新增 2 条回归测试 `test_dark_tokens_use_warm_neutral_palette` + `test_floating_button_uses_theme_var`, 守护 8 个新 token 取值 + 8 个旧冷蓝 token 抑制 + 硬编码按钮色撤掉
+6. 配套更新 ADR-0017(decision 4): 记录 WorkBuddy 调色板方向、vendored 与模板拆分策略、未解决问题(primer-subset.css 仍是 GitHub 风格)
+7. 预览: 同一段文章内容 OLD(冷蓝) vs NEW(暖灰) 并排对照见 `C:\Users\Administrator\AppData\Local\Temp\dark_theme_preview.html`
+
 ## 26.1008.1830
 
 1. 修复代码块空行坍缩: `.highlight .cl` 加 `min-height: 1.45em`(与 line-height 对齐), 空 `<span class="cl"></span>` 无 in-flow content 时也保留一行高度, 不再与下一行挤在一起

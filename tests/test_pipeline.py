@@ -350,8 +350,9 @@ class TestLabelHueTheme:
         # 浅色: 浅底 + 深字; 深色: 深底 + 浅字 —— 同一色相, 明度反转
         assert "hsl(var(--label-hue, 210), 70%, 92%)" in html
         assert "hsl(var(--label-hue, 210), 80%, 26%)" in html
-        assert "hsl(var(--label-hue, 210), 45%, 22%)" in html
-        assert "hsl(var(--label-hue, 210), 85%, 80%)" in html
+        # 深色: WorkBuddy 风: 饱和度降到 30%, 底色更深(18%), 文字降到 78%(见 base.html)
+        assert "hsl(var(--label-hue, 210), 30%, 18%)" in html
+        assert "hsl(var(--label-hue, 210), 78%, 80%)" in html
 
     def test_tag_label_carries_hue_not_hex(self):
         html = self._render("post.html", TestTemplateSmoke._post_base(labels=["X"], labelHueDict={"X": 42}))
@@ -869,10 +870,14 @@ class TestCodeBlockResponsiveCss:
         assert "calc(2.4em - 1px)" in html
 
     def test_gutter_background_dark_theme(self):
-        # 深主题: 槽位与分隔线都用深色低饱和度
+        # 深主题(WorkBuddy 风): 槽位与分隔线都用中性白色微染, 不带蓝灰调
+        # 槽位 rgba(255,255,255,0.045), 1px 分隔线 rgba(255,255,255,0.10)
         html = self._html()
-        assert "rgba(110, 118, 129, 0.22)" in html
-        assert "rgba(110, 118, 129, 0.45)" in html
+        assert "rgba(255, 255, 255, 0.045)" in html
+        assert "rgba(255, 255, 255, 0.10)" in html
+        # 旧蓝灰色 rgba(110, 118, 129, ...) 不得再出现
+        assert "rgba(110, 118, 129, 0.22)" not in html
+        assert "rgba(110, 118, 129, 0.45)" not in html
         # 深色规则挂载在 html[data-color-mode="dark"] .highlight .cl
         assert 'html[data-color-mode="dark"] .highlight .cl' in html
 
@@ -1197,6 +1202,43 @@ class TestDarkModeContrast:
                   "#24292f", "#57606a", "#ffffff", "#f6f8fa", "#d0d7de", "hsla(210,18%,87%,1)",
                   "rgba(175,184,193,0.2)", "#0969da", "#fff8c5", "#cf222e"):
             assert v in css, v
+
+    def test_dark_tokens_use_warm_neutral_palette(self):
+        # 暗色 token 沿 WorkBuddy AI 客户端的暖灰中性方向, 不复刻 GitHub 冷蓝深
+        html = self._post()
+        # 暖灰中性深底(替代 GitHub 冷蓝深 #0d1117 / #21262d)
+        assert "#1a1c20" in html, "canvas-default 应为暖灰 #1a1c20"
+        assert "#22262c" in html, "canvas-subtle 应为 #22262c"
+        assert "#383d45" in html, "border-default 应为 #383d45"
+        assert "#2b2f37" in html, "border-muted 应为 #2b2f37"
+        # 偏暖的浅字(替代 GitHub 冷调 #c9d1d9 / #8b949e / #6e7681)
+        assert "#dde2e8" in html, "fg-default 应为 #dde2e8"
+        assert "#9aa1ab" in html, "fg-muted 应为 #9aa1ab"
+        # 柔和蓝调重音(替代 GitHub 鲜蓝 #58a6ff / 深蓝 #1f6feb)
+        assert "#7ab8ff" in html, "accent-fg 应为 #7ab8ff"
+        assert "#5a8fe6" in html, "accent-emphasis 应为 #5a8fe6"
+        # 暖灰中性 token 抑制: 旧的冷蓝调值不得再出现在模板
+        assert "#0d1117" not in html
+        assert "#161b22" not in html
+        assert "#30363d" not in html
+        assert "#21262d" not in html
+        assert "#c9d1d9" not in html
+        assert "#8b949e" not in html
+        assert "#58a6ff" not in html
+        assert "#1f6feb" not in html
+        assert "#f85149" not in html
+
+    def test_floating_button_uses_theme_var(self):
+        # 悬浮按钮不再硬编码 #007bff / #0056b3 / color:white, 改走主题变量
+        html = self._post()
+        assert "#007bff" not in html
+        assert "#0056b3" not in html
+        # 主题变量在浅深两态都被 .floating-button 消费
+        assert "var(--color-accent-fg)" in html
+        assert "var(--color-accent-emphasis)" in html
+        # 暗色下加柔光描边, 体现 WorkBuddy 暗色按钮特征
+        assert "[data-color-mode=\"dark\"] .floating-button" in html
+        assert "rgba(255, 255, 255, 0.12)" in html
 
     def test_toc_uses_theme_vars(self):
         src = open(os.path.join(ROOT, "assets", "toc.js"), encoding="utf-8").read()

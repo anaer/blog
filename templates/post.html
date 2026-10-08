@@ -21,7 +21,8 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 
 /* github-markdown-css 只按 prefers-color-scheme 切换正文配色, 与站点手动开关(data-color-mode)不同步:
    当「系统浅色 + 站点切到深色」时, 正文会保留深色文字压在深色页面上 → 不可见。
-   这里按站点开关重新绑定它消费的 token(取值同 github-markdown-css@5.2.0 的明/暗两块), 使正文跟随站点开关。 */
+   这里按站点开关重新绑定它消费的 token(取值参考 WorkBuddy AI 客户端暗色风格: 暖灰中性底 + 低对比边框 + 柔和蓝调重音,
+   不复刻 GitHub 的冷蓝深色), 使正文跟随站点开关。 */
 [data-color-mode="light"] .markdown-body{
     --color-fg-default:#24292f; --color-fg-muted:#57606a; --color-fg-subtle:#6e7781;
     --color-canvas-default:#ffffff; --color-canvas-subtle:#f6f8fa;
@@ -30,13 +31,23 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     --color-accent-fg:#0969da; --color-accent-emphasis:#0969da;
     --color-attention-subtle:#fff8c5; --color-danger-fg:#cf222e;
 }
+/* 深色主题: 暖灰中性深底(WorkBuddy AI 客户端风)
+   - canvas-default 用偏暖的深灰(替代 GitHub 风格的极冷蓝深), 整体视觉温度更柔和
+   - canvas-subtle 比 canvas-default 提一档, 让代码块 / 引用块 / 总结框与底色有可见但不过强的层次
+   - border-default / border-muted 都向中性灰偏移, 边框更"温和", 不抢内容
+   - fg-default 改用偏暖的浅灰(替代 GitHub 的冷调浅灰), 长文阅读更柔和
+   - fg-muted / fg-subtle 同步升温
+   - accent-fg 与 accent-emphasis 用偏柔的蓝, 避免深蓝过重、亮蓝刺眼
+   - neutral-muted 用更克制的浅灰 rgba, Counter/背景叠层更柔和
+   - attention-subtle / danger-fg 同步升温
+   完整取值依据见 docs/adr 下深色主题决策文档。 */
 [data-color-mode="dark"] .markdown-body{
-    --color-fg-default:#c9d1d9; --color-fg-muted:#8b949e; --color-fg-subtle:#6e7681;
-    --color-canvas-default:#0d1117; --color-canvas-subtle:#161b22;
-    --color-border-default:#30363d; --color-border-muted:#21262d;
-    --color-neutral-muted:rgba(110,118,129,0.4);
-    --color-accent-fg:#58a6ff; --color-accent-emphasis:#1f6feb;
-    --color-attention-subtle:rgba(187,128,9,0.15); --color-danger-fg:#f85149;
+    --color-fg-default:#dde2e8; --color-fg-muted:#9aa1ab; --color-fg-subtle:#7a8088;
+    --color-canvas-default:#1a1c20; --color-canvas-subtle:#22262c;
+    --color-border-default:#383d45; --color-border-muted:#2b2f37;
+    --color-neutral-muted:rgba(180,188,200,0.16);
+    --color-accent-fg:#7ab8ff; --color-accent-emphasis:#5a8fe6;
+    --color-attention-subtle:rgba(212,167,44,0.18); --color-danger-fg:#ff7a73;
 }
 
 /* 文章元信息(发布于/更新于): 取主题变量, 保证深色底上仍可读 */
@@ -69,13 +80,13 @@ pre {
     bottom: 60px; /* 距离底部60px */
 }
 
-/* 悬浮按钮样式 */
+/* 悬浮按钮样式: 配色随主题走, 不再硬编码蓝(WorkBuddy 风: 浅色用主题蓝, 暗色用柔蓝+白光描边) */
 .floating-button {
     position: fixed; /* 固定位置 */
     right: 5%; /* 距离右侧 5% */
-    background-color: #007bff; /* 背景颜色 */
-    color: white; /* 文字颜色 */
-    border: none; /* 去掉边框 */
+    background-color: var(--color-accent-fg); /* 跟随主题强调色 */
+    color: var(--color-canvas-default); /* 文字与底色对比, 暗色下不再用纯白 */
+    border: 1px solid transparent; /* 占位由暗色下的柔和边框补上 */
     border-radius: 50%; /* 圆形按钮 */
     width: 32px; /* 宽度 */
     height: 32px; /* 高度 */
@@ -86,12 +97,18 @@ pre {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease; /* 添加悬停效果 */
+    transition: background-color 0.3s ease, transform 0.15s ease; /* 添加悬停效果 */
 }
 
-/* 按钮悬停效果 */
+/* 按钮悬停效果: 亮度增强, 暗色下用 filter 避免叠加深色底 */
 .floating-button:hover {
-    background-color: #0056b3; /* 悬停时改变背景颜色 */
+    background-color: var(--color-accent-emphasis); /* 悬停时切到强调色 */
+    transform: translateY(-1px); /* 微微上浮, 增加触感 */
+}
+/* 暗色下加一道 1px 柔光描边, 让按钮从暗底上浮起来(WorkBuddy 暗色按钮特征) */
+[data-color-mode="dark"] .floating-button {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* 上一页靠左、下一页靠右: 用 flex 自动两端对齐 */
