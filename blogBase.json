@@ -2583,16 +2583,15 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/122",
             "commentNum": 1,
             "createdAt": 1747969368,
-            "updatedAt": 1790751963,
+            "updatedAt": 1791449788,
             "top": 1,
             "style": "",
             "script": "",
             "description": "",
             "createdDate": "2025-05-23",
-            "dateLabelColor": "hsl(80, 37%, 24%)",
-            "buildedAt": 1790751963,
-            "renderVersion": 3,
-            "dateLabelHue": 80
+            "dateLabelHue": 80,
+            "buildedAt": 1791449788,
+            "renderVersion": 13
         },
         "P126": {
             "number": "126",
