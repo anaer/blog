@@ -1,0 +1,243 @@
+
+  <article class="markdown-body">
+    <h2 id="deeplx">支持deeplx的软件和扩展插件</h2>
+<p>Read Frog - Open Source Immersive Translate <a href="https://chromewebstore.google.com/detail/read-frog-open-source-imm/modkelfkcfjpgbfmnbnllalkiogfofhb">Chrome</a>  </p>
+<p>沉浸式翻译 <a href="https://microsoftedge.microsoft.com/addons/detail/amkbmndfnliijdhojkpoglbnaaahippg">Edge</a>  </p>
+<p>语言学家 - 网页翻译器 <a href="https://chrome.google.com/webstore/detail/gbefmodhlophhakmoecijeppjblibmie">Chrome</a>  </p>
+<p>简约翻译 <a href="https://microsoftedge.microsoft.com/addons/detail/jemckldkclkinpjighnoilpbldbdmmlh">Edge</a>  </p>
+<p>pot <a href="https://pot-app.com/">官网</a>  </p>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+/* 内容区图标按钮统一语言: 常态半透明 + 主题 muted 色, hover 转不透明并加主题背景 */
+.fold-btn, .copy-btn, .code-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 4px;
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  opacity: .6;
+  transition: opacity 0.2s, background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  opacity: 1;
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+/* 复制成功反馈: 图标切换为 check 并短暂转为绿色 */
+.copy-btn.copied {
+  color: var(--color-success-fg);
+  opacity: 1;
+}
+.code-toggle.off {
+  color: var(--color-primer-fg-disabled);
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 3.2em;
+  position: relative;
+  line-height: 1.45;
+  /* 关键: .markdown-body pre>code 设了 white-space:pre, .cl 会继承它而无法换行;
+     显式声明 pre-wrap 才能保留缩进并允许自动换行 */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  /* 空行占位: 空 .cl 标签无 in-flow content, 默认 height:0, 会让空行「消失」
+     并与下一行挤在一起. min-height 锁定到一行高度, 保留视觉空行 */
+  min-height: 1.45em;
+  /* 行号槽位底色: 左侧 2.4em 染成低饱和度底色, 与代码区做视觉区分;
+     linear-gradient 只覆盖 padding 内的行号槽, 不侵入代码区; 收尾处 1px 边框强化列分隔 */
+  background-image:
+    linear-gradient(to right,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2.4em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2.4em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2.4em,
+      transparent 2.4em);
+}
+/* 深色主题(WorkBuddy 风): 行号槽位底色用中性白色微染(冷暖皆可), 不再带蓝灰调;
+   槽位 rgba(255,255,255,0.045) 在 #1a1c20 的底上呈现"略亮一档"的色块,
+   1px 分隔线 rgba(255,255,255,0.10) 同步提一档, 整体克制不抢代码区 */
+html[data-color-mode="dark"] .highlight .cl {
+  background-image:
+    linear-gradient(to right,
+      rgba(255, 255, 255, 0.045) 0,
+      rgba(255, 255, 255, 0.045) calc(2.4em - 1px),
+      rgba(255, 255, 255, 0.10) calc(2.4em - 1px),
+      rgba(255, 255, 255, 0.10) 2.4em,
+      transparent 2.4em);
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2.4em;
+  text-align: right;
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  user-select: none;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行但保留缩进(用 pre 而非 nowrap, 后者会吞掉空格), 长行横向滚动 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap .cl {
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+  /* 行号关闭时一并撤掉槽位底色, 否则左侧会留一道与代码区不连贯的色块 */
+  background-image: none;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+/* 移动端 / 触屏(hover: none): 控件常显并加大点按区域;
+   同时为控件预留顶部空间, 避免绝对定位的按钮遮挡代码首行 */
+@media (hover: none), (max-width: 767px) {
+  .code-block-controls {
+    top: 2px;
+    right: 2px;
+    gap: 0;
+  }
+  .code-block-wrapper,
+  .code-block-wrapper.has-lang {
+    padding-top: 30px;
+  }
+  /* 提高特异性以覆盖 .markdown-body .highlight pre{padding:16px} */
+  .code-block-wrapper pre,
+  .code-block-wrapper .highlight pre {
+    padding-top: 10px;
+  }
+  .fold-btn, .copy-btn, .code-toggle {
+    padding: 5px 8px;
+    opacity: 1;   /* 触屏无 hover, 常显 */
+  }
+  .code-lang {
+    top: 7px;
+    left: 8px;
+  }
+  /* 窄屏行号槽收窄, 给代码留出更多宽度 */
+  .highlight .cl {
+    padding-left: 2.8em;
+    /* 同步收窄行号槽底色(2em)与 1px 分隔线, 避免窄屏下底色超出实际行号宽度 */
+    background-image:
+      linear-gradient(to right,
+        var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
+        var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2em - 1px),
+        var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2em - 1px),
+        var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2em,
+        transparent 2em);
+  }
+  html[data-color-mode="dark"] .highlight .cl {
+    background-image:
+      linear-gradient(to right,
+        rgba(255, 255, 255, 0.045) 0,
+        rgba(255, 255, 255, 0.045) calc(2em - 1px),
+        rgba(255, 255, 255, 0.10) calc(2em - 1px),
+        rgba(255, 255, 255, 0.10) 2em,
+        transparent 2em);
+  }
+  .highlight .cl::before {
+    width: 2em;
+  }
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
+  document.addEventListener('click', e => {
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
+    }
+  });
+});
+</script>
+
