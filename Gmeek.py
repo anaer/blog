@@ -80,10 +80,41 @@ def slim_state(blogBase):
     """落盘只保留内容索引, 不落展示态。"""
     return {"postListJson": blogBase["postListJson"], "singeListJson": blogBase["singeListJson"]}
 
+def migrate_state(blogBase):
+    """一次性迁移老状态文件: 把派生字段就地补全, 让历史条目与新帖走同一条消费路径。
+
+    背景: blogBase.json 由历史 build 累积; 后续新增的「派生字段」(dateLabelHue、createdDate 等)
+    在被加上之前的 build 不会有, 加载后直接消费会 KeyError 或 Jinja Undefined 渲染成空、
+    视觉退化。处理模式: 派生字段必须能从 baseline 字段(number/createdAt)确定性重算,
+    这种就在迁移步骤里就地补, 不依赖散落的 .get() 防御。
+
+    后续若新增其它「可派生字段」, 在 field_migrations 字典里加一项即可, 单点扩展。
+    """
+    field_migrations = {
+        # 日期标签色相: 由帖子号确定性派生, 与 addOnePostJson 一致
+        "dateLabelHue": lambda post: deterministic_hue(post.get("number", "0")),
+        # 日期字符串: 由 createdAt 派生, 与 addOnePostJson 一致
+        "createdDate": lambda post: format_date_utc8(post.get("createdAt", 0)),
+    }
+    for list_name in ("postListJson", "singeListJson"):
+        bucket = blogBase.get(list_name)
+        if not isinstance(bucket, dict):
+            continue
+        for num, post in bucket.items():
+            if not isinstance(post, dict):
+                continue
+            for key, derive in field_migrations.items():
+                if key not in post:
+                    post[key] = derive(post)
+
+
 def tag_data(postListJson):
-    """tag 页内联数据投影: 仅保留客户端筛选与展示所需字段。"""
+    """tag 页内联数据投影: 仅保留客户端筛选与展示所需字段。
+    字段缺失时走兜底: 老状态文件(blogBase.json)可能包含在本特性加入前已存的帖子, 缺少 dateLabelHue 等;
+    其余四字段(labels/postUrl/postTitle/createdDate)同样按需兜底, 不让单条缺失导致整页构建崩溃。"""
     fields = ("labels", "postUrl", "postTitle", "dateLabelHue", "createdDate")
-    return {num: {k: post[k] for k in fields} for num, post in postListJson.items()}
+    defaults = {"labels": [], "postUrl": "", "postTitle": "", "dateLabelHue": 210, "createdDate": ""}
+    return {num: {k: post.get(k, defaults[k]) for k in fields} for num, post in postListJson.items()}
 
 def search_settings(i18n_name, home_url=None):
     """检索相关派生配置: 站点语言标记, 以及结果链接前缀。
@@ -256,6 +287,10 @@ class GMEEK():
             self.blogBase["postListJson"] = {}
         if "singeListJson" not in self.blogBase:
             self.blogBase["singeListJson"] = {}
+
+        # 派生字段迁移: 老状态文件可能缺日期/日期色相等; 在此就地补, 一次构建后落盘,
+        # 后续消费者(plist/tag_data/...)就能统一消费, 不再依赖散落 .get() 兜底
+        migrate_state(self.blogBase)
 
         self.i18n=i18nCN if self.blogBase["i18n"]=="CN" else i18n
         self.blogBase["labelHueDict"]=self.labelHueDict

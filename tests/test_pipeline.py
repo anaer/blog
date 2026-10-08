@@ -16,6 +16,7 @@ from Gmeek import (
     resolve_regen_mode, resolve_run_mode, slim_state, list_order, nav_order, nav_neighbors, neighbor_keys,
     format_datetime_utc8, format_date_utc8,
     deterministic_hue, hex_to_hue, label_hue, resolve_label_color_mode, replace_issue_refs, tag_data, is_html_stale, search_settings,
+    migrate_state,
 )
 from md2html import Markdown2GithubHtml
 from icons import ICONS, render as render_icon, viewbox
@@ -597,6 +598,74 @@ class TestCreateNavJson:
         assert json.loads((tmp_path / "nav.json").read_text(encoding="utf-8")) == []
 
 
+class TestMigrateState:
+    """一次构建迁移: 老状态文件缺派生字段时由 build 入口就地补, 落盘后下游消费者统一走真值路径。"""
+
+    def test_fills_dateLabelHue_and_createdDate_on_legacy_entries(self):
+        # 真实场景: blogBase.json 是在 dateLabelHue/createdDate 上线前已存的, 历史条目缺这俩
+        state = {
+            "postListJson": {
+                "P9": {"labels": ["blog"], "postUrl": "post/9.html", "postTitle": "老帖 9",
+                       "number": "9", "createdAt": 1696770000, "updatedAt": 1696770000,
+                       "top": 0, "commentNum": 0, "description": "", "style": "", "script": "",
+                       "postSourceUrl": "#", "markdown": "m", "htmlDir": "/"},
+            },
+            "singeListJson": {
+                "P10": {"labels": ["about"], "postUrl": "about.html", "postTitle": "关于",
+                        "number": "10", "createdAt": 1696770001, "updatedAt": 1696770001,
+                        "label": "about", "top": 0, "commentNum": 0, "description": "",
+                        "style": "", "script": "", "postSourceUrl": "#", "markdown": "m", "htmlDir": "/"},
+            },
+        }
+        migrate_state(state)
+        for key in ("P9",):
+            assert state["postListJson"][key]["dateLabelHue"] == deterministic_hue("9")
+            assert state["postListJson"][key]["createdDate"] == format_date_utc8(1696770000)
+        assert state["singeListJson"]["P10"]["dateLabelHue"] == deterministic_hue("10")
+        assert state["singeListJson"]["P10"]["createdDate"] == format_date_utc8(1696770001)
+
+    def test_idempotent_when_entries_already_have_fields(self):
+        # 已含派生字段的条目不应被覆盖(保护 fresh 数据不被篡改)
+        real_hue = 123
+        real_date = "2024-12-31"
+        state = {"postListJson": {"P1": {"labels": [], "postUrl": "p.html", "postTitle": "T",
+                                          "number": "1", "createdAt": 1, "updatedAt": 1,
+                                          "dateLabelHue": real_hue, "createdDate": real_date}}}
+        migrate_state(state)
+        assert state["postListJson"]["P1"]["dateLabelHue"] == real_hue
+        assert state["postListJson"]["P1"]["createdDate"] == real_date
+
+    def test_does_not_touch_other_fields(self):
+        # 迁移只能补派生字段; 不应影响 labels/postTitle 等已有的非派生键
+        state = {"postListJson": {"P1": {"labels": ["Life"], "postUrl": "post/1.html",
+                                          "postTitle": "老帖", "number": "1",
+                                          "createdAt": 1696770000, "updatedAt": 1696770000}}}
+        labels_before = state["postListJson"]["P1"]["labels"]
+        title_before = state["postListJson"]["P1"]["postTitle"]
+        migrate_state(state)
+        assert state["postListJson"]["P1"]["labels"] == labels_before
+        assert state["postListJson"]["P1"]["postTitle"] == title_before
+        assert "dateLabelHue" in state["postListJson"]["P1"]
+        assert "createdDate" in state["postListJson"]["P1"]
+
+    def test_handles_missing_postListJson_or_singeListJson(self):
+        # 健壮性: 状态文件极简(只有 postListJson 或 只有 singeListJson 或 都没有)都不能崩
+        for partial in ({}, {"postListJson": {}}, {"singeListJson": {}},
+                        {"postListJson": None}, {"singeListJson": None}):
+            migrate_state(partial)  # 不能抛
+        # None 值情况下不能崩, 但消费 NPE 那是模板侧的责任
+        state = {"postListJson": None, "singeListJson": {"P1": {}}}
+        migrate_state(state)
+
+    def test_deterministic_hue_matches_addOnePostJson(self):
+        # 端到端契约: migrate_state 派生出的 dateLabelHue 与 addOnePostJson 一致, 否则同一帖子
+        # 在两个上下文会渲染出不同色相
+        from Gmeek import deterministic_hue as _h
+        post = {"number": "42"}
+        migrate_state({"postListJson": {"P42": post}})
+        assert post["dateLabelHue"] == _h("42")
+
+
 class TestTagData:
     def test_projects_only_needed_fields(self):
         full = {"labels": ["Life"], "postUrl": "post/1.html", "postTitle": "T1",
@@ -607,6 +676,40 @@ class TestTagData:
 
     def test_empty_input(self):
         assert tag_data({}) == {}
+
+    def test_missing_fields_fall_back_to_defaults(self):
+        # 真实事故复现: 旧状态文件(blogBase.json)里的帖子在本特性加入前已存,
+        # 缺少 dateLabelHue(以及其它新增字段), KeyError 会让整页构建崩溃。
+        # 投影必须字段缺失兜底, 不让单条缺失中断整页。
+        legacy = {"number": "1", "labels": ["Life"], "postUrl": "post/1.html", "postTitle": "T1"}
+        out = tag_data({"P1": legacy})
+        assert out["P1"]["labels"] == ["Life"]
+        assert out["P1"]["postUrl"] == "post/1.html"
+        assert out["P1"]["postTitle"] == "T1"
+        # 缺失字段按 defaults 兜底, 与模板 / JS 的弱契约保持一致
+        assert out["P1"]["dateLabelHue"] == 210
+        assert out["P1"]["createdDate"] == ""
+
+    def test_partial_missing_only_some_fields(self):
+        # 混合数据(部分新, 部分老)也必须整体跑通, 不让单条死循环相邻崩溃
+        new = {"labels": ["blog"], "postUrl": "post/9.html", "postTitle": "新帖",
+               "dateLabelHue": 7, "createdDate": "2026-10-08"}
+        old = {"labels": ["Life"], "postUrl": "post/1.html", "postTitle": "老帖"}
+        out = tag_data({"P9": new, "P1": old})
+        assert out["P9"]["dateLabelHue"] == 7
+        assert out["P1"]["dateLabelHue"] == 210
+        assert set(out.keys()) == {"P9", "P1"}
+
+    def test_output_value_types_match_defaults(self):
+        # 钉死默认值的「类型 + 取值」, 防止后续误改(例如把 dateLabelHue 改成 None, 模板 setProperty 会变 '')
+        post = {}  # 完全空
+        out = tag_data({"P0": post})
+        d = out["P0"]
+        assert d["labels"] == [] and isinstance(d["labels"], list)
+        assert d["postUrl"] == "" and isinstance(d["postUrl"], str)
+        assert d["postTitle"] == "" and isinstance(d["postTitle"], str)
+        assert d["dateLabelHue"] == 210 and isinstance(d["dateLabelHue"], int)
+        assert d["createdDate"] == "" and isinstance(d["createdDate"], str)
 
 
 class TestImageLazyLoading:

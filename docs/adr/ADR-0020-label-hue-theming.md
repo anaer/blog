@@ -35,10 +35,20 @@
 
 - **收益：** 配色完全由站点控制且确定可复现；新增标签零配置；明暗两版同一色相自动协调；`tag.html` 内联的 `labelHueDict` 由「名称 → 十六进制」变为「名称 → 整数」，体积更小。
 - **代价 / 权衡：** 标签颜色不再与 GitHub 上的一致（属预期，也是本次目的）；`.Counter` 计数徽标的字色由硬编码白字改为 `inherit`，以适配新的浅底标签。
-- **未解决风险：** 色相由 `md5` 派生，不同标签理论上可能落到同一色相（概率约 `1/360`）；标签数量很大时可考虑拉开色相间距。**2026-10-08 修订**：发现两处与初始化顺序相关的隐藏 bug —
-  - **(1) `AttributeError`**：`GMEEK.__init__` 把 `labelHueDict = {…}` 放在 `defaultConfig()` 之后，而 `defaultConfig` 已先读 `self.labelHueDict`，真实实例化会崩。修正：`__init__` 先以空 dict 占位再调 `defaultConfig`，真实色相在之后重算覆盖；新增 `test_init_initialises_labelHueDict_before_defaultConfig` 用 `inspect` 审计行序。
-  - **(2) 模板拿到空 dict**：第 (1) 步加了占位后，`defaultConfig` 把空 dict 写进了 `blogBase["labelHueDict"]`。`__init__` 末尾重算仅覆盖 `self.labelHueDict` 不够——`plist.html` / `post.html` / `tag.html` 模板读的是 `blogBase["labelHueDict"]`，仍会拿到空 dict，标签全回退默认色相 210。修正：在重算之后加一行 `self.blogBase["labelHueDict"] = self.labelHueDict`；新增 `test_init_resyncs_blogBase_labelHueDict_after_recompute` 钉死重算 / 回写 / 行序三条 invariant。
-  - 两处均未被既有单测发现：既有 `TestDefaultConfig` 用 `SimpleNamespace(labelHueDict={})` 直接调用 `defaultConfig`，既绕过了 `__init__` 路径、也未断言 `blogBase` 被回写。教训：跨方法（含 `__init__` ↔ 其他实例方法）的初始化交互，要么走真实的 `GMEEK(options)` 实例化（mock 网络），要么单测明确声明「不覆盖此路径」并在 ADR / 注释里给出原因。
+- **未解决风险：** 色相由 `md5` 派生，不同标签理论上可能落到同一色相（概率约 `1/360`）；标签数量很大时可考虑拉开色相间距。**2026-10-08 修订**(持续累积)：
+
+  **(1) `AttributeError`**：`GMEEK.__init__` 把 `labelHueDict = {…}` 放在 `defaultConfig()` 之后，而 `defaultConfig` 已先读 `self.labelHueDict`，真实实例化会崩。修正：`__init__` 先以空 dict 占位再调 `defaultConfig`，真实色相在之后重算覆盖；新增 `test_init_initialises_labelHueDict_before_defaultConfig` 用 `inspect` 审计行序。
+
+  **(2) 模板拿到空 dict**：第 (1) 步加了占位后，`defaultConfig` 把空 dict 写进了 `blogBase["labelHueDict"]`。`__init__` 末尾重算仅覆盖 `self.labelHueDict` 不够——`plist.html` / `post.html` / `tag.html` 模板读的是 `blogBase["labelHueDict"]`，仍会拿到空 dict，标签全回退默认色相 210。修正：在重算之后加一行 `self.blogBase["labelHueDict"] = self.labelHueDict`；新增 `test_init_resyncs_blogBase_labelHueDict_after_recompute` 钉死重算 / 回写 / 行序三条 invariant。
+
+  **(3) tag_data 投影 KeyError**(2026-10-08)：`tag_data()` 在 `createPlistHtml` 末尾被调用，遍历 `postListJson` 全量；老状态文件(`blogBase.json`)里在本特性加入前已存的历史帖子缺 `dateLabelHue`(以及潜在的未来新增字段)，按硬索引 `post[k]` 直接 KeyError 让整页构建失败。修正：投影改为 `post.get(k, defaults[k])`，缺色相兜底 210(与模板默认一致)、缺 `postUrl/postTitle/createdDate` 兜底空串、`labels` 兜底空列表；新增 `TestTagData` 三条用例钉死兜底值与键集合、生产路径端到端复现确认。
+
+  **(4) 共同教训**(合并 (1)(2)(3))：四条都属于同一类问题——「**持久化状态文件 schema 演进时，新增字段对历史条目的兼容性**」。`blogBase.json`(`slim_state` 输出含 `postListJson`/`singeListJson`)由历史 build 累积，旧条目可能缺本次新增字段。处理模式：
+  - **派生字段**(能从 baseline 字段确定性重算, 如 `dateLabelHue ← number`、`createdDate ← createdAt`)：**入口迁移**——在 `defaultConfig` 末尾调用 `migrate_state(blogBase)`, 就地把 `field_migrations` 字典里登记的派生字段补全; 一次构建后由 `slim_state` 落盘, 下游消费者按统一路径消费真值, 不依赖散落 `.get()` 兜底。新增一个派生字段只需在该字典加一行。
+  - **非派生可选字段**(如 `description` 可由用户在 `postConfig` 设置, 也可能为空)：消费侧局部防御——`if key in post else default`, 或 `is_html_stale` 这类已有 `.get(k, ...)` 模式。
+  - **初始化侧**：进入需要读新字段的方法前，先默认填充(`__init__` 占位 dict)。
+  - **写入侧**：写回的字段必须把重算或新值同步推到模板实际读取的位置(`self.blogBase["labelHueDict"] = self.labelHueDict`)。
+  - **测试侧**：老状态文件用 fixture 或断言回写出真实结构；避免再用「`SimpleNamespace(labelHueDict={})`」这类占位绕过真实路径。
 
 ## 实施位置
 

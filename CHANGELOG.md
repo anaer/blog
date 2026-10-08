@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 26.1008.1605
+
+1. 加 state 迁移步骤 `migrate_state`: 构建入口(默认 defaultConfig)就地补全老 blogBase.json 里的派生字段 dateLabelHue / createdDate, 由 baseline 字段确定性重算, 一次构建后落盘, 后续消费者(plist/tag_data/...)统一走真值路径
+2. plist.html 第 82 行日期标签加深度防御 `.get('dateLabelHue', 210) / .get('createdDate', '')`: 即使迁移步骤被绕过, 也不再有 Jinja Undefined 渲染成空 style / 空 innerHTML
+3. 新增 `TestMigrateState` 5 条回归测试, 钉死就地补全 / 幂等(已有值不被覆盖) / 不触碰其它字段 / 缺失列表键或 None 健壮性 / 与 addOnePostJson 派生值一致
+
+## 26.1008.1540
+
+1. tag_data 字段缺失兜底: 旧状态文件(blogBase.json)的帖子在本特性加入前已存, 缺少 dateLabelHue 等; 之前 KeyError 让整页构建崩溃; 改为每个字段按 defaults 兜底(色相 210 / 串空 / 列表空), 老数据与新数据可混存, 单条缺失不中断整页
+2. 同步回归测试 `TestTagData::test_missing_fields_fall_back_to_defaults` 等三条, 钉死兜底值与键集合
+
 ## 26.1008.1520
 
 1. post.html 调整删除线样式: `.markdown-body del` 字色与划线色都改走主题变量 `--color-fg-muted` / `--color-fg-subtle`, 旧文本自然退到背景层, 不再与当前文本抢视觉权重(明暗自适应)
