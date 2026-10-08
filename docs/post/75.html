@@ -23,6 +23,9 @@
     </script>
     
 <title>导航</title>
+
+<meta data-pagefind-meta="labels[content]" content='[]' />
+<meta data-pagefind-meta="source[content]" content="https://github.com/anaer/blog/issues/75" />
 <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
 <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
 
@@ -72,6 +75,24 @@ svg.octicon{fill:none;stroke:currentColor}
     .site-search input[type="search"]:focus{width:132px;}
 }
 
+/* 标签: 底色与字色都由 --label-hue 按主题推导(同一色相, 明度反转), 不依赖 GitHub 的标签色。
+   色相由标签名确定性派生, 见 Gmeek.py#deterministic_hue */
+.Label{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background: hsl(var(--label-hue, 210), 70%, 92%);
+    color: hsl(var(--label-hue, 210), 80%, 26%);
+}
+.Label a{ color: inherit; text-decoration: none; }
+[data-color-mode="dark"] .Label:not(.Label--solid){
+    background: hsl(var(--label-hue, 210), 45%, 22%);
+    color: hsl(var(--label-hue, 210), 85%, 80%);
+}
+/* 非色相派生的标签(评论数徽标): 沿用配置色 + 白字 */
+.Label--solid{ color: #fff; }
+
 </style>
 
 <style>
@@ -106,6 +127,12 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 .post-meta time{font-weight:bold;color:var(--color-fg-default);}
 /* AI 总结框: 边框随主题 */
 .post-summary{border:1px dashed var(--color-border-default);background:var(--color-canvas-subtle);padding:10px;margin-bottom:20px;border-radius:6px;}
+/* 删除线: 字色与划线都退到 muted/subtle, 旧文本退到背景层, 不抢当前文本的视觉权重(走主题变量, 明暗自适应) */
+.markdown-body del{
+    color:var(--color-fg-muted);
+    text-decoration:line-through;
+    text-decoration-color:var(--color-fg-subtle);
+}
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
 .g-emoji{font-size:24px;}
@@ -202,7 +229,7 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-meta post-publish" id="postPublish">发布于 <time>2025-02-21 09:44:19</time></span>
 
-<span class="post-meta post-update">更新于 <time>2026-10-08 14:03:20</time></span>
+<span class="post-meta post-update">更新于 <time>2026-10-08 16:54:20</time></span>
 
 <p>
 
@@ -267,7 +294,7 @@ pre {
 <ul>
 <li><a href="https://repo.trojan-cdn.com/">爬墙工具库</a>  </li>
 <li><a href="https://stardots.ink/zh">星光图床</a>  </li>
-<li><a href="https://www.cgzy.net/">CG资源网 可下Mac版设计软件</a>  </li>
+<li><a href="https://www.cgzy.net/">CG资源网</a> 可下Mac版设计软件  </li>
 </ul>
 <h2 id="_7">在线工具</h2>
 <ul>
@@ -412,6 +439,28 @@ pre {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   word-break: normal;
+  /* 空行占位: 空 .cl 标签无 in-flow content, 默认 height:0, 会让空行「消失」
+     并与下一行挤在一起. min-height 锁定到一行高度, 保留视觉空行 */
+  min-height: 1.45em;
+  /* 行号槽位底色: 左侧 2.4em 染成低饱和度底色, 与代码区做视觉区分;
+     linear-gradient 只覆盖 padding 内的行号槽, 不侵入代码区; 收尾处 1px 边框强化列分隔 */
+  background-image:
+    linear-gradient(to right,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2.4em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2.4em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2.4em,
+      transparent 2.4em);
+}
+/* 深色主题: 行号槽位底色用低饱和深灰, 1px 分隔线同步变深 */
+html[data-color-mode="dark"] .highlight .cl {
+  background-image:
+    linear-gradient(to right,
+      rgba(110, 118, 129, 0.22) 0,
+      rgba(110, 118, 129, 0.22) calc(2.4em - 1px),
+      rgba(110, 118, 129, 0.45) calc(2.4em - 1px),
+      rgba(110, 118, 129, 0.45) 2.4em,
+      transparent 2.4em);
 }
 .highlight .cl::before {
   content: counter(cl);
@@ -443,6 +492,8 @@ pre {
 }
 .code-block-wrapper.nolines .cl {
   padding-left: 0;
+  /* 行号关闭时一并撤掉槽位底色, 否则左侧会留一道与代码区不连贯的色块 */
+  background-image: none;
 }
 .code-block-wrapper.nolines .cl::before {
   display: none;
@@ -494,6 +545,23 @@ pre {
   /* 窄屏行号槽收窄, 给代码留出更多宽度 */
   .highlight .cl {
     padding-left: 2.8em;
+    /* 同步收窄行号槽底色(2em)与 1px 分隔线, 避免窄屏下底色超出实际行号宽度 */
+    background-image:
+      linear-gradient(to right,
+        var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
+        var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2em - 1px),
+        var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2em - 1px),
+        var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2em,
+        transparent 2em);
+  }
+  html[data-color-mode="dark"] .highlight .cl {
+    background-image:
+      linear-gradient(to right,
+        rgba(110, 118, 129, 0.22) 0,
+        rgba(110, 118, 129, 0.22) calc(2em - 1px),
+        rgba(110, 118, 129, 0.45) calc(2em - 1px),
+        rgba(110, 118, 129, 0.45) 2em,
+        transparent 2em);
   }
   .highlight .cl::before {
     width: 2em;
@@ -552,7 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <nav class="paginate-container" aria-label="Pagination"
      data-nav-url="https://anaer.github.io/blog/nav.json"
      data-post-number="75">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/74.html" aria-label="Previous Page">Ubuntu安装Ollama, AnythingLLM部署Deepseek</a><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/76.html" aria-label="Next Page">Jinja2模版语法</a></div>
+    <div class="pagination"><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/122.html" aria-label="Next Page">blog相关</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

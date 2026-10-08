@@ -1753,16 +1753,15 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/75",
             "commentNum": 1,
             "createdAt": 1740102259,
-            "updatedAt": 1791439400,
+            "updatedAt": 1791449660,
             "top": 1,
             "style": "",
             "script": "",
             "description": "",
             "createdDate": "2025-02-21",
-            "dateLabelColor": "hsl(123, 31%, 35%)",
-            "buildedAt": 1791439400,
-            "renderVersion": 10,
-            "dateLabelHue": 123
+            "dateLabelHue": 123,
+            "buildedAt": 1791449660,
+            "renderVersion": 13
         },
         "P76": {
             "number": "76",
