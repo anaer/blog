@@ -29,6 +29,7 @@ PS: 按照个人使用排序
 ## [Not Diamond](https://chat.notdiamond.ai/)
 
 1. 免费模型较少
+2. 免费每天只有20条消息
 
 ![Image](https://github.com/user-attachments/assets/d285469e-d032-48a8-92a3-3d51ae0349fa)
 
