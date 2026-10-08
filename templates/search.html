@@ -10,13 +10,19 @@
 <style>
 /* 检索界面跟随站点主题: 变量命名与取值沿用 Primer 的两级回退 */
 #search{
+    /* Pagefind 的输入框高度、放大镜图标位置、清除按钮尺寸**全部**以 --pagefind-ui-scale 为基准
+       (输入框 64*scale、图标 top 23*scale、清除按钮 top 3*scale / height 58*scale)。
+       若只覆盖 height/font-size, 绝对定位的放大镜与清除按钮不会跟着变, 就会偏出垂直中心甚至溢出。
+       故这里统一用缩放: 0.75 => 输入框 48px、字号 21*0.75≈16px, 与头部按钮高度相称。 */
+    --pagefind-ui-scale: 0.75;
     --pagefind-ui-primary: var(--fgColor-accent, var(--color-accent-fg));
     --pagefind-ui-text: var(--fgColor-default, var(--color-fg-default));
     --pagefind-ui-background: var(--bgColor-default, var(--color-canvas-default));
     --pagefind-ui-border: var(--borderColor-default, var(--color-border-default));
     --pagefind-ui-font: inherit;
 }
-#search .pagefind-ui__search-input{height:40px;font-size:16px;}
+/* 清除按钮文字会随 scale 缩到 10.5px, 单独提回可读字号(不影响其高度与垂直居中) */
+#search .pagefind-ui__search-clear{font-size:12px;}
 #search .pagefind-ui__result-title{font-size:16px;}
 
 #searchTitle{margin:auto 0;font-size:35px;font-weight:bold;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}

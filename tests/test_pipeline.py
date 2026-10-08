@@ -681,6 +681,42 @@ class TestSearchPageSmoke:
         assert "target=" not in form
 
 
+class TestSearchBoxSizing:
+    """搜索框尺寸必须经 Pagefind 的 --pagefind-ui-scale 统一缩放。
+
+    回归: 曾经只覆盖 .pagefind-ui__search-input 的 height/font-size, 而放大镜图标
+    (.pagefind-ui__form::before, top:23*scale) 与清除按钮 (.pagefind-ui__search-clear,
+    top:3*scale / height:58*scale) 都是按 scale 绝对定位的, 不跟着变 → 偏出垂直中心、甚至溢出。
+    """
+
+    @staticmethod
+    def _html():
+        return TestSearchPageSmoke._render("search.html", TestSearchPageSmoke._plist_base())
+
+    def test_scales_via_pagefind_variable(self):
+        html = self._html()
+        m = re.search(r"--pagefind-ui-scale:\s*([0-9.]+)", html)
+        assert m, "search.html 必须设置 --pagefind-ui-scale"
+        assert 0.5 <= float(m.group(1)) <= 1.0
+
+    def test_does_not_override_input_height(self):
+        # 负向控制: 不得单独改输入框高度/字号(会破坏 scale 几何)
+        compact = self._html().replace(" ", "").replace("\n", "")
+        assert "pagefind-ui__search-input{" not in compact
+
+    def test_internal_geometry_vertically_centered(self):
+        # 按 Pagefind 的几何公式验证: 图标与清除按钮在所选 scale 下确实居中
+        html = self._html()
+        scale = float(re.search(r"--pagefind-ui-scale:\s*([0-9.]+)", html).group(1))
+        input_h = 64 * scale                       # .pagefind-ui__search-input height
+        icon_top, icon_size = 23 * scale, 18 * scale
+        clear_top, clear_h = 3 * scale, 58 * scale
+        assert abs((icon_top + icon_size / 2) - input_h / 2) < 0.01
+        assert abs((clear_top + clear_h / 2) - input_h / 2) < 0.01
+        # 清除按钮不得溢出输入框
+        assert clear_top + clear_h <= input_h + 0.01
+
+
 class TestCreateSearchHtml:
     def test_writes_search_page(self, tmp_path):
         fake = SimpleNamespace()
