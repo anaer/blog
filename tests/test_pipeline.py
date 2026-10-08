@@ -12,7 +12,7 @@ from github import GithubException
 
 from Gmeek import (
     GMEEK, IconList, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
-    resolve_regen_mode, slim_state, nav_order, nav_neighbors, neighbor_keys,
+    resolve_regen_mode, resolve_run_mode, slim_state, nav_order, nav_neighbors, neighbor_keys,
     format_datetime_utc8, format_date_utc8,
     deterministic_color, replace_issue_refs, tag_data, is_html_stale, search_settings,
 )
@@ -770,6 +770,29 @@ def _build_runall_fake(issues):
     fake.createNavJson = lambda: None
     fake.createSearchHtml = lambda: None
     return fake
+
+
+class TestResolveRunMode:
+    def test_default_int_zero_is_full_rebuild(self):
+        # 回归: argparse 缺省为整数 0, 手动触发(不传 --issue_number)必须走全量重建,
+        # 不得因 0 != "0" 被误判为 runOne(0) 而报「issue #0 不存在」。
+        assert resolve_run_mode(0) == "all"
+
+    def test_string_zero_is_full_rebuild(self):
+        assert resolve_run_mode("0") == "all"
+
+    def test_empty_string_is_full_rebuild(self):
+        assert resolve_run_mode("") == "all"
+
+    def test_whitespace_is_full_rebuild(self):
+        assert resolve_run_mode("  ") == "all"
+
+    def test_number_is_single(self):
+        assert resolve_run_mode(42) == "one"
+        assert resolve_run_mode("42") == "one"
+
+    def test_prune_takes_precedence(self):
+        assert resolve_run_mode(0, prune=True) == "prune"
 
 
 class TestRunAllIteration:

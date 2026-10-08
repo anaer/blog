@@ -81,6 +81,20 @@ def resolve_regen_mode(html_stale, description, api_configured, retry_budget):
     return None
 
 
+def resolve_run_mode(issue_number, prune=False):
+    """命令行路由归一化: prune=对账, 缺省/0=全量重建, 其余=单篇增量。
+
+    关键: --issue_number 的 argparse 缺省是【整数】0, 而命令行传入是【字符串】;
+    若直接与 "0" 比较, 手动触发(不传该参数)会因 0 != "0" 被误判为单篇 runOne(0),
+    进而 get_issue(0) 报 404。此处统一 str 归一化, 覆盖 int/str/空白。
+    """
+    if prune:
+        return "prune"
+    if str(issue_number).strip() in ("", "0"):
+        return "all"
+    return "one"
+
+
 def slim_state(blogBase):
     """落盘只保留内容索引, 不落展示态。"""
     return {"postListJson": blogBase["postListJson"], "singeListJson": blogBase["singeListJson"]}
@@ -684,19 +698,21 @@ def main():
 
     blog=GMEEK(options)
 
-    if options.prune:
+    mode = resolve_run_mode(options.issue_number, options.prune)
+    if mode == "prune":
         print("prune stale")
         blog.prune_stale()
         blog.createPlistHtml()
         blog.createFeedXml()
         blog.createNavJson()
         blog.createSearchHtml()
-    elif options.issue_number=="0" or options.issue_number=="":
+    elif mode == "all":
         print("runAll")
         blog.runAll()
     else:
-        print(f"runOne {options.issue_number}")
-        blog.runOne(options.issue_number)
+        number_str = str(options.issue_number).strip()
+        print(f"runOne {number_str}")
+        blog.runOne(number_str)
 
     with open("blogBase.json","w",encoding='utf-8') as listFile:
         listFile.write(json.dumps(slim_state(blog.blogBase), indent=4))
