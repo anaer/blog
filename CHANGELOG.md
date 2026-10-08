@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 26.1008.1830
+
+1. 修复代码块空行坍缩: `.highlight .cl` 加 `min-height: 1.45em`(与 line-height 对齐), 空 `<span class="cl"></span>` 无 in-flow content 时也保留一行高度, 不再与下一行挤在一起
+2. 副作用防御: 同时保证空行的行号::before 有空间渲染(原来 height:0 时::before 也会被挤掉)
+3. 新增 `TestWrapCodeLines::test_blank_line_keeps_visible_height` 与 `test_blank_line_emits_empty_cl`: 前者钉死 `min-height: 1.45em`, 后者钉死 `_wrap_code_lines` 必须为空行也产生一个 `.cl` 标签(行号不跳号)
+4. CSS 注释规避: 不在注释里写 `<span class="cl">` 字面量, 否则会被 `html.count('<span class="cl">')` 误计(回归: 之前一版注释踩到这个坑)
+
 ## 26.1008.1800
 
 1. 代码块行号槽加底色: `.highlight .cl` 用 `linear-gradient` 把左 2.4em 染成低饱和度底色, 收尾 1px 分隔线; 与代码区做视觉区分, 避免行号与代码挤在一起难以分辨

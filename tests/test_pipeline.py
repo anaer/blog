@@ -789,6 +789,27 @@ class TestWrapCodeLines:
         assert "classList.toggle('nowrap')" in html
         assert "classList.toggle('nolines')" in html
 
+    def test_blank_line_keeps_visible_height(self):
+        # 空 <span class="cl"></span> 无 in-flow content, 默认 height:0,
+        # 会让空行「消失」并与下一行挤在一起. min-height 必须锁定到一行高度
+        html = self._tool().convert("```python\na\n\nb\n```")
+        # 包含 min-height 规则, 数值与 line-height(1.45)对齐
+        m = re.search(r"\.highlight\s+\.cl\s*\{([^}]*)\}", html, re.DOTALL)
+        assert m, "缺少 .highlight .cl 基础规则"
+        body = m.group(1)
+        assert "min-height" in body, "空行没有 min-height 兜底, 会与下一行挤在一起"
+        # 必须为 1.45em, 与 line-height 一致, 保留视觉一行高度
+        assert re.search(r"min-height:\s*1\.45em", body), \
+            f"min-height 数值 {body!r} 不符合预期(应为 1.45em 与 line-height 对齐)"
+
+    def test_blank_line_emits_empty_cl(self):
+        # _wrap_code_lines 必须为空行也产生一个 .cl 标签(不能吞掉),
+        # 否则 CSS 计数器行号会跳号, 且 min-height 也没机会生效
+        out = self._tool()._wrap_code_lines("a\n\nb")
+        assert out.count('class="cl"') == 3
+        # 中间那个就是空行
+        assert "<span class=\"cl\"></span>" in out
+
 
 class TestHardBreaks:
     # 硬换行(行末两空格)只作用于围栏代码块之外

@@ -74,6 +74,9 @@ class Markdown2GithubHtml:
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   word-break: normal;
+  /* 空行占位: 空 .cl 标签无 in-flow content, 默认 height:0, 会让空行「消失」
+     并与下一行挤在一起. min-height 锁定到一行高度, 保留视觉空行 */
+  min-height: 1.45em;
   /* 行号槽位底色: 左侧 2.4em 染成低饱和度底色, 与代码区做视觉区分;
      linear-gradient 只覆盖 padding 内的行号槽, 不侵入代码区; 收尾处 1px 边框强化列分隔 */
   background-image:
