@@ -30,6 +30,10 @@
 
 - `tests/test_pipeline.py` 静态断言：toc.js 含 `toc-toggle`、`itemByWrapper`、`.toc-item:not(.open) > .toc-children` 与 `classList.toggle('open'`。
 
+## 关联文档
+
+- [ADR-0019](ADR-0019-icon-button-unification.md)：统一 `.toc-toggle` 的交互与配色（常态半透明、hover 转不透明 + 主题背景）。
+
 ## 下一步
 
 浏览器确认 +/− 切换与滚动高亮共存、嵌套子目录折叠正确。

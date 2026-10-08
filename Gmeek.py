@@ -23,7 +23,7 @@ i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home"
 i18nCN={"Search":"搜索","switchTheme":"切换主题","link":"友情链接","home":"首页","comments":"评论","run":"网站运行","days":"天","Previous":"上一页","Next":"下一页", "First": "首页", "Last":"末页"}
 
 # 渲染器版本: 渲染逻辑变更时递增, 使全站帖子 HTML 缓存失效并重转
-RENDER_VERSION = 9
+RENDER_VERSION = 10
 
 # 摘要补重试的每构建上限, 防 API 故障时超时叠加拖死构建
 MAX_DESC_RETRY = 10

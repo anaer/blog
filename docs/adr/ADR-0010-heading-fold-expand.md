@@ -30,6 +30,10 @@
 
 - `tests/test_pipeline.py` 静态断言：sections.js 含 `heading-section`、`section-toggle`、`classList.toggle('collapsed')`；post.html 加载 `assets/sections.js`。
 
+## 关联文档
+
+- [ADR-0019](ADR-0019-icon-button-unification.md)：统一 `.section-toggle` 的交互、配色与垂直对齐（chevron 不再按 x-height 中线对齐）。
+
 ## 下一步
 
 浏览器验证多级标题嵌套折叠正确、与 TOC 高亮共存。

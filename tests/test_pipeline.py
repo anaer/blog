@@ -1242,8 +1242,50 @@ class TestSinglePageLabel:
 class TestCodeCopyFeedback:
     def test_copy_button_color_matches_controls_and_feedback(self):
         html = Markdown2GithubHtml().convert("```python\nx\n```")
-        # 复制按钮与其他控件同色, 成功时短暂转绿
-        assert ".fold-btn, .code-toggle, .copy-btn" in html
-        assert ".copy-btn.copied" in html and "color: #1a7f37" in html
+        # 控件共用同一套图标按钮语言(主题 muted 色), 成功时短暂转绿(主题 success 色)
+        assert ".fold-btn, .copy-btn, .code-toggle" in html
+        assert "color: var(--fgColor-muted, var(--color-fg-muted))" in html
+        assert ".copy-btn.copied" in html and "var(--color-success-fg)" in html
         assert "classList.add('copied')" in html
         assert "classList.remove('copied')" in html
+
+
+class TestIconButtonUnification:
+    """内容区图标按钮(标题折叠 / 目录 +− / 代码块控件)共用同一套交互与配色语言。"""
+
+    @staticmethod
+    def _sources():
+        def read(*parts):
+            with open(os.path.join(ROOT, *parts), encoding="utf-8") as fh:
+                return fh.read()
+        return {
+            "sections.js": read("assets", "sections.js"),
+            "toc.js": read("assets", "toc.js"),
+            "md2html": read("md2html.py"),
+        }
+
+    def test_no_hardcoded_grey_palette(self):
+        # 旧的两级硬编码灰(#6e7681 浅色 / #8b949e 深色)不得再出现, 一律走主题变量
+        for name, src in self._sources().items():
+            code = re.sub(r"/\*[\s\S]*?\*/", "", src)
+            assert "#6e7681" not in code, name
+            assert "#8b949e" not in code, name
+
+    def test_shared_idiom_present_in_all_three(self):
+        src = self._sources()
+        for name in ("sections.js", "toc.js", "md2html"):
+            assert "var(--fgColor-muted, var(--color-fg-muted))" in src[name], name
+            assert "var(--bgColor-muted, var(--color-canvas-subtle))" in src[name], name
+            assert "opacity: .6" in src[name], name
+
+    def test_hover_reveals_with_themed_background(self):
+        src = self._sources()
+        assert ".section-toggle:hover" in src["sections.js"]
+        assert ".toc-toggle:hover" in src["toc.js"]
+        assert ".code-toggle:hover" in src["md2html"]
+
+    def test_code_toolbar_has_no_container_opacity(self):
+        # 容器级透明度会与按钮级 .6 叠加成 .27; 统一后由按钮自身承担
+        src = self._sources()["md2html"]
+        block = re.search(r"\.code-block-controls\s*\{[^}]*\}", src).group(0)
+        assert "opacity" not in block
