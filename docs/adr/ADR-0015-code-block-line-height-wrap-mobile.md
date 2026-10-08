@@ -2,8 +2,9 @@
 
 **状态：** 已接受
 **创建时间：** 2026-10-08
+**最近更新：** 2026-10-08（行号槽加底色与 1px 分隔线, 桌面/触屏/深色主题/nolines 各自适配）
 
-> **当前状态 / 核心结论：** 修复 ADR-0005 行号 / 换行方案的三处缺陷——`.cl` 之间的裸换行导致行距翻倍、`.cl` 继承 `pre>code` 的 `white-space:pre` 使自动换行失效、代码块内被塞入硬换行尾随空格；并补齐移动端 / 触屏样式。下一步无需后续动作。
+> **当前状态 / 核心结论：** 修复 ADR-0005 行号 / 换行方案的三处缺陷——`.cl` 之间的裸换行导致行距翻倍、`.cl` 继承 `pre>code` 的 `white-space:pre` 使自动换行失效、代码块内被塞入硬换行尾随空格；并补齐移动端 / 触屏样式。**后续**为行号槽加低饱和度底色 + 1px 分隔线，与代码区做视觉区分, 桌面 2.4em / 触屏 2em / 深色主题 / `nolines` 各自适配。下一步无需后续动作。
 
 ---
 
@@ -28,6 +29,14 @@ ADR-0005 落地「行 span + CSS 计数器」方案后，线上反馈三个问�
 5. **渲染版本**：`RENDER_VERSION` 递增至 **6**，触发全站帖子 HTML 重转。
 
    - 不做什么：不改行号方案本身；不引入 JS 测量做响应式；不调整高亮配色。
+
+6. **行号槽加底色与 1px 分隔线**（`md2html.py` 的 `EXTRA_JS`）：
+   - **目的**：用户反馈行号与代码区底色完全一致, 视觉上挤在一起难以分辨, 给行号槽加低饱和度底色与列分隔线.
+   - **做法**：在 `.highlight .cl` 上加 `background-image: linear-gradient(to right, <gutter> 0, <gutter> calc(W - 1px), <edge> calc(W - 1px), <edge> W, transparent W)`, 其中 W = 2.4em（桌面）/ 2em（触屏）; 1px 收尾分隔线用更深一档 rgba.
+   - **主题**：`html[data-color-mode="dark"] .highlight .cl` 用同结构但深色 rgba 覆盖, 不引入新变量.
+   - **`nolines` 联动**：行号关闭时 `.code-block-wrapper.nolines .cl { background-image: none; }`, 否则左侧会留一道与代码区不连贯的色块.
+   - **触屏联动**：窄屏（`@media (hover: none), (max-width: 767px)`）下同步收窄到 2em, 钉死「窄屏不只改 ::before, 也要改底色」.
+   - **不做什么**：不在每条 `.cl` 单独用 div 包裹行号（会破坏 ADR-0005 的 CSS 计数器方案）；不动行号文本颜色（仍走 `var(--fgColor-muted, var(--color-fg-muted))`）；不引入 JS.
 
 ## 后果
 

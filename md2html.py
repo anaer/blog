@@ -74,6 +74,25 @@ class Markdown2GithubHtml:
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   word-break: normal;
+  /* 行号槽位底色: 左侧 2.4em 染成低饱和度底色, 与代码区做视觉区分;
+     linear-gradient 只覆盖 padding 内的行号槽, 不侵入代码区; 收尾处 1px 边框强化列分隔 */
+  background-image:
+    linear-gradient(to right,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2.4em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2.4em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2.4em,
+      transparent 2.4em);
+}
+/* 深色主题: 行号槽位底色用低饱和深灰, 1px 分隔线同步变深 */
+html[data-color-mode="dark"] .highlight .cl {
+  background-image:
+    linear-gradient(to right,
+      rgba(110, 118, 129, 0.22) 0,
+      rgba(110, 118, 129, 0.22) calc(2.4em - 1px),
+      rgba(110, 118, 129, 0.45) calc(2.4em - 1px),
+      rgba(110, 118, 129, 0.45) 2.4em,
+      transparent 2.4em);
 }
 .highlight .cl::before {
   content: counter(cl);
@@ -105,6 +124,8 @@ class Markdown2GithubHtml:
 }
 .code-block-wrapper.nolines .cl {
   padding-left: 0;
+  /* 行号关闭时一并撤掉槽位底色, 否则左侧会留一道与代码区不连贯的色块 */
+  background-image: none;
 }
 .code-block-wrapper.nolines .cl::before {
   display: none;
@@ -156,6 +177,23 @@ class Markdown2GithubHtml:
   /* 窄屏行号槽收窄, 给代码留出更多宽度 */
   .highlight .cl {
     padding-left: 2.8em;
+    /* 同步收窄行号槽底色(2em)与 1px 分隔线, 避免窄屏下底色超出实际行号宽度 */
+    background-image:
+      linear-gradient(to right,
+        var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
+        var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2em - 1px),
+        var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2em - 1px),
+        var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2em,
+        transparent 2em);
+  }
+  html[data-color-mode="dark"] .highlight .cl {
+    background-image:
+      linear-gradient(to right,
+        rgba(110, 118, 129, 0.22) 0,
+        rgba(110, 118, 129, 0.22) calc(2em - 1px),
+        rgba(110, 118, 129, 0.45) calc(2em - 1px),
+        rgba(110, 118, 129, 0.45) 2em,
+        transparent 2em);
   }
   .highlight .cl::before {
     width: 2em;

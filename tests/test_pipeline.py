@@ -837,6 +837,41 @@ class TestCodeBlockResponsiveCss:
         assert "opacity: 1" in html          # 触屏下控件常显
         assert "padding-top: 30px" in html   # 为控件预留空间, 不遮挡代码
 
+    def test_gutter_background_light_theme(self):
+        # 行号槽位底色: 浅主题用 rgba(175,184,193,0.28) 染左 2.4em, 收尾 1px 分隔线
+        html = self._html()
+        # 必须出现 linear-gradient 与浅色 rgba, 避免行号与代码区同色难以分辨
+        assert "linear-gradient(to right" in html
+        assert "rgba(175, 184, 193, 0.28)" in html
+        assert "rgba(175, 184, 193, 0.55)" in html   # 1px 分隔线更深
+        # 槽位宽 2.4em(桌面)
+        assert "calc(2.4em - 1px)" in html
+
+    def test_gutter_background_dark_theme(self):
+        # 深主题: 槽位与分隔线都用深色低饱和度
+        html = self._html()
+        assert "rgba(110, 118, 129, 0.22)" in html
+        assert "rgba(110, 118, 129, 0.45)" in html
+        # 深色规则挂载在 html[data-color-mode="dark"] .highlight .cl
+        assert 'html[data-color-mode="dark"] .highlight .cl' in html
+
+    def test_gutter_background_removed_when_lines_off(self):
+        # 行号关闭(nolines)时, 槽位底色必须一并撤掉, 否则左侧会留一道与代码区不连贯的色块
+        html = self._html()
+        assert ".code-block-wrapper.nolines .cl" in html
+        # 紧跟 nolines .cl 的规则必须含 background-image: none
+        m = re.search(r"\.code-block-wrapper\.nolines\s+\.cl\s*\{([^}]*)\}", html, re.DOTALL)
+        assert m, "缺少 nolines .cl 规则"
+        assert "background-image: none" in m.group(1)
+
+    def test_gutter_background_narrowed_on_touch(self):
+        # 窄屏行号槽收窄(2em)与桌面(2.4em)分开, 否则窄屏下底色会超出实际行号宽度
+        html = self._html()
+        assert "calc(2em - 1px)" in html
+        # 同时含桌面与窄屏两套 width 标注, 钉死「窄屏不只改 ::before, 也要改底色」
+        assert "width: 2em" in html    # 触屏下 ::before 宽 2em
+        assert "width: 2.4em" in html  # 桌面 ::before 宽 2.4em
+
 
 class TestDefaultConfig:
     @staticmethod
