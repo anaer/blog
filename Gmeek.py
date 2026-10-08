@@ -560,8 +560,14 @@ class GMEEK():
         issues=self.repo.get_issues(state="all")
         issue_list = list(issues)
         print("issue count:%d"%(len(issue_list)))
-        for issue in issues:
-            self.addOnePostJson(issue)
+        # 注意: 必须在 issue_list(已物化的列表)上迭代, 不得再迭代 issues 本身。
+        # PyGithub 的 PaginatedList 被 list() 耗尽后再次迭代会产生 0 个元素,
+        # 会导致全量重建一篇帖子都不生成、进而清空线上 post 目录。
+        for issue in issue_list:
+            try:
+                self.addOnePostJson(issue)
+            except Exception as e:
+                print(f"skip issue #{getattr(issue, 'number', '?')}: {e}")
 
         # 同plist排序, 便于post中获取上一篇和下一篇
         self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["createdAt"]),reverse=True))

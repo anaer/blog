@@ -721,6 +721,70 @@ class TestDeletedPruning:
         assert p1.exists() and not p2.exists()
 
 
+def _make_issue(num, title, body, owner="anaer", labels=(), state="open"):
+    return SimpleNamespace(
+        pull_request=None,
+        user=SimpleNamespace(name=owner, login=owner),
+        labels=[SimpleNamespace(name=l) for l in labels],
+        number=num, title=title, body=body, state=state,
+        created_at=datetime(2025, 1, 1), updated_at=datetime(2025, 1, 2),
+        get_comments=lambda: SimpleNamespace(totalCount=0),
+        get_events=lambda: [],
+    )
+
+
+def _build_runall_fake(issues):
+    """构造最小 GMEEK 替身, get_issues 返回一次性生成器(复现 PyGithub PaginatedList
+    被 list() 耗尽后再次迭代为空的陷阱)。渲染方法置为 no-op, 仅验证迭代修复。
+    路径用相对形式(与线上一致), 调用方须 chdir 到隔离目录。"""
+    fake = SimpleNamespace()
+    fake.root_dir = "docs/"
+    fake.post_folder = "post/"
+    fake.post_dir = "docs/post/"
+    fake.backup_dir = "backup/"
+    fake.desc_retry_budget = 10
+    fake.rebuild_cache = None
+    fake._nav_keys = None
+    fake.options = SimpleNamespace(repo_name="anaer/blog")
+    fake.i18n = i18nCN
+    fake.blogBase = {
+        "postListJson": {}, "singeListJson": {},
+        "singlePage": ["link", "about"], "homeUrl": "http://x",
+        "i18n": "CN", "onePageListNum": 15, "title": "T", "subTitle": "S",
+        "avatarUrl": "", "labelColorDict": {},
+    }
+    fake.labelColorDict = {}
+    one_shot = (_ for _ in issues)  # 一次性生成器
+    fake.repo = SimpleNamespace(
+        owner=SimpleNamespace(name="anaer", login="anaer"),
+        get_labels=lambda: [],
+        full_name="anaer/blog",
+        get_issues=lambda state: one_shot,
+    )
+    for m in ("addOnePostJson", "cleanFile", "checkDir", "renderHtml",
+              "get_cached", "get_nav_keys", "prune_one", "normalize_title", "decimal_to_hex"):
+        setattr(fake, m, (lambda *a, _m=m, **k: getattr(GMEEK, _m)(fake, *a, **k)))
+    fake.createPostHtml = lambda post: None
+    fake.createPlistHtml = lambda: None
+    fake.createFeedXml = lambda: None
+    fake.createNavJson = lambda: None
+    fake.createSearchHtml = lambda: None
+    return fake
+
+
+class TestRunAllIteration:
+    def test_runAll_processes_all_issues_one_shot_iterable(self, tmp_path, monkeypatch):
+        monkeypatch.chdir(tmp_path)  # addOnePostJson 写相对路径 backup/, 隔离到 tmp_path
+        issues = [
+            _make_issue(1, "A", "body A"),
+            _make_issue(2, "B", "body B"),
+            _make_issue(3, "C", "body C"),
+        ]
+        fake = _build_runall_fake(issues)
+        GMEEK.runAll(fake)
+        assert set(fake.blogBase["postListJson"].keys()) == {"P1", "P2", "P3"}
+
+
 class TestCodeLangLabel:
     def test_extract_fence_langs(self):
         md = "前言\n\n```python\nx\n```\n\n```\nplain\n```\n\n~~~bash\necho\n~~~\n"
