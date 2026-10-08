@@ -70,6 +70,24 @@ svg.octicon{fill:none;stroke:currentColor}
     .site-search input[type="search"]:focus{width:132px;}
 }
 
+/* 标签: 底色与字色都由 --label-hue 按主题推导(同一色相, 明度反转), 不依赖 GitHub 的标签色。
+   色相由标签名确定性派生, 见 Gmeek.py#deterministic_hue */
+.Label{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background: hsl(var(--label-hue, 210), 70%, 92%);
+    color: hsl(var(--label-hue, 210), 80%, 26%);
+}
+.Label a{ color: inherit; text-decoration: none; }
+[data-color-mode="dark"] .Label:not(.Label--solid){
+    background: hsl(var(--label-hue, 210), 45%, 22%);
+    color: hsl(var(--label-hue, 210), 85%, 80%);
+}
+/* 非色相派生的标签(评论数徽标): 沿用配置色 + 白字 */
+.Label--solid{ color: #fff; }
+
 </style>
 
 <style>
@@ -81,7 +99,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 
 .SideNav{min-width: 360px;}
 .SideNav-icon{margin-right: 16px}
-.SideNav-item .Label{color: #fff;margin-left:8px;}
+.SideNav-item .Label{margin-left:8px;}
 @media (max-width: 767px) {
     body { padding: 8px;}
     h1 a:not([href]){font-size:24px;}
@@ -136,10 +154,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#7D584C">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Git">Git</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:140">
+                <object><a href="https://anaer.github.io/blog/tag.html#Git">Git</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(311, 50%, 24%)">2025-01-14</span>
+        <span class="Label" style="--label-hue:311">2025-01-14</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/90.html">
     <div class="d-flex flex-items-center">
@@ -149,16 +167,16 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#8740A6">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Service">Service</a></object>
-            </span><span class="Label" style="max-width: 100px; height: 18px;background-color:#F81B5F">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
-            </span><span class="Label" style="max-width: 100px; height: 18px;background-color:#5319e7">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Mac">Mac</a></object>
-            </span><span class="Label" style="max-width: 100px; height: 18px;background-color:#1606df">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Wins">Wins</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:170">
+                <object><a href="https://anaer.github.io/blog/tag.html#Service">Service</a></object>
+            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:33">
+                <object><a href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:200">
+                <object><a href="https://anaer.github.io/blog/tag.html#Mac">Mac</a></object>
+            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:56">
+                <object><a href="https://anaer.github.io/blog/tag.html#Wins">Wins</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(123, 45%, 31%)">2025-03-14</span>
+        <span class="Label" style="--label-hue:123">2025-03-14</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/173.html">
     <div class="d-flex flex-items-center">
@@ -168,12 +186,12 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#F81B5F">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
-            </span><span class="Label" style="max-width: 100px; height: 18px;background-color:#1D76DB">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#CentOS">CentOS</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:33">
+                <object><a href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:351">
+                <object><a href="https://anaer.github.io/blog/tag.html#CentOS">CentOS</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(102, 65%, 31%)">2025-11-19</span>
+        <span class="Label" style="--label-hue:102">2025-11-19</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/157.html">
     <div class="d-flex flex-items-center">
@@ -183,10 +201,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#1606df">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Wins">Wins</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:56">
+                <object><a href="https://anaer.github.io/blog/tag.html#Wins">Wins</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(3, 47%, 17%)">2025-10-15</span>
+        <span class="Label" style="--label-hue:3">2025-10-15</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/28.html">
     <div class="d-flex flex-items-center">
@@ -196,12 +214,12 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#7D584C">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Git">Git</a></object>
-            </span><span class="Label" style="max-width: 100px; height: 18px;background-color:#5826d5">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Config">Config</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:140">
+                <object><a href="https://anaer.github.io/blog/tag.html#Git">Git</a></object>
+            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:3">
+                <object><a href="https://anaer.github.io/blog/tag.html#Config">Config</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(327, 31%, 23%)">2025-01-03</span>
+        <span class="Label" style="--label-hue:327">2025-01-03</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/180.html">
     <div class="d-flex flex-items-center">
@@ -211,10 +229,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#b60205">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Server">Server</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:345">
+                <object><a href="https://anaer.github.io/blog/tag.html#Server">Server</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(25, 67%, 10%)">2025-12-19</span>
+        <span class="Label" style="--label-hue:25">2025-12-19</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/42.html">
     <div class="d-flex flex-items-center">
@@ -224,10 +242,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#774C51">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Database">Database</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:159">
+                <object><a href="https://anaer.github.io/blog/tag.html#Database">Database</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(24, 69%, 20%)">2025-01-15</span>
+        <span class="Label" style="--label-hue:24">2025-01-15</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/147.html">
     <div class="d-flex flex-items-center">
@@ -237,10 +255,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#1d76db">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Nginx">Nginx</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:112">
+                <object><a href="https://anaer.github.io/blog/tag.html#Nginx">Nginx</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(190, 48%, 24%)">2025-09-09</span>
+        <span class="Label" style="--label-hue:190">2025-09-09</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/56.html">
     <div class="d-flex flex-items-center">
@@ -250,10 +268,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#b60205">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Software">Software</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:285">
+                <object><a href="https://anaer.github.io/blog/tag.html#Software">Software</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(121, 33%, 12%)">2025-01-22</span>
+        <span class="Label" style="--label-hue:121">2025-01-22</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/101.html">
     <div class="d-flex flex-items-center">
@@ -263,10 +281,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#1d76db">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Nginx">Nginx</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:112">
+                <object><a href="https://anaer.github.io/blog/tag.html#Nginx">Nginx</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(115, 44%, 38%)">2025-03-27</span>
+        <span class="Label" style="--label-hue:115">2025-03-27</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/50.html">
     <div class="d-flex flex-items-center">
@@ -276,10 +294,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#682650">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Win10">Win10</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:181">
+                <object><a href="https://anaer.github.io/blog/tag.html#Win10">Win10</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(31, 38%, 25%)">2025-01-21</span>
+        <span class="Label" style="--label-hue:31">2025-01-21</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/179.html">
     <div class="d-flex flex-items-center">
@@ -289,10 +307,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#0E8A16">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Redis">Redis</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:17">
+                <object><a href="https://anaer.github.io/blog/tag.html#Redis">Redis</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(331, 38%, 11%)">2025-12-02</span>
+        <span class="Label" style="--label-hue:331">2025-12-02</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/60.html">
     <div class="d-flex flex-items-center">
@@ -302,12 +320,12 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#8740A6">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Service">Service</a></object>
-            </span><span class="Label" style="max-width: 100px; height: 18px;background-color:#F81B5F">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:170">
+                <object><a href="https://anaer.github.io/blog/tag.html#Service">Service</a></object>
+            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:33">
+                <object><a href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(35, 30%, 34%)">2025-01-22</span>
+        <span class="Label" style="--label-hue:35">2025-01-22</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/177.html">
     <div class="d-flex flex-items-center">
@@ -317,12 +335,12 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#0A7358">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Python">Python</a></object>
-            </span><span class="Label" style="max-width: 100px; height: 18px;background-color:#1d76db">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Nginx">Nginx</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:157">
+                <object><a href="https://anaer.github.io/blog/tag.html#Python">Python</a></object>
+            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:112">
+                <object><a href="https://anaer.github.io/blog/tag.html#Nginx">Nginx</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(98, 56%, 11%)">2025-11-26</span>
+        <span class="Label" style="--label-hue:98">2025-11-26</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/178.html">
     <div class="d-flex flex-items-center">
@@ -332,10 +350,10 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="listLabels">
         
 
-        <span class="Label" style="max-width: 100px; height: 18px;background-color:#F81B5F">
-                <object><a style="color:#fff;" href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:33">
+                <object><a href="https://anaer.github.io/blog/tag.html#Linux">Linux</a></object>
             </span>
-        <span class="Label" style="background-color:hsl(21, 59%, 25%)">2025-11-26</span>
+        <span class="Label" style="--label-hue:21">2025-11-26</span>
     </div>
 </a>
 </nav><nav class="paginate-container" aria-label="Pagination">

@@ -23,6 +23,9 @@
     </script>
     
 <title>PC端常用软件</title>
+
+<meta data-pagefind-meta="labels[content]" content='["Tool", "Win10", "Mac", "Software"]' />
+<meta data-pagefind-meta="source[content]" content="https://github.com/anaer/blog/issues/6" />
 <link href="https://anaer.github.io/blog/assets/highlight.css" rel="stylesheet" />
 <link href="https://anaer.github.io/blog/assets/github-markdown-css@5.2.0/github-markdown.min.css" rel="stylesheet" />
 
@@ -46,6 +49,49 @@ body{
 
 /* 图标统一为线性描边(icons.py 单一数据源): 覆盖 primer 的 .octicon{fill:currentColor}, 否则填充会破坏描边风格 */
 svg.octicon{fill:none;stroke:currentColor}
+
+/* 站内搜索框: 列表页 / 标签页 / 文章页共用同一组件(圆角输入框 + 图标提交按钮)。
+   配色走主题变量, 明暗自适应; 窄屏保留但收窄, 不整块隐藏 */
+.site-search{display:inline-flex;align-items:center;gap:4px;margin-right:8px;}
+.site-search input[type="search"]{
+    width:160px;max-width:40vw;padding:4px 8px;font-size:14px;
+    border:1px solid var(--borderColor-default, var(--color-border-default));
+    border-radius:6px;
+    background:var(--bgColor-default, var(--color-canvas-default));
+    color:var(--fgColor-default, var(--color-fg-default));
+    outline:none;
+}
+.site-search input[type="search"]:focus{
+    border-color:var(--fgColor-accent, var(--color-accent-fg));
+    width:200px;
+}
+.site-search button{
+    border:none;background:transparent;cursor:pointer;padding:4px;
+    color:var(--fgColor-muted, var(--color-fg-muted));display:inline-flex;
+}
+@media (max-width: 767px) {
+    .site-search{margin-right:4px;}
+    .site-search input[type="search"]{width:104px;}
+    .site-search input[type="search"]:focus{width:132px;}
+}
+
+/* 标签: 底色与字色都由 --label-hue 按主题推导(同一色相, 明度反转), 不依赖 GitHub 的标签色。
+   色相由标签名确定性派生, 见 Gmeek.py#deterministic_hue */
+.Label{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background: hsl(var(--label-hue, 210), 70%, 92%);
+    color: hsl(var(--label-hue, 210), 80%, 26%);
+}
+.Label a{ color: inherit; text-decoration: none; }
+[data-color-mode="dark"] .Label:not(.Label--solid){
+    background: hsl(var(--label-hue, 210), 45%, 22%);
+    color: hsl(var(--label-hue, 210), 85%, 80%);
+}
+/* 非色相派生的标签(评论数徽标): 沿用配置色 + 白字 */
+.Label--solid{ color: #fff; }
 
 </style>
 
@@ -81,6 +127,12 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 .post-meta time{font-weight:bold;color:var(--color-fg-default);}
 /* AI 总结框: 边框随主题 */
 .post-summary{border:1px dashed var(--color-border-default);background:var(--color-canvas-subtle);padding:10px;margin-bottom:20px;border-radius:6px;}
+/* 删除线: 字色与划线都退到 muted/subtle, 旧文本退到背景层, 不抢当前文本的视觉权重(走主题变量, 明暗自适应) */
+.markdown-body del{
+    color:var(--color-fg-muted);
+    text-decoration:line-through;
+    text-decoration-color:var(--color-fg-subtle);
+}
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
 .g-emoji{font-size:24px;}
@@ -132,35 +184,7 @@ pre {
 /* 无相邻文章时收起分页区 */
 .paginate-container:not(:has(a)) {display: none;}
 
-/* 文章页搜索框: 复用站内检索页(search.html 读取 ?q= 并触发) */
-.post-search { display: inline-flex; align-items: center; margin-right: 8px; gap: 4px; }
-.post-search input[type="search"] {
-    width: 120px;
-    max-width: 40vw;
-    padding: 4px 8px;
-    font-size: 14px;
-    border: 1px solid var(--borderColor-muted, var(--color-border-muted));
-    border-radius: 6px;
-    background: var(--bgColor-default, var(--color-canvas-default, #fff));
-    color: var(--fgColor-default, var(--color-fg-default, #1f2328));
-    outline: none;
-}
-[data-color-mode="dark"] .post-search input[type="search"] {
-    background: var(--bgColor-muted, #161b22);
-    color: #e6edf3;
-}
-.post-search input[type="search"]:focus {
-    border-color: var(--fgColor-accent, var(--color-accent-fg));
-    width: 170px;
-}
-.post-search button {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    padding: 4px;
-    color: var(--color-fg-muted);
-    display: inline-flex;
-}
+/* 文章页搜索框: 复用 base.html 的共享 .site-search 组件, 提交到站内检索页(search.html 读取 ?q= 触发) */
 </style>
 
 
@@ -186,7 +210,7 @@ pre {
         <svg class="octicon" id="themeSwitch" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
     </button>
 
-    <form class="post-search" action="https://anaer.github.io/blog/search.html" method="get" role="search">
+    <form class="site-search" action="https://anaer.github.io/blog/search.html" method="get" role="search">
         <input type="search" name="q" placeholder="搜索" aria-label="搜索" />
         <button type="submit" title="搜索" aria-label="搜索">
             <svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -198,14 +222,14 @@ pre {
     <div id="content">
 
 <div class="listLabels">
-    <span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#351497">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Tool">Tool</a></object>
-        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#682650">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Win10">Win10</a></object>
-        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#5319e7">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Mac">Mac</a></object>
-        </span><span class="Label" style="max-width: 100px; height: 24px; border-radius: 4px; padding: 4px 8px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; background-color:#b60205">
-            <object><a style="color:#fff; text-decoration: none; font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Software">Software</a></object>
+    <span class="Label" style="max-width: 100px; height: 24px; padding: 4px 8px; margin-right: 8px; --label-hue:305">
+            <object><a style="font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Tool">Tool</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; padding: 4px 8px; margin-right: 8px; --label-hue:181">
+            <object><a style="font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Win10">Win10</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; padding: 4px 8px; margin-right: 8px; --label-hue:200">
+            <object><a style="font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Mac">Mac</a></object>
+        </span><span class="Label" style="max-width: 100px; height: 24px; padding: 4px 8px; margin-right: 8px; --label-hue:285">
+            <object><a style="font-size: 14px;" href="https://anaer.github.io/blog/tag.html#Software">Software</a></object>
         </span>
 </div>
 <br>
@@ -213,11 +237,9 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-meta post-publish" id="postPublish">发布于 <time>2023-10-30 17:01:28</time></span>
 
-<span class="post-meta post-update">更新于 <time>2026-06-23 15:56:51</time></span>
+<span class="post-meta post-update">更新于 <time>2026-10-08 15:51:19</time></span>
 
-<p><div class="post-summary">
-    <strong>AI总结:</strong> 本文介绍了多种软件工具和资源，涵盖浏览器、终端、内存清理、文件传输、AI、压缩、密码管理、搜索、清理、输入法、资源管理、健康、办公、开发、数据库、版本控制、编辑器、证书管理、网盘、翻译、命令行以及VSCode扩展等领域。每个类别下列出了具体工具及其来源，包括官网和GitHub链接。改进建议包括对工具的使用场景和优缺点进行更详细的说明，以帮助用户更好地选择合适的工具。
-</div>
+<p>
 
 <div class="markdown-body" id="postBody" data-pagefind-body>
 
@@ -272,7 +294,7 @@ pre {
 <h3 id="_7">压缩</h3>
 <ol>
 <li>7zip <a href="https://www.7-zip.org/">官网</a>  <a href="https://github.com/ip7z/7zip/releases">GitHub</a>  </li>
-<li>NanaZip <a href="https://github.com/M2Team/NanaZip/releases">GitHub</a>  </li>
+<li><del>NanaZip</del> <a href="https://github.com/M2Team/NanaZip/releases">GitHub</a>  </li>
 </ol>
 <h3 id="_8">密码</h3>
 <ol>
@@ -299,7 +321,7 @@ pre {
 </ol>
 <h3 id="_12">输入法</h3>
 <ol>
-<li>InputTip输入法状态管理工具 <a href="https://github.com/abgox/InputTip">GitHub</a>  </li>
+<li><del>InputTip输入法状态管理工具</del> <a href="https://github.com/abgox/InputTip">GitHub</a>  </li>
 <li>weasel小狼毫输入法 <a href="https://rime.im/">官网</a>  </li>
 </ol>
 <h3 id="_13">资源管理</h3>
@@ -326,7 +348,7 @@ pre {
 <h2 id="_15">办公</h2>
 <ol>
 <li>WeCom企业微信 <a href="https://work.weixin.qq.com/">官网</a>    </li>
-<li>ShareX 截图/录屏工具 <a href="https://github.com/ShareX/ShareX/releases">GitHub</a>  </li>
+<li><del>ShareX 截图/录屏工具</del> <a href="https://github.com/ShareX/ShareX/releases">GitHub</a>  </li>
 <li><del>OnlyOffice</del> <a href="https://github.com/ONLYOFFICE/DesktopEditors/releases">GitHub</a>  </li>
 <li><del>LibreOffice</del> <a href="https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/">腾讯云镜像</a>  </li>
 <li><del>Umi-OCR</del> 识别截图中的文本 <a href="https://github.com/hiroi-sora/Umi-OCR">GitHub</a>  </li>
@@ -367,22 +389,20 @@ pre {
 </ol>
 <h3 id="_19">数据库</h3>
 <ol>
+<li>DBX 数据库支持较全, 还支持Redis, Nacos等 <a href="https://github.com/t8y2/dbx/releases">GitHub</a>  </li>
 <li><del>dbeaver</del> <a href="https://github.com/dbeaver/dbeaver/releases/">GitHub</a>  </li>
 <li><del>HeidiSQL</del> <a href="https://www.heidisql.com/">官网</a>  开源数据库客户端 对SQLite表设计支持较差, 不建议用来管理sqlite  </li>
 <li><del>SQLiteStudio</del> <a href="https://sqlitestudio.pl/">官网</a>  <a href="https://github.com/pawelsalawa/sqlitestudio/releases/">GitHub</a> SQLite客户端 表设计支持较好  </li>
 <li><del>DB Browser for SQLite</del> <a href="https://github.com/sqlitebrowser/sqlitebrowser/releases">GitHub</a>5. <del>Robo 3T</del> <a href="https://github.com/Studio3T/robomongo/releases">GitHub</a> mongodb  </li>
 <li><del>Compass</del> <a href="https://github.com/mongodb-js/compass/releases">GitHub</a> mongodb 要求mongo 4.x版本  </li>
-<li>Navicat <a href="https://www.navicat.com.cn/">官网</a>  <a href="https://github.com/shuhongfan/NavicatCracker/">GitHub</a>  </li>
+<li><del>Navicat</del> <a href="https://www.navicat.com.cn/">官网</a>  <a href="https://github.com/shuhongfan/NavicatCracker/">GitHub</a>  </li>
 <li><del>SQLyog</del>  <a href="https://github.com/webyog/sqlyog-community/wiki/Downloads">GitHub</a> 网上有注册码 只支持mysql  </li>
 <li>MySQL <a href="https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-5.7/">华为云镜像</a>  </li>
-<li>SQLiteSpy <a href="https://www.yunqa.de/delphi/apps/sqlitespy/index">下载</a>  </li>
-</ol>
-<h3 id="_20">版本控制</h3>
-<ol>
+<li><del>SQLiteSpy</del> <a href="https://www.yunqa.de/delphi/apps/sqlitespy/index">下载</a>### 版本控制  </li>
 <li>Git <a href="https://git-scm.com/downloads/win">官网</a> <a href="https://github.com/git-for-windows/git/releases/">GitHub</a>  </li>
 <li><del>TortoiseGit</del> <a href="https://tortoisegit.org/download/">官网</a>  </li>
 </ol>
-<h3 id="_21">编辑器</h3>
+<h3 id="_20">编辑器</h3>
 <ol>
 <li>VSCode <a href="https://code.visualstudio.com/">官网</a>  <a href="https://open-vsx.org/">open-vsx插件站</a>  </li>
 <li><del>Neovim</del>  <a href="https://github.com/neovim/neovim/releases">GitHub</a>        </li>
@@ -390,30 +410,26 @@ pre {
 <li><del>Windsurf</del> <a href="https://codeium.com/windsurf">官网</a>     集成Codeium AI补全   </li>
 <li><del>notepad4</del>   <a href="https://github.com/zufuliu/notepad4">GitHub</a>   替换默认notepad      </li>
 </ol>
-<h3 id="_22">证书</h3>
+<h3 id="_21">证书</h3>
 <ol>
 <li><del>certimate</del> <a href="https://github.com/certimate-go/certimate">GitHub</a>  开源的SSL证书管理工具   </li>
 </ol>
-<h3 id="_23">网盘</h3>
+<h3 id="_22">网盘</h3>
 <ol>
 <li><del>NetMount</del> <a href="https://github.com/VirtualHotBar/NetMount">GitHub</a> 统一管理和挂载云存储设施  </li>
 </ol>
-<h3 id="_24">翻译</h3>
+<h3 id="_23">翻译</h3>
 <ol>
 <li><del>STranslate</del> <a href="https://github.com/ZGGSONG/STranslate/releases">GitHub</a>  </li>
 <li>POT 翻译+OCR <a href="https://github.com/pot-app/pot-desktop/releases">GitHub</a>  </li>
 </ol>
-<h3 id="_25">命令行</h3>
+<h3 id="_24">命令行</h3>
 <ol>
 <li>chsrc 换源 <a href="https://github.com/RubyMetric/chsrc/releases/">GitHub</a>  </li>
 <li><del>cmirror</del> 换源 <a href="https://github.com/ox01024/cmirror">GitHub</a>  </li>
 <li><del>lsx 命令帮助</del> <a href="https://github.com/CJSen/lsx">GitHub</a>  </li>
 </ol>
-<h3 id="vscode">VSCode扩展</h3>
-<ol>
-<li>Rebuild-gitlens <a href="https://github.com/AliverAnme/Rebuild-gitlens/releases">GitHub</a>  </li>
-</ol>
-<h3 id="_26">相关链接</h3>
+<h3 id="_25">相关链接</h3>
 <p><a href="https://my.feishu.cn/wiki/VzoswszWzi6YJ5k3IrucEnCynFc">Mac 软件库</a>  </p>
   </article>
   
@@ -430,42 +446,34 @@ pre {
   z-index: 2;
   display: flex;
   gap: 2px;
-  opacity: 0.45;
-  transition: opacity 0.2s;
 }
-.code-block-wrapper:hover .code-block-controls,
-.code-block-wrapper:focus-within .code-block-controls {
-  opacity: 1;
-}
+/* 内容区图标按钮统一语言: 常态半透明 + 主题 muted 色, hover 转不透明并加主题背景 */
 .fold-btn, .copy-btn, .code-toggle {
   border: none;
   background: transparent;
   cursor: pointer;
-  padding: 2px 6px;
+  padding: 2px 4px;
   font-size: 16px;
   line-height: 1;
-  outline: none;
-  box-shadow: none;
-  transition: background 0.2s;
+  border-radius: 4px;
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  opacity: .6;
+  transition: opacity 0.2s, background 0.2s;
 }
 .fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+  opacity: 1;
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
 }
 .fold-btn svg { display: block; }
 .fold-btn .ic-fold { transition: transform 0.2s ease; }
 .code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
-.fold-btn, .code-toggle {
-  color: #6e7681;
-}
-[data-color-mode="dark"] .fold-btn,
-[data-color-mode="dark"] .code-toggle {
-  color: #8b949e;
+/* 复制成功反馈: 图标切换为 check 并短暂转为绿色 */
+.copy-btn.copied {
+  color: var(--color-success-fg);
+  opacity: 1;
 }
 .code-toggle.off {
-  color: #c6cbd1;
-}
-[data-color-mode="dark"] .code-toggle.off {
-  color: #484f58;
+  color: var(--color-primer-fg-disabled);
 }
 .highlight code {
   counter-reset: cl;
@@ -476,7 +484,11 @@ pre {
   padding-left: 3.2em;
   position: relative;
   line-height: 1.45;
+  /* 关键: .markdown-body pre>code 设了 white-space:pre, .cl 会继承它而无法换行;
+     显式声明 pre-wrap 才能保留缩进并允许自动换行 */
+  white-space: pre-wrap;
   overflow-wrap: anywhere;
+  word-break: normal;
 }
 .highlight .cl::before {
   content: counter(cl);
@@ -484,29 +496,27 @@ pre {
   left: 0;
   width: 2.4em;
   text-align: right;
-  color: #6e7681;
+  color: var(--fgColor-muted, var(--color-fg-muted));
   user-select: none;
-}
-[data-color-mode="dark"] .highlight .cl::before {
-  color: #8b949e;
 }
 .code-block-wrapper.folded .cl ~ .cl {
   display: none;
 }
-/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+/* 折叠态仅保留首行: 禁止换行但保留缩进(用 pre 而非 nowrap, 后者会吞掉空格), 长行横向滚动 */
 .code-block-wrapper.folded {
   overflow-x: auto;
 }
 .code-block-wrapper.folded pre,
 .code-block-wrapper.folded .highlight .cl {
-  white-space: nowrap;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap .cl {
+  white-space: pre;
   overflow-wrap: normal;
 }
 .code-block-wrapper.nowrap pre {
   white-space: pre;
-}
-.code-block-wrapper.nowrap .cl {
-  overflow-wrap: normal;
 }
 .code-block-wrapper.nolines .cl {
   padding-left: 0;
@@ -526,16 +536,45 @@ pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 12px;
   letter-spacing: .5px;
-  color: #6e7681;
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
   padding: 0 6px;
   border-radius: 4px;
   user-select: none;
   opacity: .85;
 }
-[data-color-mode="dark"] .code-lang {
-  color: #8b949e;
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+/* 移动端 / 触屏(hover: none): 控件常显并加大点按区域;
+   同时为控件预留顶部空间, 避免绝对定位的按钮遮挡代码首行 */
+@media (hover: none), (max-width: 767px) {
+  .code-block-controls {
+    top: 2px;
+    right: 2px;
+    gap: 0;
+  }
+  .code-block-wrapper,
+  .code-block-wrapper.has-lang {
+    padding-top: 30px;
+  }
+  /* 提高特异性以覆盖 .markdown-body .highlight pre{padding:16px} */
+  .code-block-wrapper pre,
+  .code-block-wrapper .highlight pre {
+    padding-top: 10px;
+  }
+  .fold-btn, .copy-btn, .code-toggle {
+    padding: 5px 8px;
+    opacity: 1;   /* 触屏无 hover, 常显 */
+  }
+  .code-lang {
+    top: 7px;
+    left: 8px;
+  }
+  /* 窄屏行号槽收窄, 给代码留出更多宽度 */
+  .highlight .cl {
+    padding-left: 2.8em;
+  }
+  .highlight .cl::before {
+    width: 2em;
+  }
 }
 </style>
 <script>
@@ -563,9 +602,11 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
       navigator.clipboard.writeText(code).then(() => {
-        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
         setTimeout(() => {
-          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+          btn.classList.remove('copied');
+          btn.innerHTML = '<svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
         }, 1500);
       });
     });
@@ -588,7 +629,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <nav class="paginate-container" aria-label="Pagination"
      data-nav-url="https://anaer.github.io/blog/nav.json"
      data-post-number="6">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/5.html" aria-label="Previous Page">常用字体</a><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/7.html" aria-label="Next Page">ECS操作记录</a></div>
+    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/122.html" aria-label="Previous Page">blog相关</a><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/5.html" aria-label="Next Page">常用字体</a></div>
 </nav>
 
 <!-- 编辑按钮 -->

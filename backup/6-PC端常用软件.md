@@ -42,7 +42,7 @@
 
 ### 压缩
 1. 7zip [官网](https://www.7-zip.org/)  [GitHub](https://github.com/ip7z/7zip/releases)
-2. NanaZip [GitHub](https://github.com/M2Team/NanaZip/releases)
+2. ~~NanaZip~~ [GitHub](https://github.com/M2Team/NanaZip/releases)
 
 ### 密码
 1. ~~MyKeyFinder~~ [下载](https://www.computerbild.de/download/MyKeyFinder-Plus-Kostenlose-Vollversion-31122673.html) ana已注册
@@ -64,7 +64,7 @@
 6. ~~Bulk-Crap-Uninstaller~~ [GitHub](https://github.com/Klocman/Bulk-Crap-Uninstaller/releases) 
 
 ### 输入法
-1. InputTip输入法状态管理工具 [GitHub](https://github.com/abgox/InputTip)
+1. ~~InputTip输入法状态管理工具~~ [GitHub](https://github.com/abgox/InputTip)
 2. weasel小狼毫输入法 [官网](https://rime.im/)
 
 ### 资源管理
@@ -88,7 +88,7 @@
 
 ## 办公
 1. WeCom企业微信 [官网](https://work.weixin.qq.com/)  
-2. ShareX 截图/录屏工具 [GitHub](https://github.com/ShareX/ShareX/releases)
+2. ~~ShareX 截图/录屏工具~~ [GitHub](https://github.com/ShareX/ShareX/releases)
 3. ~~OnlyOffice~~ [GitHub](https://github.com/ONLYOFFICE/DesktopEditors/releases)
 4. ~~LibreOffice~~ [腾讯云镜像](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)
 5. ~~Umi-OCR~~ 识别截图中的文本 [GitHub](https://github.com/hiroi-sora/Umi-OCR)
@@ -124,17 +124,16 @@
 5. ~~Wireshark~~ [官网](https://www.wireshark.org)
 
 ### 数据库
-1. ~~dbeaver~~ [GitHub](https://github.com/dbeaver/dbeaver/releases/)
-2. ~~HeidiSQL~~ [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差, 不建议用来管理sqlite
-3. ~~SQLiteStudio~~ [官网](https://sqlitestudio.pl/)  [GitHub](https://github.com/pawelsalawa/sqlitestudio/releases/) SQLite客户端 表设计支持较好
-4. ~~DB Browser for SQLite~~ [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)5. ~~Robo 3T~~ [GitHub](https://github.com/Studio3T/robomongo/releases) mongodb
-5. ~~Compass~~ [GitHub](https://github.com/mongodb-js/compass/releases) mongodb 要求mongo 4.x版本
-6. Navicat [官网](https://www.navicat.com.cn/)  [GitHub](https://github.com/shuhongfan/NavicatCracker/)
-7. ~~SQLyog~~  [GitHub](https://github.com/webyog/sqlyog-community/wiki/Downloads) 网上有注册码 只支持mysql
-8. MySQL [华为云镜像](https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-5.7/)
-9. SQLiteSpy [下载](https://www.yunqa.de/delphi/apps/sqlitespy/index)
-
-### 版本控制
+1. DBX 数据库支持较全, 还支持Redis, Nacos等 [GitHub](https://github.com/t8y2/dbx/releases)
+2. ~~dbeaver~~ [GitHub](https://github.com/dbeaver/dbeaver/releases/)
+3. ~~HeidiSQL~~ [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差, 不建议用来管理sqlite
+4. ~~SQLiteStudio~~ [官网](https://sqlitestudio.pl/)  [GitHub](https://github.com/pawelsalawa/sqlitestudio/releases/) SQLite客户端 表设计支持较好
+5. ~~DB Browser for SQLite~~ [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)5. ~~Robo 3T~~ [GitHub](https://github.com/Studio3T/robomongo/releases) mongodb
+6. ~~Compass~~ [GitHub](https://github.com/mongodb-js/compass/releases) mongodb 要求mongo 4.x版本
+7. ~~Navicat~~ [官网](https://www.navicat.com.cn/)  [GitHub](https://github.com/shuhongfan/NavicatCracker/)
+8. ~~SQLyog~~  [GitHub](https://github.com/webyog/sqlyog-community/wiki/Downloads) 网上有注册码 只支持mysql
+9. MySQL [华为云镜像](https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-5.7/)
+10. ~~SQLiteSpy~~ [下载](https://www.yunqa.de/delphi/apps/sqlitespy/index)### 版本控制
 1. Git [官网](https://git-scm.com/downloads/win) [GitHub](https://github.com/git-for-windows/git/releases/)
 2. ~~TortoiseGit~~ [官网](https://tortoisegit.org/download/)
 
@@ -158,10 +157,7 @@
 ### 命令行
 1. chsrc 换源 [GitHub](https://github.com/RubyMetric/chsrc/releases/)
 2. ~~cmirror~~ 换源 [GitHub](https://github.com/ox01024/cmirror)
-1. ~~lsx 命令帮助~~ [GitHub](https://github.com/CJSen/lsx)
-
-### VSCode扩展
-1. Rebuild-gitlens [GitHub](https://github.com/AliverAnme/Rebuild-gitlens/releases)
+3. ~~lsx 命令帮助~~ [GitHub](https://github.com/CJSen/lsx)
 
 ### 相关链接
 
