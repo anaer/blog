@@ -13,7 +13,7 @@ from github import GithubException
 
 from Gmeek import (
     GMEEK, IconList, IconViewBox, IconStrokeWidth, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
-    resolve_regen_mode, resolve_run_mode, slim_state, nav_order, nav_neighbors, neighbor_keys,
+    resolve_regen_mode, resolve_run_mode, slim_state, list_order, nav_order, nav_neighbors, neighbor_keys,
     format_datetime_utc8, format_date_utc8,
     deterministic_hue, hex_to_hue, label_hue, resolve_label_color_mode, replace_issue_refs, tag_data, is_html_stale, search_settings,
 )
@@ -145,7 +145,7 @@ class TestSlimState:
 
 def mk_post(number, created, updated=None):
     return {"number": str(number), "createdAt": created, "updatedAt": updated if updated else created,
-            "postTitle": "T%d" % number, "postUrl": "post/%d.html" % number}
+            "top": 0, "postTitle": "T%d" % number, "postUrl": "post/%d.html" % number}
 
 
 class TestNavNeighbors:
@@ -153,36 +153,56 @@ class TestNavNeighbors:
         return {"P1": mk_post(1, 100), "P2": mk_post(2, 200), "P3": mk_post(3, 300)}
 
     def test_middle_ok(self):
+        # 列表序为 P3, P2, P1 → P2 的上一条是 P3、下一条是 P1
         pj = self._fixture()
         prev, nxt = nav_neighbors(nav_order(pj), pj, "2")
-        assert prev["number"] == "1" and nxt["number"] == "3"
+        assert prev["number"] == "3" and nxt["number"] == "1"
 
-    def test_oldest_hides_prev(self):
+    def test_last_in_list_hides_next(self):
         pj = self._fixture()
         prev, nxt = nav_neighbors(nav_order(pj), pj, "1")
-        assert prev is None and nxt["number"] == "2"
-
-    def test_newest_hides_next(self):
-        pj = self._fixture()
-        prev, nxt = nav_neighbors(nav_order(pj), pj, "3")
         assert prev["number"] == "2" and nxt is None
 
-    def test_ignores_top_and_closed(self):
-        # 负向控制: 置顶/关闭不改变相邻关系
+    def test_first_in_list_hides_prev(self):
+        pj = self._fixture()
+        prev, nxt = nav_neighbors(nav_order(pj), pj, "3")
+        assert prev is None and nxt["number"] == "2"
+
+    def test_pinning_changes_adjacency(self):
+        # 置顶会重排列表, 相邻关系随之改变(与列表保持一致)
         pj = self._fixture()
         pj["P2"]["top"] = 1
-        pj["P3"]["top"] = -1
+        assert nav_order(pj)[0] == "P2"
         prev, nxt = nav_neighbors(nav_order(pj), pj, "2")
-        assert prev["number"] == "1" and nxt["number"] == "3"
+        assert prev is None and nxt["number"] == "3"
+
+    def test_closed_sinks_to_last(self):
+        pj = self._fixture()
+        pj["P2"]["top"] = -1
+        assert nav_order(pj)[-1] == "P2"
 
     def test_tie_break_by_number(self):
         pj = {"P2": mk_post(2, 100), "P1": mk_post(1, 100)}
         prev, nxt = nav_neighbors(nav_order(pj), pj, "1")
-        assert prev is None and nxt["number"] == "2"
+        assert prev["number"] == "2" and nxt is None
 
     def test_missing_number_returns_none(self):
         pj = self._fixture()
         assert nav_neighbors(nav_order(pj), pj, "99") == (None, None)
+
+
+class TestListNavOrderConsistency:
+    """列表顺序与导航顺序必须出自同一序列, 否则文章页的上一篇/下一篇与列表上下相邻对不上。"""
+
+    def test_same_sequence(self):
+        pj = {"P1": mk_post(1, 100), "P2": mk_post(2, 300), "P3": mk_post(3, 200)}
+        pj["P2"]["top"] = 1
+        assert nav_order(pj) == list(list_order(pj))
+
+    def test_uses_updated_at_not_created_at(self):
+        # 排序键必须是 updatedAt: 若按 createdAt, P2(created 200) 会排在 P1(created 100) 之后, 与列表页不一致
+        pj = {"P1": mk_post(1, 100), "P2": mk_post(2, 200, updated=900)}
+        assert nav_order(pj) == ["P2", "P1"]
 
 
 class TestNeighborKeys:
@@ -407,28 +427,29 @@ class TestCreatePostHtmlNav:
                 "postListJson": {"P1": mk_post(1, 100), "P2": mk_post(2, 200), "P3": mk_post(3, 300)}}
 
     def test_middle_wires_both_neighbors(self, tmp_path):
+        # 列表序为 P3, P2, P1 → P2 的上一篇是 P3、下一篇是 P1
         fake, captured = self._fake(self._base())
         GMEEK.createPostHtml(fake, self._post(tmp_path, 2))
-        assert captured["prevTitle"] == "T1"
-        assert captured["nextTitle"] == "T3"
-        assert captured["prevUrl"] == "https://example.com/blog/post/1.html"
-        assert captured["nextUrl"] == "https://example.com/blog/post/3.html"
+        assert captured["prevTitle"] == "T3"
+        assert captured["nextTitle"] == "T1"
+        assert captured["prevUrl"] == "https://example.com/blog/post/3.html"
+        assert captured["nextUrl"] == "https://example.com/blog/post/1.html"
 
-    def test_oldest_clears_prev_fields(self, tmp_path):
-        # 负向控制: 旧状态文件可能带入的残留 prev 字段必须被清除
+    def test_last_in_list_clears_next_fields(self, tmp_path):
+        # 负向控制: 旧状态文件可能带入的残留 next 字段必须被清除(P1 是列表末位)
         base = self._base()
-        base["prevUrl"] = "stale"
-        base["prevTitle"] = "stale"
+        base["nextUrl"] = "stale"
+        base["nextTitle"] = "stale"
         fake, captured = self._fake(base)
         GMEEK.createPostHtml(fake, self._post(tmp_path, 1))
-        assert "prevUrl" not in captured and "prevTitle" not in captured
-        assert captured["nextTitle"] == "T2"
-
-    def test_newest_clears_next_fields(self, tmp_path):
-        fake, captured = self._fake(self._base())
-        GMEEK.createPostHtml(fake, self._post(tmp_path, 3))
         assert "nextUrl" not in captured and "nextTitle" not in captured
         assert captured["prevTitle"] == "T2"
+
+    def test_first_in_list_clears_prev_fields(self, tmp_path):
+        fake, captured = self._fake(self._base())
+        GMEEK.createPostHtml(fake, self._post(tmp_path, 3))
+        assert "prevUrl" not in captured and "prevTitle" not in captured
+        assert captured["nextTitle"] == "T2"
 
 
 class TestTemplateSmoke:
@@ -510,10 +531,10 @@ class TestCreateNavJson:
         }
         GMEEK.createNavJson(fake)
         data = json.loads((tmp_path / "nav.json").read_text(encoding="utf-8"))
-        # 按 createdAt 升序, 与 nav_order 一致
-        assert [p["number"] for p in data] == ["1", "2"]
-        assert data[0]["title"] == "T1"
-        assert data[0]["url"] == "https://example.com/blog/post/1.html"
+        # 与列表页同序(updatedAt 降序)
+        assert [p["number"] for p in data] == ["2", "1"]
+        assert data[0]["title"] == "T2"
+        assert data[0]["url"] == "https://example.com/blog/post/2.html"
 
     def test_empty_posts(self, tmp_path):
         fake = SimpleNamespace()
@@ -1121,6 +1142,14 @@ class TestTocIndicators:
         js = self._js()
         assert ".toc-item:not(.open) > .toc-children" in js
         assert "classList.toggle('open'" in js
+
+    def test_toggle_slot_reserved_for_all_items(self):
+        # 同级对齐: +/− 槽位必须无条件预留, 不能只给带子节点的项(否则同级文字差一个槽位)
+        js = self._js()
+        line = [l for l in js.splitlines() if "paddingLeft" in l][0]
+        assert "TOGGLE_SLOT" in line
+        assert "children.length" not in line
+        assert js.count("const TOGGLE_SLOT") == 1
 
 
 class TestSectionsFold:

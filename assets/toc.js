@@ -93,6 +93,9 @@ document.addEventListener("DOMContentLoaded", function() {
     .toc-item.open .toc-toggle .ic-minus { display: inline-block; }
 `;
 
+    // +/− 槽位宽度(px): 与 .toc-toggle 的图标落点对齐(图标 12px + 左右内边距 4px + 间隙)
+    const TOGGLE_SLOT = 16;
+
     let contentContainer = document.getElementById('content');
     if (!contentContainer) {
         return;
@@ -160,8 +163,10 @@ document.addEventListener("DOMContentLoaded", function() {
         link.href = '#' + item.heading.id;
         link.textContent = item.heading.textContent;
         link.className = 'toc-link';
+        // 每级缩进 10px, 另**无条件**预留 TOGGLE_SLOT 给 +/− 槽位:
+        // 若只给带子节点的项预留, 同级里有子节点与叶子节点的文字会差一个槽位、无法对齐
         const padBase = (item.level - 1) * 10;
-        link.style.paddingLeft = `${padBase + (item.children.length > 0 ? 16 : 0)}px`;
+        link.style.paddingLeft = `${padBase + TOGGLE_SLOT}px`;
         wrapper.appendChild(link);
 
         const childrenEl = document.createElement('div');

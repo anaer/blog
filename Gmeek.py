@@ -23,7 +23,7 @@ i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home"
 i18nCN={"Search":"搜索","switchTheme":"切换主题","link":"友情链接","home":"首页","comments":"评论","run":"网站运行","days":"天","Previous":"上一页","Next":"下一页", "First": "首页", "Last":"末页"}
 
 # 渲染器版本: 渲染逻辑变更时递增, 使全站帖子 HTML 缓存失效并重转
-RENDER_VERSION = 11
+RENDER_VERSION = 12
 
 # 摘要补重试的每构建上限, 防 API 故障时超时叠加拖死构建
 MAX_DESC_RETRY = 10
@@ -99,12 +99,21 @@ def search_settings(i18n_name, home_url=None):
 # 展示用固定时区: UTC+8
 TZ8 = timezone(timedelta(hours=8))
 
+def list_order(postListJson):
+    """列表顺序: 置顶优先, 再按更新时间降序, 同刻按编号兜底(已关闭 top=-1 排最后)。
+
+    列表页、文章页导航(nav.json 与静态兜底)、runAll 预排共用此序列, 三处不得各写一套。
+    """
+    return dict(sorted(postListJson.items(),
+                       key=lambda x: (x[1]["top"], x[1]["updatedAt"], int(x[1]["number"])),
+                       reverse=True))
+
 def nav_order(postListJson):
-    """导航序列: 全部文章按 (createdAt, number) 升序, 不受置顶/关闭影响。"""
-    return sorted(postListJson, key=lambda k: (postListJson[k]["createdAt"], int(postListJson[k]["number"])))
+    """导航序列: 与列表页同序, 使文章页的上一篇/下一篇与列表中的上下相邻一致。"""
+    return list(list_order(postListJson))
 
 def nav_neighbors(nav_keys, postListJson, number):
-    """按导航序列取相邻文章: (上一篇=更早, 下一篇=更晚), 端点返回 None。"""
+    """按导航序列取相邻文章: (上一篇=列表中的上一条, 下一篇=下一条), 端点返回 None。"""
     postNum = "P" + str(number)
     if postNum not in nav_keys:
         return None, None
@@ -334,8 +343,8 @@ class GMEEK():
         """
         生成列表页面
         """
-        # 排序规则: 1-是否置顶 2: 按更新时间降序
-        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["updatedAt"]),reverse=True))
+        # 排序规则见 list_order: 置顶优先, 再按更新时间降序
+        self.blogBase["postListJson"]=list_order(self.blogBase["postListJson"])
 
         postNum = len(self.blogBase["postListJson"])
         totalPages = (postNum + self.blogBase["onePageListNum"] - 1) // self.blogBase["onePageListNum"]
@@ -588,8 +597,8 @@ class GMEEK():
             except Exception as e:
                 print(f"skip issue #{getattr(issue, 'number', '?')}: {e}")
 
-        # 同plist排序, 便于post中获取上一篇和下一篇
-        self.blogBase["postListJson"]=dict(sorted(self.blogBase["postListJson"].items(),key=lambda x:(x[1]["top"],x[1]["createdAt"]),reverse=True))
+        # 与列表页同序(见 list_order), 便于 post 中获取上一篇和下一篇
+        self.blogBase["postListJson"]=list_order(self.blogBase["postListJson"])
 
         for post in self.blogBase["postListJson"].values():
             self.createPostHtml(post)
