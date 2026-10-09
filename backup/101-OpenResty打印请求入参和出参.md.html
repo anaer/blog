@@ -1,0 +1,222 @@
+
+  <article class="markdown-body">
+    <p>可以将配置放到http, server, location下, 用于不同范围<br />
+需修改白名单whitelist, 只打印关心的接口, 防止日志太多  </p>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h15a3 3 0 1 1 0 6h-4"/><path d="m16 16-2 2 2 2"/><path d="M3 18h5"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="octicon ic-fold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+<pre><span></span><code><span class="cl">    # 初始化变量</span><span class="cl">    set $req_headers "";</span><span class="cl">    set $req_body "";</span><span class="cl">    set $resp_headers "";</span><span class="cl">    set $resp_body "";</span><span class="cl"></span><span class="cl">    access_by_lua_block {</span><span class="cl">        -- 捕获请求头</span><span class="cl">        local headers = ngx.req.get_headers()</span><span class="cl">        local headers_str = ""</span><span class="cl">        for k, v in pairs(headers) do</span><span class="cl">            headers_str = headers_str .. "  " .. k .. ": " .. v .. "\n"</span><span class="cl">        end</span><span class="cl">        ngx.var.req_headers = headers_str</span><span class="cl"></span><span class="cl">        -- 捕获请求体</span><span class="cl">        ngx.req.read_body()</span><span class="cl">        local body = ngx.req.get_body_data()</span><span class="cl">        if not body then</span><span class="cl">            local file = ngx.req.get_body_file()</span><span class="cl">            if file then</span><span class="cl">                local f = io.open(file, "rb")</span><span class="cl">                body = f:read("*all")</span><span class="cl">                f:close()</span><span class="cl">            end</span><span class="cl">        end</span><span class="cl">        ngx.var.req_body = body or "-"</span><span class="cl">    }</span><span class="cl"></span><span class="cl">    body_filter_by_lua_block {</span><span class="cl">        local chunk = ngx.arg[1]</span><span class="cl">        if chunk then</span><span class="cl">            ngx.var.resp_body = (ngx.var.resp_body or "") .. chunk</span><span class="cl">        end</span><span class="cl">    }</span><span class="cl"></span><span class="cl">    log_by_lua_block {</span><span class="cl">        -- 定义白名单 URI</span><span class="cl">        local whitelist = {</span><span class="cl">            ["/translate"] = true,</span><span class="cl">            ["/test2"] = true</span><span class="cl">        }</span><span class="cl">        -- 获取当前请求的 URI</span><span class="cl">        local uri = ngx.var.uri</span><span class="cl">        -- 检查是否在白名单中</span><span class="cl">        if whitelist[uri] then</span><span class="cl">            local resp_headers = ngx.resp.get_headers()</span><span class="cl">            local headers_str = ""</span><span class="cl">            for k, v in pairs(resp_headers) do</span><span class="cl">                headers_str = headers_str .. "  " .. k .. ": " .. v .. "\n"</span><span class="cl">            end</span><span class="cl">            ngx.var.resp_headers = headers_str</span><span class="cl"></span><span class="cl">            local log_entry = string.format(</span><span class="cl">                "\nRequest: %s\nHeaders: \n%sBody: %s\n\nResponse Status: %s\nHeaders: \n%sBody: %s\n",</span><span class="cl">                ngx.var.request,</span><span class="cl">                ngx.var.req_headers,</span><span class="cl">                ngx.var.req_body,</span><span class="cl">                ngx.var.status,</span><span class="cl">                ngx.var.resp_headers,</span><span class="cl">                ngx.var.resp_body or "-"</span><span class="cl">            )</span><span class="cl"></span><span class="cl">            ngx.log(ngx.INFO, log_entry)</span><span class="cl">        else</span><span class="cl">            ngx.log(ngx.INFO, uri)</span><span class="cl">        end</span><span class="cl">    }</span></code></pre></div></div>
+<p>将代码单独放logs.conf文件中, 然后通过include引入<br />
+include /data/nginx/conf.d/include/logs.conf;  </p>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">conf</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h15a3 3 0 1 1 0 6h-4"/><path d="m16 16-2 2 2 2"/><path d="M3 18h5"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="octicon ic-fold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+<pre><span></span><code><span class="cl"># 初始化变量</span><span class="cl">set $req_headers "";</span><span class="cl">set $req_body "";</span><span class="cl">set $resp_headers "";</span><span class="cl">set $resp_body "";</span><span class="cl"></span><span class="cl">access_by_lua_block {</span><span class="cl">    -- 捕获请求头</span><span class="cl">    local headers = ngx.req.get_headers()</span><span class="cl">    local headers_str = ""</span><span class="cl">    for k, v in pairs(headers) do</span><span class="cl">        headers_str = headers_str .. k .. ": " .. tostring(v) .. "\n"</span><span class="cl">    end</span><span class="cl">    ngx.var.req_headers = headers_str</span><span class="cl"></span><span class="cl">    -- 捕获请求体</span><span class="cl">    ngx.req.read_body()</span><span class="cl">    local body = ngx.req.get_body_data()</span><span class="cl">    if not body then</span><span class="cl">        local file = ngx.req.get_body_file()</span><span class="cl">        if file then</span><span class="cl">            local f = io.open(file, "rb")</span><span class="cl">            body = f:read("*all")</span><span class="cl">            f:close()</span><span class="cl">        end</span><span class="cl">    end</span><span class="cl">    ngx.var.req_body = body or ""</span><span class="cl">}</span><span class="cl"></span><span class="cl">body_filter_by_lua_block {</span><span class="cl">    local content_type = ngx.header["Content-Type"] or ""</span><span class="cl">    -- 只保留文本或 JSON</span><span class="cl">    local is_text = content_type:find("^text/", 1, true)          -- text/*</span><span class="cl">    local is_json = content_type:find("application/json", 1, true)</span><span class="cl">    -- 如果不是文本/JSON，直接返回 [blob]</span><span class="cl">    if not is_text and not is_json then</span><span class="cl">        ngx.arg[1] = "[blob]"</span><span class="cl">        ngx.arg[2] = true   -- 标记为最后一块，结束流</span><span class="cl">        return</span><span class="cl">    end</span><span class="cl">    -- 否则继续累积原始内容</span><span class="cl">    local chunk = ngx.arg[1]</span><span class="cl">    if chunk then</span><span class="cl">        ngx.var.resp_body = (ngx.var.resp_body or "") .. chunk</span><span class="cl">    end</span><span class="cl">}</span><span class="cl"></span><span class="cl">log_by_lua_block {</span><span class="cl">    local log_entry = string.format(</span><span class="cl">        "========================================\n%s\n%s\n%s\n\nResponse: %s\n%s\n=====================================",</span><span class="cl">        ngx.var.request,</span><span class="cl">        ngx.var.req_headers,</span><span class="cl">        ngx.var.req_body,</span><span class="cl">        ngx.var.status,</span><span class="cl">        ngx.var.resp_body or ""</span><span class="cl">    )</span><span class="cl"></span><span class="cl">    ngx.log(ngx.ALERT, log_entry)</span><span class="cl">}</span></code></pre></div></div>
+  </article>
+  
+<style>
+.code-block-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.code-block-controls {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+}
+/* 内容区图标按钮统一语言: 常态半透明 + 主题 muted 色, hover 转不透明并加主题背景 */
+.fold-btn, .copy-btn, .code-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 4px;
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  opacity: .6;
+  transition: opacity 0.2s, background 0.2s;
+}
+.fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
+  opacity: 1;
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
+}
+.fold-btn svg { display: block; }
+.fold-btn .ic-fold { transition: transform 0.2s ease; }
+.code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
+/* 复制成功反馈: 图标切换为 check 并短暂转为绿色 */
+.copy-btn.copied {
+  color: var(--color-success-fg);
+  opacity: 1;
+}
+.code-toggle.off {
+  color: var(--color-primer-fg-disabled);
+}
+.highlight code {
+  counter-reset: cl;
+}
+.highlight .cl {
+  display: block;
+  counter-increment: cl;
+  padding-left: 2.8em;
+  position: relative;
+  line-height: 1.45;
+  /* 关键: .markdown-body pre>code 设了 white-space:pre, .cl 会继承它而无法换行;
+     显式声明 pre-wrap 才能保留缩进并允许自动换行 */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  /* 空行占位: 空 .cl 标签无 in-flow content, 默认 height:0, 会让空行「消失」
+     并与下一行挤在一起. min-height 锁定到一行高度, 保留视觉空行 */
+  min-height: 1.45em;
+  /* 行号槽位底色: 左侧 2em 染成低饱和度底色, 与代码区做视觉区分;
+     linear-gradient 只覆盖 padding 内的行号槽, 不侵入代码区; 收尾处 1px 边框强化列分隔
+     槽宽取 2em(与行号数字本身宽度贴合): 更宽会让行号整体偏右、离代码区的空档也变大 */
+  background-image:
+    linear-gradient(to right,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2em,
+      transparent 2em);
+}
+/* 深色主题(WorkBuddy 风): 行号槽位底色用中性白色微染(冷暖皆可), 不再带蓝灰调;
+   槽位 rgba(255,255,255,0.045) 在 #1a1c20 的底上呈现"略亮一档"的色块,
+   1px 分隔线 rgba(255,255,255,0.10) 同步提一档, 整体克制不抢代码区 */
+html[data-color-mode="dark"] .highlight .cl {
+  background-image:
+    linear-gradient(to right,
+      rgba(255, 255, 255, 0.045) 0,
+      rgba(255, 255, 255, 0.045) calc(2em - 1px),
+      rgba(255, 255, 255, 0.10) calc(2em - 1px),
+      rgba(255, 255, 255, 0.10) 2em,
+      transparent 2em);
+}
+.highlight .cl::before {
+  content: counter(cl);
+  position: absolute;
+  left: 0;
+  width: 2em;
+  text-align: center;
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  user-select: none;
+}
+.code-block-wrapper.folded .cl ~ .cl {
+  display: none;
+}
+/* 折叠态仅保留首行: 禁止换行但保留缩进(用 pre 而非 nowrap, 后者会吞掉空格), 长行横向滚动 */
+.code-block-wrapper.folded {
+  overflow-x: auto;
+}
+.code-block-wrapper.folded pre,
+.code-block-wrapper.folded .highlight .cl {
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap .cl {
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap pre {
+  white-space: pre;
+}
+.code-block-wrapper.nolines .cl {
+  padding-left: 0;
+  /* 行号关闭时一并撤掉槽位底色, 否则左侧会留一道与代码区不连贯的色块 */
+  background-image: none;
+}
+.code-block-wrapper.nolines .cl::before {
+  display: none;
+}
+/* 代码块语言标签: 左上角展示围栏语法(pygments 会丢弃语言类, 由渲染器回填) */
+.code-block-wrapper.has-lang {
+  padding-top: 22px;
+}
+.code-lang {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .5px;
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
+  padding: 0 6px;
+  border-radius: 4px;
+  user-select: none;
+  opacity: .85;
+}
+/* 移动端 / 触屏(hover: none): 控件常显并加大点按区域;
+   同时为控件预留顶部空间, 避免绝对定位的按钮遮挡代码首行 */
+@media (hover: none), (max-width: 767px) {
+  .code-block-controls {
+    top: 2px;
+    right: 2px;
+    gap: 0;
+  }
+  .code-block-wrapper,
+  .code-block-wrapper.has-lang {
+    padding-top: 30px;
+  }
+  /* 提高特异性以覆盖 .markdown-body .highlight pre{padding:16px} */
+  .code-block-wrapper pre,
+  .code-block-wrapper .highlight pre {
+    padding-top: 10px;
+  }
+  .fold-btn, .copy-btn, .code-toggle {
+    padding: 5px 8px;
+    opacity: 1;   /* 触屏无 hover, 常显 */
+  }
+  .code-lang {
+    top: 7px;
+    left: 8px;
+  }
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.code-block-wrapper').forEach(w => {
+    // 单行代码块无需折叠
+    if (w.querySelectorAll('.cl').length < 2) {
+      const fb = w.querySelector('.fold-btn');
+      if (fb) fb.style.display = 'none';
+    }
+
+    // 自动换行 / 行号开关(默认开启)
+    const wrapBtn = w.querySelector('.wrap-toggle');
+    const linesBtn = w.querySelector('.lines-toggle');
+    wrapBtn.addEventListener('click', () => {
+      wrapBtn.classList.toggle('off', w.classList.toggle('nowrap'));
+    });
+    linesBtn.addEventListener('click', () => {
+      linesBtn.classList.toggle('off', w.classList.toggle('nolines'));
+    });
+  });
+
+  // 复制功能(取 textContent, 折叠态也复制全文)
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+        }, 1500);
+      });
+    });
+  });
+
+  // 折叠功能: 折叠时保留首行预览(箭头经 CSS 旋转, 不依赖文本)
+  document.addEventListener('click', e => {
+    const foldBtn = e.target.closest('.fold-btn');
+    if (foldBtn) {
+      const wrapper = foldBtn.closest('.code-block-wrapper');
+      wrapper.classList.toggle('folded');
+    }
+  });
+});
+</script>
+
