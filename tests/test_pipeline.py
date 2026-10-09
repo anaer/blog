@@ -1759,6 +1759,43 @@ class TestFenceLangAliases:
         assert out == "```ini\nk = v"
 
 
+class TestHighlighterStack:
+    """高亮栈: 配色由 assets/highlight.css 的 class 规则提供, 不是 Pygments 内联样式。"""
+
+    def test_tokens_use_classes_not_inline_styles(self):
+        # 明暗双模式依赖 class 形式(两套 CSS 按 data-color-mode 作用域切换);
+        # 若改用 noclasses, Pygments 会把配色写成 <pre style="..."> 内联样式, 暗色模式失效。
+        # 断言同时覆盖 <pre> 标签属性与内容体, 并收窄到代码块内避免误伤
+        html = Markdown2GithubHtml().convert("```python\ndef f(x):\n    return x\n```")
+        m = re.search(r"<pre\b[^>]*>(.*?)</pre>", html, re.S)
+        assert m, "代码块 <pre> 未找到"
+        pre_open = m.group(0)[: m.group(0).find(">") + 1]
+        assert "style=" not in pre_open, "代码块出现内联样式 => 明暗双模式会失效"
+        assert "style=" not in m.group(1)
+        assert '<span class="k">' in m.group(1)
+
+    def test_indented_code_block_is_highlighted(self):
+        # codehilite 管**缩进**代码块(4 空格缩进、无围栏), pymdownx.highlight 只管围栏块;
+        # 去掉 codehilite 会让这类块静默失去高亮(实测 60-pm2常用命令.md 掉 345 个 token)
+        html = Markdown2GithubHtml().convert("段落\n\n    $ pm2 start app.js   # 启动\n    $ pm2 list\n")
+        m = re.search(r"<pre\b[^>]*>(.*?)</pre>", html, re.S)
+        assert m, "缩进代码块未渲染"
+        assert len(re.findall(r'<span class="(?!cl"|err)[a-z]+"', m.group(1))) > 0
+
+    def test_indented_block_uses_highlight_css_class(self):
+        # css_class 必须与 assets/highlight.css 的选择器一致(.highlight);
+        # 用 codehilite 的默认值会让缩进块拿不到任何配色
+        html = Markdown2GithubHtml().convert("段落\n\n    indented code\n")
+        assert 'class="codehilite"' not in html
+        assert '<div class="highlight">' in html
+
+    def test_fenced_code_extension_absent(self):
+        # fenced_code 已被 pymdownx.extra 的 superfences 覆盖(219 篇源文章实测输出一致);
+        # 两者并存会形成两套并行的围栏解析栈
+        mods = {type(e).__module__ for e in Markdown2GithubHtml().md.registeredExtensions}
+        assert "markdown.extensions.fenced_code" not in mods
+
+
 class TestTocIndicators:
     @staticmethod
     def _js():

@@ -261,12 +261,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     def __init__(self):
         """初始化 markdown 解析器，启用常用扩展，并设置多行文本自动换行"""
+        # 两条高亮路径并存, 各管一类代码块, 缺一不可:
+        #   pymdownx.highlight(经 superfences) 管**围栏**代码块;
+        #   codehilite 管**缩进**代码块(4 空格缩进、无围栏), 靠 css_class 对齐同一套 CSS。
+        # 配色全部来自 assets/highlight.css, 与 Pygments 主题无关, 故不设 pygments_style。
         extensions = [
-            'fenced_code',       # 代码块
-            'codehilite',        # 高亮
+            'codehilite',        # 缩进代码块(围栏块由 superfences 处理)
             'tables',
             'toc',
-            'pymdownx.extra',
+            'pymdownx.extra',    # 含 superfences
             'pymdownx.b64',
             'pymdownx.highlight',
             'pymdownx.emoji',
@@ -275,11 +278,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         extension_configs = {
             "codehilite": {
-                "css_class": "highlight",
+                "css_class": "highlight",  # 必设: 默认是 codehilite, 与 highlight.css 不匹配
                 "use_pygments": True,
-                "pygments_style": "monokai",
-                "linenums": False,
-                "wrapcode": True,  # 让代码块内容自动换行
+                "linenums": False,         # 行号由 .cl 行包裹 + CSS 计数器提供
+                "wrapcode": True,
             }
         }
         self.md = markdown.Markdown(extensions=extensions, extension_configs=extension_configs)

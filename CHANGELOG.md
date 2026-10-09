@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 26.1009.1740
+
+1. 清理高亮配置: 移除**无效**的 `codehilite.pygments_style: monokai`(实测改成 `default`/`friendly`/`github-dark` 输出均逐字节相同)与**冗余**的 `fenced_code` 扩展(已被 `pymdownx.extra` 的 superfences 覆盖)
+2. **保留** `codehilite` 扩展及其 `css_class: highlight`——它们**不是**死配置: `codehilite` 管**缩进**代码块(4 空格缩进、无围栏), `pymdownx.highlight` 只管围栏块; `css_class` 决定缩进块能否套上 `assets/highlight.css` 的配色(实测去掉任一项, 2 篇文章的 9 个缩进块会静默失去高亮, 单篇掉 345 个 token)
+3. 验证: 219 篇源文章在改动前后**逐字节一致**(含 `28-Git配置文件说明.md`、`60-pm2常用命令.md` 这两篇含缩进块的)
+4. 新增守卫测试 `TestHighlighterStack`: ①token 走 class 而非内联 `style`(明暗双模式的前提)②缩进代码块确实获得高亮 ③缩进块用 `highlight` 而非默认的 `codehilite` 类 ④`fenced_code` 不再注册; 全量 `250 passed`
+5. **更正记录**: 本轮先前一次提交曾误判「整个 codehilite 都是死的」并删除, 依据是 40 篇抽样(恰好不含缩进代码块)。改用全量 219 篇复核后发现该判断错误, 已恢复 codehilite 与 `css_class`。教训: 删除式改动的回归验证必须跑全量语料, 抽样会漏掉低频用法
+
 ## 26.1009.1730
 
 1. 新增围栏语言别名映射: 全量统计 220 篇源 markdown 的围栏语言(36 种), 其中 **11 种 Pygments 不认识**(`conf`/`jinja2`/`log`/`reg`/`jsonp`/`jsonc`/`cmd`/`rc`/`yml`/`tree`/`pip`), 这些块的代码此前全部降级为纯文本; 现按语义映射到等价词法(`conf`→`ini`、`jinja2`→`html+jinja`、`reg`→`registry`、`jsonp`/`jsonc`→`javascript`、`cmd`→`bash`、`rc`→`ini`、`yml`→`yaml`、`pip`→`bash`、`log`/`tree`→`text`)
