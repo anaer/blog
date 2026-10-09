@@ -1,68 +1,133 @@
 ### 查找字段生成csv
 
-```py
-python test.py > test.csv
-```
-
-
 ```python
 """
-查询所有表中带url的字段 取值包含xxx.com内容的字段
+查询所有表中字段名包含指定关键字，且取值包含指定内容的字段。
+
+用法示例：
+    python search_url_fields.py --column-pattern url --value-pattern xxx.com
+    python search_url_fields.py -c url -v xxx.com --limit 5
 """
+
+import argparse
+import sys
+
 import pymysql
 
-# MySQL连接配置
-DB_HOST = '127.0.0.1'           # 数据库主机
-DB_USER = 'root'                # 数据库用户名
-DB_PASSWORD = '123456'          # 数据库密码
-DB_NAME = 'INFORMATION_SCHEMA'  # 数据库名称
+# MySQL 连接配置（可改为从环境变量读取）
+DB_HOST = "127.0.0.1"
+DB_USER = "root"
+DB_PASSWORD = "123456"
+DB_NAME = "INFORMATION_SCHEMA"
 
-# 连接到MySQL数据库
-connection = pymysql.connect(
-    host=DB_HOST,
-    user=DB_USER,
-    password=DB_PASSWORD,
-    database=DB_NAME
-)
 
-# 创建游标对象
-cursor = connection.cursor()
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="查询所有表中字段名匹配指定模式、且取值包含指定内容的字段"
+    )
+    parser.add_argument(
+        "-c", "--column-pattern",
+        required=True,
+        help="字段名匹配模式，如 url（对应 LIKE '%%url%%'）",
+    )
+    parser.add_argument(
+        "-v", "--value-pattern",
+        required=True,
+        help="字段取值匹配内容，如 xxx.com（对应 LIKE '%%xxx.com%%'）",
+    )
+    parser.add_argument(
+        "-l", "--limit",
+        type=int,
+        default=1,
+        help="每个字段最多检查的行数（默认 1）",
+    )
+    parser.add_argument(
+        "--host", default=DB_HOST, help=f"数据库主机（默认 {DB_HOST}）"
+    )
+    parser.add_argument(
+        "--user", default=DB_USER, help=f"数据库用户名（默认 {DB_USER}）"
+    )
+    parser.add_argument(
+        "--password", default=DB_PASSWORD, help="数据库密码"
+    )
+    parser.add_argument(
+        "--database", default=DB_NAME, help=f"数据库名（默认 {DB_NAME}）"
+    )
+    return parser.parse_args()
 
-def get_tables_with_url_fields():
-    # 查询所有包含'url'字段的表和字段
-    query = """
-    SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME
-    FROM INFORMATION_SCHEMA.COLUMNS
-    WHERE COLUMN_NAME LIKE "%url%";
+
+def get_tables_with_matching_fields(cursor, column_pattern):
     """
-    cursor.execute(query)
+    查询所有包含匹配字段名的表和字段。
+    使用参数化查询避免 SQL 注入。
+    """
+    query = """
+        SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE COLUMN_NAME LIKE %s
+          AND TABLE_SCHEMA NOT IN ('information_schema', 'mysql', 'performance_schema', 'sys')
+    """
+    cursor.execute(query, (f"%{column_pattern}%",))
     return cursor.fetchall()
 
-def search_url_in_table(table_schema, table_name, column_name):
-    # 查询表中字段包含'xxx.com'的记录
-    query = f"SELECT * FROM {table_schema}.`{table_name}` WHERE {column_name} LIKE '%xxx.com%' limit 1"
-    cursor.execute(query)
-    results = cursor.fetchall()
 
-    if results:
-        print(f"{table_schema},{table_name},{column_name}");
+def search_value_in_table(cursor, table_schema, table_name, column_name, value_pattern, limit):
+    """
+    查询表中指定字段的取值是否包含目标内容。
+    返回 True 表示命中。
+    """
+    # 表名和字段名用反引号包裹，防止关键字冲突
+    query = (
+        f"SELECT 1 FROM `{table_schema}`.`{table_name}` "
+        f"WHERE `{column_name}` LIKE %s "
+        f"LIMIT %s"
+    )
+    try:
+        cursor.execute(query, (f"%{value_pattern}%", limit))
+        return cursor.fetchone() is not None
+    except pymysql.err.ProgrammingError as e:
+        # 某些字段可能不是字符串类型，LIKE 会报错，跳过即可
+        print(f"  [跳过] {table_schema}.{table_name}.{column_name} 类型不支持 LIKE 查询：{e}", file=sys.stderr)
+        return False
+
 
 def main():
-    try:
-        # 获取所有包含'url'字段的表和字段
-        tables_and_columns = get_tables_with_url_fields()
+    args = parse_args()
 
-        # 逐个表和字段查询
+    connection = None
+    cursor = None
+    try:
+        connection = pymysql.connect(
+            host=args.host,
+            user=args.user,
+            password=args.password,
+            database=args.database,
+            charset="utf8mb4",  # 处理中文编码
+        )
+        cursor = connection.cursor()
+
+        tables_and_columns = get_tables_with_matching_fields(cursor, args.column_pattern)
+        print(f"共找到 {len(tables_and_columns)} 个字段名包含 '{args.column_pattern}' 的字段\n")
+
+        hit_count = 0
         for table_schema, table_name, column_name in tables_and_columns:
-            search_url_in_table(table_schema, table_name, column_name)
+            if search_value_in_table(
+                cursor, table_schema, table_name, column_name,
+                args.value_pattern, args.limit,
+            ):
+                print(f"{table_schema},{table_name},{column_name}")
+                hit_count += 1
+
+        print(f"\n命中 {hit_count} 个字段包含 '{args.value_pattern}'")
 
     except Exception as e:
-        print(f"发生错误: {e}")
-
+        print(f"发生错误: {e}", file=sys.stderr)
     finally:
-        # 关闭游标和连接
-        cursor.close()
-        connection.close()
+        if cursor:
+            cursor.close()
+        if connection:
+            connection.close()
+
 
 if __name__ == "__main__":
     main()
