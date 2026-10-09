@@ -34,6 +34,7 @@
 ## 关联文档
 
 - [ADR-0015](ADR-0015-code-block-line-height-wrap-mobile.md)：修订本 ADR 决策 2 的 `has-lang` 顶部留白（移动端间距随之调整）。
+- [ADR-0028](ADR-0028-fence-language-alias-map.md)：在本 ADR 的标签机制之上补围栏语言别名映射（标签仍取原文，本 ADR 的抽取逻辑是其前提）。
 
 ## 下一步
 

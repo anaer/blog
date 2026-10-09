@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 26.1009.1730
+
+1. 新增围栏语言别名映射: 全量统计 220 篇源 markdown 的围栏语言(36 种), 其中 **11 种 Pygments 不认识**(`conf`/`jinja2`/`log`/`reg`/`jsonp`/`jsonc`/`cmd`/`rc`/`yml`/`tree`/`pip`), 这些块的代码此前全部降级为纯文本; 现按语义映射到等价词法(`conf`→`ini`、`jinja2`→`html+jinja`、`reg`→`registry`、`jsonp`/`jsonc`→`javascript`、`cmd`→`bash`、`rc`→`ini`、`yml`→`yaml`、`pip`→`bash`、`log`/`tree`→`text`)
+2. 实测改进: 全站 694 个代码块中,**有高亮的块从 502 提升到 575**(+73 块)
+3. 实现方式: 新增 `md2html.py#Markdown2GithubHtml._normalize_fence_langs`, 在转换前把围栏 info string 的首个 token 换成等价词法(其余如 `title="…"` 原样保留); **左上角标签仍显示原文**——标签由 `_extract_fence_langs` 从同一文本抽取, 与映射解耦
+4. **未启用 `guess_lang`**: 实测 Pygments 自动识别在本站内容上不可靠(已知语言的块拿去猜, 45 块只猜对 5 块; 无语言块多为说明文字/输出样例, 会被猜成 `scdoc`/`verilog` 等)。错误高亮比不高亮更糟, 故改用确定性的别名映射
+5. 映射依据经抽样核对: `conf` 34 块中 15 块为 ini 风格(fail2ban/键值)、6 块为 nginx 指令, 选 `ini` 覆盖更广且对 nginx 块不产生 `err` token(实测); `cmd` 3 块实为 `reg add`/`curl` 命令行, 实测 `batch` 给 0 token、`bash` 能正确着色, 故映射到 `bash` 而非 `batch`
+6. 测试: 新增 `TestFenceLangAliases` 9 例(别名目标在 Pygments 中存在、被映射语言确实获得高亮、标签保持原文、`log`/`tree` 保持不高亮、已知语言不受影响、未登记语言仍为纯文本、只替换首个 token、正文提及语言名不被误改、未闭合围栏不吞后续行); 全量 `246 passed`
+7. 反证: 移除映射条目、或把 `convert` 还原为不调用归一化 —— 对应用例均失败; 标签在两版下都保持原文(证明标签与映射解耦)
+8. 审查: `docs/review/2026-10-09-review-fence-lang-aliases.md`, 0 critical/high/medium、2 low
+9. 文档: 新建 `ADR-0028-fence-language-alias-map.md`(记录映射表 + 不采用 `guess_lang` 的实测依据); ADR-0011 增加反向链接; `glossary.md` 新增「围栏语言别名映射」
+
 ## 26.1009.1640
 
 1. 新增中文短词子串检索(轻量双轨): 实测 Pagefind 对 2 字短词不稳(29 篇真实文章: 标题内两字词约 31.5% 搜不到目标文章, 完整标题/小节标题/多字词 0% 漏检), 故只对「标题 + 小节标题」建一条连续子串索引补齐该档, 不做正文轨

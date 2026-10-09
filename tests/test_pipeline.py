@@ -1676,6 +1676,89 @@ class TestCodeLangLabel:
         assert html.find(">python<") < html.find(">bash<")
 
 
+class TestFenceLangAliases:
+    """围栏语言别名: Pygments 不认识的写法映射到等价词法, 标签仍显示原文。
+
+    键取自全量源文件的围栏统计(36 种里 11 种不被识别); 映射只影响高亮, 不改左上角标签。
+    """
+
+    @staticmethod
+    def _html(md):
+        return Markdown2GithubHtml().convert(md)
+
+    @staticmethod
+    def _label(html):
+        m = re.search(r'class="code-lang"[^>]*>([^<]*)<', html)
+        return m.group(1) if m else None
+
+    @staticmethod
+    def _tokens(html):
+        # 排除项目自己的行包裹 .cl, 只数 Pygments 的 token span
+        return len(re.findall(r'<span class="(?!cl")[a-z]+"', html))
+
+    def test_every_alias_target_exists_in_pygments(self):
+        from pygments.lexers import get_lexer_by_name
+        from pygments.util import ClassNotFound
+        for src, target in Markdown2GithubHtml.FENCE_LANG_ALIASES.items():
+            try:
+                get_lexer_by_name(target)
+            except ClassNotFound:
+                raise AssertionError(f"别名目标不存在: {src} -> {target}")
+
+    def test_aliased_langs_get_highlighted(self):
+        cases = [
+            ("conf", "[section]\nkey = value"),
+            ("jinja2", "{% if x %}\n{{ y }}\n{% endif %}"),
+            ("reg", 'Windows Registry Editor Version 5.00\n[HKEY_X]\n"a"="b"'),
+            ("yml", "a: 1\nb: 2"),
+            ("pip", "pip install markdown"),
+            ("cmd", "curl -X POST 'http://x' -H 'a: b'"),
+        ]
+        for lang, code in cases:
+            html = self._html(f"```{lang}\n{code}\n```")
+            assert self._tokens(html) > 0, f"{lang} 未获得高亮"
+            # 目标词法须"认得"该内容: 出现 err token 说明映射选错了词法
+            assert 'class="err"' not in html, f"{lang} 的映射目标产生了 err token"
+
+    def test_label_keeps_original_language(self):
+        for lang in ("conf", "jinja2", "yml", "cmd"):
+            assert self._label(self._html(f"```{lang}\nx\n```")) == lang
+
+    def test_plain_targets_stay_plain(self):
+        # log / tree 映射到 text: 保持不高亮(与映射前一致, 但意图显式)
+        for lang in ("log", "tree"):
+            html = self._html(f"```{lang}\nanything\n```")
+            assert self._tokens(html) == 0, lang
+            assert self._label(html) == lang
+
+    def test_known_langs_unaffected(self):
+        html = self._html("```python\ndef f(x):\n    return x\n```")
+        assert self._label(html) == "python"
+        assert self._tokens(html) > 0
+
+    def test_unregistered_lang_stays_plain(self):
+        html = self._html("```foobarlang\nx = 1\n```")
+        assert self._tokens(html) == 0
+        assert self._label(html) == "foobarlang"
+
+    def test_only_first_token_is_replaced(self):
+        # info string 的其余部分必须原样保留
+        md = '```conf title="配置"\nk = v\n```'
+        assert Markdown2GithubHtml()._normalize_fence_langs(md).startswith('```ini title="配置"')
+
+    def test_non_fence_text_untouched(self):
+        md = "普通段落提到 conf 不该被改\n\n```conf\nk = v\n```"
+        out = Markdown2GithubHtml()._normalize_fence_langs(md)
+        assert out.split("\n")[0] == "普通段落提到 conf 不该被改"
+        assert "```ini" in out
+
+    def test_unclosed_fence_does_not_swallow_rest(self):
+        # 未闭合围栏(无结束标记)不应影响其后的行
+        md = "```conf\nk = v"
+        out = Markdown2GithubHtml()._normalize_fence_langs(md)
+        assert out == "```ini\nk = v"
+
+
 class TestTocIndicators:
     @staticmethod
     def _js():

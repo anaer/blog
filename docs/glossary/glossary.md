@@ -25,3 +25,4 @@
 | **Pagefind UI 预拉（idle prefetch）** | 首页 `requestIdleCallback` 内插入 `<link rel="prefetch" as="script" href="<homeUrl>/pagefind/pagefind-ui.js">`，让"首页→检索页"路径省下 `pagefind-ui.js` 的冷下载；不影响首页渲染（见 ADR-0026） |
 | **Pagefind 装饰器（decorate）** | 检索页在 `PagefindUI` 渲染结果后挂标签 chip + issue 图标的脚本；通过 `MutationObserver` 触发，幂等标记 `data-gmDecorated` 防重挂载（见 ADR-0021）；`requestAnimationFrame` 节流见 ADR-0026 |
 | **子串检索索引（search-index）** | 构建期由 `scripts/build_search_index.py` 从站点 HTML 抽取「标题 + 小节标题」生成的 JSON 索引，检索页按连续子串匹配，补齐 Pagefind 对中文 2 字短词的漏检；结果以独立容器插在 Pagefind 结果之上（见 ADR-0027） |
+| **围栏语言别名映射** | `md2html.py#Markdown2GithubHtml.FENCE_LANG_ALIASES`：把 Pygments 不认识的围栏语言名（如 `conf`/`jinja2`）映射到等价词法供高亮，**标签仍显示原文**；替代不可靠的自动识别（见 ADR-0028） |

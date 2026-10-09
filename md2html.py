@@ -232,6 +232,33 @@ document.addEventListener('DOMContentLoaded', () => {
     # github-markdown-css 要求的最外层容器
     WRAPPER_CSS = "markdown-body"
 
+    # 站内实际使用、但 Pygments 不认识的围栏语言名 -> 等价词法。
+    # 键取自全量源文件的围栏统计(36 种里有 11 种不被识别); 右侧目标均在 Pygments 中验证存在。
+    # 映射依据(抽样核对真实代码块后确定):
+    #   conf    —— 站内 conf 块以 ini 风格(fail2ban/键值)为主, nginx 指令在 ini 下基本不着色、不误导
+    #   jinja2  —— 模板 + Jinja 标签
+    #   log     —— 日志/终端输出无通用词法, 显式声明"不高亮"(与现状一致, 但意图明确)
+    #   reg     —— Windows 注册表导出
+    #   jsonp / jsonc —— 带 // 注释的 JSON; json 词法会把注释标成 err token, javascript 不会
+    #   cmd     —— 站内 cmd 块实为命令行(reg/curl 等), 实测 batch 词法给 0 token、bash 能正确着色
+    #   rc      —— 站内为 Mintty 配置(键值风格)
+    #   yml     —— yaml 的同义写法
+    #   tree    —— 目录树
+    #   pip     —— shell 命令
+    FENCE_LANG_ALIASES = {
+        "conf": "ini",
+        "jinja2": "html+jinja",
+        "log": "text",
+        "reg": "registry",
+        "jsonp": "javascript",
+        "jsonc": "javascript",
+        "cmd": "bash",
+        "rc": "ini",
+        "yml": "yaml",
+        "tree": "text",
+        "pip": "bash",
+    }
+
     def __init__(self):
         """初始化 markdown 解析器，启用常用扩展，并设置多行文本自动换行"""
         extensions = [
@@ -274,6 +301,34 @@ document.addEventListener('DOMContentLoaded', () => {
             elif m.group(1)[0] == fence:
                 fence = None
         return langs
+
+    def _normalize_fence_langs(self, md_text):
+        """把 FENCE_LANG_ALIASES 中的围栏语言名换成等价词法, 供高亮使用。
+
+        只替换 info string 的首个 token, 其余(如 title="...")原样保留;
+        未登记的写法一字不动。标签仍用原始语言名(由 _extract_fence_langs 从同一文本抽取),
+        故本函数只影响高亮, 不影响左上角显示。
+        """
+        out = []
+        fence = None
+        for line in md_text.split('\n'):
+            stripped = line.lstrip()
+            m = re.match(r'^(`{3,}|~{3,})(.*)$', stripped)
+            if m:
+                ticks = m.group(1)
+                if fence is None:
+                    fence = ticks[0]
+                    parts = m.group(2).strip().split(None, 1)
+                    mapped = self.FENCE_LANG_ALIASES.get(parts[0].lower()) if parts else None
+                    if mapped:
+                        indent = line[:len(line) - len(stripped)]
+                        tail = (' ' + parts[1]) if len(parts) > 1 else ''
+                        out.append(f'{indent}{ticks}{mapped}{tail}')
+                        continue
+                elif ticks[0] == fence:
+                    fence = None
+            out.append(line)
+        return '\n'.join(out)
 
     def _add_controls(self, html: str, langs=None) -> str:
         """
@@ -386,9 +441,10 @@ document.addEventListener('DOMContentLoaded', () => {
         """把 markdown 文本渲染成完整 HTML"""
         # 围栏外每行末补两个空格以自动换行(硬换行); 代码块内不加, 避免污染代码
         md_text = self._add_hard_breaks(md_text)
-        body_html = self.md.convert(md_text)
-        # 高亮器会丢弃围栏语言, 转换前按出现顺序预扫描, 转换后回填标签
+        # 高亮器会丢弃围栏语言, 转换前按出现顺序预扫描, 转换后回填标签。
+        # 标签取原始语言名; 高亮另走归一化后的等价词法(见 FENCE_LANG_ALIASES)
         langs = self._extract_fence_langs(md_text)
+        body_html = self.md.convert(self._normalize_fence_langs(md_text))
         body_html = self._add_controls(body_html, langs)
         body_html = self._add_lazy_loading(body_html)
 
