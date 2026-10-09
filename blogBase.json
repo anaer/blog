@@ -652,16 +652,15 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/28",
             "commentNum": 0,
             "createdAt": 1735873536,
-            "updatedAt": 1768980050,
+            "updatedAt": 1791538605,
             "top": 0,
             "style": "",
             "script": "",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86Git\u6570\u636e\u4f20\u8f93\u7684\u57fa\u672c\u6d41\u7a0b\uff0c\u5305\u62ec\u5de5\u4f5c\u533a\u3001\u7d22\u5f15\u3001\u672c\u5730\u4ed3\u5e93\u548c\u8fdc\u7a0b\u4ed3\u5e93\u4e4b\u95f4\u7684\u64cd\u4f5c\uff0c\u4ee5\u53ca.git/config\u548c.gitattributes\u6587\u4ef6\u7684\u914d\u7f6e\u7ec6\u8282\u3002\u4e3b\u8981\u5185\u5bb9\u6db5\u76d6\u4e86\u4ed3\u5e93\u914d\u7f6e\u3001\u7528\u6237\u4fe1\u606f\u3001\u6362\u884c\u7b26\u5904\u7406\u3001\u5408\u5e76\u7b56\u7565\u3001\u6587\u4ef6\u7c7b\u578b\u5904\u7406\u548c\u591a\u4ed3\u5e93\u73af\u5883\u914d\u7f6e\u7b49\u65b9\u9762\u3002\u5efa\u8bae\u5728\u4f7f\u7528Git\u65f6\uff0c\u6ce8\u610f\u4e0d\u540c\u64cd\u4f5c\u7cfb\u7edf\u5bf9\u6587\u4ef6\u6743\u9650\u548c\u6362\u884c\u7b26\u7684\u5904\u7406\u5dee\u5f02\uff0c\u540c\u65f6\u6839\u636e\u9879\u76ee\u9700\u6c42\u5408\u7406\u914d\u7f6e\u5408\u5e76\u7b56\u7565\u548c\u5dee\u5f02\u5de5\u5177\uff0c\u4ee5\u63d0\u9ad8\u5de5\u4f5c\u6548\u7387\u3002",
+            "description": "",
             "createdDate": "2025-01-03",
-            "dateLabelColor": "hsl(327, 31%, 23%)",
-            "buildedAt": 1768980050,
-            "renderVersion": 3,
-            "dateLabelHue": 327
+            "dateLabelHue": 327,
+            "buildedAt": 1791538605,
+            "renderVersion": 14
         },
         "P29": {
             "number": "29",

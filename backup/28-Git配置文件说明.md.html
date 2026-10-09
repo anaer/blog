@@ -1,160 +1,25 @@
 
   <article class="markdown-body">
     <h2 id="git">git数据传输</h2>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code><span class="cl">workspace       index          local repository      remote repository  </span>
-<span class="cl">-------------commit -a----------------&gt;|  </span>
-<span class="cl">--------add------&gt;|--------commit-----&gt;|  </span>
-<span class="cl">                                        -------push--------&gt;|  </span>
-<span class="cl">&lt;------------------------pull-------------------------------|  </span>
-<span class="cl">                                       |&lt;------fetch--------|  </span>
-<span class="cl">&lt;--------------checkout head-----------|  </span>
-<span class="cl">&lt;-----checkout----|  </span>
-<span class="cl">&lt;-----------------diff head------------|  </span>
-<span class="cl">&lt;------diff-------|  </span></code></pre></div></div>
-<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">conf</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code><span class="cl">workspace            用户的工作空间   </span>
-<span class="cl">index                数据缓存区   </span>
-<span class="cl">local repository     本地仓库   </span>
-<span class="cl">remote repository    远程仓库</span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h15a3 3 0 1 1 0 6h-4"/><path d="m16 16-2 2 2 2"/><path d="M3 18h5"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="octicon ic-fold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+<pre><span></span><code><span class="cl">workspace       index          local repository      remote repository</span><span class="cl">-------------commit -a----------------&gt;|</span><span class="cl">--------add------&gt;|--------commit-----&gt;|</span><span class="cl">                                        -------push--------&gt;|</span><span class="cl">&lt;------------------------pull-------------------------------|</span><span class="cl">                                       |&lt;------fetch--------|</span><span class="cl">&lt;--------------checkout head-----------|</span><span class="cl">&lt;-----checkout----|</span><span class="cl">&lt;-----------------diff head------------|</span><span class="cl">&lt;------diff-------|</span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">conf</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h15a3 3 0 1 1 0 6h-4"/><path d="m16 16-2 2 2 2"/><path d="M3 18h5"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="octicon ic-fold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+<pre><span></span><code><span class="cl">workspace            用户的工作空间   </span><span class="cl">index                数据缓存区   </span><span class="cl">local repository     本地仓库   </span><span class="cl">remote repository    远程仓库</span></code></pre></div></div>
 
 <h2 id="gitconfig">.git/config</h2>
-<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">conf</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code><span class="cl">[core]  </span>
-<span class="cl">    # repositoryformatversion 指定 Git 仓库的版本，默认值为 0，通常不需要修改  </span>
-<span class="cl">    repositoryformatversion = 0    </span>
-<span class="cl"></span>
-<span class="cl">    # filemode 表示是否跟踪文件的权限变化  </span>
-<span class="cl">    # true: 跟踪权限变化（适用于 Linux/macOS）  </span>
-<span class="cl">    # false: 忽略权限变化（适用于 Windows）  </span>
-<span class="cl">    filemode = false    </span>
-<span class="cl"></span>
-<span class="cl">    # bare 表示是否为裸仓库（无工作区，仅存储 Git 数据）  </span>
-<span class="cl">    # true: 裸仓库，适用于远程仓库  </span>
-<span class="cl">    # false: 非裸仓库，适用于本地开发  </span>
-<span class="cl">    bare = false    </span>
-<span class="cl"></span>
-<span class="cl">    # logallrefupdates 表示是否记录所有引用的更新（如分支、标签等的变化）  </span>
-<span class="cl">    # true: 启用，便于日志追踪  </span>
-<span class="cl">    # false: 禁用  </span>
-<span class="cl">    logallrefupdates = true    </span>
-<span class="cl"></span>
-<span class="cl">    # ignorecase 指定是否忽略文件名的大小写差异  </span>
-<span class="cl">    # true: 忽略大小写（适用于 Windows/Mac）  </span>
-<span class="cl">    # false: 区分大小写（适用于 Linux）  </span>
-<span class="cl">    ignorecase = false    </span>
-<span class="cl"></span>
-<span class="cl">    # autocrlf 指定是否在换行符转换上启用自动化处理  </span>
-<span class="cl">    # true: 提交时将 CRLF 转换为 LF，检出时将 LF 转换为 CRLF（适用于 Windows）  </span>
-<span class="cl">    # input: 提交时将 CRLF 转换为 LF，检出时不做转换（适用于 Linux/Mac）  </span>
-<span class="cl">    # false: 不进行任何换行符转换  </span>
-<span class="cl">    autocrlf = false    </span>
-<span class="cl"></span>
-<span class="cl">[remote "origin"]  </span>
-<span class="cl">    # url 是远程仓库的地址，支持 HTTP(S)、SSH 等协议  </span>
-<span class="cl">    url = https://github.com/xxx/xxx.git    </span>
-<span class="cl"></span>
-<span class="cl">    # fetch 定义从远程仓库抓取分支的规则  </span>
-<span class="cl">    # +refs/heads/main:refs/remotes/origin/main 表示同步远程主分支到本地  </span>
-<span class="cl">    fetch = +refs/heads/main:refs/remotes/origin/main    </span>
-<span class="cl"></span>
-<span class="cl">[branch "main"]  </span>
-<span class="cl">    # remote 指定当前分支关联的远程仓库  </span>
-<span class="cl">    remote = origin    </span>
-<span class="cl"></span>
-<span class="cl">    # merge 指定当前分支与远程仓库的哪个分支进行合并  </span>
-<span class="cl">    merge = refs/heads/main    </span>
-<span class="cl"></span>
-<span class="cl">    # vscode-merge-base 是 Visual Studio Code 的扩展字段，用于记录分支合并基线  </span>
-<span class="cl">    vscode-merge-base = origin/main    </span>
-<span class="cl"></span>
-<span class="cl">[user]  </span>
-<span class="cl">    # name 是用户的 Git 提交签名用户名  </span>
-<span class="cl">    name = random    </span>
-<span class="cl"></span>
-<span class="cl">    # email 是用户的 Git 提交签名邮箱地址  </span>
-<span class="cl">    email = r@n.om    </span>
-<span class="cl"></span>
-<span class="cl"># 比较工具  </span>
-<span class="cl">[diff]  </span>
-<span class="cl">    tool = diffmerge  </span>
-<span class="cl">[difftool "diffmerge"]  </span>
-<span class="cl">    cmd = \"D:/WinMerge/WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\"  </span>
-<span class="cl">[merge]  </span>
-<span class="cl">    tool = diffmerge  </span>
-<span class="cl">[mergetool]  </span>
-<span class="cl">    keepbackup = false  </span>
-<span class="cl">[mergetool "diffmerge"]  </span>
-<span class="cl">    cmd = \"D:/WinMerge/WinMergeU.exe\" \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\"  </span>
-<span class="cl">    trustexitcode = true  </span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">conf</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h15a3 3 0 1 1 0 6h-4"/><path d="m16 16-2 2 2 2"/><path d="M3 18h5"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="octicon ic-fold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="k">[core]</span></span><span class="cl"><span class="w">    </span><span class="c1"># repositoryformatversion 指定 Git 仓库的版本，默认值为 0，通常不需要修改</span></span><span class="cl"><span class="w">    </span><span class="na">repositoryformatversion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="w">    </span><span class="c1"># filemode 表示是否跟踪文件的权限变化</span></span><span class="cl"><span class="w">    </span><span class="c1"># true: 跟踪权限变化（适用于 Linux/macOS）</span></span><span class="cl"><span class="w">    </span><span class="c1"># false: 忽略权限变化（适用于 Windows）</span></span><span class="cl"><span class="w">    </span><span class="na">filemode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="w">    </span><span class="c1"># bare 表示是否为裸仓库（无工作区，仅存储 Git 数据）</span></span><span class="cl"><span class="w">    </span><span class="c1"># true: 裸仓库，适用于远程仓库</span></span><span class="cl"><span class="w">    </span><span class="c1"># false: 非裸仓库，适用于本地开发</span></span><span class="cl"><span class="w">    </span><span class="na">bare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="w">    </span><span class="c1"># logallrefupdates 表示是否记录所有引用的更新（如分支、标签等的变化）</span></span><span class="cl"><span class="w">    </span><span class="c1"># true: 启用，便于日志追踪</span></span><span class="cl"><span class="w">    </span><span class="c1"># false: 禁用</span></span><span class="cl"><span class="w">    </span><span class="na">logallrefupdates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="w">    </span><span class="c1"># ignorecase 指定是否忽略文件名的大小写差异</span></span><span class="cl"><span class="w">    </span><span class="c1"># true: 忽略大小写（适用于 Windows/Mac）</span></span><span class="cl"><span class="w">    </span><span class="c1"># false: 区分大小写（适用于 Linux）</span></span><span class="cl"><span class="w">    </span><span class="na">ignorecase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="w">    </span><span class="c1"># autocrlf 指定是否在换行符转换上启用自动化处理</span></span><span class="cl"><span class="w">    </span><span class="c1"># true: 提交时将 CRLF 转换为 LF，检出时将 LF 转换为 CRLF（适用于 Windows）</span></span><span class="cl"><span class="w">    </span><span class="c1"># input: 提交时将 CRLF 转换为 LF，检出时不做转换（适用于 Linux/Mac）</span></span><span class="cl"><span class="w">    </span><span class="c1"># false: 不进行任何换行符转换</span></span><span class="cl"><span class="w">    </span><span class="na">autocrlf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="k">[remote "origin"]</span></span><span class="cl"><span class="w">    </span><span class="c1"># url 是远程仓库的地址，支持 HTTP(S)、SSH 等协议</span></span><span class="cl"><span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/xxx/xxx.git</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="w">    </span><span class="c1"># fetch 定义从远程仓库抓取分支的规则</span></span><span class="cl"><span class="w">    </span><span class="c1"># +refs/heads/main:refs/remotes/origin/main 表示同步远程主分支到本地</span></span><span class="cl"><span class="w">    </span><span class="na">fetch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">+refs/heads/main:refs/remotes/origin/main</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="k">[branch "main"]</span></span><span class="cl"><span class="w">    </span><span class="c1"># remote 指定当前分支关联的远程仓库</span></span><span class="cl"><span class="w">    </span><span class="na">remote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">origin</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="w">    </span><span class="c1"># merge 指定当前分支与远程仓库的哪个分支进行合并</span></span><span class="cl"><span class="w">    </span><span class="na">merge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">refs/heads/main</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="w">    </span><span class="c1"># vscode-merge-base 是 Visual Studio Code 的扩展字段，用于记录分支合并基线</span></span><span class="cl"><span class="w">    </span><span class="na">vscode-merge-base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">origin/main</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="k">[user]</span></span><span class="cl"><span class="w">    </span><span class="c1"># name 是用户的 Git 提交签名用户名</span></span><span class="cl"><span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">random</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="w">    </span><span class="c1"># email 是用户的 Git 提交签名邮箱地址</span></span><span class="cl"><span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">r@n.om</span><span class="w">  </span></span><span class="cl"></span><span class="cl"><span class="c1"># 比较工具</span></span><span class="cl"><span class="k">[diff]</span></span><span class="cl"><span class="w">    </span><span class="na">tool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diffmerge</span></span><span class="cl"><span class="k">[difftool "diffmerge"]</span></span><span class="cl"><span class="w">    </span><span class="na">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">\"D:/WinMerge/WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\"</span></span><span class="cl"><span class="k">[merge]</span></span><span class="cl"><span class="w">    </span><span class="na">tool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">diffmerge</span></span><span class="cl"><span class="k">[mergetool]</span></span><span class="cl"><span class="w">    </span><span class="na">keepbackup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span></span><span class="cl"><span class="k">[mergetool "diffmerge"]</span></span><span class="cl"><span class="w">    </span><span class="na">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">\"D:/WinMerge/WinMergeU.exe\" \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\"</span></span><span class="cl"><span class="w">    </span><span class="na">trustexitcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span></span></code></pre></div></div>
 <h2 id="gitattritubes">.gitattritubes</h2>
-<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">ini</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code><span class="cl"># 设置文本文件的换行符处理规则  </span>
-<span class="cl"># text: 指定文件为文本文件，Git 将自动处理换行符  </span>
-<span class="cl"># eol=lf: 仓库中保存 LF（适用于 Linux/Mac）  </span>
-<span class="cl"># eol=crlf: 仓库中保存 CRLF（适用于 Windows）  </span>
-<span class="cl"># auto: 根据系统自动设置换行符  </span>
-<span class="cl">* text eol=lf  </span>
-<span class="cl"></span>
-<span class="cl"># 为 Markdown 文件强制指定为文本文件，使用 LF 换行符  </span>
-<span class="cl">*.md text eol=lf  </span>
-<span class="cl"></span>
-<span class="cl"># 为批处理脚本文件强制指定为文本文件，使用 CRLF 换行符  </span>
-<span class="cl">*.bat text eol=crlf  </span>
-<span class="cl"></span>
-<span class="cl"># 忽略二进制文件的自动换行符处理  </span>
-<span class="cl"># binary: 指定文件为二进制文件，Git 不会进行任何换行符转换  </span>
-<span class="cl">*.png binary  </span>
-<span class="cl">*.jpg binary  </span>
-<span class="cl">*.zip binary  </span>
-<span class="cl"></span>
-<span class="cl"># 禁用合并策略的处理，防止合并冲突对某些文件类型生效  </span>
-<span class="cl"># merge=ours: 在合并时使用“我们”的版本，忽略对方的更改  </span>
-<span class="cl">*.lock merge=ours  </span>
-<span class="cl"></span>
-<span class="cl"># 为 JSON 文件指定自定义差异工具  </span>
-<span class="cl"># diff=custom_json: 使用自定义工具处理 JSON 文件的差异  </span>
-<span class="cl">*.json diff=custom_json  </span>
-<span class="cl"></span>
-<span class="cl"># 配置大文件的存储，使用 Git LFS  </span>
-<span class="cl"># filter=lfs: 启用 Git LFS（大文件存储）过滤器  </span>
-<span class="cl">*.psd filter=lfs  </span>
-<span class="cl">*.mp4 filter=lfs  </span>
-<span class="cl"></span>
-<span class="cl"># 指定文件在合并时自动接受所有更改  </span>
-<span class="cl"># merge=union: 合并时自动保留双方的更改  </span>
-<span class="cl">*.txt merge=union  </span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">ini</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h15a3 3 0 1 1 0 6h-4"/><path d="m16 16-2 2 2 2"/><path d="M3 18h5"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="octicon ic-fold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="c1"># 设置文本文件的换行符处理规则</span></span><span class="cl"><span class="c1"># text: 指定文件为文本文件，Git 将自动处理换行符</span></span><span class="cl"><span class="c1"># eol=lf: 仓库中保存 LF（适用于 Linux/Mac）</span></span><span class="cl"><span class="c1"># eol=crlf: 仓库中保存 CRLF（适用于 Windows）</span></span><span class="cl"><span class="c1"># auto: 根据系统自动设置换行符</span></span><span class="cl"><span class="na">* text eol</span><span class="o">=</span><span class="s">lf</span></span><span class="cl"></span><span class="cl"><span class="c1"># 为 Markdown 文件强制指定为文本文件，使用 LF 换行符</span></span><span class="cl"><span class="na">*.md text eol</span><span class="o">=</span><span class="s">lf</span></span><span class="cl"></span><span class="cl"><span class="c1"># 为批处理脚本文件强制指定为文本文件，使用 CRLF 换行符</span></span><span class="cl"><span class="na">*.bat text eol</span><span class="o">=</span><span class="s">crlf</span></span><span class="cl"></span><span class="cl"><span class="c1"># 忽略二进制文件的自动换行符处理</span></span><span class="cl"><span class="c1"># binary: 指定文件为二进制文件，Git 不会进行任何换行符转换</span></span><span class="cl"><span class="na">*.png binary</span></span><span class="cl"><span class="na">*.jpg binary</span></span><span class="cl"><span class="na">*.zip binary</span></span><span class="cl"></span><span class="cl"><span class="c1"># 禁用合并策略的处理，防止合并冲突对某些文件类型生效</span></span><span class="cl"><span class="c1"># merge=ours: 在合并时使用“我们”的版本，忽略对方的更改</span></span><span class="cl"><span class="na">*.lock merge</span><span class="o">=</span><span class="s">ours</span></span><span class="cl"></span><span class="cl"><span class="c1"># 为 JSON 文件指定自定义差异工具</span></span><span class="cl"><span class="c1"># diff=custom_json: 使用自定义工具处理 JSON 文件的差异</span></span><span class="cl"><span class="na">*.json diff</span><span class="o">=</span><span class="s">custom_json</span></span><span class="cl"></span><span class="cl"><span class="c1"># 配置大文件的存储，使用 Git LFS</span></span><span class="cl"><span class="c1"># filter=lfs: 启用 Git LFS（大文件存储）过滤器</span></span><span class="cl"><span class="na">*.psd filter</span><span class="o">=</span><span class="s">lfs</span></span><span class="cl"><span class="na">*.mp4 filter</span><span class="o">=</span><span class="s">lfs</span></span><span class="cl"></span><span class="cl"><span class="c1"># 指定文件在合并时自动接受所有更改</span></span><span class="cl"><span class="c1"># merge=union: 合并时自动保留双方的更改</span></span><span class="cl"><span class="na">*.txt merge</span><span class="o">=</span><span class="s">union</span></span></code></pre></div></div>
 <h2 id="_1">多仓库目录环境配置</h2>
 <p>采用 <code>includeIf</code> 指令实现智能切换：  </p>
-<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">ini</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code><span class="cl"><span class="c1"># ~/.gitconfig 主配置文件  </span></span>
-<span class="cl"><span class="k">[includeIf "gitdir:D:/work/"]</span><span class="w">  </span></span>
-<span class="cl"><span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-work</span><span class="w">  </span><span class="c1"># 工作账号配置  </span></span>
-<span class="cl"></span>
-<span class="cl"><span class="k">[includeIf "gitdir:D:/personal/"]</span><span class="w">  </span></span>
-<span class="cl"><span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span><span class="w">  </span><span class="c1"># 私人账号配置  </span></span>
-<span class="cl"></span>
-<span class="cl"><span class="k">[includeIf "onbranch:main"]</span><span class="w">  </span></span>
-<span class="cl"><span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span><span class="w">  </span></span>
-<span class="cl"></span>
-<span class="cl"><span class="k">[includeIf "hasconfig:remote.*.url:https://github.com/**"]</span><span class="w">  </span></span>
-<span class="cl"><span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span><span class="w">   </span></span></code></pre></div></div>
-<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">ini</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code><span class="cl"><span class="c1"># ~/.gitconfig-work 工作专用配置  </span></span>
-<span class="cl"><span class="k">[user]</span><span class="w">  </span></span>
-<span class="cl"><span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">公司开发者</span><span class="w">  </span></span>
-<span class="cl"><span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">work@company.com</span><span class="w">  </span></span>
-<span class="cl"><span class="w">    </span><span class="na">signingkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">WORK-SIGN-KEY</span><span class="w">  </span></span>
-<span class="cl"></span>
-<span class="cl"><span class="k">[core]</span><span class="w">  </span></span>
-<span class="cl"><span class="w">    </span><span class="na">autocrlf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">input</span><span class="w">  </span></span></code></pre></div></div>
-<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M12 3 6 9h3v4h2V9h3z"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 3h1v1H2zM4.5 3h9v1h-9zM2 7h1v1H2zM4.5 7h9v1h-9zM2 11h1v1H2zM4.5 11h9v1h-9z"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="ic-fold" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 5 3.5 10h9z"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg></button></div>
-<pre><span></span><code><span class="cl"><span class="c1"># ~/.gitconfig-personal 私人配置  </span></span>
-<span class="cl"><span class="k">[user]</span><span class="w">  </span></span>
-<span class="cl"><span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">个人开发者</span><span class="w">  </span></span>
-<span class="cl"><span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">me@domain.com</span><span class="w">  </span></span>
-<span class="cl"><span class="k">[github]</span><span class="w">  </span></span>
-<span class="cl"><span class="w">    </span><span class="na">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">xxxx-xxxx-xxxx-xxxx</span><span class="w">  </span></span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">ini</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h15a3 3 0 1 1 0 6h-4"/><path d="m16 16-2 2 2 2"/><path d="M3 18h5"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="octicon ic-fold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="c1"># ~/.gitconfig 主配置文件</span></span><span class="cl"><span class="k">[includeIf "gitdir:D:/work/"]</span></span><span class="cl"><span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-work</span><span class="w">  </span><span class="c1"># 工作账号配置</span></span><span class="cl"></span><span class="cl"><span class="k">[includeIf "gitdir:D:/personal/"]</span></span><span class="cl"><span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span><span class="w">  </span><span class="c1"># 私人账号配置</span></span><span class="cl"></span><span class="cl"><span class="k">[includeIf "onbranch:main"]</span></span><span class="cl"><span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span></span><span class="cl"></span><span class="cl"><span class="k">[includeIf "hasconfig:remote.*.url:https://github.com/**"]</span></span><span class="cl"><span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.gitconfig-personal</span><span class="w"> </span></span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper has-lang"><span class="code-lang" aria-hidden="true">ini</span><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h15a3 3 0 1 1 0 6h-4"/><path d="m16 16-2 2 2 2"/><path d="M3 18h5"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="octicon ic-fold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="c1"># ~/.gitconfig-work 工作专用配置</span></span><span class="cl"><span class="k">[user]</span></span><span class="cl"><span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">公司开发者</span></span><span class="cl"><span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">work@company.com</span></span><span class="cl"><span class="w">    </span><span class="na">signingkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">WORK-SIGN-KEY</span></span><span class="cl"></span><span class="cl"><span class="k">[core]</span></span><span class="cl"><span class="w">    </span><span class="na">autocrlf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">input</span></span></code></pre></div></div>
+<div class="highlight"><div class="code-block-wrapper"><div class="code-block-controls"><button class="code-toggle wrap-toggle" title="自动换行" aria-label="自动换行"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M3 12h15a3 3 0 1 1 0 6h-4"/><path d="m16 16-2 2 2 2"/><path d="M3 18h5"/></svg></button><button class="code-toggle lines-toggle" title="行号" aria-label="行号"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></button><button class="fold-btn" title="折叠" aria-label="折叠"><svg class="octicon ic-fold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button><button class="copy-btn" title="复制" aria-label="复制"><svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+<pre><span></span><code><span class="cl"><span class="c1"># ~/.gitconfig-personal 私人配置</span></span><span class="cl"><span class="k">[user]</span></span><span class="cl"><span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">个人开发者</span></span><span class="cl"><span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">me@domain.com</span></span><span class="cl"><span class="k">[github]</span></span><span class="cl"><span class="w">    </span><span class="na">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">xxxx-xxxx-xxxx-xxxx</span></span></code></pre></div></div>
   </article>
   
 <style>
@@ -170,42 +35,34 @@
   z-index: 2;
   display: flex;
   gap: 2px;
-  opacity: 0.45;
-  transition: opacity 0.2s;
 }
-.code-block-wrapper:hover .code-block-controls,
-.code-block-wrapper:focus-within .code-block-controls {
-  opacity: 1;
-}
+/* 内容区图标按钮统一语言: 常态半透明 + 主题 muted 色, hover 转不透明并加主题背景 */
 .fold-btn, .copy-btn, .code-toggle {
   border: none;
   background: transparent;
   cursor: pointer;
-  padding: 2px 6px;
+  padding: 2px 4px;
   font-size: 16px;
   line-height: 1;
-  outline: none;
-  box-shadow: none;
-  transition: background 0.2s;
+  border-radius: 4px;
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  opacity: .6;
+  transition: opacity 0.2s, background 0.2s;
 }
 .fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+  opacity: 1;
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
 }
 .fold-btn svg { display: block; }
 .fold-btn .ic-fold { transition: transform 0.2s ease; }
 .code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
-.fold-btn, .code-toggle {
-  color: #6e7681;
-}
-[data-color-mode="dark"] .fold-btn,
-[data-color-mode="dark"] .code-toggle {
-  color: #8b949e;
+/* 复制成功反馈: 图标切换为 check 并短暂转为绿色 */
+.copy-btn.copied {
+  color: var(--color-success-fg);
+  opacity: 1;
 }
 .code-toggle.off {
-  color: #c6cbd1;
-}
-[data-color-mode="dark"] .code-toggle.off {
-  color: #484f58;
+  color: var(--color-primer-fg-disabled);
 }
 .highlight code {
   counter-reset: cl;
@@ -213,43 +70,72 @@
 .highlight .cl {
   display: block;
   counter-increment: cl;
-  padding-left: 3.2em;
+  padding-left: 2.8em;
   position: relative;
   line-height: 1.45;
+  /* 关键: .markdown-body pre>code 设了 white-space:pre, .cl 会继承它而无法换行;
+     显式声明 pre-wrap 才能保留缩进并允许自动换行 */
+  white-space: pre-wrap;
   overflow-wrap: anywhere;
+  word-break: normal;
+  /* 空行占位: 空 .cl 标签无 in-flow content, 默认 height:0, 会让空行「消失」
+     并与下一行挤在一起. min-height 锁定到一行高度, 保留视觉空行 */
+  min-height: 1.45em;
+  /* 行号槽位底色: 左侧 2em 染成低饱和度底色, 与代码区做视觉区分;
+     linear-gradient 只覆盖 padding 内的行号槽, 不侵入代码区; 收尾处 1px 边框强化列分隔
+     槽宽取 2em(与行号数字本身宽度贴合): 更宽会让行号整体偏右、离代码区的空档也变大 */
+  background-image:
+    linear-gradient(to right,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2em,
+      transparent 2em);
+}
+/* 深色主题(WorkBuddy 风): 行号槽位底色用中性白色微染(冷暖皆可), 不再带蓝灰调;
+   槽位 rgba(255,255,255,0.045) 在 #1a1c20 的底上呈现"略亮一档"的色块,
+   1px 分隔线 rgba(255,255,255,0.10) 同步提一档, 整体克制不抢代码区 */
+html[data-color-mode="dark"] .highlight .cl {
+  background-image:
+    linear-gradient(to right,
+      rgba(255, 255, 255, 0.045) 0,
+      rgba(255, 255, 255, 0.045) calc(2em - 1px),
+      rgba(255, 255, 255, 0.10) calc(2em - 1px),
+      rgba(255, 255, 255, 0.10) 2em,
+      transparent 2em);
 }
 .highlight .cl::before {
   content: counter(cl);
   position: absolute;
   left: 0;
-  width: 2.4em;
-  text-align: right;
-  color: #6e7681;
+  width: 2em;
+  text-align: center;
+  color: var(--fgColor-muted, var(--color-fg-muted));
   user-select: none;
-}
-[data-color-mode="dark"] .highlight .cl::before {
-  color: #8b949e;
 }
 .code-block-wrapper.folded .cl ~ .cl {
   display: none;
 }
-/* 折叠态仅保留首行: 禁止换行, 长行横向滚动, 保证预览严格为一行 */
+/* 折叠态仅保留首行: 禁止换行但保留缩进(用 pre 而非 nowrap, 后者会吞掉空格), 长行横向滚动 */
 .code-block-wrapper.folded {
   overflow-x: auto;
 }
 .code-block-wrapper.folded pre,
 .code-block-wrapper.folded .highlight .cl {
-  white-space: nowrap;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.code-block-wrapper.nowrap .cl {
+  white-space: pre;
   overflow-wrap: normal;
 }
 .code-block-wrapper.nowrap pre {
   white-space: pre;
 }
-.code-block-wrapper.nowrap .cl {
-  overflow-wrap: normal;
-}
 .code-block-wrapper.nolines .cl {
   padding-left: 0;
+  /* 行号关闭时一并撤掉槽位底色, 否则左侧会留一道与代码区不连贯的色块 */
+  background-image: none;
 }
 .code-block-wrapper.nolines .cl::before {
   display: none;
@@ -266,16 +152,38 @@
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 12px;
   letter-spacing: .5px;
-  color: #6e7681;
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
   padding: 0 6px;
   border-radius: 4px;
   user-select: none;
   opacity: .85;
 }
-[data-color-mode="dark"] .code-lang {
-  color: #8b949e;
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
+/* 移动端 / 触屏(hover: none): 控件常显并加大点按区域;
+   同时为控件预留顶部空间, 避免绝对定位的按钮遮挡代码首行 */
+@media (hover: none), (max-width: 767px) {
+  .code-block-controls {
+    top: 2px;
+    right: 2px;
+    gap: 0;
+  }
+  .code-block-wrapper,
+  .code-block-wrapper.has-lang {
+    padding-top: 30px;
+  }
+  /* 提高特异性以覆盖 .markdown-body .highlight pre{padding:16px} */
+  .code-block-wrapper pre,
+  .code-block-wrapper .highlight pre {
+    padding-top: 10px;
+  }
+  .fold-btn, .copy-btn, .code-toggle {
+    padding: 5px 8px;
+    opacity: 1;   /* 触屏无 hover, 常显 */
+  }
+  .code-lang {
+    top: 7px;
+    left: 8px;
+  }
 }
 </style>
 <script>
@@ -303,9 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const code = btn.parentElement.parentElement.querySelector('pre code').textContent;
       navigator.clipboard.writeText(code).then(() => {
-        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><path fill="green" d="M7.629 15.314l-4.243-4.243 1.414-1.414 2.829 2.828 6.364-6.364 1.414 1.414z"/></svg>';
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
         setTimeout(() => {
-          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align:middle"><rect x="6" y="2" width="9" height="13" rx="2" fill="#555"/><rect x="3" y="5" width="9" height="13" rx="2" fill="#aaa"/></svg>';
+          btn.classList.remove('copied');
+          btn.innerHTML = '<svg class="octicon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
         }, 1500);
       });
     });
