@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 26.1009.1610
+
+1. 修复检索加载 spinner 误伤终态: Pagefind UI 1.5.2 用同一个 `.pagefind-ui__message` 承载 loading / 零结果 / 结果计数三种消息, 原实现给该元素无差别加旋转 `::before`, 导致「N results for …」「No results for …」这类终态也挂着永不停止的加载指示器; 改用 `#search .pagefind-ui__message:not(:has(+ .pagefind-ui__results))::before` 只作用于 loading 态(计数/零结果消息后恒接 `<ol class="pagefind-ui__results">`, loading 消息不接)
+2. 修复假阳性回归用例 `test_process_result_uses_single_abs_url_key`: 原正则 `\{(.*?)\}` 非贪婪, 捕获止于 `result.meta || {}` 的首个 `}`, 真正的赋值行不在范围内, 断言仅因**注释文本**含 `absUrl(result.url)` 而通过(反证: 还原 `urlKeys` 旧实现后该用例仍通过); 改为锚定 `return result;` 并先去注释再断言
+3. 测试加固: `test_lookup_no_longer_falls_back_to_pathname` 的 `new URL(` 断言为空转(真实回归路径经 `urlKeys`, 不会把 `new URL(` 引入 lookup 体), 改为断言 `urlKeys` 不存在; `test_mutation_observer_uses_raf_throttle` 的正则允许 `.observe(` 前空白以兼容多行形态, pending-flag 断言收敛到回调体内; `test_loading_state_styled` 补 spinner 作用域断言
+4. 四条修复均经反证(还原修复前形态 -> 用例必须失败且失败原因与预期一致 -> 恢复后通过); 全量 `225 passed`; CSS 花括号平衡、内联 JS `node --check` 5/5 通过
+5. 文档: ADR-0026 决策 6 按代码事实改写(原文引用了不存在的 `.pagebusf__search-input--loading` 类名与 `::after`, 与实现不符), 「未解决风险」「验证」同步更新, 「下一步」改为「无需后续动作」
+
+## 26.1009.1530
+
+1. 检索页加载链去阻塞: `pagefind-ui.js` 改 `defer` + head 内加 `<link rel="preload" as="script">` 提前声明, 让浏览器在解析 head 时就开始拉包, 与 HTML 解析并行
+2. 首页 idle 预拉 `pagefind-ui.js`: `base.html` 在 `window load` 后用 `requestIdleCallback` 插入 `<link rel="prefetch" as="script">`, 对「首页/列表/文章页 → 检索页」路径省下 ~250KB 冷下载; `requestIdleCallback` 不存在时降级 `setTimeout`, 不阻塞首屏渲染
+3. `PagefindUI` 配置: `pageSize` 上调到 20(分页"Load more"触发频次按 200 篇经验值从 ~30% 降到 ~10%)、`showSubResults` 显式 `true`(保留段落级相关性高亮)、新增 `debounceTimeoutMs: 250`(略紧于 Pagefind 默认 300, 减少连续键入时的冗余查询)
+4. `processResult` 取消 URL 双键冗余: 历史上为"防御 `result.url` 与 DOM `href` 编码/前缀差异"曾同时按 abs URL 与 pathname 索引, 当前部署下两者派生同一字符串, 直接按 abs URL 查即可; `lookup` 函数相应简化, 体内不再调用 `new URL().pathname`
+5. `MutationObserver` 加 `requestAnimationFrame` 节流: Pagefind 渲染结果时插入多个 DOM 节点, 同帧内多次触发合并为一次 `decorate`; `decorate` 自身已有 `data-gmDecorated` 幂等标记, 节流不改变结果, 仅减少反复 `querySelectorAll` 扫描
+6. UX 加载提示: Pagefind UI 1.5.2 在查询中插入 `<p class="pagefind-ui__message">`(默认 "Searching [SEARCH_TERM]..."), 给该元素加主题色 + 旋转 `::before` spinner, 让等待状态更明显; 不依赖 Pagefind 内部 loading 修饰类(避免升级版本时类名漂移)
+7. 测试: 新增 `TestSearchPerformance`(9 例: defer、preload、pageSize=20、showSubResults=true、debounce=250ms、processResult 单键、lookup 不走 pathname、raf 节流、`pagefind-ui__message` 样式)与 `TestIdlePrefetch`(2 例: `requestIdleCallback`+`window.load` 监听、动态创建的 `prefetch` 链属性赋值), 共 11 例; 全量 `225 passed in 3.03s`
+8. 文档: 新建 `ADR-0026-pagefind-search-performance.md`(90 行); `glossary.md` 新增「Pagefind UI 预拉(idle prefetch)」「Pagefind 装饰器(decorate)」两条; ADR-0007/0021/0018 增加反向链接; ADR 编号未进入代码/测试/模板(由 `TestAdrBoundary` 守护)
+
 ## 26.1008.2130
 
 1. 「相关文章」区块改为透明无框: 容器由 `class="SideNav related-posts border"` 收敛为 `class="related-posts"`(撤掉的这两个类正是底色 `canvas-subtle` 与 1px 边框的来源), `.related-posts` 显式 `background:none;border:0`, 去掉 `border-radius`

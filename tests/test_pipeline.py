@@ -1104,6 +1104,124 @@ class TestSearchResultLabelLink:
         assert 'pagefind-ui__result-source' in html
 
 
+class TestSearchPerformance:
+    """检索性能优化: 加载链去阻塞 + 每查询渲染减负 + 装饰器 raf 节流 + 加载状态视觉提示。"""
+
+    @staticmethod
+    def _html():
+        return TestSearchPageSmoke._render("search.html", TestSearchPageSmoke._plist_base())
+
+    def test_pagefind_ui_script_is_deferred(self):
+        # 加载链去阻塞: pagefind-ui.js 必须 async/defer 加载, 不再同步阻塞 HTML 解析
+        html = self._html()
+        m = re.search(r'<script\s+([^>]*src="[^"]*pagefind-ui\.js"[^>]*)>', html)
+        assert m, "pagefind-ui.js <script> 未找到"
+        attrs = m.group(1)
+        # 允许 defer 或 async; 同步(无修饰)会被这条规则挡住, 触发即代表阻塞回归
+        assert ("defer" in attrs) or ("async" in attrs), attrs
+
+    def test_pagefind_ui_is_preloaded(self):
+        # 加载链去阻塞: head 内必须有 <link rel="preload" as="script"> 提前声明,
+        # 让浏览器在解析 head 时就开始拉包, 与 HTML 解析并行
+        html = self._html()
+        m = re.search(r'<link\s+[^>]*rel="preload"[^>]*as="script"[^>]*>', html)
+        assert m, "缺少 <link rel=preload as=script> 提前声明"
+        assert "pagefind-ui.js" in m.group(0), "preload 必须指向 pagefind-ui.js"
+
+    def test_page_size_is_twenty(self):
+        # 每查询 DOM 量级决策: pageSize 由 Pagefind 默认 5 上调到 20,
+        # "Load more" 触发频次下降(200 篇索引经验值 ~30% → ~10%)
+        html = self._html()
+        m = re.search(r"pageSize:\s*(\d+)", html)
+        assert m, "PagefindUI.pageSize 未声明"
+        assert int(m.group(1)) == 20, m.group(1)
+
+    def test_sub_results_kept_true(self):
+        # showSubResults 显式 true, 不被 Pagefind 默认 (false) 吞掉;
+        # 用户确认保留段落级匹配高亮, 相关性线索优先于每查询 DOM 成本
+        html = self._html()
+        m = re.search(r"showSubResults:\s*(true|false)", html)
+        assert m, "PagefindUI.showSubResults 未声明"
+        assert m.group(1) == "true", m.group(1)
+
+    def test_debounce_timeout_is_250ms(self):
+        # debounceTimeoutMs=250 略紧于 Pagefind 默认 300, 减少连续键入时的冗余查询
+        html = self._html()
+        m = re.search(r"debounceTimeoutMs:\s*(\d+)", html)
+        assert m, "PagefindUI.debounceTimeoutMs 未声明"
+        assert int(m.group(1)) == 250, m.group(1)
+
+    def test_process_result_uses_single_abs_url_key(self):
+        # processResult 体内不再调用 urlKeys 双键索引, 只用 absUrl 单键写入 metaByUrl
+        html = self._html()
+        # 捕获锚定到 return 语句: 非贪婪 \} 会停在 `result.meta || {}` 的首个 }, 捕获不到赋值行
+        m = re.search(r"processResult:\s*function\s*\(result\)\s*\{(.*?)\n\s*return result;", html, re.S)
+        assert m, "PagefindUI.processResult 未找到"
+        body = re.sub(r"//[^\n]*", "", m.group(1))   # 去注释, 断言只依赖代码
+        assert "urlKeys(" not in body, "processResult 不应再调用 urlKeys 双键冗余"
+        assert "metaByUrl[absUrl(result.url)] = info" in body, "processResult 应直接用 absUrl(result.url) 写入 metaByUrl"
+
+    def test_lookup_no_longer_falls_back_to_pathname(self):
+        # lookup 体内不再依赖 urlKeys 的 pathname 兜底分支, 单查 abs URL
+        html = self._html()
+        m = re.search(r"function lookup\(u\)\s*\{(.*?)\n\s*\}", html, re.S)
+        assert m, "lookup 函数未找到"
+        body = re.sub(r"//[^\n]*", "", m.group(1))
+        assert "urlKeys" not in body, "lookup 不应再依赖 urlKeys 的 pathname 兜底"
+        assert "absUrl" in body and "metaByUrl" in body
+
+    def test_mutation_observer_uses_raf_throttle(self):
+        # MutationObserver 回调必须用 requestAnimationFrame 节流,
+        # 同一帧内多次触发合并为一次 decorate; 避免 Pagefind 渲染时反复 querySelectorAll
+        html = self._html()
+        # .observe( 前允许空白: 兼容单行 `}).observe(` 与多行 `})\n  .observe(` 两种形态
+        m = re.search(r"new MutationObserver\(function\s*\(\)\s*\{(.*?)\}\)\s*\.observe\(", html, re.S)
+        assert m, "MutationObserver 创建语句未找到"
+        body = m.group(1)
+        assert "requestAnimationFrame" in body, "observer 回调必须包含 requestAnimationFrame 节流"
+        # pending flag 防止同帧多次入队, 断言收敛到回调体内
+        assert re.search(r"rafPending|\bpending\b", body), "observer 回调内缺少 raf pending flag"
+
+    def test_loading_state_styled(self):
+        # spinner 只作用于 loading 态的消息: 计数/零结果消息后恒接 .pagefind-ui__results,
+        # 故必须用 :not(:has(+ ...)) 把终态排除, 否则终态会出现永不停止的加载指示器
+        html = self._html()
+        assert ".pagefind-ui__message" in html
+        assert ":not(:has(+ .pagefind-ui__results))" in html, "spinner 必须限定在 loading 态, 不得作用于计数/零结果消息"
+        assert "::before" in html
+        assert "rotate(360deg)" in html, "spinner 旋转动画未声明"
+
+
+class TestIdlePrefetch:
+    """首页 idle 预拉 pagefind-ui.js: 让"首页 → 检索页"路径省下 ~250KB 冷下载。"""
+
+    @staticmethod
+    def _html(template="base.html"):
+        return TestSearchPageSmoke._render(template, TestSearchPageSmoke._plist_base())
+
+    def test_base_html_prefetches_pagefind_ui_on_idle(self):
+        # base.html 必须在 window load 后用 requestIdleCallback 插入 prefetch 链
+        # (无 requestIdleCallback 时降级 setTimeout, 不阻塞首屏)
+        html = self._html()
+        assert "requestIdleCallback" in html
+        assert "prefetch" in html
+        # 监听 window load 事件而非 DOMContentLoaded, 保证主路径渲染完毕后再预拉
+        assert re.search(r"window\.addEventListener\(\s*['\"]load['\"]", html)
+
+    def test_idle_prefetch_targets_pagefind_ui_bundle(self):
+        # prefetch 链是动态创建, 不在静态渲染结果里出现 —— 校验 JS 内 createElement("link")
+        # 的属性赋值正确: rel=prefetch, as=script, href 含 pagefind-ui.js
+        html = self._html()
+        # 找到 idle callback 函数体内 createElement 块
+        m = re.search(r"ric\(function\s*\(\)\s*\{(.*?)\}\);", html, re.S)
+        assert m, "requestIdleCallback 函数体未找到"
+        body = m.group(1)
+        assert 'createElement("link")' in body or "createElement('link')" in body
+        assert "l.rel" in body and "prefetch" in body
+        assert "l.as" in body and "script" in body
+        assert "l.href" in body and "pagefind-ui.js" in body
+
+
 class TestThemeSwitch:
     """主题切换: modeSwitch 必须按名读取 data-color-mode。
 

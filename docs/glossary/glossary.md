@@ -22,3 +22,5 @@
 | **标签色相（--label-hue）** | 标签与日期标签的配色基准：底色与字色在 CSS 里按主题推导（浅色浅底深字、深色深底浅字）。色相来源由配置项 `labelColorMode` 决定——`derived`（默认）按标签名经 `md5` 派生，`github` 取 GitHub 标签色的色相；两种模式共用同一套渲染（见 ADR-0020） |
 | **列表序（list_order）** | 全站文章的唯一排列：置顶优先 → 更新时间降序 → 编号兜底（已关闭沉底）。列表页、关联数据 `nav.json`、全量构建预排三处共用；`nav.json` 的序即文章页「相关文章」同分条目之间的次级序（见 ADR-0022） |
 | **关联文章（.related-posts）** | 文章页底部区块：关联度 = 与当前文章共享的标签数，由 `assets/nav.js` 运行时按 `nav.json` 算出并渲染，最多 5 条；无命中、无标签或数据拉取失败时整块移除（见 ADR-0022） |
+| **Pagefind UI 预拉（idle prefetch）** | 首页 `requestIdleCallback` 内插入 `<link rel="prefetch" as="script" href="<homeUrl>/pagefind/pagefind-ui.js">`，让"首页→检索页"路径省下 `pagefind-ui.js` 的冷下载；不影响首页渲染（见 ADR-0026） |
+| **Pagefind 装饰器（decorate）** | 检索页在 `PagefindUI` 渲染结果后挂标签 chip + issue 图标的脚本；通过 `MutationObserver` 触发，幂等标记 `data-gmDecorated` 防重挂载（见 ADR-0021）；`requestAnimationFrame` 节流见 ADR-0026 |

@@ -56,6 +56,7 @@ Pagefind 的组件 UI（`pagefind-ui.js`）**不提供结果模板**：与渲染
 ## 关联文档
 
 - [ADR-0007](ADR-0007-on-site-search-pagefind.md)：本 ADR 在其检索页与索引范围之上扩展结果的展示内容。
+- [ADR-0026](ADR-0026-pagefind-search-performance.md)：在本 ADR 的 `processResult` / 装饰器结构之上做精简（取消 URL 双键、装饰器 raf 节流），不改变结果展示内容。
 
 ## 下一步
 

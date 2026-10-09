@@ -46,6 +46,7 @@
 
 - 检索入口扩展至文章页：[ADR-0012 文章页搜索框](ADR-0012-post-page-search-box.md)
 - [ADR-0021](ADR-0021-search-result-meta.md)：在其检索页与索引范围之上扩展结果的展示内容（标签 + issue 入口）。
+- [ADR-0026](ADR-0026-pagefind-search-performance.md)：在其形态之上做加载链 / 每查询渲染 / 跨页面 warmup 优化，不动索引范围与 Pagefind 版本。
 
 ## 下一步
 

@@ -46,6 +46,7 @@
 ## 关联文档
 
 - [ADR-0012](ADR-0012-post-page-search-box.md)：本 ADR 将其 `form.post-search` 与文章页内联样式并入共享组件。
+- [ADR-0026](ADR-0026-pagefind-search-performance.md)：本 ADR 的共享组件被其「首页 idle 预拉 pagefind-ui.js」复用——`base.html` 在 `.site-search` 同一上下文里追加 idle prefetch。
 
 ## 下一步
 

@@ -20,6 +20,22 @@
             document.head.appendChild(s);
         });
     </script>
+    {# 首页 idle 预拉检索页 UI 包: 让"首页 → 检索页"路径省去 ~250KB 冷下载。
+       requestIdleCallback 让浏览器空闲时才发起网络请求, 不阻塞首屏渲染;
+       prefetch 而非 preload, 仅为下一次导航做缓存预热, 当前页无需立即消费。
+       直接访问检索页的用户不受影响, 不增加任何阻塞请求。 #}
+    <script>
+        window.addEventListener("load", function () {
+            var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 1); };
+            ric(function () {
+                var l = document.createElement("link");
+                l.rel = "prefetch";
+                l.as = "script";
+                l.href = "{{ blogBase['homeUrl'] }}/pagefind/pagefind-ui.js";
+                document.head.appendChild(l);
+            });
+        });
+    </script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
