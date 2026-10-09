@@ -84,6 +84,12 @@ jobs:
           cp -a /opt/Gmeek/backup ${{ github.workspace }}
           cp /opt/Gmeek/blogBase.json ${{ github.workspace }}
 
+      - name: Build substring search index
+        # 中文短词子串索引(标题 + 小节标题), 补齐 Pagefind 对 2 字短词的漏检。
+        # 与 pagefind 同理: 必须在合并后的完整站点上生成, 增量构建时 docs 只含本次重渲染的文章。
+        # 脚本在 /opt/Gmeek(源码 clone), 仅标准库, 用系统 python3 直跑, 不依赖 uv 环境
+        run: python3 /opt/Gmeek/scripts/build_search_index.py docs
+
       - name: Build search index
         # 必须在合并后的完整站点上建索引: 增量构建时 /opt/Gmeek/docs 只含本次重渲染的文章
         run: npx -y pagefind@1.5.2 --site docs

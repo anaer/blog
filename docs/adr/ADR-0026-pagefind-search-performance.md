@@ -85,6 +85,7 @@ ADR-0007 / ADR-0021 已锁定检索页形态（`pagefind-ui.js` + `?q=` 深链 +
 - [ADR-0007](ADR-0007-on-site-search-pagefind.md)：本 ADR 在其检索页形态之上做性能优化。
 - [ADR-0021](ADR-0021-search-result-meta.md)：本 ADR 在其 `processResult` / 装饰器结构之上做精简。
 - [ADR-0018](ADR-0018-unified-search-box.md)：本 ADR 在其首页搜索框之上叠加 `prefetch` 路径。
+- [ADR-0027](ADR-0027-chinese-substring-search-index.md)：在其 `processTerm` 挂接面上扩展中文短词子串检索（同文件，结构变更需互相复核）。
 
 ## 下一步
 

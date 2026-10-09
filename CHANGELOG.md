@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 26.1009.1640
+
+1. 新增中文短词子串检索(轻量双轨): 实测 Pagefind 对 2 字短词不稳(29 篇真实文章: 标题内两字词约 31.5% 搜不到目标文章, 完整标题/小节标题/多字词 0% 漏检), 故只对「标题 + 小节标题」建一条连续子串索引补齐该档, 不做正文轨
+2. 新增 `scripts/build_search_index.py`(仅标准库): 扫描站点 HTML 中带 `data-pagefind-body` 的页面, 抽取 `<title>` 与正文容器内 `h1–h6` 文本, 写 `search-index/index.json`(实测 29 篇 3.3KB, 163 篇约 19KB)
+3. CI: 在 `Build search index`(pagefind)之前新增 `Build substring search index` 步骤, 同样跑在合并后的完整站点上(增量构建产物不完整); 脚本从 `/opt/Gmeek` 取, 用系统 `python3` 直跑, 不依赖 uv 环境
+4. 检索页: 懒加载子串索引(首次查询时 fetch, 失败静默降级); 经 PagefindUI 的 `processTerm` 回调触发匹配(无需额外监听输入事件); 命中结果以独立容器 `#exactMatches` 插到 `.pagefind-ui__drawer` 内、`.pagefind-ui__results-area` 之前(输入框之下、Pagefind 结果之上), 两轨并列展示; 词长 < 2 不触发, 命中封顶 10 条
+5. 不隐藏/不过滤 Pagefind 结果(上游踩过「过滤逻辑藏光结果 + 注入被重绘清掉」两个坑); 类名刻意不沿用 `.pagefind-ui__result`, 避免被结果装饰器当成 Pagefind 卡片二次加工
+6. 测试: 新增 `TestSearchIndexBuilder`(6 例: 标题/小节抽取、正文外小节忽略、无 body 页跳过、空小节、空白折叠、排序与输出目录跳过)与 `TestExactMatchSearch`(6 例: 容器独立声明、`processTerm` 挂接、URL 经 homeUrl 派生、注入目标、词长守卫、不隐藏 Pagefind 结果), 共 12 例; 全量 `237 passed`
+7. 端到端: 渲染真实 search.html + 真实索引, headless Chrome 验证「输入框 > 精确匹配 > Pagefind 结果」位置正确, 且「入参」这类 Pagefind 漏检的两字词被精确匹配块正确补上(Pagefind 返回的 2 条不含目标文章)
+8. 文档: 新建 `ADR-0027-chinese-substring-search-index.md`; ADR-0007「未解决风险」按实测数据改写并标注已由 ADR-0027 补齐; `glossary.md` 新增「子串检索索引」; `docs/pagefind-integration.md` §6 现状改写为已实现轻量轨
+
 ## 26.1009.1610
 
 1. 修复检索加载 spinner 误伤终态: Pagefind UI 1.5.2 用同一个 `.pagefind-ui__message` 承载 loading / 零结果 / 结果计数三种消息, 原实现给该元素无差别加旋转 `::before`, 导致「N results for …」「No results for …」这类终态也挂着永不停止的加载指示器; 改用 `#search .pagefind-ui__message:not(:has(+ .pagefind-ui__results))::before` 只作用于 loading 态(计数/零结果消息后恒接 `<ol class="pagefind-ui__results">`, loading 消息不接)

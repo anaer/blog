@@ -1222,6 +1222,111 @@ class TestIdlePrefetch:
         assert "l.href" in body and "pagefind-ui.js" in body
 
 
+class TestSearchIndexBuilder:
+    """中文短词子串索引生成器: 只抽「标题 + 正文容器内小节标题」, 跳过非正文页。"""
+
+    _PAGE = (
+        "<!DOCTYPE html><html><head><title>标题 A</title></head><body>"
+        "<h1>页眉标题(正文外)</h1>"
+        '<div class="markdown-body" data-pagefind-body>'
+        "<h2>小节一</h2><p>正文</p><h3>小节二</h3>"
+        "</div></body></html>"
+    )
+
+    @staticmethod
+    def _mod():
+        import importlib.util
+        path = os.path.join(ROOT, "scripts", "build_search_index.py")
+        spec = importlib.util.spec_from_file_location("build_search_index", path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+
+    def test_extracts_title_and_body_headings(self):
+        e = self._mod().extract_entry(self._PAGE, "post/1.html")
+        assert e == {"u": "post/1.html", "t": "标题 A", "h": "小节一 小节二"}
+
+    def test_headings_outside_body_are_ignored(self):
+        e = self._mod().extract_entry(self._PAGE, "post/1.html")
+        assert "页眉标题" not in e["h"]
+
+    def test_page_without_body_is_skipped(self):
+        html = "<html><head><title>x</title></head><body><h2>y</h2></body></html>"
+        assert self._mod().extract_entry(html, "a.html") is None
+
+    def test_empty_headings_yield_empty_string(self):
+        html = "<html><head><title>T</title></head><body><div data-pagefind-body><p>只有正文</p></div></body></html>"
+        e = self._mod().extract_entry(html, "a.html")
+        assert e["t"] == "T" and e["h"] == ""
+
+    def test_whitespace_is_collapsed(self):
+        html = "<html><head><title>  A\n  B </title></head><body><div data-pagefind-body><h2> x\n  y </h2></div></body></html>"
+        e = self._mod().extract_entry(html, "a.html")
+        assert e["t"] == "A B" and e["h"] == "x y"
+
+    def test_build_writes_sorted_index_and_skips_output_dir(self, tmp_path):
+        mod = self._mod()
+        (tmp_path / "post").mkdir()
+        for slug, title in (("b", "B"), ("a", "A")):
+            (tmp_path / "post" / f"{slug}.html").write_text(
+                f"<html><head><title>{title}</title></head><body>"
+                f'<div data-pagefind-body><h2>h{slug}</h2></div></body></html>',
+                encoding="utf-8")
+        # 无 data-pagefind-body 的页面(列表页/检索页)不进索引
+        (tmp_path / "list.html").write_text(
+            "<html><head><title>列表</title></head><body>no body</body></html>", encoding="utf-8")
+
+        payload = mod.build(str(tmp_path))
+        assert payload["v"] == 1 and payload["count"] == 2
+        assert [e["u"] for e in payload["entries"]] == ["post/a.html", "post/b.html"]
+        out = tmp_path / "search-index" / "index.json"
+        assert out.is_file()
+        assert json.loads(out.read_text(encoding="utf-8"))["count"] == 2
+
+
+class TestExactMatchSearch:
+    """中文短词精确匹配: 独立容器 + processTerm 挂接 + 懒加载子串索引 + 不隐藏 Pagefind 结果。"""
+
+    @staticmethod
+    def _html():
+        return TestSearchPageSmoke._render("search.html", TestSearchPageSmoke._plist_base())
+
+    def test_exact_container_is_declared_outside_pagefind_root(self):
+        html = self._html()
+        assert 'id="exactMatches"' in html
+        # 容器先声明在 #search 之外(默认 hidden), 再由脚本移入结果抽屉
+        assert html.index('id="exactMatches"') < html.index('<div id="search"></div>')
+
+    def test_process_term_hook_present(self):
+        html = self._html()
+        assert "processTerm:" in html
+        assert "loadExactIndex()" in html and "renderExact(" in html
+
+    def test_index_url_derived_from_home_url(self):
+        html = self._html()
+        assert 'fetch("https://example.com/blog/search-index/index.json")' in html
+
+    def test_injection_targets_drawer_before_results_area(self):
+        html = self._html()
+        assert ".pagefind-ui__drawer" in html
+        assert ".pagefind-ui__results-area" in html
+        # 插到 results-area 之前 => 位于输入框之下、Pagefind 结果之上
+        assert "insertBefore(exactHost" in html
+
+    def test_short_query_guard(self):
+        html = self._html()
+        assert "EXACT_MIN_LEN = 2" in html
+        assert "q.length < EXACT_MIN_LEN" in html
+
+    def test_pagefind_results_are_not_hidden(self):
+        # 两轨并列: 脚本只切换自身容器的 hidden, 不得隐藏/清空 Pagefind 结果容器
+        html = self._html()
+        compact = html.replace(" ", "").replace("\n", "")
+        assert "pagefind-ui__results-area{display:none" not in compact
+        assert "pagefind-ui__results-area').hidden" not in compact
+        assert "exactHost.hidden=false" in compact
+
+
 class TestThemeSwitch:
     """主题切换: modeSwitch 必须按名读取 data-color-mode。
 
