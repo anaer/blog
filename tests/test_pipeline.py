@@ -443,7 +443,7 @@ class TestTemplateSmoke:
 
     def test_post_related_exposes_runtime_hooks(self):
         html = self._render("post.html", self._post_base(postNumber="166", labels=["Python", "C++"]))
-        assert 'class="SideNav related-posts border"' in html
+        assert 'class="related-posts"' in html
         assert 'data-nav-url="https://example.com/blog/nav.json"' in html
         assert 'data-post-number="166"' in html
         assert 'data-heading="相关文章"' in html
@@ -1625,6 +1625,50 @@ class TestIconRegistry:
         assert render_icon("plus", cls="").startswith("<svg width=")
 
 
+class TestIconFillOverride:
+    """描边图标必须压过第三方 CSS 的 fill:currentcolor, 否则正文区(代码块控件/标题折叠)图标会被填实。"""
+
+    VENDOR_CSS = os.path.join(ROOT, "assets", "github-markdown-css@5.2.0", "github-markdown.min.css")
+
+    @staticmethod
+    def _specificity(selector):
+        """(id, 类/伪类, 类型) 三元组; 只覆盖本例涉及的选择器形态(无属性选择器、无伪元素)。"""
+        ids = len(re.findall(r"#[-\w]+", selector))
+        classes = len(re.findall(r"[-\w]*\.[-\w]+", selector)) + len(re.findall(r":(?!:)[-a-z]+", selector))
+        rest = re.sub(r"#[-\w]+|[-\w]*\.[-\w]+|::[-a-z]+|:(?!:)[-a-z]+", " ", selector)
+        return (ids, classes, len(re.findall(r"[A-Za-z][-a-z0-9]*", rest)))
+
+    @classmethod
+    def _fill_selectors(cls, path, value):
+        with open(path, encoding="utf-8") as fh:
+            css = fh.read()
+        found = [" ".join(m.group(1).split())
+                 for m in re.finditer(r"([^{}]+)\{[^{}]*fill:%s[^{}]*\}" % value, css, re.I)]
+        assert found, "未找到 fill:%s 规则(%s)" % (value, path)
+        return found
+
+    def test_vendor_fills_octicons_inside_markdown_body(self):
+        # 成因: 高特异性来自 .markdown-body 前缀, 而非 .octicon 本身
+        assert any("markdown-body" in s and "octicon" in s
+                   for s in self._fill_selectors(self.VENDOR_CSS, "currentcolor"))
+
+    def test_override_outweighs_every_vendor_rule(self):
+        ours = max(self._specificity(s)
+                   for s in self._fill_selectors(os.path.join(ROOT, "templates", "base.html"), "none"))
+        for vendor in self._fill_selectors(self.VENDOR_CSS, "currentcolor"):
+            assert ours > self._specificity(vendor), (ours, vendor)
+
+    def test_bare_element_selector_would_have_lost(self):
+        # 负向控制: 单用 svg.octicon(0,1,1) 压不过 .markdown-body .octicon(0,2,0), 正是图标糊掉的成因
+        assert self._specificity("svg.octicon") < self._specificity(".markdown-body .octicon")
+
+    def test_override_keeps_bare_svg_for_outside_body(self):
+        # 正文之外(头部图标、tag 页列表)同样要保持描边
+        selectors = self._fill_selectors(os.path.join(ROOT, "templates", "base.html"), "none")
+        assert any("svg.octicon" in s for s in selectors), selectors
+
+
+
 class TestIconTemplates:
     # 模板必须经统一宏渲染: 不得残留 Jinja 标记, 图标在服务端填充
     def _render(self, template, blog_base, post_list=None):
@@ -1720,7 +1764,21 @@ class TestRelatedArticlesContract:
     def test_selector_targets_related_container(self):
         js, tpl = self._sources()
         assert 'querySelector(".related-posts[data-nav-url]")' in js
-        assert 'class="SideNav related-posts border"' in tpl
+        assert 'class="related-posts"' in tpl
+
+    def test_related_block_has_no_box(self):
+        # 关联区块与正文同层: 不借 Primer 容器底色与 border 工具类, 条目间也不要横线
+        _, tpl = self._sources()
+        rule = re.search(r"\.related-posts\{([^}]*)\}", tpl).group(1)
+        assert "background:none" in rule and "border:0" in rule
+        assert "border-radius" not in rule
+        item = re.search(r"\.related-posts \.SideNav-item\{([^}]*)\}", tpl).group(1)
+        assert "background:none" in item and "padding-left:0" in item
+        assert "border-top:0" in item          # 条目间也不要横线
+        assert ".related-posts .SideNav-item:last-child{box-shadow:none;}" in tpl
+        # 负向控制: 容器上不得再出现 SideNav / border 类(那两者正是底色与边框的来源)
+        assert 'class="SideNav related-posts"' not in tpl
+        assert 'related-posts border' not in tpl
 
     def test_no_prev_next_leftover(self):
         # 负向控制: 上一页/下一页的实现痕迹不得残留在脚本或模板里
@@ -1796,3 +1854,91 @@ class TestIconButtonUnification:
         src = self._sources()["md2html"]
         block = re.search(r"\.code-block-controls\s*\{[^}]*\}", src).group(0)
         assert "opacity" not in block
+
+
+class TestOnekoListPageOnly:
+    """oneko 仅列表页加载: base.html 不再全站引入, 文章/标签/检索页不加载。"""
+
+    @staticmethod
+    def _render(tpl, base, post_list=None):
+        env = Environment(loader=FileSystemLoader("templates"))
+        return env.get_template(tpl).render(
+            blogBase=base, postListJson=post_list or {}, i18n=i18nCN,
+            IconList=IconList, IconViewBox=IconViewBox, IconStrokeWidth=IconStrokeWidth)
+
+    @staticmethod
+    def _base():
+        return {
+            "title": "T", "homeUrl": "https://example.com/blog", "nightTheme": "dark", "dayTheme": "light",
+            "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
+            "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
+            "lang": "zh-CN", "singeListJson": {}, "labelHueDict": {}, "commentLabelColor": "#006b75",
+            "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
+        }
+
+    def test_plist_loads_oneko(self):
+        html = self._render("plist.html", self._base())
+        assert "assets/oneko.js/oneko.js" in html
+
+    def test_base_has_no_oneko(self):
+        # 负向控制: base.html 不得再全站加载 oneko
+        with open(os.path.join(ROOT, "templates", "base.html"), encoding="utf-8") as fh:
+            assert "oneko" not in fh.read()
+
+    def test_post_tag_search_do_not_load_oneko(self):
+        base = self._base()
+        post_base = TestTemplateSmoke._post_base(postNumber="1")
+        for tpl, b in (("post.html", post_base), ("tag.html", base), ("search.html", base)):
+            html = self._render(tpl, b)
+            assert "oneko" not in html, tpl
+
+
+class TestListItemIssueEntry:
+    """列表项标题后插入 issue 入口: 指向 postSourceUrl, 沿用低对比图标语言。"""
+
+    @staticmethod
+    def _render(post_list):
+        env = Environment(loader=FileSystemLoader("templates"))
+        base = {
+            "title": "T", "homeUrl": "https://example.com/blog", "nightTheme": "dark", "dayTheme": "light",
+            "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
+            "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
+            "lang": "zh-CN", "singeListJson": {}, "labelHueDict": {}, "commentLabelColor": "#006b75",
+            "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
+        }
+        return env.get_template("plist.html").render(
+            blogBase=base, postListJson=post_list, i18n=i18nCN,
+            IconList=IconList, IconViewBox=IconViewBox, IconStrokeWidth=IconStrokeWidth)
+
+    @staticmethod
+    def _post(number, source_url):
+        return {
+            "number": str(number), "postTitle": "T%d" % number, "postUrl": "post/%d.html" % number,
+            "labels": [], "commentNum": 0, "top": 0, "postSourceUrl": source_url,
+            "createdAt": 100 * number, "updatedAt": 100 * number,
+        }
+
+    def test_issue_link_present_with_source_url(self):
+        url = "https://github.com/x/y/issues/42"
+        html = self._render({"P42": self._post(42, url)})
+        assert 'class="list-issue-link"' in html
+        assert 'href="%s"' % url in html
+        assert 'target="_blank"' in html
+
+    def test_issue_link_nested_anchor_wrapped_in_object(self):
+        # 负向控制: 列表项外层已是 <a>, 内嵌 issue 链接必须经 <object> 包裹, 否则 HTML 非法嵌套
+        html = self._render({"P1": self._post(1, "https://github.com/x/y/issues/1")})
+        assert '<object><a class="list-issue-link"' in html
+
+    def test_issue_icon_uses_github_registry(self):
+        html = self._render({"P1": self._post(1, "https://github.com/x/y/issues/1")})
+        # github 图标已在 icons.py 登记, 模板经 macro 渲染为线性描边 svg
+        assert 'stroke="currentColor"' in html
+        assert 'stroke-width="1.5"' in html
+
+    def test_issue_link_not_on_post_or_search(self):
+        # 负向控制: 该入口只在列表页; 文章页/检索页不得出现 list-issue-link
+        post_html = TestTemplateSmoke._render("post.html", TestTemplateSmoke._post_base(postNumber="1"))
+        assert "list-issue-link" not in post_html
+        search_html = TestSearchPageSmoke._render("search.html", TestSearchPageSmoke._plist_base())
+        assert "list-issue-link" not in search_html

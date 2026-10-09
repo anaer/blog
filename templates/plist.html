@@ -15,6 +15,13 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 .SideNav{min-width: 360px;}
 .SideNav-icon{margin-right: 16px}
 .SideNav-item .Label{margin-left:8px;}
+/* 列表项 issue 入口: 标题后小图标, 常态低对比, hover 提亮(对齐检索页 issue 图标语言) */
+.list-issue-link{
+    display:inline-flex;margin-left:8px;flex-shrink:0;
+    color:var(--fgColor-muted, var(--color-fg-muted));
+    opacity:.6;transition:opacity .2s;
+}
+.list-issue-link:hover{opacity:1;}
 @media (max-width: 767px) {
     body { padding: 8px;}
     h1 a:not([href]){font-size:24px;}
@@ -70,6 +77,9 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     <div class="d-flex flex-items-center">
         {{ icons.icon('upload' if postListJson[num]['top'] == 1 else 'post', cls='SideNav-icon octicon', svg_class='svgTop' ~ postListJson[num]['top']) }}
         <span>{{ postListJson[num]['postTitle']|e }}</span>
+        <object><a class="list-issue-link" href="{{ postListJson[num]['postSourceUrl'] }}" target="_blank" title="Issue" rel="noopener">
+            {{ icons.icon('github', size=14) }}
+        </a></object>
     </div>
     <div class="listLabels">
         {% if postListJson[num]['commentNum']>0 %}<span class="Label Label--solid" style="background-color:{{ blogBase['commentLabelColor'] }}">{{ postListJson[num]['commentNum'] }}</span>{% endif %}
@@ -111,4 +121,9 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     </div>
 </nav>
 {%- endif %}
+{% endblock %}
+
+{% block script %}
+{# oneko 用到 document.body, 须在 body 内或 body 结束后加载; 仅列表页加载, 文章/标签/检索页不加载 #}
+<script src="{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.js"></script>
 {% endblock %}

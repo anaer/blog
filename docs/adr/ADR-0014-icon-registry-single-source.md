@@ -29,7 +29,8 @@
    - `md2html.py` 经 `icons.render()` 生成代码块控件图标（复制/成功图标以 `__ICON_*__` 占位符在 `convert()` 中回填）；
    - `assets/toc.js`、`assets/sections.js` 经前端 `renderIcon()` 复用。
 3. **模板统一宏 `templates/macro.html`**：`icon(name, size, cls, id, svg_class)` 输出一致的 `<svg class="octicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden>…</svg>`。四个模板 `{% import 'macro.html' as icons with context %}` 后统一调用；服务端可静态填充的图标一律服务端填充（`svg_class` 追加到 svg 的 class，用于列表项 `svgTop0/1`）。
-4. **描边落地的两处要点**：`rss` 的圆点在描边下会呈细环，该 `circle` 显式 `fill="currentColor" stroke="none"` 保留实心；Primer 的 `.octicon{…fill:currentColor}` 会覆盖 `fill="none"` 使描边被填实，故 `base.html` 以 `svg.octicon{fill:none;stroke:currentColor}`（特异性 0-1-1 > 0-1-0）覆盖。
+4. **描边落地的两处要点**：`rss` 的圆点在描边下会呈细环，该 `circle` 显式 `fill="currentColor" stroke="none"` 保留实心；第三方 CSS 的 `.octicon{…fill:currentColor}` 会覆盖 `fill="none"` 使描边被填实，故 `base.html` 以 `.markdown-body svg.octicon,svg.octicon{fill:none;stroke:currentColor}` 覆盖。
+   - **修正（后续）**：原覆盖只写了 `svg.octicon`（0-1-1），压过 Primer 的 `.octicon`（0-1-0）没问题，但 **github-markdown-css 还有 `.markdown-body .octicon{fill:currentcolor}`（0-2-0）**，特异性更高，于是正文容器（代码块控件、标题折叠按钮）里的图标被整体填实、看起来缺块；正文之外（头部按钮、tag 列表）当时是正常的，所以缺陷只在文章页暴露。选择器列表补上 `.markdown-body svg.octicon`（0-2-1）即压过两者，`svg.octicon` 继续负责正文外的场景。回归见 `tests/test_pipeline.py#TestIconFillOverride`（含负向控制：断言单用 `svg.octicon` 会输）。
 5. **主题切换图标**：`themeSwitch` 的 `id` 在 `<svg>` 上，切换用 `svg.innerHTML = IconList["moon"/"sun"]`；配色设在 `<svg>` 自身——其父节点为 `.btn`，而 `.btn .octicon{color:…}` 会截断颜色继承。
 
 ## 后果

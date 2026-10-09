@@ -25,7 +25,8 @@
    - 承继 ADR-0006 的判断：数据不内联进各页（会冻结在各自构建时刻），改用**单一、全量、每次重建**的数据文件；`nav.json` 可被浏览器跨文章页复用。
    - 文件名保留 `nav.json`：增量部署只重写文件内容、不改名字，改名会在 `docs/` 留下上一版的孤儿文件。
 3. **空结果一律收起**：当前文章无标签、无任何共享标签的候选、数据拉取失败或格式异常，都由脚本 `box.remove()` 移除整个区块，不留空壳与占位。
-4. **视觉沿用列表页语言**：容器复用 Primer 的 `SideNav` + `border`，条目用 `SideNav-item` 加 `renderIcon('post', …)` 图标（与 `plist.html`、`tag.html` 同一套），标题单行省略。不引入新配色。
+4. **视觉沿用列表页语言，但不套外壳**：容器只有 `.related-posts`——不借 Primer 的 `SideNav`（底色 `canvas-subtle`）也不加 `border` 工具类，整块透明、无边框，与正文同层；条目仍用 `SideNav-item` 取得与列表页同源的行样式（hover 反馈、`renderIcon('post', …)` 图标），但显式撤销其容器化痕迹：`padding-left/right:0`（与正文左边缘对齐）、`background:none`、`border-top:0`（条目间不要横线）、`:last-child` 的 `box-shadow`（否则末行下方多出一道横线）；行间距只由内边距承担。标题单行省略；小标题走 `i18n['relatedPosts']`。
+   - 修订记录：初版容器写作 `class="SideNav related-posts border"`，用户反馈要透明无框，撤掉这两个类并补上述撤销规则；随后再反馈「条目间也不要横线」，故 `border-top:0`。回归见 `TestRelatedArticlesContract::test_related_block_has_no_box`。
 
 ## 后果
 
@@ -48,7 +49,7 @@
 
 ## 验证
 
-- `pytest` 201 passed。关键守护：
+- `pytest` 213 passed。关键守护：
   - `TestCreateNavJson::test_exports_labels_for_relation_scoring` / `test_missing_labels_default_empty`：`labels` 必须导出，老状态文件缺字段不得崩。
   - `TestRunOneRendersOnlyChangedPost`（负向控制）：新增或重排都只渲染变更那一篇，旧实现会连带渲染相邻。
   - `TestCreatePostHtmlRelated::test_no_neighbor_fields_written` 与 `test_list_pagination_fields_are_not_leaked`：文章页数据里不得出现 prev/next 字段（含从列表页 `blogBase` 复制而来的残留）。

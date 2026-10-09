@@ -44,8 +44,10 @@ body{
 #header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
 #footer {margin-top:64px; text-align: center;font-size: small;}
 
-/* 图标统一为线性描边(icons.py 单一数据源): 覆盖 primer 的 .octicon{fill:currentColor}, 否则填充会破坏描边风格 */
-svg.octicon{fill:none;stroke:currentColor}
+/* 图标统一为线性描边(icons.py 单一数据源): 覆盖 primer 的 .octicon{fill:currentColor}, 否则填充会破坏描边风格。
+   必须额外带上 .markdown-body 前缀: github-markdown-css 的 `.markdown-body .octicon{fill:currentColor}`
+   特异性(0,2,0)高于 `svg.octicon`(0,1,1), 正文区(代码块控件/标题折叠)的图标会被整体填实、看起来缺块 */
+.markdown-body svg.octicon,svg.octicon{fill:none;stroke:currentColor}
 
 /* 站内搜索框: 列表页 / 标签页 / 文章页共用同一组件(圆角输入框 + 图标提交按钮)。
    配色走主题变量, 明暗自适应; 窄屏保留但收窄, 不整块隐藏 */
@@ -99,9 +101,6 @@ svg.octicon{fill:none;stroke:currentColor}
     <div id="header">{% block header %}{% endblock %}</div>
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">{% include 'footer.html' %}</div>
-
-    <!-- oneko.js中用到document.body, 需要在body块中加载 否则提示为null -->
-    <script src="{{ blogBase['homeUrl'] }}/assets/oneko.js/oneko.js"></script>
 </body>
 <script>
 var IconList={{ IconList }};

@@ -111,15 +111,17 @@ pre {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* 关联文章(按标签): 由 assets/nav.js 拉取 nav.json 在运行时填充; 无命中时整块由脚本移除 */
-.related-posts{margin-top:32px;border-radius:6px;}
-.related-posts .related-heading{padding:12px 16px 4px;font-size:14px;font-weight:600;color:var(--color-fg-muted);}
-.related-posts .SideNav-item{min-width:0;}
+/* 关联文章(按标签): 由 assets/nav.js 拉取 nav.json 在运行时填充; 无命中时整块由脚本移除
+   整块不设底色、边框与条目间横线, 与正文同层; 行的左右不缩进(与正文左边缘对齐), 间距只由内边距承担 */
+.related-posts{margin-top:32px;background:none;border:0;}
+.related-posts .related-heading{padding:12px 0 4px;font-size:14px;font-weight:600;color:var(--color-fg-muted);}
+.related-posts .SideNav-item{min-width:0;padding-left:0;padding-right:0;background:none;border-top:0;}
+.related-posts .SideNav-item:last-child{box-shadow:none;}
 .related-posts .SideNav-icon{margin-right:16px;}
 .related-posts .related-item-title{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 @media (max-width: 767px){
-    /* 窄屏去掉行两端留白, 让标题有更多可读宽度 */
-    .related-posts .SideNav-item{padding:10px 12px;}
+    /* 窄屏同样不保留左右留白 */
+    .related-posts .SideNav-item{padding:10px 0;}
 }
 
 /* 文章页搜索框: 复用 base.html 的共享 .site-search 组件, 提交到站内检索页(search.html 读取 ?q= 触发) */
@@ -184,7 +186,7 @@ pre {
 {{ blogBase['postBody'] }}
 </div>
 
-<nav class="SideNav related-posts border" aria-label="{{ i18n['relatedPosts'] }}"
+<nav class="related-posts" aria-label="{{ i18n['relatedPosts'] }}"
      data-nav-url="{{ blogBase['homeUrl'] }}/nav.json"
      data-post-number="{{ blogBase['postNumber'] }}"
      data-heading="{{ i18n['relatedPosts'] }}"

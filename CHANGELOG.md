@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 26.1008.2130
+
+1. 「相关文章」区块改为透明无框: 容器由 `class="SideNav related-posts border"` 收敛为 `class="related-posts"`(撤掉的这两个类正是底色 `canvas-subtle` 与 1px 边框的来源), `.related-posts` 显式 `background:none;border:0`, 去掉 `border-radius`
+2. 保留与列表页同源的行样式: 条目仍用 `SideNav-item`(hover 反馈 + `renderIcon('post')` 图标), 但撤销其容器化痕迹——`padding-left/right:0` 让条目与正文左边缘对齐(实测 `itemX == #postBody X == 8px`)、`background:none`、`border-top:0`(条目间不要横线)、`:last-child{box-shadow:none}`(否则末行下方多出一道横线); 行间距只由内边距承担; 小标题内边距随之改为 `12px 0 4px`
+3. 窄屏规则同步为 `padding:10px 0`, 不再保留左右留白
+4. 测试: 两处类名断言随迁, 新增 `TestRelatedArticlesContract::test_related_block_has_no_box`(钉死容器透明无框无圆角、条目无底色/无左右内边距/无行间横线、末行无阴影, 并负向控制 `SideNav`/`border` 类不得回到容器上); 共 213 passed; 计算样式经浏览器实测复核(含上一轮图标 `fill:none` 未回退)
+5. 文档: ADR-0022 决策 4 重写为「沿用行样式, 不套外壳」并记修订原因
+
+## 26.1008.2100
+
+1. 修复代码块控件图标「显示不全」: 根因是 CSS 特异性——`base.html` 的 `svg.octicon{fill:none}`(0,1,1) 压不过 github-markdown-css 的 `.markdown-body .octicon{fill:currentcolor}`(0,2,0), 正文容器内的描边图标被 `currentColor` 整体填实(copy 变成实心方块、fold/wrap 变成色块); 改为 `.markdown-body svg.octicon,svg.octicon{fill:none;stroke:currentColor}`, 前一项(0,2,1)压过正文规则, 后一项继续覆盖正文外(头部按钮、tag 列表)
+2. 定位手法: 用当前代码渲染 `templates/post.html` 生成对照页, 浏览器里读 computed style 得 `fill: rgb(87,96,106)`(应为 `none`), 再遍历 `document.styleSheets` 列出所有命中该元素且声明 fill 的规则, 才找到藏在 github-markdown.min.css 里的那条(此前 ADR 只记录了 Primer 的那条)
+3. 顺带排除两处误判: 单行代码块的折叠按钮 0×0 是预期行为(单行无需折叠, 脚本主动 `display:none`); 线上页面图标仍是旧样式(16 画布、无 `octicon` 类)属未重渲染的旧构建产物, 非本次缺陷
+4. 新增 4 条回归 `TestIconFillOverride`: 断言 vendor 规则确实带 `.markdown-body` 前缀、我们的覆盖特异性严格大于 vendor 全部 `fill:currentcolor` 规则、正文外场景仍在选择器列表内; 负向控制钉死「单用 `svg.octicon` 会输」; 共 205 passed
+5. 文档: ADR-0014 决策 4 补「修正」段(原记录只对比了 Primer 的 0-1-0, 漏了 markdown-css 的 0-2-0)
+
 ## 26.1008.2030
 
 1. 代码块行号左移: 行号槽宽由「桌面 2.4em / 触屏 2em」两套统一为 2em(贴合行号数字自身宽度), 代码缩进 `padding-left` 由 3.2em 降到 2.8em, 行号与代码之间保留 0.8em(≈11px)空档; 深浅两主题的分隔线渐变终点同步改为 2em
