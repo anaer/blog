@@ -1447,16 +1447,15 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/62",
             "commentNum": 0,
             "createdAt": 1737609914,
-            "updatedAt": 1739951056,
+            "updatedAt": 1791535783,
             "top": 0,
             "style": "",
             "script": "",
             "description": "",
             "createdDate": "2025-01-23",
-            "dateLabelColor": "hsl(14, 32%, 40%)",
-            "buildedAt": 1739951056,
-            "renderVersion": 3,
-            "dateLabelHue": 14
+            "dateLabelHue": 14,
+            "buildedAt": 1791535783,
+            "renderVersion": 14
         },
         "P63": {
             "number": "63",

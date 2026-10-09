@@ -16,6 +16,19 @@
             document.head.appendChild(s);
         });
     </script>
+    
+    <script>
+        window.addEventListener("load", function () {
+            var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 1); };
+            ric(function () {
+                var l = document.createElement("link");
+                l.rel = "prefetch";
+                l.as = "script";
+                l.href = "https://anaer.github.io/blog/pagefind/pagefind-ui.js";
+                document.head.appendChild(l);
+            });
+        });
+    </script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
@@ -186,6 +199,22 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
                 <object><a href="https://anaer.github.io/blog/tag.html#Blog">Blog</a></object>
             </span>
         <span class="Label" style="--label-hue:80">2025-05-23</span>
+    </div>
+</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/62.html">
+    <div class="d-flex flex-items-center">
+        <svg class="SideNav-icon octicon svgTop0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+        <span>CIDR表示法</span>
+        <object><a class="list-issue-link" href="https://github.com/anaer/blog/issues/62" target="_blank" title="Issue" rel="noopener">
+            <svg class="octicon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a></object>
+    </div>
+    <div class="listLabels">
+        
+
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:157">
+                <object><a href="https://anaer.github.io/blog/tag.html#Python">Python</a></object>
+            </span>
+        <span class="Label" style="--label-hue:14">2025-01-23</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/101.html">
     <div class="d-flex flex-items-center">
@@ -400,24 +429,6 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
                 <object><a href="https://anaer.github.io/blog/tag.html#Server">Server</a></object>
             </span>
         <span class="Label" style="--label-hue:62">2025-04-30</span>
-    </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/97.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon svgTop0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
-        <span>pip报错处理</span>
-        <object><a class="list-issue-link" href="https://github.com/anaer/blog/issues/97" target="_blank" title="Issue" rel="noopener">
-            <svg class="octicon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        </a></object>
-    </div>
-    <div class="listLabels">
-        
-
-        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:157">
-                <object><a href="https://anaer.github.io/blog/tag.html#Python">Python</a></object>
-            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:249">
-                <object><a href="https://anaer.github.io/blog/tag.html#FAQ">FAQ</a></object>
-            </span>
-        <span class="Label" style="--label-hue:135">2025-03-27</span>
     </div>
 </a>
 </nav><nav class="paginate-container" aria-label="Pagination">

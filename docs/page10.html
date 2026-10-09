@@ -16,6 +16,19 @@
             document.head.appendChild(s);
         });
     </script>
+    
+    <script>
+        window.addEventListener("load", function () {
+            var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 1); };
+            ric(function () {
+                var l = document.createElement("link");
+                l.rel = "prefetch";
+                l.as = "script";
+                l.href = "https://anaer.github.io/blog/pagefind/pagefind-ui.js";
+                document.head.appendChild(l);
+            });
+        });
+    </script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
