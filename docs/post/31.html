@@ -22,7 +22,7 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<title>GPT比较</title>
+<title>AI工具比较</title>
 
 <meta data-pagefind-meta="labels[content]" content='["Service", "AI"]' />
 <meta data-pagefind-meta="source[content]" content="https://github.com/anaer/blog/issues/31" />
@@ -76,7 +76,9 @@ svg.octicon{fill:none;stroke:currentColor}
 }
 
 /* 标签: 底色与字色都由 --label-hue 按主题推导(同一色相, 明度反转), 不依赖 GitHub 的标签色。
-   色相由标签名确定性派生, 见 Gmeek.py#deterministic_hue */
+   色相由标签名确定性派生, 见 Gmeek.py#deterministic_hue
+   暗色下饱和度降低(45% → 30%)、底色更暗(22% → 18%), 与 WorkBuddy 暖灰底更融合;
+   文字略微降亮(85% → 78%)避免刺眼 */
 .Label{
     display: inline-flex;
     align-items: center;
@@ -87,8 +89,8 @@ svg.octicon{fill:none;stroke:currentColor}
 }
 .Label a{ color: inherit; text-decoration: none; }
 [data-color-mode="dark"] .Label:not(.Label--solid){
-    background: hsl(var(--label-hue, 210), 45%, 22%);
-    color: hsl(var(--label-hue, 210), 85%, 80%);
+    background: hsl(var(--label-hue, 210), 30%, 18%);
+    color: hsl(var(--label-hue, 210), 78%, 80%);
 }
 /* 非色相派生的标签(评论数徽标): 沿用配置色 + 白字 */
 .Label--solid{ color: #fff; }
@@ -104,7 +106,8 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 
 /* github-markdown-css 只按 prefers-color-scheme 切换正文配色, 与站点手动开关(data-color-mode)不同步:
    当「系统浅色 + 站点切到深色」时, 正文会保留深色文字压在深色页面上 → 不可见。
-   这里按站点开关重新绑定它消费的 token(取值同 github-markdown-css@5.2.0 的明/暗两块), 使正文跟随站点开关。 */
+   这里按站点开关重新绑定它消费的 token(取值参考 WorkBuddy AI 客户端暗色风格: 暖灰中性底 + 低对比边框 + 柔和蓝调重音,
+   不复刻 GitHub 的冷蓝深色), 使正文跟随站点开关。 */
 [data-color-mode="light"] .markdown-body{
     --color-fg-default:#24292f; --color-fg-muted:#57606a; --color-fg-subtle:#6e7781;
     --color-canvas-default:#ffffff; --color-canvas-subtle:#f6f8fa;
@@ -113,13 +116,23 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     --color-accent-fg:#0969da; --color-accent-emphasis:#0969da;
     --color-attention-subtle:#fff8c5; --color-danger-fg:#cf222e;
 }
+/* 深色主题: 暖灰中性深底(WorkBuddy AI 客户端风)
+   - canvas-default 用偏暖的深灰(替代 GitHub 风格的极冷蓝深), 整体视觉温度更柔和
+   - canvas-subtle 比 canvas-default 提一档, 让代码块 / 引用块 / 总结框与底色有可见但不过强的层次
+   - border-default / border-muted 都向中性灰偏移, 边框更"温和", 不抢内容
+   - fg-default 改用偏暖的浅灰(替代 GitHub 的冷调浅灰), 长文阅读更柔和
+   - fg-muted / fg-subtle 同步升温
+   - accent-fg 与 accent-emphasis 用偏柔的蓝, 避免深蓝过重、亮蓝刺眼
+   - neutral-muted 用更克制的浅灰 rgba, Counter/背景叠层更柔和
+   - attention-subtle / danger-fg 同步升温
+   完整取值依据见 docs/adr 下深色主题决策文档。 */
 [data-color-mode="dark"] .markdown-body{
-    --color-fg-default:#c9d1d9; --color-fg-muted:#8b949e; --color-fg-subtle:#6e7681;
-    --color-canvas-default:#0d1117; --color-canvas-subtle:#161b22;
-    --color-border-default:#30363d; --color-border-muted:#21262d;
-    --color-neutral-muted:rgba(110,118,129,0.4);
-    --color-accent-fg:#58a6ff; --color-accent-emphasis:#1f6feb;
-    --color-attention-subtle:rgba(187,128,9,0.15); --color-danger-fg:#f85149;
+    --color-fg-default:#dde2e8; --color-fg-muted:#9aa1ab; --color-fg-subtle:#7a8088;
+    --color-canvas-default:#1a1c20; --color-canvas-subtle:#22262c;
+    --color-border-default:#383d45; --color-border-muted:#2b2f37;
+    --color-neutral-muted:rgba(180,188,200,0.16);
+    --color-accent-fg:#7ab8ff; --color-accent-emphasis:#5a8fe6;
+    --color-attention-subtle:rgba(212,167,44,0.18); --color-danger-fg:#ff7a73;
 }
 
 /* 文章元信息(发布于/更新于): 取主题变量, 保证深色底上仍可读 */
@@ -152,13 +165,13 @@ pre {
     bottom: 60px; /* 距离底部60px */
 }
 
-/* 悬浮按钮样式 */
+/* 悬浮按钮样式: 配色随主题走, 不再硬编码蓝(WorkBuddy 风: 浅色用主题蓝, 暗色用柔蓝+白光描边) */
 .floating-button {
     position: fixed; /* 固定位置 */
     right: 5%; /* 距离右侧 5% */
-    background-color: #007bff; /* 背景颜色 */
-    color: white; /* 文字颜色 */
-    border: none; /* 去掉边框 */
+    background-color: var(--color-accent-fg); /* 跟随主题强调色 */
+    color: var(--color-canvas-default); /* 文字与底色对比, 暗色下不再用纯白 */
+    border: 1px solid transparent; /* 占位由暗色下的柔和边框补上 */
     border-radius: 50%; /* 圆形按钮 */
     width: 32px; /* 宽度 */
     height: 32px; /* 高度 */
@@ -169,20 +182,30 @@ pre {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease; /* 添加悬停效果 */
+    transition: background-color 0.3s ease, transform 0.15s ease; /* 添加悬停效果 */
 }
 
-/* 按钮悬停效果 */
+/* 按钮悬停效果: 亮度增强, 暗色下用 filter 避免叠加深色底 */
 .floating-button:hover {
-    background-color: #0056b3; /* 悬停时改变背景颜色 */
+    background-color: var(--color-accent-emphasis); /* 悬停时切到强调色 */
+    transform: translateY(-1px); /* 微微上浮, 增加触感 */
+}
+/* 暗色下加一道 1px 柔光描边, 让按钮从暗底上浮起来(WorkBuddy 暗色按钮特征) */
+[data-color-mode="dark"] .floating-button {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* 上一页靠左、下一页靠右: 用 flex 自动两端对齐 */
-.paginate-container .pagination {display: flex; align-items: center;}
-.paginate-container .previous_page {margin-right: auto;}
-.paginate-container .next_page {margin-left: auto;}
-/* 无相邻文章时收起分页区 */
-.paginate-container:not(:has(a)) {display: none;}
+/* 关联文章(按标签): 由 assets/nav.js 拉取 nav.json 在运行时填充; 无命中时整块由脚本移除 */
+.related-posts{margin-top:32px;border-radius:6px;}
+.related-posts .related-heading{padding:12px 16px 4px;font-size:14px;font-weight:600;color:var(--color-fg-muted);}
+.related-posts .SideNav-item{min-width:0;}
+.related-posts .SideNav-icon{margin-right:16px;}
+.related-posts .related-item-title{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+@media (max-width: 767px){
+    /* 窄屏去掉行两端留白, 让标题有更多可读宽度 */
+    .related-posts .SideNav-item{padding:10px 12px;}
+}
 
 /* 文章页搜索框: 复用 base.html 的共享 .site-search 组件, 提交到站内检索页(search.html 读取 ?q= 触发) */
 </style>
@@ -193,7 +216,7 @@ pre {
 <body>
     <div id="header">
 <h1>
-    <a style="font-size:18px">GPT比较</a>
+    <a style="font-size:18px">AI工具比较</a>
 </h1>
 
 <div class="title-right">
@@ -233,7 +256,7 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
 <span class="post-meta post-publish" id="postPublish">发布于 <time>2025-01-09 14:08:53</time></span>
 
-<span class="post-meta post-update">更新于 <time>2026-10-08 16:04:05</time></span>
+<span class="post-meta post-update">更新于 <time>2026-10-09 10:43:58</time></span>
 
 <p>
 
@@ -325,7 +348,7 @@ pre {
 .highlight .cl {
   display: block;
   counter-increment: cl;
-  padding-left: 3.2em;
+  padding-left: 2.8em;
   position: relative;
   line-height: 1.45;
   /* 关键: .markdown-body pre>code 设了 white-space:pre, .cl 会继承它而无法换行;
@@ -333,13 +356,38 @@ pre {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   word-break: normal;
+  /* 空行占位: 空 .cl 标签无 in-flow content, 默认 height:0, 会让空行「消失」
+     并与下一行挤在一起. min-height 锁定到一行高度, 保留视觉空行 */
+  min-height: 1.45em;
+  /* 行号槽位底色: 左侧 2em 染成低饱和度底色, 与代码区做视觉区分;
+     linear-gradient 只覆盖 padding 内的行号槽, 不侵入代码区; 收尾处 1px 边框强化列分隔
+     槽宽取 2em(与行号数字本身宽度贴合): 更宽会让行号整体偏右、离代码区的空档也变大 */
+  background-image:
+    linear-gradient(to right,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2em,
+      transparent 2em);
+}
+/* 深色主题(WorkBuddy 风): 行号槽位底色用中性白色微染(冷暖皆可), 不再带蓝灰调;
+   槽位 rgba(255,255,255,0.045) 在 #1a1c20 的底上呈现"略亮一档"的色块,
+   1px 分隔线 rgba(255,255,255,0.10) 同步提一档, 整体克制不抢代码区 */
+html[data-color-mode="dark"] .highlight .cl {
+  background-image:
+    linear-gradient(to right,
+      rgba(255, 255, 255, 0.045) 0,
+      rgba(255, 255, 255, 0.045) calc(2em - 1px),
+      rgba(255, 255, 255, 0.10) calc(2em - 1px),
+      rgba(255, 255, 255, 0.10) 2em,
+      transparent 2em);
 }
 .highlight .cl::before {
   content: counter(cl);
   position: absolute;
   left: 0;
-  width: 2.4em;
-  text-align: right;
+  width: 2em;
+  text-align: center;
   color: var(--fgColor-muted, var(--color-fg-muted));
   user-select: none;
 }
@@ -364,6 +412,8 @@ pre {
 }
 .code-block-wrapper.nolines .cl {
   padding-left: 0;
+  /* 行号关闭时一并撤掉槽位底色, 否则左侧会留一道与代码区不连贯的色块 */
+  background-image: none;
 }
 .code-block-wrapper.nolines .cl::before {
   display: none;
@@ -411,13 +461,6 @@ pre {
   .code-lang {
     top: 7px;
     left: 8px;
-  }
-  /* 窄屏行号槽收窄, 给代码留出更多宽度 */
-  .highlight .cl {
-    padding-left: 2.8em;
-  }
-  .highlight .cl::before {
-    width: 2em;
   }
 }
 </style>
@@ -470,11 +513,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </div>
 
-<nav class="paginate-container" aria-label="Pagination"
+<nav class="SideNav related-posts border" aria-label="相关文章"
      data-nav-url="https://anaer.github.io/blog/nav.json"
-     data-post-number="31">
-    <div class="pagination"><a class="previous_page" rel="previous" href="https://anaer.github.io/blog/post/186.html" aria-label="Previous Page">MySQL递归删除子节点</a><a class="next_page" rel="next" href="https://anaer.github.io/blog/post/6.html" aria-label="Next Page">PC端常用软件</a></div>
-</nav>
+     data-post-number="31"
+     data-heading="相关文章"
+     data-labels='["Service", "AI"]'></nav>
 
 <!-- 编辑按钮 -->
 <a href="https://github.com/anaer/blog/issues/31" target="_blank">

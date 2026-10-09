@@ -716,25 +716,25 @@
         "P31": {
             "number": "31",
             "htmlDir": "docs/post/31.html",
-            "markdown": "backup/31-GPT\u6bd4\u8f83.md",
+            "markdown": "backup/31-AI\u5de5\u5177\u6bd4\u8f83.md",
             "labels": [
                 "Service",
                 "AI"
             ],
-            "postTitle": "GPT\u6bd4\u8f83",
+            "postTitle": "AI\u5de5\u5177\u6bd4\u8f83",
             "postUrl": "post/31.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/31",
             "commentNum": 0,
             "createdAt": 1736402933,
-            "updatedAt": 1791446645,
+            "updatedAt": 1791513838,
             "top": 0,
             "style": "",
             "script": "",
             "description": "",
             "createdDate": "2025-01-09",
             "dateLabelHue": 194,
-            "buildedAt": 1791446645,
-            "renderVersion": 13
+            "buildedAt": 1791513838,
+            "renderVersion": 14
         },
         "P32": {
             "number": "32",
