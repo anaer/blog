@@ -1588,7 +1588,7 @@ class TestIconRegistry:
     # 模板 / 代码块 / 前端引用的图标名必须全部登记在单一数据源 icons.py 中
     REQUIRED = {
         "post", "link", "about", "sun", "moon", "search", "rss", "upload", "github", "home", "subway",
-        "plus", "minus", "chevron", "copy", "check", "wrap", "lines", "fold",
+        "plus", "minus", "chevron", "copy", "check", "wrap", "lines", "fold", "eye", "pen",
     }
 
     def test_all_referenced_icons_registered(self):
@@ -1684,6 +1684,14 @@ class TestIconTemplates:
         assert 'id="pathHome"' in html and 'm3 9 9-7 9 7v11' in html  # home 已服务端填充(线性描边)
         assert 'stroke-width="1.5"' in html
         assert 'id="themeSwitch"' in html
+
+    def test_post_ui_glyphs_are_svg_not_emoji(self):
+        # 浏览量 / 编辑 / 新增按钮走图标注册表, 不留表情与文本字符
+        html = self._render("post.html", TestTemplateSmoke._post_base(postNumber="1"))
+        assert "👁" not in html and "🖋" not in html
+        assert 'class="octicon vercount-icon"' in html
+        assert 'edit-post"><svg' in html and 'new-post"><svg' in html
+        assert 'new-post">+<' not in html
 
     def test_plist_subway_and_single_page_icons(self):
         base = {

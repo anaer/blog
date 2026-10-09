@@ -53,6 +53,8 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 /* 文章元信息(发布于/更新于): 取主题变量, 保证深色底上仍可读 */
 .post-meta{font-size:14px;color:var(--color-fg-muted);}
 .post-meta time{font-weight:bold;color:var(--color-fg-default);}
+/* 浏览量图标: 半字高减半盒高, 把盒底压到基线使图标中心落在字高中心(同 .section-toggle 口径); 配色走 muted 与元信息一致 */
+.vercount-icon{vertical-align:calc(0.35em - 8px);color:var(--color-fg-muted);}
 /* AI 总结框: 边框随主题 */
 .post-summary{border:1px dashed var(--color-border-default);background:var(--color-canvas-subtle);padding:10px;margin-bottom:20px;border-radius:6px;}
 /* 删除线: 字色与划线都退到 muted/subtle, 旧文本退到背景层, 不抢当前文本的视觉权重(走主题变量, 明暗自适应) */
@@ -169,7 +171,7 @@ pre {
 </div>
 <br>
 
-<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">👁<span id="vercount_value_page_pv"></span></div>
+<div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;">{{ icons.icon('eye', size=16, svg_class='vercount-icon') }}<span id="vercount_value_page_pv"></span></div>
 <span class="post-meta post-publish" id="postPublish">发布于 <time>{{ blogBase['createdAt'] }}</time></span>
 {% if blogBase['createdAt'] != blogBase['updatedAt'] %}
 <span class="post-meta post-update">更新于 <time>{{ blogBase['updatedAt'] }}</time></span>
@@ -194,12 +196,12 @@ pre {
 
 <!-- 编辑按钮 -->
 <a href="{{ blogBase['postSourceUrl'] }}" target="_blank">
-    <button class="floating-button edit-post">🖋</button>
+    <button class="floating-button edit-post">{{ icons.icon('pen', size=16) }}</button>
 </a>
 
 <!-- 新增按钮 -->
 <a href="{{ blogBase['issuesUrl'] }}/new" target="_blank">
-    <button class="floating-button new-post">+</button>
+    <button class="floating-button new-post">{{ icons.icon('plus', size=16) }}</button>
 </a>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">{{ i18n['comments'] }}</button>
