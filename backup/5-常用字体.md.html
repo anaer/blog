@@ -19,9 +19,13 @@ JetBrains Mono + Maple Mono 合成字体  </p>
 等宽, markdown表格格式化 也能对齐  </p>
 </li>
 <li>
-<p><a href="https://github.com/microsoft/cascadia-code">Cascadia Code</a>  </p>
+<p><a href="https://github.com/microsoft/cascadia-code">Cascadia Code</a><br />
+微软   </p>
 </li>
-<li><a href="https://github.com/powerline/fonts/tree/master/UbuntuMono">UbuntuMono</a>  </li>
+<li>
+<p><a href="https://github.com/powerline/fonts/tree/master/UbuntuMono">UbuntuMono</a><br />
+Ubuntu 紧凑  </p>
+</li>
 </ul>
 <h2 id="emoji">Emoji字体</h2>
 <ol>
@@ -57,50 +61,34 @@ JetBrains Mono + Maple Mono 合成字体  </p>
   z-index: 2;
   display: flex;
   gap: 2px;
-  opacity: 0.45;
-  transition: opacity 0.2s;
 }
-.code-block-wrapper:hover .code-block-controls,
-.code-block-wrapper:focus-within .code-block-controls {
-  opacity: 1;
-}
+/* 内容区图标按钮统一语言: 常态半透明 + 主题 muted 色, hover 转不透明并加主题背景 */
 .fold-btn, .copy-btn, .code-toggle {
   border: none;
   background: transparent;
   cursor: pointer;
-  padding: 2px 6px;
+  padding: 2px 4px;
   font-size: 16px;
   line-height: 1;
-  outline: none;
-  box-shadow: none;
-  transition: background 0.2s;
+  border-radius: 4px;
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  opacity: .6;
+  transition: opacity 0.2s, background 0.2s;
 }
 .fold-btn:hover, .copy-btn:hover, .code-toggle:hover {
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #eee));
+  opacity: 1;
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
 }
 .fold-btn svg { display: block; }
 .fold-btn .ic-fold { transition: transform 0.2s ease; }
 .code-block-wrapper.folded .fold-btn .ic-fold { transform: rotate(180deg); }
-.fold-btn, .code-toggle, .copy-btn {
-  color: #6e7681;
-}
-[data-color-mode="dark"] .fold-btn,
-[data-color-mode="dark"] .code-toggle,
-[data-color-mode="dark"] .copy-btn {
-  color: #8b949e;
-}
 /* 复制成功反馈: 图标切换为 check 并短暂转为绿色 */
 .copy-btn.copied {
-  color: #1a7f37;
-}
-[data-color-mode="dark"] .copy-btn.copied {
-  color: #3fb950;
+  color: var(--color-success-fg);
+  opacity: 1;
 }
 .code-toggle.off {
-  color: #c6cbd1;
-}
-[data-color-mode="dark"] .code-toggle.off {
-  color: #484f58;
+  color: var(--color-primer-fg-disabled);
 }
 .highlight code {
   counter-reset: cl;
@@ -108,7 +96,7 @@ JetBrains Mono + Maple Mono 合成字体  </p>
 .highlight .cl {
   display: block;
   counter-increment: cl;
-  padding-left: 3.2em;
+  padding-left: 2.8em;
   position: relative;
   line-height: 1.45;
   /* 关键: .markdown-body pre>code 设了 white-space:pre, .cl 会继承它而无法换行;
@@ -116,18 +104,40 @@ JetBrains Mono + Maple Mono 合成字体  </p>
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   word-break: normal;
+  /* 空行占位: 空 .cl 标签无 in-flow content, 默认 height:0, 会让空行「消失」
+     并与下一行挤在一起. min-height 锁定到一行高度, 保留视觉空行 */
+  min-height: 1.45em;
+  /* 行号槽位底色: 左侧 2em 染成低饱和度底色, 与代码区做视觉区分;
+     linear-gradient 只覆盖 padding 内的行号槽, 不侵入代码区; 收尾处 1px 边框强化列分隔
+     槽宽取 2em(与行号数字本身宽度贴合): 更宽会让行号整体偏右、离代码区的空档也变大 */
+  background-image:
+    linear-gradient(to right,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) 0,
+      var(--cl-gutter, rgba(175, 184, 193, 0.28)) calc(2em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) calc(2em - 1px),
+      var(--cl-gutter-edge, rgba(175, 184, 193, 0.55)) 2em,
+      transparent 2em);
+}
+/* 深色主题(WorkBuddy 风): 行号槽位底色用中性白色微染(冷暖皆可), 不再带蓝灰调;
+   槽位 rgba(255,255,255,0.045) 在 #1a1c20 的底上呈现"略亮一档"的色块,
+   1px 分隔线 rgba(255,255,255,0.10) 同步提一档, 整体克制不抢代码区 */
+html[data-color-mode="dark"] .highlight .cl {
+  background-image:
+    linear-gradient(to right,
+      rgba(255, 255, 255, 0.045) 0,
+      rgba(255, 255, 255, 0.045) calc(2em - 1px),
+      rgba(255, 255, 255, 0.10) calc(2em - 1px),
+      rgba(255, 255, 255, 0.10) 2em,
+      transparent 2em);
 }
 .highlight .cl::before {
   content: counter(cl);
   position: absolute;
   left: 0;
-  width: 2.4em;
-  text-align: right;
-  color: #6e7681;
+  width: 2em;
+  text-align: center;
+  color: var(--fgColor-muted, var(--color-fg-muted));
   user-select: none;
-}
-[data-color-mode="dark"] .highlight .cl::before {
-  color: #8b949e;
 }
 .code-block-wrapper.folded .cl ~ .cl {
   display: none;
@@ -150,6 +160,8 @@ JetBrains Mono + Maple Mono 合成字体  </p>
 }
 .code-block-wrapper.nolines .cl {
   padding-left: 0;
+  /* 行号关闭时一并撤掉槽位底色, 否则左侧会留一道与代码区不连贯的色块 */
+  background-image: none;
 }
 .code-block-wrapper.nolines .cl::before {
   display: none;
@@ -166,16 +178,12 @@ JetBrains Mono + Maple Mono 合成字体  </p>
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 12px;
   letter-spacing: .5px;
-  color: #6e7681;
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  background: var(--bgColor-muted, var(--color-canvas-subtle));
   padding: 0 6px;
   border-radius: 4px;
   user-select: none;
   opacity: .85;
-}
-[data-color-mode="dark"] .code-lang {
-  color: #8b949e;
-  background: var(--bgColor-muted, var(--color-canvas-subtle, #161b22));
 }
 /* 移动端 / 触屏(hover: none): 控件常显并加大点按区域;
    同时为控件预留顶部空间, 避免绝对定位的按钮遮挡代码首行 */
@@ -184,7 +192,6 @@ JetBrains Mono + Maple Mono 合成字体  </p>
     top: 2px;
     right: 2px;
     gap: 0;
-    opacity: 1;
   }
   .code-block-wrapper,
   .code-block-wrapper.has-lang {
@@ -197,17 +204,11 @@ JetBrains Mono + Maple Mono 合成字体  </p>
   }
   .fold-btn, .copy-btn, .code-toggle {
     padding: 5px 8px;
+    opacity: 1;   /* 触屏无 hover, 常显 */
   }
   .code-lang {
     top: 7px;
     left: 8px;
-  }
-  /* 窄屏行号槽收窄, 给代码留出更多宽度 */
-  .highlight .cl {
-    padding-left: 2.8em;
-  }
-  .highlight .cl::before {
-    width: 2em;
   }
 }
 </style>

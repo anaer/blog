@@ -101,23 +101,24 @@
             "htmlDir": "docs/post/5.html",
             "markdown": "backup/5-\u5e38\u7528\u5b57\u4f53.md",
             "labels": [
-                "Tool"
+                "Tool",
+                "\u5b57\u4f53",
+                "Emoji"
             ],
             "postTitle": "\u5e38\u7528\u5b57\u4f53",
             "postUrl": "post/5.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/5",
             "commentNum": 0,
             "createdAt": 1698287850,
-            "updatedAt": 1791429774,
+            "updatedAt": 1791539710,
             "top": 0,
             "style": "",
             "script": "",
             "description": "",
             "createdDate": "2023-10-26",
-            "dateLabelColor": "hsl(266, 50%, 38%)",
-            "buildedAt": 1791429774,
-            "renderVersion": 8,
-            "dateLabelHue": 266
+            "dateLabelHue": 266,
+            "buildedAt": 1791539710,
+            "renderVersion": 14
         },
         "P6": {
             "number": "6",
