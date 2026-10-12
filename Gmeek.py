@@ -19,8 +19,8 @@ from md2html import Markdown2GithubHtml
 from icons import ICONS as IconList, VIEWBOX as IconViewBox, STROKE_WIDTH as IconStrokeWidth
 
 ######################################################################################
-i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home","comments":"comments","run":"run ","days":" days","Previous":"Previous","Next":"Next", "First": "First", "Last": "Last","relatedPosts":"Related posts"}
-i18nCN={"Search":"搜索","switchTheme":"切换主题","link":"友情链接","home":"首页","comments":"评论","run":"网站运行","days":"天","Previous":"上一页","Next":"下一页", "First": "首页", "Last":"末页","relatedPosts":"相关文章"}
+i18n={"Search":"Search","switchTheme":"switch theme","link":"link","home":"home","comments":"comments","run":"run ","days":" days","relatedPosts":"Related posts"}
+i18nCN={"Search":"搜索","switchTheme":"切换主题","link":"友情链接","home":"首页","comments":"评论","run":"网站运行","days":"天","relatedPosts":"相关文章"}
 
 # 渲染器版本: 渲染逻辑变更时递增, 使全站帖子 HTML 缓存失效并重转
 RENDER_VERSION = 14
@@ -142,6 +142,27 @@ def list_order(postListJson):
 def nav_order(postListJson):
     """关联数据序: 与列表页同序, 使 nav.json 的先后即列表先后, 前端按标签命中打分后天然保留时间序。"""
     return list(list_order(postListJson))
+
+def build_page_nav(current, total, window=2):
+    """页码导航序列: 元素为页码(int), 被跳过的页用 "gap" 表示省略号。
+
+    首末页恒显, 当前页两侧各 window 页; 被跳过的连续页恰好 1 页时直接列出该页(不省略),
+    超过 1 页才用 "gap"。页数不多时自然退化为完整序列(1..total), 模板据此渲染纯页码分页。
+    """
+    if total <= 0:
+        return []
+    pages = {1, total}
+    for n in range(current - window, current + window + 1):
+        if 1 <= n <= total:
+            pages.add(n)
+    nav = []
+    prev = 0
+    for n in sorted(pages):
+        if prev and n - prev > 1:
+            nav.append(prev + 1 if n - prev == 2 else "gap")
+        nav.append(n)
+        prev = n
+    return nav
 
 def format_datetime_utc8(epoch):
     return datetime.fromtimestamp(epoch, tz=TZ8).strftime("%Y-%m-%d %H:%M:%S")
@@ -344,8 +365,9 @@ class GMEEK():
         postBase["createdAt"] = format_datetime_utc8(post["createdAt"])
         postBase["updatedAt"] = format_datetime_utc8(post["updatedAt"])
 
-        # prevUrl/nextUrl 是列表页分页写在 blogBase 上的字段, 与文章页无关; 复制而来需清除, 避免泄漏进模板
-        for key in ("prevUrl", "prevTitle", "nextUrl", "nextTitle"):
+        # 列表页分页字段写在 blogBase 上, 与文章页无关; 复制而来需清除, 避免泄漏进模板
+        for key in ("firstUrl", "prevUrl", "nextUrl", "lastUrl", "prevTitle", "nextTitle",
+                    "currentPage", "totalPages", "pageNav"):
             postBase.pop(key, None)
 
         self.renderHtml('post.html',postBase,{},post["htmlDir"])
@@ -365,15 +387,10 @@ class GMEEK():
             onePageList = dict(list(self.blogBase["postListJson"].items())[topNum:topNum + self.blogBase["onePageListNum"]])
             htmlDir = self.root_dir + ("index.html" if pageFlag == 0 else f"page{pageFlag + 1}.html")
 
-            if pageFlag == 0:
-                self.blogBase["prevUrl"] = "disabled"
-                self.blogBase["nextUrl"] = self.blogBase["homeUrl"] + "/page2.html" if postNum > self.blogBase["onePageListNum"] else "disabled"
-            else:
-                self.blogBase["prevUrl"] = self.blogBase["homeUrl"] + ("/index.html" if pageFlag == 1 else f"/page{pageFlag}.html")
-                self.blogBase["nextUrl"] = self.blogBase["homeUrl"] + f"/page{pageFlag + 2}.html" if postNum > self.blogBase["onePageListNum"] else "disabled"
-
-            self.blogBase["firstUrl"] = self.blogBase["homeUrl"] + "/index.html" if pageFlag != 0 else "disabled"
-            self.blogBase["lastUrl"] = self.blogBase["homeUrl"] + f"/page{totalPages}.html" if pageFlag != totalPages - 1 else "disabled"
+            # 页码分页: 模板据 currentPage/totalPages/pageNav 渲染纯页码导航(首页=index.html, 第 N 页=pageN.html)
+            self.blogBase["currentPage"] = pageFlag + 1
+            self.blogBase["totalPages"] = totalPages
+            self.blogBase["pageNav"] = build_page_nav(pageFlag + 1, totalPages)
 
             self.renderHtml('plist.html', self.blogBase, onePageList, htmlDir)
             print(f"create {htmlDir}")

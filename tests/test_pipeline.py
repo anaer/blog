@@ -13,7 +13,7 @@ from github import GithubException
 
 from Gmeek import (
     GMEEK, IconList, IconViewBox, IconStrokeWidth, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
-    resolve_regen_mode, resolve_run_mode, slim_state, list_order, nav_order,
+    resolve_regen_mode, resolve_run_mode, slim_state, list_order, nav_order, build_page_nav,
     format_datetime_utc8, format_date_utc8,
     deterministic_hue, hex_to_hue, label_hue, resolve_label_color_mode, replace_issue_refs, tag_data, is_html_stale, search_settings,
     migrate_state,
@@ -403,14 +403,16 @@ class TestCreatePostHtmlRelated:
             assert key not in captured
 
     def test_list_pagination_fields_are_not_leaked(self, tmp_path):
-        # 负向控制: createPlistHtml 会把分页 prevUrl/nextUrl 写在 blogBase 上,
-        # postBase 是它的副本, 残留字段必须清除, 否则旧链接会漏进文章页
+        # 负向控制: createPlistHtml 会把分页字段写在 blogBase 上(现为 currentPage/totalPages/pageNav),
+        # postBase 是它的副本, 残留字段必须清除, 否则列表页分页数据会漏进文章页
         base = self._base()
-        base["prevUrl"] = "stale"
-        base["nextUrl"] = "stale"
+        for key, val in (("prevUrl", "stale"), ("nextUrl", "stale"),
+                         ("currentPage", 3), ("totalPages", 9), ("pageNav", [1, "gap", 9])):
+            base[key] = val
         fake, captured = self._fake(base)
         GMEEK.createPostHtml(fake, self._post(tmp_path, 1))
-        assert "prevUrl" not in captured and "nextUrl" not in captured
+        for key in ("prevUrl", "nextUrl", "currentPage", "totalPages", "pageNav"):
+            assert key not in captured, key
 
 
 class TestTemplateSmoke:
@@ -501,7 +503,7 @@ class TestTemplateSmoke:
             "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
             "singeListJson": {"S1": {"label": "about", "postTitle": "About"}},
             "labelHueDict": {}, "commentLabelColor": "#006b75",
-            "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
+            "currentPage": 1, "totalPages": 1, "pageNav": [1],
         }
         html = self._render("plist.html", base)
         assert 'href="https://example.com/blog/about.html"' in html
@@ -944,7 +946,7 @@ class TestSearchPageSmoke:
             "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
             "lang": "zh-CN", "searchBaseUrl": "https://example.com/blog/",
             "singeListJson": {}, "labelHueDict": {}, "commentLabelColor": "#006b75",
-            "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
+            "currentPage": 1, "totalPages": 1, "pageNav": [1],
         }
         base.update(overrides)
         return base
@@ -1776,7 +1778,7 @@ class TestSearchBoxUnification:
             "lang": "zh-CN", "searchBaseUrl": "https://example.com/blog/",
             "singeListJson": {}, "labelHueDict": {}, "commentLabelColor": "#006b75",
             "tagListJson": {}, "themeMode": "auto",
-            "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
+            "currentPage": 1, "totalPages": 1, "pageNav": [1],
         }
         base.update(overrides)
         return base
@@ -1936,7 +1938,7 @@ class TestIconTemplates:
             "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
             "issuesUrl": "https://github.com/x/y/issues", "labelHueDict": {}, "commentLabelColor": "#006b75",
             "singeListJson": {"S1": {"label": "about", "postTitle": "About"}},
-            "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
+            "currentPage": 1, "totalPages": 1, "pageNav": [1],
         }
         html = self._render("plist.html", base)
         assert "{{" not in html and "{%" not in html
@@ -2118,7 +2120,7 @@ class TestOnekoListPageOnly:
             "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
             "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
             "lang": "zh-CN", "singeListJson": {}, "labelHueDict": {}, "commentLabelColor": "#006b75",
-            "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
+            "currentPage": 1, "totalPages": 1, "pageNav": [1],
         }
 
     def test_plist_loads_oneko(self):
@@ -2149,7 +2151,7 @@ class TestListItemIssueEntry:
             "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
             "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
             "lang": "zh-CN", "singeListJson": {}, "labelHueDict": {}, "commentLabelColor": "#006b75",
-            "prevUrl": "disabled", "nextUrl": "disabled", "firstUrl": "disabled", "lastUrl": "disabled",
+            "currentPage": 1, "totalPages": 1, "pageNav": [1],
         }
         return env.get_template("plist.html").render(
             blogBase=base, postListJson=post_list, i18n=i18nCN,
@@ -2187,3 +2189,76 @@ class TestListItemIssueEntry:
         assert "list-issue-link" not in post_html
         search_html = TestSearchPageSmoke._render("search.html", TestSearchPageSmoke._plist_base())
         assert "list-issue-link" not in search_html
+
+
+class TestPageNumberPagination:
+    """列表页分页由「首页/上一页/下一页/末页」改为纯页码导航: 当前页高亮、跳页省略号。"""
+
+    @staticmethod
+    def _render(total_pages, current_page, page_nav=None, home="https://example.com/blog"):
+        env = Environment(loader=FileSystemLoader("templates"))
+        base = {
+            "title": "T", "homeUrl": home, "nightTheme": "dark", "dayTheme": "light",
+            "faviconUrl": "", "GMEEK_VERSION": "v2.4", "avatarUrl": "https://example.com/a.png",
+            "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
+            "lang": "zh-CN", "singeListJson": {}, "labelHueDict": {}, "commentLabelColor": "#006b75",
+            "currentPage": current_page, "totalPages": total_pages,
+            "pageNav": page_nav if page_nav is not None else build_page_nav(current_page, total_pages),
+        }
+        return env.get_template("plist.html").render(
+            blogBase=base, postListJson={}, i18n=i18nCN,
+            IconList=IconList, IconViewBox=IconViewBox, IconStrokeWidth=IconStrokeWidth)
+
+    def test_single_page_hides_pagination(self):
+        assert "paginate-container" not in self._render(1, 1)
+
+    def test_numbers_only_no_prev_next(self):
+        html = self._render(5, 3)
+        assert "previous_page" not in html and "next_page" not in html
+        assert "上一页" not in html and "下一页" not in html and "末页" not in html
+
+    def test_current_page_is_highlighted_not_linked(self):
+        html = self._render(5, 3)
+        assert '<span class="current" aria-current="page">3</span>' in html
+        assert ">3</a>" not in html            # 当前页不可点
+
+    def test_page_hrefs_use_index_then_pageN(self):
+        html = self._render(5, 3)
+        assert '<a href="https://example.com/blog/index.html" aria-label="Page 1">1</a>' in html
+        assert '<a href="https://example.com/blog/page2.html" rel="prev" aria-label="Page 2">2</a>' in html
+        assert '<a href="https://example.com/blog/page5.html" aria-label="Page 5">5</a>' in html
+
+    def test_adjacent_links_carry_rel_prev_next(self):
+        html = self._render(5, 3)
+        assert html.count('rel="prev"') == 1 and html.count('rel="next"') == 1
+
+    def test_rel_absent_at_range_edges(self):
+        # 首页无 rel="prev"; 末页无 rel="next"
+        assert 'rel="prev"' not in self._render(5, 1)
+        assert 'rel="next"' not in self._render(5, 5)
+
+    def test_links_have_page_aria_label(self):
+        html = self._render(5, 3)
+        for n in (1, 2, 4, 5):
+            assert 'aria-label="Page %d"' % n in html
+        assert 'aria-label="Page 3"' not in html      # 当前页是 span, 不挂链接标签
+
+    def test_gap_renders_ellipsis(self):
+        html = self._render(20, 10)
+        assert '<span class="gap">…</span>' in html
+        assert '<span class="current" aria-current="page">10</span>' in html
+
+    def test_build_page_nav_full_when_few(self):
+        assert build_page_nav(1, 5) == [1, 2, 3, 4, 5]
+
+    def test_build_page_nav_window_and_gap(self):
+        assert build_page_nav(10, 20) == [1, "gap", 8, 9, 10, 11, 12, "gap", 20]
+
+    def test_build_page_nav_single_skip_is_listed(self):
+        # 被跳过的连续页只有 1 页时直接列出该页, 不省略
+        assert build_page_nav(4, 8) == [1, 2, 3, 4, 5, 6, 7, 8]
+
+    def test_build_page_nav_edges(self):
+        assert build_page_nav(1, 20) == [1, 2, 3, "gap", 20]
+        assert build_page_nav(20, 20) == [1, "gap", 18, 19, 20]
+        assert build_page_nav(1, 0) == []
