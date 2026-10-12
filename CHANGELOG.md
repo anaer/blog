@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 26.1012.0838
+
+1. 移除中文短词子串检索（轻量双轨）的精确匹配逻辑: 检索页 `templates/search.html` 仅保留 Pagefind, 删除子串索引加载/匹配/注入相关 JS 与 CSS（`#exactMatches` 容器、`loadExactIndex` / `renderExact` / `placeExactBlock` 及空壳 `processTerm`）
+2. 删除构建脚本 `scripts/build_search_index.py`; CI `.github/workflows/Gmeek.yml` 移除 `Build substring search index` 步骤, 检索构建回归单轨（仅 pagefind）
+3. 测试: 删除 `tests/test_pipeline.py` 的 `TestSearchIndexBuilder` / `TestExactMatchSearch`（共 12 例）
+4. 文档: 删除 `ADR-0027-chinese-substring-search-index.md` 与其评审报告; `glossary.md` 移除「子串检索索引」; `docs/pagefind-integration.md` 回退为单轨（Pagefind 为唯一检索源）, §6 改为仅记录已知中文短词限制; ADR-0007「未解决风险」标注该档未做补充索引并移除 ADR-0027 反向链接
+
 ## 26.1009.1740
 
 1. 清理高亮配置: 移除**无效**的 `codehilite.pygments_style: monokai`(实测改成 `default`/`friendly`/`github-dark` 输出均逐字节相同)与**冗余**的 `fenced_code` 扩展(已被 `pymdownx.extra` 的 superfences 覆盖)
