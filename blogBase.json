@@ -1352,16 +1352,15 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/58",
             "commentNum": 0,
             "createdAt": 1737534523,
-            "updatedAt": 1737597595,
+            "updatedAt": 1791794182,
             "top": -1,
             "style": "",
             "script": "",
             "description": "",
             "createdDate": "2025-01-22",
-            "dateLabelColor": "hsl(72, 44%, 24%)",
-            "buildedAt": 1737597595,
-            "renderVersion": 3,
-            "dateLabelHue": 72
+            "dateLabelHue": 72,
+            "buildedAt": 1791794182,
+            "renderVersion": 14
         },
         "P59": {
             "number": "59",

@@ -1,5 +1,5 @@
 
-地址: https://github.com/DXY-F2E/api-mocker
+地址: https://github.com/DXY-F2E/api-mocker 该项目多年未更新了,  需要新部署的话 建议找其他替代项目
 
 ## 启动命令
 
