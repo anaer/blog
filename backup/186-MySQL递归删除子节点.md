@@ -37,3 +37,6 @@ SET SESSION max_sp_recursion_depth = 0;
 
 `SET SESSION max_sp_recursion_depth = 255; ` 解决以下报错
 Recursive limit 0 (as set by the max_sp_recursion_depth variable) was exceeded for routine DeleteChildren
+
+max_sp_recursion_depth 是 MySQL 的一个服务器系统变量，用于控制存储过程（Stored Procedure）允许的递归调用深度。
+默认值: 0（完全禁用存储过程中的递归）最大值: 255
