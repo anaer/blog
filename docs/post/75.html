@@ -16,6 +16,19 @@
             document.head.appendChild(s);
         });
     </script>
+    
+    <script>
+        window.addEventListener("load", function () {
+            var ric = window.requestIdleCallback || function (cb) { setTimeout(cb, 1); };
+            ric(function () {
+                var l = document.createElement("link");
+                l.rel = "prefetch";
+                l.as = "script";
+                l.href = "https://anaer.github.io/blog/pagefind/pagefind-ui.js";
+                document.head.appendChild(l);
+            });
+        });
+    </script>
     <script>
         if(localStorage.getItem("meek_theme")==null){}
         else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
@@ -42,8 +55,6 @@ body{
     line-height: 1.25;
 }
 
-.avatar {transition: 0.8s;}
-.avatar:hover {transform: scale(1.15) rotate(360deg);}
 #header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
 #footer {margin-top:64px; text-align: center;font-size: small;}
 
@@ -153,7 +164,11 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
 .g-emoji{font-size:24px;}
-@media (max-width: 767px) {body {padding: 8px;}}
+@media (max-width: 767px) {
+    body {padding: 8px;}
+    /* 工具栏只保留主题切换: 返回首页/Issue/搜索框在窄屏隐藏 */
+    .title-right > *:not(.theme-switch){display:none;}
+}
 
 pre {
     white-space: pre-wrap; /* 保留空白符和换行符，同时允许换行 */
@@ -235,7 +250,7 @@ pre {
         <svg class="octicon" id="pathIssue" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
     </button></a>
 
-    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+    <button class="btn btn-invisible circle theme-switch" onclick="modeSwitch();" title="切换主题">
         <svg class="octicon" id="themeSwitch" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
     </button>
 
@@ -258,7 +273,7 @@ pre {
 <div id="vercount_container_page_pv" style="display:none;float:left;margin-top:0px;margin-right:5px;font-size:medium;"><svg class="octicon vercount-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span id="vercount_value_page_pv"></span></div>
 <span class="post-meta post-publish" id="postPublish">发布于 <time>2025-02-21 09:44:19</time></span>
 
-<span class="post-meta post-update">更新于 <time>2026-10-09 14:48:49</time></span>
+<span class="post-meta post-update">更新于 <time>2026-10-13 10:21:44</time></span>
 
 <p>
 
@@ -286,6 +301,7 @@ pre {
 <li><a href="https://www.v2ex.com/">V2EX 创意工作者们的社区</a>  </li>
 <li><a href="https://2libra.com/">2Libra 平衡社区</a>  </li>
 <li><a href="https://linux.do/">Linux.do - 新的理想型社区</a>  </li>
+<li><a href="https://sb.sb/">烧饼论坛</a>  </li>
 </ul>
 <h2 id="_3">在线文档</h2>
 <ul>
