@@ -122,12 +122,21 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     opacity:.6;transition:opacity .2s;
 }
 .list-issue-link:hover{opacity:1;}
+/* 页码分页: primer-subset 未含 .current/.gap 样式, 此处补齐(取值对齐完整版 primer.css) */
+.pagination .current{
+    color:var(--fgColor-onEmphasis, var(--color-fg-on-emphasis));
+    background-color:var(--bgColor-accent-emphasis, var(--color-accent-emphasis));
+    border-color:rgba(0,0,0,0);
+}
+.pagination .gap{color:var(--fgColor-disabled, var(--color-primer-fg-disabled));cursor:default;}
 @media (max-width: 767px) {
     body { padding: 8px;}
     h1 a:not([href]){font-size:24px;}
     /* 工具栏只保留主题切换: 搜索框/单页按钮/RSS/Travel/Issue 在窄屏隐藏 */
     .title-right > *:not(.theme-switch){display:none;}
     .SideNav-item .listLabels{display:none;}
+    /* 窄屏页码更紧凑, 避免多页码撑满整行 */
+    .pagination a,.pagination span{min-width:26px;padding:4px 6px;}
 }
 </style>
 
@@ -195,6 +204,28 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
                 <object><a href="https://anaer.github.io/blog/tag.html#Blog">Blog</a></object>
             </span>
         <span class="Label" style="--label-hue:80">2025-05-23</span>
+    </div>
+</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/6.html">
+    <div class="d-flex flex-items-center">
+        <svg class="SideNav-icon octicon svgTop0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+        <span>PC端常用软件</span>
+        <object><a class="list-issue-link" href="https://github.com/anaer/blog/issues/6" target="_blank" title="Issue" rel="noopener">
+            <svg class="octicon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a></object>
+    </div>
+    <div class="listLabels">
+        
+
+        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:305">
+                <object><a href="https://anaer.github.io/blog/tag.html#Tool">Tool</a></object>
+            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:181">
+                <object><a href="https://anaer.github.io/blog/tag.html#Win10">Win10</a></object>
+            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:200">
+                <object><a href="https://anaer.github.io/blog/tag.html#Mac">Mac</a></object>
+            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:285">
+                <object><a href="https://anaer.github.io/blog/tag.html#Software">Software</a></object>
+            </span>
+        <span class="Label" style="--label-hue:353">2023-10-30</span>
     </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/186.html">
     <div class="d-flex flex-items-center">
@@ -390,28 +421,6 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
             </span>
         <span class="Label" style="--label-hue:261">2024-08-01</span>
     </div>
-</a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/6.html">
-    <div class="d-flex flex-items-center">
-        <svg class="SideNav-icon octicon svgTop0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
-        <span>PC端常用软件</span>
-        <object><a class="list-issue-link" href="https://github.com/anaer/blog/issues/6" target="_blank" title="Issue" rel="noopener">
-            <svg class="octicon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        </a></object>
-    </div>
-    <div class="listLabels">
-        
-
-        <span class="Label" style="max-width: 100px; height: 18px;--label-hue:305">
-                <object><a href="https://anaer.github.io/blog/tag.html#Tool">Tool</a></object>
-            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:181">
-                <object><a href="https://anaer.github.io/blog/tag.html#Win10">Win10</a></object>
-            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:200">
-                <object><a href="https://anaer.github.io/blog/tag.html#Mac">Mac</a></object>
-            </span><span class="Label" style="max-width: 100px; height: 18px;--label-hue:285">
-                <object><a href="https://anaer.github.io/blog/tag.html#Software">Software</a></object>
-            </span>
-        <span class="Label" style="--label-hue:353">2023-10-30</span>
-    </div>
 </a><a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/167.html">
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon svgTop0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
@@ -430,9 +439,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     </div>
 </a>
 </nav><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><span class="previous_page" aria-disabled="true">首页</span>
-        <span class="previous_page" aria-disabled="true">上一页</span>
-        <a class="next_page" rel="next" href="https://anaer.github.io/blog/page2.html" aria-label="Next Page">下一页</a><a class="next_page" rel="next" href="https://anaer.github.io/blog/page11.html" aria-label="Last Page">末页</a></div>
+    <div class="pagination"><span class="current" aria-current="page">1</span><a href="https://anaer.github.io/blog/page2.html" rel="next" aria-label="Page 2">2</a><a href="https://anaer.github.io/blog/page3.html" aria-label="Page 3">3</a><span class="gap">…</span><a href="https://anaer.github.io/blog/page11.html" aria-label="Page 11">11</a></div>
 </nav>
 </div>
     <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>

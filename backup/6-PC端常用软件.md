@@ -128,12 +128,15 @@
 2. ~~dbeaver~~ [GitHub](https://github.com/dbeaver/dbeaver/releases/)
 3. ~~HeidiSQL~~ [官网](https://www.heidisql.com/)  开源数据库客户端 对SQLite表设计支持较差, 不建议用来管理sqlite
 4. ~~SQLiteStudio~~ [官网](https://sqlitestudio.pl/)  [GitHub](https://github.com/pawelsalawa/sqlitestudio/releases/) SQLite客户端 表设计支持较好
-5. ~~DB Browser for SQLite~~ [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)5. ~~Robo 3T~~ [GitHub](https://github.com/Studio3T/robomongo/releases) mongodb
-6. ~~Compass~~ [GitHub](https://github.com/mongodb-js/compass/releases) mongodb 要求mongo 4.x版本
-7. ~~Navicat~~ [官网](https://www.navicat.com.cn/)  [GitHub](https://github.com/shuhongfan/NavicatCracker/)
-8. ~~SQLyog~~  [GitHub](https://github.com/webyog/sqlyog-community/wiki/Downloads) 网上有注册码 只支持mysql
-9. MySQL [华为云镜像](https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-5.7/)
-10. ~~SQLiteSpy~~ [下载](https://www.yunqa.de/delphi/apps/sqlitespy/index)### 版本控制
+5. ~~DB Browser for SQLite~~ [GitHub](https://github.com/sqlitebrowser/sqlitebrowser/releases)
+6. ~~Robo 3T~~ [GitHub](https://github.com/Studio3T/robomongo/releases) mongodb
+7. ~~Compass~~ [GitHub](https://github.com/mongodb-js/compass/releases) mongodb 要求mongo 4.x版本
+8. ~~Navicat~~ [官网](https://www.navicat.com.cn/)  [GitHub](https://github.com/shuhongfan/NavicatCracker/)
+9. ~~SQLyog~~  [GitHub](https://github.com/webyog/sqlyog-community/wiki/Downloads) 网上有注册码 只支持mysql
+10. MySQL [华为云镜像](https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-5.7/)
+11. ~~SQLiteSpy~~ [下载](https://www.yunqa.de/delphi/apps/sqlitespy/index)
+ 
+### 版本控制
 1. Git [官网](https://git-scm.com/downloads/win) [GitHub](https://github.com/git-for-windows/git/releases/)
 2. ~~TortoiseGit~~ [官网](https://tortoisegit.org/download/)
 

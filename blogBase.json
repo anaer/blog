@@ -135,15 +135,15 @@
             "postSourceUrl": "https://github.com/anaer/blog/issues/6",
             "commentNum": 0,
             "createdAt": 1698656488,
-            "updatedAt": 1791445879,
+            "updatedAt": 1791852881,
             "top": 0,
             "style": "",
             "script": "",
             "description": "",
             "createdDate": "2023-10-30",
             "dateLabelHue": 353,
-            "buildedAt": 1791445879,
-            "renderVersion": 13
+            "buildedAt": 1791852881,
+            "renderVersion": 14
         },
         "P7": {
             "number": "7",
