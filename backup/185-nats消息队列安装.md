@@ -1,4 +1,19 @@
 
+## NATS Server 
+提供 Core NATS 与 JetStream 模式。两者共用 Subject 和客户端，但交付语义不同，不能混为一谈。
+
+### Core NATS 适合短暂的实时消息
+Core NATS 的消息只发送给当前在线的订阅者，不负责持久化。发布时没有订阅者，消息就不会在服务器中等待。它提供最多一次交付，适合：
+
+服务间低延迟通知；
+可以丢失的缓存失效事件；
+在线状态和控制信号；
+请求—响应调用；
+实时数据扇出。
+
+### JetStream 增加持久化和重放
+JetStream 是 NATS Server 内置的持久化层。Stream 绑定一个或多个 Subject，并配置保留策略、容量、时间和副本数。Consumer 保存读取和确认状态。官方 JetStream 文档明确区分：Core NATS 提供最多一次，JetStream Consumer 可以提供至少一次。
+
 ## 目录
 
 ```tree
