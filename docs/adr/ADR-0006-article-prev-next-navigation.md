@@ -9,7 +9,7 @@
 
 ## 背景
 
-上一篇/下一篇原为构建期由 Jinja 直接写死进静态 HTML（`Gmeek.py#nav_neighbors` 计算、`Gmeek.py#GMEEK.createPostHtml` 赋值、`templates/post.html` 渲染）。但 `runOne`（issue 事件触发的增量构建）只重渲染当前这一篇，不刷新相邻文章 → 相邻文章里的链接停留在其上次渲染时的顺序，互相矛盾。线上实证：`post/166` 的 next=167，但 `post/167` 的 prev=168（若 166→167，则 167 的 prev 必须是 166）。
+上一篇/下一篇原为构建期由 Jinja 直接写死进静态 HTML（原由 `nav_neighbors` 计算、`Gmeek.py#GMEEK.createPostHtml` 赋值、`templates/post.html` 渲染）。但 `runOne`（issue 事件触发的增量构建）只重渲染当前这一篇，不刷新相邻文章 → 相邻文章里的链接停留在其上次渲染时的顺序，互相矛盾。线上实证：`post/166` 的 next=167，但 `post/167` 的 prev=168（若 166→167，则 167 的 prev 必须是 166）。
 
 ## 决策
 
@@ -28,7 +28,7 @@
 ## 实施位置
 
 - 导航数据：`Gmeek.py#GMEEK.createNavJson`、`Gmeek.py#GMEEK.runAll`、`Gmeek.py#GMEEK.runOne`
-- 相邻刷新：`Gmeek.py#neighbor_keys`、`Gmeek.py#GMEEK.runOne`
+- 相邻刷新：`neighbor_keys`（已随 ADR-0022 删除）、`Gmeek.py#GMEEK.runOne`
 - 模板：`templates/post.html`（`data-nav-url`/`data-post-number`、分页两端对齐）
 - 运行时：`assets/nav.js`
 - 测试：`tests/test_pipeline.py`

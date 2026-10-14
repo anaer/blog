@@ -25,3 +25,5 @@
 | **Pagefind UI 预拉（idle prefetch）** | 首页 `requestIdleCallback` 内插入 `<link rel="prefetch" as="script" href="<homeUrl>/pagefind/pagefind-ui.js">`，让"首页→检索页"路径省下 `pagefind-ui.js` 的冷下载；不影响首页渲染（见 ADR-0026） |
 | **Pagefind 装饰器（decorate）** | 检索页在 `PagefindUI` 渲染结果后挂标签 chip + issue 图标的脚本；通过 `MutationObserver` 触发，幂等标记 `data-gmDecorated` 防重挂载（见 ADR-0021）；`requestAnimationFrame` 节流见 ADR-0026 |
 | **围栏语言别名映射** | `md2html.py#Markdown2GithubHtml.FENCE_LANG_ALIASES`：把 Pygments 不认识的围栏语言名（如 `conf`/`jinja2`）映射到等价词法供高亮，**标签仍显示原文**；替代不可靠的自动识别（见 ADR-0028） |
+| **页码导航（pageNav）** | 列表页分页形态：纯页码（无「上一页 / 下一页」），当前页为不可点高亮、首末页恒显；服务端按宽屏上限 ±3 环生成，窄屏再由 CSS 折叠外圈（见 ADR-0029） |
+| **环数（ring）** | 某个页码距当前页的跳数，用于窄屏按级折叠页码条外圈；`fold` 仅在环数 ≥2 且外侧紧邻省略号时为真，保证折叠后不出现跳号断档（见 ADR-0029） |

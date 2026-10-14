@@ -143,11 +143,12 @@ def nav_order(postListJson):
     """关联数据序: 与列表页同序, 使 nav.json 的先后即列表先后, 前端按标签命中打分后天然保留时间序。"""
     return list(list_order(postListJson))
 
-def build_page_nav(current, total, window=2):
+def build_page_nav(current, total, window=3):
     """页码导航序列: 元素为页码(int), 被跳过的页用 "gap" 表示省略号。
 
     首末页恒显, 当前页两侧各 window 页; 被跳过的连续页恰好 1 页时直接列出该页(不省略),
     超过 1 页才用 "gap"。页数不多时自然退化为完整序列(1..total), 模板据此渲染纯页码分页。
+    window 取宽屏上限, 窄屏再由模板按环数折叠外圈(见 build_page_items)。
     """
     if total <= 0:
         return []
@@ -163,6 +164,26 @@ def build_page_nav(current, total, window=2):
         nav.append(n)
         prev = n
     return nav
+
+def build_page_items(current, total, window=3):
+    """模板渲染项: 在 build_page_nav 基础上为每个页码附 ring(距当前页环数) 与 fold(窄屏可折叠)。
+
+    窄屏按环数折叠外圈以收窄页码条。折叠只能从外向内连续进行, 故仅当该侧整段与首页/末页之间
+    隔着省略号时才可折叠——否则收窄后会出现跳号却无省略号的断档(如 1 2 4 5)。
+    """
+    nav = build_page_nav(current, total, window)
+    items = [{"kind": "gap", "value": None, "ring": 0, "fold": False} if it == "gap"
+             else {"kind": "page", "value": it, "ring": abs(it - current), "fold": False}
+             for it in nav]
+    left = [i for i, x in enumerate(items) if x["kind"] == "page" and 1 < x["value"] < current]
+    right = [i for i, x in enumerate(items) if x["kind"] == "page" and current < x["value"] < total]
+    if left and items[left[0] - 1]["kind"] == "gap":
+        for i in left:
+            items[i]["fold"] = items[i]["ring"] > 1
+    if right and items[right[-1] + 1]["kind"] == "gap":
+        for i in right:
+            items[i]["fold"] = items[i]["ring"] > 1
+    return items
 
 def format_datetime_utc8(epoch):
     return datetime.fromtimestamp(epoch, tz=TZ8).strftime("%Y-%m-%d %H:%M:%S")
@@ -390,7 +411,7 @@ class GMEEK():
             # 页码分页: 模板据 currentPage/totalPages/pageNav 渲染纯页码导航(首页=index.html, 第 N 页=pageN.html)
             self.blogBase["currentPage"] = pageFlag + 1
             self.blogBase["totalPages"] = totalPages
-            self.blogBase["pageNav"] = build_page_nav(pageFlag + 1, totalPages)
+            self.blogBase["pageNav"] = build_page_items(pageFlag + 1, totalPages)
 
             self.renderHtml('plist.html', self.blogBase, onePageList, htmlDir)
             print(f"create {htmlDir}")

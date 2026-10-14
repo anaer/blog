@@ -13,7 +13,8 @@ from github import GithubException
 
 from Gmeek import (
     GMEEK, IconList, IconViewBox, IconStrokeWidth, i18n, i18nCN, RENDER_VERSION, resolve_top, carry_cache, should_include_issue,
-    resolve_regen_mode, resolve_run_mode, slim_state, list_order, nav_order, build_page_nav,
+    resolve_regen_mode, resolve_run_mode, slim_state, list_order, nav_order,
+    build_page_nav, build_page_items,
     format_datetime_utc8, format_date_utc8,
     deterministic_hue, hex_to_hue, label_hue, resolve_label_color_mode, replace_issue_refs, tag_data, is_html_stale, search_settings,
     migrate_state,
@@ -2203,7 +2204,7 @@ class TestPageNumberPagination:
             "displayTitle": "T", "subTitle": "s", "issuesUrl": "https://github.com/x/y/issues",
             "lang": "zh-CN", "singeListJson": {}, "labelHueDict": {}, "commentLabelColor": "#006b75",
             "currentPage": current_page, "totalPages": total_pages,
-            "pageNav": page_nav if page_nav is not None else build_page_nav(current_page, total_pages),
+            "pageNav": page_nav if page_nav is not None else build_page_items(current_page, total_pages),
         }
         return env.get_template("plist.html").render(
             blogBase=base, postListJson={}, i18n=i18nCN,
@@ -2248,17 +2249,55 @@ class TestPageNumberPagination:
         assert '<span class="gap">…</span>' in html
         assert '<span class="current" aria-current="page">10</span>' in html
 
+    def test_primer_narrow_hide_ladder_is_overridden(self):
+        # primer 的 .pagination>*{display:none} 阶梯会把纯页码在窄屏压成只剩首末两页, 模板须显式放开
+        html = self._render(20, 10)
+        assert ".pagination>*{display:inline-block;}" in html
+        assert ".pagination [data-ring]{display:none;}" in html
+
+    def test_outer_ring_marked_for_narrow_screen_folding(self):
+        html = self._render(20, 10)
+        assert 'data-ring="3" aria-label="Page 7"' in html
+        assert 'data-ring="2" aria-label="Page 8"' in html
+        assert 'data-ring="2" aria-label="Page 12"' in html
+        assert 'data-ring="3" aria-label="Page 13"' in html
+
+    def test_contiguous_with_first_page_is_not_folded(self):
+        # 当前页 6/12: 左侧 1 2 3 4 5 连续, 折叠会留下 "1 2 4 5" 断档; 右侧 9 隔着省略号则可折叠
+        html = self._render(12, 6)
+        assert '<a href="https://example.com/blog/page3.html" aria-label="Page 3">3</a>' in html
+        assert 'data-ring="3" aria-label="Page 9"' in html
+
     def test_build_page_nav_full_when_few(self):
         assert build_page_nav(1, 5) == [1, 2, 3, 4, 5]
 
     def test_build_page_nav_window_and_gap(self):
-        assert build_page_nav(10, 20) == [1, "gap", 8, 9, 10, 11, 12, "gap", 20]
+        assert build_page_nav(10, 20) == [1, "gap", 7, 8, 9, 10, 11, 12, 13, "gap", 20]
 
     def test_build_page_nav_single_skip_is_listed(self):
         # 被跳过的连续页只有 1 页时直接列出该页, 不省略
         assert build_page_nav(4, 8) == [1, 2, 3, 4, 5, 6, 7, 8]
 
     def test_build_page_nav_edges(self):
-        assert build_page_nav(1, 20) == [1, 2, 3, "gap", 20]
-        assert build_page_nav(20, 20) == [1, "gap", 18, 19, 20]
+        assert build_page_nav(1, 20) == [1, 2, 3, 4, "gap", 20]
+        assert build_page_nav(20, 20) == [1, "gap", 17, 18, 19, 20]
         assert build_page_nav(1, 0) == []
+
+    def test_page_items_fold_only_inside_ellipsis(self):
+        # 外圈页码两侧隔着省略号 -> 可折叠; 环数 ≤1 的不折叠
+        items = build_page_items(10, 20)
+        folded = {x["value"]: x["ring"] for x in items if x["fold"]}
+        assert folded == {7: 3, 8: 2, 12: 2, 13: 3}
+
+    def test_page_items_not_folded_when_contiguous_with_edge(self):
+        # 当前页 6/12: 左侧与首页 1 连续(1 2 3 4 5), 折叠会留下跳号断档, 故左侧不可折叠
+        items = build_page_items(6, 12)
+        assert {x["value"] for x in items if x["fold"]} == {8, 9}
+
+    def test_page_items_edges_never_folded(self):
+        items = build_page_items(10, 20)
+        assert all(not x["fold"] for x in items if x["value"] in (1, 20))
+
+    def test_page_items_gap_has_no_value(self):
+        items = build_page_items(10, 20)
+        assert all(x["kind"] == "gap" and x["value"] is None for x in items if x["kind"] == "gap")
