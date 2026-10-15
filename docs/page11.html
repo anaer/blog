@@ -128,15 +128,25 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     background-color:var(--bgColor-accent-emphasis, var(--color-accent-emphasis));
     border-color:rgba(0,0,0,0);
 }
-.pagination .gap{color:var(--fgColor-disabled, var(--color-primer-fg-disabled));cursor:default;}
+.pagination .gap,.pagination .gap:hover{
+    color:var(--fgColor-disabled, var(--color-primer-fg-disabled));
+    border-color:rgba(0,0,0,0);
+    cursor:default;
+}
+/* primer 的 .pagination>*{display:none} 阶梯(窄屏只留首末项、≥768px 才全显)是为逐页翻页型分页
+   设计的, 会把纯页码导航在 767px 以下压成只剩首末两页; 此处统一放开, 收窄改由下方按环数折叠 */
+.pagination>*{display:inline-block;}
 @media (max-width: 767px) {
     body { padding: 8px;}
     h1 a:not([href]){font-size:24px;}
     /* 工具栏只保留主题切换: 搜索框/单页按钮/RSS/Travel/Issue 在窄屏隐藏 */
     .title-right > *:not(.theme-switch){display:none;}
+    /* 释放列表 360px 最小宽, 否则 375px 及以下视口横向溢出 */
+    .SideNav{min-width:0;}
     .SideNav-item .listLabels{display:none;}
-    /* 窄屏页码更紧凑, 避免多页码撑满整行 */
+    /* 窄屏页码更紧凑, 并折叠外圈(距当前页 ≥2 环且整段隔着省略号), 由 11 项收窄至 7 项 */
     .pagination a,.pagination span{min-width:26px;padding:4px 6px;}
+    .pagination [data-ring]{display:none;}
 }
 </style>
 
@@ -389,7 +399,7 @@ h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-
     </div>
 </a>
 </nav><nav class="paginate-container" aria-label="Pagination">
-    <div class="pagination"><a href="https://anaer.github.io/blog/index.html" aria-label="Page 1">1</a><span class="gap">…</span><a href="https://anaer.github.io/blog/page9.html" aria-label="Page 9">9</a><a href="https://anaer.github.io/blog/page10.html" rel="prev" aria-label="Page 10">10</a><span class="current" aria-current="page">11</span></div>
+    <div class="pagination"><a href="https://anaer.github.io/blog/index.html" aria-label="Page 1">1</a><span class="gap">…</span><a href="https://anaer.github.io/blog/page8.html" data-ring="3" aria-label="Page 8">8</a><a href="https://anaer.github.io/blog/page9.html" data-ring="2" aria-label="Page 9">9</a><a href="https://anaer.github.io/blog/page10.html" rel="prev" aria-label="Page 10">10</a><span class="current" aria-current="page">11</span></div>
 </nav>
 </div>
     <div id="footer">Copyright © <span id="year"></span> <a href="https://anaer.github.io/blog"> Tip </a><p>  <span id="runday"></span><span id="vercount_container_site_pv" style="display:none">总浏览量<span id="vercount_value_site_pv"></span>次 • </span><span id="vercount_container_site_uv" style="display:none">访客量<span id="vercount_value_site_uv"></span> • </span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>

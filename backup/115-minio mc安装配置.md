@@ -121,3 +121,4 @@ Running task at Mon Apr 28 10:13:02 CST 2025
 
 ## 相关文档
 1. [minio sdk](https://min.io/docs/minio/linux/developers/minio-drivers.html)
+2. [silo](https://github.com/pgsty/silo)  minio替代
