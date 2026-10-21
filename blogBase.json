@@ -3818,6 +3818,28 @@
             "buildedAt": 1787119421,
             "renderVersion": 3,
             "dateLabelHue": 169
+        },
+        "P200": {
+            "number": "200",
+            "htmlDir": "docs/post/200.html",
+            "markdown": "backup/200-\u8457\u540dPHP\u9879\u76ee.md",
+            "labels": [
+                "PHP"
+            ],
+            "postTitle": "\u8457\u540dPHP\u9879\u76ee",
+            "postUrl": "post/200.html",
+            "postSourceUrl": "https://github.com/anaer/blog/issues/200",
+            "commentNum": 0,
+            "createdAt": 1792568269,
+            "updatedAt": 1792568269,
+            "top": 0,
+            "style": "",
+            "script": "",
+            "description": "",
+            "createdDate": "2026-10-21",
+            "dateLabelHue": 212,
+            "buildedAt": 1792568269,
+            "renderVersion": 14
         }
     },
     "singeListJson": {}
