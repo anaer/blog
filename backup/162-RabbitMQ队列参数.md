@@ -14,3 +14,6 @@
 | Dead letter routing key(x-dead-letter-routing-key) | 将删除的消息推送到指定交换机的指定路由键的队列中去                                                                    |
 | Maximum priority(x-max-priority)                   | 优先级队列 声明队列时先定义最大优先级值，在发布消息的时候指定该消息的优先级， 优先级更高（数值更大的）的消息先被消费, |
 | Lazy mode(x-queue-mode=lazy)                       | 先将消息保存到磁盘上，不放在内存中，当消费者开始消费的时候才加载到内存中                                              |
+
+
+RabbitMQ 4.4.0，Quorum 队列已原生支持延迟消息。

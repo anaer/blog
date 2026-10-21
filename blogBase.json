@@ -2986,23 +2986,23 @@
             "htmlDir": "docs/post/162.html",
             "markdown": "backup/162-RabbitMQ\u961f\u5217\u53c2\u6570.md",
             "labels": [
-                "MQ"
+                "MQ",
+                "RabbitMQ"
             ],
             "postTitle": "RabbitMQ\u961f\u5217\u53c2\u6570",
             "postUrl": "post/162.html",
             "postSourceUrl": "https://github.com/anaer/blog/issues/162",
             "commentNum": 0,
             "createdAt": 1761716444,
-            "updatedAt": 1761716444,
+            "updatedAt": 1792549480,
             "top": 0,
             "style": "",
             "script": "",
-            "description": "\u672c\u6587\u4ecb\u7ecd\u4e86RabbitMQ\u961f\u5217\u7684\u4e3b\u8981\u53c2\u6570\u53ca\u5176\u63cf\u8ff0\uff0c\u5305\u62ec\u961f\u5217\u540d\u79f0\u3001\u6301\u4e45\u5316\u3001\u6392\u4ed6\u6027\u3001\u81ea\u52a8\u5220\u9664\u3001\u6d88\u606f\u751f\u5b58\u5468\u671f\u3001\u961f\u5217\u5b9a\u65f6\u5220\u9664\u3001\u6700\u5927\u6d88\u606f\u957f\u5ea6\u3001\u6700\u5927\u5360\u7528\u7a7a\u95f4\u3001\u6b7b\u4fe1\u4ea4\u6362\u673a\u53ca\u8def\u7531\u952e\u3001\u4f18\u5148\u7ea7\u961f\u5217\u548c\u61d2\u52a0\u8f7d\u6a21\u5f0f\u7b49\u3002\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0c\"exclusive\"\u53c2\u6570\u7684\u63cf\u8ff0\u4e2d\u63d0\u5230\u7684\u201c\u5f3a\u5236\u8bbf\u95ee\u4f1a\u62a5\u5f02\u5e38\u201d\u53ef\u80fd\u4e0d\u591f\u51c6\u786e\uff0c\u56e0\u4e3a\u5728\u67d0\u4e9b\u60c5\u51b5\u4e0b\uff0c\u5176\u4ed6\u901a\u9053\u5728\u961f\u5217\u88ab\u58f0\u660e\u4e3a\u6392\u4ed6\u65f6\u4ecd\u7136\u53ef\u4ee5\u8bbf\u95ee\u961f\u5217\uff0c\u53ea\u8981\u5b83\u4eec\u5728\u540c\u4e00\u8fde\u63a5\u4e2d\u3002",
+            "description": "",
             "createdDate": "2025-10-29",
-            "dateLabelColor": "hsl(330, 52%, 15%)",
-            "buildedAt": 1761716444,
-            "renderVersion": 3,
-            "dateLabelHue": 330
+            "dateLabelHue": 330,
+            "buildedAt": 1792549480,
+            "renderVersion": 14
         },
         "P163": {
             "number": "163",
