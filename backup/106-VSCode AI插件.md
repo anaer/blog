@@ -1,6 +1,3 @@
-## Augment
-Legacy Community Plan 24,000 Credits/Cycle
-
 ## Continue
 
 ```
